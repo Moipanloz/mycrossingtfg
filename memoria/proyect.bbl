@@ -1,0 +1,77 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Autores%
+}{%
+Autores%
+}{%
+{\protect \APACyear {2014}}%
+}]{%
+informatica}
+\APACinsertmetastar {%
+informatica}%
+\begin{APACrefauthors}%
+Autores, V.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+\APACrefbtitle {Escuela {T}\'ecnica {S}uperior de {I}ngenier{\'\i}a
+  {I}nform\'atica.} {Escuela {T}\'ecnica {S}uperior de {I}ngenier{\'\i}a
+  {I}nform\'atica.}
+\newblock
+\APACaddressPublisher{}{ETSII}.
+\newblock
+\begin{APACrefURL} \url{http://www.informatica.us.es} \end{APACrefURL}
+\newblock
+\APACrefnote{fecha de consulta: 24 de Noviembre de 2014}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Bezos%
+}{%
+Bezos%
+}{%
+{\protect \APACyear {2007}}%
+}]{%
+guiatitlesec}
+\APACinsertmetastar {%
+guiatitlesec}%
+\begin{APACrefauthors}%
+Bezos, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2007}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The titlesec and titletoc Packages} {The titlesec and
+  titletoc packages}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{TexEmplares}{8}{}{283--298}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+de Sousa%
+}{%
+de Sousa%
+}{%
+{\protect \APACyear {2004}}%
+}]{%
+desousa}
+\APACinsertmetastar {%
+desousa}%
+\begin{APACrefauthors}%
+de Sousa, J\BPBI M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2004}.
+\newblock
+\APACrefbtitle {Ortografía y ortotipografía del español actual} {Ortografía
+  y ortotipografía del español actual}.
+\newblock
+\APACaddressPublisher{}{Trea}.
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}
