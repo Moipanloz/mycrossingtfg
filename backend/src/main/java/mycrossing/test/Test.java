@@ -18,6 +18,6 @@ public class Test {
 
 	@GetMapping("/hello")
 	public String nombreSitio() {
-		return "MiCrossing TFG";
+		return "MyCrossing TFG";
 	}
 }
