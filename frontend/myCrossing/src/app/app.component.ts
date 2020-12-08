@@ -8,15 +8,15 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class AppComponent {
-  title = 'MyCrossing';
+  title = 'My Crossing';
   data = [];
   constructor(private http: HttpClient){}
 
   ngOnInit (){
-    this.http.get("http://localhost/prueba.php").subscribe(data => {
+   /*  this.http.get("http://localhost/prueba.php").subscribe(data => {
     this.data.push(data);
     console.log(this.data);
-    },error => console.error(error));
+    },error => console.error(error)); */
   }
 
 }

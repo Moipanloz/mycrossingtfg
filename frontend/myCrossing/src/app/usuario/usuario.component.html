@@ -1,0 +1,8 @@
+<ng-container *ngIf="!isLogged; else logueado">
+  <p>nice</p>
+  <button routerLink="/inicia-sesion">Inicia sesión</button>
+</ng-container>
+
+<ng-template #logueado>
+  <p>user</p>
+</ng-template>

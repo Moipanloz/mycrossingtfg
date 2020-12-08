@@ -1,0 +1,33 @@
+.dv-inicio{
+  min-height: fit-content;
+  padding: 2vw 0;
+}
+
+#dv-header{
+  background-color: cadetblue;
+}
+
+#dv-1{
+  background-color: aquamarine;
+}
+
+#dv-2{
+  background-color: bisque;
+}
+
+.dv-inicio > #titulo{
+  text-align: center;
+  font-size: 2.5vw;
+  margin: 1vw 1vw;
+}
+
+.dv-inicio > div{
+  width: fit-content;
+  height: fit-content;
+  margin: 6vw auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
