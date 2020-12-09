@@ -1,4 +1,7 @@
 #nav{
   padding: 1vw 2vw;
   background-color: steelblue;
+  box-shadow: 0px 0px 7px rgb(50, 50, 50);
+  position: fixed;
+  width: 100%;
 }
