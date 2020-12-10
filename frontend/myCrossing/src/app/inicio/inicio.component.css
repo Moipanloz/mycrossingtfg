@@ -1,21 +1,30 @@
+/* Colores
+
+Amarillo: #ffefc4
+Azul: #ade6e7
+Verde: rgb(210, 255, 214)
+Blanco: #f7f3e8
+*/
+
+
 .dv-inicio{
   min-height: fit-content;
   padding: 2vw 0;
 }
 
 #dv-header{
-  background-color: cadetblue;
-  min-height: 30vw;
+  min-height: 38vw;
   background-image: url("../../assets/images/bckg-inicio.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  background-attachment: fixed;
 }
 
 #portada-wrap{
   display: grid;
   grid-template-columns: auto auto auto;
-  margin: 0 0 0 5vw;
+  margin: 3vw 0 0 5vw;
 }
 
 #portada-wrap > div{
@@ -37,7 +46,7 @@
 #portada-item3{
   grid-column-start: 1;
   grid-column-end: 3;
-  margin: 0.5vw 0 0 15vw;
+  margin: 5vw 0 0 15vw;
 }
 
 #portada-item3 > button{
@@ -52,16 +61,16 @@
 }
 
 #dv-0{
-  background-color: #f7f3e8;
-  box-shadow: 0px -20px 20px 0px rgb(23 23 23 / 55%)
+  background-color: rgb(210, 255, 214);
+  box-shadow: 0px -10px 20px 0px rgb(23 23 23 / 55%)
 }
 
 #dv-1{
-  background-color: #f7f3e8;
+  background-color: rgb(210, 255, 214);
 }
 
 #dv-2{
-  background-color: bisque;
+  background-color:  #ffefc4;
 }
 
 .dv-inicio > #titulo{
@@ -73,10 +82,82 @@
 .dv-inicio > div{
   width: fit-content;
   height: fit-content;
-  margin: 6vw auto;
+  margin: 1vw auto;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
+.imagen-inicio{
+  height: 20vw;
+  width: 20vw;
+}
+
+.grid-4{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-column-gap: 5vw;
+}
+
+.grid-3{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-column-gap: 5vw;
+}
+
+.dv-inicio > * > button{
+  width: 15vw;
+  height: 15vw;
+  padding: 1vw;
+  border-radius: 30px;
+  border-width: 10px;
+  cursor: pointer;
+  border-style: solid;
+}
+
+#peces{
+  border-color: rgb(63, 63, 255);
+  background-color: rgb(45, 163, 241);
+}
+
+#bichos{
+  border-color: rgb(12, 124, 12);
+  background-color: rgb(104, 230, 104);}
+
+#criaturas-marinas{
+  border-color: rgb(44, 44, 121);
+  background-color: rgb(99, 99, 192);
+}
+
+#fosiles{
+  border-color: rgb(53, 47, 31);
+  background-color: rgb(156, 151, 107);
+}
+
+#arte{
+  border-color: rgb(207, 196, 33);
+  background-color: rgb(255, 253, 153);
+}
+
+#muebles{
+  border-color: rgb(29, 238, 29);
+  background-color: rgb(36, 255, 91);
+}
+
+#ropa{
+  border-color: rgb(174, 47, 179);
+  background-color: rgb(255, 149, 237);
+}
+
+#vecinos{
+  border-color: rgb(85, 15, 133);
+  background-color: rgb(153, 62, 238);
+}
+
+#calendario{
+  border-color: rgb(255, 135, 36);
+  background-color: rgb(255, 160, 97);
+}
+
 
 

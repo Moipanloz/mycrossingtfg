@@ -17,39 +17,44 @@
 
   <div class="dv-inicio" id="dv-0">
     <p id="titulo">¡A cazar se ha dicho!</p>
-    <div>
-      <span>imagen que cambia</span>
-      <button>Peces</button>
-      <button>Bichos</button>
-      <button>Criaturas marinas</button>
+    <div class="grid-4">
+      <ng-container [ngSwitch]="imagen">
+        <img class="imagen-inicio" *ngSwitchDefault src="../../assets/images/cj-pesca.png" alt="pesca"/>
+        <img class="imagen-inicio" *ngSwitchCase="1" src="../../assets/images/cj-pesca.png" alt="pesca"/>
+        <img class="imagen-inicio" *ngSwitchCase="2" src="../../assets/images/kamilo-caza.png" alt="caza"/>
+        <img class="imagen-inicio" *ngSwitchCase="3" src="../../assets/images/buceo.png" alt="buceo"/>
+      </ng-container>
+      <button id="peces" (mouseover)="imagen = 1">Peces</button>
+      <button id="bichos" (mouseover)="imagen = 2">Bichos</button>
+      <button id="criaturas-marinas" (mouseover)="imagen = 3">Criaturas marinas</button>
     </div>
   </div>
 
   <div class="dv-inicio" id="dv-2">
     <p id="titulo">¡Completa el Museo!</p>
-    <div>
-      <button>Fosiles</button>
+    <div class="grid-3">
+      <button id="fosiles">Fosiles</button>
       <span>imagen</span>
-      <button>Arte</button>
+      <button id="arte">Arte</button>
     </div>
   </div>
 
   <div class="dv-inicio" id="dv-1" >
     <p id="titulo">¡Ve de compras!</p>
-    <div>
+    <div class="grid-4">
       <span>imagen</span>
-      <button>Muebles</button>
-      <button>Ropa</button>
+      <button id="muebles">Muebles</button>
+      <button id="ropa">Ropa</button>
       <span>imagen</span>
     </div>
   </div>
 
   <div class="dv-inicio" id="dv-2">
     <p id="titulo">¡Una isla llena de vida!</p>
-    <div>
+    <div class="grid-3">
       <span>imagen</span>
-      <button>Vecinos</button>
-      <button>Calendario</button>
+      <button id="vecinos">Vecinos</button>
+      <button id="calendario">Calendario</button>
     </div>
   </div>
 
