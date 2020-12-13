@@ -1,3 +1,4 @@
+import { PerfilComponent } from './perfil/perfil.component';
 import { RegistroComponent } from './autenticacion/registro/registro.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -19,6 +20,9 @@ const rutas: Routes = [
 },{
   path: "registro",
   component: RegistroComponent
+},{
+  path: "perfil",
+  component: PerfilComponent
 }
 ];
 

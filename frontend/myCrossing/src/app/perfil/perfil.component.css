@@ -1,0 +1,40 @@
+
+:host > div{
+  height: fit-content;
+  min-height: 30vw;
+}
+
+.user_info {
+  background-color: #c9f3f3;
+  padding: 7% 0 4vw 0;
+  display: grid;
+  grid-template-columns: 30vw auto;
+}
+
+div {
+  padding: 2vw;
+}
+
+#perfil{
+  background-color: crimson;
+  border-radius: 0 30px 30px 0;
+}
+
+#tools{
+  background-color: dodgerblue;
+  margin: 0 2vw;
+  border-radius: 30px;
+}
+
+#tools > h2 {
+  text-align: center;
+  font-size: 1.6vw;
+}
+
+ #test1{
+   background-color:#fff3d3;
+ }
+
+ #test2{
+   background-color: rgb(228, 255, 230);
+ }

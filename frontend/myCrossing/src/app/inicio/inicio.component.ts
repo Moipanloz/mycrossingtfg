@@ -11,8 +11,4 @@ export class InicioComponent {
 
   imagen : number;
 
-
-
-
-
 }
