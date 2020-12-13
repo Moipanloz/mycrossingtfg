@@ -1,5 +1,3 @@
-import { ColeccionespComponent } from './perfil/coleccionesp/coleccionesp.component';
-import { UsuarioModule } from './usuario/usuario.module';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -11,10 +9,7 @@ import { LoginComponent } from './autenticacion/login/login.component';
 import { RegistroComponent } from './autenticacion/registro/registro.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { FooterComponent } from './footer/footer.component';
-import { PerfilComponent } from './perfil/perfil.component';
-import { TareasComponent } from './perfil/tareas/tareas.component';
-import { VisitasemanalComponent } from './perfil/visitasemanal/visitasemanal.component';
-import { MisvecinosComponent } from './perfil/misvecinos/misvecinos.component';
+import { PerfilModule } from './perfil/perfil.module';
 
 @NgModule({
   declarations: [
@@ -23,19 +18,14 @@ import { MisvecinosComponent } from './perfil/misvecinos/misvecinos.component';
     LoginComponent,
     RegistroComponent,
     InicioComponent,
-    FooterComponent,
-    PerfilComponent,
-    TareasComponent,
-    VisitasemanalComponent,
-    MisvecinosComponent,
-    ColeccionespComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     RoutingModule,
     RouterModule,
     HttpClientModule,
-    UsuarioModule
+    PerfilModule
   ],
   providers: [],
   bootstrap: [AppComponent]
