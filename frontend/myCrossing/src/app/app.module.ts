@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './autenticacion/login/login.component';
 import { RegistroComponent } from './autenticacion/registro/registro.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
@@ -25,7 +26,9 @@ import { FooterComponent } from './footer/footer.component';
     RoutingModule,
     RouterModule,
     HttpClientModule,
-    UsuarioModule
+    UsuarioModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

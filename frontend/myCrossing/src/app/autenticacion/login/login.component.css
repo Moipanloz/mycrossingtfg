@@ -1,0 +1,23 @@
+.titulo{
+    font-size: 2vw;
+    text-align: center;
+    font-size: 20px;
+}
+@media(max-width: 10px){
+    .titulo{
+        font-size: 15px;
+    }
+}
+.formulario{
+    margin-top: 10%;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-width: 1px;
+    border-style: solid;
+}
+#user{
+    margin-left: 26px;
+}
+#password{
+    margin-left: 5px;
+}

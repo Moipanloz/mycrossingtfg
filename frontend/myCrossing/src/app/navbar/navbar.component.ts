@@ -1,5 +1,6 @@
 import { UsuarioModule } from './../usuario/usuario.module';
 import { Component } from '@angular/core';
+import { AppConstants } from '../app.component';
 
 @Component({
   selector: 'app-navbar',
@@ -7,8 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent{
+  globals: AppConstants;
 
-  constructor() { }
+  constructor(appConstants: AppConstants) {this.globals = appConstants;}
 
   usuario : UsuarioModule;
 
