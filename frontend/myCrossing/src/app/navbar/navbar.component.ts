@@ -9,6 +9,7 @@ import { AppConstants } from '../app.component';
 export class NavbarComponent{
   globals: AppConstants;
 
-  constructor(appConstants: AppConstants) {this.globals = appConstants;}
-
+  constructor(appConstants: AppConstants) {
+    this.globals = appConstants;
+  }
 }
