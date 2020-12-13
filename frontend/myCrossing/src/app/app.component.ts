@@ -1,5 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
 import { Injectable } from '@angular/core';
 
 @Component({
@@ -7,14 +6,14 @@ import { Injectable } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'My Crossing';
 
-  constructor(){
-
-  }
+  constructor(){}
 
 }
+
 @Injectable({ providedIn: 'root' })
 export class AppConstants {
   logged: boolean = false;

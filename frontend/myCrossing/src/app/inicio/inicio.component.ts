@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AppConstants } from '../app.component';
 
 @Component({
@@ -6,11 +6,13 @@ import { AppConstants } from '../app.component';
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.css']
 })
-export class InicioComponent implements OnInit {
+export class InicioComponent {
   globals: AppConstants;
-  constructor(appConstants: AppConstants) { this.globals = appConstants; }
+
+  constructor(appConstants : AppConstants) {
+    this.globals = appConstants;
+  }
+
   imagen : number;
 
-  ngOnInit(): void {
-  }
 }

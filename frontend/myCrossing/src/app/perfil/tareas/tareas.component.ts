@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AppConstants } from '../../app.component';
+
 
 @Component({
   selector: 'app-tareas',
@@ -8,13 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TareasComponent implements OnInit{
 
-  constructor(private http: HttpClient) {}
-
   data = [];
+  globals : AppConstants;
+
+  constructor(private http : HttpClient, appConstants : AppConstants) {
+    this.globals = appConstants;
+  }
 
   ngOnInit(){
     this.data = [];
-    this.http.get("http://localhost/tareas.php?id=1"/*+"aqui iria le variable del user"*/).subscribe(data => {
+    this.http.get("http://localhost/tareas.php?id="+this.globals.user).subscribe(data => {
       this.data.push(data);
       console.log(this.data)
     },error => console.error(error));
