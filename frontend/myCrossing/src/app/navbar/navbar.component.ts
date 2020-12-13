@@ -1,4 +1,3 @@
-import { UsuarioModule } from './../usuario/usuario.module';
 import { Component } from '@angular/core';
 import { AppConstants } from '../app.component';
 
@@ -11,9 +10,5 @@ export class NavbarComponent{
   globals: AppConstants;
 
   constructor(appConstants: AppConstants) {this.globals = appConstants;}
-
-  usuario : UsuarioModule;
-
-
 
 }
