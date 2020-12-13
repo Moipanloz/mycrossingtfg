@@ -1,6 +1,8 @@
+
 import { Component, OnInit, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
@@ -9,14 +11,9 @@ import { Injectable } from '@angular/core';
 })
 export class AppComponent {
   title = 'My Crossing';
-  data = [];
-  constructor(private http: HttpClient){}
 
-  ngOnInit (){
-   /*  this.http.get("http://localhost/prueba.php").subscribe(data => {
-    this.data.push(data);
-    console.log(this.data);
-    },error => console.error(error)); */
+  constructor(){
+
   }
 
 }

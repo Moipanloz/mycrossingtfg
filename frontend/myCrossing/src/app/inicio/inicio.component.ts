@@ -10,6 +10,7 @@ export class InicioComponent implements OnInit {
   globals: AppConstants;
   constructor(appConstants: AppConstants) { this.globals = appConstants; }
   imagen : number;
+
   ngOnInit(): void {
   }
 
