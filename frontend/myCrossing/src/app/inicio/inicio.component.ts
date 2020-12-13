@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppConstants } from '../app.component';
 
 @Component({
   selector: 'app-inicio',
@@ -6,9 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
-
-  constructor() { }
-
+  globals: AppConstants;
+  constructor(appConstants: AppConstants) { this.globals = appConstants; }
   ngOnInit(): void {
   }
 

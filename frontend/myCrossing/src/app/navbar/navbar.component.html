@@ -7,5 +7,6 @@
 
   <button routerLink="/prueba">Prueba</button>
 
-  <button routerLink="/inicia-sesion">Inicia sesión</button>
+  <button *ngIf="!globals.logged" routerLink="/inicia-sesion">Inicia sesión</button>
+  <button *ngIf="globals.logged" (click)="globals.logged=false">Cierra sesión</button>
 </div>

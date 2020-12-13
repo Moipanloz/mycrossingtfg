@@ -1,0 +1,11 @@
+.titulo{
+    font-size: 2vw;
+    text-align: center;
+}
+.formulario{
+    margin-top: 10%;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-width: 1px;
+    border-style: solid;
+}
