@@ -30,4 +30,6 @@ if ($action == "create"){
 
 $result = mysqli_query($conn,$sql);
 
+$conn -> close();
+
 ?>

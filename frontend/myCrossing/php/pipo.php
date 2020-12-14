@@ -6,5 +6,6 @@ echo "Connected Successfully";
 
 CloseConnection($conn);
 
+$conn -> close();
 
 ?>
