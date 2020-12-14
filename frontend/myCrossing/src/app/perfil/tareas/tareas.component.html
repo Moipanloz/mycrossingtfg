@@ -1,11 +1,11 @@
 
 <div>
   <ng-container *ngFor="let tarea of data[0]">
-    <ng-container *ngIf="tarea['hecha'] == 1; else todo">
-      <button (click)="cambiaEstado(tarea['id'], tarea['hecha'])" class="tarea" id="done"></button>
+    <ng-container *ngIf="tarea.hecha == true; else todo">
+      <button (click)="cambiaEstado(this.tarea)" class="tarea" id="done"></button>
     </ng-container>
     <ng-template #todo>
-      <button (click)="cambiaEstado(tarea['id'], tarea['hecha'])" class="tarea" id="todo"></button>
+      <button (click)="cambiaEstado(this.tarea)" class="tarea" id="todo"></button>
     </ng-template>
   </ng-container>
 </div>

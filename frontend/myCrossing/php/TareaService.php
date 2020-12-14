@@ -69,7 +69,7 @@ switch ($action) {
       //verificar valor hecha es 0 o 1
       //echo("verificar hecha - ");
 
-      if ($hecha != 0 && $hecha != 1) {
+      if ($hecha != 0 && $hecha != 1 ) {
         //echo("error hecha - ");
 
         $fallo .= " - Valor no válido";

@@ -1,6 +1,9 @@
+import { Tarea } from './../../interfaces';
+import { TareaService } from './tarea.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AppConstants } from '../../app.component';
+import { debounceTime } from "rxjs/operators";
 
 
 @Component({
@@ -13,28 +16,22 @@ export class TareasComponent implements OnInit{
   data = [];
   globals : AppConstants;
 
-  constructor(private http : HttpClient, appConstants : AppConstants) {
+  constructor(private http : HttpClient, appConstants : AppConstants, private _tarea : TareaService) {
     this.globals = appConstants;
   }
 
   ngOnInit(){
-    this.data = [];
-    this.http.get("http://localhost/TareaService.php?action=read&userid="+this.globals.user).subscribe(data => {
+    this._tarea.readTareas().pipe(debounceTime(300)).subscribe(data => {
+      this.data = [];
       this.data.push(data);
+      //console.log(this.data);
     },error => console.error(error));
+
   }
 
-  cambiaEstado(id : Number, hecha : Number){
-    if(hecha == 0){
-      hecha = 1;
-    }else{
-      hecha = 0;
-    }
-
-    this.http.get("http://localhost/TareaService.php?action=update&hecha="+hecha+"&id="+id+"&userid="+this.globals.user,
-     {responseType: "text"}).subscribe();
-    setTimeout(() => this.ngOnInit(),150);
-
+  cambiaEstado(tarea : Tarea){
+    this._tarea.checkTarea(tarea).subscribe();
+    //setTimeout(() => this.ngOnInit(),300);
   }
 
   /* TODO:
