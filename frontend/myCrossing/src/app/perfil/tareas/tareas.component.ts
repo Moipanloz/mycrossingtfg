@@ -19,9 +19,8 @@ export class TareasComponent implements OnInit{
 
   ngOnInit(){
     this.data = [];
-    this.http.get("http://localhost/tareas.php?id="+this.globals.user).subscribe(data => {
+    this.http.get("http://localhost/TareaService.php?action=read&userid="+this.globals.user).subscribe(data => {
       this.data.push(data);
-      console.log(this.data)
     },error => console.error(error));
   }
 
@@ -32,7 +31,8 @@ export class TareasComponent implements OnInit{
       hecha = 0;
     }
 
-    this.http.get("http://localhost/tareasCRUD.php?action=update&hecha="+hecha+"&id="+id).subscribe();
+    this.http.get("http://localhost/TareaService.php?action=update&hecha="+hecha+"&id="+id+"&userid="+this.globals.user,
+     {responseType: "text"}).subscribe();
     setTimeout(() => this.ngOnInit(),150);
 
   }
