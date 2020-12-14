@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PruebaComponent } from './prueba/prueba.component';
 import { LoginComponent } from './autenticacion/login/login.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { AuthGuard } from './autenticacion/auth.guard';
 
 const rutas: Routes = [
 {
@@ -16,13 +17,16 @@ const rutas: Routes = [
   component: PruebaComponent
 },{
   path: "inicia-sesion",
-  component: LoginComponent
+  component: LoginComponent,
+  canActivate: [AuthGuard]
 },{
   path: "registro",
-  component: RegistroComponent
+  component: RegistroComponent,
+  canActivate: [AuthGuard]
 },{
   path: "perfil",
-  component: PerfilComponent
+  component: PerfilComponent,
+  canActivate: [AuthGuard]
 }
 ];
 

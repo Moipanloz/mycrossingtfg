@@ -15,8 +15,8 @@ export class AppComponent {
 }
 
 @Injectable({ providedIn: 'root' })
-export class AppConstants {
-  logged: boolean = false;
-  user: number = null;
-}
+  export class AppConstants {
+    logged: boolean = false;
+    user: number = null;
+  }
 
