@@ -1,0 +1,63 @@
+#footer{
+  padding: 1vw;
+  background-color: #69c0c0;
+}
+
+#grid{
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  justify-content: center;
+  margin: auto;
+  width: 50vw;
+}
+
+#grid > div{
+  margin: 0 0 0 2vw;
+}
+
+img{
+  width: 11vw;
+  height: auto;
+  align-self: center;
+  justify-self: center;
+}
+
+*{
+  font-size: 0.8vw;
+  color: white;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.wave{
+  background: ##fffbe1;
+  height: 15px;
+  position: relative;
+}
+.wave::before, .wave::after{
+  border-bottom: 5px solid #69c0c0;
+}
+.wave::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 10px;
+  background-size: 20px 40px;
+  background-image:
+    radial-gradient(circle at 10px -15px, transparent 20px, #69c0c0 21px);
+}
+.wave::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 15px;
+  background-size: 40px 40px;
+  background-image:
+    radial-gradient(circle at 10px 26px, #69c0c0 20px, transparent 21px);
+}

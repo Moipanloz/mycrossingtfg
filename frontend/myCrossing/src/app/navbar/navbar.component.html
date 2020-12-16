@@ -1,12 +1,20 @@
 <div id="nav">
-  <a routerLink="">logo aqui</a>
-  <button routerLink="/caza-ahora" >Cazar ahora</button>
-  <button routerLink="/disenyos" >Diseños</button>
-  <button routerLink="/probador" >Probador</button>
-  <button routerLink="/nabos" >Nabos</button>
+  <img routerLink="" src="../../assets/images/logo.png"/>
 
-  <button *ngIf="globals.logged" routerLink="/perfil">Perfil temp</button>
+  <div id="menu">
+    <button routerLink="/caza-ahora" routerLinkActive="activo">Cazar ahora</button>
+    <button routerLink="/disenyos" routerLinkActive="activo">Diseños</button>
+    <button routerLink="/probador" routerLinkActive="activo">Probador</button>
+    <button routerLink="/nabos" routerLinkActive="activo">Nabos</button>
 
-  <button *ngIf="!globals.logged" routerLink="/inicia-sesion">Inicia sesión</button>
-  <button *ngIf="globals.logged" (click)="logout()">Cierra sesión</button>
+    <button *ngIf="globals.logged" routerLink="/perfil" routerLinkActive="activo">Perfil temp</button>
+  </div>
+
+  <div>
+    <button id="login" *ngIf="!globals.logged; else logueado" routerLink="/inicia-sesion" routerLinkActive="activo">Inicia sesión</button>
+    <ng-template #logueado>
+      <button id="login" (click)="logout()">Cierra sesión</button>
+    </ng-template>
+  </div>
+
 </div>
