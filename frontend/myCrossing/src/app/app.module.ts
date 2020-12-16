@@ -1,4 +1,3 @@
-import { UsuarioModule } from './usuario/usuario.module';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -11,6 +10,7 @@ import { RegistroComponent } from './autenticacion/registro/registro.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
+import { PerfilModule } from './perfil/perfil.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { FooterComponent } from './footer/footer.component';
     RoutingModule,
     RouterModule,
     HttpClientModule,
-    UsuarioModule,
+    PerfilModule,
     FormsModule,
     ReactiveFormsModule
   ],

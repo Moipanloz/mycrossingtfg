@@ -17,7 +17,7 @@ export class LoginComponent {
   constructor(appConstants: AppConstants, private _builder: FormBuilder, private http: HttpClient, private router:Router) {
     this.globals = appConstants;
     this.loginForm = this._builder.group({
-      usuario: ['', Validators.required],
+      nombre: ['', Validators.required],
       clave: ['', Validators.required]
     })
   }
@@ -29,7 +29,7 @@ export class LoginComponent {
     },error => console.error(error));
     await delay(300);
     for (let user of this.data){
-      if(user['nombre']==form.value['usuario'] && user['contrasenya']==form.value['clave']){
+      if(user['nombre']==form.value['nombre'] && user['contrasenya']==form.value['clave']){
         this.globals.logged=true;
         this.globals.user=user['id'];
       }
