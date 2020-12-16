@@ -13,7 +13,7 @@
   <div>
     <button id="login" *ngIf="!globals.logged; else logueado" routerLink="/inicia-sesion" routerLinkActive="activo">Inicia sesión</button>
     <ng-template #logueado>
-      <button (click)="logout()">Cierra sesión</button>
+      <button id="login" (click)="logout()">Cierra sesión</button>
     </ng-template>
   </div>
 
