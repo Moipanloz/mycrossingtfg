@@ -22,3 +22,11 @@ div{
   background-color: rgb(171, 219, 164);
   border-color: rgb(99, 252, 79);
 }
+
+#editar{
+  width: 2vw;
+  height: 2vw;
+  background-color: rgb(171, 219, 164);
+  border-color: rgb(99, 252, 79);
+
+}

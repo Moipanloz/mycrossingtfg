@@ -15,6 +15,7 @@ export class TareasComponent implements OnInit{
 
   data = [];
   globals : AppConstants;
+  mostrar : boolean = false;
 
   constructor(private http : HttpClient, appConstants : AppConstants, private _tarea : TareaService) {
     this.globals = appConstants;

@@ -26,7 +26,7 @@ export class TareaService {
     tarea.hecha = !tarea.hecha;
 
     return this.http.post(
-    this.url+"?action=update&hecha="+tarea.hecha+"&id="+tarea.id+"&userid="+this.globals.user,
+    this.url+"?action=check&hecha="+tarea.hecha+"&id="+tarea.id+"&userid="+this.globals.user,
     tarea,
     { headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}}
     );
