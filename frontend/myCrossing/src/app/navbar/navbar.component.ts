@@ -1,7 +1,7 @@
 import { UsuarioModule } from './../usuario/usuario.module';
 import { Component } from '@angular/core';
 import { Verification } from '../app.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
@@ -22,7 +22,8 @@ export class NavbarComponent{
     let userId = this.verification.user;
     this.cookieService.delete('verif');
     this.cookieService.delete('userId');
-    this.http.post("http://localhost/setNullKey.php", JSON.stringify(userId)).subscribe(data => {},error => console.error(error));
+    let parametros = new HttpParams().set("userId", JSON.stringify(userId)).set("command", "setNull");
+    this.http.get("http://localhost/authentication.php", {params: parametros}).toPromise();
     this.verification.logged = false;
     this.verification.user = null;
   }

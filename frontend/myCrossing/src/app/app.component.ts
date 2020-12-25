@@ -34,8 +34,8 @@ export class Verification {
   async verify() {
     if(this.cookieService.check("verif") && this.cookieService.check("userId")){
       let userId:number = +this.cookieService.get("userId");
-      let parametros = new HttpParams().set("userId", JSON.stringify(userId));
-      let datos = await this.http.get("http://localhost/getKey.php", {params: parametros}).toPromise();
+      let parametros = new HttpParams().set("userId", JSON.stringify(userId)).set("command", "getKey");
+      let datos = await this.http.get("http://localhost/authentication.php", {params: parametros}).toPromise();
       let verif = datos[0]['verification'];
       if(verif == this.cookieService.get("verif")){
         this.logged = true;

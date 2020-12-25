@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Verification } from '../../app.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import {Router} from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -35,7 +35,8 @@ export class LoginComponent implements OnInit {
       return;
     }
     let data = Array();
-    data.push(await this.http.get("http://localhost/login.php").toPromise());
+    let parametros = new HttpParams().set("command", "login");
+    data.push(await this.http.get("http://localhost/authentication.php", {params: parametros}).toPromise());
     let datos = data.reduce((acc, val) => acc.concat(val), []);
     for (let user of datos){
       if(user['nombre']==form.value['nombre'] && user['contrasenya']==form.value['clave']){
@@ -46,10 +47,8 @@ export class LoginComponent implements OnInit {
     }
     if(this.verification.logged == true){
       let key: string = this.verification.makeRandomKey();
-      let ar = Array();
-      ar[0] = key;
-      ar[1] = this.verification.user;
-      this.http.post("http://localhost/setKey.php", JSON.stringify(ar)).subscribe(data => {},error => console.error(error));
+      let parametros = new HttpParams().set("userId", JSON.stringify(this.verification.user)).set("command", "setKey").set("key", key);
+      this.http.get("http://localhost/authentication.php", {params: parametros}).toPromise();
       this.cookieService.set( 'verif', key );
       this.cookieService.set( 'userId', this.verification.user.toString() );
       this.verification.verified = true;
