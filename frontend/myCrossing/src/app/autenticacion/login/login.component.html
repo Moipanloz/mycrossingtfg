@@ -1,11 +1,27 @@
 <form class="formulario" [formGroup]="loginForm">
     <div class="titulo">Inicio de sesión</div>
-    <label for="user">Usuario: </label>
-    <input id="user" formControlName='usuario' type="text">
-    <br>
-    <label for="password">Contraseña: </label>
-    <input id="password" formControlName='clave' type="password">
-    <br>
+    <p>
+        <label for="nombre">Nombre: </label>
+        <input id="nombre" formControlName='nombre' type="text">
+    </p>
+    <container *ngIf="loginForm.controls.nombre.errors && submitted">
+        <p class="error">
+            <container *ngIf="loginForm.controls.nombre.errors.required && submitted">
+                Debe introducir un nombre. 
+            </container>
+        </p>
+    </container>
+    <p>
+        <label for="password">Contraseña: </label>
+        <input id="password" formControlName='clave' type="password">
+    </p>
+    <container *ngIf="loginForm.controls.clave.errors && submitted">
+        <p class="error">
+            <container *ngIf="loginForm.controls.clave.errors.required && submitted">
+                Debe introducir una contraseña. 
+            </container>
+        </p>
+    </container>
     <button (click)="login(loginForm)">Iniciar sesion</button>
-    <div>{{aviso}}</div>
+    <p class="error">{{aviso}}</p>
 </form>

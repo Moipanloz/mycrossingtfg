@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AppConstants } from '../app.component';
+import { Verification } from '../app.component';
+import { HttpClient } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-inicio',
@@ -7,10 +9,18 @@ import { AppConstants } from '../app.component';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
-  globals: AppConstants;
-  constructor(appConstants: AppConstants) { this.globals = appConstants; }
-  imagen : number;
+  verification: Verification;
+  cookieService: CookieService;
+  constructor(cookieService: CookieService, verification: Verification, private http: HttpClient,) {
+    this.verification = verification;
+    this.cookieService = cookieService;
+  }
+  imagen: number;
+
   ngOnInit(): void {
+    if(!this.verification.verified){
+      this.verification.verify();
+    }
   }
 
 }
