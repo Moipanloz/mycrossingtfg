@@ -27,13 +27,17 @@ if(isset($_GET['command'])){
       break;
 
     case "setKey":
+      if(isset($_GET['userId']) && isset($_GET['key'])){
       $userId = $_GET['userId'];
       $verif = $_GET['key'];
       $sql = "UPDATE usuarios SET verification = '$verif' WHERE id = $userId";
       $result = mysqli_query($conn,$sql);
+      }else{
+        print "No ha introducido id de usuario o key"
+      }
       break;
 
-      case "login":
+    case "login":
         $sql = "SELECT nombre, contrasenya, id FROM usuarios";
         $result = mysqli_query($conn,$sql);
         $myArray = array();
@@ -45,22 +49,26 @@ if(isset($_GET['command'])){
         }
         break;
 
-        case "read":
-          $userId = $_GET['userId'];
-          $sql = "SELECT * FROM usuarios WHERE id = $userId";
-          $result = mysqli_query($conn,$sql);
-          $myArray = array();
-          if ($result->num_rows > 0) {
-              while($row = $result->fetch_assoc()) {
-                  $myArray[] = $row;
-              }
-              print json_encode($myArray);
-          }
-          break;
+    case "read":
+      if(isset($_GET['userId'])){}
+        $userId = $_GET['userId'];
+        $sql = "SELECT * FROM usuarios WHERE id = $userId";
+        $result = mysqli_query($conn,$sql);
+        $myArray = array();
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $myArray[] = $row;
+            }
+            print json_encode($myArray);
+        }
+      }else{
+        print "No ha introducido id de usuario que leer";
+      }
+      break;
 
-          case "readAll":
-            $sql = "SELECT * FROM usuarios";
-            $result = mysqli_query($conn,$sql);
+    case "readAll":
+        $sql = "SELECT * FROM usuarios";
+        $result = mysqli_query($conn,$sql);
             $myArray = array();
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
@@ -71,19 +79,25 @@ if(isset($_GET['command'])){
             break;
 
     case "getKey":
-      $userId = $_GET['userId'];
-      $sql = "SELECT verification FROM usuarios WHERE id = $userId";
-      $result = mysqli_query($conn,$sql);
-      if ($result->num_rows > 0) {
-          while($row = $result->fetch_assoc()) {
-              $myArray[] = $row;
-          }
-          print json_encode($myArray);
+      if(isset($_GET['userId'])){
+        $userId = $_GET['userId'];
+        $sql = "SELECT verification FROM usuarios WHERE id = $userId";
+        $result = mysqli_query($conn,$sql);
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $myArray[] = $row;
+            }
+            print json_encode($myArray);
+        }
+      }else{
+        print "No ha introducido id de usuario que leer";
       }
       break;
       
     default:
-      print "Comando no seleccionado";
+      print "Comando no valido";
+  }else{
+    print "Comando no seleccionado";
   }
 }
 mysqli_close($conn);
