@@ -33,17 +33,42 @@ if(isset($_GET['command'])){
       $result = mysqli_query($conn,$sql);
       break;
 
-    case "login":
-      $sql = "SELECT nombre, contrasenya, id FROM usuarios";
-      $result = mysqli_query($conn,$sql);
-      $myArray = array();
-      if ($result->num_rows > 0) {
-          while($row = $result->fetch_assoc()) {
-              $myArray[] = $row;
+      case "login":
+        $sql = "SELECT nombre, contrasenya, id FROM usuarios";
+        $result = mysqli_query($conn,$sql);
+        $myArray = array();
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $myArray[] = $row;
+            }
+            print json_encode($myArray);
+        }
+        break;
+
+        case "read":
+          $userId = $_GET['userId'];
+          $sql = "SELECT * FROM usuarios WHERE id = $userId";
+          $result = mysqli_query($conn,$sql);
+          $myArray = array();
+          if ($result->num_rows > 0) {
+              while($row = $result->fetch_assoc()) {
+                  $myArray[] = $row;
+              }
+              print json_encode($myArray);
           }
-          print json_encode($myArray);
-      }
-      break;
+          break;
+
+          case "readAll":
+            $sql = "SELECT * FROM usuarios";
+            $result = mysqli_query($conn,$sql);
+            $myArray = array();
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    $myArray[] = $row;
+                }
+                print json_encode($myArray);
+            }
+            break;
 
     case "getKey":
       $userId = $_GET['userId'];
