@@ -7,14 +7,14 @@
     <button routerLink="/probador" routerLinkActive="activo">Probador</button>
     <button routerLink="/nabos" routerLinkActive="activo">Nabos</button>
 
-    <button *ngIf="globals.logged" routerLink="/perfil" routerLinkActive="activo">Perfil temp</button>
+    <button *ngIf="verification.logged" routerLink="/perfil" routerLinkActive="activo">Perfil temp</button>
   </div>
 
   <div>
-    <button id="login" *ngIf="!globals.logged; else logueado" routerLink="/inicia-sesion" routerLinkActive="activo">Inicia sesión</button>
+    <button id="login" *ngIf="!verification.logged; else logueado" routerLink="/inicia-sesion" routerLinkActive="activo">Inicia sesión</button>
     <ng-template #logueado>
-      <button id="login" (click)="logout()">Cierra sesión</button>
+      <button id="login" (click)="logOut()">Cierra sesión</button>
     </ng-template>
   </div>
-
+  
 </div>
