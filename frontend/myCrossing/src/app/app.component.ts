@@ -44,7 +44,7 @@ export class Verification {
     }
     this.verified = true;
   }
-  
+
   makeRandomKey(){
     var result           = '';
     var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';

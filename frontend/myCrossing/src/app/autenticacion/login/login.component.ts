@@ -12,9 +12,10 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class LoginComponent implements OnInit {
   ngOnInit(){
+    /*Eliminar cuando funcione guard
     if(this.verification.logged != null && this.verification.logged){
       this.router.navigate(['']);
-    }
+    }*/
   }
   aviso: String = "";
   cookieService: CookieService;
@@ -51,6 +52,7 @@ export class LoginComponent implements OnInit {
       this.http.get("http://localhost/authentication.php", {params: parametros}).toPromise();
       this.cookieService.set( 'verif', key );
       this.cookieService.set( 'userId', this.verification.user.toString() );
+
       this.verification.verified = true;
       this.router.navigate(['']);
     }else{

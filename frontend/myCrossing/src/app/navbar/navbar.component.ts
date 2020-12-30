@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Verification } from '../app.component';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +12,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class NavbarComponent{
   verification: Verification;
   cookieService: CookieService;
-  constructor(cookieService: CookieService, verification: Verification, private http: HttpClient) {
+  constructor(cookieService: CookieService, verification: Verification, private http: HttpClient, private router: Router) {
     this.cookieService = cookieService;
     this.verification = verification;
   }
@@ -24,5 +25,6 @@ export class NavbarComponent{
     this.http.get("http://localhost/authentication.php", {params: parametros}).toPromise();
     this.verification.logged = false;
     this.verification.user = null;
+    this.router.navigate([""]);
   }
 }
