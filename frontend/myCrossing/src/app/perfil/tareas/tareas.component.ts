@@ -2,7 +2,7 @@ import { Tarea } from './../../interfaces';
 import { TareaService } from './tarea.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { AppConstants } from '../../app.component';
+import { Verification } from '../../app.component';
 import { debounceTime } from "rxjs/operators";
 
 
@@ -14,14 +14,17 @@ import { debounceTime } from "rxjs/operators";
 export class TareasComponent implements OnInit{
 
   data = [];
-  globals : AppConstants;
+  globals : Verification;
   mostrar : boolean = false;
 
-  constructor(private http : HttpClient, appConstants : AppConstants, private _tarea : TareaService) {
+  constructor(private http : HttpClient, appConstants : Verification, private _tarea : TareaService) {
     this.globals = appConstants;
   }
 
   ngOnInit(){
+    if(!this.globals.verified){
+      this.globals.verify();
+    }
     this._tarea.readTareas().pipe(debounceTime(300)).subscribe(data => {
       this.data = [];
       this.data.push(data);

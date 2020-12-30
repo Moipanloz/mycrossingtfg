@@ -1,6 +1,6 @@
 import { Tarea } from './../../interfaces';
 import { Observable } from 'rxjs';
-import { AppConstants } from './../../app.component';
+import { Verification } from './../../app.component';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -10,10 +10,10 @@ import { Injectable } from '@angular/core';
 export class TareaService {
 
   data = [];
-  globals : AppConstants;
+  globals : Verification;
   url : String = "http://localhost/TareaService.php";
 
-  constructor(private http : HttpClient, appConstants : AppConstants) {
+  constructor(private http : HttpClient, appConstants : Verification) {
     this.globals = appConstants;
   }
 

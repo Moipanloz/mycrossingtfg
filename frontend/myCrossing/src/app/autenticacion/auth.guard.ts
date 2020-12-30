@@ -1,4 +1,4 @@
-import { AppConstants } from './../app.component';
+import { Verification } from './../app.component';
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -9,9 +9,9 @@ import { Observable } from 'rxjs';
 export class AuthGuard implements CanActivate {
 
   result : boolean;
-  global : AppConstants;
+  global : Verification;
 
-  constructor( appConstant : AppConstants, private router : Router){
+  constructor( appConstant : Verification, private router : Router){
     this.global = appConstant;
   }
 
@@ -19,8 +19,11 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       this.result = true;
+      if(!this.global.verified){
+        this.global.verify();
+      }
       if (route.url[0].path == "perfil"){
-        if(!this.global.logged){
+        if( !this.global.logged ){
           alert("No has iniciado sesión");
           this.router.navigate(["/inicia-sesion"]);
           this.result = false;
