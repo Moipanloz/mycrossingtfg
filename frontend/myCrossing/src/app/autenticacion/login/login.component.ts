@@ -56,8 +56,5 @@ export class LoginComponent implements OnInit {
     }else{
       this.aviso = "El usuario no existe o la contraseña no es correcta";
     }
-    function delay(ms: number) {
-      return new Promise( resolve => setTimeout(resolve, ms) );
-    }
   }
 }

@@ -33,7 +33,7 @@ if(isset($_GET['command'])){
       $sql = "UPDATE usuarios SET verification = '$verif' WHERE id = $userId";
       $result = mysqli_query($conn,$sql);
       }else{
-        print "No ha introducido id de usuario o key"
+        print "No ha introducido id de usuario o key";
       }
       break;
 
@@ -50,7 +50,7 @@ if(isset($_GET['command'])){
         break;
 
     case "read":
-      if(isset($_GET['userId'])){}
+      if(isset($_GET['userId'])){
         $userId = $_GET['userId'];
         $sql = "SELECT * FROM usuarios WHERE id = $userId";
         $result = mysqli_query($conn,$sql);
@@ -93,12 +93,39 @@ if(isset($_GET['command'])){
         print "No ha introducido id de usuario que leer";
       }
       break;
-      
+    /*
+    case "register":
+      if(isset($_GET['nombre']) && isset($_GET['contrasenya']) && isset($_GET['isla']) && isset($_GET['fruta'])
+      && isset($_GET['cumpleanyos']) && isset($_GET['verif']) && isset($_GET['email']) && isset($_GET['hemisferio'])){
+        $nombre = $_GET['nombre'];
+        $isla = $_GET['isla'];
+        $fruta = $_GET['fruta'];
+        $cumpleanyos = $_GET['cumpleanyos'];
+        $hemisferio = $_GET['hemisferio'];
+        $contrasenya = $_GET['contrasenya'];
+        $email = $_GET['email'];
+        $verif = $_GET['verif'];
+        $sql = "INSERT INTO usuarios (nombre, contrasenya, isla, fruta, cumpleanyos, verification, email, hemisferio) VALUES ($nombre, $contrasenya, $isla, $fruta, $cumpleanyos, $verif, $email, $hemisferio)";
+        
+        mysqli_query($conn,$sql);
+        $sql = "SELECT id FROM usuarios WHERE nombre = $_GET['nombre]";
+        $result = mysqli_query($conn,$sql);
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $myArray[] = $row;
+            }
+            print json_encode($myArray);
+        }
+      }else{
+        print "No ha introducido los parametros necesarios de registro";
+      }
+      break;
+      */
     default:
       print "Comando no valido";
-  }else{
-    print "Comando no seleccionado";
   }
+}else{
+  print "Comando no seleccionado";
 }
 mysqli_close($conn);
 ?>
