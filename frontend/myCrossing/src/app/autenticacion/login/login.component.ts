@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Verification } from '../../app.component';
 import { HttpClient, HttpParams } from '@angular/common/http';
@@ -10,13 +10,8 @@ import { CookieService } from 'ngx-cookie-service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-  ngOnInit(){
-    /*Eliminar cuando funcione guard
-    if(this.verification.logged != null && this.verification.logged){
-      this.router.navigate(['']);
-    }*/
-  }
+export class LoginComponent {
+
   aviso: String = "";
   cookieService: CookieService;
   verification: Verification;
@@ -30,6 +25,7 @@ export class LoginComponent implements OnInit {
       clave: ['', Validators.required]
     })
   }
+
   async login(form){
     this.submitted = true;
     if(this.loginForm.invalid){

@@ -1,9 +1,10 @@
+import { CookieService } from 'ngx-cookie-service';
 import { Tarea } from './../../interfaces';
 import { TareaService } from './tarea.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Verification } from '../../app.component';
-import { debounceTime } from "rxjs/operators";
+
 
 
 @Component({
@@ -14,28 +15,33 @@ import { debounceTime } from "rxjs/operators";
 export class TareasComponent implements OnInit{
 
   data = [];
-  globals : Verification;
+  verification : Verification;
+  cookieService: CookieService;
   mostrar : boolean = false;
 
-  constructor(private http : HttpClient, appConstants : Verification, private _tarea : TareaService) {
-    this.globals = appConstants;
+  constructor(private http : HttpClient, verification : Verification, cookieService: CookieService, private _tarea : TareaService) {
+    this.verification = verification;
+    this.cookieService = cookieService;
   }
 
   ngOnInit(){
-    if(!this.globals.verified){
-      this.globals.verify();
-    }
-    this._tarea.readTareas().pipe(debounceTime(300)).subscribe(data => {
-      this.data = [];
-      this.data.push(data);
-      //console.log(this.data);
-    },error => console.error(error));
-
+    console.log("oninit");
+    this.verification.verifyIfNotVerified().then(() => {
+      console.log("post verif");
+      this._tarea.readTareas().subscribe(data => {
+        console.log(data[0]);
+        this.data = [];
+        this.data.push(data);
+      },error => console.error(error));
+      console.log("data tiene datos");
+      console.log(this.data[0]);
+    });
   }
 
   cambiaEstado(tarea : Tarea){
-    this._tarea.checkTarea(tarea).subscribe();
-    //setTimeout(() => this.ngOnInit(),300);
+    this._tarea.updateTarea(tarea).then(() => {
+      this.ngOnInit();
+    });
   }
 
   /* TODO:

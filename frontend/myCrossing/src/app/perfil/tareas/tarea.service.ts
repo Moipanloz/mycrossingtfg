@@ -1,36 +1,43 @@
-import { Tarea } from './../../interfaces';
 import { Observable } from 'rxjs';
-import { Verification } from './../../app.component';
-import { HttpClient } from '@angular/common/http';
+import { Tarea } from './../../interfaces';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Verification } from 'app/app.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TareaService {
 
-  data = [];
-  globals : Verification;
-  url : String = "http://localhost/TareaService.php";
+  verification : Verification;
+  url : string = "http://localhost/tarea.php";
 
-  constructor(private http : HttpClient, appConstants : Verification) {
-    this.globals = appConstants;
+  constructor(private http : HttpClient, verification : Verification) {
+    this.verification = verification;
   }
 
-  readTareas() : Observable<Tarea[]> {
-    return this.http.get<Tarea[]>(this.url+"?action=read&userid="+this.globals.user);
+  readTareas() : Observable<Tarea[]>{
+    console.log("servicio read");
+
+    let parametros = new HttpParams()
+      .set("command", "read")
+      .set("userId", JSON.stringify(this.verification.user));
+
+    console.log("parametros setted");
+    return this.http.get<Tarea[]>(this.url, {params: parametros});
   }
 
-  checkTarea(tarea : Tarea){
-
+  async updateTarea(tarea : Tarea){
+    //Le cambio el estado a la tarea
     tarea.hecha = !tarea.hecha;
 
-    return this.http.post(
-    this.url+"?action=check&hecha="+tarea.hecha+"&id="+tarea.id+"&userid="+this.globals.user,
-    tarea,
-    { headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}}
-    );
+    let parametros = new HttpParams()
+      .set("command", "update")
+      .set("userId", JSON.stringify(this.verification.user));
 
+    return this.http.post(this.url, tarea, {params: parametros}).toPromise();
+
+  //may need this headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
   }
 
 }

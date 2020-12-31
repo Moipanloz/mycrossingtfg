@@ -21,6 +21,7 @@ export class Verification {
   user: number = null;
   verified: boolean = false;
   cookieService: CookieService;
+
   constructor(cookieService: CookieService, private http: HttpClient){
     this.cookieService = cookieService;
   }
@@ -54,4 +55,11 @@ export class Verification {
     }
     return result;
   }
+
+  async verifyIfNotVerified(){
+    if(!this.verified){
+      await this.verify();
+    }
+  }
+
 }
