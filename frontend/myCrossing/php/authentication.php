@@ -106,7 +106,7 @@ if(isset($_GET['command'])){
         $email = $_GET['email'];
         $verif = $_GET['verif'];
         $sql = "INSERT INTO usuarios (nombre, contrasenya, isla, fruta, cumpleanyos, verification, email, hemisferio) VALUES ($nombre, $contrasenya, $isla, $fruta, $cumpleanyos, $verif, $email, $hemisferio)";
-        
+
         mysqli_query($conn,$sql);
         $sql = "SELECT id FROM usuarios WHERE nombre = $_GET['nombre]";
         $result = mysqli_query($conn,$sql);

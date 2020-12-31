@@ -24,7 +24,7 @@ if(isset($_GET["command"])){
 
     case "read": //---------------------------------------------------------------------------------------------------READ
       if(isset($_GET["userId"])){
-        $userId = $_GET["userId"] + 0; //convierte el string en int
+        $userId = (int)$_GET["userId"]; //convierte el string en int
 
         //Comprobar que el user coincide con las cookies
         $error = checkUser($userId);
