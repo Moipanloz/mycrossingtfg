@@ -45,8 +45,10 @@ export class TareaService {
       .set("command", "update")
       .set("userId", JSON.stringify(this.verification.user));
 
+
     return this.http.post(this.url, tarea, {params: parametros, withCredentials : true, responseType : "blob"}).toPromise();
-    // responseType: blob ni idea de que es pero hacer que funcione
+    // responseType: blob hace que si el responseType que devolvia no es el que estaba seteado,
+    // devuelve un objeto Blob con los datos
   }
 
 }
