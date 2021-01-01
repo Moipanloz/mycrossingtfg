@@ -2,6 +2,7 @@
 
 header('Access-Control-Allow-Origin: http://localhost:4200');
 header('Access-Control-Allow-Headers: *');
+
 include "validators/usuarioValidator.php";
 include "validators/tareaValidator.php";
 
@@ -55,30 +56,47 @@ if(isset($_GET["command"])){
       if(isset($_GET["userId"])){
         $userId = $_GET["userId"];
 
-        //Cogemos los datos a actualizar enviados por el POST
-        $data = var_dump($_POST["tarea"]);
-        $tareaId = $data["id"];
-        $hecha = $data["hecha"];
-        $imagenUrl = $data["imagen_url"];
+        if(isset($_POST)){
 
-        //comprueba
-        // -que el usuario coincide con la cookie
-        // -que la tarea existe
-        // -que la tarea a editar es suya
-        // -que los datos a actualizar son correctos
-        $error =  checkUser($userId) &&
-                  checkExisteTarea($tareaId, $conn) &&
-                  checkTareaOwner($userId, $tareaId, $conn) &&
-                  checkDatosCorrectos($imagenUrl, $hecha);
+          //Cogemos los datos a actualizar enviados por el POST
 
-        if($error){
-          //query aplicando cambios
-          $sql = "UPDATE tareas SET hecha = $hecha, imagen_url = $imagenUrl WHERE id = $tareaId";
-          $result = mysqli_query($conn,$sql);
+          /*$data = var_dump($_POST["tarea"]);
+          $tareaId = $data["id"];
+          $hecha = $data["hecha"];
+          $imagenUrl = $data["imagen_url"];
+          */
+
+          $postdata = file_get_contents("php://input");
+          $request = json_decode($postdata);
+          $tareaId = $request->id;
+          $hecha = $request->hecha;
+          $imagenUrl = $request->imagen_url;
+
+          //Si es false, lo pone vacio por lo que la query no se hara correctamente
+          if(empty($hecha)){
+            $hecha = 0;
+          }
+
+          //comprueba
+          // -que el usuario coincide con la cookie
+          // -que la tarea existe
+          // -que la tarea a editar es suya
+          // -que los datos a actualizar son correctos
+          $error =  checkUser($userId) &&
+                    checkExisteTarea($tareaId, $conn) &&
+                    checkTareaOwner($userId, $tareaId, $conn) &&
+                    checkDatosCorrectos($imagenUrl, $hecha);
+
+          if($error){
+            //query aplicando cambios
+            $sql = "UPDATE tareas SET hecha = $hecha, imagen_url = '$imagenUrl' WHERE id = $tareaId";
+            $result = mysqli_query($conn,$sql);
+          }else{
+            print("No se cumplen los requisitos");
+          }
         }else{
-          print("No se cumplen los requisitos");
+          print("No se ha pasado la tarea");
         }
-
       }else{
         print("User id not set");
       }
