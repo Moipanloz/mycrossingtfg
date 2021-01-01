@@ -24,7 +24,7 @@ export class TareaService {
       .set("userId", JSON.stringify(this.verification.user));
 
     console.log("parametros setted");
-    return this.http.get<Tarea[]>(this.url, {params: parametros});
+    return this.http.get<Tarea[]>(this.url, {params: parametros, withCredentials : true});
   }
 
   async updateTarea(tarea : Tarea){

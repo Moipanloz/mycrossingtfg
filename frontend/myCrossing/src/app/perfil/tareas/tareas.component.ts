@@ -26,7 +26,7 @@ export class TareasComponent implements OnInit{
 
   ngOnInit(){
     console.log("oninit");
-    this.verification.verifyIfNotVerified().then(() => {
+    this.verification.verify().then(() => {
       console.log("post verif");
       this._tarea.readTareas().subscribe(data => {
         console.log(data[0]);
