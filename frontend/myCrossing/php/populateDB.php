@@ -11,7 +11,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// ---------------------------------------------------------------------------------------------Drop tables
+// =====================================================================================================Tables
+// ---------------------------------------------------------------------------------------------Drop
 
 $sql = "DROP TABLE tareas";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
@@ -19,7 +20,7 @@ $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 $sql = "DROP TABLE usuarios";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
-// ---------------------------------------------------------------------------------------------Create tables
+// ---------------------------------------------------------------------------------------------Create
 
 $error = "Failed during create";
 
@@ -45,7 +46,7 @@ $sql = "CREATE TABLE usuarios (
 
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
-// ---------------------------------------------------------------------------------------------Alter tables
+// ---------------------------------------------------------------------------------------------Alter
 
 $sql = "ALTER TABLE usuarios
   ADD PRIMARY KEY (`id`),
@@ -63,7 +64,7 @@ $sql = "ALTER TABLE tareas
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 
-// ---------------------------------------------------------------------------------------------Populate tables
+// ---------------------------------------------------------------------------------------------Populate
 
 $sql = "INSERT INTO usuarios (nombre, id, isla, fruta, cumpleanyos, hemisferio, contrasenya, email, verification) VALUES
 ('usuario1', 1, 'isla1', 'PERA', '2011-11-01', 'NORTE', 'usuario1', 'usuario1@email.com', 'uVLDHRAnv3'),
@@ -80,6 +81,30 @@ $sql = "INSERT INTO tareas (id, usuario_id, hecha, imagen_url) VALUES
 (7, 2, 1, 'asdasdas')";
 
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
+// ===================================================================================================== Events
+// ---------------------------------------------------------------------------------------------Drop
+
+$sql = "DROP EVENT reiniciaTareasDaily";
+$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
+// ---------------------------------------------------------------------------------------------Scheduler
+
+$sql = "SET GLOBAL event_scheduler = ON";
+$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
+// ---------------------------------------------------------------------------------------------Create
+
+$sql = "CREATE EVENT reiniciaTareasDaily
+ON SCHEDULE EVERY 1 DAY STARTS '2020-12-30 05:00:00'
+ON COMPLETION PRESERVE
+DO BEGIN
+  UPDATE tareas SET hecha = 0;
+END";
+
+$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
+// =====================================================================================================
 
 print("Population done");
 
