@@ -13,14 +13,19 @@ div{
   margin: 0 1vw;
 }
 
-#todo{
+.todo{
   background-color: rgb(226, 214, 174);
   border-color: rgb(252, 183, 79);
 }
 
-#done{
+.done{
   background-color: rgb(171, 219, 164);
   border-color: rgb(99, 252, 79);
+}
+
+#añadir{
+  background-color: rgb(107, 107, 107);
+  border-color: rgb(39, 39, 39);
 }
 
 #editar{

@@ -56,15 +56,8 @@ if(isset($_GET["command"])){
       if(isset($_GET["userId"])){
         $userId = $_GET["userId"];
 
-        if(isset($_POST)){
-
-          //Cogemos los datos a actualizar enviados por el POST
-
-          /*$data = var_dump($_POST["tarea"]);
-          $tareaId = $data["id"];
-          $hecha = $data["hecha"];
-          $imagenUrl = $data["imagen_url"];
-          */
+          // Cogemos los datos a actualizar enviados por el POST aunque no se
+          // puede hacer desde $_POST dado que PHP no admite JSON en $_POST
 
           $postdata = file_get_contents("php://input");
           $request = json_decode($postdata);
@@ -72,7 +65,8 @@ if(isset($_GET["command"])){
           $hecha = $request->hecha;
           $imagenUrl = $request->imagen_url;
 
-          //Si es false, lo pone vacio por lo que la query no se hara correctamente
+          // Si es false, lo pone vacio por lo que la query no se hara correctamente
+          // asi que en caso de que sea false (vacio), lo ponemos como 0 (false en BD)
           if(empty($hecha)){
             $hecha = 0;
           }
@@ -94,12 +88,53 @@ if(isset($_GET["command"])){
           }else{
             print("No se cumplen los requisitos");
           }
-        }else{
-          print("No se ha pasado la tarea");
-        }
       }else{
         print("User id not set");
       }
+      break;
+
+    case "create"://---------------------------------------------------------------------------------------------------CREATE
+      echo("dentro de create");
+      if(isset($_GET["userId"])){
+
+        echo("userid setted");
+
+        $userId = $_GET["userId"];
+
+          echo("post setted");
+
+          $postdata = file_get_contents("php://input");
+          $request = json_decode($postdata);
+          $tareaId = $request->id;
+          $hecha = $request->hecha;
+          $imagenUrl = $request->imagen_url;
+
+          echo("data dumped");
+          echo("tareaid " . $tareaId);
+          echo("userid " . $userId);
+          echo("heacha " . $hecha);
+          echo($imagenUrl);
+
+          $error =  checkUser($userId) &&
+                    checkDatosCorrectos($imagenUrl, $hecha);
+
+          echo($error);
+
+          if($error){
+            echo("vamos bien");
+
+            $sql = "INSERT INTO tareas(id, usuario_id, hecha, imagen_url) VALUES ('', $userId, $hecha, $imagenUrl)";
+            $result = mysqli_query($conn,$sql);
+
+            echo("post query");
+
+          }else{
+            print("No se cumplen los requisitos");
+          }
+      }else{
+        print("User id not set");
+      }
+
       break;
 
     default:

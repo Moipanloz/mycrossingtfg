@@ -1,5 +1,3 @@
-import { Verification } from './../app.component';
-import { CookieService } from 'ngx-cookie-service';
 import { Component } from '@angular/core';
 
 @Component({
