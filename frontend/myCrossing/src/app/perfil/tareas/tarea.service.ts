@@ -18,7 +18,6 @@ export class TareasService {
   }
 
   readTareas() : Observable<Tarea[]>{
-
     let parametros = new HttpParams()
       .set("command", "read")
       .set("userId", JSON.stringify(this.verification.user));

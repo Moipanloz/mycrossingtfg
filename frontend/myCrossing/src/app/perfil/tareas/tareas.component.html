@@ -5,10 +5,10 @@
   </ng-container>
   <ng-container *ngFor="let tarea of data[0]">
     <ng-container *ngIf="tarea.hecha == true; else todo">
-      <button (click)="funcion" class="tarea done"></button>
+      <button (click)="!modoEdicion ? actualizaTarea(tarea) : abreMenu()" class="tarea done"></button>
     </ng-container>
     <ng-template #todo>
-      <button (click)="funcion" class="tarea todo"></button>
+      <button (click)="!modoEdicion ? actualizaTarea(tarea) : abreMenu()" class="tarea todo"></button>
     </ng-template>
   </ng-container>
 
@@ -16,7 +16,7 @@
     <button (click)="crearTarea()" class="tarea" id="añadir"></button>
   </ng-container>
 
-  <button id="editar" (click)="activaEdicion()">{{modoEdicion}}{{funcion}}</button>
+  <button id="editar" (click)="activaEdicion()">{{modoEdicion}}</button>
 
 </div>
 

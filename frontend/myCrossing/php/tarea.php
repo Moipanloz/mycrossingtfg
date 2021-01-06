@@ -101,36 +101,34 @@ if(isset($_GET["command"])){
 
         $userId = $_GET["userId"];
 
-          echo("post setted");
+        $postdata = file_get_contents("php://input");
+        $request = json_decode($postdata);
+        $tareaId = $request->id;
+        $hecha = $request->hecha;
+        $imagenUrl = $request->imagen_url;
 
-          $postdata = file_get_contents("php://input");
-          $request = json_decode($postdata);
-          $tareaId = $request->id;
-          $hecha = $request->hecha;
-          $imagenUrl = $request->imagen_url;
+        echo("data dumped");
+        echo("tareaid " . $tareaId);
+        echo("userid " . $userId);
+        echo("heacha " . $hecha);
+        echo($imagenUrl);
 
-          echo("data dumped");
-          echo("tareaid " . $tareaId);
-          echo("userid " . $userId);
-          echo("heacha " . $hecha);
-          echo($imagenUrl);
+        $error =  checkUser($userId) &&
+                  checkDatosCorrectos($imagenUrl, $hecha);
 
-          $error =  checkUser($userId) &&
-                    checkDatosCorrectos($imagenUrl, $hecha);
+        echo($error);
 
-          echo($error);
+        if($error){
+          echo("vamos bien");
 
-          if($error){
-            echo("vamos bien");
+          $sql = "INSERT INTO tareas(id, usuario_id, hecha, imagen_url) VALUES ('', $userId, $hecha, $imagenUrl)";
+          $result = mysqli_query($conn,$sql);
 
-            $sql = "INSERT INTO tareas(id, usuario_id, hecha, imagen_url) VALUES ('', $userId, $hecha, $imagenUrl)";
-            $result = mysqli_query($conn,$sql);
+          echo("post query");
 
-            echo("post query");
-
-          }else{
-            print("No se cumplen los requisitos");
-          }
+        }else{
+          print("No se cumplen los requisitos");
+        }
       }else{
         print("User id not set");
       }

@@ -17,7 +17,6 @@ export class TareasComponent implements OnInit{
   verification : Verification;
   cookieService: CookieService;
   modoEdicion : boolean = false;
-  funcion = "actualizaTarea(tarea)";
 
   constructor(private http : HttpClient, verification : Verification, cookieService: CookieService, private _tarea : TareasService) {
     this.verification = verification;
@@ -35,15 +34,10 @@ export class TareasComponent implements OnInit{
 
   activaEdicion(){
     this.modoEdicion = !this.modoEdicion;
-    if(this.modoEdicion){
-      this.funcion = "abreMenu()";
-    }else{
-      this.funcion = "actualizaTarea(tarea)";
-    }
   }
 
   abreMenu(){
-    //TODO
+    console.log("it works!");
   }
 
   actualizaTarea(tarea : Tarea){
