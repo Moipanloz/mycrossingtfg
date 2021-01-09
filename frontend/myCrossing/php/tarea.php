@@ -41,8 +41,10 @@ if(isset($_GET["command"])){
             while($row = $result->fetch_assoc()) {
               $myArray[] = $row;
             }
-            print json_encode($myArray);
           }
+
+          print json_encode($myArray);
+
         }else{
           print("No se cumplen los requisitos");
         }
@@ -133,6 +135,30 @@ if(isset($_GET["command"])){
         print("User id not set");
       }
 
+      break;
+
+    case "delete"://---------------------------------------------------------------------------------------------------DELETE
+      if(isset($_GET["userId"])){
+        $userId = $_GET["userId"];
+
+        $postdata = file_get_contents("php://input");
+        $request = json_decode($postdata);
+        $tareaId = $request->id;
+
+        $error =  checkUser($userId) &&
+                  checkExisteTarea($tareaId, $conn) &&
+                  checkTareaOwner($userId, $tareaId, $conn);
+
+        if($error){
+          $sql = "DELETE FROM tareas WHERE id = $tareaId";
+          $result = mysqli_query($conn,$sql);
+        }else{
+          print("No se cumplen los requisitos");
+        }
+
+      }else{
+        print("User id not set");
+      }
       break;
 
     default:

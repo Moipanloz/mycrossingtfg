@@ -1,7 +1,6 @@
 import { TareasService } from './tarea.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Tarea } from './../../interfaces';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Verification } from '../../app.component';
 
@@ -17,13 +16,22 @@ export class TareasComponent implements OnInit{
   verification : Verification;
   cookieService: CookieService;
   modoEdicion : boolean = false;
+  menu : boolean;
+  tareaMenu : Tarea;
 
-  constructor(private http : HttpClient, verification : Verification, cookieService: CookieService, private _tarea : TareasService) {
+  constructor(
+    verification : Verification,
+    cookieService: CookieService,
+    private _tarea : TareasService){
+
     this.verification = verification;
     this.cookieService = cookieService;
   }
 
   ngOnInit(){
+    this.tareaMenu = null;
+    this.menu = false;
+
     this.verification.verify().then(() => {
       this._tarea.readTareas().subscribe(data => {
         this.data = [];
@@ -36,14 +44,13 @@ export class TareasComponent implements OnInit{
     this.modoEdicion = !this.modoEdicion;
   }
 
-  abreMenu(){
-    console.log("it works!");
-  }
-
-  actualizaTarea(tarea : Tarea){
-    this._tarea.actualizaTarea(tarea).then(() => {
-      this.ngOnInit();
-    });
+  abreMenu(tarea : Tarea){
+    this.menu = !this.menu;
+    if(this.tareaMenu == null){
+      this.tareaMenu = tarea;
+    }else{
+      this.tareaMenu = null;
+    }
   }
 
   //no se si esto es necesario, probar cuando funcione
@@ -65,11 +72,17 @@ export class TareasComponent implements OnInit{
     }
   }
 
-  /* TODO:
+  actualizaTarea(tarea : Tarea){
+    this._tarea.actualizaTarea(tarea).then(() => {
+      this.ngOnInit();
+    });
+  }
 
-    2. que se resetee cada dia -> o añadir coluymna con fecha o mirar que el server almacene var
-    3. que como max haya 10, y el quitar o añadir cambie entre visible e invisible
+  borrarTarea(tarea : Tarea){
+    this._tarea.borrarTarea(tarea).then(() => {
+      this.ngOnInit();
+    });
+  }
 
-  */
 
 }

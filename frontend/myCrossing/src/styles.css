@@ -8,15 +8,4 @@ body{
   outline: none;
 }
 
-hr{
-  border-width: 0.2vw;
-  border-style: solid;
-  width: 33%;
-  position: absolute;
-  border-color: #69c0c0;
-  margin-inline-start: 33%;
-  border-radius: 20px;
-  background-color:  #69c0c0;
-  margin-block-start: -2px;
-}
 

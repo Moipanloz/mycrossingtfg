@@ -71,4 +71,13 @@ export class TareasService {
     // devuelve un objeto Blob con los datos
   }
 
+  borrarTarea(tarea){
+    let parametros = new HttpParams()
+    .set("command", "delete")
+    .set("userId", JSON.stringify(this.verification.user));
+
+    return this.http.post(this.url, tarea, {params: parametros, withCredentials : true, responseType : "blob"}).toPromise();
+  }
+
+
 }

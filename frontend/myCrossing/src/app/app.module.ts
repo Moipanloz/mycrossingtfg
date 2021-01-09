@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { RoutingModule } from './routing.module';
+import { RoutingModule } from './general/routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './autenticacion/login/login.component';
 import { RegistroComponent } from './autenticacion/registro/registro.component';
@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { PerfilModule } from './perfil/perfil.module';
 import { CookieService } from 'ngx-cookie-service';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CookieService } from 'ngx-cookie-service';
     HttpClientModule,
     PerfilModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ClickOutsideModule
   ],
   providers: [ CookieService ],
   bootstrap: [AppComponent]
