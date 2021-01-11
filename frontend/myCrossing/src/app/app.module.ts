@@ -12,7 +12,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { PerfilModule } from './perfil/perfil.module';
 import { CookieService } from 'ngx-cookie-service';
-import { ClickOutsideModule } from 'ng-click-outside';
 
 @NgModule({
   declarations: [
@@ -30,8 +29,7 @@ import { ClickOutsideModule } from 'ng-click-outside';
     HttpClientModule,
     PerfilModule,
     FormsModule,
-    ReactiveFormsModule,
-    ClickOutsideModule
+    ReactiveFormsModule
   ],
   providers: [ CookieService ],
   bootstrap: [AppComponent]

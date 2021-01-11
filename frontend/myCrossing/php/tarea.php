@@ -2,6 +2,8 @@
 
 header('Access-Control-Allow-Origin: http://localhost:4200');
 header('Access-Control-Allow-Headers: *');
+header('Access-Control-Allow-Methods: PUT, DELETE, POST, GET');
+
 
 include "validators/usuarioValidator.php";
 include "validators/tareaValidator.php";
@@ -61,8 +63,8 @@ if(isset($_GET["command"])){
           // Cogemos los datos a actualizar enviados por el POST aunque no se
           // puede hacer desde $_POST dado que PHP no admite JSON en $_POST
 
-          $postdata = file_get_contents("php://input");
-          $request = json_decode($postdata);
+          $putdata = file_get_contents("php://input");
+          $request = json_decode($putdata);
           $tareaId = $request->id;
           $hecha = $request->hecha;
           $imagenUrl = $request->imagen_url;
@@ -141,8 +143,8 @@ if(isset($_GET["command"])){
       if(isset($_GET["userId"])){
         $userId = $_GET["userId"];
 
-        $postdata = file_get_contents("php://input");
-        $request = json_decode($postdata);
+        $deletedata = file_get_contents("php://input");
+        $request = json_decode($deletedata);
         $tareaId = $request->id;
 
         $error =  checkUser($userId) &&

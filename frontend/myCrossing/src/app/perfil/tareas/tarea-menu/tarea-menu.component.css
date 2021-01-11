@@ -1,0 +1,37 @@
+:host{
+  position: absolute;
+}
+
+.popup-menu{
+  background-color: rgb(0, 0, 0 , 0.75);
+  width: 20vw;
+  height: auto;
+  display: block;
+  padding: 7%;
+  border-radius: 15px;
+  color: white;
+  font-size: 1.2vw;
+}
+
+.popup-menu > div{
+  margin: 5% 0 0 0;
+  justify-content: left;
+}
+
+.popup-menu > * > span{
+  margin: 0 0 0 2%;
+}
+
+.popup-menu > hr{
+  background-color: white;
+  border-color: white;
+  border-width: 0.1vw;
+  width: 80%;
+  margin: auto;
+  border-radius: 20px;
+  position: relative;
+}
+
+.btn-borrar{
+  height: max-content;
+}

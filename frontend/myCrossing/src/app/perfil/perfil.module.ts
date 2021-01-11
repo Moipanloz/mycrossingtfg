@@ -5,6 +5,9 @@ import { VisitasemanalComponent } from './visitasemanal/visitasemanal.component'
 import { TareasComponent } from './tareas/tareas.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TareaMenuComponent } from './tareas/tarea-menu/tarea-menu.component';
+import { ClickOutsideDirective } from 'app/general/clickOutside.directive';
+
 
 @NgModule({
   declarations: [
@@ -12,7 +15,9 @@ import { CommonModule } from '@angular/common';
     TareasComponent,
     VisitasemanalComponent,
     ColeccionespComponent,
-    MisvecinosComponent
+    MisvecinosComponent,
+    TareaMenuComponent,
+    ClickOutsideDirective
   ],
   imports: [
     CommonModule

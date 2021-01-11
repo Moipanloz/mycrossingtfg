@@ -1,32 +1,21 @@
 
 <div>
-
   <ng-container *ngFor="let tarea of data[0]">
 
     <!-- Tarea done -->
     <ng-container *ngIf="tarea.hecha == true; else todo">
-      <button (click)="!modoEdicion ? actualizaTarea(tarea) : abreMenu(tarea)" class="tarea done"></button>
+      <button (click)="!modoEdicion ? actualizaTarea(tarea) : abreMenu($event, tarea)" class="tarea done"></button>
     </ng-container>
 
     <!-- Tarea todo -->
     <ng-template #todo>
-      <button (click)="!modoEdicion ? actualizaTarea(tarea) : abreMenu(tarea)" class="tarea todo"></button>
+      <button (click)="!modoEdicion ? actualizaTarea(tarea) : abreMenu($event, tarea)" class="tarea todo"></button>
     </ng-template>
 
   </ng-container>
 
-
   <!-- Menu tarea-->
-  <ng-container *ngIf="menu">
-    <div (clickOutside)="abreMenu(this.tareaMenu)" class="popup-menu">
-      <p>formulario here</p>
-      <hr>
-      <div>
-        <button (click)="borrarTarea(this.tareaMenu)"></button>
-        <span>Borrar</span>
-      </div>
-    </div>
-  </ng-container>
+  <app-tarea-menu [menu]="this.tareaMenu" (borrar)="borrarTarea($event)" (clickOutside)="cierraMenu()"> </app-tarea-menu> <!-- (clickOutside)="cierraMenu()"-->
 
   <!-- Boton crear -->
   <ng-container *ngIf="modoEdicion && data[0].length < 10">

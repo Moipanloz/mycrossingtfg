@@ -1,7 +1,8 @@
+import { TareaMenuComponent } from './tarea-menu/tarea-menu.component';
 import { TareasService } from './tarea.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Tarea } from './../../interfaces';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Verification } from '../../app.component';
 
 @Component({
@@ -16,8 +17,20 @@ export class TareasComponent implements OnInit{
   verification : Verification;
   cookieService: CookieService;
   modoEdicion : boolean = false;
-  menu : boolean;
   tareaMenu : Tarea;
+  screenHeight : number;
+  screenWidth : number;
+
+
+  @ViewChild(TareaMenuComponent) menu : TareaMenuComponent;
+
+  @HostListener("window:resize", ["$event"])
+  getScreenSize(){
+    console.log("hola");
+    this.screenHeight = window.innerHeight;
+    this.screenWidth = window.innerWidth;
+    //poner que espere un poco entre evento y evento
+  }
 
   constructor(
     verification : Verification,
@@ -26,11 +39,11 @@ export class TareasComponent implements OnInit{
 
     this.verification = verification;
     this.cookieService = cookieService;
+    this.getScreenSize();
   }
 
   ngOnInit(){
     this.tareaMenu = null;
-    this.menu = false;
 
     this.verification.verify().then(() => {
       this._tarea.readTareas().subscribe(data => {
@@ -44,13 +57,22 @@ export class TareasComponent implements OnInit{
     this.modoEdicion = !this.modoEdicion;
   }
 
-  abreMenu(tarea : Tarea){
-    this.menu = !this.menu;
-    if(this.tareaMenu == null){
-      this.tareaMenu = tarea;
-    }else{
-      this.tareaMenu = null;
-    }
+  abreMenu(event, tarea : Tarea){
+    this.tareaMenu = tarea;
+
+    let x = event.target.offsetLeft;
+    let y = event.target.offsetTop + event.target.offsetHeight;
+    let coord = [x, y];
+    this.menu.abreMenu(event, coord);
+
+    //this._renderer.setAttribute(this._element.nativeElement   this.menuTarea.nativeElement, "visibility", "visible");
+
+    //set visibility visible y poner x e y
+    //si menu es visible y se vuelve a hacer click en el mismo lado, hacer que visibility hidden
+  }
+
+  cierraMenu(){
+    this.menu.cierraMenu();
   }
 
   //no se si esto es necesario, probar cuando funcione
@@ -83,6 +105,5 @@ export class TareasComponent implements OnInit{
       this.ngOnInit();
     });
   }
-
 
 }

@@ -66,7 +66,7 @@ export class TareasService {
       .set("command", "update")
       .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.post(this.url, tarea, {params: parametros, withCredentials : true, responseType : "blob"}).toPromise();
+    return this.http.put(this.url, tarea, {params: parametros, withCredentials : true, responseType : "blob"}).toPromise();
     // responseType: blob hace que si el responseType que devolvia no es el que estaba seteado,
     // devuelve un objeto Blob con los datos
   }
@@ -76,6 +76,9 @@ export class TareasService {
     .set("command", "delete")
     .set("userId", JSON.stringify(this.verification.user));
 
+    // Se usa post ya que en el .php se obtiene los datos del input, ya que
+    // no hay implementado end-points tipo "tareas/1" debido a que la estructura
+    // de la pagina no esta pensada de dicha forma
     return this.http.post(this.url, tarea, {params: parametros, withCredentials : true, responseType : "blob"}).toPromise();
   }
 
