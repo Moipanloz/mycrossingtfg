@@ -66,7 +66,7 @@ export class TareasComponent implements OnInit{
       console.log("dentro del create ts");
       this._tarea.crearTarea().then(() => {
         console.log("before oninit");
-        this.ngOnInit();  //this.mantenerEdicion(true);
+        this.ngOnInit();
       });
     }else{
       alert("No se pueden crear mas tareas");
@@ -75,11 +75,6 @@ export class TareasComponent implements OnInit{
 
   actualizaTarea(tarea : Tarea){
     this._tarea.actualizaTarea(tarea).then(() => {
-      // Si se cumple, significa que se ha modificado (no done/todo)
-      /*
-      if(this.modoEdicion){
-        //ver cuando se ponga el formulario si hace o no falta
-      }*/
       this.ngOnInit();
     });
   }

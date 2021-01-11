@@ -43,7 +43,7 @@ export class TareasService {
     console.log("new tarea before post");
     console.log(tarea);
 
-    return this.http.post(this.url, tarea, {params: parametros, withCredentials : true, responseType : "blob"} ).toPromise();
+    return this.http.post(this.url, tarea, {params: parametros, withCredentials : true, responseType : "blob"}).toPromise();
   }
 
   async actualizaTarea(tarea : Tarea){

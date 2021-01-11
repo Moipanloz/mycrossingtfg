@@ -107,14 +107,12 @@ if(isset($_GET["command"])){
 
         $postdata = file_get_contents("php://input");
         $request = json_decode($postdata);
-        $tareaId = $request->id;
         $hecha = $request->hecha;
         $imagenUrl = $request->imagen_url;
 
-        echo("data dumped");
-        echo("tareaid " . $tareaId);
-        echo("userid " . $userId);
-        echo("heacha " . $hecha);
+        echo(" data dumped");
+        echo(" userid " . $userId);
+        echo(" heacha " . $hecha);
         echo($imagenUrl);
 
         $error =  checkUser($userId) &&
@@ -125,10 +123,11 @@ if(isset($_GET["command"])){
         if($error){
           echo("vamos bien");
 
-          $sql = "INSERT INTO tareas(id, usuario_id, hecha, imagen_url) VALUES ('', $userId, $hecha, $imagenUrl)";
+          $sql = "INSERT INTO tareas(id, usuario_id, hecha, imagen_url) VALUES ('', $userId, $hecha, '$imagenUrl')";
           $result = mysqli_query($conn,$sql);
 
           echo("post query");
+          echo("result: " . $result);
 
         }else{
           print("No se cumplen los requisitos");
