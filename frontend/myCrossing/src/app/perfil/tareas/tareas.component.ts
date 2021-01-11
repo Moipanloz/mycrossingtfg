@@ -2,7 +2,7 @@ import { TareaMenuComponent } from './tarea-menu/tarea-menu.component';
 import { TareasService } from './tarea.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Tarea } from './../../interfaces';
-import { Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Verification } from '../../app.component';
 
 @Component({
@@ -18,19 +18,8 @@ export class TareasComponent implements OnInit{
   cookieService: CookieService;
   modoEdicion : boolean = false;
   tareaMenu : Tarea;
-  screenHeight : number;
-  screenWidth : number;
-
 
   @ViewChild(TareaMenuComponent) menu : TareaMenuComponent;
-
-  @HostListener("window:resize", ["$event"])
-  getScreenSize(){
-    console.log("hola");
-    this.screenHeight = window.innerHeight;
-    this.screenWidth = window.innerWidth;
-    //poner que espere un poco entre evento y evento
-  }
 
   constructor(
     verification : Verification,
@@ -39,7 +28,6 @@ export class TareasComponent implements OnInit{
 
     this.verification = verification;
     this.cookieService = cookieService;
-    this.getScreenSize();
   }
 
   ngOnInit(){
@@ -58,29 +46,20 @@ export class TareasComponent implements OnInit{
   }
 
   abreMenu(event, tarea : Tarea){
-    this.tareaMenu = tarea;
-
-    let x = event.target.offsetLeft;
-    let y = event.target.offsetTop + event.target.offsetHeight;
-    let coord = [x, y];
-    this.menu.abreMenu(event, coord);
-
-    //this._renderer.setAttribute(this._element.nativeElement   this.menuTarea.nativeElement, "visibility", "visible");
-
-    //set visibility visible y poner x e y
-    //si menu es visible y se vuelve a hacer click en el mismo lado, hacer que visibility hidden
+    if(this.tareaMenu != null && this.tareaMenu.id == tarea.id && this.menu.visibility == "visible"){
+        this.menu.cierraMenu();
+    }else{
+      this.tareaMenu = tarea;
+      let x = (event.target.offsetLeft / window.innerWidth) * 100;
+      let y = ((event.target.offsetTop + event.target.offsetHeight) / window.innerHeight ) * 100;
+      let coord = [x, y];
+      this.menu.abreMenu(event, coord);
+    }
   }
 
   cierraMenu(){
     this.menu.cierraMenu();
   }
-
-  //no se si esto es necesario, probar cuando funcione
-  /*
-  mantenerEdicion(modoEdicion : boolean){
-    this.ngOnInit();
-    this.modoEdicion = modoEdicion;
-  }*/
 
   crearTarea(){
     if(this.data[0].length < 10){
@@ -96,6 +75,11 @@ export class TareasComponent implements OnInit{
 
   actualizaTarea(tarea : Tarea){
     this._tarea.actualizaTarea(tarea).then(() => {
+      // Si se cumple, significa que se ha modificado (no done/todo)
+      /*
+      if(this.modoEdicion){
+        //ver cuando se ponga el formulario si hace o no falta
+      }*/
       this.ngOnInit();
     });
   }

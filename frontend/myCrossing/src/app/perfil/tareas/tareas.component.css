@@ -33,4 +33,6 @@ div{
   height: 2vw;
   background-color: rgb(171, 219, 164);
   border-color: rgb(99, 252, 79);
+  position: absolute;
+  right: 3.5vw;
 }
