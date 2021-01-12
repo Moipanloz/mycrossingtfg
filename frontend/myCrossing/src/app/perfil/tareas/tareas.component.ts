@@ -31,8 +31,6 @@ export class TareasComponent implements OnInit{
   }
 
   ngOnInit(){
-    this.tareaMenu = null;
-
     this.verification.verify().then(() => {
       this._tarea.readTareas().subscribe(data => {
         this.data = [];
@@ -71,6 +69,19 @@ export class TareasComponent implements OnInit{
     }else{
       alert("No se pueden crear mas tareas");
     }
+  }
+
+  checkTarea(tarea : Tarea){
+
+    // Le cambio el estado a la tarea, no se puede hacer con "tarea.hecha = !tarea.hecha"
+    // porque si no ocurre lo mencionado arriba
+    if(tarea.hecha == false){
+      tarea.hecha = true;
+    }else{
+      tarea.hecha = false;
+    }
+
+    this.actualizaTarea(tarea);
   }
 
   actualizaTarea(tarea : Tarea){

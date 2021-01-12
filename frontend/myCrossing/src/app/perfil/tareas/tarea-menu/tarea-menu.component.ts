@@ -1,5 +1,6 @@
 import { Tarea } from './../../../interfaces';
 import { Component, EventEmitter, Input, Output, HostBinding, ViewChild, ElementRef } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-tarea-menu',
@@ -7,6 +8,8 @@ import { Component, EventEmitter, Input, Output, HostBinding, ViewChild, Element
   styleUrls: ['./tarea-menu.component.css']
 })
 export class TareaMenuComponent {
+
+  iconoForm : FormGroup;
 
   @HostBinding("style.top") y = "0px";
   @HostBinding("style.left") x = "0px";
@@ -17,6 +20,13 @@ export class TareaMenuComponent {
   @Input("menu") tarea : Tarea
 
   @Output() borrar = new EventEmitter<Tarea>();
+  @Output() actualizar = new EventEmitter<Tarea>();
+
+  constructor(private _builder : FormBuilder) {
+    this.iconoForm = this._builder.group({
+      icono: ["1", Validators.required]
+    });
+   }
 
   borrarTarea(tarea : Tarea){
     this.borrar.emit(tarea);
@@ -24,6 +34,7 @@ export class TareaMenuComponent {
   }
 
   abreMenu(e : MouseEvent, coord : Array<number>){
+
     let a : string = this.div.nativeElement.style.width;
     let width = parseInt(a.split("v", 2)[0]);
     // Pos = pos boton - mitad menu + mitad boton
@@ -42,6 +53,12 @@ export class TareaMenuComponent {
     this.visibility = "hidden";
   }
 
-  constructor() { }
+  enviar(value){
+    // Solo actualiza si el valor es distinto al que ya tiene
+    if(this.tarea.imagen_url != value["icono"]){
+      this.tarea.imagen_url = value["icono"];
+      this.actualizar.emit(this.tarea);
+    }
+  }
 
 }

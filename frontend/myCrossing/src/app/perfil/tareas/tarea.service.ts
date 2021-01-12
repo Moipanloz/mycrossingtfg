@@ -52,23 +52,13 @@ export class TareasService {
     // hay que pasarlo de valor numerico a boolean o si no el primer click no
     // funcionara, ya que angular pasara de 0 a false (click1) y luego de false
     // a true (click2)
-
-    // Le cambio el estado a la tarea, no se puede hacer con "tarea.hecha = !tarea.hecha"
-    // porque si no ocurre lo mencionado arriba
-
-    if(tarea.hecha == false){
-      tarea.hecha = true;
-    }else{
-      tarea.hecha = false;
-    }
-
     let parametros = new HttpParams()
       .set("command", "update")
       .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.put(this.url, tarea, {params: parametros, withCredentials : true, responseType : "blob"}).toPromise();
     // responseType: blob hace que si el responseType que devolvia no es el que estaba seteado,
     // devuelve un objeto Blob con los datos
+    return this.http.put(this.url, tarea, {params: parametros, withCredentials : true, responseType : "blob"}).toPromise();
   }
 
   borrarTarea(tarea){

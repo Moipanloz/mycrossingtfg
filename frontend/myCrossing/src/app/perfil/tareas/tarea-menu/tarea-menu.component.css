@@ -12,9 +12,14 @@
   font-size: 1.2vw;
 }
 
+.popup-menu > form{
+  margin: 0 0 5% 0;
+}
+
 .popup-menu > div{
-  margin: 5% 0 0 0;
   justify-content: left;
+  margin: 5% 0 0 0;
+
 }
 
 .popup-menu > * > span{
