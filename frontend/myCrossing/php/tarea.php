@@ -98,10 +98,7 @@ if(isset($_GET["command"])){
       break;
 
     case "create"://---------------------------------------------------------------------------------------------------CREATE
-      echo("dentro de create");
       if(isset($_GET["userId"])){
-
-        echo("userid setted");
 
         $userId = $_GET["userId"];
 
@@ -110,24 +107,13 @@ if(isset($_GET["command"])){
         $hecha = $request->hecha;
         $imagenUrl = $request->imagen_url;
 
-        echo(" data dumped");
-        echo(" userid " . $userId);
-        echo(" heacha " . $hecha);
-        echo($imagenUrl);
-
         $error =  checkUser($userId) &&
                   checkDatosCorrectos($imagenUrl, $hecha);
 
-        echo($error);
-
         if($error){
-          echo("vamos bien");
 
           $sql = "INSERT INTO tareas(id, usuario_id, hecha, imagen_url) VALUES ('', $userId, $hecha, '$imagenUrl')";
           $result = mysqli_query($conn,$sql);
-
-          echo("post query");
-          echo("result: " . $result);
 
         }else{
           print("No se cumplen los requisitos");

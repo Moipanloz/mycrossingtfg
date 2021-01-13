@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 import { TareaMenuComponent } from './tareas/tarea-menu/tarea-menu.component';
 import { ClickOutsideDirective } from 'app/general/clickOutside.directive';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ReactiveFormsModule
-  ]
+  ],
+  providers: [CookieService]
 })
 
 export class PerfilModule { }

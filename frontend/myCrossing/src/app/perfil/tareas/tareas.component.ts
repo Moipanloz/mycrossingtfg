@@ -61,9 +61,7 @@ export class TareasComponent implements OnInit{
 
   crearTarea(){
     if(this.data[0].length < 10){
-      console.log("dentro del create ts");
       this._tarea.crearTarea().then(() => {
-        console.log("before oninit");
         this.ngOnInit();
       });
     }else{
