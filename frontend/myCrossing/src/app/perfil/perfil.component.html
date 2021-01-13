@@ -1,20 +1,42 @@
 <div class="user_info">
-  <div id="perfil">
-    <p>pruebna</p>
-    <span>pipo 1</span>
-    <span>pipo 2</span>
+  <div id="perfil" class="wrapper-perfil">
+    <div id="primary">
+      <img src="../../assets/images/logo.png">
+      <div id="nombre">
+        <h2>Usuario</h2> <!-- {{usuario.nombre}} -->
+        <p>Apodo del aldeano</p>  <!-- {{usuario.apodo}} -->
+      </div>
+    </div>
+    <div id="secondary">
+      <div id="flex">
+        <span>Isla:</span>  <!-- {{usuario.isla}} -->
+        <div>
+          <span>Fruta:</span>  <!-- {{usuario.fruta}} -->
+          <img src="../../assets/images/logo.png" class="icono">
+        </div>
+      </div>
+      <hr>
+      <div>
+        <span>Cumpleaños:</span>  <!-- {{usuario.cumpleanyos}} -->
+        <img src="../../assets/images/logo.png" class="icono">
+      </div>
+      <hr>
+      <span>ID Switch:</span>  <!-- {{usuario.id_switch}} -->
+      <hr>
+      <span>ID Sueño:</span>  <!-- {{usuario.id_sueño}} -->
+    </div>
   </div>
-  <div id="tools">
+  <div id="tools" class="wrapper-perfil">
     <h2>Mis tareas</h2>
     <app-tareas></app-tareas>
     <h2>Visitantes Semanales</h2>
     <app-visitasemanal></app-visitasemanal>
   </div>
 </div>
-<div id="misvecinos">
+<div id="misvecinos"  class="wrapper-perfil">
   <h2>Mis vecinos</h2>
   <app-misvecinos></app-misvecinos>
 </div>
-<div  id="test2">
+<div id="test2" class="wrapper-perfil">
   <app-coleccionesp></app-coleccionesp>
 </div>

@@ -10,6 +10,7 @@ import { TareaMenuComponent } from './tareas/tarea-menu/tarea-menu.component';
 import { ClickOutsideDirective } from 'app/general/clickOutside.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 import { VecinoMenuComponent } from './misvecinos/vecino-menu/vecino-menu.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { VecinoMenuComponent } from './misvecinos/vecino-menu/vecino-menu.compon
   imports: [
     CommonModule,
     ReactiveFormsModule
-  ]
+  ],
+  providers: [CookieService]
 })
 
 export class PerfilModule { }

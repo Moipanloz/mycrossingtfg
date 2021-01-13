@@ -1,4 +1,3 @@
-
 :host > div{
   height: fit-content;
   min-height: 30vw;
@@ -11,13 +10,66 @@
   grid-template-columns: 30vw auto;
 }
 
-div {
+.wrapper-perfil {
   padding: 2vw;
 }
+
+h2{
+  font-size: 1.6vw;
+}
+
+p{
+  font-size: 1vw;
+}
+
+span {
+  font-size: 1vw;
+  font-weight: bold;
+}
+
 
 #perfil{
   background-color: crimson;
   border-radius: 0 30px 30px 0;
+}
+
+#primary > img{
+  width: 7vw;
+  height: 7vw;
+  background-color: pink;
+}
+
+#primary {
+  display: flex;
+}
+
+#nombre {
+  margin: 0 0 0 2vw;
+}
+
+#nombre > * {
+  margin: 0 0 0.5vw 0;
+}
+
+#secondary {
+  margin: 2vw 2vw;
+}
+
+#flex, #flex > div{
+  display: flex;
+}
+
+#flex {
+  justify-content: space-between;
+}
+
+#secondary > hr {
+  margin: 1vw 0;
+}
+
+.icono {
+  width: 1vw;
+  height: 1vw;
 }
 
 #tools{
@@ -28,7 +80,6 @@ div {
 
 h2 {
   text-align: center;
-  font-size: 1.6vw;
 }
 
  #misvecinos{
