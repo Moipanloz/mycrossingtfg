@@ -64,12 +64,13 @@ export class TareasService {
   borrarTarea(tarea){
     let parametros = new HttpParams()
     .set("command", "delete")
+    .set("tareaId", tarea.id)
     .set("userId", JSON.stringify(this.verification.user));
 
     // Se usa post ya que en el .php se obtiene los datos del input, ya que
     // no hay implementado end-points tipo "tareas/1" debido a que la estructura
     // de la pagina no esta pensada de dicha forma
-    return this.http.post(this.url, tarea, {params: parametros, withCredentials : true, responseType : "blob"}).toPromise();
+    return this.http.delete(this.url, {params: parametros, withCredentials : true, responseType : "blob"}).toPromise();
   }
 
 

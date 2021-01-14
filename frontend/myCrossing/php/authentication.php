@@ -5,19 +5,8 @@
 // que estan en pipo.php para abrir y cerrar sesion
 // mas info en marcadores
 
-header('Access-Control-Allow-Origin: http://localhost:4200');
-header('Access-Control-Allow-Headers: *');
+require "opendb.php";
 
-$servername = "localhost";
-$username   = "mcadmin";
-$password   = "thisismypass";
-$dbname     = "mycrossingdb";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 if(isset($_GET['command'])){
   switch($_GET['command']){
     case "setNull":

@@ -1,24 +1,9 @@
 <?php
 
-header('Access-Control-Allow-Origin: http://localhost:4200');
-header('Access-Control-Allow-Headers: *');
-header('Access-Control-Allow-Methods: PUT, DELETE, POST, GET');
-
+require "opendb.php";
 
 include "validators/usuarioValidator.php";
 include "validators/tareaValidator.php";
-
-$servername = "localhost";
-$username   = "mcadmin";
-$password   = "thisismypass";
-$dbname     = "mycrossingdb";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-  //echo "Connected successfully";
 
 if(isset($_GET["command"])){
   $error = false;
@@ -60,10 +45,13 @@ if(isset($_GET["command"])){
       if(isset($_GET["userId"])){
         $userId = $_GET["userId"];
 
-          // Cogemos los datos a actualizar enviados por el POST aunque no se
-          // puede hacer desde $_POST dado que PHP no admite JSON en $_POST
+        // Cogemos los datos a actualizar enviados por el POST aunque no se
+        // puede hacer desde $_POST dado que PHP no admite JSON en $_POST
 
-          $putdata = file_get_contents("php://input");
+        $putdata = file_get_contents("php://input");
+
+        if(isset($putdata) && !empty($putdata)){
+
           $request = json_decode($putdata);
           $tareaId = $request->id;
           $hecha = $request->hecha;
@@ -92,46 +80,44 @@ if(isset($_GET["command"])){
           }else{
             print("No se cumplen los requisitos");
           }
+
+        }else{
+          print("No hay datos");
+        }
+
       }else{
         print("User id not set");
       }
       break;
 
     case "create"://---------------------------------------------------------------------------------------------------CREATE
-      echo("dentro de create");
       if(isset($_GET["userId"])){
-
-        echo("userid setted");
 
         $userId = $_GET["userId"];
 
         $postdata = file_get_contents("php://input");
-        $request = json_decode($postdata);
-        $hecha = $request->hecha;
-        $imagenUrl = $request->imagen_url;
 
-        echo(" data dumped");
-        echo(" userid " . $userId);
-        echo(" heacha " . $hecha);
-        echo($imagenUrl);
+        if(isset($postdata) && !empty($postdata)){
 
-        $error =  checkUser($userId) &&
-                  checkDatosCorrectos($imagenUrl, $hecha);
+          $request = json_decode($postdata);
+          $hecha = $request->hecha;
+          $imagenUrl = $request->imagen_url;
 
-        echo($error);
+          $error =  checkUser($userId) &&
+                    checkDatosCorrectos($imagenUrl, $hecha);
 
-        if($error){
-          echo("vamos bien");
+          if($error){
+            $sql = "INSERT INTO tareas(id, usuario_id, hecha, imagen_url) VALUES ('', $userId, $hecha, '$imagenUrl')";
+            $result = mysqli_query($conn,$sql);
 
-          $sql = "INSERT INTO tareas(id, usuario_id, hecha, imagen_url) VALUES ('', $userId, $hecha, '$imagenUrl')";
-          $result = mysqli_query($conn,$sql);
-
-          echo("post query");
-          echo("result: " . $result);
+          }else{
+            print("No se cumplen los requisitos");
+          }
 
         }else{
-          print("No se cumplen los requisitos");
+          print("No hay datos");
         }
+
       }else{
         print("User id not set");
       }
@@ -142,19 +128,23 @@ if(isset($_GET["command"])){
       if(isset($_GET["userId"])){
         $userId = $_GET["userId"];
 
-        $deletedata = file_get_contents("php://input");
-        $request = json_decode($deletedata);
-        $tareaId = $request->id;
+        if(isset($_GET["tareaId"])){
 
-        $error =  checkUser($userId) &&
+          $tareaId = $_GET["tareaId"];
+
+          $error =  checkUser($userId) &&
                   checkExisteTarea($tareaId, $conn) &&
                   checkTareaOwner($userId, $tareaId, $conn);
 
-        if($error){
-          $sql = "DELETE FROM tareas WHERE id = $tareaId";
-          $result = mysqli_query($conn,$sql);
+          if($error){
+            $sql = "DELETE FROM tareas WHERE id = $tareaId";
+            $result = mysqli_query($conn,$sql);
+          }else{
+            print("No se cumplen los requisitos");
+          }
+
         }else{
-          print("No se cumplen los requisitos");
+          print("No hay tarea");
         }
 
       }else{
