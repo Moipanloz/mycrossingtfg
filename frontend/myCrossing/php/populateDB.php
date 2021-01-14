@@ -8,6 +8,9 @@ require "opendb.php";
 $sql = "DROP TABLE tareas";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
+$sql = "DROP TABLE misvecinos";
+$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
 $sql = "DROP TABLE usuarios";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
@@ -23,6 +26,13 @@ $sql = "CREATE TABLE tareas (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
+$sql = "CREATE TABLE misvecinos (
+  vecino_id int(11) NOT NULL,
+  usuario_id int(11) NOT NULL,
+  amistad set('1','2','3','4','5','6') NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
 $sql = "CREATE TABLE usuarios (
   nombre varchar(20) NOT NULL,
   id int(5) NOT NULL,
@@ -34,7 +44,6 @@ $sql = "CREATE TABLE usuarios (
   email varchar(30) NOT NULL,
   verification char(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1";
-
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 // ---------------------------------------------------------------------------------------------Alter
@@ -43,7 +52,6 @@ $sql = "ALTER TABLE usuarios
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY email (`email`),
   MODIFY id int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3";
-
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "ALTER TABLE tareas
@@ -51,26 +59,35 @@ $sql = "ALTER TABLE tareas
   ADD KEY tareas_ibfk_1 (usuario_id),
   MODIFY id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8,
   ADD CONSTRAINT tareas_ibfk_1 FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON DELETE CASCADE";
-
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
+$sql = "ALTER TABLE misvecinos
+  ADD PRIMARY KEY (vecino_id,usuario_id),
+  ADD KEY misvecinos_ibfk_1 (usuario_id),
+  ADD CONSTRAINT misvecinos_ibfk_1 FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON DELETE CASCADE";
+$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 // ---------------------------------------------------------------------------------------------Populate
 
 $sql = "INSERT INTO usuarios (nombre, id, isla, fruta, cumpleanyos, hemisferio, contrasenya, email, verification) VALUES
 ('usuario1', 1, 'isla1', 'PERA', '2011-11-01', 'NORTE', 'usuario1', 'usuario1@email.com', 'uVLDHRAnv3'),
 ('usuario2', 2, 'isla2', 'MANZANA', '2012-12-02', 'SUR', 'usuario2', 'usuario2@email.com', '')";
-
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "INSERT INTO tareas (id, usuario_id, hecha, imagen_url) VALUES
-(1, 1, 0, 'asdasd'),
-(2, 1, 0, 'dadd'),
-(4, 1, 0, 'mmmmmmmmmmm'),
-(5, 2, 0, 'dd'),
-(6, 2, 1, 'asdasdas'),
-(7, 2, 1, 'asdasdas')";
+(1, 1, 0, '2'),
+(2, 1, 0, '5'),
+(4, 1, 0, '1'),
+(5, 2, 0, '2'),
+(6, 2, 1, '4'),
+(7, 2, 1, '3')";
+$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
+$sql = "INSERT INTO misvecinos (vecino_id, usuario_id, amistad) VALUES
+(1, 1, '1'),
+(1, 2, '1'),
+(2, 1, '1'),
+(2, 2, '1');";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 // ===================================================================================================== Events
@@ -92,13 +109,11 @@ ON COMPLETION PRESERVE
 DO BEGIN
   UPDATE tareas SET hecha = 0;
 END";
-
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 // =====================================================================================================
 
 print("Population done");
-
 $conn -> close();
 
 ?>

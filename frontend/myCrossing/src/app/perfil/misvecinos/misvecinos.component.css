@@ -1,4 +1,59 @@
-h2 {
-  text-align: center;
-  font-size: 1.6vw;
+h3{
+  font-size: 1.3vw;
 }
+
+p, span{
+  font-size: 1vw;
+}
+
+#vecino-grid{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 48% 48%;
+  grid-gap: 1vw;
+}
+
+#vecino-show{
+  grid-row-start: 1;
+  grid-row-end: 3;
+  background-color: chartreuse;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1vw;
+}
+
+#vecino-img{
+  width: auto;
+  height: 15vw;
+}
+
+#añadir{
+  background-color: rgb(104, 104, 104);
+  border-color: rgb(43, 43, 43);
+}
+
+.contenedor-vecino{
+  background-color: rgb(207, 237, 100);
+  margin: 1vw;
+  padding: 1.5vw;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icono{
+  width: 8vw;
+  height: auto;
+  background-color: crimson;
+}
+
+.wrap-vecino{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
