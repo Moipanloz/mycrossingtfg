@@ -2,16 +2,6 @@
   position: absolute;
 }
 
-.popup-menu{
-  background-color: rgb(0, 0, 0 , 0.75);
-  height: auto;
-  display: block;
-  padding: 7%;
-  border-radius: 15px;
-  color: white;
-  font-size: 1.2vw;
-}
-
 .popup-menu > form{
   margin: 0 0 5% 0;
 }

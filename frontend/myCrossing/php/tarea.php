@@ -1,6 +1,6 @@
 <?php
 
-require "opendb.php";
+require "openDB.php";
 
 include "validators/usuarioValidator.php";
 include "validators/tareaValidator.php";
@@ -148,7 +148,7 @@ if(isset($_GET["command"])){
         }
 
       }else{
-        print("User id not set");
+        print("No hay id de usuario");
       }
       break;
 

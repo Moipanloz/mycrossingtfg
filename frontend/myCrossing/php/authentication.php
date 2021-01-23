@@ -5,7 +5,7 @@
 // que estan en pipo.php para abrir y cerrar sesion
 // mas info en marcadores
 
-require "opendb.php";
+require "openDB.php";
 
 if(isset($_GET['command'])){
   switch($_GET['command']){

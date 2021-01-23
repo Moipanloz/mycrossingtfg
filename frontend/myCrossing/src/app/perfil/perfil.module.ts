@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { TareaMenuComponent } from './tareas/tarea-menu/tarea-menu.component';
 import { ClickOutsideDirective } from 'app/general/clickOutside.directive';
 import { ReactiveFormsModule } from '@angular/forms';
+import { VecinoMenuComponent } from './misvecinos/vecino-menu/vecino-menu.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ColeccionespComponent,
     MisvecinosComponent,
     TareaMenuComponent,
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    VecinoMenuComponent
   ],
   imports: [
     CommonModule,

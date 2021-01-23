@@ -19,11 +19,6 @@ div{
 }
 
 #editar{
-  width: 2vw;
-  height: 2vw;
-  background-color: rgb(171, 219, 164);
-  border-color: rgb(99, 252, 79);
-  position: absolute;
   right: 3.5vw;
   top: 11.5vw;
 }

@@ -1,7 +1,9 @@
+<button id="editar" (click)="activaEdicion()">{{modoEdicion}}</button>
+
 <div id="vecino-grid">
-  <div id="vecino-show">
+  <div id="vecino-show" #show>
     <img src="../../../assets/images/logo.png" id="vecino-img">
-    <h3>Nombre</h3>
+    <h3>Nombre: {{this.vecinoShow.vecino_id}}</h3>
     <div>
       <p>Cumpleaños: 1 de Enero</p>
       <p>Personalidad: Dulce</p>
@@ -9,20 +11,36 @@
       <p>Género: Femenino</p>
     </div>
   </div>
-  <ng-container> <!-- esto tiene que ser 10 veces si o si-->
-    <div class="contenedor-vecino"> <!-- div base -->
-      <ng-container> <!--*ngIf="vecino != null; else vacio" // si hay vecino, pone datos-->
+  <ng-container *ngFor="let vecino of data[0]">
+    <div class="contenedor-vecino" (mouseenter)="toggleVecino(vecino)" (click)="modoEdicion ? abreMenu($event, vecino) : '' " >
+      <ng-container *ngIf="vecino != null; else vacio">
         <img src="../../../assets/images/logo.png" class="icono"> <!-- icono -->
         <div class="wrap-vecino">
-          <span>Nombre</span>
+          <span>{{vecino.vecino_id}}</span>
           <button>
-            <span>B</span>
+            <span>{{vecino.amistad}}</span>
           </button>
         </div>
       </ng-container>
-      <ng-template #vacio> <!-- si no hay vecino, le pone el boton-->
-        <button class="boton-circular" id="añadir">+</button>
+
+      <ng-template #vacio>
+
+        <ng-container *ngIf="modoEdicion; else placeholder" >
+          <button class="boton-circular" id="añadir" (click)="abreMenu($event, null)">+</button>
+        </ng-container>
+
+        <ng-template #placeholder>
+          <img src="../../../assets/images/logo.png" class="icono">
+        </ng-template>
+
       </ng-template>
+
     </div>
   </ng-container>
+</div>
+
+<app-vecino-menu [vecinoMenu]="this.vecinoMenu" (crear)="crearVecino($event)" (clickOutside)="cierraMenu()"></app-vecino-menu>
+
+<div>
+  <p>¿Quién será el próximo en irse?</p>
 </div>

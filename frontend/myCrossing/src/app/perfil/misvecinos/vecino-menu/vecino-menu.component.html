@@ -1,0 +1,19 @@
+<div class="popup-menu" (busquedaEmitter)="handleSearch($event)">
+  <form [formGroup]="vecinoForm" (ngSubmit)="enviar(vecinoForm.value)">
+    <div>
+      <input [formControl]="busqueda" type="text" placeholder="Buscar">
+      <button (click)="borrarVecino(vecino)">D</button>
+    </div>
+    <div> <!-- para cada vacino, un input, aqui se limita la busqueda con el search -->
+      <input formControlName="id" type="radio" value="1"> <!-- valor desde api-->
+      <label>1</label> <!-- nombre desde api -->
+      <input formControlName="id" type="radio" value="2"> <!-- valor desde api-->
+      <label>2</label> <!-- nombre desde api -->
+      <input formControlName="id" type="radio" value="3"> <!-- valor desde api-->
+      <label>3</label> <!-- nombre desde api -->
+      <input formControlName="id" type="radio" value="4"> <!-- valor desde api-->
+      <label>4</label> <!-- nombre desde api -->
+    </div>
+    <button [disabled]="vecinoForm.invalid" type="submit">Listo</button>
+  </form>
+</div>
