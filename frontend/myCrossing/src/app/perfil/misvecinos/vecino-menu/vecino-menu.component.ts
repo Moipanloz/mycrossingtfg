@@ -1,6 +1,7 @@
 import { Component, EventEmitter, HostBinding, Input, Output, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Vecino } from 'app/interfaces';
+import { debounceTime } from "rxjs/operators";
 
 @Component({
   selector: 'app-vecino-menu',
@@ -19,24 +20,35 @@ export class VecinoMenuComponent implements OnInit {
 
   vecinoForm : FormGroup;
   busqueda = new FormControl("");
-  busquedaEmitter = new EventEmitter<string>(); // Cambiarlo a string cuando se implemente API
+  valorFiltrar : string = "";
 
   constructor(private _builder : FormBuilder) {
-    this.vecinoForm = this._builder.group({
-      id: ["1", Validators.required]
-    });
+    // if(this.vecino.vecino_id == 0){
+      this.vecinoForm = this._builder.group({
+        id: [1, Validators.required]
+      });
+    // }else{
+    //   this.vecinoForm = this._builder.group({
+    //     id: [2, Validators.required]
+    //   });
+    // }
+
   }
 
   ngOnInit(){
-    this.busqueda.valueChanges.subscribe(value => this.busquedaEmitter.emit(value));
+    this.busqueda.valueChanges.pipe(debounceTime(300)).subscribe(value => this.filtrar(value));
   }
 
   abreMenu(e : MouseEvent, coord : Array<number>){
     this.visibility = "visible";
+    console.log("menu abierto");
+    console.log(this.vecino);
+
     //TODO ABAJO
     this.x = coord[0]+"%";
     this.y = coord[1]+"%";
     e.stopPropagation();
+    //console.log(this.vecino);
   }
 
   cierraMenu(){
@@ -54,8 +66,35 @@ export class VecinoMenuComponent implements OnInit {
     }
   }
 
-  handleSearch(value : string){
-    console.log(value);
+  filtrar(value){
+    this.valorFiltrar = value;
   }
+
+// ==================================== ESTO ES SIMULANDO LA LISTA PARA PODER FILTRAR ==========================
+//         BORRAR CUANDO ESTE LA API
+
+  testArray : Vecino[] = [{
+    nombre: "Rocio",
+    vecino_id: 1,
+    usuario_id: 0,
+    amistad: 2
+  },{
+    nombre: "Rocinante",
+    vecino_id: 2,
+    usuario_id: 0,
+    amistad: 4
+  },{
+    nombre: "Aurora",
+    vecino_id: 3,
+    usuario_id: 0,
+    amistad: 6
+  },{
+    nombre: "Bobi",
+    vecino_id: 13,
+    usuario_id: 0,
+    amistad: 6
+  }]
+
+
 
 }

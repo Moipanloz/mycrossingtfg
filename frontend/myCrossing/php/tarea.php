@@ -30,7 +30,7 @@ if(isset($_GET["command"])){
             }
           }
 
-          print json_encode($myArray);
+          print json_encode($myArray, JSON_NUMERIC_CHECK);
 
         }else{
           print("No se cumplen los requisitos");

@@ -5,8 +5,6 @@ import { CookieService } from 'ngx-cookie-service';
 import { Vecino } from './../../interfaces';
 import { VecinoMenuComponent } from './vecino-menu/vecino-menu.component';
 
-
-
 @Component({
   selector: 'app-misvecinos',
   templateUrl: './misvecinos.component.html',
@@ -20,11 +18,15 @@ export class MisvecinosComponent implements OnInit {
   cookieService: CookieService;
   modoEdicion : boolean = false;
   vecinoMenu : Vecino = {
+    nombre: "",
     vecino_id: 0,
+    usuario_id: 0,
     amistad: 1
   };
   vecinoShow : Vecino = {
+    nombre: "",
     vecino_id: 0,
+    usuario_id: 0,
     amistad: 1
   };
 
@@ -44,7 +46,6 @@ export class MisvecinosComponent implements OnInit {
     this.verification.verify().then(() => {
       this._misvecinos.readMisVecinos().subscribe(data => {
         this.length = 10 - data.length;
-
         for(let i = 0; i < this.length; i++){
           data.push(null);
         }
@@ -74,23 +75,63 @@ export class MisvecinosComponent implements OnInit {
   }
 
   abreMenu(event, vecino : Vecino){
-    if(vecino != null){
+    let coord = this.obtenPosicion(event);
+
+    if(vecino == null){
+      // Viene del create
+      this.vecinoMenu = {
+        nombre: "",
+        vecino_id: 0,
+        usuario_id: 0,
+        amistad: 1
+      }
+      this.menu.abreMenu(event, coord);
+
+    }else{
+      // El vecino ya existe
       if(this.vecinoMenu != null && this.vecinoMenu.vecino_id == vecino.vecino_id && this.menu.visibility == "visible"){
         // si el vecino ya esta seteado, y ademas coincide con el id que le pasas y el menu se ve
         this.menu.cierraMenu();
       }else{
-        this.vecinoMenu = vecino;
-        //TODO ABAJO
-        let x = (event.target.offsetLeft / window.innerWidth) * 100;
-        let y = ((event.target.offsetTop + event.target.offsetHeight) / window.innerHeight ) * 100;
-        let coord = [x, y];
+        console.log("antes de asignar vecino");
+        console.log(vecino);
+        console.log(this.vecinoMenu);
 
-        this.menu.abreMenu(event, coord);
+        //this.vecinoMenu = vecino;
+        // console.log("dsps de asignar vecino");
+        // console.log(this.vecinoMenu);
+
+        // setTimeout(() => {
+        //   this.menu.abreMenu(event, coord);
+        // }, 3000);
+        this.iniciaDatos(vecino).then(() => {
+          console.log("dsps de asignar vecino");
+          console.log(this.vecinoMenu);
+
+          this.menu.abreMenu(event, coord);
+        });
       }
-    }else{
-      //create form
     }
+  }
 
+  iniciaDatos(vecino : Vecino) : Promise<Vecino> {
+    let promise = new Promise<Vecino>((resolve, reject) => {
+      this.vecinoMenu = vecino;
+      if(this.vecinoMenu == vecino){
+        resolve(this.vecinoMenu);
+      }else{
+        reject();
+      }
+
+    });
+    return promise;
+  }
+
+  obtenPosicion(event): any[]{
+    //TODO ABAJO
+    let x = (event.target.offsetLeft / window.innerWidth) * 100;
+    let y = ((event.target.offsetTop + event.target.offsetHeight) / window.innerHeight ) * 100;
+    return [x, y];
   }
 
   cierraMenu(){

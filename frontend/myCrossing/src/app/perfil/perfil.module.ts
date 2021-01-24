@@ -1,3 +1,4 @@
+import { FiltroVecinoPipe } from './misvecinos/vecino-menu/filtro-vecino.pipe';
 import { PerfilComponent } from './perfil.component';
 import { MisvecinosComponent } from './misvecinos/misvecinos.component';
 import { ColeccionespComponent } from './coleccionesp/coleccionesp.component';
@@ -10,7 +11,6 @@ import { ClickOutsideDirective } from 'app/general/clickOutside.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 import { VecinoMenuComponent } from './misvecinos/vecino-menu/vecino-menu.component';
 
-
 @NgModule({
   declarations: [
     PerfilComponent,
@@ -20,7 +20,8 @@ import { VecinoMenuComponent } from './misvecinos/vecino-menu/vecino-menu.compon
     MisvecinosComponent,
     TareaMenuComponent,
     ClickOutsideDirective,
-    VecinoMenuComponent
+    VecinoMenuComponent,
+    FiltroVecinoPipe
   ],
   imports: [
     CommonModule,

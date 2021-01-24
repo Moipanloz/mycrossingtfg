@@ -18,6 +18,8 @@ export interface User{
 }
 
 export interface Vecino{
+  nombre: string; //para filtrar por nombre
   vecino_id: number;
+  usuario_id: number;
   amistad: number;
 }
