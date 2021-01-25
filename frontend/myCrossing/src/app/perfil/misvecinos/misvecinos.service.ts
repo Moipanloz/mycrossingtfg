@@ -37,11 +37,19 @@ export class MisvecinosService {
 
   actualizarVecino(oldVecino : Vecino, newVecino : Vecino){
     let parametros = new HttpParams()
-    .set("command", "update")
+    .set("command", "updateVecino")
     .set("oldVecinoId", JSON.stringify(oldVecino.vecino_id))
     .set("userId", JSON.stringify(this.verification.user));
 
     return this.http.put(this.url, newVecino, {params : parametros, withCredentials : true, responseType : "blob"}).toPromise();
+  }
+
+  actualizarAmistadVecino(vecino : Vecino){
+    let parametros = new HttpParams()
+    .set("command", "updateAmistad")
+    .set("userId", JSON.stringify(this.verification.user));
+
+    return this.http.put(this.url, vecino, {params : parametros, withCredentials : true, responseType : "blob"}).toPromise();
   }
 
   borrarVecino(vecino : Vecino){

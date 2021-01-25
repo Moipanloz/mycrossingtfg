@@ -14,10 +14,10 @@
   <ng-container *ngFor="let vecino of data[0]">
     <div class="contenedor-vecino" (mouseenter)="toggleVecino(vecino)" >
       <ng-container *ngIf="vecino != null; else vacio">
-        <img src="../../../assets/images/logo.png" class="icono" (click)="modoEdicion ? abreMenu($event, vecino) : '' "> <!-- icono -->
+        <img src="../../../assets/images/logo.png" class="icono" (click)="modoEdicion ? abreMenu($event, vecino, false) : '' "> <!-- icono -->
         <div class="wrap-vecino">
           <span>{{vecino.vecino_id}}</span>
-          <button>
+          <button (click)="modoEdicion ? abreMenu($event, vecino, true) : '' ">
             <span>{{vecino.amistad}}</span>
           </button>
         </div>
@@ -26,7 +26,7 @@
       <ng-template #vacio>
 
         <ng-container *ngIf="modoEdicion; else placeholder" >
-          <button class="boton-circular" id="añadir" (click)="abreMenu($event, null)">+</button>
+          <button class="boton-circular" id="añadir" (click)="abreMenu($event, null, false)">+</button>
         </ng-container>
 
         <ng-template #placeholder>
@@ -39,7 +39,7 @@
   </ng-container>
 </div>
 
-<app-vecino-menu [vecinoMenu]="this.vecinoMenu" (crear)="crearVecino($event)" (actualizar)="actualizaVecino($event)" (borrar)="borraVecino($event)" (clickOutside)="cierraMenu()"></app-vecino-menu>
+<app-vecino-menu [vecinoMenu]="this.vecinoMenu" (crear)="crearVecino($event)" (actualizarVecino)="actualizaVecino($event)" (actualizarAmistad)="actualizaAmistadVecino($event)" (borrar)="borraVecino($event)" (clickOutside)="cierraMenu(null)"></app-vecino-menu>
 
 <div>
   <p>¿Quién será el próximo en irse?</p>

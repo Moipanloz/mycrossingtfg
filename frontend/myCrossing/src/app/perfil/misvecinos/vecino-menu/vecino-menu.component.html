@@ -1,10 +1,10 @@
-<div style="width: 20vw" class="popup-menu" (busquedaEmitter)="filtrar($event)" #menuVecino>
+<div style="width: 15vw; display: none;" class="popup-menu" (busquedaEmitter)="filtrar($event)" #menuVecino>
   <div>
     <input [formControl]="busqueda" type="text" placeholder="Buscar">
     <button (click)="borrarVecino()">D</button>
   </div>
   <hr class="menu-hr">
-  <form [formGroup]="vecinoForm" (ngSubmit)="enviar(vecinoForm.value)">
+  <form [formGroup]="vecinoForm" (ngSubmit)="enviar(vecinoForm.value, false)">
     <ng-container *ngFor="let vecino of testArray | filtroVecino:valorFiltrar"> <!-- todos los vecinos de la api -->
       <input formControlName="id" type="radio" value="{{vecino.vecino_id}}"> <!-- valor desde api-->
       <label>{{vecino.nombre}}</label> <!-- nombre desde api -->
@@ -14,6 +14,15 @@
   </form>
 </div>
 
-<div #menuAmistad>
-  <span> prueba </span>
+<div class="popup-menu" style="width: 15vw; display: none;" #menuAmistad>
+  <form [formGroup]="amistadForm" (ngSubmit)="enviar(amistadForm.value, true)">
+    <input formControlName="amistad" type="radio" value="1">
+    <input formControlName="amistad" type="radio" value="2">
+    <input formControlName="amistad" type="radio" value="3">
+    <input formControlName="amistad" type="radio" value="4">
+    <input formControlName="amistad" type="radio" value="5">
+    <input formControlName="amistad" type="radio" value="6">
+    <hr class="menu-hr">
+    <button [disabled]="amistadForm.invalid" type="submit">Listo</button>
+  </form>
 </div>

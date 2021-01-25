@@ -75,7 +75,7 @@ if(isset($_GET["command"])){
       }
       break;
 
-    case "update"://---------------------------------------------------------------------------------------------------UPDATE
+    case "updateVecino"://------------------------------------------------------------------------------------------------UPDATE VECINO
       if(isset($_GET["userId"])){
 
         $userId = $_GET["userId"];
@@ -90,13 +90,6 @@ if(isset($_GET["command"])){
             $request = json_decode($postdata);
             $vecinoId = $request->vecino_id;
             $amistad = $request->amistad;
-
-            echo(" oldvecino: ");
-            echo($oldVecinoId);
-            echo(" new vecino: ");
-            echo($vecinoId);
-            echo(" amistad: ");
-            echo($amistad);
 
             $tieneVecino = checkTieneVecino($userId, $vecinoId, $conn);
             $tieneVecino = ! $tieneVecino; // No se puede aplicar ! dentro de $error
@@ -124,6 +117,38 @@ if(isset($_GET["command"])){
         print("No hay id de usuario");
       }
       break;
+
+    case "updateAmistad"://----------------------------------------------------------------------------------------UPDATE AMISTAD
+    if(isset($_GET["userId"])){
+
+      $userId = $_GET["userId"];
+      $postdata = file_get_contents("php://input");
+
+      if(isset($postdata) && !empty($postdata)){
+
+        $request = json_decode($postdata);
+        $vecinoId = $request->vecino_id;
+        $amistad = $request->amistad;
+
+        $error = checkUser($userId) &&
+                checkDatosCorrectos($vecinoId, $amistad) &&
+                checkTieneVecino($userId, $vecinoId, $conn);
+
+        if($error){
+          $sql = "UPDATE misvecinos SET amistad = '$amistad' WHERE vecino_id = $vecinoId AND usuario_id = $userId";
+          $result = mysqli_query($conn,$sql);
+
+        }else{
+          print("No se cumplen los requisitos");
+        }
+      }else{
+        print("No hay datos");
+      }
+
+    } else {
+      print("No hay id de usuario");
+    }
+    break;
 
     case "delete"://---------------------------------------------------------------------------------------------------DELETE
       if(isset($_GET["userId"])){

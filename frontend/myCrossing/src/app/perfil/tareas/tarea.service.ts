@@ -26,12 +26,9 @@ export class TareasService {
   }
 
   crearTarea(){
-    console.log("dentro del create servicio");
     let parametros = new HttpParams()
       .set("command", "create")
       .set("userId", JSON.stringify(this.verification.user));
-
-    console.log("parametros setted");
 
     let tarea = {
         id: "",
@@ -39,9 +36,6 @@ export class TareasService {
         hecha: 0,
         imagen_url: "TODO"
       };
-
-    console.log("new tarea before post");
-    console.log(tarea);
 
     return this.http.post(this.url, tarea, {params: parametros, withCredentials : true, responseType : "blob"}).toPromise();
   }

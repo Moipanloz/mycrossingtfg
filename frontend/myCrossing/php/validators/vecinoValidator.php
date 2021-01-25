@@ -46,5 +46,4 @@ function checkNumeroVecinos($userId, $conn){
   return $result;
 }
 
-
 ?>
