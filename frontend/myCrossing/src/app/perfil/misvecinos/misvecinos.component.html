@@ -1,5 +1,21 @@
 <button id="editar" (click)="activaEdicion()">{{modoEdicion}}</button>
 
+<div [hidden]="!porcentaje" id="moveout-info" >
+  <div>
+    <p>La amistad funciona tal que asi</p>
+    <ul>
+      <li>Nivel 1: aaaaa</li>
+      <li>Nivel 2: bbbbbb</li>
+      <li>Nivel 3: cccccc</li>
+      <li>Nivel 4: dddddd</li>
+      <li>Nivel 5: rrrrrr</li>
+      <li>Nivel 6: ssssss</li>
+    </ul>
+    <p> Para excluir a un vecino pulsa el boton Ex</p>
+  </div>
+  <button (click)="calculaPorcentaje()">Calcular porcentaje</button>
+</div>
+
 <div id="vecino-grid">
   <div id="vecino-show" #show>
     <img src="../../../assets/images/logo.png" id="vecino-img">
@@ -11,20 +27,28 @@
       <p>Género: Femenino</p>
     </div>
   </div>
+
   <ng-container *ngFor="let vecino of data[0]">
-    <div class="contenedor-vecino" (mouseenter)="toggleVecino(vecino)" >
-      <ng-container *ngIf="vecino != null; else vacio">
-        <img src="../../../assets/images/logo.png" class="icono" (click)="modoEdicion ? abreMenu($event, vecino, false) : '' "> <!-- icono -->
-        <div class="wrap-vecino">
-          <span>{{vecino.vecino_id}}</span>
-          <button (click)="modoEdicion ? abreMenu($event, vecino, true) : '' ">
-            <span>{{vecino.amistad}}</span>
-          </button>
+    <ng-container *ngIf="vecino != null; else vacio">
+      <div>
+        <div class="contenedor-vecino" (mouseenter)="toggleVecino(vecino)">
+          <img src="../../../assets/images/logo.png" class="icono" (click)="modoEdicion ? abreMenu($event, vecino, false) : '' "> <!-- icono -->
+          <div class="wrap-vecino">
+            <button [hidden]="!porcentaje">
+              Ex
+            </button>
+            <span>{{vecino.vecino_id}}</span>
+            <button (click)="modoEdicion ? abreMenu($event, vecino, true) : '' ">
+              <span>{{vecino.amistad}}</span>
+            </button>
+          </div>
         </div>
-      </ng-container>
+        <p [hidden]="!porcentaje">%</p>
+      </div>
+    </ng-container>
 
-      <ng-template #vacio>
-
+    <ng-template #vacio>
+      <div class="contenedor-vecino">
         <ng-container *ngIf="modoEdicion; else placeholder" >
           <button class="boton-circular" id="añadir" (click)="abreMenu($event, null, false)">+</button>
         </ng-container>
@@ -32,15 +56,13 @@
         <ng-template #placeholder>
           <img src="../../../assets/images/logo.png" class="icono">
         </ng-template>
-
-      </ng-template>
-
-    </div>
+      </div>
+    </ng-template>
   </ng-container>
 </div>
 
 <app-vecino-menu [vecinoMenu]="this.vecinoMenu" (crear)="crearVecino($event)" (actualizarVecino)="actualizaVecino($event)" (actualizarAmistad)="actualizaAmistadVecino($event)" (borrar)="borraVecino($event)" (clickOutside)="cierraMenu(null)"></app-vecino-menu>
 
 <div>
-  <p>¿Quién será el próximo en irse?</p>
+  <button (click)="toggleMoveout()">¿Quién será el próximo en irse?</button>
 </div>

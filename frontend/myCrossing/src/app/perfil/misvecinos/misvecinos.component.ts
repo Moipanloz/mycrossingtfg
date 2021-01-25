@@ -17,6 +17,7 @@ export class MisvecinosComponent implements OnInit {
   verification : Verification;
   cookieService: CookieService;
   modoEdicion : boolean = false;
+  porcentaje : boolean = false;
   vecinoMenu : Vecino = {
     nombre: "",
     vecino_id: 0,
@@ -152,5 +153,12 @@ export class MisvecinosComponent implements OnInit {
     this.menu.cierraMenu(amistad);
   }
 
+  toggleMoveout(){
+    this.porcentaje = !this.porcentaje;
+  }
+
+  calculaPorcentaje(){
+    console.log("noice");
+  }
 
 }

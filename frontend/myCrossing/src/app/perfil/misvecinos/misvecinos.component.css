@@ -64,4 +64,10 @@ p, span{
   top: 45vw;
 }
 
+#moveout-info{
+  position:absolute;
+  left: 0;
+  background-color: blue;
+}
+
 
