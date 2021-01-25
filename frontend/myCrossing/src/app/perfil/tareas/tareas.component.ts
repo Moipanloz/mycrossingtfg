@@ -51,7 +51,9 @@ export class TareasComponent implements OnInit{
       let x = (event.target.offsetLeft / window.innerWidth) * 100;
       let y = ((event.target.offsetTop + event.target.offsetHeight) / window.innerHeight ) * 100;
       let coord = [x, y];
-      this.menu.abreMenu(event, coord);
+      setTimeout(() => {
+        this.menu.abreMenu(event, coord);
+      }, 100);
     }
   }
 
@@ -61,9 +63,7 @@ export class TareasComponent implements OnInit{
 
   crearTarea(){
     if(this.data[0].length < 10){
-      console.log("dentro del create ts");
       this._tarea.crearTarea().then(() => {
-        console.log("before oninit");
         this.ngOnInit();
       });
     }else{

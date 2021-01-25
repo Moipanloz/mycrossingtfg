@@ -35,4 +35,22 @@ export class MisvecinosService {
     return this.http.post(this.url, vecino, {params : parametros, withCredentials : true, responseType : "blob"}).toPromise();
   }
 
+  actualizarVecino(oldVecino : Vecino, newVecino : Vecino){
+    let parametros = new HttpParams()
+    .set("command", "update")
+    .set("oldVecinoId", JSON.stringify(oldVecino.vecino_id))
+    .set("userId", JSON.stringify(this.verification.user));
+
+    return this.http.put(this.url, newVecino, {params : parametros, withCredentials : true, responseType : "blob"}).toPromise();
+  }
+
+  borrarVecino(vecino : Vecino){
+    let parametros = new HttpParams()
+    .set("command", "delete")
+    .set("vecinoId", JSON.stringify(vecino.vecino_id))
+    .set("userId", JSON.stringify(this.verification.user));
+
+    return this.http.delete(this.url, {params : parametros, withCredentials : true, responseType : "blob"}).toPromise();
+  }
+
 }

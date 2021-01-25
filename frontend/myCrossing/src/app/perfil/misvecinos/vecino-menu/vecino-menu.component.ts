@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostBinding, Input, Output, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostBinding, Input, Output, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Vecino } from 'app/interfaces';
 import { debounceTime } from "rxjs/operators";
@@ -12,27 +12,26 @@ export class VecinoMenuComponent implements OnInit {
 
   @Input("vecinoMenu") vecino : Vecino;
 
+  @ViewChild("menuVecino.nativeElement.style.visibility") divVecino = "hidden";
+  @ViewChild("menuAmistad.nativeElement.style.visibility") divAmistad = "hidden";
+
+
   @Output() crear = new EventEmitter<Vecino>();
+  @Output() borrar = new EventEmitter<Vecino>();
+  @Output() actualizar = new EventEmitter<Vecino[]>();
 
   @HostBinding("style.top") y = "0px";
   @HostBinding("style.left") x = "0px";
-  @HostBinding("style.visibility") visibility = "hidden";
 
   vecinoForm : FormGroup;
   busqueda = new FormControl("");
   valorFiltrar : string = "";
 
-  constructor(private _builder : FormBuilder) {
-    // if(this.vecino.vecino_id == 0){
-      this.vecinoForm = this._builder.group({
-        id: [1, Validators.required]
-      });
-    // }else{
-    //   this.vecinoForm = this._builder.group({
-    //     id: [2, Validators.required]
-    //   });
-    // }
 
+  constructor(private _builder : FormBuilder) {
+    this.vecinoForm = this._builder.group({
+      id: ["", Validators.required]
+    });
   }
 
   ngOnInit(){
@@ -40,29 +39,65 @@ export class VecinoMenuComponent implements OnInit {
   }
 
   abreMenu(e : MouseEvent, coord : Array<number>){
-    this.visibility = "visible";
-    console.log("menu abierto");
-    console.log(this.vecino);
+    if(target = imagen){
+      if(this.vecino.vecino_id != 0){
+        this.vecinoForm.patchValue({
+          id : ""+this.vecino.vecino_id
+        });
+      }else{
+        this.vecinoForm.patchValue({
+          id : "1"
+        });
+      }
 
-    //TODO ABAJO
-    this.x = coord[0]+"%";
-    this.y = coord[1]+"%";
-    e.stopPropagation();
-    //console.log(this.vecino);
+      let a : string = this.divVecino.nativeElement.style.width;
+      let width = parseInt(a.split("v", 2)[0]);
+      let x = coord[0] - (width / 2) + 3.5;
+
+      this.x = x+"%";
+      this.y = coord[1]+1+"%";
+      this.visibility = "visible";
+      e.stopPropagation();
+    }else if (target = boton amistad){
+
+    }
+
   }
 
   cierraMenu(){
     this.visibility = "hidden";
   }
 
-  borrarVecino(vecino : Vecino){
-
+  borrarVecino(){
+    this.borrar.emit(this.vecino);
   }
 
   enviar(value){
     if(this.vecino.vecino_id != value["id"]){
+      let crear : boolean;
+      let oldVecino : Vecino = {
+        vecino_id: this.vecino.vecino_id,
+        usuario_id : this.vecino.usuario_id,
+        amistad : this.vecino.amistad,
+        nombre : this.vecino.nombre
+      };
+      let array = [oldVecino];
+
+      if(this.vecino.vecino_id == 0){
+        //viene del create
+        crear = true;
+      }else{
+        crear = false;
+      }
+
       this.vecino.vecino_id = value["id"];
-      // OUTPUT EVENTO AQUI
+      array.push(this.vecino);
+
+      if(crear){
+        this.crear.emit(this.vecino);
+      }else{
+        this.actualizar.emit(array);
+      }
     }
   }
 
@@ -91,6 +126,31 @@ export class VecinoMenuComponent implements OnInit {
   },{
     nombre: "Bobi",
     vecino_id: 13,
+    usuario_id: 0,
+    amistad: 6
+  },{
+    nombre: "Test20",
+    vecino_id: 20,
+    usuario_id: 0,
+    amistad: 6
+  },{
+    nombre: "Test21",
+    vecino_id: 21,
+    usuario_id: 0,
+    amistad: 6
+  },{
+    nombre: "Test22",
+    vecino_id: 22,
+    usuario_id: 0,
+    amistad: 6
+  },{
+    nombre: "Test23",
+    vecino_id: 23,
+    usuario_id: 0,
+    amistad: 6
+  },{
+    nombre: "Test24",
+    vecino_id: 24,
     usuario_id: 0,
     amistad: 6
   }]

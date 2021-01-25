@@ -1,13 +1,19 @@
-<div class="popup-menu" (busquedaEmitter)="filtrar($event)">
+<div style="width: 20vw" class="popup-menu" (busquedaEmitter)="filtrar($event)" #menuVecino>
   <div>
     <input [formControl]="busqueda" type="text" placeholder="Buscar">
-    <button (click)="borrarVecino(vecino)">D</button>
+    <button (click)="borrarVecino()">D</button>
   </div>
+  <hr class="menu-hr">
   <form [formGroup]="vecinoForm" (ngSubmit)="enviar(vecinoForm.value)">
     <ng-container *ngFor="let vecino of testArray | filtroVecino:valorFiltrar"> <!-- todos los vecinos de la api -->
       <input formControlName="id" type="radio" value="{{vecino.vecino_id}}"> <!-- valor desde api-->
       <label>{{vecino.nombre}}</label> <!-- nombre desde api -->
     </ng-container>
+    <hr class="menu-hr">
     <button [disabled]="vecinoForm.invalid" type="submit">Listo</button>
   </form>
+</div>
+
+<div #menuAmistad>
+  <span> prueba </span>
 </div>

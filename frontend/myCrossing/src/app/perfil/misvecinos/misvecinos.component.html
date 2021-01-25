@@ -12,9 +12,9 @@
     </div>
   </div>
   <ng-container *ngFor="let vecino of data[0]">
-    <div class="contenedor-vecino" (mouseenter)="toggleVecino(vecino)" (click)="modoEdicion ? abreMenu($event, vecino) : '' " >
+    <div class="contenedor-vecino" (mouseenter)="toggleVecino(vecino)" >
       <ng-container *ngIf="vecino != null; else vacio">
-        <img src="../../../assets/images/logo.png" class="icono"> <!-- icono -->
+        <img src="../../../assets/images/logo.png" class="icono" (click)="modoEdicion ? abreMenu($event, vecino) : '' "> <!-- icono -->
         <div class="wrap-vecino">
           <span>{{vecino.vecino_id}}</span>
           <button>
@@ -39,7 +39,7 @@
   </ng-container>
 </div>
 
-<app-vecino-menu [vecinoMenu]="this.vecinoMenu" (crear)="crearVecino($event)" (clickOutside)="cierraMenu()"></app-vecino-menu>
+<app-vecino-menu [vecinoMenu]="this.vecinoMenu" (crear)="crearVecino($event)" (actualizar)="actualizaVecino($event)" (borrar)="borraVecino($event)" (clickOutside)="cierraMenu()"></app-vecino-menu>
 
 <div>
   <p>¿Quién será el próximo en irse?</p>

@@ -16,16 +16,6 @@
   margin: 0 0 0 2%;
 }
 
-.popup-menu > hr{
-  background-color: white;
-  border-color: white;
-  border-width: 0.1vw;
-  width: 80%;
-  margin: auto;
-  border-radius: 20px;
-  position: relative;
-}
-
 .btn-borrar{
   height: max-content;
 }

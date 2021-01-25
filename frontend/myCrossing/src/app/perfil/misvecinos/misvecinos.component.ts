@@ -74,6 +74,18 @@ export class MisvecinosComponent implements OnInit {
     });
   }
 
+  actualizaVecino(array : Vecino[]){
+    this._misvecinos.actualizarVecino(array[0], array[1]).then(() => {
+      this.ngOnInit();
+    });
+  }
+
+  borraVecino(vecino : Vecino){
+    this._misvecinos.borrarVecino(vecino).then(() => {
+      this.ngOnInit();
+    });
+  }
+
   abreMenu(event, vecino : Vecino){
     let coord = this.obtenPosicion(event);
 
@@ -85,7 +97,10 @@ export class MisvecinosComponent implements OnInit {
         usuario_id: 0,
         amistad: 1
       }
-      this.menu.abreMenu(event, coord);
+
+      setTimeout(() => {
+        this.menu.abreMenu(event, coord);
+      }, 100);
 
     }else{
       // El vecino ya existe
@@ -93,38 +108,16 @@ export class MisvecinosComponent implements OnInit {
         // si el vecino ya esta seteado, y ademas coincide con el id que le pasas y el menu se ve
         this.menu.cierraMenu();
       }else{
-        console.log("antes de asignar vecino");
-        console.log(vecino);
-        console.log(this.vecinoMenu);
 
-        //this.vecinoMenu = vecino;
-        // console.log("dsps de asignar vecino");
-        // console.log(this.vecinoMenu);
+        this.vecinoMenu = vecino;
 
-        // setTimeout(() => {
-        //   this.menu.abreMenu(event, coord);
-        // }, 3000);
-        this.iniciaDatos(vecino).then(() => {
-          console.log("dsps de asignar vecino");
-          console.log(this.vecinoMenu);
-
+        // Esta feo, pero probando con promises y await no sale
+        setTimeout(() => {
           this.menu.abreMenu(event, coord);
-        });
+        }, 100);
+
       }
     }
-  }
-
-  iniciaDatos(vecino : Vecino) : Promise<Vecino> {
-    let promise = new Promise<Vecino>((resolve, reject) => {
-      this.vecinoMenu = vecino;
-      if(this.vecinoMenu == vecino){
-        resolve(this.vecinoMenu);
-      }else{
-        reject();
-      }
-
-    });
-    return promise;
   }
 
   obtenPosicion(event): any[]{

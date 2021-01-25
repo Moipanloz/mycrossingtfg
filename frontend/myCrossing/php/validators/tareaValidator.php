@@ -3,7 +3,6 @@
 header('Access-Control-Allow-Origin: http://localhost:4200');
 header('Access-Control-Allow-Headers: content-type');
 
-
 function checkTareaOwner($userId, $tareaId, $conn){
   $result = null;
   $testquery = "SELECT usuario_id FROM tareas WHERE id = $tareaId";
@@ -48,6 +47,21 @@ function checkDatosCorrectos($imagenUrl, $hecha){
   }else{
     $result = false;
     print("Hecha incorrecta");
+  }
+
+  return $result;
+}
+
+function checkNumeroTareas($userId, $conn){
+  $result = null;
+
+  $sql = "SELECT * FROM tareas WHERE usuario_id = $userId";
+  $query = mysqli_query($conn,$sql);
+
+  if ($query->num_rows < 10) {
+    $result = true;
+  }else{
+    $result = false;
   }
 
   return $result;
