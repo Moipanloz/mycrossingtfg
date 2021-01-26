@@ -96,6 +96,7 @@ export class VecinoMenuComponent implements OnInit {
 
   borrarVecino(){
     this.borrar.emit(this.vecino);
+    this.cierraMenu(null);
   }
 
   enviar(value, amistad : boolean){
@@ -103,11 +104,13 @@ export class VecinoMenuComponent implements OnInit {
       //viene del create
       this.vecino.vecino_id = value["id"];
       this.crear.emit(this.vecino);
+      this.cierraMenu(null);
     }else{
       if (amistad){
         if(this.vecino.amistad != value["amistad"]){
           this.vecino.amistad = value["amistad"];
           this.actualizarAmistad.emit(this.vecino);
+          this.cierraMenu(null);
         }
       }else{
         if(this.vecino.vecino_id != value["id"]){
@@ -123,6 +126,7 @@ export class VecinoMenuComponent implements OnInit {
           this.vecino.amistad = 1;
           array.push(this.vecino);
           this.actualizarVecino.emit(array);
+          this.cierraMenu(null);
         }
       }
     }
