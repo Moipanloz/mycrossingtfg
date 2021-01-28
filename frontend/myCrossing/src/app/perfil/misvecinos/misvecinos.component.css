@@ -2,8 +2,8 @@ h3{
   font-size: 1.3vw;
 }
 
-p, span{
-  font-size: 1vw;
+p, span, li{
+  font-size: 1.2vw;
 }
 
 #vecino-grid{
@@ -44,6 +44,7 @@ p, span{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 65%;
 }
 
 .icono{
@@ -65,9 +66,18 @@ p, span{
 }
 
 #moveout-info{
-  position:absolute;
-  left: 0;
-  background-color: blue;
+  background-color: rgb(98, 98, 184);
+  padding: 2vw;
+  margin-bottom: 2vw;
+}
+
+#button-wrap{
+  display: flex;
+  flex-direction: column;
+}
+
+#close-menu{
+  background-color: rgb(71, 71, 133);
 }
 
 

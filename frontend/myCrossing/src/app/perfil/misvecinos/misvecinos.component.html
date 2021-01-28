@@ -1,19 +1,42 @@
-<button id="editar" (click)="activaEdicion()">{{modoEdicion}}</button>
+<div>
+  <button [hidden]="porcentaje" (click)="toggleMoveout()" style="margin-bottom: 1.5vw;">¿Quién será el próximo en irse?</button>
+</div>
 
 <div [hidden]="!porcentaje" id="moveout-info" >
   <div>
-    <p>La amistad funciona tal que asi</p>
+    <h4 class="centrado">¿Qué vecino será el próximo en mudarse?</h4>
+    <h5>Aquí puedes calcular la probabilidad que tiene cada vecino de irse de tu isla</h5>
+    <p>
+      La probabilidad de que un vecino se mude se rige por la amistad que tengas con el mismo,
+      cuanto más amigos seais, menos probabilidad hay de que se vaya.
+    </p>
+    <h5>¿Cómo sé cuanta amistad tengo con un vecino?</h5>
+    <p>Los niveles de amistad son los siguientes:</p>
     <ul>
-      <li>Nivel 1: aaaaa</li>
-      <li>Nivel 2: bbbbbb</li>
-      <li>Nivel 3: cccccc</li>
-      <li>Nivel 4: dddddd</li>
-      <li>Nivel 5: rrrrrr</li>
-      <li>Nivel 6: ssssss</li>
+      <li><b>Nivel 1:</b> Nivel base con el que llega el vecino</li>
+      <li><b>Nivel 2:</b> Le puedes hacer regalos</li>
+      <li><b>Nivel 3:</b> Te pueden poner un apodo y venderte objetos</li>
+      <li><b>Nivel 4:</b> Les puedes poner una muletilla</li>
+      <li><b>Nivel 5:</b> Les puedes dar un saludo y te pueden dar su foto</li>
+      <li><b>Nivel 6:</b> Te pueden comprar o intercambiar objetos de tuy inventario</li>
     </ul>
-    <p> Para excluir a un vecino pulsa el boton Ex</p>
+    <p>Además, hay ciertos criterios que hacen que un vecino no pueda mudarse:</p>
+    <ul>
+      <li>Si fue el último en mudarse a tu isla</li>
+      <li>Si fue el último en querer mudarse y le dijiste que se quedase</li>
+      <li>Si su casa está siendo trasladada o tienes su "parcela" en el inventario</li>
+      <li>Si su cumpleaños tuvo lugar en los últimos 7 días</li>
+    </ul>
+    <p>
+      A la hora de hacer que un vecino en particular se vaya se puede maximizar la
+      probabilidad usando estos criterios a tu favor para descartar otros vecinos.
+    </p>
   </div>
-  <button (click)="calculaPorcentaje()">Calcular porcentaje</button>
+  <div id="button-wrap">
+    <button class="centrado" (click)="calculaPorcentaje()">Calcular porcentaje</button>
+    <br>
+    <button id="close-menu" (click)="toggleMoveout()">^</button>
+  </div>
 </div>
 
 <div id="vecino-grid">
@@ -32,13 +55,13 @@
     <ng-container *ngIf="vecino != null; else vacio">
       <div>
         <div class="contenedor-vecino" (mouseenter)="toggleVecino(vecino)">
-          <img src="../../../assets/images/logo.png" class="icono" (click)="modoEdicion ? abreMenu($event, vecino, false) : '' "> <!-- icono -->
+          <img src="../../../assets/images/logo.png" class="icono" (click)="abreMenu($event, vecino, false)"> <!-- icono -->
           <div class="wrap-vecino">
             <button [hidden]="!porcentaje">
               Ex
             </button>
             <span>{{vecino.vecino_id}}</span>
-            <button (click)="modoEdicion ? abreMenu($event, vecino, true) : '' ">
+            <button (click)="abreMenu($event, vecino, true)">
               <span>{{vecino.amistad}}</span>
             </button>
           </div>
@@ -48,21 +71,14 @@
     </ng-container>
 
     <ng-template #vacio>
-      <div class="contenedor-vecino">
-        <ng-container *ngIf="modoEdicion; else placeholder" >
+      <div>
+        <div class="contenedor-vecino">
           <button class="boton-circular" id="añadir" (click)="abreMenu($event, null, false)">+</button>
-        </ng-container>
-
-        <ng-template #placeholder>
-          <img src="../../../assets/images/logo.png" class="icono">
-        </ng-template>
+        </div>
+        <p [hidden]="!porcentaje" style="visibility: hidden;">%</p>
       </div>
     </ng-template>
   </ng-container>
 </div>
 
 <app-vecino-menu [vecinoMenu]="this.vecinoMenu" (crear)="crearVecino($event)" (actualizarVecino)="actualizaVecino($event)" (actualizarAmistad)="actualizaAmistadVecino($event)" (borrar)="borraVecino($event)" (clickOutside)="cierraMenu(null)"></app-vecino-menu>
-
-<div>
-  <button (click)="toggleMoveout()">¿Quién será el próximo en irse?</button>
-</div>

@@ -45,3 +45,8 @@ body{
   border-radius: 20px;
   position: relative;
 }
+
+.centrado{
+  margin: auto;
+  width: fit-content;
+}

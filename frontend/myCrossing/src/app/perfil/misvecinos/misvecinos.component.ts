@@ -16,7 +16,6 @@ export class MisvecinosComponent implements OnInit {
   length : number;
   verification : Verification;
   cookieService: CookieService;
-  modoEdicion : boolean = false;
   porcentaje : boolean = false;
   vecinoMenu : Vecino = {
     nombre: "",
@@ -63,10 +62,6 @@ export class MisvecinosComponent implements OnInit {
       this.vecinoShow = vecino;
       this.show.nativeElement.style.visibility = "visible";
     }
-  }
-
-  activaEdicion(){
-    this.modoEdicion = !this.modoEdicion;
   }
 
   crearVecino(vecino : Vecino){
