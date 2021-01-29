@@ -25,7 +25,7 @@
       <li>Si fue el último en mudarse a tu isla</li>
       <li>Si fue el último en querer mudarse y le dijiste que se quedase</li>
       <li>Si su casa está siendo trasladada o tienes su "parcela" en el inventario</li>
-      <li>Si su cumpleaños tuvo lugar en los últimos 7 días</li>
+      <li>Si su cumpleaños tiene lugar en los siguientes 7 días</li>
     </ul>
     <p>
       A la hora de hacer que un vecino en particular se vaya se puede maximizar la
@@ -57,7 +57,7 @@
         <div class="contenedor-vecino" (mouseenter)="toggleVecino(vecino)">
           <img src="../../../assets/images/logo.png" class="icono" (click)="abreMenu($event, vecino, false)"> <!-- icono -->
           <div class="wrap-vecino">
-            <button [hidden]="!porcentaje">
+            <button [hidden]="!porcentaje" (click)="toggleExclude(data[0].indexOf(vecino))" [style]="{'background-color': checkColor(data[0].indexOf(vecino))}">
               Ex
             </button>
             <span>{{vecino.vecino_id}}</span>

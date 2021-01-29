@@ -1,6 +1,6 @@
 <div style="width: 15vw; display: none;" class="popup-menu" (busquedaEmitter)="filtrar($event)" #menuVecino>
   <div>
-    <input [formControl]="busqueda" type="text" placeholder="Buscar">
+    <input [formControl]="busqueda" type="text" placeholder="Buscar" style="width: -webkit-fill-available;">
     <button (click)="borrarVecino()">D</button>
   </div>
   <hr class="menu-hr">

@@ -17,6 +17,7 @@ export class MisvecinosComponent implements OnInit {
   verification : Verification;
   cookieService: CookieService;
   porcentaje : boolean = false;
+  exclude : boolean[] = [];
   vecinoMenu : Vecino = {
     nombre: "",
     vecino_id: 0,
@@ -46,6 +47,11 @@ export class MisvecinosComponent implements OnInit {
     this.verification.verify().then(() => {
       this._misvecinos.readMisVecinos().subscribe(data => {
         this.length = 10 - data.length;
+
+        for(let ex = 0; ex < data.length; ex++){
+          this.exclude.push(false);
+        }
+
         for(let i = 0; i < this.length; i++){
           data.push(null);
         }
@@ -127,6 +133,9 @@ export class MisvecinosComponent implements OnInit {
         }else{
 
           this.vecinoMenu = vecino;
+          // Hay que meterle delay porque abre el menu antes de que se asigne completamente
+          // y no se puede usar await porque se usa al reves, una asignacion ha de esperar a
+          // que se termine una funcion, y esto es lo contrario
 
           // Esta feo, pero probando con promises y await no sale
           setTimeout(() => {
@@ -152,8 +161,48 @@ export class MisvecinosComponent implements OnInit {
     this.porcentaje = !this.porcentaje;
   }
 
+
+  // ================================= MOVE OUT =============================================
+
+  toggleExclude(index : number){
+    this.exclude[index] = !this.exclude[index];
+  }
+
+  checkColor(index : number){
+    if(this.exclude[index]){
+      return "red";
+    }else{
+      return "green";
+    }
+  }
+
   calculaPorcentaje(){
-    console.log("noice");
+    let amistad : number[] = [];
+    let i : number = 1;
+    let porcentaje : number;
+
+    for(let vecino of this.data[0]){
+      if(vecino != null){
+        amistad.push(vecino.amistad);
+      }
+    }
+
+    for(let a of amistad){
+      if(a != amistad[i]){
+        break;
+      }else{
+        i++;
+      }
+    }
+
+    if(i == amistad.length){
+      porcentaje = 100 / amistad.length;
+    }else{
+      //calcular ponderaciones
+    }
+
+    return porcentaje;
+
   }
 
 }
