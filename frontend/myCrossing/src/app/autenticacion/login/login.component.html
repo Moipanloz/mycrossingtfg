@@ -4,24 +4,24 @@
         <label for="nombre">Nombre: </label>
         <input id="nombre" formControlName='nombre' type="text">
     </p>
-    <container *ngIf="loginForm.controls.nombre.errors && submitted">
+    <ng-container *ngIf="loginForm.controls.nombre.errors && submitted">
         <p class="error">
-            <container *ngIf="loginForm.controls.nombre.errors.required && submitted">
+            <ng-container *ngIf="loginForm.controls.nombre.errors.required && submitted">
                 Debe introducir un nombre. 
-            </container>
+            </ng-container>
         </p>
-    </container>
+    </ng-container>
     <p>
         <label for="password">Contraseña: </label>
         <input id="password" formControlName='clave' type="password">
     </p>
-    <container *ngIf="loginForm.controls.clave.errors && submitted">
+    <ng-container *ngIf="loginForm.controls.clave.errors && submitted">
         <p class="error">
-            <container *ngIf="loginForm.controls.clave.errors.required && submitted">
+            <ng-container *ngIf="loginForm.controls.clave.errors.required && submitted">
                 Debe introducir una contraseña. 
-            </container>
+            </ng-container>
         </p>
-    </container>
+    </ng-container>
     <button (click)="login(loginForm)">Iniciar sesion</button>
     <p class="error">{{aviso}}</p>
 </form>

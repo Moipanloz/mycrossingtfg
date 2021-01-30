@@ -93,22 +93,42 @@ if(isset($_GET['command'])){
         print "No ha introducido id de usuario que leer";
       }
       break;
-    /*
+    
     case "register":
-      if(isset($_GET['nombre']) && isset($_GET['contrasenya']) && isset($_GET['isla']) && isset($_GET['fruta'])
-      && isset($_GET['cumpleanyos']) && isset($_GET['verif']) && isset($_GET['email']) && isset($_GET['hemisferio'])){
-        $nombre = $_GET['nombre'];
-        $isla = $_GET['isla'];
-        $fruta = $_GET['fruta'];
-        $cumpleanyos = $_GET['cumpleanyos'];
-        $hemisferio = $_GET['hemisferio'];
-        $contrasenya = $_GET['contrasenya'];
-        $email = $_GET['email'];
-        $verif = $_GET['verif'];
-        $sql = "INSERT INTO usuarios (nombre, contrasenya, isla, fruta, cumpleanyos, verification, email, hemisferio) VALUES ($nombre, $contrasenya, $isla, $fruta, $cumpleanyos, $verif, $email, $hemisferio)";
+      $putdata = file_get_contents("php://input");
+      $request = json_decode($putdata);
+      if(isset($request)){
+        $nombre = $request->nombre;
+        $isla = $request->isla;
+        $fruta = $request->fruta;
+        $cumpleanyos = $request->cumpleanyos;
+        $hemisferio = $request->hemisferio;
+        $contrasenya = $request->clave;
+        $email = $request->email;
+        $verif = $request->verif;
+        $sql = "INSERT INTO usuarios (nombre, contrasenya, isla, fruta, cumpleanyos, verification, email, hemisferio";
+        $sql2 = ") VALUES ('$nombre', '$contrasenya', '$isla', '$fruta', '$cumpleanyos', '$verif', '$email', '$hemisferio'";
         
-        mysqli_query($conn,$sql);
-        $sql = "SELECT id FROM usuarios WHERE nombre = $_GET['nombre]";
+        if(!empty($request->id_switch)){
+          $id_switch = $request->id_switch;
+          $sql .= ", id_switch";
+          $sql2 .= ", '$id_switch'";
+        }
+        if(!empty($request->id_suenyo)){
+          $id_suenyo = $request->id_suenyo;
+          $sql .= ", id_suenyo";
+          $sql2 .= ", '$id_suenyo'";
+        }
+        if(!empty($request->apodo_aldeano)){
+          $apodo_aldeano = $request->apodo_aldeano;
+          $sql .= ", apodo_aldeano";
+          $sql2 .= ", '$apodo_aldeano'";
+        }
+        
+        $sql2 .= ")";
+        $sql .= $sql2;
+        $funciona = mysqli_query($conn,$sql);
+        $sql = "SELECT id FROM usuarios WHERE nombre = '$nombre'";
         $result = mysqli_query($conn,$sql);
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
@@ -120,7 +140,7 @@ if(isset($_GET['command'])){
         print "No ha introducido los parametros necesarios de registro";
       }
       break;
-      */
+      
     default:
       print "Comando no valido";
   }

@@ -1,35 +1,118 @@
-<form class="formulario" [formGroup]="registerForm">
+<form class="formulario" (ngSubmit)="register(registerForm)" [formGroup]="registerForm">
     <div class="titulo">Registro</div>
+    <p>
     <label for="nombre">Nombre: </label>
     <input id="nombre" formControlName='nombre' type="text">
-    <br>
+    </p>
+    <container *ngIf="registerForm.controls.nombre.errors && submitted">
+        <p class="error">
+            <container *ngIf="registerForm.controls.nombre.errors.required && submitted">
+                Debe introducir un nombre. 
+            </container>
+        </p>
+    </container>
+    <p>
     <label for="password">Contraseña: </label>
     <input id="password" formControlName='clave' type="password">
-    <br>
+    </p>
+    <container *ngIf="registerForm.controls.clave.errors && submitted">
+        <p class="error">
+            <container *ngIf="registerForm.controls.clave.errors.required && submitted">
+                Debe introducir una contraseña. 
+            </container>
+        </p>
+    </container>
+    <p>
     <label for="isla">Isla: </label>
     <input id="isla" formControlName='isla' type="text">
-    <br>
+    </p>
+    <container *ngIf="registerForm.controls.isla.errors && submitted">
+        <p class="error">
+            <container *ngIf="registerForm.controls.isla.errors.required && submitted">
+                Debe introducir un nombre de isla. 
+            </container>
+        </p>
+    </container>
+    <p>
     <label for="fruta">Fruta: </label>
-    <select id="fruta" formControlName='fruta'>
-        <option value="PERA" selected>Pera</option>
-        <option value="MANZANA">Manzana</option>
-        <option value="NARANJA">Naranja</option>
-        <option value="CEREZA">Cereza</option>
-        <option value="MELOCOTON">Melocoton</option>
-    </select>
-    <br>
+    <input type="radio" id="pera" formControlName='fruta' value="PERA">
+    <label for="pera">Pera</label>
+    <input type="radio" id="manzana" formControlName='fruta' value="MANZANA">
+    <label for="manzana">Manzana</label>
+    <input type="radio" id="naranja" formControlName='fruta' value="NARANJA">
+    <label for="naranja">Naranja</label>
+    <input type="radio" id="cereza" formControlName='fruta' value="CEREZA">
+    <label for="cereza">Cereza</label>
+    <input type="radio" id="melocoton" formControlName='fruta' value="MELOCOTON">
+    <label for="melocoton">Melocoton</label>
+    </p>
+    <container *ngIf="registerForm.controls.fruta.errors && submitted">
+        <p class="error">
+            <container *ngIf="registerForm.controls.fruta.errors.required && submitted">
+                Debe introducir una fruta. 
+            </container>
+        </p>
+    </container>
+    <p>
     <label for="cumpleanyos">Cumpleanyos: </label>
-    <input id="cumpleanyos" formControlName='cumpleanyos' type="text">
-    <br>
+    <input id="cumpleanyos" formControlName='cumpleanyos' type="date">
+    </p>
+    <container *ngIf="registerForm.controls.cumpleanyos.errors && submitted">
+        <p class="error">
+            <container *ngIf="registerForm.controls.cumpleanyos.errors.required && submitted">
+                Debe introducir una fecha de cumpleaños. 
+            </container>
+        </p>
+    </container>
+    <p>
     <label for="email">Email: </label>
-    <input type="email" id="email" formControlName='email' type="text">
-    <br>
+    <input type="email" id="email" formControlName='email'>
+    </p>
+    <container *ngIf="registerForm.controls.email.errors && submitted">
+        <p class="error">
+            Debe introducir un email válido.
+        </p>
+    </container>
+    <p>
     <label for="hemisferio">Hemisferio: </label>
-    <select id="hemisferio" formControlName='hemisferio'>
-        <option value="NORTE">Norte</option>
-        <option value="SUR">Sur</option>
-    </select>
-    <br>
-    <button (click)="register(registerForm)">Registrate</button>
+    <input type="radio" id="norte" formControlName='hemisferio' value="NORTE">
+    <label for="norte">Norte</label>
+    <input type="radio" id="sur" formControlName='hemisferio' value="SUR">
+    <label for="sur">Sur</label>
+    </p>
+    <container *ngIf="registerForm.controls.hemisferio.errors && submitted">
+        <p class="error">
+            <container *ngIf="registerForm.controls.hemisferio.errors.required && submitted">
+                Debe introducir su hemisferio. 
+            </container>
+        </p>
+    </container>
+    <p>
+    <label for="id_switch">Id switch: </label>
+    <input type="text" placeholder="SW-1234-1234-1234" maxlength="17" minlength="17" id="id_switch" formControlName='id_switch'>
+    </p>
+    <p>
+        <container *ngIf="registerForm.controls.id_switch.errors && submitted">
+            <p class="error">
+                El id de switch debe ser un número de 12 cifras con la siguiente estructura: SW-1234-1234-1234. 
+            </p>
+        </container>
+    </p>
+    <p>
+    <label for="id_suenyo">Id sueño: </label>
+    <input type="text" placeholder="DA-1234-1234-1234" maxlength="17" minlength="17"  id="id_suenyo" formControlName='id_suenyo'>
+    </p>
+    <p>
+        <container *ngIf="registerForm.controls.id_suenyo.errors && submitted">
+            <p class="error">
+                El id de sueño debe ser un número de 12 cifras con la siguiente estructura: DA-1234-1234-1234. 
+            </p>
+        </container>
+    </p>
+    <p>
+    <label for="apodo_aldeano">Apodo aldeano: </label>
+    <input type="text" id="apodo_aldeano" formControlName='apodo_aldeano'>
+    </p>
+    <button type="submit">Registrate</button>
     <div>{{aviso}}</div>
 </form>
