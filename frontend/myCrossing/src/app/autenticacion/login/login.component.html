@@ -1,3 +1,51 @@
+<div class="background">
+    <div class="movil">
+            <div class="pantalla">
+            <form class="formulario" (ngSubmit)="login(loginForm)" [formGroup]="loginForm">
+                <div class="titulo">Inicia sesión</div>
+                <div class="field">
+                    <div class="fieldlabel">
+                        <label for="nombre">Nombre: </label>
+                    </div>
+                    <div class="fieldinput">
+                        <input id="nombre" formControlName='nombre' type="text">
+                    </div>
+                </div>
+                <ng-container *ngIf="loginForm.controls.nombre.errors && submitted">
+                    <p class="error">
+                        <ng-container *ngIf="loginForm.controls.nombre.errors.required && submitted">
+                            Debe introducir un nombre. 
+                        </ng-container>
+                    </p>
+                </ng-container>
+                <div class="field">
+                    <div class="fieldlabel">
+                        <label for="password">Contraseña: </label>
+                    </div>
+                    <div class="fieldinput">
+                        <input type="password" id="password" formControlName='clave'>
+                    </div>
+                </div>
+                <ng-container *ngIf="loginForm.controls.clave.errors && submitted">
+                    <p class="error">
+                        <ng-container *ngIf="loginForm.controls.clave.errors.required && submitted">
+                            Debe introducir una contraseña. 
+                        </ng-container>
+                    </p>
+                </ng-container>
+                <div class="iniciar">
+                    <button type="submit">Iniciar sesion</button>
+                    <p class="error">{{aviso}}</p>
+                </div>
+                <div>{{aviso}}</div>
+            </form>
+            <div class="menu">
+                <div class="botonmovil"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
 <form class="formulario" [formGroup]="loginForm">
     <div class="titulo">Inicio de sesión</div>
     <p>
@@ -25,3 +73,4 @@
     <button (click)="login(loginForm)">Iniciar sesion</button>
     <p class="error">{{aviso}}</p>
 </form>
+-->
