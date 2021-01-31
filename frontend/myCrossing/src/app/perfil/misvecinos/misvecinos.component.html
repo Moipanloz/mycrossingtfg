@@ -1,8 +1,8 @@
 <div>
-  <button [hidden]="porcentaje" (click)="toggleMoveout()" style="margin-bottom: 1.5vw;">¿Quién será el próximo en irse?</button>
+  <button [hidden]="porcentajeMode" (click)="toggleMoveout()" style="margin-bottom: 1.5vw;">¿Quién será el próximo en irse?</button>
 </div>
 
-<div [hidden]="!porcentaje" id="moveout-info" >
+<div [hidden]="!porcentajeMode" id="moveout-info" >
   <div>
     <h4 class="centrado">¿Qué vecino será el próximo en mudarse?</h4>
     <h5>Aquí puedes calcular la probabilidad que tiene cada vecino de irse de tu isla</h5>
@@ -25,7 +25,7 @@
       <li>Si fue el último en mudarse a tu isla</li>
       <li>Si fue el último en querer mudarse y le dijiste que se quedase</li>
       <li>Si su casa está siendo trasladada o tienes su "parcela" en el inventario</li>
-      <li>Si su cumpleaños tiene lugar en los siguientes 7 días</li>
+      <li>Si su cumpleaños tuvo lugar en los últimos 7 días</li>
     </ul>
     <p>
       A la hora de hacer que un vecino en particular se vaya se puede maximizar la
@@ -54,10 +54,11 @@
   <ng-container *ngFor="let vecino of data[0]">
     <ng-container *ngIf="vecino != null; else vacio">
       <div>
+
         <div class="contenedor-vecino" (mouseenter)="toggleVecino(vecino)">
           <img src="../../../assets/images/logo.png" class="icono" (click)="abreMenu($event, vecino, false)"> <!-- icono -->
           <div class="wrap-vecino">
-            <button [hidden]="!porcentaje" (click)="toggleExclude(data[0].indexOf(vecino))" [style]="{'background-color': checkColor(data[0].indexOf(vecino))}">
+            <button [hidden]="!porcentajeMode" (click)="toggleExclude(data[0].indexOf(vecino))" [style]="{'background-color': checkColor(data[0].indexOf(vecino))}">
               Ex
             </button>
             <span>{{vecino.vecino_id}}</span>
@@ -66,7 +67,16 @@
             </button>
           </div>
         </div>
-        <p [hidden]="!porcentaje">%</p>
+
+        <div [hidden]="!porcentajeMode" class="porcentaje">
+          <ng-container *ngIf="this.porcentajes[this.data[0].indexOf(vecino)] != -1; else excluido">
+            <span>{{this.porcentajes[this.data[0].indexOf(vecino)]}}%</span>
+          </ng-container>
+          <ng-template #excluido>
+            <span>Excluido</span>
+          </ng-template>
+        </div>
+
       </div>
     </ng-container>
 
@@ -75,7 +85,7 @@
         <div class="contenedor-vecino">
           <button class="boton-circular" id="añadir" (click)="abreMenu($event, null, false)">+</button>
         </div>
-        <p [hidden]="!porcentaje" style="visibility: hidden;">%</p>
+        <p [hidden]="!porcentajeMode" style="visibility: hidden;">%</p>
       </div>
     </ng-template>
   </ng-container>

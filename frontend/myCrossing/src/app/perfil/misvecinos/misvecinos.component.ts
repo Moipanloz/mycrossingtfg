@@ -16,7 +16,8 @@ export class MisvecinosComponent implements OnInit {
   length : number;
   verification : Verification;
   cookieService: CookieService;
-  porcentaje : boolean = false;
+  porcentajeMode : boolean = false;
+  porcentajes : number[] = [];
   exclude : boolean[] = [];
   vecinoMenu : Vecino = {
     nombre: "",
@@ -158,7 +159,7 @@ export class MisvecinosComponent implements OnInit {
   }
 
   toggleMoveout(){
-    this.porcentaje = !this.porcentaje;
+    this.porcentajeMode = !this.porcentajeMode;
   }
 
 
@@ -176,32 +177,110 @@ export class MisvecinosComponent implements OnInit {
     }
   }
 
-  calculaPorcentaje(){
-    let amistad : number[] = [];
-    let i : number = 1;
-    let porcentaje : number;
+  checkPorcentajeVis(){
+    if(this.porcentajeMode){
+      return "visible";
+    }else{
+      return "hidden";
+    }
+  }
 
+  calculaPorcentaje(){
+    let amistadCalc : number[] = [];
+    let amistadFull : number[] = [];
+    let i : number = 0;
+    let porcentajes : number[] = [];
+
+    // Recoge en un array las amistades de los vecinos que tiene el user si no estan excluidos
+    // y cuenta el numero de vecinos con amistad 6
     for(let vecino of this.data[0]){
       if(vecino != null){
-        amistad.push(vecino.amistad);
+        if(!this.exclude[this.data[0].indexOf(vecino)]){
+          amistadCalc.push(vecino.amistad);
+          amistadFull.push(vecino.amistad);
+        }else{
+          amistadFull.push(-1);
+        }
       }
     }
 
-    for(let a of amistad){
-      if(a != amistad[i]){
+    //todo bien hasta aqui
+    console.log("amistadCalc");
+    console.log(amistadCalc);
+    console.log("amistadFull");
+    console.log(amistadFull);
+
+
+
+
+    // Comprueba si todos los vecinos tienen la misma amistad
+    for(i = 0; i < amistadCalc.length - 1; i++){
+      if(amistadCalc[i] != amistadCalc[i+1]){
         break;
-      }else{
-        i++;
       }
     }
 
-    if(i == amistad.length){
-      porcentaje = 100 / amistad.length;
+    console.log("i");
+    console.log(i);
+
+    // Si todos tienen la misma amistad, el porcentaje se calcula evenly
+    // Si no, se calculan los puntos de amistad de cada uno siguiendo el algoritmo
+    if(i == amistadCalc.length - 1){
+      console.log("son iguales");
+      for(let i = 0; i < amistadFull.length; i++){
+        if(amistadFull[i] == -1){
+          porcentajes.push(-1);
+        }else{
+          porcentajes.push(100 / amistadCalc.length);
+        }
+      }
     }else{
-      //calcular ponderaciones
+      console.log("no son iguales");
+
+      for(let a of amistadFull){
+        let puntosAmistad = 0;
+
+        switch(a){
+          case 1:
+            puntosAmistad = 15;
+            break;
+          case 2:
+            puntosAmistad = 45;
+            break;
+          case 3:
+            puntosAmistad = 80;
+            break;
+          case 4:
+            puntosAmistad = 125;
+            break;
+          case 5:
+            puntosAmistad = 175;
+            break;
+          case 6:
+            puntosAmistad = 200;
+            break;
+          default:
+            puntosAmistad = -1;
+        }
+
+        let calc : number;
+
+        if(puntosAmistad == -1){
+          calc = -1;
+        }else{
+          calc = Math.floor((300 - puntosAmistad) / amistadCalc.length);
+        }
+
+
+        porcentajes.push(calc);
+      }
     }
 
-    return porcentaje;
+    this.porcentajes = porcentajes;
+    console.log("porcentajes");
+    console.log(this.porcentajes[this.data[0].indexOf(this.vecinoMenu)]);
+    console.log("test");
+    console.log(this.data[0].indexOf(this.vecinoMenu));
 
   }
 
