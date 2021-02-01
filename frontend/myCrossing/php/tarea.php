@@ -1,6 +1,6 @@
 <?php
 
-require "opendb.php";
+require "openDB.php";
 
 include "validators/usuarioValidator.php";
 include "validators/tareaValidator.php";
@@ -30,7 +30,7 @@ if(isset($_GET["command"])){
             }
           }
 
-          print json_encode($myArray);
+          print json_encode($myArray, JSON_NUMERIC_CHECK);
 
         }else{
           print("No se cumplen los requisitos");
@@ -104,7 +104,8 @@ if(isset($_GET["command"])){
           $imagenUrl = $request->imagen_url;
 
           $error =  checkUser($userId) &&
-                    checkDatosCorrectos($imagenUrl, $hecha);
+                    checkDatosCorrectos($imagenUrl, $hecha) &&
+                    checkNumeroTareas($userId, $conn);
 
           if($error){
             $sql = "INSERT INTO tareas(id, usuario_id, hecha, imagen_url) VALUES ('', $userId, $hecha, '$imagenUrl')";
@@ -133,8 +134,8 @@ if(isset($_GET["command"])){
           $tareaId = $_GET["tareaId"];
 
           $error =  checkUser($userId) &&
-                  checkExisteTarea($tareaId, $conn) &&
-                  checkTareaOwner($userId, $tareaId, $conn);
+                    checkExisteTarea($tareaId, $conn) &&
+                    checkTareaOwner($userId, $tareaId, $conn);
 
           if($error){
             $sql = "DELETE FROM tareas WHERE id = $tareaId";
@@ -148,7 +149,7 @@ if(isset($_GET["command"])){
         }
 
       }else{
-        print("User id not set");
+        print("No hay id de usuario");
       }
       break;
 

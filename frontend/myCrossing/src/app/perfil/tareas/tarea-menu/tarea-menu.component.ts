@@ -24,7 +24,7 @@ export class TareaMenuComponent {
 
   constructor(private _builder : FormBuilder) {
     this.iconoForm = this._builder.group({
-      icono: ["1", Validators.required]
+      icono: ["", Validators.required]
     });
    }
 
@@ -34,6 +34,9 @@ export class TareaMenuComponent {
   }
 
   abreMenu(e : MouseEvent, coord : Array<number>){
+    this.iconoForm.patchValue({
+      icono : ""+this.tarea.imagen_url
+    });
 
     let a : string = this.div.nativeElement.style.width;
     let width = parseInt(a.split("v", 2)[0]);

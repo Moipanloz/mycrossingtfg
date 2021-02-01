@@ -1,1 +1,94 @@
-<h2>Mis vecinos</h2>
+<div>
+  <button [hidden]="porcentajeMode" (click)="toggleMoveout()" style="margin-bottom: 1.5vw;">¿Quién será el próximo en irse?</button>
+</div>
+
+<div [hidden]="!porcentajeMode" id="moveout-info" >
+  <div>
+    <h4 class="centrado">¿Qué vecino será el próximo en mudarse?</h4>
+    <h5>Aquí puedes calcular la probabilidad que tiene cada vecino de irse de tu isla</h5>
+    <p>
+      La probabilidad de que un vecino se mude se rige por la amistad que tengas con el mismo,
+      cuanto más amigos seais, menos probabilidad hay de que se vaya.
+    </p>
+    <h5>¿Cómo sé cuanta amistad tengo con un vecino?</h5>
+    <p>Los niveles de amistad son los siguientes:</p>
+    <ul>
+      <li><b>Nivel 1:</b> Nivel base con el que llega el vecino</li>
+      <li><b>Nivel 2:</b> Le puedes hacer regalos</li>
+      <li><b>Nivel 3:</b> Te pueden poner un apodo y venderte objetos</li>
+      <li><b>Nivel 4:</b> Les puedes poner una muletilla</li>
+      <li><b>Nivel 5:</b> Les puedes dar un saludo y te pueden dar su foto</li>
+      <li><b>Nivel 6:</b> Te pueden comprar o intercambiar objetos de tuy inventario</li>
+    </ul>
+    <p>Además, hay ciertos criterios que hacen que un vecino no pueda mudarse:</p>
+    <ul>
+      <li>Si fue el último en mudarse a tu isla</li>
+      <li>Si fue el último en querer mudarse y le dijiste que se quedase</li>
+      <li>Si su casa está siendo trasladada o tienes su "parcela" en el inventario</li>
+      <li>Si su cumpleaños tuvo lugar en los últimos 7 días</li>
+    </ul>
+    <p>
+      A la hora de hacer que un vecino en particular se vaya se puede maximizar la
+      probabilidad usando estos criterios a tu favor para descartar otros vecinos.
+    </p>
+  </div>
+  <div id="button-wrap">
+    <button class="centrado" (click)="calculaPorcentaje()">Calcular porcentaje</button>
+    <br>
+    <button id="close-menu" (click)="toggleMoveout()">^</button>
+  </div>
+</div>
+
+<div id="vecino-grid">
+  <div id="vecino-show" #show>
+    <img src="../../../assets/images/logo.png" id="vecino-img">
+    <h3>Nombre: {{this.vecinoShow.vecino_id}}</h3>
+    <div>
+      <p>Cumpleaños: 1 de Enero</p>
+      <p>Personalidad: Dulce</p>
+      <p>Especie: Pingüino</p>
+      <p>Género: Femenino</p>
+    </div>
+  </div>
+
+  <ng-container *ngFor="let vecino of data[0]">
+    <ng-container *ngIf="vecino != null; else vacio">
+      <div>
+
+        <div class="contenedor-vecino" (mouseenter)="toggleVecino(vecino)">
+          <img src="../../../assets/images/logo.png" class="icono" (click)="abreMenu($event, vecino, false)"> <!-- icono -->
+          <div class="wrap-vecino">
+            <button [hidden]="!porcentajeMode" (click)="toggleExclude(data[0].indexOf(vecino))" [style]="{'background-color': checkColor(data[0].indexOf(vecino))}">
+              Ex
+            </button>
+            <span>{{vecino.vecino_id}}</span>
+            <button (click)="abreMenu($event, vecino, true)">
+              <span>{{vecino.amistad}}</span>
+            </button>
+          </div>
+        </div>
+
+        <div [hidden]="!porcentajeMode" class="porcentaje">
+          <ng-container *ngIf="this.porcentajes[this.data[0].indexOf(vecino)] != null; else excluido">
+            <span>{{this.porcentajes[this.data[0].indexOf(vecino)] | number : '1.2-2'}}%</span>
+          </ng-container>
+          <ng-template #excluido>
+            <span>-</span>
+          </ng-template>
+        </div>
+
+      </div>
+    </ng-container>
+
+    <ng-template #vacio>
+      <div>
+        <div class="contenedor-vecino">
+          <button class="boton-circular" id="añadir" (click)="abreMenu($event, null, false)">+</button>
+        </div>
+        <p [hidden]="!porcentajeMode" style="visibility: hidden;">%</p>
+      </div>
+    </ng-template>
+  </ng-container>
+</div>
+
+<app-vecino-menu [vecinoMenu]="this.vecinoMenu" (crear)="crearVecino($event)" (actualizarVecino)="actualizaVecino($event)" (actualizarAmistad)="actualizaAmistadVecino($event)" (borrar)="borraVecino($event)" (clickOutside)="cierraMenu(null)"></app-vecino-menu>
