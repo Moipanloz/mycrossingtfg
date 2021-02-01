@@ -69,11 +69,11 @@
         </div>
 
         <div [hidden]="!porcentajeMode" class="porcentaje">
-          <ng-container *ngIf="this.porcentajes[this.data[0].indexOf(vecino)] != -1; else excluido">
-            <span>{{this.porcentajes[this.data[0].indexOf(vecino)]}}%</span>
+          <ng-container *ngIf="this.porcentajes[this.data[0].indexOf(vecino)] != null; else excluido">
+            <span>{{this.porcentajes[this.data[0].indexOf(vecino)] | number : '1.2-2'}}%</span>
           </ng-container>
           <ng-template #excluido>
-            <span>Excluido</span>
+            <span>-</span>
           </ng-template>
         </div>
 

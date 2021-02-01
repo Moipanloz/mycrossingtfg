@@ -189,6 +189,7 @@ export class MisvecinosComponent implements OnInit {
     let amistadCalc : number[] = [];
     let amistadFull : number[] = [];
     let i : number = 0;
+    let puntos : number[] = [];
     let porcentajes : number[] = [];
 
     // Recoge en un array las amistades de los vecinos que tiene el user si no estan excluidos
@@ -199,19 +200,10 @@ export class MisvecinosComponent implements OnInit {
           amistadCalc.push(vecino.amistad);
           amistadFull.push(vecino.amistad);
         }else{
-          amistadFull.push(-1);
+          amistadFull.push(null);
         }
       }
     }
-
-    //todo bien hasta aqui
-    console.log("amistadCalc");
-    console.log(amistadCalc);
-    console.log("amistadFull");
-    console.log(amistadFull);
-
-
-
 
     // Comprueba si todos los vecinos tienen la misma amistad
     for(i = 0; i < amistadCalc.length - 1; i++){
@@ -220,26 +212,19 @@ export class MisvecinosComponent implements OnInit {
       }
     }
 
-    console.log("i");
-    console.log(i);
-
     // Si todos tienen la misma amistad, el porcentaje se calcula evenly
-    // Si no, se calculan los puntos de amistad de cada uno siguiendo el algoritmo
     if(i == amistadCalc.length - 1){
-      console.log("son iguales");
       for(let i = 0; i < amistadFull.length; i++){
-        if(amistadFull[i] == -1){
-          porcentajes.push(-1);
+        if(amistadFull[i] == null){
+          porcentajes.push(null);
         }else{
           porcentajes.push(100 / amistadCalc.length);
         }
       }
+    // Si no, se calculan los puntos de amistad de cada uno siguiendo el algoritmo
     }else{
-      console.log("no son iguales");
-
       for(let a of amistadFull){
         let puntosAmistad = 0;
-
         switch(a){
           case 1:
             puntosAmistad = 15;
@@ -260,28 +245,40 @@ export class MisvecinosComponent implements OnInit {
             puntosAmistad = 200;
             break;
           default:
-            puntosAmistad = -1;
+            puntosAmistad = null;
         }
 
         let calc : number;
-
-        if(puntosAmistad == -1){
-          calc = -1;
-        }else{
-          calc = Math.floor((300 - puntosAmistad) / amistadCalc.length);
+        let nivelSeis : number = 0;
+        if(puntosAmistad == 200){
+          nivelSeis = 1;
         }
 
+        if(puntosAmistad == null){
+          calc = null;
+        }else{
+          calc = Math.floor(((300 - puntosAmistad) / 10) - nivelSeis);
+        }
+        puntos.push(calc);
+      }
 
-        porcentajes.push(calc);
+      let suma : number = 0;
+
+      for(let p of puntos){
+        if(p != null){
+          suma += p;
+        }
+      }
+
+      for(let p of puntos){
+        if(p !=null){
+          porcentajes.push((p/suma)*100);
+        }else{
+          porcentajes.push(null);
+        }
       }
     }
 
     this.porcentajes = porcentajes;
-    console.log("porcentajes");
-    console.log(this.porcentajes[this.data[0].indexOf(this.vecinoMenu)]);
-    console.log("test");
-    console.log(this.data[0].indexOf(this.vecinoMenu));
-
   }
-
 }
