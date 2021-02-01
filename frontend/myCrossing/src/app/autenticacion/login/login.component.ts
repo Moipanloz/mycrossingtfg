@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Verification } from '../../app.component';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { EncriptionService } from '../encription.service'
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent {
   verification: Verification;
   loginForm: FormGroup;
   submitted: boolean = false;
-  constructor(cookieService: CookieService, verification: Verification, private _builder: FormBuilder, private http: HttpClient, private router:Router) {
+  constructor(private encriptionService:EncriptionService, cookieService: CookieService, verification: Verification, private _builder: FormBuilder, private http: HttpClient, private router:Router) {
     this.cookieService = cookieService;
     this.verification = verification;
     this.loginForm = this._builder.group({
@@ -36,7 +37,7 @@ export class LoginComponent {
     data.push(await this.http.get("http://localhost/authentication.php", {params: parametros}).toPromise());
     let datos = data.reduce((acc, val) => acc.concat(val), []);
     for (let user of datos){
-      if(user['nombre']==form.value['nombre'] && user['contrasenya']==form.value['clave']){
+      if(user['nombre']==form.value['nombre'] && this.encriptionService.decript(user['contrasenya'])==form.value['clave']){
         this.verification.logged=true;
         this.verification.user=user['id'];
         break;

@@ -14,4 +14,7 @@ export interface User{
     contrasenya: string;
     email: string;
     verification: string;
+    id_switch: number;
+    id_suenyo: number;
+    apodo_aldeano: string;
   }
