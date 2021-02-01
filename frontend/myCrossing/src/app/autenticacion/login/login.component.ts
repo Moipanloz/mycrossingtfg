@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Verification } from '../../app.component';
 import { HttpClient, HttpParams } from '@angular/common/http';
@@ -11,12 +11,8 @@ import { EncriptionService } from '../encription.service'
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-  ngOnInit(){
-    if(this.verification.logged != null && this.verification.logged){
-      this.router.navigate(['']);
-    }
-  }
+export class LoginComponent {
+
   aviso: String = "";
   cookieService: CookieService;
   verification: Verification;
@@ -30,6 +26,7 @@ export class LoginComponent implements OnInit {
       clave: ['', Validators.required]
     })
   }
+
   async login(form){
     this.submitted = true;
     if(this.loginForm.invalid){
@@ -52,6 +49,7 @@ export class LoginComponent implements OnInit {
       this.http.get("http://localhost/authentication.php", {params: parametros}).toPromise();
       this.cookieService.set( 'verif', key );
       this.cookieService.set( 'userId', this.verification.user.toString() );
+
       this.verification.verified = true;
       this.router.navigate(['']);
     }else{

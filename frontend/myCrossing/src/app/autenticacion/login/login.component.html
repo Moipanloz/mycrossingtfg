@@ -45,32 +45,3 @@
         </div>
     </div>
 </div>
-<!--
-<form class="formulario" [formGroup]="loginForm">
-    <div class="titulo">Inicio de sesión</div>
-    <p>
-        <label for="nombre">Nombre: </label>
-        <input id="nombre" formControlName='nombre' type="text">
-    </p>
-    <ng-container *ngIf="loginForm.controls.nombre.errors && submitted">
-        <p class="error">
-            <ng-container *ngIf="loginForm.controls.nombre.errors.required && submitted">
-                Debe introducir un nombre. 
-            </ng-container>
-        </p>
-    </ng-container>
-    <p>
-        <label for="password">Contraseña: </label>
-        <input id="password" formControlName='clave' type="password">
-    </p>
-    <ng-container *ngIf="loginForm.controls.clave.errors && submitted">
-        <p class="error">
-            <ng-container *ngIf="loginForm.controls.clave.errors.required && submitted">
-                Debe introducir una contraseña. 
-            </ng-container>
-        </p>
-    </ng-container>
-    <button (click)="login(loginForm)">Iniciar sesion</button>
-    <p class="error">{{aviso}}</p>
-</form>
--->

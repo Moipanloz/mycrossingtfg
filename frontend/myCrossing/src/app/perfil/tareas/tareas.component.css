@@ -1,0 +1,39 @@
+div{
+  justify-content: center;
+  display: flex;
+}
+
+.tarea{
+  border-radius: 100%;
+  width: 4vw;
+  height: 4vw;
+  border-style: solid;
+  border-width: 0.3vw;
+  cursor: pointer;
+  margin: 0 1vw;
+}
+
+.todo{
+  background-color: rgb(226, 214, 174);
+  border-color: rgb(252, 183, 79);
+}
+
+.done{
+  background-color: rgb(171, 219, 164);
+  border-color: rgb(99, 252, 79);
+}
+
+#añadir{
+  background-color: rgb(107, 107, 107);
+  border-color: rgb(39, 39, 39);
+}
+
+#editar{
+  width: 2vw;
+  height: 2vw;
+  background-color: rgb(171, 219, 164);
+  border-color: rgb(99, 252, 79);
+  position: absolute;
+  right: 3.5vw;
+  top: 11.5vw;
+}

@@ -2,3 +2,10 @@
 body{
   margin: 0;
 }
+
+* {
+  font-family: Varela Round, serif;
+  outline: none;
+}
+
+

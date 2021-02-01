@@ -1,0 +1,30 @@
+
+<div>
+  <ng-container *ngFor="let tarea of data[0]">
+
+    <!-- Tarea done -->
+    <ng-container *ngIf="tarea.hecha == true; else todo">
+      <button (click)="!modoEdicion ? checkTarea(tarea) : abreMenu($event, tarea)" class="tarea done">{{tarea.imagen_url}}</button>
+    </ng-container>
+
+    <!-- Tarea todo -->
+    <ng-template #todo>
+      <button (click)="!modoEdicion ? checkTarea(tarea) : abreMenu($event, tarea)" class="tarea todo">{{tarea.imagen_url}}</button>
+    </ng-template>
+
+  </ng-container>
+
+  <!-- Menu tarea-->
+  <app-tarea-menu [menu]="this.tareaMenu" (actualizar)="actualizaTarea($event)" (borrar)="borrarTarea($event)" (clickOutside)="cierraMenu()"></app-tarea-menu>
+
+  <!-- Boton crear -->
+  <ng-container *ngIf="modoEdicion && data[0].length < 10">
+    <button (click)="crearTarea()" class="tarea" id="añadir">+</button>
+  </ng-container>
+
+  <!-- Boton modo edicion -->
+  <button id="editar" (click)="activaEdicion()">{{modoEdicion}}</button>
+
+</div>
+
+

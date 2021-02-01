@@ -1,4 +1,4 @@
-import { Component, Injectable, OnInit, Output } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -7,17 +7,11 @@ import { CookieService } from 'ngx-cookie-service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'My Crossing';
-  data = [];
-  constructor(private http: HttpClient){}
 
-  ngOnInit (){
-    /*  this.http.get("http://localhost/prueba.php").subscribe(data => {
-     this.data.push(data);
-     console.log(this.data);
-     },error => console.error(error)); */
-  }
+  constructor(){}
 
 }
 
@@ -27,6 +21,7 @@ export class Verification {
   user: number = null;
   verified: boolean = false;
   cookieService: CookieService;
+
   constructor(cookieService: CookieService, private http: HttpClient){
     this.cookieService = cookieService;
   }
@@ -50,7 +45,7 @@ export class Verification {
     }
     this.verified = true;
   }
-  
+
   makeRandomKey(){
     var result           = '';
     var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -60,4 +55,11 @@ export class Verification {
     }
     return result;
   }
+
+  async verifyIfNotVerified(){
+    if(!this.verified){
+      await this.verify();
+    }
+  }
+
 }

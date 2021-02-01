@@ -5,7 +5,7 @@
 // que estan en pipo.php para abrir y cerrar sesion
 // mas info en marcadores
 
-header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Origin: http://localhost:4200');
 
 $servername = "localhost";
 $username   = "mcadmin";
@@ -32,4 +32,7 @@ else
 {
     echo "0 results";
 }
+
+$conn -> close();
+
 ?>

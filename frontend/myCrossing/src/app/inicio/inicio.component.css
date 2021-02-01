@@ -1,15 +1,21 @@
 /* Colores
 
 Amarillo: #ffefc4
+Lighter amarillo: #fff3d3
 Azul: #ade6e7
+Lighter azul:  #c9f3f3
 Verde: rgb(210, 255, 214)
+Lighter verde: rgb(228, 255, 230)
 Blanco: #f7f3e8
+
+PROBAR INICIO: todos los divs #fffbe1
 */
 
 
 .dv-inicio{
   min-height: fit-content;
   padding: 2vw 0;
+  background-color: #fffbe1;
 }
 
 #dv-header{
@@ -61,16 +67,7 @@ Blanco: #f7f3e8
 }
 
 #dv-0{
-  background-color: rgb(210, 255, 214);
   box-shadow: 0px -10px 20px 0px rgb(23 23 23 / 55%)
-}
-
-#dv-1{
-  background-color: rgb(210, 255, 214);
-}
-
-#dv-2{
-  background-color:  #ffefc4;
 }
 
 .dv-inicio > #titulo{
@@ -159,5 +156,16 @@ Blanco: #f7f3e8
   background-color: rgb(255, 160, 97);
 }
 
+#hr-inicio{
+  border-width: 0.2vw;
+  border-style: solid;
+  width: 33%;
+  position: absolute;
+  border-color: #69c0c0;
+  margin-inline-start: 33%;
+  border-radius: 20px;
+  background-color:  #69c0c0;
+  margin-block-start: -2px;
+}
 
 

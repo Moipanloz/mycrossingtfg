@@ -1,5 +1,5 @@
-# mycrossingtfg
-Esto es un Trabajo de Fin de Grado realizado por:
+# MyCrossingTFG
+Esto es un Trabajo de Fin de Grado de Ingeniería de Software realizado por:
 
 Adrián Gracia Barroso
 Moisés Pantión Loza

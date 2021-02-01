@@ -1,10 +1,18 @@
 <?php
 
-include 'prueba.php';
-$conn = ConnectDB();
-echo "Connected Successfully";
+if(isset($_COOKIE)){
+  print("is set");
+  if(empty($_COOKIE)){
+    print("but its epty");
+  }else{
+    $wea = var_dump($_COOKIE);
+    print($wea);
+  }
 
-CloseConnection($conn);
 
+  print("--------------------------------");
+
+  print($_COOKIE["userId"]);
+}
 
 ?>
