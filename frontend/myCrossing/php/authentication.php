@@ -5,7 +5,7 @@
 // que estan en pipo.php para abrir y cerrar sesion
 // mas info en marcadores
 
-require "opendb.php";
+require "openDB.php";
 
 if(isset($_GET['command'])){
   switch($_GET['command']){
@@ -82,7 +82,7 @@ if(isset($_GET['command'])){
         print "No ha introducido id de usuario que leer";
       }
       break;
-    
+
     case "register":
       $putdata = file_get_contents("php://input");
       $request = json_decode($putdata);
@@ -97,7 +97,7 @@ if(isset($_GET['command'])){
         $verif = $request->verif;
         $sql = "INSERT INTO usuarios (nombre, contrasenya, isla, fruta, cumpleanyos, verification, email, hemisferio";
         $sql2 = ") VALUES ('$nombre', '$contrasenya', '$isla', '$fruta', '$cumpleanyos', '$verif', '$email', '$hemisferio'";
-        
+
         if(!empty($request->id_switch)){
           $id_switch = $request->id_switch;
           $sql .= ", id_switch";
@@ -113,7 +113,7 @@ if(isset($_GET['command'])){
           $sql .= ", apodo_aldeano";
           $sql2 .= ", '$apodo_aldeano'";
         }
-        
+
         $sql2 .= ")";
         $sql .= $sql2;
         $funciona = mysqli_query($conn,$sql);
@@ -129,7 +129,7 @@ if(isset($_GET['command'])){
         print "No ha introducido los parametros necesarios de registro";
       }
       break;
-      
+
     default:
       print "Comando no valido";
   }
