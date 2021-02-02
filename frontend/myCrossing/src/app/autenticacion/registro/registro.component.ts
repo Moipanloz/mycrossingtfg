@@ -48,12 +48,17 @@ export class RegistroComponent implements OnInit {
     user.verif = key;
     user.clave = this.encriptionService.encript(user.clave);
     data.push(await this.http.post("http://localhost/authentication.php", user, {params: parametros}).toPromise());
-    this.cookieService.set( 'verif', key );
-    this.cookieService.set( 'userId', data[0][0]['id'] );
-    this.verification.verified = true;
-    this.verification.logged = true;
-    this.verification.user = data[0][0]['id'];
-    this.router.navigate(['']);
+    if(JSON.stringify(data) != "[\"Error\"]"){
+      console.log(JSON.stringify(data));
+      this.cookieService.set( 'verif', key );
+      this.cookieService.set( 'userId', data[0][0]['id'] );
+      this.verification.verified = true;
+      this.verification.logged = true;
+      this.verification.user = data[0][0]['id'];
+      this.router.navigate(['']);
+    }else{
+      this.aviso = "El nombre de usuario ya está en uso";
+    }
   }
 }
 export class CustomValidator{

@@ -24,5 +24,19 @@ function checkUser($userId){
   return $result;
 }
 
+function checkUserName($conn, $nombre){
+
+  $sql = "SELECT COUNT(*) FROM usuarios WHERE nombre = '$nombre'";
+  $result = mysqli_query($conn,$sql);
+  return $result!='0';
+}
+
+function checkUserId($conn, $userId){
+
+  $sql = "SELECT COUNT(*) FROM usuarios WHERE userId = '$userId'";
+  $result = mysqli_query($conn,$sql);
+  return $result=='1';
+}
+
 ?>
 

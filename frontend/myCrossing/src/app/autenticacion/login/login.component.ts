@@ -46,12 +46,16 @@ export class LoginComponent {
     if(this.verification.logged == true){
       let key: string = this.verification.makeRandomKey();
       let parametros = new HttpParams().set("userId", JSON.stringify(this.verification.user)).set("command", "setKey").set("key", key);
-      this.http.get("http://localhost/authentication.php", {params: parametros}).toPromise();
-      this.cookieService.set( 'verif', key );
-      this.cookieService.set( 'userId', this.verification.user.toString() );
+      data.push(await this.http.get("http://localhost/authentication.php", {params: parametros}).toPromise());
+      if(JSON.stringify(data)!="[\"Error\"]"){
+        this.aviso = "El usuario al que intenta acceder está corrupto, contacte con un administrador"
+      }else{
+        this.cookieService.set( 'verif', key );
+        this.cookieService.set( 'userId', this.verification.user.toString() );
 
-      this.verification.verified = true;
-      this.router.navigate(['']);
+        this.verification.verified = true;
+        this.router.navigate(['']);
+      }
     }else{
       this.aviso = "El usuario no existe o la contraseña no es correcta";
     }

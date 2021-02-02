@@ -32,12 +32,17 @@ export class Verification {
       let parametros = new HttpParams().set("userId", JSON.stringify(userId)).set("command", "getKey");
       let datos = await this.http.get("http://localhost/authentication.php", {params: parametros}).toPromise();
       let verif = datos[0]['verification'];
-      if(verif == this.cookieService.get("verif")){
-        this.logged = true;
-        this.user = userId;
-      }else{
+      if(JSON.stringify(datos)=="[\"Error\"]"){
         this.logged = false;
         this.user = null;
+      }else{
+        if(verif == this.cookieService.get("verif")){
+          this.logged = true;
+          this.user = userId;
+        }else{
+          this.logged = false;
+          this.user = null;
+        }
       }
     }else{
       this.logged = false;
