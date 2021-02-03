@@ -13,21 +13,25 @@ if(isset($_GET['command'])){
   switch($_GET['command']){
     case "setNull":
       $userId = $_GET['userId'];
-      if(checkUserId($userId)){
+      if(checkUserId($conn, $userId)){
         $sql = "UPDATE usuarios SET verification = NULL WHERE id = $userId";
         $result = mysqli_query($conn,$sql);
+        print json_encode("Cierre sesion");
       }else{
         print json_encode("Error");
       }
+
       break;
 
     case "setKey":
       if(isset($_GET['userId']) && isset($_GET['key'])){
         $userId = $_GET['userId'];
-        if(checkUserId($userId)){
+
+        if(checkUserId($conn, $userId)){
           $verif = $_GET['key'];
           $sql = "UPDATE usuarios SET verification = '$verif' WHERE id = $userId";
           $result = mysqli_query($conn,$sql);
+          print json_encode("Funciona");
         }else{
           print json_encode("Error");
         }
@@ -51,7 +55,8 @@ if(isset($_GET['command'])){
     case "read":
       if(isset($_GET['userId'])){
         $userId = $_GET['userId'];
-        if(checkUserId($userId)){
+
+        if(checkUserId($conn, $userId)){
           $sql = "SELECT * FROM usuarios WHERE id = $userId";
           $result = mysqli_query($conn,$sql);
           $myArray = array();
@@ -62,7 +67,7 @@ if(isset($_GET['command'])){
               print json_encode($myArray);
           }
         }else{
-          print json_encode("Error");
+          print json_encode("No cumple los requerimientos");
         }
       }else{
         print "No ha introducido id de usuario que leer";
@@ -84,7 +89,7 @@ if(isset($_GET['command'])){
     case "getKey":
       if(isset($_GET['userId'])){
         $userId = $_GET['userId'];
-        if(checkUserId($userId)){
+        if(checkUserId($conn, $userId)){
           $sql = "SELECT verification FROM usuarios WHERE id = $userId";
           $result = mysqli_query($conn,$sql);
           if ($result->num_rows > 0) {
@@ -102,8 +107,8 @@ if(isset($_GET['command'])){
       break;
 
     case "register":
-      $putdata = file_get_contents("php://input");
-      $request = json_decode($putdata);
+      $postdata = file_get_contents("php://input");
+      $request = json_decode($postdata);
       if(isset($request)){
         $nombre = $request->nombre;
         $error = checkUserName($conn, $nombre);

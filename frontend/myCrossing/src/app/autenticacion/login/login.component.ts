@@ -45,10 +45,14 @@ export class LoginComponent {
     }
     if(this.verification.logged == true){
       let key: string = this.verification.makeRandomKey();
-      let parametros = new HttpParams().set("userId", JSON.stringify(this.verification.user)).set("command", "setKey").set("key", key);
-      data.push(await this.http.get("http://localhost/authentication.php", {params: parametros}).toPromise());
-      if(JSON.stringify(data)!="[\"Error\"]"){
-        this.aviso = "El usuario al que intenta acceder está corrupto, contacte con un administrador"
+      let parametros = new HttpParams()
+      .set("userId", JSON.stringify(this.verification.user))
+      .set("command", "setKey")
+      .set("key", key);
+
+      let res = await this.http.get("http://localhost/authentication.php", {params: parametros}).toPromise();
+      if(JSON.stringify(res)=="[\"Error\"]"){
+        this.aviso = "El usuario al que intenta acceder está corrupto, contacte con un administrador";
       }else{
         this.cookieService.set( 'verif', key );
         this.cookieService.set( 'userId', this.verification.user.toString() );

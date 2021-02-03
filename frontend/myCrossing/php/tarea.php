@@ -15,7 +15,7 @@ if(isset($_GET["command"])){
         $userId = (int)$_GET["userId"]; //convierte el string en int
 
         //Comprobar que el user coincide con las cookies
-        $error = checkUser($userId);
+        $error = checkUserId($conn, $userId);
 
         //Para que sea correcto debe dar true
         if($error){
@@ -64,11 +64,11 @@ if(isset($_GET["command"])){
           }
 
           //comprueba
-          // -que el usuario coincide con la cookie
+          // -que el usuario existe
           // -que la tarea existe
           // -que la tarea a editar es suya
           // -que los datos a actualizar son correctos
-          $error =  checkUser($userId) &&
+          $error =  checkUserId($conn, $userId) &&
                     checkExisteTarea($tareaId, $conn) &&
                     checkTareaOwner($userId, $tareaId, $conn) &&
                     checkDatosCorrectos($imagenUrl, $hecha);
@@ -103,7 +103,7 @@ if(isset($_GET["command"])){
           $hecha = $request->hecha;
           $imagenUrl = $request->imagen_url;
 
-          $error =  checkUser($userId) &&
+          $error = checkUserId($conn, $userId) &&
                     checkDatosCorrectos($imagenUrl, $hecha) &&
                     checkNumeroTareas($userId, $conn);
 
@@ -133,7 +133,7 @@ if(isset($_GET["command"])){
 
           $tareaId = $_GET["tareaId"];
 
-          $error =  checkUser($userId) &&
+          $error = checkUserId($conn, $userId) &&
                     checkExisteTarea($tareaId, $conn) &&
                     checkTareaOwner($userId, $tareaId, $conn);
 

@@ -4,38 +4,25 @@ header('Access-Control-Allow-Origin: http://localhost:4200');
 header('Access-Control-Allow-Headers: *');
 header("Access-Control-Allow-Credentials: true");
 
-function checkUser($userId){
-
-  $result = null;
-  if(array_key_exists("userId", $_COOKIE)){
-
-    $cookie = (int)$_COOKIE["userId"];
-
-    if($userId == $cookie){
-      $result = true;
-    }else{
-      $result = false;
-      print("Usuario incorrecto");
-    }
-  }else{
-    $result = false;
-    print("La cookie no existe");
-  }
-  return $result;
-}
-
 function checkUserName($conn, $nombre){
+  $devolver = FALSE;
 
-  $sql = "SELECT COUNT(*) FROM usuarios WHERE nombre = '$nombre'";
+  $sql = "SELECT * FROM usuarios WHERE nombre = '$nombre'";
   $result = mysqli_query($conn,$sql);
-  return $result!='0';
+  if ($result->num_rows != 0) {
+    $devolver= TRUE;
+  }
+  return $devolver;
 }
 
 function checkUserId($conn, $userId){
-
-  $sql = "SELECT COUNT(*) FROM usuarios WHERE userId = '$userId'";
+  $devolver = FALSE;
+  $sql = "SELECT * FROM usuarios WHERE id = $userId";
   $result = mysqli_query($conn,$sql);
-  return $result=='1';
+  if ($result->num_rows == 1) {
+    $devolver= TRUE;
+  }
+  return $devolver;
 }
 
 ?>

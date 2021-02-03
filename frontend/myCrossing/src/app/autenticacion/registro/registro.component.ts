@@ -34,22 +34,26 @@ export class RegistroComponent implements OnInit {
       apodo_aldeano: ['', ]
     })
   }
+
   ngOnInit(): void {
   }
+
   async register(form){
     this.submitted = true;
     if(this.registerForm.invalid){
       return;
     }
+
     let data = Array();
     let key = this.verification.makeRandomKey();
     let parametros = new HttpParams().set("command", "register");
     let user = this.registerForm.value;
+
     user.verif = key;
     user.clave = this.encriptionService.encript(user.clave);
+
     data.push(await this.http.post("http://localhost/authentication.php", user, {params: parametros}).toPromise());
     if(JSON.stringify(data) != "[\"Error\"]"){
-      console.log(JSON.stringify(data));
       this.cookieService.set( 'verif', key );
       this.cookieService.set( 'userId', data[0][0]['id'] );
       this.verification.verified = true;

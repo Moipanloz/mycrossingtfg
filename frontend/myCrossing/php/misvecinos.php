@@ -13,7 +13,7 @@ if(isset($_GET["command"])){
       if(isset($_GET["userId"])){
         $userId = $_GET["userId"];
 
-        $error = checkUser($userId);
+        $error = checkUserId($conn, $userId);
 
         if($error){
           $sql = "SELECT * FROM misvecinos WHERE usuario_id = $userId";
@@ -54,7 +54,7 @@ if(isset($_GET["command"])){
           $tieneVecino = checkTieneVecino($userId, $vecinoId, $conn);
           $tieneVecino = ! $tieneVecino;
 
-          $error = checkUser($userId) &&
+          $error = checkUserId($conn, $userId) &&
                    checkDatosCorrectos($vecinoId, $amistad) &&
                    checkNumeroVecinos($userId, $conn) &&
                    $tieneVecino;
@@ -94,7 +94,7 @@ if(isset($_GET["command"])){
             $tieneVecino = checkTieneVecino($userId, $vecinoId, $conn);
             $tieneVecino = ! $tieneVecino; // No se puede aplicar ! dentro de $error
 
-            $error = checkUser($userId) &&
+            $error = checkUserId($conn, $userId) &&
                     checkDatosCorrectos($vecinoId, $amistad) &&
                     $tieneVecino;
 
@@ -130,7 +130,7 @@ if(isset($_GET["command"])){
         $vecinoId = $request->vecino_id;
         $amistad = $request->amistad;
 
-        $error = checkUser($userId) &&
+        $error = checkUserId($conn, $userId) &&
                 checkDatosCorrectos($vecinoId, $amistad) &&
                 checkTieneVecino($userId, $vecinoId, $conn);
 
@@ -158,8 +158,8 @@ if(isset($_GET["command"])){
 
           $vecinoId = $_GET["vecinoId"];
 
-          $error =  checkUser($userId) &&
-                    checkTieneVecino($userId, $vecinoId, $conn);
+          $error = checkUserId($conn, $userId) &&
+                  checkTieneVecino($userId, $vecinoId, $conn);
 
           if($error){
             $sql = "DELETE FROM misvecinos WHERE vecino_id = $vecinoId AND usuario_id = $userId";
@@ -178,9 +178,7 @@ if(isset($_GET["command"])){
 
     default:
       print("Comando no válido");
-
   }
-
 }
 
 $conn -> close();

@@ -92,6 +92,8 @@ export class VecinoMenuComponent implements OnInit {
     }else{
       this.divVecino.nativeElement.style.display = "none";
     }
+
+    this.busqueda.setValue("");
   }
 
   borrarVecino(){
