@@ -79,15 +79,19 @@ span {
   border-radius: 30px;
 }
 
- #misvecinos{
-   background-color:#fff3d3;
- }
+#tools > h2 {
+  text-align: center;
+}
 
- #coleccionesp{
-   background-color: rgb(228, 255, 230);
- }
+#misvecinos{
+  background-color:#fff3d3;
+}
 
- .v-center{
-   display: flex;
-   align-items: center;
- }
+#coleccionesp{
+ background-color: rgb(228, 255, 230);
+}
+
+.v-center{
+  display: flex;
+  align-items: center;
+}
