@@ -30,27 +30,32 @@ span {
 
 #perfil{
   background-color: rgba(247, 243, 232);
-  border-radius: 0 30px 30px 0;
+    border-radius: 0 30px 30px 0;
+    border-color: #d1dbb8;
+    border-style: solid;
+    border-width: 0.5vw;
 }
 
 .bckg{
-  position: relative;
   padding: 0.3vw 0;
   margin-top: 1vw;
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  background-image: url("../../assets/images/patron-hojas-oscuro.png");
+  background-size: cover;
+
+
 }
 
 .bckg:before{
   content: "";
-  background-image: url("../../assets/images/patron-hojas-oscuro.png");
-  background-size: cover;
   position: absolute;
   top: 0px;
   right: 0px;
   bottom: 0px;
   left: 0px;
-  opacity: 0.3;
-  border-radius: 20px;
-
+  background-color: rgba(247, 243, 232, 0.70);
 }
 
 #primary > img{
@@ -64,7 +69,7 @@ span {
 }
 
 #nombre {
-  margin: 0 0 0 2vw;
+  margin: 0.5vw 0 0 2vw;
 }
 
 #nombre > * {
@@ -73,7 +78,8 @@ span {
 
 #secondary {
   margin: 2vw 2vw;
-  opacity: 100%;
+  width: 100%;
+  position: relative;
 }
 
 #flex, #flex > div{
@@ -86,6 +92,9 @@ span {
 
 #secondary > hr {
   margin: 1vw 0;
+  border-color: rgba(247, 243, 232);
+  background-color: rgba(247, 243, 232);
+  border-style: solid;
 }
 
 .icono {
