@@ -53,7 +53,7 @@ export class PerfilComponent implements OnInit {
         this.usuario = usuario[0];
 
         if(this.usuario.hemisferio == "SUR"){
-          this.hemisferio.nativeElement.src = "../../assets/images/down.png";
+          this.hemisferio.nativeElement.src = "../../assets/images/hemisferio-sur.png";
         }
 
         switch(this.usuario.fruta){
@@ -75,6 +75,56 @@ export class PerfilComponent implements OnInit {
 
           case "NARANJA":
             this.fruta.nativeElement.src = "../../assets/images/naranja.png";
+            break;
+        }
+
+        switch(this.signoZodiaco(this.usuario.cumpleanyos)){
+          case "Aries":
+            this.zodiaco.nativeElement.src = "../../assets/images/aries.png";
+            break;
+
+          case "Tauro":
+            this.zodiaco.nativeElement.src = "../../assets/images/tauro.png";
+            break;
+
+          case "Geminis":
+            this.zodiaco.nativeElement.src = "../../assets/images/geminis.png";
+            break;
+
+          case "Cáncer":
+            this.zodiaco.nativeElement.src = "../../assets/images/cancer.png";
+            break;
+
+          case "Leo":
+            this.zodiaco.nativeElement.src = "../../assets/images/leo.png";
+            break;
+
+          case "Libra":
+            this.zodiaco.nativeElement.src = "../../assets/images/libra.png";
+            break;
+
+          case "Virgo":
+            this.zodiaco.nativeElement.src = "../../assets/images/virgo.png";
+            break;
+
+          case "Escorpio":
+            this.zodiaco.nativeElement.src = "../../assets/images/escorpio.png";
+            break;
+
+          case "Sagitario":
+            this.zodiaco.nativeElement.src = "../../assets/images/sagitario.png";
+            break;
+
+          case "Capricornio":
+            this.zodiaco.nativeElement.src = "../../assets/images/capricornio.png";
+            break;
+
+          case "Acuario":
+            this.zodiaco.nativeElement.src = "../../assets/images/acuario.png";
+            break;
+
+          case "Piscis":
+            this.zodiaco.nativeElement.src = "../../assets/images/piscis.png";
             break;
         }
 

@@ -29,8 +29,28 @@ span {
 
 
 #perfil{
-  background-color: #f7f3e8;
+  background-color: rgba(247, 243, 232);
   border-radius: 0 30px 30px 0;
+}
+
+.bckg{
+  position: relative;
+  padding: 0.3vw 0;
+  margin-top: 1vw;
+}
+
+.bckg:before{
+  content: "";
+  background-image: url("../../assets/images/patron-hojas-oscuro.png");
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.3;
+  border-radius: 20px;
+
 }
 
 #primary > img{
@@ -53,6 +73,7 @@ span {
 
 #secondary {
   margin: 2vw 2vw;
+  opacity: 100%;
 }
 
 #flex, #flex > div{

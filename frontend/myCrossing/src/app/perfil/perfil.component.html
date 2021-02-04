@@ -7,31 +7,27 @@
         <p>{{this.usuario.apodo_aldeano | capitalize}}</p>
       </div>
     </div>
-    <div id="secondary">
-      <div id="flex">
-        <div class="v-center">
-          <span><b>Isla: </b>{{this.usuario.isla | capitalize}}</span> <!-- poner imagen hemisferio-->
-          <img src="../../assets/images/up.jpg" class="icono" #hemisferio>
+    <div class="bckg">
+      <div id="secondary">
+        <div id="flex">
+          <div class="v-center">
+            <span><b>Isla: </b>{{this.usuario.isla | capitalize}}</span> <!-- poner imagen hemisferio-->
+            <img src="../../assets/images/hemisferio-norte.png" class="icono" #hemisferio>
+          </div>
+          <div class="v-center">
+            <span><b>Fruta: </b>{{this.usuario.fruta | capitalize}}</span>
+            <img src="../../assets/images/logo.png" class="icono" #fruta>
+          </div>
         </div>
+        <hr>
         <div class="v-center">
-          <span><b>Fruta: </b>{{this.usuario.fruta | capitalize}}</span>
-          <img src="../../assets/images/logo.png" class="icono" #fruta>
+          <span><b>Cumpleaños: </b>{{mesToString(this.usuario.cumpleanyos)}}, {{signoZodiaco(this.usuario.cumpleanyos)}}</span>
+          <img src="../../assets/images/logo.png" class="icono" #zodiaco>
         </div>
-      </div>
-      <hr>
-      <div class="v-center">
-        <span><b>Cumpleaños: </b>{{mesToString(this.usuario.cumpleanyos)}}, {{signoZodiaco(this.usuario.cumpleanyos)}}</span>
-        <img src="../../assets/images/logo.png" class="icono" #zodiaco>
-      </div>
-      <hr>
-      <div class="v-center">
+        <hr>
         <span><b>ID Switch: </b>{{this.usuario.id_switch}}</span>
-        <img src="../../assets/images/logo.png" class="icono">
-      </div>
-      <hr>
-      <div class="v-center">
+        <hr>
         <span><b>ID Sueño: </b>{{this.usuario.id_suenyo}}</span>
-        <img src="../../assets/images/logo.png" class="icono">
       </div>
     </div>
   </div>
