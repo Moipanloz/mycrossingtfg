@@ -11,6 +11,7 @@ import { ClickOutsideDirective } from 'app/general/clickOutside.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 import { VecinoMenuComponent } from './misvecinos/vecino-menu/vecino-menu.component';
 import { CookieService } from 'ngx-cookie-service';
+import { CapitalizePipe } from './capitalize.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CookieService } from 'ngx-cookie-service';
     TareaMenuComponent,
     ClickOutsideDirective,
     VecinoMenuComponent,
-    FiltroVecinoPipe
+    FiltroVecinoPipe,
+    CapitalizePipe
   ],
   imports: [
     CommonModule,

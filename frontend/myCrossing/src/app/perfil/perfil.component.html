@@ -3,27 +3,36 @@
     <div id="primary">
       <img src="../../assets/images/logo.png">
       <div id="nombre">
-        <h2>Usuario</h2> <!-- {{usuario.nombre}} -->
-        <p>Apodo del aldeano</p>  <!-- {{usuario.apodo}} -->
+        <h2 style="text-align: left;" >{{this.usuario.nombre | capitalize}}</h2>
+        <p>{{this.usuario.apodo_aldeano | capitalize}}</p>
       </div>
     </div>
     <div id="secondary">
       <div id="flex">
-        <span>Isla:</span>  <!-- {{usuario.isla}} -->
-        <div>
-          <span>Fruta:</span>  <!-- {{usuario.fruta}} -->
-          <img src="../../assets/images/logo.png" class="icono">
+        <div class="v-center">
+          <span><b>Isla: </b>{{this.usuario.isla | capitalize}}</span> <!-- poner imagen hemisferio-->
+          <img src="../../assets/images/up.jpg" class="icono" #hemisferio>
+        </div>
+        <div class="v-center">
+          <span><b>Fruta: </b>{{this.usuario.fruta | capitalize}}</span>
+          <img src="../../assets/images/logo.png" class="icono" #fruta>
         </div>
       </div>
       <hr>
-      <div>
-        <span>Cumpleaños:</span>  <!-- {{usuario.cumpleanyos}} -->
+      <div class="v-center">
+        <span><b>Cumpleaños: </b>{{mesToString(this.usuario.cumpleanyos)}}, {{signoZodiaco(this.usuario.cumpleanyos)}}</span>
+        <img src="../../assets/images/logo.png" class="icono" #zodiaco>
+      </div>
+      <hr>
+      <div class="v-center">
+        <span><b>ID Switch: </b>{{this.usuario.id_switch}}</span>
         <img src="../../assets/images/logo.png" class="icono">
       </div>
       <hr>
-      <span>ID Switch:</span>  <!-- {{usuario.id_switch}} -->
-      <hr>
-      <span>ID Sueño:</span>  <!-- {{usuario.id_sueño}} -->
+      <div class="v-center">
+        <span><b>ID Sueño: </b>{{this.usuario.id_suenyo}}</span>
+        <img src="../../assets/images/logo.png" class="icono">
+      </div>
     </div>
   </div>
   <div id="tools" class="wrapper-perfil">
@@ -37,6 +46,6 @@
   <h2>Mis vecinos</h2>
   <app-misvecinos></app-misvecinos>
 </div>
-<div id="test2" class="wrapper-perfil">
+<div id="coleccionesp" class="wrapper-perfil">
   <app-coleccionesp></app-coleccionesp>
 </div>

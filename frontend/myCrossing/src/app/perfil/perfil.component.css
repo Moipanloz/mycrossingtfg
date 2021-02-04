@@ -16,6 +16,7 @@
 
 h2{
   font-size: 1.6vw;
+  text-align: center;
 }
 
 p{
@@ -24,12 +25,11 @@ p{
 
 span {
   font-size: 1vw;
-  font-weight: bold;
 }
 
 
 #perfil{
-  background-color: crimson;
+  background-color: #f7f3e8;
   border-radius: 0 30px 30px 0;
 }
 
@@ -68,8 +68,9 @@ span {
 }
 
 .icono {
-  width: 1vw;
-  height: 1vw;
+  width: 1.5vw;
+  height: 1.5vw;
+  margin-left: 0.5vw;
 }
 
 #tools{
@@ -78,14 +79,15 @@ span {
   border-radius: 30px;
 }
 
-h2 {
-  text-align: center;
-}
-
  #misvecinos{
    background-color:#fff3d3;
  }
 
- #test2{
+ #coleccionesp{
    background-color: rgb(228, 255, 230);
+ }
+
+ .v-center{
+   display: flex;
+   align-items: center;
  }
