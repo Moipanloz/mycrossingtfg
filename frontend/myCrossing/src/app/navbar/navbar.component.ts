@@ -1,3 +1,4 @@
+import { UserService } from 'app/autenticacion/user.service';
 import { Component } from '@angular/core';
 import { Verification } from '../app.component';
 import { HttpClient, HttpParams } from '@angular/common/http';
@@ -12,19 +13,19 @@ import { Router } from '@angular/router';
 export class NavbarComponent{
   verification: Verification;
   cookieService: CookieService;
-  constructor(cookieService: CookieService, verification: Verification, private http: HttpClient, private router: Router) {
+  _user : UserService;
+  constructor(cookieService: CookieService, verification: Verification,
+     private http: HttpClient, private router: Router, _user : UserService) {
     this.cookieService = cookieService;
     this.verification = verification;
+    this._user = _user;
   }
 
   logOut(){
-    let userId = this.verification.user;
-    this.cookieService.delete('verif');
-    this.cookieService.delete('userId');
-    let parametros = new HttpParams().set("userId", JSON.stringify(userId)).set("command", "setNull");
-    this.http.get("http://localhost/authentication.php", {params: parametros}).toPromise();
-    this.verification.logged = false;
-    this.verification.user = null;
-    this.router.navigate([""]);
+    this._user.logOut().then(() => {
+      this.verification.logged = false;
+      this.verification.user = null;
+      this.router.navigate([""]);
+    });
   }
 }

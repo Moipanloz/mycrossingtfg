@@ -95,6 +95,8 @@ span {
   border-color: rgba(247, 243, 232);
   background-color: rgba(247, 243, 232);
   border-style: solid;
+  border-radius: 10px;
+  border-width: 1.2px;
 }
 
 .icono {

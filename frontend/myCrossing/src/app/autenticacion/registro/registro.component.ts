@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { UserService } from 'app/autenticacion/user.service';
+import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Verification } from '../../app.component';
 import { HttpClient, HttpParams } from '@angular/common/http';
@@ -12,15 +13,21 @@ import {EncriptionService} from '../encription.service';
   styleUrls: ['./registro.component.css']
 })
 
-export class RegistroComponent implements OnInit {
+export class RegistroComponent {
+
   verification: Verification;
   registerForm: FormGroup;
   cookieService: CookieService;
+  _user : UserService;
   aviso: String = "";
   submitted: Boolean = false;
-  constructor(private encriptionService:EncriptionService, private router:Router, cookieService: CookieService, verification: Verification, private http: HttpClient, private _builder: FormBuilder) {
+
+  constructor(private router:Router, cookieService: CookieService,
+     verification: Verification, private http: HttpClient, private _builder: FormBuilder, _user: UserService) {
+
     this.verification = verification;
     this.cookieService = cookieService;
+    this._user = _user;
     this.registerForm = this._builder.group({
       nombre: ['', Validators.required],
       clave: ['', Validators.required],
@@ -35,36 +42,29 @@ export class RegistroComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
-  }
-
   async register(form){
     this.submitted = true;
     if(this.registerForm.invalid){
       return;
     }
-
-    let data = Array();
-    let key = this.verification.makeRandomKey();
-    let parametros = new HttpParams().set("command", "register");
     let user = this.registerForm.value;
+    let key = this.verification.makeRandomKey();
 
-    user.verif = key;
-    user.clave = this.encriptionService.encript(user.clave);
-
-    data.push(await this.http.post("http://localhost/authentication.php", user, {params: parametros}).toPromise());
-    if(JSON.stringify(data) != "[\"Error\"]"){
-      this.cookieService.set( 'verif', key );
-      this.cookieService.set( 'userId', data[0][0]['id'] );
-      this.verification.verified = true;
-      this.verification.logged = true;
-      this.verification.user = data[0][0]['id'];
-      this.router.navigate(['']);
-    }else{
-      this.aviso = "El nombre de usuario ya está en uso";
-    }
+    this._user.register(user, key).then(data => {
+      if(JSON.stringify(data) != "[\"Error\"]"){
+        this.cookieService.set( 'verif', key );
+        this.cookieService.set( 'userId', data[0]['id'] );
+        this.verification.verified = true;
+        this.verification.logged = true;
+        this.verification.user = data[0]['id'];
+        this.router.navigate(['']);
+      }else{
+        this.aviso = "El nombre de usuario ya está en uso";
+      }
+    });
   }
 }
+
 export class CustomValidator{
   static switch(control: AbstractControl) {
     let val = control.value;

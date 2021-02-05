@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Verification } from '../app.component';
 import { CookieService } from 'ngx-cookie-service';
 import { User } from 'app/interfaces';
+import { UserService } from 'app/autenticacion/user.service';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class PerfilComponent implements OnInit {
   verification : Verification;
   cookieService: CookieService;
   http: HttpClient;
+  _user : UserService;
   usuario : User = {
     id: 0,
     nombre: "",
@@ -34,10 +36,12 @@ export class PerfilComponent implements OnInit {
   constructor(
     verification : Verification,
     cookieService: CookieService,
+    _user: UserService,
     http: HttpClient) {
       this.verification = verification;
       this.cookieService = cookieService;
       this.http = http;
+      this._user = _user;
     }
 
     @ViewChild("hemisferio") hemisferio : ElementRef;
@@ -46,10 +50,7 @@ export class PerfilComponent implements OnInit {
 
   async ngOnInit(){
     this.verification.verify().then(() => {
-      let parametros = new HttpParams()
-      .set("userId", JSON.stringify(this.verification.user))
-      .set("command", "read");
-      this.http.get<User>("http://localhost/authentication.php", {params : parametros}).toPromise().then(usuario => {
+      this._user.readUser().then(usuario => {
         this.usuario = usuario[0];
 
         if(this.usuario.hemisferio == "SUR"){

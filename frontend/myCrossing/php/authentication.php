@@ -11,6 +11,7 @@ include "validators/usuarioValidator.php";
 
 if(isset($_GET['command'])){
   switch($_GET['command']){
+    // ========================================================================================================= LOGOUT
     case "setNull":
       $userId = $_GET['userId'];
       if(checkUserId($conn, $userId)){
@@ -23,6 +24,7 @@ if(isset($_GET['command'])){
 
       break;
 
+    // ========================================================================================================= SETKEY
     case "setKey":
       if(isset($_GET['userId']) && isset($_GET['key'])){
         $userId = $_GET['userId'];
@@ -40,6 +42,7 @@ if(isset($_GET['command'])){
       }
       break;
 
+    // ========================================================================================================= LOGIN
     case "login":
         $sql = "SELECT nombre, contrasenya, id FROM usuarios";
         $result = mysqli_query($conn,$sql);
@@ -52,12 +55,13 @@ if(isset($_GET['command'])){
         }
         break;
 
+    // ========================================================================================================= READ
     case "read":
       if(isset($_GET['userId'])){
         $userId = $_GET['userId'];
 
         if(checkUserId($conn, $userId)){
-          $sql = "SELECT * FROM usuarios WHERE id = $userId";
+          $sql = "SELECT nombre, isla, fruta, cumpleanyos, hemisferio, id_suenyo, id_switch, apodo_aldeano FROM usuarios WHERE id = $userId";
           $result = mysqli_query($conn,$sql);
           $myArray = array();
           if ($result->num_rows > 0) {
@@ -74,18 +78,7 @@ if(isset($_GET['command'])){
       }
       break;
 
-    case "readAll":
-        $sql = "SELECT * FROM usuarios";
-        $result = mysqli_query($conn,$sql);
-            $myArray = array();
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    $myArray[] = $row;
-                }
-                print json_encode($myArray);
-            }
-            break;
-
+    // ========================================================================================================= GETKEY
     case "getKey":
       if(isset($_GET['userId'])){
         $userId = $_GET['userId'];
@@ -106,6 +99,7 @@ if(isset($_GET['command'])){
       }
       break;
 
+    // ========================================================================================================= REGISTER
     case "register":
       $postdata = file_get_contents("php://input");
       $request = json_decode($postdata);

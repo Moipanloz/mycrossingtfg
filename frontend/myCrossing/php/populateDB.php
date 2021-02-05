@@ -55,6 +55,8 @@ $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 $sql = "ALTER TABLE usuarios
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY email (`email`),
+  ADD UNIQUE KEY id_suenyo (`id_suenyo`),
+  ADD UNIQUE KEY id_switch (`id_switch`),
   MODIFY id int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
