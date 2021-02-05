@@ -4,6 +4,7 @@ import { Verification } from '../app.component';
 import { CookieService } from 'ngx-cookie-service';
 import { User } from 'app/interfaces';
 import { UserService } from 'app/autenticacion/user.service';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 
 @Component({
@@ -18,6 +19,9 @@ export class PerfilComponent implements OnInit {
   cookieService: CookieService;
   http: HttpClient;
   _user : UserService;
+  modoEdicion : boolean = false;
+  userForm : FormGroup;
+
   usuario : User = {
     id: 0,
     nombre: "",
@@ -36,12 +40,16 @@ export class PerfilComponent implements OnInit {
   constructor(
     verification : Verification,
     cookieService: CookieService,
+    private _builder : FormBuilder,
     _user: UserService,
     http: HttpClient) {
       this.verification = verification;
       this.cookieService = cookieService;
       this.http = http;
       this._user = _user;
+      this.userForm = this._builder.group({
+        nombre : [this.usuario.nombre, this.notBlankValidator]
+      });
     }
 
     @ViewChild("hemisferio") hemisferio : ElementRef;
@@ -145,6 +153,19 @@ export class PerfilComponent implements OnInit {
     return signos[i];
   };
 
+  toggleEdicion(){
+    this.modoEdicion = !this.modoEdicion;
+  }
+
+  notBlankValidator(control : FormControl){
+    const isBlank = (control.value || "").trim().length === 0;
+    const isValid = !isBlank;
+    return isValid ? null : {'blank': true};
+  }
+
+  enviar(){
+
+  }
 }
 
 

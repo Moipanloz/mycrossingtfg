@@ -105,9 +105,18 @@ if(isset($_GET['command'])){
       $request = json_decode($postdata);
       if(isset($request)){
         $nombre = $request->nombre;
-        $error = checkUserName($conn, $nombre);
-        if($error){
-          print json_encode("Error");
+        $isla = $request->isla;
+        $fruta = $request->fruta;
+        $cumpleanyos = $request->cumpleanyos;
+        $email = $request->email;
+        $hemisferio = $request->hemisferio;
+        $id_suenyo = $request->id_suenyo;
+        $id_switch = $request->id_switch;
+
+        $error = checkDatos($conn, $nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_suenyo, $id_switch);
+
+        if(!$error){
+          print json_encode("No cumple los requisitos");
         }else{
           $isla = $request->isla;
           $fruta = $request->fruta;

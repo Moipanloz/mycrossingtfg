@@ -127,3 +127,8 @@ span {
   display: flex;
   align-items: center;
 }
+
+#editar{
+  left: 26vw;
+  top: 9vw;
+}

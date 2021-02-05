@@ -1,35 +1,73 @@
 <div class="user_info">
   <div id="perfil" class="wrapper-perfil">
-    <div id="primary">
-      <img src="../../assets/images/logo.png">
-      <div id="nombre">
-        <h2 style="text-align: left;" >{{this.usuario.nombre | capitalize}}</h2>
-        <p>{{this.usuario.apodo_aldeano | capitalize}}</p>
-      </div>
-    </div>
-    <div class="bckg">
-      <div id="secondary">
-        <div id="flex">
-          <div class="v-center">
-            <span><b>Isla: </b>{{this.usuario.isla | capitalize}}</span> <!-- poner imagen hemisferio-->
-            <img src="../../assets/images/hemisferio-norte.png" class="icono" #hemisferio>
-          </div>
-          <div class="v-center">
-            <span><b>Fruta: </b>{{this.usuario.fruta | capitalize}}</span>
-            <img src="../../assets/images/logo.png" class="icono" #fruta>
-          </div>
+    <button id="editar" (click)="toggleEdicion()">{{modoEdicion}}</button>
+    <ng-container *ngIf="!modoEdicion"; else #editar>
+      <div id="primary">
+        <img src="../../assets/images/logo.png">
+        <div id="nombre">
+          <h2 style="text-align: left;" >{{this.usuario.nombre | capitalize}}</h2>
+          <p>{{this.usuario.apodo_aldeano | capitalize}}</p>
         </div>
-        <hr>
-        <div class="v-center">
-          <span><b>Cumpleaños: </b>{{mesToString(this.usuario.cumpleanyos)}}, {{signoZodiaco(this.usuario.cumpleanyos)}}</span>
-          <img src="../../assets/images/logo.png" class="icono" #zodiaco>
-        </div>
-        <hr>
-        <span><b>ID Switch: </b>{{this.usuario.id_switch}}</span>
-        <hr>
-        <span><b>ID Sueño: </b>{{this.usuario.id_suenyo}}</span>
       </div>
-    </div>
+      <div class="bckg">
+        <div id="secondary">
+          <div id="flex">
+            <div class="v-center">
+              <span><b>Isla: </b>{{this.usuario.isla | capitalize}}</span> <!-- poner imagen hemisferio-->
+              <img src="../../assets/images/hemisferio-norte.png" class="icono" #hemisferio>
+            </div>
+            <div class="v-center">
+              <span><b>Fruta: </b>{{this.usuario.fruta | capitalize}}</span>
+              <img src="../../assets/images/logo.png" class="icono" #fruta>
+            </div>
+          </div>
+          <hr>
+          <div class="v-center">
+            <span><b>Cumpleaños: </b>{{mesToString(this.usuario.cumpleanyos)}}, {{signoZodiaco(this.usuario.cumpleanyos)}}</span>
+            <img src="../../assets/images/logo.png" class="icono" #zodiaco>
+          </div>
+          <hr>
+          <span><b>ID Switch: </b>{{this.usuario.id_switch}}</span>
+          <hr>
+          <span><b>ID Sueño: </b>{{this.usuario.id_suenyo}}</span>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #editar>
+      <form [formGroup]="userForm" (ngSubmit)="enviar(userForm.value)"></form>
+      <div id="primary">
+        <img src="../../assets/images/logo.png">
+        <div id="nombre">
+          <input formControlName="nombre" type="text">
+          <div *ngIf="userForm.hasError('blank')">El nombre no puede estar vacío</div>
+          <input formControlName="apodo" type="text">
+        </div>
+      </div>
+      <div class="bckg">
+        <div id="secondary">
+          <div id="flex">
+            <div class="v-center">
+              <span><b>Isla: </b>{{this.usuario.isla | capitalize}}</span> <!-- poner imagen hemisferio-->
+              <img src="../../assets/images/hemisferio-norte.png" class="icono" #hemisferio>
+            </div>
+            <div class="v-center">
+              <span><b>Fruta: </b>{{this.usuario.fruta | capitalize}}</span>
+              <img src="../../assets/images/logo.png" class="icono" #fruta>
+            </div>
+          </div>
+          <hr>
+          <div class="v-center">
+            <span><b>Cumpleaños: </b>{{mesToString(this.usuario.cumpleanyos)}}, {{signoZodiaco(this.usuario.cumpleanyos)}}</span>
+            <img src="../../assets/images/logo.png" class="icono" #zodiaco>
+          </div>
+          <hr>
+          <span><b>ID Switch: </b>{{this.usuario.id_switch}}</span>
+          <hr>
+          <span><b>ID Sueño: </b>{{this.usuario.id_suenyo}}</span>
+        </div>
+      </div>
+    </ng-template>
+
   </div>
   <div id="tools" class="wrapper-perfil">
     <h2>Mis tareas</h2>
