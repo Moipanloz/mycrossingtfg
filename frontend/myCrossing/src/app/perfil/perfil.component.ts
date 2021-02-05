@@ -205,7 +205,6 @@ export class PerfilComponent implements OnInit {
     }else{
 
       this.modoEdicion = !this.modoEdicion;
-      this.fondoRandom();
 
       if(this.usuario.apodo_aldeano == null){
         this.usuario.apodo_aldeano = "";
