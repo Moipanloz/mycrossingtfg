@@ -42,10 +42,27 @@ span {
   border-radius: 20px;
   position: relative;
   display: flex;
-  background-image: url("../../assets/images/patron-hojas-oscuro.png");
   background-size: cover;
+}
 
+.bckg-img-cyan{
+  background-image: url("../../assets/images/patron-hojas-cyan.png");
+}
 
+.bckg-img-naranja{
+  background-image: url("../../assets/images/patron-hojas-naranja.png");
+}
+
+.bckg-img-coral{
+  background-image: url("../../assets/images/patron-hojas-coral.png");
+}
+
+.bckg-img-marron{
+  background-image: url("../../assets/images/patron-hojas-marron.png");
+}
+
+.bckg-img-basico{
+  background-image: url("../../assets/images/patron-hojas-basico.png");
 }
 
 .bckg:before{
@@ -55,7 +72,7 @@ span {
   right: 0px;
   bottom: 0px;
   left: 0px;
-  background-color: rgba(247, 243, 232, 0.70);
+  background-color: rgba(247, 243, 232, 0.75);
 }
 
 #primary > img{

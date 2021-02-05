@@ -1,7 +1,7 @@
 <div class="user_info">
   <div id="perfil" class="wrapper-perfil">
     <button id="editar" (click)="toggleEdicion()">{{modoEdicion}}</button>
-    <ng-container *ngIf="!modoEdicion; else editar">
+    <div [hidden]="modoEdicion" >
       <div id="primary">
         <img src="../../assets/images/logo.png">
         <div id="nombre">
@@ -9,7 +9,7 @@
           <p>{{this.usuario.apodo_aldeano | capitalize}}</p>
         </div>
       </div>
-      <div class="bckg">
+      <div class="bckg" #fondo>
         <div id="secondary">
           <div id="flex">
             <div class="v-center">
@@ -32,9 +32,9 @@
           <span><b>ID Sueño: </b>{{this.usuario.id_suenyo}}</span>
         </div>
       </div>
-    </ng-container>
+    </div>
 
-    <ng-template #editar>
+    <div [hidden]="!modoEdicion" >
       <form [formGroup]="userForm" (ngSubmit)="enviar(userForm.value)">
         <div id="primary">
           <img src="../../assets/images/logo.png">
@@ -44,7 +44,7 @@
             <input class="input-resized" formControlName="apodo" type="text" placeholder="Apodo">
           </div>
         </div>
-        <div class="bckg">
+        <div class="bckg" #fondoEdit>
           <div id="secondary">
             <div id="flex" style="display: block;">
               <div class="v-center">
@@ -79,7 +79,7 @@
           </div>
         </div>
       </form>
-    </ng-template>
+    </div>
 
   </div>
   <div id="tools" class="wrapper-perfil">

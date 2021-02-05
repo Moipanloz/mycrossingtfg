@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Verification } from '../app.component';
 import { CookieService } from 'ngx-cookie-service';
@@ -43,25 +43,31 @@ export class PerfilComponent implements OnInit {
     private _builder : FormBuilder,
     _user: UserService,
     http: HttpClient) {
-      this.verification = verification;
-      this.cookieService = cookieService;
-      this.http = http;
-      this._user = _user;
-      this.userForm = this._builder.group({
-        nombre : ["", this.notBlankValidator],
-        apodo : [""],
-        isla: ["", this.notBlankValidator],
-        hemisferio : ["", Validators.required],
-        fruta : ["", Validators.required],
-        cumpleanyos: ["", Validators.required],
-        id_switch: [""],
-        id_suenyo : [""]
-      });
-    }
+    this.verification = verification;
+    this.cookieService = cookieService;
+    this.http = http;
+    this._user = _user;
+    this.userForm = this._builder.group({
+      nombre : ["", this.notBlankValidator],
+      apodo : [""],
+      isla: ["", this.notBlankValidator],
+      hemisferio : ["", Validators.required],
+      fruta : ["", Validators.required],
+      cumpleanyos: ["", Validators.required],
+      id_switch: [""],
+      id_suenyo : [""]
+    });
+  }
 
-    @ViewChild("hemisferio") hemisferio : ElementRef;
-    @ViewChild("fruta") fruta : ElementRef;
-    @ViewChild("zodiaco") zodiaco : ElementRef;
+  @ViewChild("hemisferio") hemisferio : ElementRef;
+  @ViewChild("fruta") fruta : ElementRef;
+  @ViewChild("zodiaco") zodiaco : ElementRef;
+  @ViewChild("fondo") fondo : ElementRef;
+  @ViewChild("fondoEdit", {static: false}) fondoEdit : ElementRef;
+
+  public ngAfterViewInit(){
+    this.fondoRandom();
+  }
 
   async ngOnInit(){
     this.verification.verify().then(() => {
@@ -144,8 +150,39 @@ export class PerfilComponent implements OnInit {
             break;
         }
 
+        this.fondoRandom();
+
       });
     });
+
+
+  }
+
+  fondoRandom(){
+    let fondos : string[] = ["bckg-img-cyan", "bckg-img-basico", "bckg-img-coral", "bckg-img-marron", "bckg-img-naranja"];
+    let i = Math.floor(Math.random() * 5);
+
+    if(this.fondo.nativeElement.classList.length == 1){
+      this.fondo.nativeElement.classList.add(fondos[i]);
+    }else{
+      for(let x = 0; x < fondos.length; x++){
+        if(this.fondo.nativeElement.classList.contains(fondos[x])){
+          this.fondo.nativeElement.classList.remove(fondos[x]);
+        }
+      }
+      this.fondo.nativeElement.classList.add(fondos[i]);
+    }
+
+    if(this.fondoEdit.nativeElement.classList.length == 1){
+      this.fondoEdit.nativeElement.classList.add(fondos[i]);
+    }else{
+      for(let x = 0; x < fondos.length; x++){
+        if(this.fondoEdit.nativeElement.classList.contains(fondos[x])){
+          this.fondoEdit.nativeElement.classList.remove(fondos[x]);
+        }
+      }
+      this.fondoEdit.nativeElement.classList.add(fondos[i]);
+    }
   }
 
   mesToString(value){
@@ -166,7 +203,9 @@ export class PerfilComponent implements OnInit {
       this.modoEdicion = !this.modoEdicion;
       this.ngOnInit();
     }else{
+
       this.modoEdicion = !this.modoEdicion;
+      this.fondoRandom();
 
       if(this.usuario.apodo_aldeano == null){
         this.usuario.apodo_aldeano = "";
@@ -199,7 +238,7 @@ export class PerfilComponent implements OnInit {
     return isValid ? null : {'blank': true};
   }
 
-  enviar(){
+  enviar(value : any){
 
   }
 }
