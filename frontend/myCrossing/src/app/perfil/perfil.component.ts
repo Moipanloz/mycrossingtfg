@@ -32,8 +32,8 @@ export class PerfilComponent implements OnInit {
     contrasenya: "",
     email: "",
     verification: "",
-    id_switch: 0,
-    id_suenyo: 0,
+    id_switch: "",
+    id_suenyo: "",
     apodo_aldeano: ""
   };
 
@@ -48,7 +48,14 @@ export class PerfilComponent implements OnInit {
       this.http = http;
       this._user = _user;
       this.userForm = this._builder.group({
-        nombre : [this.usuario.nombre, this.notBlankValidator]
+        nombre : ["", this.notBlankValidator],
+        apodo : [""],
+        isla: ["", this.notBlankValidator],
+        hemisferio : ["", Validators.required],
+        fruta : ["", Validators.required],
+        cumpleanyos: ["", Validators.required],
+        id_switch: [""],
+        id_suenyo : [""]
       });
     }
 
@@ -154,7 +161,36 @@ export class PerfilComponent implements OnInit {
   };
 
   toggleEdicion(){
-    this.modoEdicion = !this.modoEdicion;
+    //Primero comprueba que lo estas cerrando para que se vuelvan a cargar los iconos
+    if(this.modoEdicion){
+      this.modoEdicion = !this.modoEdicion;
+      this.ngOnInit();
+    }else{
+      this.modoEdicion = !this.modoEdicion;
+
+      if(this.usuario.apodo_aldeano == null){
+        this.usuario.apodo_aldeano = "";
+      }
+
+      if(this.usuario.id_suenyo == null){
+        this.usuario.id_suenyo = "";
+      }
+
+      if(this.usuario.id_switch == null){
+        this.usuario.id_switch = "";
+      }
+
+      this.userForm.patchValue({
+        nombre : ""+this.usuario.nombre,
+        apodo : ""+this.usuario.apodo_aldeano,
+        isla: ""+this.usuario.isla,
+        hemisferio : ""+this.usuario.hemisferio,
+        fruta : ""+this.usuario.fruta,
+        cumpleanyos: ""+this.usuario.cumpleanyos,
+        id_switch: ""+this.usuario.id_switch,
+        id_suenyo : ""+this.usuario.id_suenyo
+      });
+    }
   }
 
   notBlankValidator(control : FormControl){

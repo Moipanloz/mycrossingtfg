@@ -132,3 +132,9 @@ span {
   left: 26vw;
   top: 9vw;
 }
+
+.input-resized{
+  width: 12vw;
+  height: 1.5vw;
+  font-size: 1vw;
+}

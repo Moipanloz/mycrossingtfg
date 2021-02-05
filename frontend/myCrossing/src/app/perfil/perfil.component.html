@@ -1,7 +1,7 @@
 <div class="user_info">
   <div id="perfil" class="wrapper-perfil">
     <button id="editar" (click)="toggleEdicion()">{{modoEdicion}}</button>
-    <ng-container *ngIf="!modoEdicion"; else #editar>
+    <ng-container *ngIf="!modoEdicion; else editar">
       <div id="primary">
         <img src="../../assets/images/logo.png">
         <div id="nombre">
@@ -13,7 +13,7 @@
         <div id="secondary">
           <div id="flex">
             <div class="v-center">
-              <span><b>Isla: </b>{{this.usuario.isla | capitalize}}</span> <!-- poner imagen hemisferio-->
+              <span><b>Isla: </b>{{this.usuario.isla | capitalize}}</span>
               <img src="../../assets/images/hemisferio-norte.png" class="icono" #hemisferio>
             </div>
             <div class="v-center">
@@ -33,39 +33,52 @@
         </div>
       </div>
     </ng-container>
+
     <ng-template #editar>
-      <form [formGroup]="userForm" (ngSubmit)="enviar(userForm.value)"></form>
-      <div id="primary">
-        <img src="../../assets/images/logo.png">
-        <div id="nombre">
-          <input formControlName="nombre" type="text">
-          <div *ngIf="userForm.hasError('blank')">El nombre no puede estar vacío</div>
-          <input formControlName="apodo" type="text">
-        </div>
-      </div>
-      <div class="bckg">
-        <div id="secondary">
-          <div id="flex">
-            <div class="v-center">
-              <span><b>Isla: </b>{{this.usuario.isla | capitalize}}</span> <!-- poner imagen hemisferio-->
-              <img src="../../assets/images/hemisferio-norte.png" class="icono" #hemisferio>
-            </div>
-            <div class="v-center">
-              <span><b>Fruta: </b>{{this.usuario.fruta | capitalize}}</span>
-              <img src="../../assets/images/logo.png" class="icono" #fruta>
-            </div>
+      <form [formGroup]="userForm" (ngSubmit)="enviar(userForm.value)">
+        <div id="primary">
+          <img src="../../assets/images/logo.png">
+          <div id="nombre">
+            <input class="input-resized" formControlName="nombre" type="text">
+            <div *ngIf="userForm.hasError('blank')">El nombre no puede estar vacío</div>
+            <input class="input-resized" formControlName="apodo" type="text" placeholder="Apodo">
           </div>
-          <hr>
-          <div class="v-center">
-            <span><b>Cumpleaños: </b>{{mesToString(this.usuario.cumpleanyos)}}, {{signoZodiaco(this.usuario.cumpleanyos)}}</span>
-            <img src="../../assets/images/logo.png" class="icono" #zodiaco>
-          </div>
-          <hr>
-          <span><b>ID Switch: </b>{{this.usuario.id_switch}}</span>
-          <hr>
-          <span><b>ID Sueño: </b>{{this.usuario.id_suenyo}}</span>
         </div>
-      </div>
+        <div class="bckg">
+          <div id="secondary">
+            <div id="flex" style="display: block;">
+              <div class="v-center">
+                <input class="input-resized" formControlName="isla" type="text">
+                <input formControlName="hemisferio" type="radio" value="NORTE">
+                <img src="../../assets/images/hemisferio-norte.png" class="icono" #hemisferio>
+                <input formControlName="hemisferio" type="radio" value="SUR">
+                <img src="../../assets/images/hemisferio-sur.png" class="icono" #hemisferio>
+              </div>
+              <br>
+              <div class="v-center">
+                <input formControlName="fruta" type="radio" value="NARANJA">
+                <img src="../../assets/images/naranja.png" class="icono">
+                <input formControlName="fruta" type="radio" value="MANZANA">
+                <img src="../../assets/images/manzana.png" class="icono">
+                <input formControlName="fruta" type="radio" value="PERA">
+                <img src="../../assets/images/pera.png" class="icono">
+                <input formControlName="fruta" type="radio" value="MELOCOTON">
+                <img src="../../assets/images/melocoton.png" class="icono">
+                <input formControlName="fruta" type="radio" value="CEREZA">
+                <img src="../../assets/images/cereza.png" class="icono">
+              </div>
+            </div>
+            <hr>
+            <div class="v-center">
+              <input class="input-resized" formControlName="cumpleanyos" type="date">
+            </div>
+            <hr>
+            <input class="input-resized" formControlName="id_switch" type="text" placeholder="SW-1234-5678-9012">
+            <hr>
+            <input class="input-resized" formControlName="id_suenyo" type="text" placeholder="DA-1234-5678-9012">
+          </div>
+        </div>
+      </form>
     </ng-template>
 
   </div>

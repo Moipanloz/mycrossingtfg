@@ -15,10 +15,10 @@ export interface User{
   contrasenya: string;
   email: string;
   verification: string;
-  id_switch: number;
-  id_suenyo: number;
+  id_switch: string;
+  id_suenyo: string;
   apodo_aldeano: string;
-  }
+}
 
 export interface Vecino{
   nombre: string; //para filtrar por nombre
