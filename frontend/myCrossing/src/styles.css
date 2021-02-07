@@ -28,12 +28,31 @@ body{
   font-size: 1.2vw;
 }
 
-#editar{
+.editar{
   width: 2vw;
   height: 2vw;
-  background-color: rgb(171, 219, 164);
-  border-color: rgb(99, 252, 79);
   position: absolute;
+  background-size: contain;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  background-repeat: no-repeat;
+}
+
+.editar-blanco{
+  background-image: url("./assets/images/editar-blanco.png");
+}
+
+.editar-verde{
+  background-image: url("./assets/images/editar-verde.png");
+}
+
+.editar-azul{
+  background-image: url("./assets/images/editar-azul.png");
+}
+
+.save{
+  background-image: url("./assets/images/save.png");
 }
 
 .menu-hr{

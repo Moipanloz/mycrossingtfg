@@ -1,5 +1,5 @@
 #footer{
-  padding: 1vw;
+  padding: 0 1vw 1vw 1vw;
   background-color: #69c0c0;
 }
 
@@ -32,7 +32,7 @@ img{
 }
 
 .wave{
-  background: rgba(255, 255, 255, 0);
+  background: #69c0c0;
   height: 15px;
   position: relative;
 }
@@ -45,6 +45,7 @@ img{
   left: 0;
   right: 0;
   bottom: 0;
+  top: -10px;
   height: 10px;
   background-size: 20px 40px;
   background-image:
@@ -56,6 +57,7 @@ img{
   left: 0;
   right: 0;
   bottom: 0;
+  top: -15px;
   height: 15px;
   background-size: 40px 40px;
   background-image:

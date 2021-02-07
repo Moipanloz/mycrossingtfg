@@ -58,4 +58,11 @@ export class UserService {
     return this.http.get(this.url, {params: parametros}).toPromise();
   }
 
+  updateUser(usuario : User){
+    let parametros = new HttpParams()
+    .set("userId", JSON.stringify(this.verification.user))
+    .set("command", "update");
+    return this.http.post(this.url, usuario, {params: parametros, responseType: "blob"}).toPromise();
+  }
+
 }

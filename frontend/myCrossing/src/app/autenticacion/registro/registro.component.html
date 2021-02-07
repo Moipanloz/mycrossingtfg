@@ -11,13 +11,13 @@
                         <input id="nombre" formControlName='nombre' type="text">
                     </div>
                 </div>
-                <container *ngIf="registerForm.controls.nombre.errors && submitted">
+                <ng-container  *ngIf="registerForm.controls.nombre.errors && submitted">
                     <div class="error">
-                        <container *ngIf="registerForm.controls.nombre.errors.required && submitted">
+                        <ng-container  *ngIf="registerForm.controls.nombre.errors.required && submitted">
                             Debe introducir un nombre.
-                        </container>
+                        </ng-container >
                     </div>
-                </container>
+                </ng-container >
                 <div class="field">
                     <div class="fieldlabel">
                         <label for="password">Contraseña: </label>
@@ -26,13 +26,13 @@
                         <input id="password" formControlName='clave' type="password">
                     </div>
                 </div>
-                <container *ngIf="registerForm.controls.clave.errors && submitted">
+                <ng-container *ngIf="registerForm.controls.clave.errors && submitted">
                     <div class="error">
-                        <container *ngIf="registerForm.controls.clave.errors.required && submitted">
+                        <ng-container  *ngIf="registerForm.controls.clave.errors.required && submitted">
                             Debe introducir una contraseña.
-                        </container>
+                        </ng-container >
                     </div>
-                </container>
+                </ng-container >
                 <div class="field">
                     <div class="fieldlabel">
                         <label for="isla">Isla: </label>
@@ -41,13 +41,13 @@
                         <input id="isla" formControlName='isla' type="text">
                     </div>
                 </div>
-                <container *ngIf="registerForm.controls.isla.errors && submitted">
+                <ng-container  *ngIf="registerForm.controls.isla.errors && submitted">
                     <div class="error">
-                        <container *ngIf="registerForm.controls.isla.errors.required && submitted">
+                        <ng-container  *ngIf="registerForm.controls.isla.errors.required && submitted">
                             Debe introducir un nombre de isla.
-                        </container>
+                        </ng-container >
                     </div>
-                </container>
+                </ng-container >
                 <div class="field">
                     <div class="fruta">
                         <label for="fruta">Fruta: </label>
@@ -73,13 +73,13 @@
                     </div>
                         <img alt="Melocoton" width="8%" height="8%" src="../../../assets/images/melocoton.png">
                 </div>
-                <container *ngIf="registerForm.controls.fruta.errors && submitted">
+                <ng-container  *ngIf="registerForm.controls.fruta.errors && submitted">
                     <div class="error">
-                        <container *ngIf="registerForm.controls.fruta.errors.required && submitted">
+                        <ng-container  *ngIf="registerForm.controls.fruta.errors.required && submitted">
                             Debe introducir una fruta.
-                        </container>
+                        </ng-container >
                     </div>
-                </container>
+                </ng-container >
                 <div class="field">
                     <div class="fieldlabel">
                         <label for="cumpleanyos">Cumpleanyos: </label>
@@ -88,13 +88,13 @@
                         <input id="cumpleanyos" formControlName='cumpleanyos' type="date">
                     </div>
                 </div>
-                <container *ngIf="registerForm.controls.cumpleanyos.errors && submitted">
+                <ng-container  *ngIf="registerForm.controls.cumpleanyos.errors && submitted">
                     <div class="error">
-                        <container *ngIf="registerForm.controls.cumpleanyos.errors.required && submitted">
+                        <ng-container  *ngIf="registerForm.controls.cumpleanyos.errors.required && submitted">
                             Debe introducir una fecha de cumpleaños.
-                        </container>
+                        </ng-container >
                     </div>
-                </container>
+                </ng-container >
                 <div class="field">
                     <div class="fieldlabel">
                         <label for="email">Email: </label>
@@ -103,11 +103,11 @@
                         <input type="email" id="email" formControlName='email'>
                     </div>
                 </div>
-                <container *ngIf="registerForm.controls.email.errors && submitted">
+                <ng-container  *ngIf="registerForm.controls.email.errors && submitted">
                     <div class="error">
                         Debe introducir un email válido.
                     </div>
-                </container>
+                </ng-container >
                 <div class="field">
                     <div class="fieldlabel">
                         <label for="hemisferio">Hemisferio: </label>
@@ -121,13 +121,13 @@
                     </div>
                     <img alt="Sur" width="6%" height="6%" src="../../../assets/images/hemisferio-sur.png">
                 </div>
-                <container *ngIf="registerForm.controls.hemisferio.errors && submitted">
+                <ng-container  *ngIf="registerForm.controls.hemisferio.errors && submitted">
                     <div class="error">
-                        <container *ngIf="registerForm.controls.hemisferio.errors.required && submitted">
+                        <ng-container  *ngIf="registerForm.controls.hemisferio.errors.required && submitted">
                             Debe introducir su hemisferio.
-                        </container>
+                        </ng-container >
                     </div>
-                </container>
+                </ng-container >
                 <div class="field">
                     <div class="fieldlabel">
                         <label for="id_switch">Id switch: </label>
@@ -137,11 +137,11 @@
                     </div>
                 </div>
                 <div>
-                    <container *ngIf="registerForm.controls.id_switch.errors && submitted">
+                    <ng-container  *ngIf="registerForm.controls.id_switch.errors && submitted">
                         <div class="error">
                             El id de switch debe ser un número de 12 cifras con la siguiente estructura: SW-1234-1234-1234.
                         </div>
-                    </container>
+                    </ng-container >
                 </div>
                 <div class="field">
                     <div class="fieldlabel">
@@ -152,11 +152,11 @@
                     </div>
                 </div>
                 <div>
-                    <container *ngIf="registerForm.controls.id_suenyo.errors && submitted">
+                    <ng-container  *ngIf="registerForm.controls.id_suenyo.errors && submitted">
                         <div class="error">
                             El id de sueño debe ser un número de 12 cifras con la siguiente estructura: DA-1234-1234-1234.
                         </div>
-                    </container>
+                    </ng-container >
                 </div>
                 <div class="field">
                     <div class="fieldlabel">

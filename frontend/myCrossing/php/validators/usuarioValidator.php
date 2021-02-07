@@ -4,7 +4,8 @@ header('Access-Control-Allow-Origin: http://localhost:4200');
 header('Access-Control-Allow-Headers: *');
 header("Access-Control-Allow-Credentials: true");
 
-function checkDatos($conn, $nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_suenyo, $id_switch){
+function checkDatos($conn, $userId, $nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_suenyo, $id_switch){
+  //Comorueba que los datos son correctos
   $devolver = TRUE;
 
   if(strlen(trim($nombre)) == 0){
@@ -48,8 +49,9 @@ function checkDatos($conn, $nombre, $isla, $fruta, $cumpleanyos, $email, $hemisf
 
   $sql = "SELECT * FROM usuarios WHERE email = '$email'";
   $emailResult = mysqli_query($conn, $sql);
+  $checkId = mysqli_fetch_assoc($emailResult)["id"];
 
-  if ($emailResult->num_rows > 0) {
+  if($emailResult->num_rows > 0 && $checkId != $userId) {
     $devolver = FALSE;
     print("Email ya en uso");
   }
@@ -62,12 +64,13 @@ function checkDatos($conn, $nombre, $isla, $fruta, $cumpleanyos, $email, $hemisf
   if(!empty($id_suenyo)){
     $sql = "SELECT * FROM usuarios WHERE id_suenyo = '$id_suenyo'";
     $suenyoResult = mysqli_query($conn, $sql);
+    $checkId = mysqli_fetch_assoc($suenyoResult)["id"];
 
     if(!preg_match("/^DA-[0-9]{4}-[0-9]{4}-[0-9]{4}$/", $id_suenyo)){
       $devolver = FALSE;
       print("Código de sueño no válido");
 
-    }else if($suenyoResult->num_rows > 0){
+    }else if($suenyoResult->num_rows > 0 && $checkId != $userId){
       $devolver = FALSE;
       print("Código de sueño ya en uso");
     }
@@ -76,12 +79,13 @@ function checkDatos($conn, $nombre, $isla, $fruta, $cumpleanyos, $email, $hemisf
   if(!empty($id_switch)){
     $sql = "SELECT * FROM usuarios WHERE id_switch = '$id_switch'";
     $switchResult = mysqli_query($conn, $sql);
+    $checkId = mysqli_fetch_assoc($switchResult)["id"];
 
     if(!preg_match("/^SW-[0-9]{4}-[0-9]{4}-[0-9]{4}$/", $id_switch)){
       $devolver = FALSE;
       print("Código de switch no válido");
 
-    }else if($switchResult->num_rows > 0){
+    }else if($switchResult->num_rows > 0 && $checkId != $userId){
       $devolver = FALSE;
       print("Código de switch ya en uso");
     }
@@ -91,6 +95,7 @@ function checkDatos($conn, $nombre, $isla, $fruta, $cumpleanyos, $email, $hemisf
 }
 
 function checkUserId($conn, $userId){
+  //Comprueba que exista el usuario
   $devolver = FALSE;
   $sql = "SELECT * FROM usuarios WHERE id = $userId";
   $result = mysqli_query($conn,$sql);

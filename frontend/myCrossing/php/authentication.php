@@ -113,7 +113,7 @@ if(isset($_GET['command'])){
         $id_suenyo = $request->id_suenyo;
         $id_switch = $request->id_switch;
 
-        $error = checkDatos($conn, $nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_suenyo, $id_switch);
+        $error = checkDatos($conn, $userId, $nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_suenyo, $id_switch);
 
         if(!$error){
           print json_encode("No cumple los requisitos");
@@ -159,6 +159,48 @@ if(isset($_GET['command'])){
 
       }else{
         print "No ha introducido los parametros necesarios de registro";
+      }
+      break;
+
+    case "update": //====================================================================================== UPDATE
+      if(isset($_GET["userId"])){
+        $userId = $_GET["userId"];
+        $putdata = file_get_contents("php://input");
+
+        if(isset($putdata) && !empty($putdata)){
+
+          $request = json_decode($putdata);
+          $nombre = $request->nombre;
+          $isla = $request->isla;
+          $fruta = $request->fruta;
+          $cumpleanyos = $request->cumpleanyos;
+          $hemisferio = $request->hemisferio;
+          $id_switch = $request->id_switch;
+          $id_suenyo = $request->id_suenyo;
+          $apodo_aldeano = $request->apodo_aldeano;
+
+          $sql = "SELECT email FROM usuarios WHERE id = $userId";
+          $getEmail = mysqli_query($conn, $sql);
+
+          $row = mysqli_fetch_assoc($getEmail);
+          $email = $row["email"];
+
+          $error =  checkUserId($conn, $userId) &&
+                    checkDatos($conn, $userId, $nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_suenyo, $id_switch);
+
+          if($error){
+            $sql = "UPDATE usuarios SET nombre = '$nombre', isla = '$isla', fruta = '$fruta', cumpleanyos = '$cumpleanyos', hemisferio = '$hemisferio', id_switch = '$id_switch', id_suenyo = '$id_suenyo', apodo_aldeano = '$apodo_aldeano' WHERE id = $userId";
+            $result = mysqli_query($conn,$sql);
+          }else{
+            print("No se cumplen los requisitos");
+          }
+
+        }else{
+          print("No hay datos");
+        }
+
+      }else{
+        print("User id not set");
       }
       break;
 

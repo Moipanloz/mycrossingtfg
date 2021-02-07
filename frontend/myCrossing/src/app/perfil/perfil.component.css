@@ -24,9 +24,8 @@ p{
 }
 
 span {
-  font-size: 1vw;
+  font-size: 0.9vw;
 }
-
 
 #perfil{
   background-color: rgba(247, 243, 232);
@@ -145,7 +144,7 @@ span {
   align-items: center;
 }
 
-#editar{
+.editar{
   left: 26vw;
   top: 9vw;
 }

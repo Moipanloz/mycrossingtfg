@@ -1,6 +1,6 @@
 <div class="user_info">
   <div id="perfil" class="wrapper-perfil">
-    <button id="editar" (click)="toggleEdicion()">{{modoEdicion}}</button>
+    <button class="editar editar-azul" (click)="!modoEdicion ? toggleEdicion() : enviar(userForm.value)" #botonEdit ></button>
     <div [hidden]="modoEdicion" >
       <div id="primary">
         <img src="../../assets/images/logo.png">
@@ -35,13 +35,13 @@
     </div>
 
     <div [hidden]="!modoEdicion" >
-      <form [formGroup]="userForm" (ngSubmit)="enviar(userForm.value)">
+      <form [formGroup]="userForm">
         <div id="primary">
           <img src="../../assets/images/logo.png">
           <div id="nombre">
             <input class="input-resized" formControlName="nombre" type="text">
             <div *ngIf="userForm.hasError('blank')">El nombre no puede estar vacío</div>
-            <input class="input-resized" formControlName="apodo" type="text" placeholder="Apodo">
+            <input class="input-resized" formControlName="apodo_aldeano" type="text" placeholder="Apodo">
           </div>
         </div>
         <div class="bckg" #fondoEdit>

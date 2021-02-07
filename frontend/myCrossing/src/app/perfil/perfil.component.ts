@@ -49,7 +49,7 @@ export class PerfilComponent implements OnInit {
     this._user = _user;
     this.userForm = this._builder.group({
       nombre : ["", this.notBlankValidator],
-      apodo : [""],
+      apodo_aldeano : [""],
       isla: ["", this.notBlankValidator],
       hemisferio : ["", Validators.required],
       fruta : ["", Validators.required],
@@ -64,12 +64,14 @@ export class PerfilComponent implements OnInit {
   @ViewChild("zodiaco") zodiaco : ElementRef;
   @ViewChild("fondo") fondo : ElementRef;
   @ViewChild("fondoEdit", {static: false}) fondoEdit : ElementRef;
+  @ViewChild("botonEdit") botonEdit : ElementRef;
 
   public ngAfterViewInit(){
     this.fondoRandom();
   }
 
   async ngOnInit(){
+
     this.verification.verify().then(() => {
       this._user.readUser().then(usuario => {
         this.usuario = usuario[0];
@@ -200,9 +202,16 @@ export class PerfilComponent implements OnInit {
   toggleEdicion(){
     //Primero comprueba que lo estas cerrando para que se vuelvan a cargar los iconos
     if(this.modoEdicion){
+      this.botonEdit.nativeElement.classList.remove("save");
+      this.botonEdit.nativeElement.classList.add("editar-azul");
+
       this.modoEdicion = !this.modoEdicion;
+
       this.ngOnInit();
+
     }else{
+      this.botonEdit.nativeElement.classList.add("save");
+      this.botonEdit.nativeElement.classList.remove("editar-azul");
 
       this.modoEdicion = !this.modoEdicion;
 
@@ -220,7 +229,7 @@ export class PerfilComponent implements OnInit {
 
       this.userForm.patchValue({
         nombre : ""+this.usuario.nombre,
-        apodo : ""+this.usuario.apodo_aldeano,
+        apodo_aldeano : ""+this.usuario.apodo_aldeano,
         isla: ""+this.usuario.isla,
         hemisferio : ""+this.usuario.hemisferio,
         fruta : ""+this.usuario.fruta,
@@ -238,7 +247,25 @@ export class PerfilComponent implements OnInit {
   }
 
   enviar(value : any){
+    let userUpdt : User = {
+      id : this.verification.user,
+      contrasenya: "",
+      verification : "",
+      email: "",
+      nombre : value["nombre"],
+      isla : value["isla"],
+      fruta : value["fruta"],
+      cumpleanyos : value["cumpleanyos"],
+      hemisferio : value["hemisferio"],
+      id_switch : value["id_switch"],
+      id_suenyo : value["id_suenyo"],
+      apodo_aldeano : value["apodo_aldeano"]
+     };
 
+    this._user.updateUser(userUpdt).then(() => {
+      this.toggleEdicion();
+      this.ngOnInit();
+    });
   }
 }
 

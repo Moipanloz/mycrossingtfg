@@ -2,7 +2,7 @@ import { TareaMenuComponent } from './tarea-menu/tarea-menu.component';
 import { TareasService } from './tarea.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Tarea } from './../../interfaces';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Verification } from '../../app.component';
 
 @Component({
@@ -20,6 +20,7 @@ export class TareasComponent implements OnInit{
   tareaMenu : Tarea;
 
   @ViewChild(TareaMenuComponent) menu : TareaMenuComponent;
+  @ViewChild("botonEdit") botonEdit : ElementRef;
 
   constructor(
     verification : Verification,
@@ -41,6 +42,13 @@ export class TareasComponent implements OnInit{
 
   activaEdicion(){
     this.modoEdicion = !this.modoEdicion;
+    if(this.modoEdicion){
+      this.botonEdit.nativeElement.classList.add("editar-verde");
+      this.botonEdit.nativeElement.classList.remove("editar-azul");
+    }else{
+      this.botonEdit.nativeElement.classList.remove("editar-verde");
+      this.botonEdit.nativeElement.classList.add("editar-azul");
+    }
   }
 
   abreMenu(event, tarea : Tarea){
