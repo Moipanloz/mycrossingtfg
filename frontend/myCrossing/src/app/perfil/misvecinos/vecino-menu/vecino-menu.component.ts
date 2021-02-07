@@ -1,6 +1,6 @@
 import { Component, EventEmitter, HostBinding, Input, Output, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Vecino } from 'app/interfaces';
+import { Vecino } from 'app/general/interfaces';
 import { debounceTime } from "rxjs/operators";
 
 @Component({

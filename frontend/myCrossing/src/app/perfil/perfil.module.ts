@@ -1,3 +1,6 @@
+import { SharingModule } from './../general/sharing.module';
+import { AppModule } from './../app.module';
+import { CapitalizePipe } from './../general/capitalize.pipe';
 import { FiltroVecinoPipe } from './misvecinos/vecino-menu/filtro-vecino.pipe';
 import { PerfilComponent } from './perfil.component';
 import { MisvecinosComponent } from './misvecinos/misvecinos.component';
@@ -11,7 +14,6 @@ import { ClickOutsideDirective } from 'app/general/clickOutside.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 import { VecinoMenuComponent } from './misvecinos/vecino-menu/vecino-menu.component';
 import { CookieService } from 'ngx-cookie-service';
-import { CapitalizePipe } from './capitalize.pipe';
 
 @NgModule({
   declarations: [
@@ -21,14 +23,13 @@ import { CapitalizePipe } from './capitalize.pipe';
     ColeccionespComponent,
     MisvecinosComponent,
     TareaMenuComponent,
-    ClickOutsideDirective,
     VecinoMenuComponent,
-    FiltroVecinoPipe,
-    CapitalizePipe
+    FiltroVecinoPipe
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharingModule
   ],
   providers: [CookieService]
 })

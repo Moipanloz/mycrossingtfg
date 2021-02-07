@@ -1,9 +1,9 @@
 import { TareaMenuComponent } from './tarea-menu/tarea-menu.component';
 import { TareasService } from './tarea.service';
 import { CookieService } from 'ngx-cookie-service';
-import { Tarea } from './../../interfaces';
+import { Tarea } from '../../general/interfaces';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Verification } from '../../app.component';
+import { VerificationService } from 'app/general/verification.service';
 
 @Component({
   selector: 'app-tareas',
@@ -14,7 +14,7 @@ import { Verification } from '../../app.component';
 export class TareasComponent implements OnInit{
 
   data = [];
-  verification : Verification;
+  verification : VerificationService;
   cookieService: CookieService;
   modoEdicion : boolean = false;
   tareaMenu : Tarea;
@@ -23,7 +23,7 @@ export class TareasComponent implements OnInit{
   @ViewChild("botonEdit") botonEdit : ElementRef;
 
   constructor(
-    verification : Verification,
+    verification : VerificationService,
     cookieService: CookieService,
     private _tarea : TareasService){
 

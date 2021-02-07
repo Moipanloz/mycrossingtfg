@@ -1,9 +1,9 @@
 import { MisvecinosService } from './misvecinos.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Verification } from 'app/app.component';
 import { CookieService } from 'ngx-cookie-service';
-import { Vecino } from './../../interfaces';
+import { Vecino } from '../../general/interfaces';
 import { VecinoMenuComponent } from './vecino-menu/vecino-menu.component';
+import { VerificationService } from 'app/general/verification.service';
 
 @Component({
   selector: 'app-misvecinos',
@@ -14,7 +14,7 @@ export class MisvecinosComponent implements OnInit {
 
   data = [];
   length : number;
-  verification : Verification;
+  verification : VerificationService;
   cookieService: CookieService;
   porcentajeMode : boolean = false;
   porcentajes : number[] = [];
@@ -37,7 +37,7 @@ export class MisvecinosComponent implements OnInit {
 
   constructor(
     private _misvecinos : MisvecinosService,
-    verification : Verification,
+    verification : VerificationService,
     cookieService : CookieService){
 
     this.cookieService = cookieService;

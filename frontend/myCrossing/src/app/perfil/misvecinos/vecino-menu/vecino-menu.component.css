@@ -1,3 +1,8 @@
 :host{
   position: absolute;
 }
+
+label {
+  color: white;
+}
+

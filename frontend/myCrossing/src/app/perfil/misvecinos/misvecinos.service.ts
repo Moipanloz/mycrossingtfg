@@ -1,9 +1,9 @@
 import { CookieService } from 'ngx-cookie-service';
-import { Verification } from 'app/app.component';
 import { HttpParams, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { Vecino } from 'app/interfaces';
+import { Vecino } from 'app/general/interfaces';
+import { VerificationService } from 'app/general/verification.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +11,11 @@ import { Vecino } from 'app/interfaces';
 
 export class MisvecinosService {
 
-  verification : Verification;
+  verification : VerificationService;
   cookieService : CookieService;
   url : string = "http://localhost/misvecinos.php";
 
-  constructor(verification : Verification, private http : HttpClient) {
+  constructor(verification : VerificationService, private http : HttpClient) {
     this.verification = verification;
   }
 

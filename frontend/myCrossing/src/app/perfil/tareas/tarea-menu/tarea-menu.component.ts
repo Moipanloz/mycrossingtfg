@@ -1,4 +1,4 @@
-import { Tarea } from './../../../interfaces';
+import { Tarea } from '../../../general/interfaces';
 import { Component, EventEmitter, Input, Output, HostBinding, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 

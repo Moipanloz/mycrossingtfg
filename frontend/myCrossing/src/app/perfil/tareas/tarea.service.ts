@@ -1,8 +1,8 @@
 import { Observable } from 'rxjs';
-import { Tarea } from '../../interfaces';
+import { Tarea } from '../../general/interfaces';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Verification } from 'app/app.component';
+import { VerificationService } from 'app/general/verification.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +10,10 @@ import { Verification } from 'app/app.component';
 
 export class TareasService {
 
-  verification : Verification;
+  verification : VerificationService;
   url : string = "http://localhost/tarea.php";
 
-  constructor(private http : HttpClient, verification : Verification) {
+  constructor(private http : HttpClient, verification : VerificationService) {
     this.verification = verification;
   }
 

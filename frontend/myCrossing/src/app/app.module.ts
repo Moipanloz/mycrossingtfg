@@ -1,3 +1,5 @@
+import { SharingModule } from './general/sharing.module';
+import { CapitalizePipe } from './general/capitalize.pipe';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -13,6 +15,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PerfilModule } from './perfil/perfil.module';
 import { CookieService } from 'ngx-cookie-service';
 import { CommonModule } from '@angular/common';
+import { VerificationService } from './general/verification.service';
 
 @NgModule({
   declarations: [
@@ -31,9 +34,14 @@ import { CommonModule } from '@angular/common';
     PerfilModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    SharingModule
   ],
-  providers: [ CookieService ],
-  bootstrap: [AppComponent]
+  providers: [
+    CookieService,
+    VerificationService
+  ],
+  bootstrap: [AppComponent],
+  exports: [CapitalizePipe]
 })
 export class AppModule { }

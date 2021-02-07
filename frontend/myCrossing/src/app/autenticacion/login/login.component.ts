@@ -1,27 +1,28 @@
 import { UserService } from 'app/autenticacion/user.service';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Verification } from '../../app.component';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { EncriptionService } from '../encription.service'
+import { VerificationService } from 'app/general/verification.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent {
 
   aviso: String = "";
   cookieService: CookieService;
-  verification: Verification;
+  verification: VerificationService;
   loginForm: FormGroup;
   submitted: boolean = false;
   _user: UserService;
   constructor(private encriptionService:EncriptionService, cookieService: CookieService,
-     verification: Verification, private _builder: FormBuilder, private http: HttpClient,
+     verification: VerificationService, private _builder: FormBuilder, private http: HttpClient,
       private router:Router, _user : UserService) {
     this.cookieService = cookieService;
     this.verification = verification;

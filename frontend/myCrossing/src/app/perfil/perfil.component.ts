@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Verification } from '../app.component';
 import { CookieService } from 'ngx-cookie-service';
-import { User } from 'app/interfaces';
+import { User } from 'app/general/interfaces';
 import { UserService } from 'app/autenticacion/user.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { VerificationService } from 'app/general/verification.service';
 
 
 @Component({
@@ -15,7 +15,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 
 export class PerfilComponent implements OnInit {
 
-  verification : Verification;
+  verification : VerificationService;
   cookieService: CookieService;
   http: HttpClient;
   _user : UserService;
@@ -38,7 +38,7 @@ export class PerfilComponent implements OnInit {
   };
 
   constructor(
-    verification : Verification,
+    verification : VerificationService,
     cookieService: CookieService,
     private _builder : FormBuilder,
     _user: UserService,

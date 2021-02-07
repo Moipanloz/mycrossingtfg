@@ -2,19 +2,24 @@
   <img routerLink="" src="../../assets/images/logo.png"/>
 
   <div id="menu">
-    <button routerLink="/caza-ahora" routerLinkActive="activo">Cazar ahora</button>
-    <button routerLink="/disenyos" routerLinkActive="activo">Diseños</button>
-    <button routerLink="/probador" routerLinkActive="activo">Probador</button>
-    <button routerLink="/nabos" routerLinkActive="activo">Nabos</button>
-
-    <button *ngIf="verification.logged" routerLink="/perfil" routerLinkActive="activo">Perfil temp</button>
+    <button class="button-nav" routerLink="/caza-ahora" routerLinkActive="activo">Cazar ahora</button>
+    <button class="button-nav" routerLink="/disenyos" routerLinkActive="activo">Diseños</button>
+    <button class="button-nav" routerLink="/probador" routerLinkActive="activo">Probador</button>
+    <button class="button-nav" routerLink="/nabos" routerLinkActive="activo">Nabos</button>
   </div>
 
-  <div>
-    <button id="login" *ngIf="!verification.logged; else logueado" routerLink="/inicia-sesion" routerLinkActive="activo">Inicia sesión</button>
+  <div class="boton-usuario">
+    <button class="login" class="button-nav" *ngIf="!verification.logged; else logueado" routerLink="/inicia-sesion" routerLinkActive="activo">Inicia sesión</button>
     <ng-template #logueado>
-      <button id="login" (click)="logOut()">Cierra sesión</button>
+      <span style="font-size: 1.3vw;"><b>{{nombre | capitalize}}</b></span>
+      <img src="../../assets/images/logo.png" (click)="toggleMenu()" style="margin-left: 5%"/>
+      <ng-container (clickOutside)="toggleMenu()">
+        <div class="dropdown-menu" [hidden]="!menu" >
+          <button class="button-menu" routerLink="/perfil" routerLinkActive="activo" (click)="menu = false">Perfil temp</button>
+          <button class="button-menu" (click)="logOut()">Cierra sesión</button>
+        </div>
+      </ng-container>
     </ng-template>
   </div>
-  
+
 </div>

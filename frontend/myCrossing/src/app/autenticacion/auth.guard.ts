@@ -1,7 +1,7 @@
-import { Verification } from './../app.component';
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { VerificationService } from 'app/general/verification.service';
 
 
 @Injectable({
@@ -9,9 +9,9 @@ import { Observable } from 'rxjs';
 })
 export class AuthGuard implements CanActivate {
 
-  global : Verification;
+  global : VerificationService;
 
-  constructor( appConstant : Verification, private router : Router){
+  constructor( appConstant : VerificationService, private router : Router){
     this.global = appConstant;
 
   }

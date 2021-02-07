@@ -30,7 +30,7 @@ img {
   justify-self: center;
 }
 
-button {
+.button-nav {
   margin: 0 1vw;
   height: fit-content;
   border: none;
@@ -42,7 +42,7 @@ button {
   font-size: 1vw;
 }
 
-button:hover{
+.button-nav:hover{
   background-color: #ade6e7;
   color: white;
 }
@@ -51,7 +51,38 @@ button:hover{
   background-color: rgb(174, 253, 180);
 }
 
-#login{
+.login{
   margin: 0 0 0 6vw;
 }
 
+.dropdown-menu{
+  width: 10vw;
+  border-radius: 0 0 10px 10px;
+  position: absolute;
+  top: 4vw;
+  overflow: hidden;
+}
+
+.dropdown-menu > button {
+  margin: auto;
+}
+
+.button-menu{
+  width: 100%;
+  border: none;
+  background-color: #f8eed3;
+  cursor: pointer;
+  transition-duration: 0.2s;
+  padding: 0.5vw 1vw;
+  font-size: 1vw;
+}
+
+.button-menu:hover{
+  background-color: #ade6e7;
+  color: rgb(247, 243, 232);
+}
+
+.boton-usuario{
+  display: flex;
+  justify-content: flex-end;
+}

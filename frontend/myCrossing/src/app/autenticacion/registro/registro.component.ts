@@ -1,11 +1,10 @@
 import { UserService } from 'app/autenticacion/user.service';
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Verification } from '../../app.component';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import {Router} from '@angular/router';
-import {EncriptionService} from '../encription.service';
+import { VerificationService } from 'app/general/verification.service';
 
 @Component({
   selector: 'app-registro',
@@ -15,7 +14,7 @@ import {EncriptionService} from '../encription.service';
 
 export class RegistroComponent {
 
-  verification: Verification;
+  verification: VerificationService;
   registerForm: FormGroup;
   cookieService: CookieService;
   _user : UserService;
@@ -23,7 +22,7 @@ export class RegistroComponent {
   submitted: Boolean = false;
 
   constructor(private router:Router, cookieService: CookieService,
-     verification: Verification, private http: HttpClient, private _builder: FormBuilder, _user: UserService) {
+     verification: VerificationService, private http: HttpClient, private _builder: FormBuilder, _user: UserService) {
 
     this.verification = verification;
     this.cookieService = cookieService;

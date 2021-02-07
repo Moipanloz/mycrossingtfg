@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Verification } from '../app.component';
 import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import { VerificationService } from 'app/general/verification.service';
 
 @Component({
   selector: 'app-inicio',
@@ -9,9 +9,9 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
-  verification: Verification;
+  verification: VerificationService;
   cookieService: CookieService;
-  constructor(cookieService: CookieService, verification: Verification, private http: HttpClient,) {
+  constructor(cookieService: CookieService, verification: VerificationService, private http: HttpClient,) {
     this.verification = verification;
     this.cookieService = cookieService;
   }
