@@ -45,5 +45,14 @@ export class NavbarComponent implements OnInit {
 
   toggleMenu(){
     this.menu = !this.menu;
+    console.log("toggle");
+  }
+
+  cierraMenu(){
+    console.log("cierro");
+    if(this.menu){
+      this.menu = false;
+    }
+
   }
 }

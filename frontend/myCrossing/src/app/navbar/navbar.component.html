@@ -9,16 +9,16 @@
   </div>
 
   <div class="boton-usuario">
-    <button class="login" class="button-nav" *ngIf="!verification.logged; else logueado" routerLink="/inicia-sesion" routerLinkActive="activo">Inicia sesión</button>
+    <button class="login" class="button-nav" style="margin: 0 0 0 1vw;" *ngIf="!verification.logged; else logueado" routerLink="/inicia-sesion" routerLinkActive="activo">Inicia sesión</button>
     <ng-template #logueado>
-      <span style="font-size: 1.3vw;"><b>{{nombre | capitalize}}</b></span>
-      <img src="../../assets/images/logo.png" (click)="toggleMenu()" style="margin-left: 5%"/>
-      <ng-container (clickOutside)="toggleMenu()">
+      <div (clickOutside)="cierraMenu()" class="cierra-wrap">
+        <span style="font-size: 1.3vw;"><b>{{nombre | capitalize}}</b></span>
+        <img src="../../assets/images/logo.png" (click)="toggleMenu()" style="margin-left: 5%"/>
         <div class="dropdown-menu" [hidden]="!menu" >
           <button class="button-menu" routerLink="/perfil" routerLinkActive="activo" (click)="menu = false">Perfil temp</button>
           <button class="button-menu" (click)="logOut()">Cierra sesión</button>
         </div>
-      </ng-container>
+      </div>
     </ng-template>
   </div>
 

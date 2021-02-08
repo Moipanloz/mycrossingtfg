@@ -23,6 +23,7 @@ img {
   width: 3vw;
   height: auto;
   cursor: pointer;
+  border-radius: 50%;
 }
 
 #menu{
@@ -47,6 +48,16 @@ img {
   color: white;
 }
 
+.button-menu{
+  width: 100%;
+  border: none;
+  background-color: #f8eed3;
+  cursor: pointer;
+  transition-duration: 0.2s;
+  padding: 0.5vw 1vw;
+  font-size: 1vw;
+}
+
 .activo{
   background-color: rgb(174, 253, 180);
 }
@@ -67,16 +78,6 @@ img {
   margin: auto;
 }
 
-.button-menu{
-  width: 100%;
-  border: none;
-  background-color: #f8eed3;
-  cursor: pointer;
-  transition-duration: 0.2s;
-  padding: 0.5vw 1vw;
-  font-size: 1vw;
-}
-
 .button-menu:hover{
   background-color: #ade6e7;
   color: rgb(247, 243, 232);
@@ -84,5 +85,11 @@ img {
 
 .boton-usuario{
   display: flex;
+  justify-content: flex-end;
+}
+
+.cierra-wrap{
+  display: flex;
+  width: 100%;
   justify-content: flex-end;
 }

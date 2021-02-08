@@ -1,87 +1,102 @@
 .titulo{
-    font-size: 2vw;
-    text-align: center;
-    margin-bottom: 3%;
+  font-size: 2vw;
+  text-align: center;
+  margin-bottom: 3%;
 }
+
 .error{
-    font-size: 1vw;
-    padding-left: 10%;
-    margin-bottom: 2%;
-    color: red;
-
+  font-size: 1vw;
+  padding-left: 10%;
+  margin-bottom: 2%;
+  color: red;
 }
+
 .field{
-    padding-left: 10%;
-    width: 100%;
-    display: flex;
-    margin-bottom: 2%;
+  padding-left: 10%;
+  width: 100%;
+  display: flex;
+  margin-bottom: 2%;
 }
-.fieldlabel{
-    width: 8vw;
-}
-.fruta{
-    width: 4vw;
-}
-.radioinputs input{
-    width: 1vw;
-    height: 1vw;
-}
-.fieldinput{
-    text-align: right;
-    width: 5vw;
-    margin-left: 15%;
-}
-input{
-    font-size: 1vw;
-}
-.registrar{
-    margin-bottom: 3%;
-    margin-top: 3%;
-    text-align: center;
-}
-.pantalla{
-    border-style: solid;
-    border-radius: 10%;
-    border-color: black;
-    border-width: 1.5px;
-    padding: 3% 3% 2% 3%;
-    background-color: rgb(210, 255, 214);
-}
-.menu{
-    width: 100%;
-    text-align: center;
-}
-button{
-    font-size: 1vw;
-}
-.botonmovil{
-    padding: 7% 7% 7% 7%;
-    margin: 5% 0% 0% 42%;
-    border-style: solid;
-    border-radius: 100%;
-    border-color: black;
-    border-width: 1.5px;
-    background-color: #ceebaf;
-    width: 1%;
-    margin-top: 5%;
 
+.fieldlabel{
+  width: 8vw;
 }
+
+.fruta{
+  width: 4vw;
+}
+
+.radioinputs input{
+  width: 1vw;
+  height: 1vw;
+}
+
+.fieldinput{
+  text-align: right;
+  width: 5vw;
+  margin-left: 15%;
+}
+
+input{
+  font-size: 1vw;
+}
+
+.registrar{
+  margin-bottom: 3%;
+  margin-top: 3%;
+  text-align: center;
+}
+
+.pantalla{
+  border-style: solid;
+  border-radius: 10%;
+  border-color: black;
+  border-width: 1.5px;
+  padding: 3% 3% 2% 3%;
+  background-color: rgb(210, 255, 214);
+}
+
+.menu{
+  width: 100%;
+  text-align: center;
+}
+
+button{
+  font-size: 1vw;
+}
+
+.botonmovil{
+  padding: 7% 7% 7% 7%;
+  margin: 5% 0% 0% 42%;
+  border-style: solid;
+  border-radius: 100%;
+  border-color: black;
+  border-width: 1.5px;
+  background-color: #ceebaf;
+  width: 1%;
+  margin-top: 5%;
+}
+
 .formulario{
-    border-style: solid;
-    border-radius: 10%;
-    border-color: black;
-    border-width: 1.5px;
-    background-color: #fffec2;
+border-style: solid;
+border-radius: 10%;
+border-color: black;
+border-width: 1.5px;
+background-color: #fffec2;
 }
+
 .movil{
-    padding: 5% 30% 0% 30%;
+  padding: 2vw 30% 0% 30%;
 }
+
 .background{
-    height: 100%;
-    background-color: #c9f3f3;
-    font-size: 1vw;
+  height: 100%;
+  background-color: #c9f3f3;
+  font-size: 1vw;
+  padding: 5vw 0;
 }
+
 .aviso{
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
