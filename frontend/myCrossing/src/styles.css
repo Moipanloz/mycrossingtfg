@@ -69,3 +69,7 @@ body{
   margin: auto;
   width: fit-content;
 }
+
+.footer-wrap{
+  position: relative;
+}
