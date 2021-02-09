@@ -1,4 +1,124 @@
-h2 {
-  text-align: center;
-  font-size: 1.6vw;
+:host{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.boton-pag{
+ width: 5%;
+ background-color: red;
+ justify-content: center;
+}
+
+.paginacion-content{
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 1vw;
+  background-color: green;
+}
+
+.item-list-wrap{
+  width: 100%;
+  margin: 1vw 0;
+}
+
+.item-list-wrap > * {
+  margin: 0;
+}
+
+.menu-botones{
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.menu-botones > div {
+  margin: 1vw 1vw;
+  flex-basis: 13%;
+}
+
+.boton-circular:hover{
+  border-width: 0.4vw;
+}
+
+.boton-circular{
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#DIY{
+  background-color: #ffba6b;
+  border-color: #c95c0c;
+  background-image: url("../../../assets/images/pera.png");
+}
+
+#Estacional{
+  background-color: white;
+  border-color: #abe7b0;
+  background-image: url("../../../assets/images/manzana.png");
+}
+
+#Estela{
+  background-color: #ac0c28;
+  border-color: #eb6363;
+  background-image: url("../../../assets/images/melocoton.png");
+}
+
+#Caza{
+  background-color: #463b3d;
+  border-color: #9b1f1f;
+  background-image: url("../../../assets/images/naranja.png");
+}
+
+#Pesca{
+  background-color: #79703d;
+  border-color: #fbff63;
+  background-image: url("../../../assets/images/cereza.png");
+}
+
+#Gulliver{
+  background-color: #f2f2f2;
+  border-color: #607ce7;
+  background-image: url("../../../assets/images/logo.png");
+}
+
+#Gullivarr{
+  background-color: #770b1d;
+  border-color: #d2c402;
+  background-image: url("../../../assets/images/manzana.png");
+}
+
+#Coti{
+  background-color: #f2d527;
+  border-color: #2653ff;
+  background-image: url("../../../assets/images/logo.png");
+}
+
+#Soponcio{
+  background-color: #e09416;
+  border-color: #5810e1;
+  background-image: url("../../../assets/images/logo.png");
+}
+
+#Copito{
+  background-color: #e6e6e6;
+  border-color: #f95b0d;
+  background-image: url("../../../assets/images/logo.png");
+}
+
+#Renato{
+  background-color: #b50202;
+  border-color: #cecece;
+  background-image: url("../../../assets/images/logo.png");
+}
+
+#Conga{
+  background-color: #0d8bac;
+  border-color: #5fca1e;
+  background-image: url("../../../assets/images/logo.png");
+}
+
+span{
+  font-size: 1.5vw;
 }

@@ -1,1 +1,22 @@
-<h2>Colecciones especiales</h2>
+<div class="menu-botones flex-centered">
+  <ng-container *ngFor="let lista of colecciones">
+    <div class="flex-column-centered">
+      <button class="boton-circular" id="{{lista}}"></button>
+      <span>{{lista}}</span>
+    </div>
+  </ng-container>
+</div>
+
+
+<div class="item-list-wrap flex-centered">
+  <div class="boton-pag flex-column-centered">
+    <button class="boton-pag" (click)="pagAtras()"> < </button>
+  </div>
+  <div class="paginacion-content">
+    <span>content</span>
+  </div>
+  <div class="boton-pag flex-column-centered">
+    <button class="boton-pag" (click)="pagAlante()"> > </button>
+  </div>
+
+</div>
