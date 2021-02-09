@@ -73,3 +73,9 @@ body{
 .footer-wrap{
   position: relative;
 }
+
+.flex-column-centered{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

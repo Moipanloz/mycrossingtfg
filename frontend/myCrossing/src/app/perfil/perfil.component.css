@@ -74,22 +74,25 @@ span {
   background-color: rgba(247, 243, 232, 0.75);
 }
 
-#primary > img{
-  width: 7vw;
-  height: 7vw;
-  background-color: pink;
+#primary > *{
+  margin: 0;
 }
 
-#primary {
-  display: flex;
+.passport-hr{
+  width: 80%;
+  border-color: #d1dbb8;
+  background-color: #d1dbb8;
+  border-style: solid;
+  border-radius: 20px;
+  margin: 0;
 }
 
 #nombre {
   margin: 0.5vw 0 0 2vw;
 }
 
-#nombre > * {
-  margin: 0 0 0.5vw 0;
+#nombre > input {
+  margin: 0 0 1vw 0;
 }
 
 #secondary {

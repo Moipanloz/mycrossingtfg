@@ -2,12 +2,10 @@
   <div id="perfil" class="wrapper-perfil">
     <button class="editar editar-azul" (click)="!modoEdicion ? toggleEdicion() : enviar(userForm.value)" #botonEdit ></button>
     <div [hidden]="modoEdicion" >
-      <div id="primary">
-        <img src="../../assets/images/logo.png">
-        <div id="nombre">
-          <h2 style="text-align: left;" >{{this.usuario.nombre | capitalize}}</h2>
-          <p>{{this.usuario.apodo_aldeano | capitalize}}</p>
-        </div>
+      <div id="primary" class="flex-column-centered">
+        <h2>{{this.usuario.nombre | capitalize}}</h2>
+        <p style="margin: 1vw 0;">{{this.usuario.apodo_aldeano | capitalize}}</p>
+        <hr class="passport-hr">
       </div>
       <div class="bckg" #fondo>
         <div id="secondary">
@@ -37,11 +35,11 @@
     <div [hidden]="!modoEdicion" >
       <form [formGroup]="userForm">
         <div id="primary">
-          <img src="../../assets/images/logo.png">
-          <div id="nombre">
+          <div id="nombre" class="flex-column-centered">
             <input class="input-resized" formControlName="nombre" type="text">
             <div *ngIf="userForm.hasError('blank')">El nombre no puede estar vacío</div>
             <input class="input-resized" formControlName="apodo_aldeano" type="text" placeholder="Apodo">
+            <hr class="passport-hr">
           </div>
         </div>
         <div class="bckg" #fondoEdit>
