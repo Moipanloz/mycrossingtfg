@@ -1,6 +1,5 @@
-import { UserService } from 'app/autenticacion/user.service';
-import { Component, OnInit } from '@angular/core';
-import { VerificationService } from './general/verification.service';
+import { VerificationService } from 'app/general/verification.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,18 +7,10 @@ import { VerificationService } from './general/verification.service';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'My Crossing';
-  nombre : string = "";
+  verification : VerificationService;
 
-  constructor(private _user : UserService, private verification : VerificationService){}
-
-  ngOnInit(){
-    this.verification.verify().then(() => {
-      this._user.readUser().then(data => {
-        this.nombre = data[0]["nombre"];
-      });
-    });
-  }
+  constructor(){}
 
 }

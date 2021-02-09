@@ -8,6 +8,7 @@ export class VerificationService {
   user: number = null;
   verified: boolean = false;
   cookieService: CookieService;
+  nombre : string = "";
 
   constructor(cookieService: CookieService, private http: HttpClient){
     this.cookieService = cookieService;
@@ -26,6 +27,7 @@ export class VerificationService {
         if(verif == this.cookieService.get("verif")){
           this.logged = true;
           this.user = userId;
+          this.nombre = datos[0]["nombre"];
         }else{
           this.logged = false;
           this.user = null;

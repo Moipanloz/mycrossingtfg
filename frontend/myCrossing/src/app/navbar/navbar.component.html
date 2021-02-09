@@ -12,7 +12,7 @@
     <button class="login" class="button-nav" style="margin: 0 0 0 1vw;" *ngIf="!verification.logged; else logueado" routerLink="/inicia-sesion" routerLinkActive="activo">Inicia sesión</button>
     <ng-template #logueado>
       <div (clickOutside)="cierraMenu()" class="cierra-wrap">
-        <span style="font-size: 1.3vw;"><b>{{nombre | capitalize}}</b></span>
+        <span style="font-size: 1.3vw;"><b>{{this.verification.nombre | capitalize}}</b></span>
         <img src="../../assets/images/logo.png" (click)="toggleMenu()" style="margin-left: 5%"/>
         <div class="dropdown-menu" [hidden]="!menu" >
           <button class="button-menu" routerLink="/perfil" routerLinkActive="activo" (click)="menu = false">Perfil temp</button>

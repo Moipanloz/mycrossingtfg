@@ -72,6 +72,7 @@ img {
   position: absolute;
   top: 4vw;
   overflow: hidden;
+  background-color: rgb(247, 243, 232);
 }
 
 .dropdown-menu > button {

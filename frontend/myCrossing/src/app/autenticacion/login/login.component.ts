@@ -1,5 +1,5 @@
 import { UserService } from 'app/autenticacion/user.service';
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -21,6 +21,7 @@ export class LoginComponent {
   loginForm: FormGroup;
   submitted: boolean = false;
   _user: UserService;
+
   constructor(private encriptionService:EncriptionService, cookieService: CookieService,
      verification: VerificationService, private _builder: FormBuilder, private http: HttpClient,
       private router:Router, _user : UserService) {
@@ -33,7 +34,7 @@ export class LoginComponent {
     })
   }
 
-  async login(form){
+  login(form){
     this.submitted = true;
     if(this.loginForm.invalid){
       return;
@@ -43,6 +44,7 @@ export class LoginComponent {
         if(user['nombre']==form.value['nombre'] && this.encriptionService.decript(user['contrasenya'])==form.value['clave']){
           this.verification.logged=true;
           this.verification.user=user['id'];
+          this.verification.nombre = user["nombre"];
           break;
         }
       }
@@ -54,9 +56,8 @@ export class LoginComponent {
           if(JSON.stringify(res)=="[\"Error\"]"){
             this.aviso = "El usuario al que intenta acceder está corrupto, contacte con un administrador";
           }else{
-            this.cookieService.set( 'verif', key );
-            this.cookieService.set( 'userId', this.verification.user.toString() );
-
+            this.cookieService.set('verif', key );
+            this.cookieService.set('userId', this.verification.user.toString());
             this.verification.verified = true;
             this.router.navigate(['']);
           }

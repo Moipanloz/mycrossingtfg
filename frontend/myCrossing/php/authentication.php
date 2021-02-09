@@ -83,7 +83,7 @@ if(isset($_GET['command'])){
       if(isset($_GET['userId'])){
         $userId = $_GET['userId'];
         if(checkUserId($conn, $userId)){
-          $sql = "SELECT verification FROM usuarios WHERE id = $userId";
+          $sql = "SELECT verification, nombre FROM usuarios WHERE id = $userId";
           $result = mysqli_query($conn,$sql);
           if ($result->num_rows > 0) {
               while($row = $result->fetch_assoc()) {
