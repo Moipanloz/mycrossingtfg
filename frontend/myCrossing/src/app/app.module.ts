@@ -41,7 +41,6 @@ import { VerificationService } from './general/verification.service';
     CookieService,
     VerificationService
   ],
-  bootstrap: [AppComponent],
-  exports: [CapitalizePipe]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

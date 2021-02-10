@@ -86,3 +86,13 @@ body{
   align-items: center;
   justify-content: center;
 }
+
+.check-button-empty{
+  background-color: blue;
+}
+
+.check-button-full{
+  background-color: red;
+}
+
+

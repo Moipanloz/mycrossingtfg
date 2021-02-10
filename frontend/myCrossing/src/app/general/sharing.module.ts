@@ -3,15 +3,18 @@ import { CapitalizePipe } from './capitalize.pipe';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VerificationService } from './verification.service';
+import { PaginacionPipe } from './paginacion.pipe';
 
 @NgModule({
   declarations: [
     CapitalizePipe,
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    PaginacionPipe
 ],
   exports: [
     CapitalizePipe,
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    PaginacionPipe
 ],
   imports: [
     CommonModule

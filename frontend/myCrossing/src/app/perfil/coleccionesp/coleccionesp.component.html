@@ -12,11 +12,24 @@
   <div class="boton-pag flex-column-centered">
     <button class="boton-pag" (click)="pagAtras()"> < </button>
   </div>
+
   <div class="paginacion-content">
-    <span>content</span>
+    <ng-container *ngFor="let item of DIY | paginacion:page_number">
+      <div class="item-container"> <!-- si esta en la lista, añadir la clase en-lista-->
+        <div class="check-container">
+          <button class="check-button-empty" (click)="toggleCheck()">B</button> <!-- comprobar si existe en el user, si esta poner clase check-button-full-->
+        </div>
+        <div class="item flex-column-centered">
+          <img src="../../../assets/images/logo.png">
+          <span>{{item}}</span>
+        </div>
+      </div>
+    </ng-container>
   </div>
+
   <div class="boton-pag flex-column-centered">
     <button class="boton-pag" (click)="pagAlante()"> > </button>
   </div>
-
 </div>
+<span>Página {{page_number}}</span>
+

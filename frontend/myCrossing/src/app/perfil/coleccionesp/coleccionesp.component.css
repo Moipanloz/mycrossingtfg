@@ -6,15 +6,14 @@
 }
 
 .boton-pag{
- width: 5%;
  background-color: red;
  justify-content: center;
 }
 
 .paginacion-content{
-  width: 90%;
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   grid-gap: 1vw;
   background-color: green;
 }
@@ -45,6 +44,41 @@
 .boton-circular{
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+span{
+  font-size: 1.2vw;
+}
+
+.item-container {
+  background-color:aqua;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5vw;
+  border-radius: 20px;
+}
+
+.en-lista{
+  background-color: darkcyan;
+}
+
+.item{
+  text-align: center;
+}
+
+.item > img {
+  width: 100%;
+}
+
+.check-container{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.check-button-empty{
+  position: absolute;
 }
 
 #DIY{
@@ -117,8 +151,4 @@
   background-color: #0d8bac;
   border-color: #5fca1e;
   background-image: url("../../../assets/images/logo.png");
-}
-
-span{
-  font-size: 1.5vw;
 }

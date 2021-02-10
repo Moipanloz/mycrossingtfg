@@ -26,3 +26,8 @@ export interface Vecino{
   usuario_id: number;
   amistad: number;
 }
+
+export interface ColeccionEspecial{
+  usuario_id: number;
+  listaItems: number[]; //number o string?
+}
