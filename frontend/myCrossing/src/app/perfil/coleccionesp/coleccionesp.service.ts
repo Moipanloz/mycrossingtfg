@@ -12,7 +12,6 @@ export class ColeccionespService {
 
   url : string = "http://localhost/coleccionesespeciales.php"
 
-  //id number o string?
   createCE(){
     let parametros = new HttpParams()
     .set("command", "create")
@@ -26,9 +25,15 @@ export class ColeccionespService {
     return this.http.post(this.url, ce, {params: parametros});
   }
 
-  readCE(){}
+  readCE() : Promise<ColeccionEspecial>{
+    let parametros = new HttpParams()
+    .set("command", "read")
+    .set("userId", JSON.stringify(this.verification.user));
 
-  //id number o string?
+    return this.http.get<ColeccionEspecial>(this.url, {params: parametros}).toPromise();
+
+  }
+
   updateCE(id : any, lista : any[]){
     let parametros = new HttpParams()
     .set("command", "update")
@@ -43,8 +48,9 @@ export class ColeccionespService {
       ce.listaItems.splice(ce.listaItems.indexOf(id), 1);
     }else{
       ce.listaItems.push(id);
-      ce.listaItems.sort();
     }
+
+    ce.listaItems.sort();
 
     return this.http.post(this.url, ce, {params: parametros, responseType: "blob"}).toPromise();
   }

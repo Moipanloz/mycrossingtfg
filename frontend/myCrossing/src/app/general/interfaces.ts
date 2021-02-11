@@ -29,5 +29,5 @@ export interface Vecino{
 
 export interface ColeccionEspecial{
   usuario_id: number;
-  listaItems: number[]; //number o string?
+  listaItems: string[]; //number o string?
 }

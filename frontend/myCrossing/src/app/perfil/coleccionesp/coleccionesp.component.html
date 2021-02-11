@@ -17,7 +17,12 @@
     <ng-container *ngFor="let item of DIY | paginacion:page_number">
       <div class="item-container"> <!-- si esta en la lista, añadir la clase en-lista-->
         <div class="check-container">
-          <button class="check-button-empty" (click)="toggleCheck()">B</button> <!-- comprobar si existe en el user, si esta poner clase check-button-full-->
+          <ng-container *ngIf="listaUsuario.includes(item); else noEnLista">
+            <button class="check-button-empty check-button-full" (click)="toggleCheck()">B</button>
+          </ng-container>
+          <ng-template #noEnLista>
+            <button class="check-button-empty" (click)="toggleCheck()">B</button>
+          </ng-template>
         </div>
         <div class="item flex-column-centered">
           <img src="../../../assets/images/logo.png">

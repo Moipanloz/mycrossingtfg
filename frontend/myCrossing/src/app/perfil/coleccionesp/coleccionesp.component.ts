@@ -27,6 +27,7 @@ export class ColeccionespComponent implements OnInit {
   verification : VerificationService;
   _ce : ColeccionespService;
   page_number : number = 1;
+  listaUsuario : string[] = [];
 
   constructor(verification : VerificationService, ce : ColeccionespService ) {
     this.verification = verification;
@@ -34,7 +35,11 @@ export class ColeccionespComponent implements OnInit {
   }
 
   ngOnInit(){
-    this.verification.verify();
+    this.verification.verify().then(() => {
+      // this._ce.readCE().then(data => {
+      //   this.listaUsuario = data[0]["listaItems"]; //Maybe es data[0][0]["listaItems"]
+      // });
+    });
   }
 
   pagAtras(){
@@ -56,7 +61,6 @@ export class ColeccionespComponent implements OnInit {
       //TODO
     });
   }
-
 
 
   //===================================TEST===============================

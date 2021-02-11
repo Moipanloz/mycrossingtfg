@@ -1,3 +1,4 @@
+import { ColeccionespService } from './../../perfil/coleccionesp/coleccionesp.service';
 import { UserService } from 'app/autenticacion/user.service';
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -20,13 +21,21 @@ export class RegistroComponent {
   _user : UserService;
   aviso: String = "";
   submitted: Boolean = false;
+  _ce :  ColeccionespService;
 
-  constructor(private router:Router, cookieService: CookieService,
-     verification: VerificationService, private http: HttpClient, private _builder: FormBuilder, _user: UserService) {
+  constructor(
+    private router:Router,
+    cookieService: CookieService,
+    verification: VerificationService,
+    private http: HttpClient,
+    private _builder: FormBuilder,
+    _user: UserService,
+    _ce :  ColeccionespService) {
 
     this.verification = verification;
     this.cookieService = cookieService;
     this._user = _user;
+    this._ce = _ce;
     this.registerForm = this._builder.group({
       nombre: ['', Validators.required],
       clave: ['', Validators.required],
@@ -56,6 +65,7 @@ export class RegistroComponent {
         this.verification.verified = true;
         this.verification.logged = true;
         this.verification.user = data[0]['id'];
+        this._ce.createCE();
         this.router.navigate(['']);
       }else{
         this.aviso = "El nombre de usuario ya está en uso";
