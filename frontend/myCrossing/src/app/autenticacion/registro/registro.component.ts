@@ -65,8 +65,10 @@ export class RegistroComponent {
         this.verification.verified = true;
         this.verification.logged = true;
         this.verification.user = data[0]['id'];
-        this._ce.createCE();
-        this.router.navigate(['']);
+        this.verification.nombre = data[0]["nombre"];
+        this._ce.createCE().then(() => {
+          this.router.navigate(['']);
+        });
       }else{
         this.aviso = "El nombre de usuario ya está en uso";
       }

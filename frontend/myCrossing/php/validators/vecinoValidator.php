@@ -5,6 +5,7 @@ header('Access-Control-Allow-Headers: content-type');
 function checkDatosCorrectos($vecino_id, $amistad){
   $result = null;
 
+  //TODO
   //if($vecino_id){} // comprobar que este dentro de la lista de la api
 
   if(0 < $amistad && $amistad < 10){

@@ -1,6 +1,7 @@
 import { ColeccionespService } from './coleccionesp.service';
 import { VerificationService } from 'app/general/verification.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { ColeccionesEspInvService } from './coleccionesespinv.service';
 
 @Component({
   selector: 'app-coleccionesp',
@@ -9,56 +10,91 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ColeccionespComponent implements OnInit {
 
-  colecciones : string[] = [
-    "DIY",
-    "Estacional",
-    "Estela",
-    "Caza",
-    "Pesca",
-    "Gulliver",
-    "Gullivarr",
-    "Coti",
-    "Soponcio",
-    "Copito",
-    "Renato",
-    "Conga"
-  ];
-
+  colecciones : string[] = [];
   verification : VerificationService;
   _ce : ColeccionespService;
+  _ceinv : ColeccionesEspInvService;
   page_number : number = 1;
   listaUsuario : string[] = [];
+  inventario : string[] = [];
+  activeCollection : string = "DIY";
+  selected = {
+    'border-width': '0.4vw'
+  };
+  base = {
+    'border-width': ''
+  }
 
-  constructor(verification : VerificationService, ce : ColeccionespService ) {
+  @ViewChild("atras") atras : ElementRef;
+  @ViewChild("alante") alante : ElementRef;
+
+  constructor(verification : VerificationService, ce : ColeccionespService, ceinv : ColeccionesEspInvService ) {
     this.verification = verification;
     this._ce = ce;
+    this._ceinv = ceinv;
   }
 
   ngOnInit(){
     this.verification.verify().then(() => {
-      // this._ce.readCE().then(data => {
-      //   this.listaUsuario = data[0]["listaItems"]; //Maybe es data[0][0]["listaItems"]
+      this.colecciones = this._ce.colecciones;
+      // this._ceinv.readCEInv().then(inv => {
+      //   this.inventario = inv[0]["items"];
       // });
+      this._ce.readCE().then(data => {
+        let index : number = 0;
+        for(let i = 0; i < this._ce.colecciones.length; i++){
+          if(data[i]["source"] == this.activeCollection){
+            index = i;
+            break;
+          }
+        }
+
+        if(data[index]["items"] == null){
+          this.listaUsuario = [""];
+        }else{
+          let s : string = data[index]["items"];
+          this.listaUsuario = s.split(",");
+        }
+      });
+
+      this.activeCollection
     });
   }
 
-  pagAtras(){
-    if(this.page_number > 1) {
-      --this.page_number;
-    }
+  // ngAfterViewInit(){
+  //   setTimeout(() => {
+  //     document.getElementById(this.activeCollection).style.borderWidth = "0.4vw";
+  //   },2000);
+  // }
+
+  setActiveCollection(lista : string){
+    this.activeCollection = lista; //esto creo que es pa filtrar
+    this.ngOnInit();
   }
 
-  pagAlante(){
-    if(this.page_number * 16 < this.DIY.length) {
+  paginacionNavigation(action : string){
+    if(action == "atras" && this.page_number > 1){
+      --this.page_number;
+    }else if(action == "alante" && this.page_number * 16 < this.DIY.length){ //TODO
       ++this.page_number;
     }
+
+    if(this.page_number > 1 && this.page_number * 16 < this.DIY.length){ //TODO
+      this.atras.nativeElement.style.visibility = "visible";
+      this.alante.nativeElement.style.visibility = "visible";
+    }else if(this.page_number > 1){
+      this.atras.nativeElement.style.visibility = "visible";
+      this.alante.nativeElement.style.visibility = "hidden";
+    }else{
+      this.atras.nativeElement.style.visibility = "hidden";
+      this.alante.nativeElement.style.visibility = "visible";
+    }
   }
 
-  toggleCheck(){
-    let placeholder1 : string = "";
-    let placeholder2 : string[] = [];
-    this._ce.updateCE(placeholder1, placeholder2).then(() => {
-      //TODO
+  toggleCheck(item : string){
+    this._ce.updateCE(item, this.activeCollection, this.listaUsuario).then(() => {
+      this.ngOnInit();
+      //TODO?
     });
   }
 
@@ -116,6 +152,22 @@ export class ColeccionespComponent implements OnInit {
     "d21",
     "d22",
     "d23",
+    "d24",
+    "d24",
+    "d24",
+    "d24",
+    "d24",
+    "d24",
+    "d24",
+    "d24",
+    "d24",
+    "d24",
+    "d24",
+    "d24",
+    "d24",
+    "d24",
+    "d24",
+    "d24",
     "d24"
   ];
 

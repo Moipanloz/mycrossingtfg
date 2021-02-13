@@ -10,6 +10,21 @@ export class ColeccionespService {
 
   constructor(private http : HttpClient, private verification : VerificationService) { }
 
+  colecciones : string[] = [
+    "DIY",
+    "Estacional",
+    "Estela",
+    "Caza",
+    "Pesca",
+    "Gulliver",
+    "Gullivarr",
+    "Coti",
+    "Soponcio",
+    "Copito",
+    "Renato",
+    "Conga"
+  ];
+
   url : string = "http://localhost/coleccionesespeciales.php"
 
   createCE(){
@@ -19,10 +34,11 @@ export class ColeccionespService {
 
     let ce : ColeccionEspecial = {
       usuario_id: this.verification.user,
-      listaItems: []
+      source: null,
+      items: this.colecciones //aprovecho que va vacio para enviarle las colecciones
     }
 
-    return this.http.post(this.url, ce, {params: parametros});
+    return this.http.post(this.url, ce, {params: parametros, responseType : "blob"}).toPromise();
   }
 
   readCE() : Promise<ColeccionEspecial>{
@@ -31,26 +47,30 @@ export class ColeccionespService {
     .set("userId", JSON.stringify(this.verification.user));
 
     return this.http.get<ColeccionEspecial>(this.url, {params: parametros}).toPromise();
-
   }
 
-  updateCE(id : any, lista : any[]){
+  updateCE(id : string, source : string, lista : string[]){
     let parametros = new HttpParams()
     .set("command", "update")
     .set("userId", JSON.stringify(this.verification.user));
 
     let ce : ColeccionEspecial = {
       usuario_id: this.verification.user,
-      listaItems: lista
+      source: source,
+      items: lista
     }
 
-    if(ce.listaItems.includes(id)){
-      ce.listaItems.splice(ce.listaItems.indexOf(id), 1);
+    if(ce.items.length == 1 && ce.items[0] === ""){
+      ce.items.splice(ce.items.indexOf(""), 1);
+    }
+
+    if(ce.items.includes(id)){
+      ce.items.splice(ce.items.indexOf(id), 1);
     }else{
-      ce.listaItems.push(id);
+      ce.items.push(id);
     }
 
-    ce.listaItems.sort();
+    ce.items.sort();
 
     return this.http.post(this.url, ce, {params: parametros, responseType: "blob"}).toPromise();
   }

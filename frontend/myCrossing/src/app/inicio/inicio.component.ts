@@ -19,7 +19,8 @@ export class InicioComponent implements OnInit {
 
   ngOnInit(): void {
     if(!this.verification.verified){
-      this.verification.verify();
+      this.verification.verify().then(() => {
+      })
     }
   }
 

@@ -113,7 +113,8 @@ if(isset($_GET['command'])){
         $id_suenyo = $request->id_suenyo;
         $id_switch = $request->id_switch;
 
-        $error = checkDatos($conn, $userId, $nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_suenyo, $id_switch);
+        $error = checkDatos($nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_suenyo, $id_switch) &&
+                checkDatosCreate($conn, $email, $id_suenyo, $id_switch);
 
         if(!$error){
           print json_encode("No cumple los requisitos");
@@ -147,7 +148,7 @@ if(isset($_GET['command'])){
           $sql2 .= ")";
           $sql .= $sql2;
           $funciona = mysqli_query($conn,$sql);
-          $sql = "SELECT id FROM usuarios WHERE nombre = '$nombre'";
+          $sql = "SELECT * FROM usuarios WHERE email = '$email'";
           $result = mysqli_query($conn,$sql);
           if ($result->num_rows > 0) {
               while($row = $result->fetch_assoc()) {
@@ -186,7 +187,8 @@ if(isset($_GET['command'])){
           $email = $row["email"];
 
           $error =  checkUserId($conn, $userId) &&
-                    checkDatos($conn, $userId, $nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_suenyo, $id_switch);
+                    checkDatos($conn, $nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_suenyo, $id_switch) &&
+                    checkDatosUpdate($conn, $userId, $email, $id_suenyo, $id_switch);
 
           if($error){
             $sql = "UPDATE usuarios SET nombre = '$nombre', isla = '$isla', fruta = '$fruta', cumpleanyos = '$cumpleanyos', hemisferio = '$hemisferio', id_switch = '$id_switch', id_suenyo = '$id_suenyo', apodo_aldeano = '$apodo_aldeano' WHERE id = $userId";

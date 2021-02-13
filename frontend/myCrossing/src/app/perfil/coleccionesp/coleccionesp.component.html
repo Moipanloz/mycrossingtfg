@@ -1,7 +1,7 @@
 <div class="menu-botones flex-centered">
   <ng-container *ngFor="let lista of colecciones">
     <div class="flex-column-centered">
-      <button class="boton-circular" id="{{lista}}"></button>
+      <button class="boton-circular" id="{{lista}}" (click)="setActiveCollection(lista)" [ngStyle]="lista == this.activeCollection ? selected : base" ></button>
       <span>{{lista}}</span>
     </div>
   </ng-container>
@@ -9,8 +9,8 @@
 
 
 <div class="item-list-wrap flex-centered">
-  <div class="boton-pag flex-column-centered">
-    <button class="boton-pag" (click)="pagAtras()"> < </button>
+  <div class="boton-pag flex-column-centered" style="visibility: hidden;" #atras>
+    <button class="boton-pag" (click)="paginacionNavigation('atras')" > < </button>
   </div>
 
   <div class="paginacion-content">
@@ -18,10 +18,10 @@
       <div class="item-container"> <!-- si esta en la lista, añadir la clase en-lista-->
         <div class="check-container">
           <ng-container *ngIf="listaUsuario.includes(item); else noEnLista">
-            <button class="check-button-empty check-button-full" (click)="toggleCheck()">B</button>
+            <button class="check-button-empty check-button-full" (click)="toggleCheck(item)">B</button>
           </ng-container>
           <ng-template #noEnLista>
-            <button class="check-button-empty" (click)="toggleCheck()">B</button>
+            <button class="check-button-empty" (click)="toggleCheck(item)">B</button>
           </ng-template>
         </div>
         <div class="item flex-column-centered">
@@ -32,8 +32,8 @@
     </ng-container>
   </div>
 
-  <div class="boton-pag flex-column-centered">
-    <button class="boton-pag" (click)="pagAlante()"> > </button>
+  <div class="boton-pag flex-column-centered" style="visibility: visible;" #alante>
+    <button class="boton-pag" (click)="paginacionNavigation('alante')"> > </button>
   </div>
 </div>
 <span>Página {{page_number}}</span>
