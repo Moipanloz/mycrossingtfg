@@ -5,10 +5,6 @@ require "openDB.php";
 include "validators/usuarioValidator.php";
 include "validators/ceValidator.php";
 
-
-//TODO
-//en el create, el source le viene como null
-
 if(isset($_GET["command"])){
   $error = false;
 
@@ -101,12 +97,6 @@ if(isset($_GET["command"])){
 
             $sql = "UPDATE coleccionesespeciales SET items = $itemsString WHERE source = '$source' AND usuario_id = $userId";
             $result = mysqli_query($conn,$sql);
-
-
-            echo("  sql es  ");
-            echo(json_encode($sql));
-            echo("  result es  ");
-            echo(json_encode($result));
 
           }else{
             print("No se cumplen los requisitos");

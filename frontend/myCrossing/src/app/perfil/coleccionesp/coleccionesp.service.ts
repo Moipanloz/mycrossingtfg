@@ -1,3 +1,4 @@
+import { ColeccionesEspInvService } from 'app/perfil/coleccionesp/coleccionesespinv.service';
 import { VerificationService } from 'app/general/verification.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -8,22 +9,7 @@ import { ColeccionEspecial } from 'app/general/interfaces';
 })
 export class ColeccionespService {
 
-  constructor(private http : HttpClient, private verification : VerificationService) { }
-
-  colecciones : string[] = [
-    "DIY",
-    "Estacional",
-    "Estela",
-    "Caza",
-    "Pesca",
-    "Gulliver",
-    "Gullivarr",
-    "Coti",
-    "Soponcio",
-    "Copito",
-    "Renato",
-    "Conga"
-  ];
+  constructor(private http : HttpClient, private verification : VerificationService, private _ceinv : ColeccionesEspInvService) { }
 
   url : string = "http://localhost/coleccionesespeciales.php"
 
@@ -35,7 +21,7 @@ export class ColeccionespService {
     let ce : ColeccionEspecial = {
       usuario_id: this.verification.user,
       source: null,
-      items: this.colecciones //aprovecho que va vacio para enviarle las colecciones
+      items: this._ceinv.colecciones //aprovecho que va vacio para enviarle las colecciones
     }
 
     return this.http.post(this.url, ce, {params: parametros, responseType : "blob"}).toPromise();

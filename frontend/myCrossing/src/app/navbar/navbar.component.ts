@@ -53,6 +53,7 @@ export class NavbarComponent {
 
   updateCEInv(){
     this._ceinv.updateCEInv().then(() => {
+      alert("Actualizado el inventario de colecciones");
       this.router.navigate[""];
     });
   }

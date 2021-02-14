@@ -14,7 +14,7 @@
   </div>
 
   <div class="paginacion-content">
-    <ng-container *ngFor="let item of DIY | paginacion:page_number">
+    <ng-container *ngFor="let item of inventario | paginacion:page_number">
       <div class="item-container"> <!-- si esta en la lista, añadir la clase en-lista-->
         <div class="check-container">
           <ng-container *ngIf="listaUsuario.includes(item); else noEnLista">

@@ -29,10 +29,10 @@ function checkDatosCorrectos($conn, $source, $items){
   if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-      $myArray[] = $row;
+      $myArray[] = $row["source"];
     }
 
-    if(!array_key_exists($source, $myArray)){
+    if(!in_array($source, $myArray)){
       $error = FALSE;
       print("Colección inválida");
     }
@@ -40,15 +40,18 @@ function checkDatosCorrectos($conn, $source, $items){
 
   $sql = "SELECT items FROM coleccionesespinv WHERE source = '$source'";
   $result = mysqli_query($conn, $sql);
+  $myArray = [];
 
   if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-      $myArray[] = $row;
+      $myArray[] = $row["items"];
     }
 
+    $myArray = preg_split("/[,]+/",$myArray[0]);
+
     for($i = 0; $i < sizeof($items);$i++){
-      if(!array_key_exists($items[$i], $myArray)){
+      if(!in_array($items[$i], $myArray)){
         $error = FALSE;
         print("Hay items inválidos en la colección");
         break;

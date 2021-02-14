@@ -143,13 +143,23 @@ function checkDatosUpdate($conn, $userId, $email, $id_suenyo, $id_switch){
   return $devolver;
 }
 
-
 function checkUserId($conn, $userId){
   //Comprueba que exista el usuario
   $devolver = FALSE;
   $sql = "SELECT * FROM usuarios WHERE id = $userId";
   $result = mysqli_query($conn,$sql);
   if ($result->num_rows == 1) {
+    $devolver= TRUE;
+  }
+  return $devolver;
+}
+
+function checkAdmin($conn, $userId){
+  //Comprueba que el usuario es el admin
+  $devolver = FALSE;
+  $sql = "SELECT * FROM usuarios WHERE id = $userId";
+  $result = mysqli_query($conn,$sql);
+  if ($result->num_rows == 1 && $result['nombre']=="admin" && $userId == 1) {
     $devolver= TRUE;
   }
   return $devolver;

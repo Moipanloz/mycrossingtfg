@@ -12,9 +12,23 @@ export class ColeccionesEspInvService {
 
   url : string = "http://localhost/coleccionesespinv.php"
 
+  colecciones : string[] = [
+    "DIY",
+    "Estacional",
+    "Estela",
+    "Caza",
+    "Pesca",
+    "Gulliver",
+    "Gullivarr",
+    "Coti",
+    "Soponcio",
+    "Copito",
+    "Renato",
+    "Conga"
+  ];
+
   readCEInv(){
     let parametros = new HttpParams().set("command", "read")
-
     return this.http.get(this.url, {params: parametros}).toPromise();
   }
 

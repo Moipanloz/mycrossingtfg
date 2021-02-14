@@ -23,10 +23,10 @@ $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 // ---------------------------------------------------------------------------------------------Create
 
 $error = "Failed during create";
-
+//TODO CHANGE
 $sql = "CREATE TABLE coleccionesespinv (
   source varchar(20) NOT NULL,
-  items set('') NOT NULL
+  items set('d1','d2','d3','d4','d5','d6','d7','d8','d9','d1','d2','d3','d4','d5','d6','d7','d8','d9','d1','d2','d3','d4','d5','d6','d7','d8','d9') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
@@ -162,6 +162,22 @@ $sql = "INSERT INTO coleccionesespeciales (usuario_id, source, items) VALUES
 (3, 'Copito', ''),
 (3, 'Renato', ''),
 (3, 'Conga', '')
+;";
+$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
+$sql = "INSERT INTO coleccionesespeciales (usuario_id, source, items) VALUES
+('DIY', 'd1,d2,d3,d4,d5,d6,d7,d8,d9'),
+('Estacional', ''),
+('Estela', 'e1,e2,e3,e4,e5,e6,e7,e8,e9'),
+('Caza', ''),
+('Pesca', ''),
+('Gulliver', 'g1,g2,g3,g4,g5,g6,g7'),
+('Gullivarr', ''),
+('Coti', ''),
+('Soponcio', ''),
+('Copito', ''),
+('Renato', ''),
+('Conga', '')
 ;";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 

@@ -36,13 +36,23 @@ export class ColeccionespComponent implements OnInit {
 
   ngOnInit(){
     this.verification.verify().then(() => {
-      this.colecciones = this._ce.colecciones;
-      // this._ceinv.readCEInv().then(inv => {
-      //   this.inventario = inv[0]["items"];
-      // });
+      this.colecciones = this._ceinv.colecciones;
+
+      this._ceinv.readCEInv().then(inv => {
+        let index : number = 0;
+        for(let i = 0; i < this._ceinv.colecciones.length; i++){
+          if(inv[i]["source"] == this.activeCollection){
+            index = i;
+            break;
+          }
+        }
+        let s : string = inv[index]["items"];
+        this.inventario = s.split(",");
+      });
+
       this._ce.readCE().then(data => {
         let index : number = 0;
-        for(let i = 0; i < this._ce.colecciones.length; i++){
+        for(let i = 0; i < this._ceinv.colecciones.length; i++){
           if(data[i]["source"] == this.activeCollection){
             index = i;
             break;
@@ -61,12 +71,6 @@ export class ColeccionespComponent implements OnInit {
     });
   }
 
-  // ngAfterViewInit(){
-  //   setTimeout(() => {
-  //     document.getElementById(this.activeCollection).style.borderWidth = "0.4vw";
-  //   },2000);
-  // }
-
   setActiveCollection(lista : string){
     this.activeCollection = lista; //esto creo que es pa filtrar
     this.ngOnInit();
@@ -75,11 +79,11 @@ export class ColeccionespComponent implements OnInit {
   paginacionNavigation(action : string){
     if(action == "atras" && this.page_number > 1){
       --this.page_number;
-    }else if(action == "alante" && this.page_number * 16 < this.DIY.length){ //TODO
+    }else if(action == "alante" && this.page_number * 16 < this.inventario.length){ //TODO
       ++this.page_number;
     }
 
-    if(this.page_number > 1 && this.page_number * 16 < this.DIY.length){ //TODO
+    if(this.page_number > 1 && this.page_number * 16 < this.inventario.length){ //TODO
       this.atras.nativeElement.style.visibility = "visible";
       this.alante.nativeElement.style.visibility = "visible";
     }else if(this.page_number > 1){
@@ -153,22 +157,22 @@ export class ColeccionespComponent implements OnInit {
     "d22",
     "d23",
     "d24",
-    "d24",
-    "d24",
-    "d24",
-    "d24",
-    "d24",
-    "d24",
-    "d24",
-    "d24",
-    "d24",
-    "d24",
-    "d24",
-    "d24",
-    "d24",
-    "d24",
-    "d24",
-    "d24"
+    "d25",
+    "d26",
+    "d27",
+    "d28",
+    "d29",
+    "d30",
+    "d31",
+    "d32",
+    "d33",
+    "d34",
+    "d35",
+    "d36",
+    "d37",
+    "d38",
+    "d39",
+    "d40"
   ];
 
 
