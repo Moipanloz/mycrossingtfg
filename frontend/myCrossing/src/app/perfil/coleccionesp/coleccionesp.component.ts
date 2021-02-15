@@ -49,6 +49,13 @@ export class ColeccionespComponent implements OnInit {
         let s : string = inv[index]["GROUP_CONCAT(id)"];
         this.inventario = s.split(",");
         this.inventario.sort();
+
+        if(this.inventario.length <= 16){
+          this.alante.nativeElement.style.visibility = "hidden";
+        }else{
+          this.alante.nativeElement.style.visibility = "visible";
+        }
+
       });
 
       this._ce.readCE().then(data => {
