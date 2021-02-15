@@ -5,10 +5,10 @@ require "openDB.php";
 // =====================================================================================================Tables
 // ---------------------------------------------------------------------------------------------Drop
 
-$sql = "DROP TABLE IF EXISTS coleccionesespinv";
+$sql = "DROP TABLE IF EXISTS usuariosce";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
-$sql = "DROP TABLE IF EXISTS coleccionesespeciales";
+$sql = "DROP TABLE IF EXISTS itemsce";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "DROP TABLE IF EXISTS tareas";
@@ -23,162 +23,142 @@ $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 // ---------------------------------------------------------------------------------------------Create
 
 $error = "Failed during create";
-//TODO CHANGE
-$sql = "CREATE TABLE coleccionesespinv (
-  source varchar(20) NOT NULL,
-  items set('d1','d2','d3','d4','d5','d6','d7','d8','d9','d1','d2','d3','d4','d5','d6','d7','d8','d9','d1','d2','d3','d4','d5','d6','d7','d8','d9') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1";
-$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
-$sql = "CREATE TABLE coleccionesespeciales (
-  usuario_id int(11) NOT NULL,
-  source varchar(20) NOT NULL,
-  items set('','d1','d2','d3') DEFAULT NULL
+$sql = "CREATE TABLE itemsce (
+  id varchar(20) PRIMARY KEY,
+  source enum('DIY','Estacional','Estela','Caza','Pesca','Gulliver','Gullivarr','Coti','Soponcio','Copito','Renato','Conga') NOT NULL DEFAULT 'DIY'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1";
-$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
-
-$sql = "CREATE TABLE tareas (
-  id int(11) NOT NULL,
-  usuario_id int(11) NOT NULL,
-  hecha tinyint(1) NOT NULL,
-  imagen_url varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1";
-$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
-
-$sql = "CREATE TABLE misvecinos (
-  vecino_id int(11) NOT NULL,
-  usuario_id int(11) NOT NULL,
-  amistad set('1','2','3','4','5','6') NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "CREATE TABLE usuarios (
+  id int(5) PRIMARY KEY AUTO_INCREMENT,
   nombre varchar(20) NOT NULL,
-  id int(11) NOT NULL,
   isla varchar(20) NOT NULL,
   fruta enum('PERA','MANZANA','CEREZA','NARANJA','MELOCOTON') NOT NULL,
   cumpleanyos date NOT NULL,
   hemisferio enum('NORTE','SUR') NOT NULL,
   contrasenya varchar(100) NOT NULL,
-  email varchar(30) NOT NULL,
+  email varchar(30) UNIQUE KEY NOT NULL,
   verification varchar(40) DEFAULT NULL,
-  id_suenyo varchar(17) DEFAULT NULL,
-  id_switch varchar(17) DEFAULT NULL,
+  id_suenyo varchar(17) UNIQUE KEY DEFAULT NULL,
+  id_switch varchar(17) UNIQUE KEY DEFAULT NULL,
   apodo_aldeano varchar(30) DEFAULT NULL
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
+$sql = "CREATE TABLE usuariosce (
+  usuario_id int(5) NOT NULL,
+  itemce_id varchar(20) NOT NULL,
+  PRIMARY KEY (usuario_id, itemce_id),
+  FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON DELETE CASCADE,
+  FOREIGN KEY (itemce_id) REFERENCES itemsce (id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1";
+$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
+$sql = "CREATE TABLE tareas (
+  id int(5) PRIMARY KEY AUTO_INCREMENT,
+  usuario_id int(5) NOT NULL,
+  hecha tinyint(1) NOT NULL,
+  imagen_url varchar(100) NOT NULL,
+  FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1";
+$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
+$sql = "CREATE TABLE misvecinos (
+  vecino_id int(5) NOT NULL,
+  usuario_id int(5) NOT NULL,
+  amistad set('1','2','3','4','5','6') NOT NULL DEFAULT '1',
+  PRIMARY KEY (vecino_id, usuario_id),
+  FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1";
+$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 // ---------------------------------------------------------------------------------------------Alter
 
-$sql = "ALTER TABLE usuarios
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY email (`email`),
-  ADD UNIQUE KEY id_suenyo (`id_suenyo`),
-  ADD UNIQUE KEY id_switch (`id_switch`),
-  MODIFY id int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3";
-$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
-
-$sql = "ALTER TABLE tareas
-  ADD PRIMARY KEY (id),
-  ADD KEY tareas_ibfk_1 (usuario_id),
-  MODIFY id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8,
-  ADD CONSTRAINT tareas_ibfk_1 FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON DELETE CASCADE";
-$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
-
-$sql = "ALTER TABLE misvecinos
-  ADD PRIMARY KEY (vecino_id,usuario_id),
-  ADD KEY misvecinos_ibfk_1 (usuario_id),
-  ADD CONSTRAINT misvecinos_ibfk_1 FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON DELETE CASCADE";
-$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
-
-$sql = "ALTER TABLE coleccionesespinv
-  ADD PRIMARY KEY (source)";
-$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
-
-$sql = "ALTER TABLE coleccionesespeciales
-  ADD PRIMARY KEY (usuario_id, source),
-  ADD KEY coleccionesespeciales_ibfk_1 (usuario_id),
-  ADD CONSTRAINT coleccionesespeciales_ibfk_1 FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON DELETE CASCADE";
+$sql = "ALTER TABLE usuarios AUTO_INCREMENT = 2";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 // ---------------------------------------------------------------------------------------------Populate
 
 $sql = "INSERT INTO usuarios (nombre, id, isla, fruta, cumpleanyos, hemisferio, contrasenya, email, verification) VALUES
 ('admin', 1, 'admin', 'PERA', '2011-11-01', 'NORTE', 'U2FsdGVkX18L+hGuMqOnU+HkOv/6tpXZKFZRZX4ly9w=', 'admin@email.com', ''),
-('usuario1', 2, 'isla1', 'PERA', '2011-11-01', 'NORTE', 'U2FsdGVkX1/y6H74uxg4NHfptRxLbVeygCa2vNSxIIM=', 'usuario1@email.com', 'uVLDHRAnv3'),
-('usuario2', 3, 'isla2', 'MANZANA', '2012-12-02', 'SUR', 'U2FsdGVkX1+i3f3DoYZ/0Yd6G1/LEdjDxdSp0bmo30g=', 'usuario2@email.com', '')";
+('usuario1', NULL, 'isla1', 'PERA', '2011-11-01', 'NORTE', 'U2FsdGVkX1/y6H74uxg4NHfptRxLbVeygCa2vNSxIIM=', 'usuario1@email.com', 'uVLDHRAnv3'),
+('usuario2', NULL, 'isla2', 'MANZANA', '2012-12-02', 'SUR', 'U2FsdGVkX1+i3f3DoYZ/0Yd6G1/LEdjDxdSp0bmo30g=', 'usuario2@email.com', '')";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "INSERT INTO tareas (id, usuario_id, hecha, imagen_url) VALUES
-(1, 2, 0, '2'),
-(2, 2, 0, '5'),
-(4, 2, 0, '1'),
-(5, 3, 0, '2'),
-(6, 3, 1, '4'),
-(7, 3, 1, '3')";
+(NULL, 2, 0, '2'),
+(NULL, 2, 0, '5'),
+(NULL, 2, 0, '1'),
+(NULL, 3, 0, '2'),
+(NULL, 3, 1, '4'),
+(NULL, 3, 1, '3')";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "INSERT INTO misvecinos (vecino_id, usuario_id, amistad) VALUES
 (1, 2, '1'),
 (1, 3, '1'),
 (2, 2, '1'),
-(2, 3, '1');";
+(2, 3, '1')";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
-$sql = "INSERT INTO coleccionesespeciales (usuario_id, source, items) VALUES
-(1, 'DIY', 'd1,d3'),
-(1, 'Estacional', ''),
-(1, 'Estela', ''),
-(1, 'Caza', ''),
-(1, 'Pesca', ''),
-(1, 'Gulliver', ''),
-(1, 'Gullivarr', ''),
-(1, 'Coti', ''),
-(1, 'Soponcio', ''),
-(1, 'Copito', ''),
-(1, 'Renato', ''),
-(1, 'Conga', ''),
-(2, 'DIY', 'd1,d2,d3'),
-(2, 'Estacional', ''),
-(2, 'Estela', ''),
-(2, 'Caza', ''),
-(2, 'Pesca', ''),
-(2, 'Gulliver', ''),
-(2, 'Gullivarr', ''),
-(2, 'Coti', ''),
-(2, 'Soponcio', ''),
-(2, 'Copito', ''),
-(2, 'Renato', ''),
-(2, 'Conga', ''),
-(3, 'DIY', 'd1'),
-(3, 'Estacional', ''),
-(3, 'Estela', ''),
-(3, 'Caza', ''),
-(3, 'Pesca', ''),
-(3, 'Gulliver', ''),
-(3, 'Gullivarr', ''),
-(3, 'Coti', ''),
-(3, 'Soponcio', ''),
-(3, 'Copito', ''),
-(3, 'Renato', ''),
-(3, 'Conga', '')
-;";
+$sql = "INSERT INTO itemsce (id, source) VALUES
+('d1','DIY'),
+('d2','DIY'),
+('d3','DIY'),
+('d4','DIY'),
+('d5','DIY'),
+('e6','Estela'),
+('e7','Estela'),
+('e8','Estela'),
+('e9','Estela'),
+('e10','Estela'),
+('e11','Estela'),
+('e12','Estela'),
+('e13','Estela'),
+('e14','Estela'),
+('e15','Estela'),
+('e16','Estela'),
+('e17','Estela'),
+('e18','Estela'),
+('e19','Estela'),
+('e20','Estela'),
+('e21','Estela'),
+('e22','Estela'),
+('e23','Estela'),
+('e24','Estela'),
+('e25','Estela'),
+('e26','Estela')
+";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
-$sql = "INSERT INTO coleccionesespeciales (usuario_id, source, items) VALUES
-('DIY', 'd1,d2,d3,d4,d5,d6,d7,d8,d9'),
-('Estacional', ''),
-('Estela', 'e1,e2,e3,e4,e5,e6,e7,e8,e9'),
-('Caza', ''),
-('Pesca', ''),
-('Gulliver', 'g1,g2,g3,g4,g5,g6,g7'),
-('Gullivarr', ''),
-('Coti', ''),
-('Soponcio', ''),
-('Copito', ''),
-('Renato', ''),
-('Conga', '')
-;";
+$sql = "INSERT INTO usuariosce (usuario_id, itemce_id) VALUES
+(1, 'd1'),
+(1, 'd2'),
+(2, 'd3'),
+(1, 'd4'),
+(2, 'd5'),
+(2, 'e6'),
+(2, 'e7'),
+(2, 'e8'),
+(3, 'e9'),
+(1, 'e10'),
+(1, 'e11'),
+(1, 'e12'),
+(3, 'e13'),
+(1, 'e14'),
+(2, 'e15'),
+(3, 'e16'),
+(2, 'e17'),
+(1, 'e18'),
+(1, 'e19'),
+(1, 'e20'),
+(3, 'e21'),
+(2, 'e22'),
+(1, 'e23'),
+(1, 'e24'),
+(3, 'e25'),
+(3, 'e26')
+";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 // ===================================================================================================== Events

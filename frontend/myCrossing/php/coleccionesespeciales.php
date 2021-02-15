@@ -16,7 +16,7 @@ if(isset($_GET["command"])){
         $error = checkUserId($conn, $userId);
 
         if($error){
-          $sql = "SELECT * FROM coleccionesespeciales WHERE usuario_id = $userId";
+          $sql = "SELECT itemsce.source, GROUP_CONCAT(usuariosce.itemce_id) FROM usuariosce JOIN itemsce ON itemsce.id = usuariosce.itemce_id WHERE usuario_id = $userId GROUP BY source";
           $result = mysqli_query($conn,$sql);
           $myArray = array();
 
@@ -46,17 +46,14 @@ if(isset($_GET["command"])){
         if(isset($postdata) && !empty($postdata)){
 
           $request = json_decode($postdata);
-          $sources = $request->items; //aunque lo coja de items, son las colecciones (sources) a añadir
+          $itemId = $request->itemce_id; //aunque lo coja de items, son las colecciones (sources) a añadir
 
           $error = checkUserId($conn, $userId) &&
-                   checkNoTieneLista($userId, $conn);
+                   checkDatosCorrectos($conn, $itemId);
 
           if($error){
-            for($i = 0; $i < sizeof($sources); $i++){
-              $sql = "INSERT INTO coleccionesespeciales(usuario_id, source, items) VALUES ($userId, '$sources[$i]', null)";
-              $result = mysqli_query($conn,$sql);
-            }
-
+            $sql = "INSERT INTO usuariosce(usuario_id, itemce_id) VALUES ($userId, '$itemId')";
+            $result = mysqli_query($conn,$sql);
           }else{
             print("No se cumplen los requisitos");
           }
@@ -69,46 +66,27 @@ if(isset($_GET["command"])){
       }
       break;
 
-    case "update"://------------------------------------------------------------------------------------------------UPDATE
-      if(isset($_GET["userId"])){
+    case "delete"://---------------------------------------------------------------------------------------------------DELETE
+      if(isset($_GET["userId"]) && isset($_GET["itemId"])){
 
         $userId = $_GET["userId"];
-        $postdata = file_get_contents("php://input");
+        $itemId = $_GET["itemId"];
 
-        if(isset($postdata) && !empty($postdata)){
+        $error = checkUserId($conn, $userId) &&
+                  checkTieneItem($conn, $userId, $itemId) &&
+                  checkDatosCorrectos($conn, $itemId);
 
-          $request = json_decode($postdata);
-          $source = $request->source;
-          $items = $request->items;
-
-          $error = checkUserId($conn, $userId) &&
-                  checkDatosCorrectos($conn, $source, $items);
-
-          if($error){
-            $itemsString = "('";
-            for($i = 0; $i < sizeof($items); $i++){
-              $itemsString .= $items[$i];
-              if($i+1 == sizeof($items)){
-                $itemsString .= "')";
-              }else{
-                $itemsString .= ",";
-              }
-            }
-
-            $sql = "UPDATE coleccionesespeciales SET items = $itemsString WHERE source = '$source' AND usuario_id = $userId";
-            $result = mysqli_query($conn,$sql);
-
-          }else{
-            print("No se cumplen los requisitos");
-          }
+        if($error){
+          $sql = "DELETE FROM usuariosce WHERE usuario_id = $userId AND itemce_id = '$itemId'";
+          $result = mysqli_query($conn,$sql);
         }else{
-          print("No hay datos");
+          print("No se cumplen los requisitos");
         }
-
       } else {
-        print("No hay id de usuario");
+        print("Datos no enviados");
       }
       break;
+
 
     default:
       print("Comando no válido");

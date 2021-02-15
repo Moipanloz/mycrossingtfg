@@ -3,63 +3,29 @@
 header('Access-Control-Allow-Origin: http://localhost:4200');
 header('Access-Control-Allow-Headers: content-type');
 
-function checkNoTieneLista($userId, $conn){
-  $error = null;
+function checkDatosCorrectos($conn, $itemId){
+  $error = TRUE;
 
-  $sql = "SELECT * FROM coleccionesespeciales WHERE usuario_id = $userId";
+  $sql = "SELECT id FROM itemsce WHERE id = '$itemId'";
   $result = mysqli_query($conn, $sql);
 
-  if($result->num_rows > 0){
+  if ($result->num_rows != 1) {
     $error = FALSE;
-    print("Ya tienes creadas tus listas");
-  }else{
-    $error = TRUE;
+    print("Objeto no válido");
   }
-
   return $error;
 }
 
-function checkDatosCorrectos($conn, $source, $items){
+function checkTieneItem($conn, $userId, $itemId){
   $error = TRUE;
 
-  $sql = "SELECT source FROM coleccionesespinv";
+  $sql = "SELECT * FROM usuariosce WHERE itemce_id = '$itemId' AND usuario_id = $userId";
   $result = mysqli_query($conn, $sql);
-  $myArray = array();
 
-  if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-      $myArray[] = $row["source"];
-    }
-
-    if(!in_array($source, $myArray)){
-      $error = FALSE;
-      print("Colección inválida");
-    }
+  if ($result->num_rows != 1) {
+    $error = FALSE;
+    print("Debes tener el item para eliminarlo de tu lista");
   }
-
-  $sql = "SELECT items FROM coleccionesespinv WHERE source = '$source'";
-  $result = mysqli_query($conn, $sql);
-  $myArray = [];
-
-  if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-      $myArray[] = $row["items"];
-    }
-
-    $myArray = preg_split("/[,]+/",$myArray[0]);
-
-    for($i = 0; $i < sizeof($items);$i++){
-      if(!in_array($items[$i], $myArray)){
-        $error = FALSE;
-        print("Hay items inválidos en la colección");
-        break;
-      }
-    }
-
-  }
-
   return $error;
 }
 

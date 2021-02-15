@@ -29,6 +29,10 @@ export interface Vecino{
 
 export interface ColeccionEspecial{
   usuario_id: number;
+  itemce_id: string;
+}
+
+export interface ItemCE{
+  ids: string;
   source: string;
-  items: string[];
 }

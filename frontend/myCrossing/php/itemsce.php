@@ -9,7 +9,7 @@ if(isset($_GET["command"])){
 
   switch($_GET["command"]){
     case "read"://---------------------------------------------------------------------------------------------------READ
-      $sql = "SELECT * FROM coleccionesespinv";
+      $sql = "SELECT source, GROUP_CONCAT(id) FROM itemsce GROUP BY source";
       $result = mysqli_query($conn,$sql);
       $colecciones = array();
 
@@ -23,6 +23,7 @@ if(isset($_GET["command"])){
       break;
 
     case "update"://------------------------------------------------------------------------------------------------UPDATE
+      //TODO CUANDO ESTE LA API
       if(isset($_GET["userId"])){
 
         $userId = $_GET["userId"];
@@ -31,14 +32,12 @@ if(isset($_GET["command"])){
         if(isset($postdata) && !empty($postdata)){
 
           $request = json_decode($postdata);
-          //TODO
           $source = $request->source;
           $items = $request->items;
 
           $error = checkUserId($conn, $userId) &&
                    checkAdmin($conn, $userId);
 
-          //DE AQUI PABAJO TODO CUANDO TENGA ESTRUCTURA DB
           if($error){
             $itemsString = "('";
             for($i = 0; $i < sizeof($items); $i++){
