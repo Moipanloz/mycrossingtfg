@@ -143,7 +143,7 @@ function checkDatosUpdate($conn, $userId, $email, $id_suenyo, $id_switch){
   return $devolver;
 }
 
-function checkUserId($conn, $userId){
+function checkExisteUser($conn, $userId){
   //Comprueba que exista el usuario
   $devolver = FALSE;
   $sql = "SELECT * FROM usuarios WHERE id = $userId";
@@ -160,6 +160,17 @@ function checkAdmin($conn, $userId){
   $sql = "SELECT * FROM usuarios WHERE id = $userId";
   $result = mysqli_query($conn,$sql);
   if ($result->num_rows == 1 && $result['nombre']=="admin" && $userId == 1) {
+    $devolver= TRUE;
+  }
+  return $devolver;
+}
+
+function checkVerification($conn, $userId, $verifCode){
+  //Comprueba que el codigo  de verificacion pertenece al usuario
+  $devolver = FALSE;
+  $sql = "SELECT * FROM usuarios WHERE id = $userId AND verification = '$verifCode'";
+  $result = mysqli_query($conn,$sql);
+  if ($result->num_rows == 1) {
     $devolver= TRUE;
   }
   return $devolver;

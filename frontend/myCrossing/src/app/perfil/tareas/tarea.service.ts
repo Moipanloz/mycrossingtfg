@@ -20,6 +20,7 @@ export class TareasService {
   readTareas() : Observable<Tarea[]>{
     let parametros = new HttpParams()
       .set("command", "read")
+      .set("verif", this.verification.verifCode)
       .set("userId", JSON.stringify(this.verification.user));
 
     return this.http.get<Tarea[]>(this.url, {params: parametros, withCredentials : true});
@@ -28,6 +29,7 @@ export class TareasService {
   crearTarea(){
     let parametros = new HttpParams()
       .set("command", "create")
+      .set("verif", this.verification.verifCode)
       .set("userId", JSON.stringify(this.verification.user));
 
     let tarea = {
@@ -48,6 +50,7 @@ export class TareasService {
     // a true (click2)
     let parametros = new HttpParams()
       .set("command", "update")
+      .set("verif", this.verification.verifCode)
       .set("userId", JSON.stringify(this.verification.user));
 
     // responseType: blob hace que si el responseType que devolvia no es el que estaba seteado,
@@ -59,6 +62,7 @@ export class TareasService {
     let parametros = new HttpParams()
     .set("command", "delete")
     .set("tareaId", tarea.id)
+    .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
     // Se usa post ya que en el .php se obtiene los datos del input, ya que

@@ -22,6 +22,7 @@ export class MisvecinosService {
   readMisVecinos() : Observable<Vecino[]>{
     let parametros = new HttpParams()
     .set("command", "read")
+    .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
     return this.http.get<Vecino[]>(this.url, {params : parametros, withCredentials : true});
@@ -30,6 +31,7 @@ export class MisvecinosService {
   crearVecino(vecino : Vecino){
     let parametros = new HttpParams()
     .set("command", "create")
+    .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
     return this.http.post(this.url, vecino, {params : parametros, withCredentials : true, responseType : "blob"}).toPromise();
@@ -38,6 +40,7 @@ export class MisvecinosService {
   actualizarVecino(oldVecino : Vecino, newVecino : Vecino){
     let parametros = new HttpParams()
     .set("command", "updateVecino")
+    .set("verif", this.verification.verifCode)
     .set("oldVecinoId", JSON.stringify(oldVecino.vecino_id))
     .set("userId", JSON.stringify(this.verification.user));
 
@@ -47,6 +50,7 @@ export class MisvecinosService {
   actualizarAmistadVecino(vecino : Vecino){
     let parametros = new HttpParams()
     .set("command", "updateAmistad")
+    .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
     return this.http.put(this.url, vecino, {params : parametros, withCredentials : true, responseType : "blob"}).toPromise();
@@ -55,6 +59,7 @@ export class MisvecinosService {
   borrarVecino(vecino : Vecino){
     let parametros = new HttpParams()
     .set("command", "delete")
+    .set("verif", this.verification.verifCode)
     .set("vecinoId", JSON.stringify(vecino.vecino_id))
     .set("userId", JSON.stringify(this.verification.user));
 

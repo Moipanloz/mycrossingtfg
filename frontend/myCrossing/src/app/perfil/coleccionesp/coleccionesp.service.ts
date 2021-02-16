@@ -16,6 +16,7 @@ export class ColeccionespService {
   readCE() : Promise<ItemCE[]>{
     let parametros = new HttpParams()
     .set("command", "read")
+    .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
     return this.http.get<ItemCE[]>(this.url, {params: parametros}).toPromise();
@@ -25,6 +26,7 @@ export class ColeccionespService {
     let parametros = new HttpParams()
     .set("command", "delete")
     .set("itemId", item)
+    .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
     return this.http.delete(this.url, {params: parametros, responseType: "blob"}).toPromise();
@@ -33,6 +35,7 @@ export class ColeccionespService {
   addItemCE(item : string){
     let parametros = new HttpParams()
     .set("command", "create")
+    .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
     let x : ColeccionEspecial = {

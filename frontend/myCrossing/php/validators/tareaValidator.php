@@ -4,6 +4,7 @@ header('Access-Control-Allow-Origin: http://localhost:4200');
 header('Access-Control-Allow-Headers: content-type');
 
 function checkTareaOwner($userId, $tareaId, $conn){
+  //Comprueba que la tarea pasada pertenece al usuario
   $result = null;
   $testquery = "SELECT usuario_id FROM tareas WHERE id = $tareaId";
   $validation = mysqli_query($conn, $testquery);
@@ -32,7 +33,7 @@ function checkExisteTarea($tareaId, $conn){
   return $result;
 }
 
-function checkDatosCorrectos($imagenUrl, $hecha){
+function checkDatosTareaCorrectos($imagenUrl, $hecha){
   $result = null;
 
   if($imagenUrl != null && strlen($imagenUrl) < 100){

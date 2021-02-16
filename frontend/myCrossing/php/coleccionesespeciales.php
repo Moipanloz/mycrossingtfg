@@ -10,10 +10,12 @@ if(isset($_GET["command"])){
 
   switch($_GET["command"]){
     case "read"://---------------------------------------------------------------------------------------------------READ
-      if(isset($_GET["userId"])){
+      if(isset($_GET["userId"]) && isset($_GET["verif"])){
         $userId = $_GET["userId"];
+        $verifCode = $_GET["verif"];
 
-        $error = checkUserId($conn, $userId);
+        $error = checkExisteUser($conn, $userId) &&
+                checkVerification($conn, $userId, $verifCode);
 
         if($error){
           $sql = "SELECT itemsce.source, GROUP_CONCAT(usuariosce.itemce_id) FROM usuariosce JOIN itemsce ON itemsce.id = usuariosce.itemce_id WHERE usuario_id = $userId GROUP BY source";
@@ -33,14 +35,15 @@ if(isset($_GET["command"])){
         }
 
       }else{
-        print("No hay id de usuario");
+        print("Faltan parametros");
       }
       break;
 
     case "create"://---------------------------------------------------------------------------------------------------CREATE
-      if(isset($_GET["userId"])){
-
+      if(isset($_GET["userId"]) && isset($_GET["verif"])){
         $userId = $_GET["userId"];
+        $verifCode = $_GET["verif"];
+
         $postdata = file_get_contents("php://input");
 
         if(isset($postdata) && !empty($postdata)){
@@ -48,8 +51,9 @@ if(isset($_GET["command"])){
           $request = json_decode($postdata);
           $itemId = $request->itemce_id; //aunque lo coja de items, son las colecciones (sources) a añadir
 
-          $error = checkUserId($conn, $userId) &&
-                   checkDatosCorrectos($conn, $itemId);
+          $error = checkExisteUser($conn, $userId) &&
+                  checkVerification($conn, $userId, $verifCode) &&
+                  checkDatosCorrectos($conn, $itemId);
 
           if($error){
             $sql = "INSERT INTO usuariosce(usuario_id, itemce_id) VALUES ($userId, '$itemId')";
@@ -62,17 +66,18 @@ if(isset($_GET["command"])){
           print("No hay datos");
         }
       } else {
-        print("No hay id de usuario");
+        print("Faltan parametros");
       }
       break;
 
     case "delete"://---------------------------------------------------------------------------------------------------DELETE
-      if(isset($_GET["userId"]) && isset($_GET["itemId"])){
-
+      if(isset($_GET["userId"]) && isset($_GET["verif"]) && isset($_GET["itemId"])){
+        $verifCode = $_GET["verif"];
         $userId = $_GET["userId"];
         $itemId = $_GET["itemId"];
 
-        $error = checkUserId($conn, $userId) &&
+        $error = checkExisteUser($conn, $userId) &&
+                  checkVerification($conn, $userId, $verifCode) &&
                   checkTieneItem($conn, $userId, $itemId) &&
                   checkDatosCorrectos($conn, $itemId);
 
@@ -83,7 +88,7 @@ if(isset($_GET["command"])){
           print("No se cumplen los requisitos");
         }
       } else {
-        print("Datos no enviados");
+        print("Faltan parametros");
       }
       break;
 

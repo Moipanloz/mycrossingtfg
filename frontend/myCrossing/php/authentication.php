@@ -14,7 +14,7 @@ if(isset($_GET['command'])){
     // ========================================================================================================= LOGOUT
     case "setNull":
       $userId = $_GET['userId'];
-      if(checkUserId($conn, $userId)){
+      if(checkExisteUser($conn, $userId)){
         $sql = "UPDATE usuarios SET verification = NULL WHERE id = $userId";
         $result = mysqli_query($conn,$sql);
         print json_encode("Cierre sesion");
@@ -29,7 +29,7 @@ if(isset($_GET['command'])){
       if(isset($_GET['userId']) && isset($_GET['key'])){
         $userId = $_GET['userId'];
 
-        if(checkUserId($conn, $userId)){
+        if(checkExisteUser($conn, $userId)){
           $verif = $_GET['key'];
           $sql = "UPDATE usuarios SET verification = '$verif' WHERE id = $userId";
           $result = mysqli_query($conn,$sql);
@@ -60,7 +60,7 @@ if(isset($_GET['command'])){
       if(isset($_GET['userId'])){
         $userId = $_GET['userId'];
 
-        if(checkUserId($conn, $userId)){
+        if(checkExisteUser($conn, $userId)){
           $sql = "SELECT nombre, isla, fruta, cumpleanyos, hemisferio, id_suenyo, id_switch, apodo_aldeano FROM usuarios WHERE id = $userId";
           $result = mysqli_query($conn,$sql);
           $myArray = array();
@@ -82,7 +82,7 @@ if(isset($_GET['command'])){
     case "getKey":
       if(isset($_GET['userId'])){
         $userId = $_GET['userId'];
-        if(checkUserId($conn, $userId)){
+        if(checkExisteUser($conn, $userId)){
           $sql = "SELECT verification, nombre FROM usuarios WHERE id = $userId";
           $result = mysqli_query($conn,$sql);
           if ($result->num_rows > 0) {
@@ -186,7 +186,7 @@ if(isset($_GET['command'])){
           $row = mysqli_fetch_assoc($getEmail);
           $email = $row["email"];
 
-          $error =  checkUserId($conn, $userId) &&
+          $error =  checkExisteUser($conn, $userId) &&
                     checkDatos($conn, $nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_suenyo, $id_switch) &&
                     checkDatosUpdate($conn, $userId, $email, $id_suenyo, $id_switch);
 

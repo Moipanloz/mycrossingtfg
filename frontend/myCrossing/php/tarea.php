@@ -11,11 +11,12 @@ if(isset($_GET["command"])){
   switch($_GET["command"]){
 
     case "read": //---------------------------------------------------------------------------------------------------READ
-      if(isset($_GET["userId"])){
+      if(isset($_GET["userId"]) && isset($_GET["verif"])){
         $userId = (int)$_GET["userId"]; //convierte el string en int
+        $verifCode = $_GET["verif"];
 
-        //Comprobar que el user coincide con las cookies
-        $error = checkUserId($conn, $userId);
+        $error = checkExisteUser($conn, $userId) &&
+                 checkVerification($conn, $userId, $verifCode);
 
         //Para que sea correcto debe dar true
         if($error){
@@ -37,13 +38,14 @@ if(isset($_GET["command"])){
         }
 
       }else{
-        print("User id not set");
+        print("Faltan parametros");
       }
       break;
 
     case "update"://---------------------------------------------------------------------------------------------------UPDATE
-      if(isset($_GET["userId"])){
+      if(isset($_GET["userId"]) && isset($_GET["verif"])){
         $userId = $_GET["userId"];
+        $verifCode = $_GET["verif"];
 
         // Cogemos los datos a actualizar enviados por el POST aunque no se
         // puede hacer desde $_POST dado que PHP no admite JSON en $_POST
@@ -63,18 +65,13 @@ if(isset($_GET["command"])){
             $hecha = 0;
           }
 
-          //comprueba
-          // -que el usuario existe
-          // -que la tarea existe
-          // -que la tarea a editar es suya
-          // -que los datos a actualizar son correctos
-          $error =  checkUserId($conn, $userId) &&
+          $error =  checkExisteUser($conn, $userId) &&
                     checkExisteTarea($tareaId, $conn) &&
+                    checkVerification($conn, $userId, $verifCode) &&
                     checkTareaOwner($userId, $tareaId, $conn) &&
                     checkDatosCorrectos($imagenUrl, $hecha);
 
           if($error){
-            //query aplicando cambios
             $sql = "UPDATE tareas SET hecha = $hecha, imagen_url = '$imagenUrl' WHERE id = $tareaId";
             $result = mysqli_query($conn,$sql);
           }else{
@@ -86,14 +83,14 @@ if(isset($_GET["command"])){
         }
 
       }else{
-        print("User id not set");
+        print("Faltan parametros");
       }
       break;
 
     case "create"://---------------------------------------------------------------------------------------------------CREATE
-      if(isset($_GET["userId"])){
-
+      if(isset($_GET["userId"]) && isset($_GET["verif"])){
         $userId = $_GET["userId"];
+        $verifCode = $_GET["verif"];
 
         $postdata = file_get_contents("php://input");
 
@@ -103,8 +100,9 @@ if(isset($_GET["command"])){
           $hecha = $request->hecha;
           $imagenUrl = $request->imagen_url;
 
-          $error = checkUserId($conn, $userId) &&
-                    checkDatosCorrectos($imagenUrl, $hecha) &&
+          $error = checkExisteUser($conn, $userId) &&
+                    checkVerification($conn, $userId, $verifCode) &&
+                    checkDatosTareaCorrectos($imagenUrl, $hecha) &&
                     checkNumeroTareas($userId, $conn);
 
           if($error){
@@ -120,36 +118,31 @@ if(isset($_GET["command"])){
         }
 
       }else{
-        print("User id not set");
+        print("Faltan parametros");
       }
 
       break;
 
     case "delete"://---------------------------------------------------------------------------------------------------DELETE
-      if(isset($_GET["userId"])){
+      if(isset($_GET["userId"]) && isset($_GET["verif"]) && isset($_GET["tareaId"])){
         $userId = $_GET["userId"];
+        $verifCode = $_GET["verif"];
+        $tareaId = $_GET["tareaId"];
 
-        if(isset($_GET["tareaId"])){
+        $error = checkExisteUser($conn, $userId) &&
+                  checkExisteTarea($tareaId, $conn) &&
+                  checkVerification($conn, $userId, $verifCode) &&
+                  checkTareaOwner($userId, $tareaId, $conn);
 
-          $tareaId = $_GET["tareaId"];
-
-          $error = checkUserId($conn, $userId) &&
-                    checkExisteTarea($tareaId, $conn) &&
-                    checkTareaOwner($userId, $tareaId, $conn);
-
-          if($error){
-            $sql = "DELETE FROM tareas WHERE id = $tareaId";
-            $result = mysqli_query($conn,$sql);
-          }else{
-            print("No se cumplen los requisitos");
-          }
-
+        if($error){
+          $sql = "DELETE FROM tareas WHERE id = $tareaId";
+          $result = mysqli_query($conn,$sql);
         }else{
-          print("No hay tarea");
+          print("No se cumplen los requisitos");
         }
 
       }else{
-        print("No hay id de usuario");
+        print("Faltan parametros");
       }
       break;
 

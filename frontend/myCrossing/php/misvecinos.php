@@ -10,10 +10,12 @@ if(isset($_GET["command"])){
 
   switch($_GET["command"]){
     case "read"://---------------------------------------------------------------------------------------------------READ
-      if(isset($_GET["userId"])){
+      if(isset($_GET["userId"]) && isset($_GET["verif"])){
         $userId = $_GET["userId"];
+        $verifCode = $_GET["verif"];
 
-        $error = checkUserId($conn, $userId);
+        $error = checkExisteUser($conn, $userId) &&
+                checkVerification($conn, $userId, $verifCode);
 
         if($error){
           $sql = "SELECT * FROM misvecinos WHERE usuario_id = $userId";
@@ -33,16 +35,15 @@ if(isset($_GET["command"])){
         }
 
       }else{
-        print("No hay id de usuario");
+        print("Faltan parametros");
       }
-
-
       break;
 
     case "create"://---------------------------------------------------------------------------------------------------CREATE
-      if(isset($_GET["userId"])){
-
+      if(isset($_GET["userId"]) && isset($_GET["verif"])){
         $userId = $_GET["userId"];
+        $verifCode = $_GET["verif"];
+
         $postdata = file_get_contents("php://input");
 
         if(isset($postdata) && !empty($postdata)){
@@ -54,7 +55,8 @@ if(isset($_GET["command"])){
           $tieneVecino = checkTieneVecino($userId, $vecinoId, $conn);
           $tieneVecino = ! $tieneVecino;
 
-          $error = checkUserId($conn, $userId) &&
+          $error = checkExisteUser($conn, $userId) &&
+                   checkVerification($conn, $userId, $verifCode) &&
                    checkDatosCorrectos($vecinoId, $amistad) &&
                    checkNumeroVecinos($userId, $conn) &&
                    $tieneVecino;
@@ -71,108 +73,100 @@ if(isset($_GET["command"])){
           print("No hay datos");
         }
       } else {
-        print("No hay id de usuario");
+        print("Faltan parametros");
       }
       break;
 
     case "updateVecino"://------------------------------------------------------------------------------------------------UPDATE VECINO
-      if(isset($_GET["userId"])){
-
+      if(isset($_GET["userId"]) && isset($_GET["verif"]) && isset($_GET["oldVecinoId"])){
         $userId = $_GET["userId"];
+        $verifCode = $_GET["verif"];
+        $oldVecinoId = $_GET["oldVecinoId"];
 
-        if(isset($_GET["oldVecinoId"])){
-          $oldVecinoId = $_GET["oldVecinoId"];
+        $postdata = file_get_contents("php://input");
 
-          $postdata = file_get_contents("php://input");
+        if(isset($postdata) && !empty($postdata)){
 
-          if(isset($postdata) && !empty($postdata)){
+          $request = json_decode($postdata);
+          $vecinoId = $request->vecino_id;
+          $amistad = $request->amistad;
 
-            $request = json_decode($postdata);
-            $vecinoId = $request->vecino_id;
-            $amistad = $request->amistad;
+          $tieneVecino = checkTieneVecino($userId, $vecinoId, $conn);
+          $tieneVecino = ! $tieneVecino; // No se puede aplicar ! dentro de $error
 
-            $tieneVecino = checkTieneVecino($userId, $vecinoId, $conn);
-            $tieneVecino = ! $tieneVecino; // No se puede aplicar ! dentro de $error
-
-            $error = checkUserId($conn, $userId) &&
-                    checkDatosCorrectos($vecinoId, $amistad) &&
-                    $tieneVecino;
-
-            if($error){
-              $sql = "UPDATE misvecinos SET vecino_id = $vecinoId, amistad = '$amistad' WHERE vecino_id = $oldVecinoId AND usuario_id = $userId";
-              $result = mysqli_query($conn,$sql);
-
-            }else{
-              print("No se cumplen los requisitos");
-            }
-          }else{
-            print("No hay datos");
-          }
-
-        }else{
-          print("No se encuentra el vecino a sustituir");
-        }
-
-      } else {
-        print("No hay id de usuario");
-      }
-      break;
-
-    case "updateAmistad"://----------------------------------------------------------------------------------------UPDATE AMISTAD
-    if(isset($_GET["userId"])){
-
-      $userId = $_GET["userId"];
-      $postdata = file_get_contents("php://input");
-
-      if(isset($postdata) && !empty($postdata)){
-
-        $request = json_decode($postdata);
-        $vecinoId = $request->vecino_id;
-        $amistad = $request->amistad;
-
-        $error = checkUserId($conn, $userId) &&
-                checkDatosCorrectos($vecinoId, $amistad) &&
-                checkTieneVecino($userId, $vecinoId, $conn);
-
-        if($error){
-          $sql = "UPDATE misvecinos SET amistad = '$amistad' WHERE vecino_id = $vecinoId AND usuario_id = $userId";
-          $result = mysqli_query($conn,$sql);
-
-        }else{
-          print("No se cumplen los requisitos");
-        }
-      }else{
-        print("No hay datos");
-      }
-
-    } else {
-      print("No hay id de usuario");
-    }
-    break;
-
-    case "delete"://---------------------------------------------------------------------------------------------------DELETE
-      if(isset($_GET["userId"])){
-        $userId = $_GET["userId"];
-
-        if(isset($_GET["vecinoId"])){
-
-          $vecinoId = $_GET["vecinoId"];
-
-          $error = checkUserId($conn, $userId) &&
-                  checkTieneVecino($userId, $vecinoId, $conn);
+          $error = checkExisteUser($conn, $userId) &&
+                  checkVerification($conn, $userId, $verifCode) &&
+                  checkDatosCorrectos($vecinoId, $amistad) &&
+                  $tieneVecino;
 
           if($error){
-            $sql = "DELETE FROM misvecinos WHERE vecino_id = $vecinoId AND usuario_id = $userId";
+            $sql = "UPDATE misvecinos SET vecino_id = $vecinoId, amistad = '$amistad' WHERE vecino_id = $oldVecinoId AND usuario_id = $userId";
             $result = mysqli_query($conn,$sql);
+
           }else{
             print("No se cumplen los requisitos");
           }
         }else{
-          print("No tienes a este vecino");
+          print("No hay datos");
         }
 
+      } else {
+        print("Faltan parametros");
+      }
+      break;
+
+    case "updateAmistad"://----------------------------------------------------------------------------------------UPDATE AMISTAD
+      if(isset($_GET["userId"]) && isset($_GET["verif"])){
+        $userId = $_GET["userId"];
+        $verifCode = $_GET["verif"];
+
+        $postdata = file_get_contents("php://input");
+
+        if(isset($postdata) && !empty($postdata)){
+
+          $request = json_decode($postdata);
+          $vecinoId = $request->vecino_id;
+          $amistad = $request->amistad;
+
+          $error = checkExisteUser($conn, $userId) &&
+                  checkVerification($conn, $userId, $verifCode) &&
+                  checkDatosCorrectos($vecinoId, $amistad) &&
+                  checkTieneVecino($userId, $vecinoId, $conn);
+
+          if($error){
+            $sql = "UPDATE misvecinos SET amistad = '$amistad' WHERE vecino_id = $vecinoId AND usuario_id = $userId";
+            $result = mysqli_query($conn,$sql);
+
+          }else{
+            print("No se cumplen los requisitos");
+          }
+        }else{
+          print("No hay datos");
+        }
+
+      } else {
+        print("Faltan parametros");
+      }
+      break;
+
+    case "delete"://---------------------------------------------------------------------------------------------------DELETE
+      if(isset($_GET["userId"]) && isset($_GET["verif"]) && isset($_GET["vecinoId"])){
+        $userId = $_GET["userId"];
+        $verifCode = $_GET["verif"];
+        $vecinoId = $_GET["vecinoId"];
+
+        $error = checkExisteUser($conn, $userId) &&
+                checkVerification($conn, $userId, $verifCode) &&
+                checkTieneVecino($userId, $vecinoId, $conn);
+
+        if($error){
+          $sql = "DELETE FROM misvecinos WHERE vecino_id = $vecinoId AND usuario_id = $userId";
+          $result = mysqli_query($conn,$sql);
+        }else{
+          print("No se cumplen los requisitos");
+        }
       }else{
-        print("No hay id de usuario");
+        print("Faltan parametros");
       }
       break;
 
