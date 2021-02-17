@@ -28,9 +28,16 @@
 \BOOKMARK [1][-]{section.5.3}{Diagrama de Clases}{chapter.5}% 28
 \BOOKMARK [1][-]{section.5.4}{Dise\361o}{chapter.5}% 29
 \BOOKMARK [0][-]{chapter.6}{Implementaci\363n}{}% 30
-\BOOKMARK [0][-]{chapter.7}{Comparaci\363n con otras alternativas}{}% 31
-\BOOKMARK [0][-]{chapter.8}{Pruebas}{}% 32
-\BOOKMARK [0][-]{chapter.9}{Manual}{}% 33
-\BOOKMARK [0][-]{chapter*.11}{Conclusiones y desarrollos futuros}{}% 34
-\BOOKMARK [0][-]{chapter*.12}{Ap\351ndices}{}% 35
-\BOOKMARK [0][-]{chapter*.13}{Referencias}{}% 36
+\BOOKMARK [1][-]{section.6.1}{Entorno de desarrollo}{chapter.6}% 31
+\BOOKMARK [1][-]{section.6.2}{Tecnolog\355as utilizadas}{chapter.6}% 32
+\BOOKMARK [2][-]{subsection.6.2.1}{Angular}{section.6.2}% 33
+\BOOKMARK [2][-]{subsection.6.2.2}{XAMPP}{section.6.2}% 34
+\BOOKMARK [2][-]{subsection.6.2.3}{PHP}{section.6.2}% 35
+\BOOKMARK [2][-]{subsection.6.2.4}{MariaDatabase \(MySQL\)}{section.6.2}% 36
+\BOOKMARK [2][-]{subsection.6.2.5}{Git}{section.6.2}% 37
+\BOOKMARK [0][-]{chapter.7}{Pruebas}{}% 38
+\BOOKMARK [0][-]{chapter.8}{Comparaci\363n con otras alternativas}{}% 39
+\BOOKMARK [0][-]{chapter.9}{Manual}{}% 40
+\BOOKMARK [0][-]{chapter*.11}{Conclusiones y desarrollos futuros}{}% 41
+\BOOKMARK [0][-]{chapter*.12}{Ap\351ndices}{}% 42
+\BOOKMARK [0][-]{chapter*.13}{Referencias}{}% 43

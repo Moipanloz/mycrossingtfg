@@ -1,3 +1,5 @@
 //TODO
-
+- rxjs
+- uri-js
+- webpack
 - npm install crypto-js --save
