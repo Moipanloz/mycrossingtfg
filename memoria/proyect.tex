@@ -1,0 +1,59 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass{pclass}
+\usepackage[utf8]{inputenc} % para linux y mac 
+%\usepackage[latin1]{inputenc} % para windows
+\usepackage{hyperref}
+  
+
+%DIFERENTES TIPOS DE LETRA
+%\usepackage{palatino}
+%\usepackage{times} 
+\renewcommand{\rmdefault}{lmss}
+
+\begin{document}
+\tipo{- TFG} 
+\titulopro{My Crossing}
+\tutor{José Ramón Portillo Fernández}
+\departamento{Matemática Aplicada I}
+\autores{Moisés Pantión Loza}{{Adrián Gracia Barroso}}   
+\dia{Junio de 2021}
+\titulacion{Ingeniería Informática - Ingeniería del Software}
+
+\hacerportada
+
+	\input{tocdef}
+\frontmatter
+        
+    \input{resumen}
+    \input{agradecimientos}	
+
+	\tableofcontents % Índice de contenidos
+ 	\listoftables % Índice de cuadros
+ 	\listoffigures % Índice de figuras
+ 	\lstlistoflistings %Índice de códigos
+
+ \mainmatter  
+    
+     \input{Capitulos/introduccion}
+     \input{Capitulos/defobjetivos}
+     \input{Capitulos/analanteced}
+     \input{Capitulos/analtemporal}
+     \input{Capitulos/requisitos} 
+     \input{Capitulos/implementacion}
+     \input{Capitulos/alternativas}
+     \input{Capitulos/pruebas}
+     \input{Capitulos/manual}
+     
+    %\input{Capitulos/capitulo2}  %Para referencia, borrar
+
+\backmatter
+
+\input{Capitulos/conclusiones}
+\input{Capitulos/apendices}
+\bibliographystyle{sousa5}
+
+\bibliographystyle{apacite}
+
+\bibliography{pfcbib}
+
+\end{document}

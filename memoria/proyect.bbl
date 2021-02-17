@@ -1,0 +1,40 @@
+\begin{thebibliography}{informatica}
+\ProvideTextCommand{\guillemotleft}{OT1}{%
+  \leavevmode\raise .27ex\hbox{$\scriptscriptstyle\ll$}}
+\ProvideTextCommand{\guillemotright}{OT1}{%
+  \leavevmode\raise .27ex\hbox{$\scriptscriptstyle\gg$}}
+\newcommand{\enquote}[1]{\guillemotleft#1\guillemotright}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\selectlanguage}[1]{\relax}
+\providecommand{\bibAnnoteFile}[1]{%
+  \IfFileExists{#1}{\begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ \input{#1}\end{quotation}}{}}
+\providecommand{\bibAnnote}[2]{%
+  \begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ #2\end{quotation}}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[informatica]{informatica}
+\textsc{Autores}, Varios.
+\newblock \enquote{Escuela {T}\'ecnica {S}uperior de {I}ngenier{\'\i}a
+  {I}nform\'atica.}, 2014.
+\newblock Fecha de consulta: 24 de Noviembre de 2014,
+  \urlprefix\url{http://www.informatica.us.es}.
+\bibAnnoteFile{informatica}
+
+\bibitem[guiatitlesec]{guiatitlesec}
+\textsc{Bezos}, Javier.
+\newblock \enquote{The titlesec and titletoc Packages.}
+\newblock \textit{TexEmplares}, 8, (2007), 283--298.
+\newblock Cervan{\TeX}, 2007.
+\bibAnnoteFile{guiatitlesec}
+
+\bibitem[desousa]{desousa}
+\textsc{de~Sousa}, José~Martínez.
+\newblock \textit{Ortografía y ortotipografía del español actual}.
+\newblock Trea, 2004.
+\bibAnnoteFile{desousa}
+
+\end{thebibliography}
