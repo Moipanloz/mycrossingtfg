@@ -2,19 +2,60 @@
 
 \section{Entorno de desarrollo}
 
-\figura{0.3}{img/cap6/vscode.png}{Visual Studio Code}{fig:vscode}{}
-El entorno de desarrollo utilizado para estra proyecto ha sido Microsoft Visual Studio Code, ya que es un editor bastante versátil que soporta una gran variedad de lenguajes y que, al ser de código abierto, presenta la posibilidad de instalar plugins creados por la comunidad para obtener funcionalidades útiles para cualquier tipo de lenguaje. Dado que vamos a trabajar con Angular, con la instalación de un paquete de plugins de Angular hemos podido trabajar de forma bastante cómoda y sin ningún problema.
+\figura{0.25}{img/cap6/vscode.png}{Visual Studio Code}{fig:vscode}{}
+El entorno de desarrollo utilizado para estra proyecto ha sido Microsoft Visual Studio Code, ya que es un IDE bastante versátil que soporta una gran variedad de lenguajes y que, al ser de código abierto, presenta la posibilidad de instalar plugins creados por la comunidad para obtener funcionalidades útiles para cualquier tipo de lenguaje. Dado que vamos a trabajar con Angular, con la instalación de un paquete de plugins de Angular hemos podido trabajar de forma bastante cómoda y sin ningún problema.\\
+
+Además, ofrece soporte para Git, de forma que se pueden realizar operaciones en el repositorio de forma bastante sencilla, así como gestionar lo posibles errores que puedan surgir mediante la misma interfaz, por lo que resulta bastante cómodo.\\
+
+La principal ventaja de Visual Studio Code es que, al ser un IDE universal, contamos con varias funciones generales de los IDE (debug, consola de comandos) pero aplicado a una gran variedad de lenguajes, de forma que con el simple hecho de tenerlo instalado ya se puede comenzar a trabajar (incluso sin la necesidad de plugins, aunque no es recomendable). Es por esto que con el simple hecho de disponer del IDE y descargar un par de plugins, ya se puede trabajar de forma cómoda, y además se puede adaptar de manera sorprendente ya que, si en algún momento hay que trabajar con otro lenguaje, se puede realizar perfectamente sin tener que descargar otro IDE. Directamente desde Visual Studio Code y con algun plugin extra, ya se puede incorporar el nuevo lenguaje y trabajar de forma cómoda con ambos, lo cual centraliza el trabajo en una misma aplicación y resulta más eficiente.\\
 
 \section{Tecnolog\'ias utilizadas}
 
+La idea principal de este proyecto era usar Angular como tecnología para el front-end por las razones ya explicadas anteriormente. Las demás tecnologías que fueramos a usar no iban a tener tanto peso para nosotros como lo iba a tener esta, por lo que ibamos con la mente abierta dispuestos a usar la tecnología que, además de adaptarse bien a nuestro proyecto, fuera compatible con Angular. Al principio, pensamos en usar una base de Spring para el back-end, ya que es un framework que hemos visto en la carrera y además hemos adquirido experiencia en Java durante todo la carrera, pero debido a que no sabíamos nada sobre el funcionamiento de Angular (y todo lo que puede llegar a abarcar), pensamos que el peso de la aplicación se la llevaría el back-end (en Spring al principio). Sin embargo, una vez aprendimos y nos pusimos a dar nuestros primeros pasos en el framework, descubrimos que se puede realizar la gran mayoría de funcionalidades de la aplicación en Angular.\\
+
+Además luego llegó la hora de conectar el proyecto en Angular con la base de datos. Estábamos acostumbrados a Spring, que realiza toda la gestión de base de datos de forma "oculta" en el mismo framework y tan solo es necesario inicializar los repositorios con las querys, así como las beans para popular la base de datos. Sin embargo, al estar trabajando con Angular, tuvimos que buscar información sobre como realizar esta conexión y descubrimos que se podía conectar a una base de datos gestionada mediante PHP con una simple petición HTTP al archivo que realizase la conexión y las operaciones oportunas. Esta idea nos gustó bastante ya que, no solo tendríamos que usar otro lenguaje (por lo que aprendemos más), sino que además podíamos utilizar la conexión con la base de datos a modo de API, haciendo peticiones HTTP desde Angular al correspondiente archivo PHP, el cual se encarga de abrir la conexión con la base de datos, realizar la consulta oportuna, y devolver los datos, los cuales Angular se encarga de recoger, transformarlos en caso de ser necesario, y finalmente, mostrarlos.\\
+
+Es por esto que decidimos entonces usar XAMPP, ya que ofrece un servidor de Apache (en el cual se ejecutarían los archivos PHP que se encargasen de conectarse con la base de datos) así como una base de datos de MariaDatabase. Esto nos vino particularmente bien ya que en otras asignaturas habíamos usado XAMPP, y no solo eso sino que la base de datos de MariaDatabase esta basada en MySQL, que es el lenguaje que hemos dado durante toda la carrera, por lo que al estar trabajando ya con dos lenguajes que no conocemos del todo, uno familiar se recibe bastante bien.\\
+
+Una vez montada la estructura de la base de datos y habiendo probado ya el funcionamiento de Angular y todo su alcance, nos dimos cuenta de que el back-end de Spring que habíamos pensado no era para nada necesario, ya que toda la lógica se realiza a través de este framework y las operaciones para obtener datos de la base de datos las íbamos a realizar con PHP, por lo que al final se descartó la idea de usar Spring como framework para el back-end ya que contábamos con todo lo que necesitábamos con la estructura que disponíamos.\\
+
+\clearpage
+
 \subsection{Angular}
 
-\subsection{XAMPP}
+\figura{0.4}{img/cap6/angular.png}{Angular}{fig:angular}{}
+Angular es un framework para aplicaciones web desarrollado en TypeScript de código abierto que suele ser utilizado para la creación de aplicaciones web de una sola página (SPA), además de seguir el diseño Modelo-Vista-Controlador (MVC).\\
+
+Angular funciona mediante componentes, los cuales disponen de sus respectivas variables y métodos que se encargan de realizar la lógica, así como de operar con su vista asociada. De esta forma, obtenemos pequeños paquetes de código, cada uno con su vista y su lógica. Podría explicarse como si de un puzzle se tratase, pero con muchas posibles soluciones, siendo cada pieza un componente con su vista, sus variables y métodos. Cada pieza es funcional por si misma, pero el objetivo es juntarlos con otros componentes para obtener la aplicación (o vista) completa.\\
+
+Además de ser una forma bastante interesante de desarrollar una aplicación, es una muy buena forma de evitar la repetición de código, ya que si se necesita reusar un componente es tan fácil como importarlo y se encuentra listo. De la misma forma, se trabaja con servicios, directivas y etiquetas que pueden ser reutilizadas, reduciendo así la carga de trabajo considerablemente y aumentando la limpieza del código.\\
+
+Además, una vez se esté ejecutando la aplicación, esta se actualiza con los nuevos cambios que se realicen, algo que resulta bastante cómodo a la hora de realizar algunas pruebas dado que no hay que estar ejecutando constantemente la aplicación.\\
+
+\clearpage
+
+\subsection{XAMPP y Apache}
+
+\figura{0.6}{img/cap6/xampp.png}{XAMPP}{fig:xampp}{}
+XAMPP es un paquete de software libre que consiste en el sistema de gestión de bases de datos de MySQL, el servidor web Apache y los intérpretes para PHP y Perl.\\
+
+Es una opción bastante buena para nuestro proyecto ya que resulta bastante sencillo de usar y ademas nos proporciona tanto el servidor web como la base de datos y el interprete para PHP, todo desde una misma aplicación.\\
+
+\figura{0.7}{img/cap6/apache.png}{Servidor Web Apache}{fig:apache}{}
+El servidor web de Apache es un servidor HTTP de código abierto multiplataforma con una arquitectura basada en módulos. Tiene una sección base que actúa como núcleo, y a esta base se le adjuntan módulos que aportan funciones básicas para el servidor web. Además, existen módulos externos para ampliar su funcionalidad, ya sea ofreciendo soporte para distintos lenguajes (Perl, Python, PHP y Ruby entre otros) u ofreciendo otras funciones como llevar un control del tráfico web.\\
+
+\clearpage
 
 \subsection{PHP}
 
-\subsection{MariaDatabase (MySQL)}
+\clearpage
+
+\subsection{MariaDatabase}
+
+\clearpage
 
 \subsection{Git}
+
+\clearpage
 
 	
