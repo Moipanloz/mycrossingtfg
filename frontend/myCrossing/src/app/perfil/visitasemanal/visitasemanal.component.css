@@ -1,0 +1,57 @@
+.visitasContainer{
+    text-align: center;
+    background-color: #a0ddb7d4;
+    border-radius: 1vw;
+    font-size: 1.5vw;
+}
+.visita{
+    border-width: 0.1vw;
+    border-style: solid;
+    border-color: black;
+    width: 100%;
+    background-color: #b4c5ff;
+}
+.pasado, .cabeceraA, .presente{
+    display: flex;
+}
+.cabeceraB{
+    width: 100%;
+    font-size: 1.3vw;
+    margin-top: 1vw;
+    margin-left: 0.8vw;
+    margin-right: 0.8vw;
+}
+.pasado{
+    margin-bottom: 1.5vw;
+}
+.visita{
+    margin-left: 0.8vw;
+    margin-right: 0.8vw;
+    text-align: center;
+}
+.first{
+    margin-left: 2.5vw;
+}
+.last{
+    margin-right: 2.5vw;
+}
+.circulo{
+    border-style: solid;
+    border-radius: 100%;
+    width: 1.5vw;
+    height: 1.5vw;
+    font-size: 1.3vw;
+    margin: 1vw 1vw 1vw 2.3vw;
+    border-width: 0.2vw;
+    background-color: #bfbfbf;
+    cursor: pointer;
+}
+.elemento{
+    text-align: center;
+    font-size: 1vw;
+    display: block;
+    height: 100%;
+}
+.presente{
+    margin-top: 1vw;
+}

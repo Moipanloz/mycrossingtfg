@@ -1,1 +1,76 @@
-<p>visitasemanal works!</p>
+<div class="visitasContainer">
+    <div class="cabeceraA">
+        <div class="cabeceraB first">L</div>
+        <div class="cabeceraB">M</div>
+        <div class="cabeceraB">X</div>
+        <div class="cabeceraB">J</div>
+        <div class="cabeceraB">V</div>
+        <div class="cabeceraB">S</div>
+        <div class="cabeceraB last">D</div>
+    </div>
+    <div class="pasado">
+        <div class="visita first">
+            <ng-container *ngIf="lpa==null">
+                <div (click)="vacio('lpa')">
+                    <div class="circulo">+</div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="lpa!=null">
+                <div class="elemento">
+                    <img src="{{lpa | lowercase}}.jpg">
+                    {{lpa | titlecase}}
+                </div>
+            </ng-container>
+        </div>
+        <div class="visita">
+            <ng-container *ngIf="mpa==null">
+                <div (click)="vacio('mpa')">
+                    <div class="circulo">+</div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="mpa!=null">No es null</ng-container>
+        </div>
+        <div class="visita">
+            <ng-container *ngIf="xpa==null">
+                <div (click)="vacio('xpa')">
+                    <div class="circulo">+</div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="xpa!=null">No es null</ng-container>
+        </div>
+        <div class="visita">
+            <ng-container *ngIf="jpa==null">
+                <div (click)="vacio('jpa')">
+                    <div class="circulo">+</div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="jpa!=null">No es null</ng-container>
+        </div>
+        <div class="visita">
+            <ng-container *ngIf="vpa==null">
+                <div (click)="vacio('vpa')">
+                    <div class="circulo">+</div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="vpa!=null">No es null</ng-container>
+        </div>
+        <div class="visita">
+            <ng-container *ngIf="spa==null">
+                <div (click)="vacio('spa')">
+                    <div class="circulo">+</div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="spa!=null">No es null</ng-container>
+        </div>
+        <div class="visita last">
+            <ng-container *ngIf="dpa==null">
+                <div (click)="vacio('dpa')">
+                    <div class="circulo">+</div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="dpa!=null">No es null</ng-container>
+        </div>
+    </div>
+    Semana actual
+    <div class="presente">Hola</div>
+</div>
