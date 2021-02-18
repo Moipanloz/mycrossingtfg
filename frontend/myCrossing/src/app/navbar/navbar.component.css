@@ -6,6 +6,10 @@
   z-index: 5;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 *{
   align-self: center;
 }
@@ -56,6 +60,7 @@ img {
   transition-duration: 0.2s;
   padding: 0.5vw 1vw;
   font-size: 1vw;
+  display: block;
 }
 
 .activo{
