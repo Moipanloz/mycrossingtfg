@@ -17,6 +17,9 @@ $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 $sql = "DROP TABLE IF EXISTS misvecinos";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
+$sql = "DROP TABLE IF EXISTS visitas";
+$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
 $sql = "DROP TABLE IF EXISTS usuarios";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
@@ -72,6 +75,27 @@ $sql = "CREATE TABLE misvecinos (
   FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
+$sql = "CREATE TABLE visitas (
+  usuario_id int(5) NOT NULL,
+  lpa varchar(15) DEFAULT NULL,
+  mpa varchar(15) DEFAULT NULL,
+  xpa varchar(15) DEFAULT NULL,
+  jpa varchar(15) DEFAULT NULL,
+  vpa varchar(15) DEFAULT NULL,
+  spa varchar(15) DEFAULT NULL,
+  dpa varchar(15) DEFAULT NULL,
+  lpr varchar(15) DEFAULT NULL,
+  mpr varchar(15) DEFAULT NULL,
+  xpr varchar(15) DEFAULT NULL,
+  jpr varchar(15) DEFAULT NULL,
+  vpr varchar(15) DEFAULT NULL,
+  spr varchar(15) DEFAULT NULL,
+  dpr varchar(15) DEFAULT NULL,
+  PRIMARY KEY (usuario_id),
+  FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1";
+$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 // ---------------------------------------------------------------------------------------------Alter
 
 $sql = "ALTER TABLE usuarios AUTO_INCREMENT = 2";
@@ -92,6 +116,10 @@ $sql = "INSERT INTO tareas (id, usuario_id, hecha, imagen_url) VALUES
 (NULL, 3, 0, '2'),
 (NULL, 3, 1, '4'),
 (NULL, 3, 1, '3')";
+$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
+$sql = "INSERT INTO visitas VALUES
+(2, 'Totakeke', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Totakeke', NULL, NULL, NULL, NULL, NULL)";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "INSERT INTO misvecinos (vecino_id, usuario_id, amistad) VALUES
