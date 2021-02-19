@@ -34,7 +34,7 @@
 \contentsline {subsection}{\numberline {6.2.1}Angular}{32}{subsection.6.2.1}%
 \contentsline {subsection}{\numberline {6.2.2}XAMPP y Apache}{33}{subsection.6.2.2}%
 \contentsline {subsection}{\numberline {6.2.3}PHP}{34}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.2.4}MariaDatabase}{35}{subsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.2.4}MariaDB y MySQL}{35}{subsection.6.2.4}%
 \contentsline {subsection}{\numberline {6.2.5}Git}{36}{subsection.6.2.5}%
 \contentsline {chapter}{\numberline {7}Pruebas}{37}{chapter.7}%
 \contentsline {chapter}{\numberline {8}Comparación con otras alternativas}{38}{chapter.8}%
