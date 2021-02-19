@@ -69,7 +69,7 @@ if(isset($_GET["command"])){
                     checkExisteTarea($tareaId, $conn) &&
                     checkVerification($conn, $userId, $verifCode) &&
                     checkTareaOwner($userId, $tareaId, $conn) &&
-                    checkDatosCorrectos($imagenUrl, $hecha);
+                    checkDatosTareaCorrectos($imagenUrl, $hecha);
 
           if($error){
             $sql = "UPDATE tareas SET hecha = $hecha, imagen_url = '$imagenUrl' WHERE id = $tareaId";
