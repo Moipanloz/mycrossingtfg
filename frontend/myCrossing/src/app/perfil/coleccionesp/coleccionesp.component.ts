@@ -52,8 +52,6 @@ export class ColeccionespComponent implements OnInit {
 
         if(this.inventario.length <= 16){
           this.alante.nativeElement.style.visibility = "hidden";
-        }else{
-          this.alante.nativeElement.style.visibility = "visible";
         }
 
       });
@@ -72,12 +70,15 @@ export class ColeccionespComponent implements OnInit {
           this.listaUsuario = s.split(",");
         }
       });
-
     });
   }
 
   setActiveCollection(lista : string){
     this.activeCollection = lista;
+    this.page_number = 1;
+    //Aunque funciona bien, hay un frame que se muestra la pag 1 antes de que se haga oninit
+    this.atras.nativeElement.style.visibility = "hidden";
+    this.alante.nativeElement.style.visibility = "visible";
     this.ngOnInit();
   }
 

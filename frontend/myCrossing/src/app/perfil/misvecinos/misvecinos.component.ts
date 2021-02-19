@@ -100,7 +100,7 @@ export class MisvecinosComponent implements OnInit {
 
     if(amistad){
       // Se ha hecho click en el boton de amistad
-      if(this.vecinoMenu != null && this.vecinoMenu.vecino_id == vecino.vecino_id && this.menu.divAmistad.nativeElement.style.visibility == "visible"){
+      if(this.vecinoMenu != null && this.vecinoMenu.vecino_id == vecino.vecino_id && this.menu.divAmistad.nativeElement.style.display == "block"){
         // si el vecino ya esta seteado, y ademas coincide con el id que le pasas y el menu se ve
         this.menu.cierraMenu(amistad);
       }else{
@@ -128,7 +128,7 @@ export class MisvecinosComponent implements OnInit {
 
       }else{
         // El vecino ya existe
-        if(this.vecinoMenu != null && this.vecinoMenu.vecino_id == vecino.vecino_id && this.menu.divVecino.nativeElement.style.visibility == "visible"){
+        if(this.vecinoMenu != null && this.vecinoMenu.vecino_id == vecino.vecino_id && this.menu.divVecino.nativeElement.style.display == "block"){
           // si el vecino ya esta seteado, y ademas coincide con el id que le pasas y el menu se ve
           this.menu.cierraMenu(amistad);
         }else{
