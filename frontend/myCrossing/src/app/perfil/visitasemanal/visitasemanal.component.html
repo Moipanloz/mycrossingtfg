@@ -1,4 +1,5 @@
 <div class="visitasContainer">
+    <div class="panel" style="display:{{active}};">Hola buenos dias soy un panel</div>
     <div class="cabeceraA">
         <div class="cabeceraB first">L</div>
         <div class="cabeceraB">M</div>
@@ -17,14 +18,14 @@
             </ng-container>
             <ng-container *ngIf="lpa!=null">
                 <div class="elemento">
-                    <img src="{{lpa | lowercase}}.jpg">
+                    <img class="image" src="../../../assets/images/{{lpa | lowercase}}.jpg">
                     {{lpa | titlecase}}
                 </div>
             </ng-container>
         </div>
         <div class="visita">
             <ng-container *ngIf="mpa==null">
-                <div (click)="vacio('mpa')">
+                <div (click)="vacio($event,'mpa')">
                     <div class="circulo">+</div>
                 </div>
             </ng-container>

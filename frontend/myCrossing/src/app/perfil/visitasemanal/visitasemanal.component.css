@@ -35,6 +35,14 @@
 .last{
     margin-right: 2.5vw;
 }
+.panel{
+    display: none;
+    position: fixed;
+}
+.image{
+    width: 3vw;
+    height: 3vw;
+}
 .circulo{
     border-style: solid;
     border-radius: 100%;
