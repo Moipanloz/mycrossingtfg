@@ -21,46 +21,58 @@ export class UserService {
     }
 
   readUser() : Promise<User> {
-    let parametros = new HttpParams().set("userId", JSON.stringify(this.verification.user)).set("command", "read");
+    let parametros = new HttpParams()
+    .set("userId", JSON.stringify(this.verification.user))
+    .set("verif", this.verification.verifCode)
+    .set("command", "read");
+
     return this.http.get<User>(this.url, {params: parametros}).toPromise();
   }
 
   async login() : Promise<any>{
+    //merge con setKey? fix
     let data = Array();
     let parametros = new HttpParams().set("command", "login");
     data.push(await this.http.get(this.url, {params: parametros}).toPromise());
     return data.reduce((acc, val) => acc.concat(val), []);
   }
 
-  async setKey(key : string) : Promise<any>{
+  async setKey(user : any, key : string) : Promise<any>{
     let parametros = new HttpParams()
     .set("userId", JSON.stringify(this.verification.user))
-    .set("command", "setKey")
-    .set("key", key);
+    .set("command", "setKey");
 
-    return this.http.get(this.url, {params: parametros}).toPromise();
+    user.key = key;
+
+    return this.http.post(this.url, user, {params: parametros}).toPromise();
   }
 
   register(user : any, key : string) : Promise<any>{
     let parametros = new HttpParams().set("command", "register");
 
     user.verif = key;
-    user.clave = this._encription.encript(user.clave);
 
     return this.http.post(this.url, user, {params: parametros}).toPromise();
   }
 
   logOut(){
     let userId = this.verification.user;
+
+    let parametros = new HttpParams()
+    .set("userId", JSON.stringify(userId))
+    .set("verif", this.verification.verifCode)
+    .set("command", "logout");
+
     this.cookieService.delete('verif');
     this.cookieService.delete('userId');
-    let parametros = new HttpParams().set("userId", JSON.stringify(userId)).set("command", "setNull");
+
     return this.http.get(this.url, {params: parametros}).toPromise();
   }
 
   updateUser(usuario : User){
     let parametros = new HttpParams()
     .set("userId", JSON.stringify(this.verification.user))
+    .set("verif", this.verification.verifCode)
     .set("command", "update");
     return this.http.post(this.url, usuario, {params: parametros, responseType: "blob"}).toPromise();
   }

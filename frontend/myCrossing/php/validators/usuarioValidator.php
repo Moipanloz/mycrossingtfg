@@ -2,6 +2,8 @@
 
 header('Access-Control-Allow-Origin: http://localhost:4200');
 header('Access-Control-Allow-Headers: *');
+header('Access-Control-Allow-Methods: PUT, DELETE, POST, GET');
+
 header("Access-Control-Allow-Credentials: true");
 
 function checkDatos($nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_suenyo, $id_switch){
@@ -173,6 +175,23 @@ function checkVerification($conn, $userId, $verifCode){
   if ($result->num_rows == 1) {
     $devolver= TRUE;
   }
+  return $devolver;
+}
+
+function checkPassword($conn, $userId, $userPass){
+  //Comprueba que la contraseña introducida por el usuario coincide con la de la DB
+  $devolver = TRUE;
+
+  $sql = "SELECT contrasenya FROM usuarios WHERE id = $userId";
+  $result = mysqli_query($conn,$sql);
+
+  $storedPass = mysqli_fetch_assoc($result);
+
+  if(!password_verify($userPass, $storedPass['contrasenya'])){
+    $devolver= FALSE;
+    print("Contraseña incorrecta");
+  }
+
   return $devolver;
 }
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { VerificationService } from 'app/general/verification.service';
+import * as bcrypt from 'bcryptjs';
 
 @Component({
   selector: 'app-inicio',

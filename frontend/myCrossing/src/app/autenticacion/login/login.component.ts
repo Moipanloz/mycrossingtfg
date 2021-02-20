@@ -51,8 +51,9 @@ export class LoginComponent {
 
       if(this.verification.logged == true){
         let key: string = this.verification.makeRandomKey();
+        let user : any = this.loginForm.value;
 
-        this._user.setKey(key).then(res => {
+        this._user.setKey(user, key).then(res => {
           if(JSON.stringify(res)=="[\"Error\"]"){
             this.aviso = "El usuario al que intenta acceder está corrupto, contacte con un administrador";
           }else{
