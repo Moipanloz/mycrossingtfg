@@ -1,10 +1,10 @@
 <?php
 
 header('Access-Control-Allow-Origin: http://localhost:4200');
-header('Access-Control-Allow-Headers: *');
-header('Access-Control-Allow-Methods: PUT, DELETE, POST, GET');
+header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
+header('Access-Control-Allow-Methods: OPTIONS, PUT, DELETE, POST, GET');
 
-define ("DB_SERVERNAME", "localhost");
+define("DB_SERVERNAME", "localhost");
 define("DB_USER", "mcadmin");
 define("DB_PASS", "thisismypass");
 define("DB_NAME", "mycrossingdb");

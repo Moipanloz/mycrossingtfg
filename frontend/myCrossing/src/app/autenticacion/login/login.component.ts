@@ -44,10 +44,11 @@ export class LoginComponent {
       this._user.login(user, key).then( data => {
         //Si existe el usuario y la contraseña es correcta, se habrá actualizado el codigo de verificacion
         //con el enviaddo, por lo que si coincide, la operación habrá sido exitosa
-        if(data['verif'] == key){
+        if(data['verification'] == key){
           this.verification.logged=true;
           this.verification.user=data['id'];
           this.verification.nombre = data["nombre"];
+          this.verification.verifCode = data["verification"];
 
           this.cookieService.set('verif', key );
           this.cookieService.set('userId', this.verification.user.toString());

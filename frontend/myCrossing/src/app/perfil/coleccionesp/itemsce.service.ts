@@ -10,7 +10,7 @@ export class ItemsCEService {
 
   constructor(private http : HttpClient, private verification : VerificationService) { }
 
-  url : string = "http://localhost/itemsce.php"
+  url : string = "http://localhost/php/itemsce.php"
 
   colecciones : string[] = [
     "DIY",

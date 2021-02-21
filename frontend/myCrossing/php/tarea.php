@@ -6,7 +6,7 @@ include "validators/usuarioValidator.php";
 include "validators/tareaValidator.php";
 
 if(isset($_GET["command"])){
-  $error = false;
+  $validation = false;
 
   switch($_GET["command"]){
 
@@ -15,11 +15,11 @@ if(isset($_GET["command"])){
         $userId = (int)$_GET["userId"]; //convierte el string en int
         $verifCode = $_GET["verif"];
 
-        $error = checkExisteUser($conn, $userId) &&
+        $validation = checkExisteUser($conn, $userId) &&
                  checkVerification($conn, $userId, $verifCode);
 
         //Para que sea correcto debe dar true
-        if($error){
+        if($validation){
           $sql = "SELECT * FROM tareas WHERE usuario_id = $userId";
           $result = mysqli_query($conn,$sql);
           $myArray = array();
@@ -31,7 +31,7 @@ if(isset($_GET["command"])){
             }
           }
 
-          print json_encode($myArray, JSON_NUMERIC_CHECK);
+          print(json_encode($myArray, JSON_NUMERIC_CHECK));
 
         }else{
           print("No se cumplen los requisitos");
@@ -65,13 +65,13 @@ if(isset($_GET["command"])){
             $hecha = 0;
           }
 
-          $error =  checkExisteUser($conn, $userId) &&
+          $validation =  checkExisteUser($conn, $userId) &&
                     checkExisteTarea($tareaId, $conn) &&
                     checkVerification($conn, $userId, $verifCode) &&
                     checkTareaOwner($userId, $tareaId, $conn) &&
                     checkDatosTareaCorrectos($imagenUrl, $hecha);
 
-          if($error){
+          if($validation){
             $sql = "UPDATE tareas SET hecha = $hecha, imagen_url = '$imagenUrl' WHERE id = $tareaId";
             $result = mysqli_query($conn,$sql);
           }else{
@@ -100,12 +100,12 @@ if(isset($_GET["command"])){
           $hecha = $request->hecha;
           $imagenUrl = $request->imagen_url;
 
-          $error = checkExisteUser($conn, $userId) &&
+          $validation = checkExisteUser($conn, $userId) &&
                     checkVerification($conn, $userId, $verifCode) &&
                     checkDatosTareaCorrectos($imagenUrl, $hecha) &&
                     checkNumeroTareas($userId, $conn);
 
-          if($error){
+          if($validation){
             $sql = "INSERT INTO tareas(id, usuario_id, hecha, imagen_url) VALUES ('', $userId, $hecha, '$imagenUrl')";
             $result = mysqli_query($conn,$sql);
 
@@ -129,12 +129,12 @@ if(isset($_GET["command"])){
         $verifCode = $_GET["verif"];
         $tareaId = $_GET["tareaId"];
 
-        $error = checkExisteUser($conn, $userId) &&
+        $validation = checkExisteUser($conn, $userId) &&
                   checkExisteTarea($tareaId, $conn) &&
                   checkVerification($conn, $userId, $verifCode) &&
                   checkTareaOwner($userId, $tareaId, $conn);
 
-        if($error){
+        if($validation){
           $sql = "DELETE FROM tareas WHERE id = $tareaId";
           $result = mysqli_query($conn,$sql);
         }else{

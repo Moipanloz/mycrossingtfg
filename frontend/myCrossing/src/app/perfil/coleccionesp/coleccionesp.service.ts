@@ -11,7 +11,7 @@ export class ColeccionespService {
 
   constructor(private http : HttpClient, private verification : VerificationService, private _ceinv : ItemsCEService) { }
 
-  url : string = "http://localhost/coleccionesespeciales.php"
+  url : string = "http://localhost/php/coleccionesespeciales.php"
 
   readCE() : Promise<ItemCE[]>{
     let parametros = new HttpParams()

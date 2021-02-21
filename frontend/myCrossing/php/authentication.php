@@ -1,5 +1,9 @@
 <?php
 
+header('Access-Control-Allow-Origin: http://localhost:4200');
+header('Access-Control-Allow-Headers: *');
+header('Access-Control-Allow-Methods: OPTIONS, PUT, DELETE, POST, GET');
+
 require "openDB.php";
 
 include "validators/usuarioValidator.php";
@@ -12,18 +16,18 @@ if(isset($_GET['command'])){
         $userId = $_GET['userId'];
         $verifCode = $_GET["verif"];
 
-        $error = checkExisteUser($conn, $userId) &&
+        $validation = checkExisteUser($conn, $userId) &&
                 checkVerification($conn, $userId, $verifCode);
 
-        if($error){
+        if($validation){
           $sql = "UPDATE usuarios SET verification = NULL WHERE id = $userId";
           $result = mysqli_query($conn,$sql);
         }else{
-          print("No se cumplen los requisitos");
+          print("Error: No se cumplen los requisitos");
         }
 
       }else{
-        print("Faltan parametros");
+        print("Error: Faltan parametros");
       }
 
       break;
@@ -39,22 +43,22 @@ if(isset($_GET['command'])){
         $verif = $request->key;
         $email = $request->email;
 
-        $error = checkExisteUserByEmail($conn, $email) &&
+        $validation = checkExisteUserByEmail($conn, $email) &&
                 checkPassword($conn, $email, $userPass);
 
-        if($error){
+        if($validation){
           $sqlVerif = "UPDATE usuarios SET verification = '$verif' WHERE email = '$email'";
           $resultVerif = mysqli_query($conn,$sqlVerif);
 
-          $sqlData = "SELECT nombre, id, verif FROM usuarios WHERE email = '$email'";
+          $sqlData = "SELECT nombre, id, verification FROM usuarios WHERE email = '$email'";
           $resultData = mysqli_query($conn,$sqlData);
 
           $userResult = mysqli_fetch_assoc($resultData);
 
-          print json_encode($userResult);
+          print(json_encode($userResult));
 
         }else{
-          print json_encode("Email o contraseña incorrectos");
+          print(json_encode("Email o contraseña incorrectos"));
         }
       }else{
         print("No hay datos");
@@ -68,10 +72,10 @@ if(isset($_GET['command'])){
         $userId = $_GET['userId'];
         $verifCode = $_GET['verif'];
 
-        $error = checkExisteUser($conn, $userId) &&
+        $validation = checkExisteUser($conn, $userId) &&
                 checkVerification($conn, $userId, $verifCode);
 
-        if($error){
+        if($validation){
           $sql = "SELECT nombre, isla, fruta, cumpleanyos, hemisferio, id_suenyo, id_switch, apodo_aldeano FROM usuarios WHERE id = $userId";
           $result = mysqli_query($conn,$sql);
           $myArray = array();
@@ -91,22 +95,27 @@ if(isset($_GET['command'])){
 
     // ========================================================================================================= GETKEY
     case "getKey":
-      if(isset($_GET['userId'])){
+      if(isset($_GET['userId']) && isset($_GET["verif"])){
         $userId = $_GET['userId'];
-        if(checkExisteUser($conn, $userId)){
+        $verifCode = $_GET['verif'];
+
+        $validation = checkExisteUser($conn, $userId) &&
+                checkVerification($conn, $userId, $verifCode);
+
+        if($validation){
           $sql = "SELECT verification, nombre FROM usuarios WHERE id = $userId";
           $result = mysqli_query($conn,$sql);
           if ($result->num_rows > 0) {
               while($row = $result->fetch_assoc()) {
                   $myArray[] = $row;
               }
-              print json_encode($myArray);
+              print(json_encode($myArray));
           }
         }else{
-          print json_encode("Error");
+          print(json_encode("Error"));
         }
       }else{
-        print "No ha introducido id de usuario que leer";
+        print("No ha introducido id de usuario que leer");
       }
       break;
 
@@ -127,10 +136,10 @@ if(isset($_GET['command'])){
         $id_switch = $request->id_switch;
         $verif = $request->verif;
 
-        $error = checkDatos($nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_suenyo, $id_switch) &&
+        $validation = checkDatos($nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_suenyo, $id_switch) &&
                 checkDatosCreate($conn, $email, $id_suenyo, $id_switch);
 
-        if($error){
+        if($validation){
           $contrasenya = password_hash($userPass, PASSWORD_BCRYPT);
 
           $sql = "INSERT INTO usuarios (nombre, contrasenya, isla, fruta, cumpleanyos, verification, email, hemisferio";
@@ -155,8 +164,18 @@ if(isset($_GET['command'])){
 
           $result = mysqli_query($conn,$sql);
 
+          //Tiene que devolver el usuario para asignarle las cookies
+          $sql = "SELECT * FROM usuarios WHERE email = '$email'";
+          $result = mysqli_query($conn,$sql);
+          if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+              $myArray[] = $row;
+            }
+            print(json_encode($myArray));
+          }
+
         }else{
-          print("No cumple los requisitos");
+          print(json_encode("Error"));
         }
 
       }else{
@@ -189,12 +208,12 @@ if(isset($_GET['command'])){
           $row = mysqli_fetch_assoc($getEmail);
           $email = $row["email"];
 
-          $error =  checkExisteUser($conn, $userId) &&
+          $validation =  checkExisteUser($conn, $userId) &&
                     checkDatos($conn, $nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_suenyo, $id_switch) &&
                     checkDatosUpdate($conn, $userId, $email, $id_suenyo, $id_switch) &&
                     checkVerification($conn, $userId, $verifCode);
 
-          if($error){
+          if($validation){
             $sql = "UPDATE usuarios SET nombre = '$nombre', isla = '$isla', fruta = '$fruta', cumpleanyos = '$cumpleanyos', hemisferio = '$hemisferio', id_switch = '$id_switch', id_suenyo = '$id_suenyo', apodo_aldeano = '$apodo_aldeano' WHERE id = $userId";
             $result = mysqli_query($conn,$sql);
           }else{

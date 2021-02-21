@@ -5,7 +5,7 @@ require "openDB.php";
 include "validators/usuarioValidator.php";
 
 if(isset($_GET["command"])){
-  $error = false;
+  $validation = false;
 
   switch($_GET["command"]){
     case "read"://---------------------------------------------------------------------------------------------------READ
@@ -26,38 +26,9 @@ if(isset($_GET["command"])){
       //TODO CUANDO ESTE LA API
       if(isset($_GET["userId"])){
 
-        $userId = $_GET["userId"];
-        $postdata = file_get_contents("php://input");
+        $validation = checkAdmin($conn, $userId);
 
-        if(isset($postdata) && !empty($postdata)){
-
-          $request = json_decode($postdata);
-          $source = $request->source;
-          $items = $request->items;
-
-          $error = checkUserId($conn, $userId) &&
-                   checkAdmin($conn, $userId);
-
-          if($error){
-            $itemsString = "('";
-            for($i = 0; $i < sizeof($items); $i++){
-              $itemsString .= $items[$i];
-              if($i+1 == sizeof($items)){
-                $itemsString .= "')";
-              }else{
-                $itemsString .= ",";
-              }
-            }
-
-            $sql = "UPDATE coleccionesespeciales SET items = $itemsString WHERE source = '$source' AND usuario_id = $userId";
-            $result = mysqli_query($conn,$sql);
-
-          }else{
-            print("No se cumplen los requisitos");
-          }
-        }else{
-          print("No hay datos");
-        }
+        print("TODO cuando este API");
 
       } else {
         print("No hay id de usuario");

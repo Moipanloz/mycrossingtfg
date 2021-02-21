@@ -13,7 +13,7 @@ export class UserService {
   data = [];
   verification : VerificationService;
   cookieService : CookieService;
-  url : string = "http://localhost/authentication.php";
+  url : string = "http://localhost/php/authentication.php";
   constructor(verification: VerificationService, private http: HttpClient,
     private _encription : EncriptionService, cookieService : CookieService) {
       this.verification = verification;
@@ -43,7 +43,7 @@ export class UserService {
 
     user.verif = key;
 
-    return this.http.post(this.url, user, {params: parametros}).toPromise();
+    return this.http.post(this.url, user, {params: parametros, responseType: "json"}).toPromise();
   }
 
   logOut(){
@@ -53,11 +53,7 @@ export class UserService {
     .set("userId", JSON.stringify(userId))
     .set("verif", this.verification.verifCode)
     .set("command", "logout");
-
-    this.cookieService.delete('verif');
-    this.cookieService.delete('userId');
-
-    return this.http.get(this.url, {params: parametros}).toPromise();
+    return this.http.get(this.url, {params: parametros, responseType: "text"}).toPromise();
   }
 
   updateUser(usuario : User){

@@ -32,12 +32,19 @@ export class NavbarComponent {
   }
 
   logOut(){
-    this._user.logOut().then(() => {
-      this.verification.logged = false;
-      this.verification.user = null;
-      this.verification.nombre = "";
-      this.menu = false;
-      this.router.navigate([""]);
+    this._user.logOut().then(data => {
+      if(!data.includes("Error:")){
+        this.cookieService.delete('verif');
+        this.cookieService.delete('userId');
+        this.verification.logged = false;
+        this.verification.user = null;
+        this.verification.nombre = "";
+        this.menu = false;
+        this.router.navigate([""]);
+      }else{
+        alert("Hubo un error al cerrar la sesión");
+      }
+
     });
   }
 

@@ -181,11 +181,12 @@ function checkAdmin($conn, $userId){
 
 function checkVerification($conn, $userId, $verifCode){
   //Comprueba que el codigo  de verificacion pertenece al usuario
-  $devolver = FALSE;
+  $devolver = TRUE;
   $sql = "SELECT * FROM usuarios WHERE id = $userId AND verification = '$verifCode'";
   $result = mysqli_query($conn,$sql);
-  if ($result->num_rows == 1) {
-    $devolver= TRUE;
+  if ($result->num_rows != 1) {
+    $devolver= FALSE;
+    print("Código de verificacion incorrecto");
   }
   return $devolver;
 }

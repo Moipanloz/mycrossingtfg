@@ -1,47 +1,49 @@
 <div class="background">
-    <div class="movil">
-            <div class="pantalla">
-            <form class="formulario" (ngSubmit)="login(loginForm)" [formGroup]="loginForm">
-                <div class="titulo">Inicia sesión</div>
-                <div class="field">
-                    <div class="fieldlabel">
-                        <label for="nombre">Email: </label>
-                    </div>
-                    <div class="fieldinput">
-                        <input id="email" formControlName='email' type="email">
-                    </div>
-                </div>
-                <ng-container *ngIf="loginForm.controls.nombre.errors && submitted">
-                    <p class="error">
-                        <ng-container *ngIf="loginForm.controls.nombre.errors.required && submitted">
-                            Debe introducir un nombre.
-                        </ng-container>
-                    </p>
-                </ng-container>
-                <div class="field">
-                    <div class="fieldlabel">
-                        <label for="password">Contraseña: </label>
-                    </div>
-                    <div class="fieldinput">
-                        <input type="password" id="password" formControlName='clave'>
-                    </div>
-                </div>
-                <ng-container *ngIf="loginForm.controls.clave.errors && submitted">
-                    <p class="error">
-                        <ng-container *ngIf="loginForm.controls.clave.errors.required && submitted">
-                            Debe introducir una contraseña.
-                        </ng-container>
-                    </p>
-                </ng-container>
-                <div class="iniciar">
-                    <button type="submit">Iniciar sesion</button>
-                    <p class="error">{{aviso}}</p>
-                </div>
-                <div>{{aviso}}</div>
-            </form>
-            <div class="menu">
-                <div class="botonmovil"></div>
-            </div>
+  <div class="movil">
+    <div class="pantalla">
+      <form class="formulario" (ngSubmit)="login(loginForm)" [formGroup]="loginForm">
+        <div class="titulo">
+          Inicia sesión
         </div>
+        <div class="field">
+          <div class="fieldlabel">
+            <label for="email">Email: </label>
+          </div>
+          <div class="fieldinput">
+            <input id="email" formControlName='email' type="email">
+          </div>
+        </div>
+        <ng-container *ngIf="loginForm.controls.email.errors && submitted">
+          <p class="error">
+            <ng-container *ngIf="loginForm.controls.email.errors.required && submitted">
+              Debe introducir un email.
+            </ng-container>
+          </p>
+        </ng-container>
+        <div class="field">
+          <div class="fieldlabel">
+            <label for="password">Contraseña: </label>
+          </div>
+          <div class="fieldinput">
+            <input type="password" id="password" formControlName='clave'>
+          </div>
+        </div>
+        <ng-container *ngIf="loginForm.controls.clave.errors && submitted">
+          <p class="error">
+            <ng-container *ngIf="loginForm.controls.clave.errors.required && submitted">
+              Debe introducir una contraseña.
+            </ng-container>
+          </p>
+        </ng-container>
+        <div class="iniciar">
+          <button type="submit">Iniciar sesion</button>
+          <p class="error">{{aviso}}</p>
+        </div>
+      </form>
+      <div class="menu">
+        <div class="botonmovil">
+        </div>
+      </div>
     </div>
+  </div>
 </div>
