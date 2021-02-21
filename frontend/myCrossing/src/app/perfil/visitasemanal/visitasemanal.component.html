@@ -1,5 +1,6 @@
 <div class="visitasContainer">
-    <div class="panel" style="display:{{active}};">Hola buenos dias soy un panel</div>
+    <div class="oscuro" (click)="hide=true" [style.visibility]="hide ? 'hidden': 'visible'"></div>
+    <div class="panel" [style.top.px]="top" [style.left.px]="left" [style.visibility]="hide ? 'hidden': 'visible'">Hola buenos dias soy un panel</div>
     <div class="cabeceraA">
         <div class="cabeceraB first">L</div>
         <div class="cabeceraB">M</div>
@@ -12,7 +13,7 @@
     <div class="pasado">
         <div class="visita first">
             <ng-container *ngIf="lpa==null">
-                <div (click)="vacio('lpa')">
+                <div (click)="vacio($event,'lpa')">
                     <div class="circulo">+</div>
                 </div>
             </ng-container>
@@ -33,7 +34,7 @@
         </div>
         <div class="visita">
             <ng-container *ngIf="xpa==null">
-                <div (click)="vacio('xpa')">
+                <div (click)="vacio($event,'xpa')">
                     <div class="circulo">+</div>
                 </div>
             </ng-container>
@@ -41,7 +42,7 @@
         </div>
         <div class="visita">
             <ng-container *ngIf="jpa==null">
-                <div (click)="vacio('jpa')">
+                <div (click)="vacio($event,'jpa')">
                     <div class="circulo">+</div>
                 </div>
             </ng-container>
@@ -49,7 +50,7 @@
         </div>
         <div class="visita">
             <ng-container *ngIf="vpa==null">
-                <div (click)="vacio('vpa')">
+                <div (click)="vacio($event,'vpa')">
                     <div class="circulo">+</div>
                 </div>
             </ng-container>
@@ -57,7 +58,7 @@
         </div>
         <div class="visita">
             <ng-container *ngIf="spa==null">
-                <div (click)="vacio('spa')">
+                <div (click)="vacio($event,'spa')">
                     <div class="circulo">+</div>
                 </div>
             </ng-container>
@@ -65,7 +66,7 @@
         </div>
         <div class="visita last">
             <ng-container *ngIf="dpa==null">
-                <div (click)="vacio('dpa')">
+                <div (click)="vacio($event,'dpa')">
                     <div class="circulo">+</div>
                 </div>
             </ng-container>

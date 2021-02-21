@@ -35,9 +35,22 @@
 .last{
     margin-right: 2.5vw;
 }
+.oscuro{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.644);
+}
 .panel{
-    display: none;
+    padding: 2%;
+    display: block;
     position: fixed;
+    border-style: solid;
+    border-radius: 2vw;
+    top:30%;
+    background-color: burlywood;
 }
 .image{
     width: 3vw;

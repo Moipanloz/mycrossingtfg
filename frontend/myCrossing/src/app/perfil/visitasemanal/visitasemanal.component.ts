@@ -8,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class VisitasemanalComponent implements OnInit {
 
   constructor() { }
-  active = "none";
-  coord = null;
+  hide :boolean = true;
+  top = 300;
+  left = 300;
 
   lpa = "totakeke";
   mpa = null;
@@ -28,12 +29,15 @@ export class VisitasemanalComponent implements OnInit {
   dpr = null;
   ngOnInit(): void {
   }
-  vacio(event, datos:string){
-    console.log(datos);
-    if(this.active=="none"){
-      this.active="block";
+  vacio(event: any, datos:string){
+    let coord = this.obtenPosicion(event);
+    this.top = coord[1]*6;
+    this.left = coord[0]*7;
+    console.log(coord);
+    if(this.hide==false){
+      this.hide=true;
     }else{
-      this.active="none";
+      this.hide=false;
     }
   }
   obtenPosicion(event): any[]{
