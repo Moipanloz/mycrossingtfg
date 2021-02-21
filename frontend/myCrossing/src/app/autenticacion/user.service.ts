@@ -1,5 +1,4 @@
 import { CookieService } from 'ngx-cookie-service';
-import { EncriptionService } from './encription.service';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { User } from '../general/interfaces';
@@ -14,8 +13,7 @@ export class UserService {
   verification : VerificationService;
   cookieService : CookieService;
   url : string = "http://localhost/php/authentication.php";
-  constructor(verification: VerificationService, private http: HttpClient,
-    private _encription : EncriptionService, cookieService : CookieService) {
+  constructor(verification: VerificationService, private http: HttpClient, cookieService : CookieService) {
       this.verification = verification;
       this.cookieService = cookieService;
     }

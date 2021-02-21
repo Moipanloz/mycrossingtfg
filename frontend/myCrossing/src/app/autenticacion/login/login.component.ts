@@ -1,10 +1,8 @@
 import { UserService } from 'app/autenticacion/user.service';
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { EncriptionService } from '../encription.service'
 import { VerificationService } from 'app/general/verification.service';
 
 @Component({
@@ -22,9 +20,8 @@ export class LoginComponent {
   submitted: boolean = false;
   _user: UserService;
 
-  constructor(private encriptionService:EncriptionService, cookieService: CookieService,
-     verification: VerificationService, private _builder: FormBuilder, private http: HttpClient,
-      private router:Router, _user : UserService) {
+  constructor(cookieService: CookieService, verification: VerificationService, private _builder: FormBuilder,
+    private router:Router, _user : UserService) {
     this.cookieService = cookieService;
     this.verification = verification;
     this._user = _user;
