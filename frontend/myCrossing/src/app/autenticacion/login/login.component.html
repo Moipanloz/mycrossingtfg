@@ -5,16 +5,16 @@
                 <div class="titulo">Inicia sesión</div>
                 <div class="field">
                     <div class="fieldlabel">
-                        <label for="nombre">Nombre: </label>
+                        <label for="nombre">Email: </label>
                     </div>
                     <div class="fieldinput">
-                        <input id="nombre" formControlName='nombre' type="text">
+                        <input id="email" formControlName='email' type="email">
                     </div>
                 </div>
                 <ng-container *ngIf="loginForm.controls.nombre.errors && submitted">
                     <p class="error">
                         <ng-container *ngIf="loginForm.controls.nombre.errors.required && submitted">
-                            Debe introducir un nombre. 
+                            Debe introducir un nombre.
                         </ng-container>
                     </p>
                 </ng-container>
@@ -29,7 +29,7 @@
                 <ng-container *ngIf="loginForm.controls.clave.errors && submitted">
                     <p class="error">
                         <ng-container *ngIf="loginForm.controls.clave.errors.required && submitted">
-                            Debe introducir una contraseña. 
+                            Debe introducir una contraseña.
                         </ng-container>
                     </p>
                 </ng-container>

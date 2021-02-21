@@ -29,44 +29,34 @@ export class LoginComponent {
     this.verification = verification;
     this._user = _user;
     this.loginForm = this._builder.group({
-      nombre: ['', Validators.required],
+      email: ['', Validators.required],
       clave: ['', Validators.required]
     })
   }
 
   login(form){
     this.submitted = true;
-    if(this.loginForm.invalid){
-      return;
-    }
-    this._user.login().then(datos => {
-      for (let user of datos){
-        if(user['nombre']==form.value['nombre'] && this.encriptionService.decript(user['contrasenya'])==form.value['clave']){
+    if(!this.loginForm.invalid){
+
+      let key: string = this.verification.makeRandomKey();
+      let user : any = this.loginForm.value;
+
+      this._user.login(user, key).then( data => {
+        //Si existe el usuario y la contraseña es correcta, se habrá actualizado el codigo de verificacion
+        //con el enviaddo, por lo que si coincide, la operación habrá sido exitosa
+        if(data['verif'] == key){
           this.verification.logged=true;
-          this.verification.user=user['id'];
-          this.verification.nombre = user["nombre"];
-          break;
+          this.verification.user=data['id'];
+          this.verification.nombre = data["nombre"];
+
+          this.cookieService.set('verif', key );
+          this.cookieService.set('userId', this.verification.user.toString());
+          this.verification.verified = true;
+          this.router.navigate(['']);
+        }else{
+          this.aviso = "El usuario no existe o la contraseña no es correcta";
         }
-      }
-
-      if(this.verification.logged == true){
-        let key: string = this.verification.makeRandomKey();
-        let user : any = this.loginForm.value;
-
-        this._user.setKey(user, key).then(res => {
-          if(JSON.stringify(res)=="[\"Error\"]"){
-            this.aviso = "El usuario al que intenta acceder está corrupto, contacte con un administrador";
-          }else{
-            this.cookieService.set('verif', key );
-            this.cookieService.set('userId', this.verification.user.toString());
-            this.verification.verified = true;
-            this.router.navigate(['']);
-          }
-        });
-      }else{
-        this.aviso = "El usuario no existe o la contraseña no es correcta";
-      }
-    });
-
+      });
+    }
   }
 }

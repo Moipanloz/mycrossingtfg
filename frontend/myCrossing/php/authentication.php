@@ -8,7 +8,7 @@ if(isset($_GET['command'])){
   switch($_GET['command']){
     // ========================================================================================================= LOGOUT
     case "logout":
-      if(isset($_GET["userId"]) && isset([$_GET["verif"]])){
+      if(isset($_GET["userId"]) && isset($_GET["verif"])){
         $userId = $_GET['userId'];
         $verifCode = $_GET["verif"];
 
@@ -28,53 +28,43 @@ if(isset($_GET['command'])){
 
       break;
 
-    // ========================================================================================================= SETKEY
-    case "setKey":
-      //Cambiar por login?
-      if(isset($_GET['userId'])){
-        $userId = $_GET['userId'];
-
-        $postdata = file_get_contents("php://input");
-        $request = json_decode($postdata);
-
-        if(isset($request) && !empty($request)){
-          $userPass = $request->clave;
-          $verif = $request->key;
-
-          $error = checkExisteUser($conn, $userId) &&
-                  checkPassword($conn, $userId, $userPass);
-
-          if($error){
-            $sql = "UPDATE usuarios SET verification = '$verif' WHERE id = $userId";
-            $result = mysqli_query($conn,$sql);
-          }else{
-            print json_encode("No cumple los requisitos");
-          }
-        }else{
-          print("No hay datos");
-        }
-      }else{
-        print "No ha introducido id de usuario o key";
-      }
-      break;
-
     // ========================================================================================================= LOGIN
     case "login":
-      //TODO Rehacer, maybe mergear con setKey ya que ambos se hacen exclusivamente en el login
-        $sql = "SELECT nombre, contrasenya, id FROM usuarios";
-        $result = mysqli_query($conn,$sql);
-        $myArray = array();
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                $myArray[] = $row;
-            }
-            print json_encode($myArray);
+
+      $postdata = file_get_contents("php://input");
+      $request = json_decode($postdata);
+
+      if(isset($request) && !empty($request)){
+        $userPass = $request->clave;
+        $verif = $request->key;
+        $email = $request->email;
+
+        $error = checkExisteUserByEmail($conn, $email) &&
+                checkPassword($conn, $email, $userPass);
+
+        if($error){
+          $sqlVerif = "UPDATE usuarios SET verification = '$verif' WHERE email = '$email'";
+          $resultVerif = mysqli_query($conn,$sqlVerif);
+
+          $sqlData = "SELECT nombre, id, verif FROM usuarios WHERE email = '$email'";
+          $resultData = mysqli_query($conn,$sqlData);
+
+          $userResult = mysqli_fetch_assoc($resultData);
+
+          print json_encode($userResult);
+
+        }else{
+          print json_encode("Email o contraseña incorrectos");
         }
-        break;
+      }else{
+        print("No hay datos");
+      }
+
+      break;
 
     // ========================================================================================================= READ
     case "read":
-      if(isset($_GET['userId']) && isset([$_GET["verif"]])){
+      if(isset($_GET['userId']) && isset($_GET["verif"])){
         $userId = $_GET['userId'];
         $verifCode = $_GET['verif'];
 

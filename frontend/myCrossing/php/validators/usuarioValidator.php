@@ -156,6 +156,18 @@ function checkExisteUser($conn, $userId){
   return $devolver;
 }
 
+function checkExisteUserByEmail($conn, $email){
+  //Comprueba que exista un usuario asociado al email
+  $devolver = TRUE;
+  $sql = "SELECT * FROM usuarios WHERE email = '$email'";
+  $result = mysqli_query($conn,$sql);
+  if ($result->num_rows != 1) {
+    $devolver= FALSE;
+    print("No existe un usuario con ese email");
+  }
+  return $devolver;
+}
+
 function checkAdmin($conn, $userId){
   //Comprueba que el usuario es el admin
   $devolver = FALSE;
@@ -178,11 +190,11 @@ function checkVerification($conn, $userId, $verifCode){
   return $devolver;
 }
 
-function checkPassword($conn, $userId, $userPass){
+function checkPassword($conn, $email, $userPass){
   //Comprueba que la contraseña introducida por el usuario coincide con la de la DB
   $devolver = TRUE;
 
-  $sql = "SELECT contrasenya FROM usuarios WHERE id = $userId";
+  $sql = "SELECT contrasenya FROM usuarios WHERE email = '$email'";
   $result = mysqli_query($conn,$sql);
 
   $storedPass = mysqli_fetch_assoc($result);

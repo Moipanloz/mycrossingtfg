@@ -29,22 +29,13 @@ export class UserService {
     return this.http.get<User>(this.url, {params: parametros}).toPromise();
   }
 
-  async login() : Promise<any>{
-    //merge con setKey? fix
-    let data = Array();
-    let parametros = new HttpParams().set("command", "login");
-    data.push(await this.http.get(this.url, {params: parametros}).toPromise());
-    return data.reduce((acc, val) => acc.concat(val), []);
-  }
-
-  async setKey(user : any, key : string) : Promise<any>{
+  login(user : any, key : string) : Promise<User>{
     let parametros = new HttpParams()
-    .set("userId", JSON.stringify(this.verification.user))
-    .set("command", "setKey");
+    .set("command", "login");
 
     user.key = key;
 
-    return this.http.post(this.url, user, {params: parametros}).toPromise();
+    return this.http.post<User>(this.url, user, {params: parametros}).toPromise();
   }
 
   register(user : any, key : string) : Promise<any>{
