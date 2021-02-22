@@ -36,3 +36,21 @@ export interface ItemCE{
   ids: string;
   source: string;
 }
+
+export interface Visita{
+  usuario_id: string;
+  lpa: string;
+  mpa: string;
+  xpa: string;
+  jpa: string;
+  vpa: string;
+  spa: string;
+  dpa: string;
+  lpr: string;
+  mpr: string;
+  xpr: string;
+  jpr: string;
+  vpr: string;
+  spr: string;
+  dpr: string;
+}

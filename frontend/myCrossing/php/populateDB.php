@@ -119,7 +119,7 @@ $sql = "INSERT INTO tareas (id, usuario_id, hecha, imagen_url) VALUES
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "INSERT INTO visitas VALUES
-(2, 'Totakeke', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Totakeke', NULL, NULL, NULL, NULL, NULL)";
+(2, NULL, NULL, NULL, NULL, NULL, 'Totakeke', 'Juliana', NULL, NULL, NULL, NULL, NULL, 'Totakeke', 'Juliana')";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "INSERT INTO misvecinos (vecino_id, usuario_id, amistad) VALUES

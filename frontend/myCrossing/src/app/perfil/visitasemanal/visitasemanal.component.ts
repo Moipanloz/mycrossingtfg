@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { VerificationService } from 'app/general/verification.service';
+import { CookieService } from 'ngx-cookie-service';
+import { VisitasService } from './visitas.service';
 
 @Component({
   selector: 'app-visitasemanal',
@@ -7,10 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VisitasemanalComponent implements OnInit {
 
-  constructor() { }
+  verification: VerificationService;
+  cookieService: CookieService;
+  constructor(
+    verification : VerificationService,
+    cookieService: CookieService,
+    private visitas : VisitasService){
+
+    this.verification = verification;
+    this.cookieService = cookieService;
+  }
   hide :boolean = true;
-  top = 300;
-  left = 300;
 
   lpa = "totakeke";
   mpa = null;
@@ -28,21 +38,31 @@ export class VisitasemanalComponent implements OnInit {
   spr = null;
   dpr = null;
   ngOnInit(): void {
+    let datos = [];
+    this.verification.verify().then(() => {
+      this.visitas.readVisitas().subscribe(data => {
+        this.lpa=data[0]['lpa'];
+        this.mpa=data[0]['mpa'];
+        this.xpa=data[0]['xpa'];
+        this.jpa=data[0]['jpa'];
+        this.vpa=data[0]['vpa'];
+        this.spa=data[0]['spa'];
+        this.dpa=data[0]['dpa'];
+        this.lpr=data[0]['lpr'];
+        this.mpr=data[0]['mpr'];
+        this.xpr=data[0]['xpr'];
+        this.jpr=data[0]['jpr'];
+        this.vpr=data[0]['vpr'];
+        this.spr=data[0]['spr'];
+        this.dpr=data[0]['dpr'];
+      },error => console.error(error));
+    });
   }
   vacio(event: any, datos:string){
-    let coord = this.obtenPosicion(event);
-    this.top = coord[1]*6;
-    this.left = coord[0]*7;
-    console.log(coord);
     if(this.hide==false){
       this.hide=true;
     }else{
       this.hide=false;
     }
-  }
-  obtenPosicion(event): any[]{
-    let x = (event.target.offsetLeft / window.innerWidth) * 100;
-    let y = ((event.target.offsetTop + event.target.offsetHeight) / window.innerHeight ) * 100;
-    return [x, y];
   }
 }
