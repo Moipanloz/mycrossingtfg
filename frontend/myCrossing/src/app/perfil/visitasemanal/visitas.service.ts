@@ -22,4 +22,22 @@ export class VisitasService {
 
     return this.http.get<Visita[]>(this.url, {params: parametros});
   }
+
+  async updateVisitas(lpa:string, mpa:string, xpa:string, jpa:string, vpa:string, spa:string, dpa:string,
+     lpr:string, mpr:string, xpr:string, jpr:string, vpr:string, spr:string, dpr:string) : Promise<string>{
+    let parametros = new HttpParams()
+      .set("command", "update")
+      .set("verif", this.verification.verifCode)
+      .set("userId", JSON.stringify(this.verification.user));
+    let visita:Visita = {usuario_id:null,lpa:lpa,mpa:mpa,xpa:xpa,jpa:jpa,vpa:vpa,spa:spa,dpa:dpa,lpr:lpr,mpr:mpr,xpr:xpr,jpr:jpr,vpr:vpr,spr:spr,dpr:dpr};
+    return this.http.put<string>(this.url, visita, {params: parametros}).toPromise();
+  }
+  async createVisita() : Promise<void>{
+    let parametros = new HttpParams()
+      .set("command", "create")
+      .set("verif", this.verification.verifCode)
+      .set("userId", JSON.stringify(this.verification.user));
+    console.log("Creando");
+    console.log(await this.http.put<string>(this.url, null, {params: parametros}).toPromise());
+  }
 }

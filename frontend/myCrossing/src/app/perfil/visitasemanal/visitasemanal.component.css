@@ -28,6 +28,7 @@
     margin-left: 0.8vw;
     margin-right: 0.8vw;
     text-align: center;
+    cursor: pointer;
 }
 .first{
     margin-left: 2.5vw;
@@ -44,17 +45,28 @@
     background-color: rgba(0, 0, 0, 0.644);
 }
 .panel{
-    top:40%;
+    top:20%;
     left:40%;
     padding: 2%;
-    display: block;
+    display: grid;
     position: fixed;
     border-style: solid;
     border-radius: 2vw;
     background-color: burlywood;
 }
+.izq{
+    grid-column: 1;
+    width: 10vw;
+    margin-bottom: 1vw;
+}
+.der{
+    grid-column: 2;
+    width: 10vw;
+    margin-left: 2vw;
+    margin-bottom: 1vw;
+}
 .image{
-    width: 3vw;
+    width: 2vw;
     height: 3vw;
 }
 .circulo{
@@ -66,7 +78,13 @@
     margin: 1vw 1vw 1vw 2.3vw;
     border-width: 0.2vw;
     background-color: #bfbfbf;
-    cursor: pointer;
+}
+img{
+    padding-right: 2vw;
+    padding-left: 2vw;
+}
+.noPointer{
+    cursor: default;
 }
 .elemento{
     text-align: center;
@@ -76,4 +94,17 @@
 }
 .presente{
     margin-top: 1vw;
+    margin-bottom: 2vw;
+}
+.notificacion{
+    position: fixed;
+    cursor: default;
+    top: 80%;
+    left: 40%;
+    border-style: solid;
+    background-color: cornflowerblue;
+    border-color: darkorange;
+    padding: 3vw;
+    border-radius: 2vw;
+    font-size: 2vw;
 }
