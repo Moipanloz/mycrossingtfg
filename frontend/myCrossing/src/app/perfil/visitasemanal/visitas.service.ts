@@ -37,8 +37,7 @@ export class VisitasService {
       .set("command", "create")
       .set("verif", this.verification.verifCode)
       .set("userId", JSON.stringify(this.verification.user));
-    console.log("Creando");
-    console.log(await this.http.put<string>(this.url, null, {params: parametros}).toPromise());
+    this.http.put<string>(this.url, null, {params: parametros}).toPromise();
   }
   setFecha(fecha: string):Promise<string> {
     let parametros = new HttpParams()

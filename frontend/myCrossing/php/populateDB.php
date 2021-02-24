@@ -119,9 +119,6 @@ $sql = "INSERT INTO tareas (id, usuario_id, hecha, imagen_url) VALUES
 (NULL, 3, 1, '3')";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
-$sql = "INSERT INTO visitas VALUES
-(2, NULL, NULL, NULL, NULL, NULL, 'Totakeke', 'Juliana', NULL, NULL, NULL, NULL, NULL, 'Totakeke', 'Juliana', NULL)";
-$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "INSERT INTO misvecinos (vecino_id, usuario_id, amistad) VALUES
 (1, 2, '1'),

@@ -250,7 +250,6 @@ export class VisitasemanalComponent implements OnInit {
   }
   aceptar(value: string):void {
     value = value.toLowerCase();
-    console.log(value);
     switch(value){
       case 'pili':
         this.pili=true;
@@ -440,6 +439,7 @@ export class VisitasemanalComponent implements OnInit {
       this.lpr,this.mpr,this.xpr,this.jpr,this.vpr,this.spr,this.dpr);
     if(result="Exito"){
       this.avisar("Guardado con éxito", 3);
+      this.modificado=false;
     }else{
       this.avisar("Ha ocurrido un error", 4);
     }

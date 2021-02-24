@@ -3,7 +3,7 @@
 require "openDB.php";
 
 include "validators/usuarioValidator.php";
-#include "validators/visitaValidator.php";
+include "validators/visitaValidator.php";
 
 if(isset($_GET["command"])){
   $error = false;
@@ -15,8 +15,9 @@ if(isset($_GET["command"])){
         $userId = (int)$_GET["userId"]; //convierte el string en int
         $verifCode = $_GET["verif"];
 
-        $error = checkExisteUser($conn, $userId) &&
-                 checkVerification($conn, $userId, $verifCode);
+        $error =  checkExisteUser($conn, $userId) &&
+                  checkExisteVisita($userId, $conn) &&
+                  checkVerification($conn, $userId, $verifCode);
 
         //Para que sea correcto debe dar true
         if($error){
@@ -70,11 +71,9 @@ if(isset($_GET["command"])){
           $dpr = $request->dpr;
 
           $error=TRUE;
-          /*$error =  checkExisteUser($conn, $userId) &&
-                    checkExisteTarea($tareaId, $conn) &&
-                    checkVerification($conn, $userId, $verifCode) &&
-                    checkTareaOwner($userId, $tareaId, $conn) &&
-                    checkDatosCorrectos($imagenUrl, $hecha);*/
+          $error =  checkExisteUser($conn, $userId) &&
+                    checkExisteVisita($userId, $conn) &&
+                    checkVerification($conn, $userId, $verifCode);
 
           if($error){
             $sql = "UPDATE visitas SET lpa = '$lpa', mpa = '$mpa', xpa = '$xpa', jpa = '$jpa', vpa = '$vpa', spa = '$spa', dpa = '$dpa', lpr = '$lpr', mpr = '$mpr', xpr = '$xpr', jpr = '$jpr', vpr = '$vpr', spr = '$spr', dpr = '$dpr' WHERE usuario_id = $userId";
@@ -105,11 +104,9 @@ if(isset($_GET["command"])){
           $last_update = $request->last_update;
 
           $error=TRUE;
-          /*$error =  checkExisteUser($conn, $userId) &&
-                    checkExisteTarea($tareaId, $conn) &&
-                    checkVerification($conn, $userId, $verifCode) &&
-                    checkTareaOwner($userId, $tareaId, $conn) &&
-                    checkDatosCorrectos($imagenUrl, $hecha);*/
+          $error =  checkExisteUser($conn, $userId) &&
+                    checkExisteVisita($userId, $conn) &&
+                    checkVerification($conn, $userId, $verifCode);
 
           if($error){
             $sql = "UPDATE visitas SET last_update = '$last_update' WHERE usuario_id = $userId";
@@ -129,16 +126,12 @@ if(isset($_GET["command"])){
       break;
     case "create"://---------------------------------------------------------------------------------------------------UPDATE
       if(isset($_GET["userId"]) && isset($_GET["verif"])){
-        print(json_encode("In the create"));
         $userId = $_GET["userId"];
         $verifCode = $_GET["verif"];
 
         $error=TRUE;
-        /*$error =  checkExisteUser($conn, $userId) &&
-                  checkExisteTarea($tareaId, $conn) &&
-                  checkVerification($conn, $userId, $verifCode) &&
-                  checkTareaOwner($userId, $tareaId, $conn) &&
-                  checkDatosCorrectos($imagenUrl, $hecha);*/
+        $error =  checkExisteUser($conn, $userId) &&
+                  checkVerification($conn, $userId, $verifCode);
 
         if($error){
           $sql = "INSERT INTO visitas(usuario_id, spa, dpa, spr, dpr) VALUES ($userId, 'Totakeke', 'Juliana', 'Totakeke', 'Juliana')";
