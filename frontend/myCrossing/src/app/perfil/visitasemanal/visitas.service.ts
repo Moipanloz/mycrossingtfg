@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class VisitasService {
   verification:VerificationService;
-  url : string = "http://localhost/visita.php";
+  url : string = "http://localhost/php/visita.php";
   constructor(private http : HttpClient, verification : VerificationService) {
     this.verification = verification;
   }
