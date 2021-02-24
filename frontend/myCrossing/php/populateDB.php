@@ -92,6 +92,7 @@ $sql = "CREATE TABLE visitas (
   vpr varchar(15) DEFAULT NULL,
   spr varchar(15) DEFAULT NULL,
   dpr varchar(15) DEFAULT NULL,
+  last_update varchar(25) DEFAULT NULL,
   PRIMARY KEY (usuario_id),
   FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1";
@@ -119,7 +120,7 @@ $sql = "INSERT INTO tareas (id, usuario_id, hecha, imagen_url) VALUES
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "INSERT INTO visitas VALUES
-(2, NULL, NULL, NULL, NULL, NULL, 'Totakeke', 'Juliana', NULL, NULL, NULL, NULL, NULL, 'Totakeke', 'Juliana')";
+(2, NULL, NULL, NULL, NULL, NULL, 'Totakeke', 'Juliana', NULL, NULL, NULL, NULL, NULL, 'Totakeke', 'Juliana', NULL)";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "INSERT INTO misvecinos (vecino_id, usuario_id, amistad) VALUES

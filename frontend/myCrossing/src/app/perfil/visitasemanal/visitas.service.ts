@@ -29,7 +29,7 @@ export class VisitasService {
       .set("command", "update")
       .set("verif", this.verification.verifCode)
       .set("userId", JSON.stringify(this.verification.user));
-    let visita:Visita = {usuario_id:null,lpa:lpa,mpa:mpa,xpa:xpa,jpa:jpa,vpa:vpa,spa:spa,dpa:dpa,lpr:lpr,mpr:mpr,xpr:xpr,jpr:jpr,vpr:vpr,spr:spr,dpr:dpr};
+    let visita:Visita = {usuario_id:null,lpa:lpa,mpa:mpa,xpa:xpa,jpa:jpa,vpa:vpa,spa:spa,dpa:dpa,lpr:lpr,mpr:mpr,xpr:xpr,jpr:jpr,vpr:vpr,spr:spr,dpr:dpr,last_update:null};
     return this.http.put<string>(this.url, visita, {params: parametros}).toPromise();
   }
   async createVisita() : Promise<void>{
@@ -39,5 +39,13 @@ export class VisitasService {
       .set("userId", JSON.stringify(this.verification.user));
     console.log("Creando");
     console.log(await this.http.put<string>(this.url, null, {params: parametros}).toPromise());
+  }
+  setFecha(fecha: string):Promise<string> {
+    let parametros = new HttpParams()
+      .set("command", "set_fecha")
+      .set("verif", this.verification.verifCode)
+      .set("userId", JSON.stringify(this.verification.user));
+    let visita:Visita = {usuario_id:null,lpa:null,mpa:null,xpa:null,jpa:null,vpa:null,spa:null,dpa:null,lpr:null,mpr:null,xpr:null,jpr:null,vpr:null,spr:null,dpr:null,last_update:fecha};
+    return this.http.put<string>(this.url, visita, {params: parametros}).toPromise();
   }
 }

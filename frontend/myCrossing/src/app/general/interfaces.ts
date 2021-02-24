@@ -53,4 +53,5 @@ export interface Visita{
   vpr: string;
   spr: string;
   dpr: string;
+  last_update: string;
 }

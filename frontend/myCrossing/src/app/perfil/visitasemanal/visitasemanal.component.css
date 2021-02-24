@@ -48,22 +48,26 @@
     top:20%;
     left:40%;
     padding: 2%;
-    display: grid;
     position: fixed;
     border-style: solid;
     border-radius: 2vw;
     background-color: burlywood;
 }
+.grid{
+    display: grid;
+}
 .izq{
     grid-column: 1;
     width: 10vw;
     margin-bottom: 1vw;
+    font-size: 1.5vw;
 }
 .der{
     grid-column: 2;
     width: 10vw;
     margin-left: 2vw;
     margin-bottom: 1vw;
+    font-size: 1.5vw;
 }
 .image{
     width: 2vw;

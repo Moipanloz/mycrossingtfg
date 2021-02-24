@@ -92,6 +92,41 @@ if(isset($_GET["command"])){
         print("Faltan parametros");
       }
       break;
+    case "set_fecha"://---------------------------------------------------------------------------------------------------UPDATE
+      if(isset($_GET["userId"]) && isset($_GET["verif"])){
+        $userId = $_GET["userId"];
+        $verifCode = $_GET["verif"];
+
+        $putdata = file_get_contents("php://input");
+
+        if(isset($putdata) && !empty($putdata)){
+
+          $request = json_decode($putdata);
+          $last_update = $request->last_update;
+
+          $error=TRUE;
+          /*$error =  checkExisteUser($conn, $userId) &&
+                    checkExisteTarea($tareaId, $conn) &&
+                    checkVerification($conn, $userId, $verifCode) &&
+                    checkTareaOwner($userId, $tareaId, $conn) &&
+                    checkDatosCorrectos($imagenUrl, $hecha);*/
+
+          if($error){
+            $sql = "UPDATE visitas SET last_update = '$last_update' WHERE usuario_id = $userId";
+            $result = mysqli_query($conn,$sql);
+            print(json_encode("Exito"));
+          }else{
+            print("No se cumplen los requisitos");
+          }
+
+        }else{
+          print("No hay datos");
+        }
+
+      }else{
+        print("Faltan parametros");
+      }
+      break;
     case "create"://---------------------------------------------------------------------------------------------------UPDATE
       if(isset($_GET["userId"]) && isset($_GET["verif"])){
         print(json_encode("In the create"));
@@ -108,7 +143,7 @@ if(isset($_GET["command"])){
         if($error){
           $sql = "INSERT INTO visitas(usuario_id, spa, dpa, spr, dpr) VALUES ($userId, 'Totakeke', 'Juliana', 'Totakeke', 'Juliana')";
           $result = mysqli_query($conn,$sql);
-          print(json_encode($sql));
+          print(json_encode('Exito'));
         }else{
           print(json_encode("No se cumplen los requisitos"));
         }
