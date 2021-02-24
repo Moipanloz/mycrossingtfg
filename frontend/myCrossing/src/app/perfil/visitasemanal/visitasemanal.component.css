@@ -1,0 +1,114 @@
+.visitasContainer{
+    text-align: center;
+    background-color: #a0ddb7d4;
+    border-radius: 1vw;
+    font-size: 1.5vw;
+}
+.visita{
+    border-width: 0.1vw;
+    border-style: solid;
+    border-color: black;
+    width: 100%;
+    background-color: #b4c5ff;
+}
+.pasado, .cabeceraA, .presente{
+    display: flex;
+}
+.cabeceraB{
+    width: 100%;
+    font-size: 1.3vw;
+    margin-top: 1vw;
+    margin-left: 0.8vw;
+    margin-right: 0.8vw;
+}
+.pasado{
+    margin-bottom: 1.5vw;
+}
+.visita{
+    margin-left: 0.8vw;
+    margin-right: 0.8vw;
+    text-align: center;
+    cursor: pointer;
+}
+.first{
+    margin-left: 2.5vw;
+}
+.last{
+    margin-right: 2.5vw;
+}
+.oscuro{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.644);
+}
+.panel{
+    top:20%;
+    left:40%;
+    padding: 2%;
+    position: fixed;
+    border-style: solid;
+    border-radius: 2vw;
+    background-color: burlywood;
+}
+.grid{
+    display: grid;
+}
+.izq{
+    grid-column: 1;
+    width: 10vw;
+    margin-bottom: 1vw;
+    font-size: 1.5vw;
+}
+.der{
+    grid-column: 2;
+    width: 10vw;
+    margin-left: 2vw;
+    margin-bottom: 1vw;
+    font-size: 1.5vw;
+}
+.image{
+    width: 2vw;
+    height: 3vw;
+}
+.circulo{
+    border-style: solid;
+    border-radius: 100%;
+    width: 1.5vw;
+    height: 1.5vw;
+    font-size: 1.3vw;
+    margin: 1vw 1vw 1vw 2.3vw;
+    border-width: 0.2vw;
+    background-color: #bfbfbf;
+}
+img{
+    padding-right: 2vw;
+    padding-left: 2vw;
+}
+.noPointer{
+    cursor: default;
+}
+.elemento{
+    text-align: center;
+    font-size: 1vw;
+    display: block;
+    height: 100%;
+}
+.presente{
+    margin-top: 1vw;
+    margin-bottom: 2vw;
+}
+.notificacion{
+    position: fixed;
+    cursor: default;
+    top: 80%;
+    left: 40%;
+    border-style: solid;
+    background-color: cornflowerblue;
+    border-color: darkorange;
+    padding: 3vw;
+    border-radius: 2vw;
+    font-size: 2vw;
+}
