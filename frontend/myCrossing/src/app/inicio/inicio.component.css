@@ -1,14 +1,16 @@
 /* Colores
 
-Amarillo: #ffefc4
-Lighter amarillo: #fff3d3
+Amarillo: #edd9a3
+Lighter amarillo: #ffefc4
+
 Azul: #ade6e7
 Lighter azul:  #c9f3f3
-Verde: rgb(210, 255, 214)
-Lighter verde: rgb(228, 255, 230)
-Blanco: rgba(247, 243, 232, 1)
+Even lighter azul: #d9f6f6
 
-PROBAR INICIO: todos los divs #fffbe1
+Verde: #95E59B
+Lighter verde: #CBF4C4
+
+Blanco: #F7F3E8
 */
 
 
@@ -158,18 +160,6 @@ PROBAR INICIO: todos los divs #fffbe1
 #calendario{
   border-color: rgb(255, 135, 36);
   background-color: rgb(255, 160, 97);
-}
-
-#hr-inicio{
-  border-width: 0.2vw;
-  border-style: solid;
-  width: 33%;
-  position: absolute;
-  border-color: #69c0c0;
-  margin-inline-start: 33%;
-  border-radius: 20px;
-  background-color:  #69c0c0;
-  margin-block-start: -2px;
 }
 
 

@@ -209,7 +209,7 @@ if(isset($_GET['command'])){
           $email = $row["email"];
 
           $validation =  checkExisteUser($conn, $userId) &&
-                    checkDatos($conn, $nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_suenyo, $id_switch) &&
+                    checkDatos($nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_suenyo, $id_switch) &&
                     checkDatosUpdate($conn, $userId, $email, $id_suenyo, $id_switch) &&
                     checkVerification($conn, $userId, $verifCode);
 

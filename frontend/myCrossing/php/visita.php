@@ -88,7 +88,7 @@ if(isset($_GET["command"])){
         print("Faltan parametros");
       }
       break;
-    case "set_fecha"://---------------------------------------------------------------------------------------------------UPDATE
+    case "set_fecha"://---------------------------------------------------------------------------------------------------SET-FECHA
       if(isset($_GET["userId"]) && isset($_GET["verif"])){
         $userId = $_GET["userId"];
         $verifCode = $_GET["verif"];
@@ -121,7 +121,7 @@ if(isset($_GET["command"])){
         print("Faltan parametros");
       }
       break;
-    case "create"://---------------------------------------------------------------------------------------------------UPDATE
+    case "create"://---------------------------------------------------------------------------------------------------CREATE
       if(isset($_GET["userId"]) && isset($_GET["verif"])){
         $userId = $_GET["userId"];
         $verifCode = $_GET["verif"];

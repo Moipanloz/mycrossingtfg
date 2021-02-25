@@ -4,12 +4,12 @@
 
     <!-- Tarea done -->
     <ng-container *ngIf="tarea.hecha == true; else todo">
-      <button (click)="!modoEdicion ? checkTarea(tarea) : abreMenu($event, tarea)" class="boton-circular done">{{tarea.imagen_url}}</button>
+      <button (click)="!modoEdicion ? checkTarea(tarea) : abreMenu($event, tarea)" class="boton-circular b-verde">{{tarea.imagen_url}}</button>
     </ng-container>
 
     <!-- Tarea todo -->
     <ng-template #todo>
-      <button (click)="!modoEdicion ? checkTarea(tarea) : abreMenu($event, tarea)" class="boton-circular todo">{{tarea.imagen_url}}</button>
+      <button (click)="!modoEdicion ? checkTarea(tarea) : abreMenu($event, tarea)" class="boton-circular b-azul">{{tarea.imagen_url}}</button>
     </ng-template>
 
   </ng-container>
@@ -19,11 +19,11 @@
 
   <!-- Boton crear -->
   <ng-container *ngIf="modoEdicion && data[0].length < 10">
-    <button (click)="crearTarea()" class="boton-circular" id="añadir">+</button>
+    <button (click)="crearTarea()" class="boton-circular b-amarillo">+</button>
   </ng-container>
 
   <!-- Boton modo edicion -->
-  <button class="editar editar-azul" #botonEdit (click)="activaEdicion()"></button>
+  <button class="editar boton-imagen editar-azul" #botonEdit (click)="activaEdicion()"></button>
 
 </div>
 

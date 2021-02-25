@@ -1,6 +1,6 @@
 <div class="user_info">
   <div id="perfil" class="wrapper-perfil">
-    <button class="editar editar-azul" (click)="!modoEdicion ? toggleEdicion() : enviar(userForm.value)" #botonEdit ></button>
+    <button class="editar boton-imagen editar-azul" (click)="!modoEdicion ? toggleEdicion() : enviar(userForm.value)" #botonEdit ></button>
     <div [hidden]="modoEdicion" >
       <div id="primary" class="flex-column-centered">
         <h2>{{this.usuario.nombre | capitalize}}</h2>
@@ -87,11 +87,12 @@
     <app-visitasemanal></app-visitasemanal>
   </div>
 </div>
-<div id="misvecinos"  class="wrapper-perfil">
+<div class="wrapper-perfil shadow">
   <h2>Mis vecinos</h2>
   <app-misvecinos></app-misvecinos>
 </div>
-<div id="coleccionesp" class="wrapper-perfil">
+<hr id="hr-azul">
+<div class="wrapper-perfil">
   <h2>Colecciones Especiales</h2>
   <app-coleccionesp></app-coleccionesp>
 </div>

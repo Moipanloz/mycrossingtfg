@@ -4,18 +4,18 @@ div{
 }
 
 .todo{
-  background-color: rgb(226, 214, 174);
-  border-color: rgb(252, 183, 79);
+  background-color: #d9f6f6;
+  border-color: #ade6e7;
 }
 
 .done{
-  background-color: rgb(171, 219, 164);
-  border-color: rgb(99, 252, 79);
+  background-color: rgb(203, 244, 196);
+  border-color: rgb(149, 229, 155);
 }
 
 #añadir{
-  background-color: rgb(107, 107, 107);
-  border-color: rgb(39, 39, 39);
+  background-color: #ffefc4;
+  border-color: #edd9a3;
 }
 
 .editar{

@@ -1,32 +1,27 @@
 .visitasContainer{
     text-align: center;
-    background-color: #a0ddb7d4;
+    background-color: #cde7e7;
     border-radius: 1vw;
     font-size: 1.5vw;
 }
 .visita{
-    border-width: 0.1vw;
-    border-style: solid;
-    border-color: black;
     width: 100%;
-    background-color: #b4c5ff;
+    border-radius: 6px;
+    background-color: rgba(247, 243, 232, 1);
 }
-.guardarButton{
-    cursor: pointer;
-    margin-right: 4vw;
-    margin-left: 10vw;
-    margin-bottom: 1vw;
-    width: 10vw;
+
+.div-botones{
+  margin: 0 2vw;
+  justify-content: space-around;
 }
+
 .estelaButton{
     cursor: pointer;
-    margin-left: 4vw;
-    margin-bottom: 1vw;
-    width: 100%;
     border-style: solid;
+    width: 40%;
+    border-width: 0.3vw;
     border-radius: 1vw;
-    border-color: #d89238;
-
+    margin-bottom: 1vw;
 }
 .pasado, .cabeceraA, .presente{
     display: flex;
@@ -42,15 +37,21 @@
 .cabeceraB{
     width: 100%;
     font-size: 1.3vw;
-    margin-top: 1vw;
     margin-left: 0.8vw;
-    margin-right: 0.8vw;
+    margin-right:  0.8vw;
+    margin-top: 1vw;
+    background-color: #ffefc4;
+    border-radius: 50px;
+    padding: 0.2vw;
 }
 .visita{
-    margin-left: 0.8vw;
-    margin-right: 0.8vw;
+    margin: 0 0.8vw;
     text-align: center;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.6vw;
 }
 .first{
     margin-left: 2.5vw;
@@ -97,38 +98,29 @@
     height: 3vw;
     height: 3vw;
 }
-.circulo{
-    border-style: solid;
-    border-radius: 100%;
-    width: 1.5vw;
-    height: 1.5vw;
-    font-size: 1.3vw;
-    margin: 1vw 1vw 1vw 2.3vw;
-    border-width: 0.2vw;
-    background-color: #bfbfbf;
-}
-img{
-    padding-right: 2vw;
-    padding-left: 2vw;
-}
+
 .noPointer{
     cursor: default;
 }
 .elemento{
     text-align: center;
     font-size: 1vw;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 100%;
 }
 .notificacion{
     position: fixed;
-    cursor: default;
     top: 80%;
     left: 40%;
-    border-style: solid;
-    background-color: cornflowerblue;
-    border-color: darkorange;
+    background-color: #F7F3E8;
     padding: 3vw;
     border-radius: 2vw;
     font-size: 2vw;
+    border-color: #edd9a3;
+    border-style: solid;
+    border-width: 0.5vw;
+    box-shadow: 0px 0px 10px 1px rgb(23 23 23 / 55%);
 }

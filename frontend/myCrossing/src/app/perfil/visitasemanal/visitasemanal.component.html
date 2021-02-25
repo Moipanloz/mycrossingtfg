@@ -28,7 +28,7 @@
         <div (click)="vacio($event,'lpr')" class="visita first">
             <ng-container *ngIf="isEmpty(lpr)">
                 <div>
-                    <div class="circulo">+</div>
+                    <button class="boton-circular b-amarillo" style="width: 3vw; height: 3vw;">+</button>
                 </div>
             </ng-container>
             <ng-container *ngIf="!isEmpty(lpr)">
@@ -41,7 +41,7 @@
         <div (click)="vacio($event,'mpr')" class="visita">
             <ng-container *ngIf="isEmpty(mpr)">
                 <div>
-                    <div class="circulo">+</div>
+                  <button class="boton-circular b-amarillo" style="width: 3vw; height: 3vw;">+</button>
                 </div>
             </ng-container>
             <ng-container *ngIf="!isEmpty(mpr)">
@@ -54,7 +54,7 @@
         <div (click)="vacio($event,'xpr')" class="visita">
             <ng-container *ngIf="isEmpty(xpr)">
                 <div>
-                    <div class="circulo">+</div>
+                  <button class="boton-circular b-amarillo" style="width: 3vw; height: 3vw;">+</button>
                 </div>
             </ng-container>
             <ng-container *ngIf="!isEmpty(xpr)">
@@ -67,7 +67,7 @@
         <div (click)="vacio($event,'jpr')" class="visita">
             <ng-container *ngIf="isEmpty(jpr)">
                 <div>
-                    <div class="circulo">+</div>
+                  <button class="boton-circular b-amarillo" style="width: 3vw; height: 3vw;">+</button>
                 </div>
             </ng-container>
             <ng-container *ngIf="!isEmpty(jpr)">
@@ -80,7 +80,7 @@
         <div (click)="vacio($event,'vpr')" class="visita">
             <ng-container *ngIf="isEmpty(vpr)">
                 <div>
-                    <div class="circulo">+</div>
+                  <button class="boton-circular b-amarillo" style="width: 3vw; height: 3vw;">+</button>
                 </div>
             </ng-container>
             <ng-container *ngIf="!isEmpty(vpr)">
@@ -108,7 +108,7 @@
         <div (click)="vacio($event,'lpa')" class="visita first">
             <ng-container *ngIf="isEmpty(lpa)">
                 <div>
-                    <div class="circulo">+</div>
+                  <button class="boton-circular b-amarillo" style="width: 3vw; height: 3vw;">+</button>
                 </div>
             </ng-container>
             <ng-container *ngIf="!isEmpty(lpa)">
@@ -121,7 +121,7 @@
         <div (click)="vacio($event,'mpa')" class="visita">
             <ng-container *ngIf="isEmpty(mpa)">
                 <div>
-                    <div class="circulo">+</div>
+                  <button class="boton-circular b-amarillo" style="width: 3vw; height: 3vw;">+</button>
                 </div>
             </ng-container>
             <ng-container *ngIf="!isEmpty(mpa)">
@@ -134,7 +134,7 @@
         <div (click)="vacio($event,'xpa')" class="visita">
             <ng-container *ngIf="isEmpty(xpa)">
                 <div>
-                    <div class="circulo">+</div>
+                  <button class="boton-circular b-amarillo" style="width: 3vw; height: 3vw;">+</button>
                 </div>
             </ng-container>
             <ng-container *ngIf="!isEmpty(xpa)">
@@ -147,7 +147,7 @@
         <div (click)="vacio($event,'jpa')" class="visita">
             <ng-container *ngIf="isEmpty(jpa)">
                 <div>
-                    <div class="circulo">+</div>
+                  <button class="boton-circular b-amarillo" style="width: 3vw; height: 3vw;">+</button>
                 </div>
             </ng-container>
             <ng-container *ngIf="!isEmpty(jpa)">
@@ -160,7 +160,7 @@
         <div (click)="vacio($event,'vpa')" class="visita">
             <ng-container *ngIf="isEmpty(vpa)">
                 <div>
-                    <div class="circulo">+</div>
+                  <button class="boton-circular b-amarillo" style="width: 3vw; height: 3vw;">+</button>
                 </div>
             </ng-container>
             <ng-container *ngIf="!isEmpty(vpa)">
@@ -183,8 +183,8 @@
             </div>
         </div>
     </div>
-    <div style="display: flex;">
-        <button class="estelaButton" [style.background-color]="estela ? '#caffc8' : '#faabab' " (click)="cambiarEstela()">{{estela ? "Estela ya te ha visitado esta semana" : "Estela aún no te ha visitado"}}</button>
-        <div style="text-align: right;width: 80%;"><button class="guardarButton" (click)="guardar()">Guardar</button></div>
+    <div class="flex-centered div-botones">
+        <button class="estelaButton" [style.border-color]="estela ? '#95E59B' : '#ade6e7' " [style.background-color]="estela ? '#CBF4C4' : '#d9f6f6' " (click)="cambiarEstela()">{{estela ? "Estela ya te ha visitado esta semana" : "Estela aún no te ha visitado"}}</button>
+        <button class="boton-imagen save" style="margin-bottom: 1vw;" (click)="guardar()"></button>
     </div>
 </div>
