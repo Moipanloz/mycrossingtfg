@@ -6,8 +6,8 @@
 }
 
 .boton-pag{
- background-color: red;
- justify-content: center;
+  width: 3vw;
+  height: 3vw;
 }
 
 .paginacion-content{
@@ -15,7 +15,6 @@
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-gap: 1vw;
-  background-color: green;
 }
 
 .item-list-wrap{
@@ -51,7 +50,7 @@ span{
 }
 
 .item-container {
-  background-color:aqua;
+  background-color:#ffefc4;
   display: flex;
   flex-direction: column;
   padding: 1.5vw;
@@ -77,8 +76,9 @@ span{
   position: relative;
 }
 
-.check-button-empty{
-  position: absolute;
+.boton-imagen{
+  width: 1.5vw;
+  height: 1.5vw;
 }
 
 #DIY{

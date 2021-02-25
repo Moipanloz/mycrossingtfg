@@ -113,4 +113,15 @@ export class ColeccionespComponent implements OnInit {
     }
   }
 
+  checkTieneItem(res : boolean){
+    let result : string;
+
+    if(res){
+      result = "url('../../../assets/images/check-rojo.png')";
+    }else{
+      result = "url('../../../assets/images/check-gris.png')";
+    }
+    return result;
+  }
+
 }

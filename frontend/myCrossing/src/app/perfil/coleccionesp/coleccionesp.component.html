@@ -10,19 +10,14 @@
 
 <div class="item-list-wrap flex-centered">
   <div class="boton-pag flex-column-centered" style="visibility: hidden;" #atras>
-    <button class="boton-pag" (click)="paginacionNavigation('atras')" > < </button>
+    <button class="boton-pag boton-circular b-verde" (click)="paginacionNavigation('atras')" > < </button>
   </div>
 
   <div class="paginacion-content">
     <ng-container *ngFor="let item of inventario | paginacion:page_number">
-      <div class="item-container"> <!-- si esta en la lista, añadir la clase en-lista-->
+      <div class="item-container">
         <div class="check-container">
-          <ng-container *ngIf="listaUsuario.includes(item); else noEnLista">
-            <button class="check-button-empty check-button-full" (click)="toggleCheck(item)">B</button>
-          </ng-container>
-          <ng-template #noEnLista>
-            <button class="check-button-empty" (click)="toggleCheck(item)">B</button>
-          </ng-template>
+          <button [style]="{'background-image': checkTieneItem(listaUsuario.includes(item))}" class="boton-imagen editar" (click)="toggleCheck(item)"></button>
         </div>
         <div class="item flex-column-centered">
           <img src="../../../assets/images/logo.png">
@@ -33,7 +28,7 @@
   </div>
 
   <div class="boton-pag flex-column-centered" style="visibility: visible;" #alante>
-    <button class="boton-pag" (click)="paginacionNavigation('alante')"> > </button>
+    <button class="boton-pag boton-circular b-verde" (click)="paginacionNavigation('alante')"> > </button>
   </div>
 </div>
 <span>Página {{page_number}}</span>

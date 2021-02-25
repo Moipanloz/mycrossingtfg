@@ -70,7 +70,9 @@
     position: fixed;
     border-style: solid;
     border-radius: 2vw;
-    background-color: burlywood;
+    border-color: #edd9a3;
+    border-width: 0.5vw;
+    background-color: #ffefc4;
 }
 .grid{
     display: grid;
