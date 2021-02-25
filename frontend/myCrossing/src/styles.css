@@ -26,13 +26,13 @@ body{
 }
 
 .popup-menu{
-  background-color: rgb(0, 0, 0 , 0.75);
+  background-color: #F7F3E8;
   height: auto;
   display: block;
   padding: 7%;
   border-radius: 15px;
-  color: white;
   font-size: 1.2vw;
+  box-shadow: 0px 0px 10px 1px rgb(23 23 23 / 55%);
 }
 
 .editar{
