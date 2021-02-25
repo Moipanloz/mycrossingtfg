@@ -97,7 +97,6 @@ export class MisvecinosComponent implements OnInit {
 
   abreMenu(event, vecino : Vecino, amistad : boolean){
     let coord = this.obtenPosicion(event);
-
     if(amistad){
       // Se ha hecho click en el boton de amistad
       if(this.vecinoMenu != null && this.vecinoMenu.vecino_id == vecino.vecino_id && this.menu.divAmistad.nativeElement.style.display == "block"){
@@ -169,11 +168,11 @@ export class MisvecinosComponent implements OnInit {
     this.exclude[index] = !this.exclude[index];
   }
 
-  checkColor(index : number){
+  checkExclude(index : number){
     if(this.exclude[index]){
-      return "red";
+      return "url('../../../assets/images/excluido-rojo.png')";
     }else{
-      return "green";
+      return "url('../../../assets/images/excluido-gris.png')";
     }
   }
 

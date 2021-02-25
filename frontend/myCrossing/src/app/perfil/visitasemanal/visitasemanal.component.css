@@ -16,11 +16,7 @@
 }
 
 .estelaButton{
-    cursor: pointer;
-    border-style: solid;
     width: 40%;
-    border-width: 0.3vw;
-    border-radius: 1vw;
     margin-bottom: 1vw;
 }
 .pasado, .cabeceraA, .presente{

@@ -1,9 +1,11 @@
-<div>
-  <button [hidden]="porcentajeMode" (click)="toggleMoveout()" style="margin-bottom: 1.5vw;">¿Quién será el próximo en irse?</button>
+<div style="display: flex; justify-content: flex-end;">
+  <button [hidden]="porcentajeMode" (click)="toggleMoveout()" class="boton-alargado b-azul" style="margin-bottom: 1.5vw;">¿Quién será el próximo en irse?</button>
 </div>
 
 <div [hidden]="!porcentajeMode" id="moveout-info" >
   <div>
+    <button class="editar boton-circular b-verde" id="close-menu" (click)="toggleMoveout()">x</button>
+
     <h4 class="centrado">¿Qué vecino será el próximo en mudarse?</h4>
     <h5>Aquí puedes calcular la probabilidad que tiene cada vecino de irse de tu isla</h5>
     <p>
@@ -33,9 +35,7 @@
     </p>
   </div>
   <div id="button-wrap">
-    <button class="centrado" (click)="calculaPorcentaje()">Calcular porcentaje</button>
-    <br>
-    <button id="close-menu" (click)="toggleMoveout()">^</button>
+    <button class="centrado boton-alargado b-verde" (click)="calculaPorcentaje()">Calcular porcentaje</button>
   </div>
 </div>
 
@@ -58,17 +58,15 @@
         <div class="contenedor-vecino" (mouseenter)="toggleVecino(vecino)">
           <img src="../../../assets/images/logo.png" class="icono" (click)="abreMenu($event, vecino, false)"> <!-- icono -->
           <div class="wrap-vecino">
-            <button [hidden]="!porcentajeMode" (click)="toggleExclude(data[0].indexOf(vecino))" [style]="{'background-color': checkColor(data[0].indexOf(vecino))}">
-              Ex
-            </button>
+            <button [hidden]="!porcentajeMode" (click)="toggleExclude(data[0].indexOf(vecino))" class="exclude-button" [style]="{'background-image': checkExclude(data[0].indexOf(vecino))}"></button>
             <span>{{vecino.vecino_id}}</span>
-            <button (click)="abreMenu($event, vecino, true)">
-              <span>{{vecino.amistad}}</span>
+            <button class="boton-imagen amistad" (click)="abreMenu($event, vecino, true)">
+              {{vecino.amistad}}
             </button>
           </div>
         </div>
 
-        <div [hidden]="!porcentajeMode" class="porcentaje">
+        <div [hidden]="!porcentajeMode" class="porcentaje b-azul">
           <ng-container *ngIf="this.porcentajes[this.data[0].indexOf(vecino)] != null; else excluido">
             <span>{{this.porcentajes[this.data[0].indexOf(vecino)] | number : '1.2-2'}}%</span>
           </ng-container>
@@ -83,7 +81,7 @@
     <ng-template #vacio>
       <div>
         <div class="contenedor-vecino">
-          <button class="boton-circular" id="añadir" (click)="abreMenu($event, null, false)">+</button>
+          <button class="boton-circular b-amarillo" id="añadir" (click)="abreMenu($event, null, false)">+</button>
         </div>
         <p [hidden]="!porcentajeMode" style="visibility: hidden;">%</p>
       </div>

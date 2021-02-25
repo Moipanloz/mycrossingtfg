@@ -1,5 +1,6 @@
 :host{
   position: absolute;
+  z-index: 2;
 }
 
 label {

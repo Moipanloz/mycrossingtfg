@@ -18,6 +18,13 @@ body{
   margin: 0 1vw;
 }
 
+.boton-alargado{
+  cursor: pointer;
+  border-style: solid;
+  border-width: 0.3vw;
+  border-radius: 1vw;
+}
+
 .popup-menu{
   background-color: rgb(0, 0, 0 , 0.75);
   height: auto;
@@ -41,8 +48,6 @@ body{
   cursor: pointer;
   background-repeat: no-repeat;
 }
-
-
 
 .editar-blanco{
   background-image: url("./assets/images/editar-blanco.png");
