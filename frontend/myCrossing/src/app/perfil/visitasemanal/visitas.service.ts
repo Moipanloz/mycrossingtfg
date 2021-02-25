@@ -23,13 +23,13 @@ export class VisitasService {
     return this.http.get<Visita[]>(this.url, {params: parametros});
   }
 
-  async updateVisitas(lpa:string, mpa:string, xpa:string, jpa:string, vpa:string, spa:string, dpa:string,
-     lpr:string, mpr:string, xpr:string, jpr:string, vpr:string, spr:string, dpr:string) : Promise<string>{
+  async updateVisitas(lpa:string, mpa:string, xpa:string, jpa:string, vpa:string,
+     lpr:string, mpr:string, xpr:string, jpr:string, vpr:string, estela:boolean) : Promise<string>{
     let parametros = new HttpParams()
       .set("command", "update")
       .set("verif", this.verification.verifCode)
       .set("userId", JSON.stringify(this.verification.user));
-    let visita:Visita = {usuario_id:null,lpa:lpa,mpa:mpa,xpa:xpa,jpa:jpa,vpa:vpa,spa:spa,dpa:dpa,lpr:lpr,mpr:mpr,xpr:xpr,jpr:jpr,vpr:vpr,spr:spr,dpr:dpr,last_update:null};
+    let visita:Visita = {usuario_id:null,estela:estela,lpa:lpa,mpa:mpa,xpa:xpa,jpa:jpa,vpa:vpa,lpr:lpr,mpr:mpr,xpr:xpr,jpr:jpr,vpr:vpr,last_update:null};
     return this.http.put<string>(this.url, visita, {params: parametros}).toPromise();
   }
   async createVisita() : Promise<void>{
@@ -44,7 +44,7 @@ export class VisitasService {
       .set("command", "set_fecha")
       .set("verif", this.verification.verifCode)
       .set("userId", JSON.stringify(this.verification.user));
-    let visita:Visita = {usuario_id:null,lpa:null,mpa:null,xpa:null,jpa:null,vpa:null,spa:null,dpa:null,lpr:null,mpr:null,xpr:null,jpr:null,vpr:null,spr:null,dpr:null,last_update:fecha};
+    let visita:Visita = {usuario_id:null,estela:null,lpa:null,mpa:null,xpa:null,jpa:null,vpa:null,lpr:null,mpr:null,xpr:null,jpr:null,vpr:null,last_update:fecha};
     return this.http.put<string>(this.url, visita, {params: parametros}).toPromise();
   }
 }

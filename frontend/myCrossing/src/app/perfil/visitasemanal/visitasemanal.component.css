@@ -11,8 +11,33 @@
     width: 100%;
     background-color: #b4c5ff;
 }
+.guardarButton{
+    cursor: pointer;
+    margin-right: 4vw;
+    margin-left: 10vw;
+    margin-bottom: 1vw;
+    width: 10vw;
+}
+.estelaButton{
+    cursor: pointer;
+    margin-left: 4vw;
+    margin-bottom: 1vw;
+    width: 100%;
+    border-style: solid;
+    border-radius: 1vw;
+    border-color: #d89238;
+
+}
 .pasado, .cabeceraA, .presente{
     display: flex;
+}
+.pasado{
+    margin-top: 1vw;
+    margin-bottom: 1.5vw;
+}
+.presente{
+    margin-bottom: 1.5vw;
+    margin-top: 0.5vw;
 }
 .cabeceraB{
     width: 100%;
@@ -20,9 +45,6 @@
     margin-top: 1vw;
     margin-left: 0.8vw;
     margin-right: 0.8vw;
-}
-.pasado{
-    margin-bottom: 1.5vw;
 }
 .visita{
     margin-left: 0.8vw;
@@ -95,10 +117,6 @@ img{
     font-size: 1vw;
     display: block;
     height: 100%;
-}
-.presente{
-    margin-top: 1vw;
-    margin-bottom: 2vw;
 }
 .notificacion{
     position: fixed;

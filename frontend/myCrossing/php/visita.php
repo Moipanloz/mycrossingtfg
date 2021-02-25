@@ -60,15 +60,12 @@ if(isset($_GET["command"])){
           $xpa = $request->xpa;
           $jpa = $request->jpa;
           $vpa = $request->vpa;
-          $spa = $request->spa;
-          $dpa = $request->dpa;
           $lpr = $request->lpr;
           $mpr = $request->mpr;
           $xpr = $request->xpr;
           $jpr = $request->jpr;
           $vpr = $request->vpr;
-          $spr = $request->spr;
-          $dpr = $request->dpr;
+          $estela = $request->estela;
 
           $error=TRUE;
           $error =  checkExisteUser($conn, $userId) &&
@@ -76,7 +73,7 @@ if(isset($_GET["command"])){
                     checkVerification($conn, $userId, $verifCode);
 
           if($error){
-            $sql = "UPDATE visitas SET lpa = '$lpa', mpa = '$mpa', xpa = '$xpa', jpa = '$jpa', vpa = '$vpa', spa = '$spa', dpa = '$dpa', lpr = '$lpr', mpr = '$mpr', xpr = '$xpr', jpr = '$jpr', vpr = '$vpr', spr = '$spr', dpr = '$dpr' WHERE usuario_id = $userId";
+            $sql = "UPDATE visitas SET lpa = '$lpa', mpa = '$mpa', xpa = '$xpa', jpa = '$jpa', vpa = '$vpa', lpr = '$lpr', mpr = '$mpr', xpr = '$xpr', jpr = '$jpr', vpr = '$vpr', estela = '$estela' WHERE usuario_id = $userId";
             $result = mysqli_query($conn,$sql);
             print(json_encode("Exito"));
           }else{
@@ -134,7 +131,7 @@ if(isset($_GET["command"])){
                   checkVerification($conn, $userId, $verifCode);
 
         if($error){
-          $sql = "INSERT INTO visitas(usuario_id, spa, dpa, spr, dpr) VALUES ($userId, 'Totakeke', 'Juliana', 'Totakeke', 'Juliana')";
+          $sql = "INSERT INTO visitas(usuario_id) VALUES ($userId)";
           $result = mysqli_query($conn,$sql);
           print(json_encode('Exito'));
         }else{
