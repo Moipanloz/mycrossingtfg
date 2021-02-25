@@ -2,17 +2,17 @@
     <div class="oscuro" (click)="hide=true" [style.visibility]="hide ? 'hidden': 'visible'"></div>
     <div class="panel" [style.visibility]="hide ? 'hidden': 'visible'">
         <div class="grid">
-            <button (click)="agrega('Alcatifa', alcatifa)" [style.opacity]="alcatifa ? '1': '0.4'" class="der">Alcatifa</button>
-            <button (click)="agrega('Betunio', betunio)" [style.opacity]="betunio ? '1': '0.4'" class="izq">Betunio</button>
-            <button (click)="agrega('Tili', tili)" [style.opacity]="tili ? '1': '0.4'" class="der">Tili</button>
-            <button (click)="agrega('Gandulio', gandulio)" [style.opacity]="gandulio ? '1': '0.4'" class="izq">Gandulio</button>
+            <button (click)="agrega('Alcatifa', alcatifa)" [style.opacity]="alcatifa ? '1': '0.4'" class="izq">Alcatifa</button>
+            <button (click)="agrega('Betunio', betunio)" [style.opacity]="betunio ? '1': '0.4'" class="der">Betunio</button>
+            <button (click)="agrega('Tili', tili)" [style.opacity]="tili ? '1': '0.4'" class="izq">Tili</button>
+            <button (click)="agrega('Gandulio', gandulio)" [style.opacity]="gandulio ? '1': '0.4'" class="der">Gandulio</button>
             <button (click)="agrega('Kamilo', kamilo)" [style.opacity]="kamilo ? '1': '0.4'" class="izq">Kamilo</button>
             <button (click)="agrega('CJ', cj)" [style.opacity]="cj ? '1': '0.4'" class="der">CJ</button>
             <button (click)="agrega('Gulliver', gulliver)" [style.opacity]="gulliver ? '1': '0.4'" class="izq">Gulliver</button>
             <button (click)="agrega('Gullivarrr', gullivarrr)" [style.opacity]="gullivarrr ? '1': '0.4'" class="der">Gullivarrr</button>
-            <button (click)="agrega('Ladino', ladino)" [style.opacity]="ladino ? '1': '0.4'" class="izq">Ladino</button>
+            <button style="margin-bottom: 0vw;" (click)="agrega('Ladino', ladino)" [style.opacity]="ladino ? '1': '0.4'" class="izq">Ladino</button>
+            <button style="margin-bottom: 0vw;" (click)="agrega('', true)" class="der">Mantener vacío</button>
         </div>
-        <button (click)="agrega('', true)" class="central">Mantener vacío</button>
     </div>
     <div class="notificacion" [style.visibility]="avisando ? 'visible': 'hidden'">{{aviso}}</div>
     <div class="cabeceraA">

@@ -67,7 +67,7 @@
     background-color: rgba(0, 0, 0, 0.644);
 }
 .panel{
-    top:20%;
+    top:25%;
     left:40%;
     padding: 2%;
     position: fixed;
@@ -80,19 +80,21 @@
 }
 .izq{
     grid-column: 1;
-    width: 10vw;
-    margin-bottom: 1vw;
+    width: 14vw;
+    margin-bottom: 2vw;
     font-size: 1.5vw;
 }
 .der{
     grid-column: 2;
-    width: 10vw;
+    width: 14vw;
     margin-left: 2vw;
-    margin-bottom: 1vw;
+    margin-bottom: 2vw;
     font-size: 1.5vw;
+    height: 3vw;
 }
 .image{
     width: 2vw;
+    height: 3vw;
     height: 3vw;
 }
 .circulo{
