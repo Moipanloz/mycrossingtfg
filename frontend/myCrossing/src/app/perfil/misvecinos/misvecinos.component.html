@@ -1,5 +1,5 @@
 <div style="display: flex; justify-content: flex-end;">
-  <button [hidden]="porcentajeMode" (click)="toggleMoveout()" class="boton-alargado b-azul" style="margin-bottom: 1.5vw;">¿Quién será el próximo en irse?</button>
+  <button [hidden]="porcentajeMode" (click)="toggleMoveout()" class="boton-alargado b-azul" style="margin-bottom: 1.5vw; font-size: 1.2vw;">¿Quién será el próximo en irse?</button>
 </div>
 
 <div [hidden]="!porcentajeMode" id="moveout-info" >
@@ -35,7 +35,7 @@
     </p>
   </div>
   <div id="button-wrap">
-    <button class="centrado boton-alargado b-verde" (click)="calculaPorcentaje()">Calcular porcentaje</button>
+    <button class="centrado boton-alargado b-verde" style="font-size: 1.2vw;" (click)="calculaPorcentaje()">Calcular porcentaje</button>
   </div>
 </div>
 
