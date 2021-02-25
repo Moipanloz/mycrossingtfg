@@ -44,14 +44,11 @@ export interface Visita{
   xpa: string;
   jpa: string;
   vpa: string;
-  spa: string;
-  dpa: string;
   lpr: string;
   mpr: string;
   xpr: string;
   jpr: string;
   vpr: string;
-  spr: string;
-  dpr: string;
+  estela: boolean;
   last_update: string;
 }

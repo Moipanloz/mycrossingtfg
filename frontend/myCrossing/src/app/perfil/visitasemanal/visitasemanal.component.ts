@@ -28,38 +28,28 @@ export class VisitasemanalComponent implements OnInit {
   avisando:boolean=false;
   aviso="No deberias ver esto";
 
-  totakeke=false;
-  juliana=false;
-  pili=true;
   alcatifa=true;
   betunio=true;
   tili=true;
   gandulio=true;
-  fauno=true;
   kamilo=true;
   cj=true;
   gulliver=true;
   gullivarrr=true;
   ladino=true;
-  pascal=true;
-  buh=true;
-  estela=true;
+  estela=false;
 
   lpa = null;
   mpa = null;
   xpa = null;
   jpa = null;
   vpa = null;
-  spa = 'Totakeke';
-  dpa = 'Juliana';
 
   lpr = null;
   mpr = null;
   xpr = null;
   jpr = null;
   vpr = null;
-  spr = 'Totakeke';
-  dpr = 'Juliana';
   ngOnInit(): void {
     this.verification.verify().then(() => {
       this.visitas.readVisitas().subscribe(data => {
@@ -71,15 +61,12 @@ export class VisitasemanalComponent implements OnInit {
           this.xpa=data[0]['xpa'];
           this.jpa=data[0]['jpa'];
           this.vpa=data[0]['vpa'];
-          this.spa=data[0]['spa'];
-          this.dpa=data[0]['dpa'];
           this.lpr=data[0]['lpr'];
           this.mpr=data[0]['mpr'];
           this.xpr=data[0]['xpr'];
           this.jpr=data[0]['jpr'];
           this.vpr=data[0]['vpr'];
-          this.spr=data[0]['spr'];
-          this.dpr=data[0]['dpr'];
+          this.estela=data[0]['estela'];
           if(this.isEmpty(data[0]['last_update'])){
             let hoy = new Date();
             this.visitas.setFecha(hoy.getTime().toString());
@@ -88,7 +75,7 @@ export class VisitasemanalComponent implements OnInit {
             let hoy = new Date();
             if(this.dayOfWeek(hoy)<this.dayOfWeek(lastUpdate) || (hoy.getTime()-lastUpdate.getTime()) / (1000 * 3600 * 24)>7){
               this.visitas.updateVisitas(this.lpr,this.mpr,this.xpr,this.jpr,this.vpr,
-                this.spr,this.dpr,null,null,null,null,null,'Totakeke','Juliana');
+                null,null,null,null,null, false);
                 this.visitas.setFecha(hoy.getTime().toString());
             }
           }
@@ -202,9 +189,6 @@ export class VisitasemanalComponent implements OnInit {
   negar(value: string):void {
     value = value.toLowerCase();
     switch(value){
-      case 'pili':
-        this.pili=false;
-        break;
       case 'alcatifa':
         this.alcatifa=false;
         break;
@@ -216,9 +200,6 @@ export class VisitasemanalComponent implements OnInit {
         break;
       case 'gandulio':
         this.gandulio=false;
-        break;
-      case 'fauno':
-        this.fauno=false;
         break;
       case 'kamilo':
         this.kamilo=false;
@@ -235,25 +216,17 @@ export class VisitasemanalComponent implements OnInit {
       case 'ladino':
         this.ladino=false;
         break;
-      case 'pascal':
-        this.pascal=false;
-        break;
-      case 'buh':
-        this.buh=false;
-        break;
-      case 'estela':
-        this.estela=false;
-        break;
       default:
         break;
     }
   }
+  cambiarEstela(){
+    this.estela=!this.estela;
+    this.modificado=true;
+  }
   aceptar(value: string):void {
     value = value.toLowerCase();
     switch(value){
-      case 'pili':
-        this.pili=true;
-        break;
       case 'alcatifa':
         this.alcatifa=true;
         break;
@@ -265,9 +238,6 @@ export class VisitasemanalComponent implements OnInit {
         break;
       case 'gandulio':
         this.gandulio=true;
-        break;
-      case 'fauno':
-        this.fauno=true;
         break;
       case 'kamilo':
         this.kamilo=true;
@@ -283,15 +253,6 @@ export class VisitasemanalComponent implements OnInit {
         break;
       case 'ladino':
         this.ladino=true;
-        break;
-      case 'pascal':
-        this.pascal=true;
-        break;
-      case 'buh':
-        this.buh=true;
-        break;
-      case 'estela':
-        this.estela=true;
         break;
       default:
         break;
@@ -363,20 +324,15 @@ export class VisitasemanalComponent implements OnInit {
     return conjunto;
   }
   setAllTrue(): void {
-    this.pili=true;
     this.alcatifa=true;
     this.betunio=true;
     this.tili=true;
     this.gandulio=true;
-    this.fauno=true;
     this.kamilo=true;
     this.cj=true;
     this.gulliver=true;
     this.gullivarrr=true;
     this.ladino=true;
-    this.pascal=true;
-    this.buh=true;
-    this.estela=true;
   }
   agrega(visitante:string, valido:boolean){
     if(valido){
@@ -398,12 +354,6 @@ export class VisitasemanalComponent implements OnInit {
         case 'vpa':
           this.vpa=visitante;
           break;
-        case 'spa':
-          this.spa=visitante;
-          break;
-        case 'dpa':
-          this.dpa=visitante;
-          break;
         case 'lpr':
           this.lpr=visitante;
           break;
@@ -419,12 +369,6 @@ export class VisitasemanalComponent implements OnInit {
         case 'vpr':
           this.vpr=visitante;
           break;
-        case 'spr':
-          this.spr=visitante;
-          break;
-        case 'dpr':
-          this.dpr=visitante;
-          break;
         default:
           console.log("Algo ha ido mal, no se reconoce el dia: " + this.modificando);
       }
@@ -435,8 +379,8 @@ export class VisitasemanalComponent implements OnInit {
     if(!this.modificado){
       return;
     }
-    let result=await this.visitas.updateVisitas(this.lpa,this.mpa,this.xpa,this.jpa,this.vpa,this.spa,this.dpa,
-      this.lpr,this.mpr,this.xpr,this.jpr,this.vpr,this.spr,this.dpr);
+    let result=await this.visitas.updateVisitas(this.lpa,this.mpa,this.xpa,this.jpa,this.vpa,
+      this.lpr,this.mpr,this.xpr,this.jpr,this.vpr, this.estela);
     if(result="Exito"){
       this.avisar("Guardado con éxito", 3);
       this.modificado=false;
