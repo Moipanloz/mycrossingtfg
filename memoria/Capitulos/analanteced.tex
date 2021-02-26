@@ -1,0 +1,58 @@
+\chapter{An\'alisis de antecedentes y aportaci\'on realizada}\label{analanteced}
+
+\section{Análisis de antecedentes}
+
+A continuación se mostrarán las herramientas a las que uno debería de acceder para obtener toda la información que pudiera necesitar sobre el juego:
+
+\subsection{Servicios de cálculo de nabos}
+
+En el videojuego \textit{Animal Crossing: New Horizons} hay implementado un mercado similar al de las acciones, pero con nabos. El precio de compra y el de venta, aunque limitados por un rango, varía cada semana. Esta funcionalidad es usada por los jugadores para amasar grandes fortunas comprando cientos de nabos y después, haciendo uso de servicios de cálculo y predicción de patrones de venta, venderlos cuando se pueda sacar el mayor beneficio.\\
+
+Muchos servicios se centran exclusivamente en esta función del cálculo de futuros patrones de venta, y además precisan de bastante información, al igual que en nuestro servicio, para poder realizar los cálculos necesarios para dar una aproximación cercana a la realidad.\\
+
+\figura{0.8}{img/cap3/nabos.jpg}{Turnip Prophet}{fig:turnipprophet}{}
+
+Este tipo de servicio lo proveen varias páginas web, como \href{https://turnipprophet.io/}{Turnip Prophet} {(v\'ease la figura~\ref{fig:turnipprophet})}, siendo esta la página mas conocida y con una interfaz más cercana al usuario, siguiendo un diseño similar a la estética del HUD de \textit{Animal Crossing: New Horizons}; o \href{https://artem6.github.io/acnh_turnips/}{Turnip Price Calculator}, la cual es una web un poco más técnica que ofrece varias gráficas en la que obtener información adicional sobre las probabilidades de los patrones de venta.\\
+
+Todos estos servicios web, incluido el nuestro, han podido hacer uso de dicha herramienta gracias al usuario \textit{\href{https://twitter.com/_Ninji/status/1244818665851289602?s=20}{Ninji}}, el cual analizó el código del videojuego para desarrollar un algoritmo que pudiera obtener la aproximación de los patrones de venta de la próxima semana.
+
+\subsection{Servicios de cálculo de probabilidades sobre mudanzas}
+
+En este videojuego existe la posibilidad de que tus vecinos decidan irse de tu isla. Esta funcionalidad, al igual que la de los nabos, sigue un algoritmo que se puede usar para calcular la probabilidad de que alguien se mude en un día en concreto, y si se da el caso, averiguar cuál es el vecino que tiene más probabilidades de mudarse.\\
+
+\figura{0.8}{img/cap3/mudanza.jpg}{Mudanza}{fig:mudanza}{}
+
+Para realizar esos cálculos existen varias páginas web {(v\'ease la figura~\ref{fig:mudanza})}, como puede ser \href{https://nookplaza.net/tools?tab=move_out}{NookPlaza}, la cual no solo ofrece la funcionalidad de calcular las mudanzas de vecinos, sino que además ofrece algunas pequeñas funcionalidades más. Otro ejemplo de este servicio sería \href{https://yuexr.github.io/villager-moveout-calculator/}{Yue's Move-Out Calculator}, donde además se puede calcular la probabilidad de mudanza en caso de que más de un jugador viva en la misma isla, añadiendo datos sobre cada jugador para realizar una media y obtener una predicción fiable.\\
+
+Al igual que con el algoritmo de los nabos, este servicio también ha sido desarrollado por el usuario \textit{Ninji}.
+
+\subsection{Nook’s Island}
+
+\figura{0.8}{img/cap3/nookisland.jpg}{Nook's Island}{fig:nookisland}{}
+
+En esta página podemos encontrar varios servicios a destacar. Para empezar, dispone de un mercado donde cualquier jugador puede poner a la venta artículos que no necesite y desee intercambiar por bienes dentro del juego. Asimismo, también pueden comprar productos que se encuentren anunciados. Todo el servicio del mercado es informativo, ya que la página no lleva un sistema de venta como tal, sino que solo informa a los usuarios y los pone en contacto para que sean ellos los que se reúnan de forma online en el videojuego y realicen la transacción. Gracias a este servicio, se puede contar con una gran interacción de la comunidad mediante la página web, lo que le da mucha vida.\\
+
+Esta es una funcionalidad que hemos decidido no añadir ya que hemos considerado que con el conjunto de herramientas que vamos a centralizar, estábamos realizando bastante trabajo y añadir una funcionalidad tan extensa como esta puede resultar demasiado ambicioso, ya que aunque siendo meramente informativo, habría que realizar algún tipo de conexión entre usuarios de forma que se pudiesen comunicar. Además, el objetivo de nuestro sistema era centralizar todas las herramientas que un usuario pueda necesitar a la hora de jugar de forma individual, como si de una enciclopedia con funcionalidades extra se tratase, por lo que no se busca la interacción entre usuarios. Sin embargo, no se descarta completamente en caso de que haya que aumentar el alcance del proyecto.\\
+
+Entre otras funcionalidades, Nook's Island cuenta también con un sistema para compartir Códigos de Sueño y Diseños personalizados, así como una enciclopedia de criaturas. Sin embargo, creemos que tanto el apartado visual como la accesibilidad de la web es bastante mejorable. Estas funciones estarán en nuestro sistema de una forma algo distinta, cambiando la información que se muestra de forma que lo más importante se encuentre a primera vista y los detalles menos importantes se queden en segundo plano. De esta forma se espera que el usuario pueda hacer uso de ellas de una forma más fácil e intuitiva.
+
+\section{Aportación realizada}
+
+Los servicios mostrados anteriormente no son los únicos que se pueden encontrar en Internet, hay una extensa cantidad de herramientas disponibles pero la mayoría se encuentran en sitios web distintos y algunas pueden llegar a ser algo confusas y poco intuitivas para el usuario.\\
+
+Para hacerle más fácil la búsqueda de información al usuario, nuestro proyecto centraliza varias de las herramientas existentes en un mismo sitio web, buscando obtener una interfaz sencilla y simple que pueda ser apta para todos los públicos, incluidos los más pequeños, ya que no hay que olvidar que este videojuego abarca un público bastante extenso.\\
+
+La centralización de las herramientas resulta en un ahorro de tiempo notable para los usuarios que busquen información de forma frecuente, además de dar a conocer aspectos del juego y funciones que puede que no conozcan del todo. De esta forma buscamos que les pueda ser útil para obtener ciertos objetos o hitos en el juego.\\
+
+Por último, hemos añadido una herramienta original (que a día de hoy no hemos conseguido encontrar en Internet): El Vestidor. Esta herramienta simula un vestidor de cualquier tienda de ropa, pero aplicada a las prendas del videojuego. Dispone de una interfaz que permite personalizar al personaje para que resulte lo más parecido al del usuario, o incluso probar nuevas combinaciones. De la misma forma, se puede vestir a dicho personaje con cualquier prenda que forme parte del videojuego.\\
+
+Pensamos que esta herramienta es bastante útil ya que de este modo, un usuario puede probar distintos estilos y prendas para ver cual le convence más sin necesidad de disponer del objeto dentro del videojuego. De esta forma se puede centrar en conseguir aquella prenda que le interese en vez de realizar un proceso de prueba y error adquiriendo ropa que no utilizará y gastando tiempo y recursos. Además, cuenta con filtros para que no solo la búsqueda sea mas sencilla, sino que pueda idear conjuntos de ropa de manera más fácil.
+
+
+
+
+
+
+
+
+ 

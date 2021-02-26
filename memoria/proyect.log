@@ -1,0 +1,1964 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.5.11)  26 FEB 2021 17:48
+entering extended mode
+**./proyect.tex
+(proyect.tex
+LaTeX2e <2020-02-02> patch level 5
+L3 programming layer <2020-04-06> (pclass.cls
+Document Class: pclass 2008/09/08 PFC class Universidad de Sevilla
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\book.cls"
+Document Class: book 2019/12/20 v1.4l Standard LaTeX document class
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\bk11.clo"
+File: bk11.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+)
+\c@part=\count167
+\c@chapter=\count168
+\c@section=\count169
+\c@subsection=\count170
+\c@subsubsection=\count171
+\c@paragraph=\count172
+\c@subparagraph=\count173
+\c@figure=\count174
+\c@table=\count175
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+)
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/geometry\geometry.
+sty"
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\keyval.st
+y"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/generic/iftex\ifvtex.sty
+"
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ ("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/generic/iftex\iftex.sty
+"
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+\Gm@cnth=\count176
+\Gm@cntv=\count177
+\c@Gm@tempcnt=\count178
+\Gm@bindingoffset=\dimen135
+\Gm@wd@mp=\dimen136
+\Gm@odd@mp=\dimen137
+\Gm@even@mp=\dimen138
+\Gm@layoutwidth=\dimen139
+\Gm@layoutheight=\dimen140
+\Gm@layouthoffset=\dimen141
+\Gm@layoutvoffset=\dimen142
+\Gm@dimlist=\toks16
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/geometry\geometry.
+cfg"))
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphicx.
+sty"
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphics.
+sty"
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\graph
+ics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-def\pdfte
+x.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen143
+\Gin@req@width=\dimen144
+) (amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip49
+
+For additional information on amsmath, use the `?' option.
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amstext.st
+y"
+Package: amstext 2000/06/29 v2.01 AMS text
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsgen.sty
+"
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks17
+\ex@=\dimen145
+)) (amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen146
+)
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsopn.sty
+"
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count179
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count180
+\leftroot@=\count181
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count182
+\DOTSCASE@=\count183
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box45
+\strutbox@=\box46
+\big@size=\dimen147
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+
+
+Package amsmath Warning: Unable to redefine math accent \hat.
+
+
+Package amsmath Warning: Unable to redefine math accent \check.
+
+
+Package amsmath Warning: Unable to redefine math accent \tilde.
+
+
+Package amsmath Warning: Unable to redefine math accent \acute.
+
+
+Package amsmath Warning: Unable to redefine math accent \grave.
+
+
+Package amsmath Warning: Unable to redefine math accent \dot.
+
+
+Package amsmath Warning: Unable to redefine math accent \ddot.
+
+
+Package amsmath Warning: Unable to redefine math accent \breve.
+
+
+Package amsmath Warning: Unable to redefine math accent \bar.
+
+
+Package amsmath Warning: Unable to redefine math accent \vec.
+
+
+Package amsmath Warning: Unable to redefine math accent \mathring.
+
+\macc@depth=\count184
+\c@MaxMatrixCols=\count185
+\dotsspace@=\muskip16
+\c@parentequation=\count186
+\dspbrk@lvl=\count187
+\tag@help=\toks18
+\row@=\count188
+\column@=\count189
+\maxfields@=\count190
+\andhelp@=\toks19
+\eqnshift@=\dimen148
+\alignsep@=\dimen149
+\tagshift@=\dimen150
+\tagwidth@=\dimen151
+\totwidth@=\dimen152
+\lineht@=\dimen153
+\@envbody=\toks20
+\multlinegap=\skip50
+\multlinetaggap=\skip51
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+) (amsthm.sty
+Package: amsthm 2004/08/06 v2.20
+\thm@style=\toks22
+\thm@bodyfont=\toks23
+\thm@headfont=\toks24
+\thm@notefont=\toks25
+\thm@headpunct=\toks26
+\thm@preskip=\skip52
+\thm@postskip=\skip53
+\thm@headsep=\skip54
+\dth@everypar=\toks27
+) (amssymb.sty
+Package: amssymb 2002/01/22 v2.2d
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\amsfonts.
+sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
+)
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/url\url.sty"
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\babel.sty"
+Package: babel 2020/03/22 3.42 The Babel package
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\switch.def
+"
+File: switch.def 2020/03/22 3.42 Babel switching mechanism
+)
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/arabi\bblopts.cfg"
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+) (spanish.ldf
+Language: spanish.ldf 2007/02/21 v5.0a Spanish support from the babel system
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\babel.def"
+File: babel.def 2020/03/22 3.42 Babel common definitions
+\babel@savecnt=\count191
+\U@D=\dimen154
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\txtbabel.d
+ef")
+\bbl@readstream=\read2
+\bbl@dirlevel=\count192
+)
+\es@datefmt=\count193
+\es@quottoks=\toks28
+\es@quotdepth=\count194
+Package babel Info: Making " an active character on input line 488.
+Package babel Info: Making . an active character on input line 581.
+Package babel Info: Making < an active character on input line 626.
+Package babel Info: Making > an active character on input line 626.
+Package babel Info: Making ' an active character on input line 652.
+))
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\helvet.sty"
+Package: helvet 2020/03/25 PSNFSS-v9.3 (WaS) 
+) (symbols.sty
+Package: symbols 2002/12/11 Personal macros for common math symbols
+\uni@fixwidth=\skip55
+\uni@truewidth=\skip56
+) (titlesec.sty
+Package: titlesec 2007/08/12 v2.8 Sectioning titles
+\ttl@box=\box47
+\beforetitleunit=\skip57
+\aftertitleunit=\skip58
+\ttl@plus=\dimen155
+\ttl@minus=\dimen156
+\ttl@toksa=\toks29
+\titlewidth=\dimen157
+\titlewidthlast=\dimen158
+\titlewidthfirst=\dimen159
+ (ttlps.def
+File: ttlps.def 2007/08/12
+)) (titletoc.sty
+Package: titletoc 2007/08/12 v1.6 TOC entries
+\ttl@leftsep=\dimen160
+) (tocbibind.sty
+Package: tocbibind 2003/03/13 v1.5g extra ToC listings
+
+
+Package tocbibind Note: The document has chapter divisions.
+
+
+Package tocbibind Note: Using chapter style headings, unless overridden.
+
+) (boxedminipage.sty) (multicol.sty
+Style option: `multicol' v1.4m <92/09/04> (FMi)
+English documentation          <92/09/04> (FMi)
+\mult@box=\box48
+\multicol@leftmargin=\dimen161
+\c@unbalance=\count195
+\c@collectmore=\count196
+\c@tracingmulticols=\count197
+\col@number=\count198
+\doublecol@number=\count199
+\multicoltolerance=\count266
+\multicolpretolerance=\count267
+\full@width=\dimen162
+\page@free=\dimen163
+\premulticols=\dimen164
+\postmulticols=\dimen165
+\multicolsep=\skip59
+\multicolbaselineskip=\skip60
+\partial@page=\box49
+\last@line=\box50
+)
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\color.sty
+"
+Package: color 2019/11/23 v1.2a Standard LaTeX Color (DPC)
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\color
+.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
+) (listings.sty
+\lst@mode=\count268
+\lst@gtempboxa=\box51
+\lst@token=\toks30
+\lst@length=\count269
+\lst@currlwidth=\dimen166
+\lst@column=\count270
+\lst@pos=\count271
+\lst@lostspace=\dimen167
+\lst@width=\dimen168
+\lst@newlines=\count272
+\lst@lineno=\count273
+\lst@maxwidth=\dimen169
+ (lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count274
+\lst@skipnumbers=\count275
+\lst@framebox=\box52
+) (listings.cfg
+File: listings.cfg 2007/02/22 1.4 listings configuration
+))
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
+ (apacite.sty
+Package: apacite 2013/07/21 v6.03 APA citation
+\c@BibCnt=\count276
+\bibleftmargin=\skip61
+\bibindent=\skip62
+\bibparsep=\skip63
+\bibitemsep=\skip64
+\biblabelsep=\skip65
+) (fancyhdr.sty
+\fancy@headwidth=\skip66
+\f@ncyO@elh=\skip67
+\f@ncyO@erh=\skip68
+\f@ncyO@olh=\skip69
+\f@ncyO@orh=\skip70
+\f@ncyO@elf=\skip71
+\f@ncyO@erf=\skip72
+\f@ncyO@olf=\skip73
+\f@ncyO@orf=\skip74
+) (block.tss
+File: block.tss 2007/08/12
+)
+\c@thm=\count277
+\c@defn=\count278
+)
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\inputenc.sty"
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks31
+\inpenc@posthook=\toks32
+)
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\hyperref.
+sty"
+Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/generic/ltxcmds\ltxcmds.
+sty"
+Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
+)
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pdftexcmds\pdftexc
+mds.sty"
+Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/generic/infwarerr\infwar
+err.sty"
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/generic/kvsetkeys\kvsetk
+eys.sty"
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+)
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/generic/kvdefinekeys\kvd
+efinekeys.sty"
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pdfescape\pdfesc
+ape.sty"
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+)
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hycolor\hycolor.st
+y"
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/letltxmacro\letltx
+macro.sty"
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/auxhook\auxhook.st
+y"
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/kvoptions\kvoption
+s.sty"
+Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
+)
+\@linkdim=\dimen170
+\Hy@linkcounter=\count279
+\Hy@pagecounter=\count280
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\pd1enc.de
+f"
+File: pd1enc.def 2020/01/14 v7.00d Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/generic/intcalc\intcalc.
+sty"
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/generic/etexcmds\etexcmd
+s.sty"
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count281
+Package hyperref Info: Hyper figures OFF on input line 4547.
+Package hyperref Info: Link nesting OFF on input line 4552.
+Package hyperref Info: Hyper index ON on input line 4555.
+Package hyperref Info: Plain pages OFF on input line 4562.
+Package hyperref Info: Backreferencing OFF on input line 4567.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4800.
+\c@Hy@tempcnt=\count282
+LaTeX Info: Redefining \url on input line 5159.
+\XeTeXLinkMargin=\dimen171
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/generic/bitset\bitset.st
+y"
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/generic/bigintcalc\bigin
+tcalc.sty"
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count283
+\Field@Width=\dimen172
+\Fld@charsize=\dimen173
+Package hyperref Info: Hyper figures OFF on input line 6430.
+Package hyperref Info: Link nesting OFF on input line 6435.
+Package hyperref Info: Hyper index ON on input line 6438.
+Package hyperref Info: backreferencing OFF on input line 6445.
+Package hyperref Info: Link coloring OFF on input line 6450.
+Package hyperref Info: Link coloring with OCG OFF on input line 6455.
+Package hyperref Info: PDF/A mode OFF on input line 6460.
+LaTeX Info: Redefining \ref on input line 6500.
+LaTeX Info: Redefining \pageref on input line 6504.
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/generic/atbegshi\atbegsh
+i.sty"
+Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
+)
+\Hy@abspage=\count284
+\c@Item=\count285
+\c@Hfootnote=\count286
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\hpdftex.d
+ef"
+File: hpdftex.def 2020/01/14 v7.00d Hyperref driver for pdfTeX
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/atveryend\atveryen
+d.sty"
+Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+)
+\Fld@listcount=\count287
+\c@bookmark@seq@number=\count288
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/rerunfilecheck\rer
+unfilecheck.sty"
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/generic/uniquecounter\un
+iquecounter.sty"
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+86.
+)
+\Hy@SectionHShift=\skip75
+)
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3backend\l3backen
+d-pdfmode.def"
+File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count289
+\l__pdf_internal_box=\box53
+) (proyect.aux
+
+LaTeX Warning: Label `pruebas' multiply defined.
+
+)
+\openout1 = `proyect.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 
+13.
+ ("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\ot1lmss.fd"
+File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(85.35826pt, 426.79135pt, 85.35826pt)
+* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=426.79135pt
+* \textheight=702.78308pt
+* \oddsidemargin=13.08827pt
+* \evensidemargin=13.08827pt
+* \topmargin=-33.0119pt
+* \headheight=12.0pt
+* \headsep=19.8738pt
+* \topskip=11.0pt
+* \footskip=27.46295pt
+* \marginparwidth=100.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-p
+df.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count290
+\scratchdimen=\dimen174
+\scratchbox=\box54
+\nofMPsegments=\count291
+\nofMParguments=\count292
+\everyMPshowfont=\toks33
+\MPscratchCnt=\count293
+\MPscratchDim=\dimen175
+\MPnumerator=\count294
+\makeMPintoPDFobject=\count295
+\everyMPtoPDFconversion=\toks34
+)
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/epstopdf-pkg\epsto
+pdf-base.sty"
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+)
+\c@lstlisting=\count296
+\c@maskedRefs=\count297
+ (spanish.apc
+File: spanish.apc 2013/07/21 v6.03 apacite language file
+LaTeX Info: Redefining \BPBI on input line 138.
+LaTeX Info: Redefining \BHBI on input line 139.
+)
+\AtBeginShipoutBox=\box55
+Package hyperref Info: Link coloring OFF on input line 13.
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\nameref.s
+ty"
+Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/refcount\refcount.
+sty"
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/generic/gettitlestring\g
+ettitlestring.sty"
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count298
+)
+LaTeX Info: Redefining \ref on input line 13.
+LaTeX Info: Redefining \pageref on input line 13.
+LaTeX Info: Redefining \nameref on input line 13.
+ (proyect.out) (proyect.out)
+\@outlinefile=\write3
+\openout3 = `proyect.out'.
+
+<img/us.jpg, id=191, 36.135pt x 36.135pt>
+File: img/us.jpg Graphic file (type jpg)
+<use img/us.jpg>
+Package pdftex.def Info: img/us.jpg  used on input line 22.
+(pdftex.def)             Requested size: 90.33722pt x 90.33722pt.
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 2
+2.
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1phv.fd"
+File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
+) [1
+
+
+{C:/Users/mretr/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./img/us.jp
+g>] (tocdef.tex) (resumen.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+
+ []
+
+) (agradecimientos.tex [1
+
+
+]) [2
+
+] (proyect.toc
+LaTeX Font Info:    Trying to load font information for U+msa on input line 9.
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 9.
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 9.
+
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ulasy.fd"
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+[3
+
+])
+\tf@toc=\write4
+\openout4 = `proyect.toc'.
+
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.26973pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[4] (proyect.lot)
+\tf@lot=\write5
+\openout5 = `proyect.lot'.
+
+ [5
+
+] (proyect.lof)
+\tf@lof=\write6
+\openout6 = `proyect.lof'.
+
+ [6
+
+] (proyect.lol)
+\tf@lol=\write7
+\openout7 = `proyect.lol'.
+
+ [7
+
+]
+(Capitulos/introduccion.tex
+Cap\'{\i }tulo 1.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+) (Capitulos/defobjetivos.texpdfTeX warning (ext4): destination with the same i
+dentifier (name{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1 \chapter
+            {Definici\'on de objetivos}\label{defobjetivos} [1
+
+
+]
+Cap\'{\i }tulo 2.
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--21
+
+ []
+
+[2
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 24--25
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--27
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 28--29
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 30--31
+
+ []
+
+) (Capitulos/analanteced.tex [3]
+Cap\'{\i }tulo 3.
+LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <10.95> not available
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 9.
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
+
+ []
+
+<img/cap3/nabos.jpg, id=339, 448.67625pt x 135.50626pt>
+File: img/cap3/nabos.jpg Graphic file (type jpg)
+<use img/cap3/nabos.jpg>
+Package pdftex.def Info: img/cap3/nabos.jpg  used on input line 13.
+(pdftex.def)             Requested size: 341.43437pt x 103.12021pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--16
+
+ []
+
+[4
+
+ <./img/cap3/nabos.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
+
+ []
+
+<img/cap3/mudanza.jpg, id=350, 450.483pt x 261.3765pt>
+File: img/cap3/mudanza.jpg Graphic file (type jpg)
+<use img/cap3/mudanza.jpg>
+Package pdftex.def Info: img/cap3/mudanza.jpg  used on input line 23.
+(pdftex.def)             Requested size: 341.43437pt x 198.10977pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--26
+
+ []
+
+<img/cap3/nookisland.jpg, id=354, 449.88075pt x 191.5155pt>
+File: img/cap3/nookisland.jpg Graphic file (type jpg)
+<use img/cap3/nookisland.jpg>
+Package pdftex.def Info: img/cap3/nookisland.jpg  used on input line 31.
+(pdftex.def)             Requested size: 341.43437pt x 145.34871pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--34
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--36
+
+ []
+
+[5 <./img/cap3/mudanza.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 41--42
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--44
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--48
+
+ []
+
+[6 <./img/cap3/nookisland.jpg>]) (Capitulos/analtemporal.tex [7]
+Cap\'{\i }tulo 4.
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--14
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--16
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--18
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
+
+ []
+
+[8
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--26
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--30
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
+
+ []
+
+<img/cap4/analisistiempo.jpg, id=372, 457.71pt x 250.536pt>
+File: img/cap4/analisistiempo.jpg Graphic file (type jpg)
+<use img/cap4/analisistiempo.jpg>
+Package pdftex.def Info: img/cap4/analisistiempo.jpg  used on input line 36.
+(pdftex.def)             Requested size: 426.79135pt x 233.61917pt.
+
+Overfull \hbox (125.28139pt too wide) in paragraph at lines 35--45
+[]\OT1/lmss/m/n/10.95 //TODO cam-biar ta-bla []
+ []
+
+LaTeX Font Info:    Trying to load font information for TS1+lmss on input line 
+52.
+("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\ts1lmss.fd"
+File: ts1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
+
+ []
+
+[9 <./img/cap4/analisistiempo.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 58--59
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--67
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--71
+
+ []
+
+<img/cap4/equipos.jpg, id=378, 455.90324pt x 152.36925pt>
+File: img/cap4/equipos.jpg Graphic file (type jpg)
+<use img/cap4/equipos.jpg>
+Package pdftex.def Info: img/cap4/equipos.jpg  used on input line 72.
+(pdftex.def)             Requested size: 426.79135pt x 142.64586pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 72--73
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
+
+ []
+
+<img/cap4/moviles.jpg, id=379, 455.301pt x 77.69025pt>
+File: img/cap4/moviles.jpg Graphic file (type jpg)
+<use img/cap4/moviles.jpg>
+Package pdftex.def Info: img/cap4/moviles.jpg  used on input line 78.
+(pdftex.def)             Requested size: 426.79135pt x 72.82729pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 78--79
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--84
+
+ []
+
+) (Capitulos/requisitos.tex [10 <./img/cap4/equipos.jpg> <./img/cap4/moviles.jp
+g>]
+Cap\'{\i }tulo 5.
+<img/cap5/participantes/1.png, id=384, 907.89188pt x 227.34938pt>
+File: img/cap5/participantes/1.png Graphic file (type png)
+<use img/cap5/participantes/1.png>
+Package pdftex.def Info: img/cap5/participantes/1.png  used on input line 7.
+(pdftex.def)             Requested size: 426.79135pt x 106.87503pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 7--8
+[][] 
+ []
+
+<img/cap5/participantes/2.png, id=386, 907.13907pt x 153.57375pt>
+File: img/cap5/participantes/2.png Graphic file (type png)
+<use img/cap5/participantes/2.png>
+Package pdftex.def Info: img/cap5/participantes/2.png  used on input line 11.
+(pdftex.def)             Requested size: 426.79135pt x 72.2523pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 11--12
+[][] 
+ []
+
+<img/cap5/participantes/3.png, id=387, 908.64468pt x 152.06813pt>
+File: img/cap5/participantes/3.png Graphic file (type png)
+<use img/cap5/participantes/3.png>
+Package pdftex.def Info: img/cap5/participantes/3.png  used on input line 15.
+(pdftex.def)             Requested size: 426.79135pt x 71.42561pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 15--16
+[][] 
+ []
+
+<img/cap5/participantes/4.png, id=388, 906.38625pt x 151.3153pt>
+File: img/cap5/participantes/4.png Graphic file (type png)
+<use img/cap5/participantes/4.png>
+Package pdftex.def Info: img/cap5/participantes/4.png  used on input line 19.
+(pdftex.def)             Requested size: 426.79135pt x 71.2498pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 19--20
+[][] 
+ []
+
+<img/cap5/IR/1.png, id=389, 909.3975pt x 263.48438pt>
+File: img/cap5/IR/1.png Graphic file (type png)
+<use img/cap5/IR/1.png>
+Package pdftex.def Info: img/cap5/IR/1.png  used on input line 30.
+(pdftex.def)             Requested size: 426.79135pt x 123.65674pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 30--31
+[][] 
+ []
+
+[11
+
+ <./img/cap5/participantes/1.png> <./img/cap5/participantes/2.png> <./img/cap5/
+participantes/3.png> <./img/cap5/participantes/4.png>]
+<img/cap5/IR/2.png, id=399, 909.3975pt x 292.09125pt>
+File: img/cap5/IR/2.png Graphic file (type png)
+<use img/cap5/IR/2.png>
+Package pdftex.def Info: img/cap5/IR/2.png  used on input line 34.
+(pdftex.def)             Requested size: 426.79135pt x 137.08232pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 34--35
+[][] 
+ []
+
+<img/cap5/IR/3.png, id=400, 908.64468pt x 292.09125pt>
+File: img/cap5/IR/3.png Graphic file (type png)
+<use img/cap5/IR/3.png>
+Package pdftex.def Info: img/cap5/IR/3.png  used on input line 38.
+(pdftex.def)             Requested size: 426.79135pt x 137.19376pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 38--39
+[][] 
+ []
+
+<img/cap5/IR/4.png, id=401, 909.3975pt x 207.02344pt>
+File: img/cap5/IR/4.png Graphic file (type png)
+<use img/cap5/IR/4.png>
+Package pdftex.def Info: img/cap5/IR/4.png  used on input line 42.
+(pdftex.def)             Requested size: 426.79135pt x 97.15886pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 42--43
+[][] 
+ []
+
+<img/cap5/IR/5.png, id=402, 909.3975pt x 204.765pt>
+File: img/cap5/IR/5.png Graphic file (type png)
+<use img/cap5/IR/5.png>
+Package pdftex.def Info: img/cap5/IR/5.png  used on input line 46.
+(pdftex.def)             Requested size: 426.79135pt x 96.09895pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 46--47
+[][] 
+ []
+
+<img/cap5/IR/6.png, id=403, 910.15031pt x 322.20375pt>
+File: img/cap5/IR/6.png Graphic file (type png)
+<use img/cap5/IR/6.png>
+Package pdftex.def Info: img/cap5/IR/6.png  used on input line 50.
+(pdftex.def)             Requested size: 426.79135pt x 151.09163pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 50--51
+[][] 
+ []
+
+[12 <./img/cap5/IR/1.png> <./img/cap5/IR/2.png> <./img/cap5/IR/3.png> <./img/ca
+p5/IR/4.png> <./img/cap5/IR/5.png>]
+<img/cap5/IR/7.png, id=413, 910.15031pt x 204.01219pt>
+File: img/cap5/IR/7.png Graphic file (type png)
+<use img/cap5/IR/7.png>
+Package pdftex.def Info: img/cap5/IR/7.png  used on input line 54.
+(pdftex.def)             Requested size: 426.79135pt x 95.66783pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 54--55
+[][] 
+ []
+
+<img/cap5/IR/8.png, id=414, 909.3975pt x 292.84406pt>
+File: img/cap5/IR/8.png Graphic file (type png)
+<use img/cap5/IR/8.png>
+Package pdftex.def Info: img/cap5/IR/8.png  used on input line 58.
+(pdftex.def)             Requested size: 426.79135pt x 137.43564pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 58--59
+[][] 
+ []
+
+<img/cap5/IR/9.png, id=415, 910.90312pt x 380.92313pt>
+File: img/cap5/IR/9.png Graphic file (type png)
+<use img/cap5/IR/9.png>
+Package pdftex.def Info: img/cap5/IR/9.png  used on input line 62.
+(pdftex.def)             Requested size: 426.79135pt x 178.47589pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 62--63
+[][] 
+ []
+
+<img/cap5/IR/10.png, id=416, 908.64468pt x 263.48438pt>
+File: img/cap5/IR/10.png Graphic file (type png)
+<use img/cap5/IR/10.png>
+Package pdftex.def Info: img/cap5/IR/10.png  used on input line 66.
+(pdftex.def)             Requested size: 426.79135pt x 123.75725pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 66--67
+[][] 
+ []
+
+[13 <./img/cap5/IR/6.png> <./img/cap5/IR/7.png> <./img/cap5/IR/8.png> <./img/ca
+p5/IR/9.png>]
+<img/cap5/FR/1.png, id=425, 910.15031pt x 118.19156pt>
+File: img/cap5/FR/1.png Graphic file (type png)
+<use img/cap5/FR/1.png>
+Package pdftex.def Info: img/cap5/FR/1.png  used on input line 72.
+(pdftex.def)             Requested size: 426.79135pt x 55.4238pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 72--73
+[][] 
+ []
+
+<img/cap5/FR/2.png, id=426, 909.3975pt x 116.68594pt>
+File: img/cap5/FR/2.png Graphic file (type png)
+<use img/cap5/FR/2.png>
+Package pdftex.def Info: img/cap5/FR/2.png  used on input line 76.
+(pdftex.def)             Requested size: 426.79135pt x 54.76227pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 76--77
+[][] 
+ []
+
+<img/cap5/FR/3.png, id=427, 909.3975pt x 116.68594pt>
+File: img/cap5/FR/3.png Graphic file (type png)
+<use img/cap5/FR/3.png>
+Package pdftex.def Info: img/cap5/FR/3.png  used on input line 80.
+(pdftex.def)             Requested size: 426.79135pt x 54.76227pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 80--81
+[][] 
+ []
+
+<img/cap5/FR/4.png, id=428, 909.3975pt x 117.43875pt>
+File: img/cap5/FR/4.png Graphic file (type png)
+<use img/cap5/FR/4.png>
+Package pdftex.def Info: img/cap5/FR/4.png  used on input line 84.
+(pdftex.def)             Requested size: 426.79135pt x 55.11557pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 84--85
+[][] 
+ []
+
+<img/cap5/FR/5.png, id=429, 909.3975pt x 117.43875pt>
+File: img/cap5/FR/5.png Graphic file (type png)
+<use img/cap5/FR/5.png>
+Package pdftex.def Info: img/cap5/FR/5.png  used on input line 88.
+(pdftex.def)             Requested size: 426.79135pt x 55.11557pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 88--89
+[][] 
+ []
+
+<img/cap5/FR/6.png, id=430, 909.3975pt x 116.68594pt>
+File: img/cap5/FR/6.png Graphic file (type png)
+<use img/cap5/FR/6.png>
+Package pdftex.def Info: img/cap5/FR/6.png  used on input line 92.
+(pdftex.def)             Requested size: 426.79135pt x 54.76227pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 92--93
+[][] 
+ []
+
+<img/cap5/FR/7.png, id=431, 909.3975pt x 116.68594pt>
+File: img/cap5/FR/7.png Graphic file (type png)
+<use img/cap5/FR/7.png>
+Package pdftex.def Info: img/cap5/FR/7.png  used on input line 96.
+(pdftex.def)             Requested size: 426.79135pt x 54.76227pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 96--97
+[][] 
+ []
+
+<img/cap5/FR/8.png, id=432, 910.15031pt x 116.68594pt>
+File: img/cap5/FR/8.png Graphic file (type png)
+<use img/cap5/FR/8.png>
+Package pdftex.def Info: img/cap5/FR/8.png  used on input line 100.
+(pdftex.def)             Requested size: 426.79135pt x 54.71776pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 100--101
+[][] 
+ []
+
+<img/cap5/FR/9.png, id=433, 907.13907pt x 116.68594pt>
+File: img/cap5/FR/9.png Graphic file (type png)
+<use img/cap5/FR/9.png>
+Package pdftex.def Info: img/cap5/FR/9.png  used on input line 104.
+(pdftex.def)             Requested size: 426.79135pt x 54.89758pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 104--105
+[][] 
+ []
+
+[14 <./img/cap5/IR/10.png> <./img/cap5/FR/1.png> <./img/cap5/FR/2.png> <./img/c
+ap5/FR/3.png> <./img/cap5/FR/4.png> <./img/cap5/FR/5.png> <./img/cap5/FR/6.png>
+ <./img/cap5/FR/7.png> <./img/cap5/FR/8.png>]
+<img/cap5/FR/10.png, id=447, 909.3975pt x 118.19156pt>
+File: img/cap5/FR/10.png Graphic file (type png)
+<use img/cap5/FR/10.png>
+Package pdftex.def Info: img/cap5/FR/10.png  used on input line 108.
+(pdftex.def)             Requested size: 426.79135pt x 55.46887pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 108--109
+[][] 
+ []
+
+<img/cap5/FR/11.png, id=448, 909.3975pt x 116.68594pt>
+File: img/cap5/FR/11.png Graphic file (type png)
+<use img/cap5/FR/11.png>
+Package pdftex.def Info: img/cap5/FR/11.png  used on input line 112.
+(pdftex.def)             Requested size: 426.79135pt x 54.76227pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 112--113
+[][] 
+ []
+
+<img/cap5/FR/12.png, id=449, 908.64468pt x 117.43875pt>
+File: img/cap5/FR/12.png Graphic file (type png)
+<use img/cap5/FR/12.png>
+Package pdftex.def Info: img/cap5/FR/12.png  used on input line 116.
+(pdftex.def)             Requested size: 426.79135pt x 55.16037pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 116--117
+[][] 
+ []
+
+<img/cap5/FR/13.png, id=450, 908.64468pt x 115.18031pt>
+File: img/cap5/FR/13.png Graphic file (type png)
+<use img/cap5/FR/13.png>
+Package pdftex.def Info: img/cap5/FR/13.png  used on input line 120.
+(pdftex.def)             Requested size: 426.79135pt x 54.0996pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 120--121
+[][] 
+ []
+
+<img/cap5/FR/14.png, id=451, 909.3975pt x 118.94438pt>
+File: img/cap5/FR/14.png Graphic file (type png)
+<use img/cap5/FR/14.png>
+Package pdftex.def Info: img/cap5/FR/14.png  used on input line 124.
+(pdftex.def)             Requested size: 426.79135pt x 55.82217pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 124--125
+[][] 
+ []
+
+<img/cap5/FR/15.png, id=452, 909.3975pt x 153.57375pt>
+File: img/cap5/FR/15.png Graphic file (type png)
+<use img/cap5/FR/15.png>
+Package pdftex.def Info: img/cap5/FR/15.png  used on input line 128.
+(pdftex.def)             Requested size: 426.79135pt x 72.0742pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 128--129
+[][] 
+ []
+
+<img/cap5/FR/16.png, id=453, 909.3975pt x 116.68594pt>
+File: img/cap5/FR/16.png Graphic file (type png)
+<use img/cap5/FR/16.png>
+Package pdftex.def Info: img/cap5/FR/16.png  used on input line 132.
+(pdftex.def)             Requested size: 426.79135pt x 54.76227pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 132--133
+[][] 
+ []
+
+<img/cap5/FR/17.png, id=454, 907.89188pt x 116.68594pt>
+File: img/cap5/FR/17.png Graphic file (type png)
+<use img/cap5/FR/17.png>
+Package pdftex.def Info: img/cap5/FR/17.png  used on input line 136.
+(pdftex.def)             Requested size: 426.79135pt x 54.85307pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 136--137
+[][] 
+ []
+
+<img/cap5/FR/18.png, id=455, 909.3975pt x 116.68594pt>
+File: img/cap5/FR/18.png Graphic file (type png)
+<use img/cap5/FR/18.png>
+Package pdftex.def Info: img/cap5/FR/18.png  used on input line 140.
+(pdftex.def)             Requested size: 426.79135pt x 54.76227pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 140--141
+[][] 
+ []
+
+<img/cap5/FR/19.png, id=456, 907.89188pt x 116.68594pt>
+File: img/cap5/FR/19.png Graphic file (type png)
+<use img/cap5/FR/19.png>
+Package pdftex.def Info: img/cap5/FR/19.png  used on input line 144.
+(pdftex.def)             Requested size: 426.79135pt x 54.85307pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 144--145
+[][] 
+ []
+
+[15 <./img/cap5/FR/9.png> <./img/cap5/FR/10.png> <./img/cap5/FR/11.png> <./img/
+cap5/FR/12.png> <./img/cap5/FR/13.png> <./img/cap5/FR/14.png> <./img/cap5/FR/15
+.png> <./img/cap5/FR/16.png> <./img/cap5/FR/17.png> <./img/cap5/FR/18.png>]
+<img/cap5/FR/20.png, id=471, 908.64468pt x 115.18031pt>
+File: img/cap5/FR/20.png Graphic file (type png)
+<use img/cap5/FR/20.png>
+Package pdftex.def Info: img/cap5/FR/20.png  used on input line 148.
+(pdftex.def)             Requested size: 426.79135pt x 54.0996pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 148--149
+[][] 
+ []
+
+<img/cap5/FR/21.png, id=472, 907.89188pt x 153.57375pt>
+File: img/cap5/FR/21.png Graphic file (type png)
+<use img/cap5/FR/21.png>
+Package pdftex.def Info: img/cap5/FR/21.png  used on input line 152.
+(pdftex.def)             Requested size: 426.79135pt x 72.19373pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 152--153
+[][] 
+ []
+
+<img/cap5/FR/22.png, id=473, 908.64468pt x 154.32657pt>
+File: img/cap5/FR/22.png Graphic file (type png)
+<use img/cap5/FR/22.png>
+Package pdftex.def Info: img/cap5/FR/22.png  used on input line 156.
+(pdftex.def)             Requested size: 426.79135pt x 72.48639pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 156--157
+[][] 
+ []
+
+<img/cap5/FR/23.png, id=474, 908.64468pt x 155.07938pt>
+File: img/cap5/FR/23.png Graphic file (type png)
+<use img/cap5/FR/23.png>
+Package pdftex.def Info: img/cap5/FR/23.png  used on input line 160.
+(pdftex.def)             Requested size: 426.79135pt x 72.83998pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 160--161
+[][] 
+ []
+
+<img/cap5/FR/24.png, id=475, 909.3975pt x 153.57375pt>
+File: img/cap5/FR/24.png Graphic file (type png)
+<use img/cap5/FR/24.png>
+Package pdftex.def Info: img/cap5/FR/24.png  used on input line 164.
+(pdftex.def)             Requested size: 426.79135pt x 72.0742pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 164--165
+[][] 
+ []
+
+<img/cap5/FR/25.png, id=476, 907.89188pt x 152.82094pt>
+File: img/cap5/FR/25.png Graphic file (type png)
+<use img/cap5/FR/25.png>
+Package pdftex.def Info: img/cap5/FR/25.png  used on input line 168.
+(pdftex.def)             Requested size: 426.79135pt x 71.83983pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 168--169
+[][] 
+ []
+
+<img/cap5/FR/26.png, id=477, 908.64468pt x 155.83218pt>
+File: img/cap5/FR/26.png Graphic file (type png)
+<use img/cap5/FR/26.png>
+Package pdftex.def Info: img/cap5/FR/26.png  used on input line 172.
+(pdftex.def)             Requested size: 426.79135pt x 73.19357pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 172--173
+[][] 
+ []
+
+<img/cap5/FR/27.png, id=478, 909.3975pt x 115.93312pt>
+File: img/cap5/FR/27.png Graphic file (type png)
+<use img/cap5/FR/27.png>
+Package pdftex.def Info: img/cap5/FR/27.png  used on input line 176.
+(pdftex.def)             Requested size: 426.79135pt x 54.40897pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 176--177
+[][] 
+ []
+
+<img/cap5/FR/28.png, id=479, 907.89188pt x 115.18031pt>
+File: img/cap5/FR/28.png Graphic file (type png)
+<use img/cap5/FR/28.png>
+Package pdftex.def Info: img/cap5/FR/28.png  used on input line 180.
+(pdftex.def)             Requested size: 426.79135pt x 54.14528pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 180--181
+[][] 
+ []
+
+[16 <./img/cap5/FR/19.png> <./img/cap5/FR/20.png> <./img/cap5/FR/21.png> <./img
+/cap5/FR/22.png> <./img/cap5/FR/23.png> <./img/cap5/FR/24.png> <./img/cap5/FR/2
+5.png> <./img/cap5/FR/26.png> <./img/cap5/FR/27.png>]
+<img/cap5/FR/29.png, id=493, 908.64468pt x 155.83218pt>
+File: img/cap5/FR/29.png Graphic file (type png)
+<use img/cap5/FR/29.png>
+Package pdftex.def Info: img/cap5/FR/29.png  used on input line 184.
+(pdftex.def)             Requested size: 426.79135pt x 73.19357pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 184--185
+[][] 
+ []
+
+<img/cap5/FR/30.png, id=494, 909.3975pt x 115.93312pt>
+File: img/cap5/FR/30.png Graphic file (type png)
+<use img/cap5/FR/30.png>
+Package pdftex.def Info: img/cap5/FR/30.png  used on input line 188.
+(pdftex.def)             Requested size: 426.79135pt x 54.40897pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 188--189
+[][] 
+ []
+
+<img/cap5/NFR/1.png, id=495, 908.64468pt x 115.18031pt>
+File: img/cap5/NFR/1.png Graphic file (type png)
+<use img/cap5/NFR/1.png>
+Package pdftex.def Info: img/cap5/NFR/1.png  used on input line 194.
+(pdftex.def)             Requested size: 426.79135pt x 54.0996pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 194--195
+[][] 
+ []
+
+<img/cap5/NFR/2.png, id=496, 908.64468pt x 115.93312pt>
+File: img/cap5/NFR/2.png Graphic file (type png)
+<use img/cap5/NFR/2.png>
+Package pdftex.def Info: img/cap5/NFR/2.png  used on input line 198.
+(pdftex.def)             Requested size: 426.79135pt x 54.45319pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 198--199
+[][] 
+ []
+
+<img/cap5/diagramaclases/enums.jpg, id=497, 389.65575pt x 531.78674pt>
+File: img/cap5/diagramaclases/enums.jpg Graphic file (type jpg)
+<use img/cap5/diagramaclases/enums.jpg>
+Package pdftex.def Info: img/cap5/diagramaclases/enums.jpg  used on input line 
+208.
+(pdftex.def)             Requested size: 426.79135pt x 582.50856pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 208--209
+[][] 
+ []
+
+[17 <./img/cap5/FR/28.png> <./img/cap5/FR/29.png> <./img/cap5/FR/30.png> <./img
+/cap5/NFR/1.png> <./img/cap5/NFR/2.png>]
+<img/cap5/diagramaclases/museo.jpg, id=508, 651.03226pt x 525.162pt>
+File: img/cap5/diagramaclases/museo.jpg Graphic file (type jpg)
+<use img/cap5/diagramaclases/museo.jpg>
+Package pdftex.def Info: img/cap5/diagramaclases/museo.jpg  used on input line 
+220.
+(pdftex.def)             Requested size: 426.79135pt x 344.28413pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 220--221
+[][] 
+ []
+
+[18 <./img/cap5/diagramaclases/enums.jpg>]
+<img/cap5/diagramaclases/catalogo.jpg, id=513, 426.99525pt x 430.60875pt>
+File: img/cap5/diagramaclases/catalogo.jpg Graphic file (type jpg)
+<use img/cap5/diagramaclases/catalogo.jpg>
+Package pdftex.def Info: img/cap5/diagramaclases/catalogo.jpg  used on input li
+ne 228.
+(pdftex.def)             Requested size: 426.79135pt x 430.42369pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 228--229
+[][] 
+ []
+
+[19 <./img/cap5/diagramaclases/museo.jpg>]
+<img/cap5/diagramaclases/usuario.jpg, id=518, 737.75626pt x 372.79276pt>
+File: img/cap5/diagramaclases/usuario.jpg Graphic file (type jpg)
+<use img/cap5/diagramaclases/usuario.jpg>
+Package pdftex.def Info: img/cap5/diagramaclases/usuario.jpg  used on input lin
+e 236.
+(pdftex.def)             Requested size: 426.79135pt x 215.6568pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 236--237
+[][] 
+ []
+
+[20 <./img/cap5/diagramaclases/catalogo.jpg> <./img/cap5/diagramaclases/usuario
+.jpg>]
+<img/cap5/diagramaclases/evento.jpg, id=523, 128.8815pt x 146.949pt>
+File: img/cap5/diagramaclases/evento.jpg Graphic file (type jpg)
+<use img/cap5/diagramaclases/evento.jpg>
+Package pdftex.def Info: img/cap5/diagramaclases/evento.jpg  used on input line
+ 245.
+(pdftex.def)             Requested size: 170.71652pt x 194.65717pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 249--250
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 251--252
+
+ []
+
+<img/mockups/Inicio - 1.png, id=525, 594.72188pt x 861.2175pt>
+File: img/mockups/Inicio - 1.png Graphic file (type png)
+<use img/mockups/Inicio - 1.png>
+Package pdftex.def Info: img/mockups/Inicio - 1.png  used on input line 253.
+(pdftex.def)             Requested size: 341.43437pt x 494.42088pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
+
+ []
+
+<img/mockups/Inicio - 2.png, id=528, 596.98032pt x 581.17125pt>
+File: img/mockups/Inicio - 2.png Graphic file (type png)
+<use img/mockups/Inicio - 2.png>
+Package pdftex.def Info: img/mockups/Inicio - 2.png  used on input line 258.
+(pdftex.def)             Requested size: 341.43437pt x 332.39728pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 260--261
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--263
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 264--265
+
+ []
+
+[21 <./img/cap5/diagramaclases/evento.jpg>] [22 <./img/mockups/Inicio - 1.png>]
+[23 <./img/mockups/Inicio - 2.png>]
+<img/mockups/Listado.png, id=545, 694.09312pt x 678.28406pt>
+File: img/mockups/Listado.png Graphic file (type png)
+<use img/mockups/Listado.png>
+Package pdftex.def Info: img/mockups/Listado.png  used on input line 266.
+(pdftex.def)             Requested size: 426.79135pt x 417.0853pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 268--269
+
+ []
+
+<img/mockups/Eventos - 1.png, id=547, 904.1278pt x 628.59843pt>
+File: img/mockups/Eventos - 1.png Graphic file (type png)
+<use img/mockups/Eventos - 1.png>
+Package pdftex.def Info: img/mockups/Eventos - 1.png  used on input line 270.
+(pdftex.def)             Requested size: 341.43437pt x 237.38318pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 272--273
+
+ []
+
+<img/mockups/Eventos - 2.png, id=549, 780.66656pt x 536.75531pt>
+File: img/mockups/Eventos - 2.png Graphic file (type png)
+<use img/mockups/Eventos - 2.png>
+Package pdftex.def Info: img/mockups/Eventos - 2.png  used on input line 274.
+(pdftex.def)             Requested size: 341.43437pt x 234.75615pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 276--277
+
+ []
+
+[24 <./img/mockups/Listado.png>] [25 <./img/mockups/Eventos - 1.png> <./img/moc
+kups/Eventos - 2.png>]
+<img/mockups/Registro.png, id=562, 926.71219pt x 526.96875pt>
+File: img/mockups/Registro.png Graphic file (type png)
+<use img/mockups/Registro.png>
+Package pdftex.def Info: img/mockups/Registro.png  used on input line 278.
+(pdftex.def)             Requested size: 426.79135pt x 242.68999pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 280--281
+
+ []
+
+<img/mockups/Perfil.png, id=564, 512.66531pt x 965.85844pt>
+File: img/mockups/Perfil.png Graphic file (type png)
+<use img/mockups/Perfil.png>
+Package pdftex.def Info: img/mockups/Perfil.png  used on input line 282.
+(pdftex.def)             Requested size: 341.43437pt x 643.2605pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 284--285
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 286--287
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 288--289
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 290--291
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 292--293
+
+ []
+
+[26 <./img/mockups/Registro.png>] [27 <./img/mockups/Perfil.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 294--295
+
+ []
+
+<img/mockups/Cazar Ahora - 1.png, id=576, 770.88pt x 677.53125pt>
+File: img/mockups/Cazar Ahora - 1.png Graphic file (type png)
+<use img/mockups/Cazar Ahora - 1.png>
+Package pdftex.def Info: img/mockups/Cazar Ahora - 1.png  used on input line 29
+6.
+(pdftex.def)             Requested size: 341.43437pt x 300.08928pt.
+<img/mockups/Cazar Ahora - 2.png, id=577, 777.65532pt x 670.75594pt>
+File: img/mockups/Cazar Ahora - 2.png Graphic file (type png)
+<use img/mockups/Cazar Ahora - 2.png>
+Package pdftex.def Info: img/mockups/Cazar Ahora - 2.png  used on input line 29
+8.
+(pdftex.def)             Requested size: 341.43437pt x 294.50919pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 300--301
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 302--303
+
+ []
+
+<img/mockups/Nabos.png, id=579, 1050.17343pt x 971.88094pt>
+File: img/mockups/Nabos.png Graphic file (type png)
+<use img/mockups/Nabos.png>
+Package pdftex.def Info: img/mockups/Nabos.png  used on input line 304.
+(pdftex.def)             Requested size: 341.43437pt x 315.9762pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 306--307
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 308--309
+
+ []
+
+[28 <./img/mockups/Cazar Ahora - 1.png>] [29 <./img/mockups/Cazar Ahora - 2.png
+> <./img/mockups/Nabos.png>]
+<img/mockups/Probador.png, id=593, 606.01407pt x 692.5875pt>
+File: img/mockups/Probador.png Graphic file (type png)
+<use img/mockups/Probador.png>
+Package pdftex.def Info: img/mockups/Probador.png  used on input line 310.
+(pdftex.def)             Requested size: 341.43437pt x 390.2136pt.
+) (Capitulos/implementacion.tex [30 <./img/mockups/Probador.png>]
+Cap\'{\i }tulo 6.
+<img/cap6/vscode.png, id=599, 1027.84pt x 1027.84pt>
+File: img/cap6/vscode.png Graphic file (type png)
+<use img/cap6/vscode.png>
+Package pdftex.def Info: img/cap6/vscode.png  used on input line 5.
+(pdftex.def)             Requested size: 106.69783pt x 106.69522pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+
+ []
+
+[31
+
+ <./img/cap6/vscode.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 16--17
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--21
+
+ []
+
+[32]
+<img/cap6/angular.png, id=609, 1204.5pt x 1204.5pt>
+File: img/cap6/angular.png Graphic file (type png)
+<use img/cap6/angular.png>
+Package pdftex.def Info: img/cap6/angular.png  used on input line 26.
+(pdftex.def)             Requested size: 170.71393pt x 170.70569pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--30
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--34
+
+ []
+
+[33
+
+ <./img/cap6/angular.png>]
+<img/cap6/xampp.png, id=615, 1027.84pt x 268.00125pt>
+File: img/cap6/xampp.png Graphic file (type png)
+<use img/cap6/xampp.png>
+Package pdftex.def Info: img/cap6/xampp.png  used on input line 39.
+(pdftex.def)             Requested size: 256.07741pt x 66.77113pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--43
+
+ []
+
+<img/cap6/apache.png, id=616, 532.99126pt x 144.54pt>
+File: img/cap6/apache.png Graphic file (type png)
+<use img/cap6/apache.png>
+Package pdftex.def Info: img/cap6/apache.png  used on input line 44.
+(pdftex.def)             Requested size: 298.75264pt x 81.01903pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
+
+ []
+
+[34
+
+ <./img/cap6/xampp.png> <./img/cap6/apache.png>]
+<img/cap6/php.png, id=623, 642.4pt x 347.2975pt>
+File: img/cap6/php.png Graphic file (type png)
+<use img/cap6/php.png>
+Package pdftex.def Info: img/cap6/php.png  used on input line 50.
+(pdftex.def)             Requested size: 170.71393pt x 92.29306pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--57
+
+ []
+
+[35
+
+ <./img/cap6/php.png>]
+<img/cap6/mariadb.png, id=630, 341.275pt x 175.65625pt>
+File: img/cap6/mariadb.png Graphic file (type png)
+<use img/cap6/mariadb.png>
+Package pdftex.def Info: img/cap6/mariadb.png  used on input line 62.
+(pdftex.def)             Requested size: 170.71393pt x 87.8681pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
+
+ []
+
+<img/cap6/mysql.png, id=631, 2287.54625pt x 1187.43625pt>
+File: img/cap6/mysql.png Graphic file (type png)
+<use img/cap6/mysql.png>
+Package pdftex.def Info: img/cap6/mysql.png  used on input line 66.
+(pdftex.def)             Requested size: 170.71393pt x 88.6009pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--71
+
+ []
+
+[36
+
+ <./img/cap6/mariadb.png> <./img/cap6/mysql.png>]
+<img/cap6/git.png, id=638, 1284.8pt x 537.00626pt>
+File: img/cap6/git.png Graphic file (type png)
+<use img/cap6/git.png>
+Package pdftex.def Info: img/cap6/git.png  used on input line 76.
+(pdftex.def)             Requested size: 170.71393pt x 71.34555pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--85
+
+ []
+
+[37
+
+ <./img/cap6/git.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 96--97
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--111
+
+ []
+
+[38
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 112--113
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--115
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--117
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
+
+ []
+
+) (Capitulos/pruebas.tex [39]
+Cap\'{\i }tulo 7.
+) (Capitulos/alternativas.tex [40
+
+]
+Cap\'{\i }tulo 8.
+) (Capitulos/manual.tex [41
+
+]
+Cap\'{\i }tulo 9.
+) [42
+
+] (Capitulos/conclusiones.tex) (Capitulos/apendices.tex [43
+
+
+]) (proyect.bbl [44
+
+]
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2
+0.
+ ("C:\Users\mretr\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\ot1lmr.fd"
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+
+LaTeX Font Warning: Font shape `OT1/lmss/m/sc' in size <10.95> not available
+(Font)              Font shape `OT1/lmr/m/sc' tried instead on input line 20.
+
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 59.
+ [45
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 59.
+ (proyect.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 59.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 59.
+Package rerunfilecheck Info: File `proyect.out' has not changed.
+(rerunfilecheck)             Checksum: 9D386784CB05D62510A15073C570FFE3;3173.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 59.
+ ) 
+Here is how much of TeX's memory you used:
+ 11437 strings out of 480930
+ 169462 string characters out of 2899761
+ 453197 words of memory out of 3000000
+ 26830 multiletter control sequences out of 15000+200000
+ 566833 words of font info for 64 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 38i,12n,49p,1169b,605s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/mretr/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rmsc.
+enc}{C:/Users/mretr/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ts1
+.enc}{C:/Users/mretr/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm
+.enc}{C:/Users/mretr/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.
+enc}<C:/Users/mretr/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmsy10.pfb><C:/Users/mretr/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmtt10.pfb><C:/Users/mretr/AppData/Local/Programs/MiKTeX 2.9
+/fonts/type1/public/amsfonts/latxfont/lasy10.pfb><C:/Users/mretr/AppData/Local/
+Programs/MiKTeX 2.9/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/mretr/AppData/L
+ocal/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmss10.pfb><C:/Users/mretr/AppDa
+ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmssbo10.pfb><C:/Users/mretr
+/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmssbx10.pfb><C:/Users
+/mretr/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsso10.pfb><C:/
+Users/mretr/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.p
+fb>
+Output written on proyect.pdf (53 pages, 2555948 bytes).
+PDF statistics:
+ 749 PDF objects out of 1000 (max. 8388607)
+ 131 named destinations out of 1000 (max. 500000)
+ 762 words of extra memory for PDF output out of 10000 (max. 10000000)
+
