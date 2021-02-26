@@ -35,9 +35,13 @@
 \BOOKMARK [2][-]{subsection.6.2.3}{PHP}{section.6.2}% 35
 \BOOKMARK [2][-]{subsection.6.2.4}{MariaDB y MySQL}{section.6.2}% 36
 \BOOKMARK [2][-]{subsection.6.2.5}{Git}{section.6.2}% 37
-\BOOKMARK [0][-]{chapter.7}{Pruebas}{}% 38
-\BOOKMARK [0][-]{chapter.8}{Comparaci\363n con otras alternativas}{}% 39
-\BOOKMARK [0][-]{chapter.9}{Manual}{}% 40
-\BOOKMARK [0][-]{chapter*.11}{Conclusiones y desarrollos futuros}{}% 41
-\BOOKMARK [0][-]{chapter*.12}{Ap\351ndices}{}% 42
-\BOOKMARK [0][-]{chapter*.13}{Referencias}{}% 43
+\BOOKMARK [1][-]{section.6.3}{Dificultades encontradas y soluciones propuestas}{chapter.6}% 38
+\BOOKMARK [2][-]{subsection.6.3.1}{It. 3 - Perfil}{section.6.3}% 39
+\BOOKMARK [2][-]{subsection.6.3.2}{It. 3 - Mantener sesiones}{section.6.3}% 40
+\BOOKMARK [2][-]{subsection.6.3.3}{It. 3 - Features del perfil}{section.6.3}% 41
+\BOOKMARK [0][-]{chapter.7}{Pruebas}{}% 42
+\BOOKMARK [0][-]{chapter.8}{Comparaci\363n con otras alternativas}{}% 43
+\BOOKMARK [0][-]{chapter.9}{Manual}{}% 44
+\BOOKMARK [0][-]{chapter*.11}{Conclusiones y desarrollos futuros}{}% 45
+\BOOKMARK [0][-]{chapter*.12}{Ap\351ndices}{}% 46
+\BOOKMARK [0][-]{chapter*.13}{Referencias}{}% 47
