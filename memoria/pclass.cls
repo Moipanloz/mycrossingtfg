@@ -194,7 +194,7 @@
  \begin{center}\bf\sffamily
  
   {\normalsize ESCUELA T{\'E}CNICA SUPERIOR DE INGENIER{\'I}A INFORM{\'A}TICA}\\[1.5cm]
-  {\large Proyecto fin de Carrera \@tipo{}}\\[2cm]
+  {\large Trabajo fin de \@tipo{}}\\[2cm]
   {\large \@titulacion{}}\\[2cm]
   {\large \@titulopro{}}\\[1.75cm]
   {\large Realizado por}\\

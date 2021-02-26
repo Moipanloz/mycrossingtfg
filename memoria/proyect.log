@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.5.11)  19 FEB 2021 12:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.5.11)  26 FEB 2021 12:55
 entering extended mode
 **./proyect.tex
 (proyect.tex
@@ -1865,7 +1865,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 59.
 Here is how much of TeX's memory you used:
  11428 strings out of 480930
  169337 string characters out of 2899761
- 452206 words of memory out of 3000000
+ 452197 words of memory out of 3000000
  26827 multiletter control sequences out of 15000+200000
  569553 words of font info for 65 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1886,7 +1886,7 @@ etr/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmssbx10.pfb><C:/Us
 ers/mretr/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsso10.pfb><
 C:/Users/mretr/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8
 a.pfb>
-Output written on proyect.pdf (50 pages, 2553911 bytes).
+Output written on proyect.pdf (50 pages, 2553903 bytes).
 PDF statistics:
  720 PDF objects out of 1000 (max. 8388607)
  124 named destinations out of 1000 (max. 500000)
