@@ -33,7 +33,7 @@
             </ng-container>
             <ng-container *ngIf="!isEmpty(lpr)">
                 <div class="elemento">
-                    <img class="image" src="../../../assets/images/{{lpr | lowercase}}.jpg">
+                    <img class="image" src="../../../assets/images/{{lpr | lowercase}}.png">
                     {{lpr | titlecase}}
                 </div>
             </ng-container>
@@ -46,7 +46,7 @@
             </ng-container>
             <ng-container *ngIf="!isEmpty(mpr)">
                 <div class="elemento">
-                    <img class="image" src="../../../assets/images/{{mpr | lowercase}}.jpg">
+                    <img class="image" src="../../../assets/images/{{mpr | lowercase}}.png">
                     {{mpr | titlecase}}
                 </div>
             </ng-container>
@@ -59,7 +59,7 @@
             </ng-container>
             <ng-container *ngIf="!isEmpty(xpr)">
                 <div class="elemento">
-                    <img class="image" src="../../../assets/images/{{xpr | lowercase}}.jpg">
+                    <img class="image" src="../../../assets/images/{{xpr | lowercase}}.png">
                     {{xpr | titlecase}}
                 </div>
             </ng-container>
@@ -72,7 +72,7 @@
             </ng-container>
             <ng-container *ngIf="!isEmpty(jpr)">
                 <div class="elemento">
-                    <img class="image" src="../../../assets/images/{{jpr | lowercase}}.jpg">
+                    <img class="image" src="../../../assets/images/{{jpr | lowercase}}.png">
                     {{jpr | titlecase}}
                 </div>
             </ng-container>
@@ -85,20 +85,20 @@
             </ng-container>
             <ng-container *ngIf="!isEmpty(vpr)">
                 <div class="elemento">
-                    <img class="image" src="../../../assets/images/{{vpr | lowercase}}.jpg">
+                    <img class="image" src="../../../assets/images/{{vpr | lowercase}}.png">
                     {{vpr | titlecase}}
                 </div>
             </ng-container>
         </div>
         <div class="visita noPointer">
             <div class="elemento">
-                <img class="image" src="../../../assets/images/totakeke.jpg">
+                <img class="image" src="../../../assets/images/totakeke.png">
                 Totakeke
             </div>
         </div>
         <div class="visita last noPointer">
             <div class="elemento">
-                <img class="image" src="../../../assets/images/juliana.jpg">
+                <img class="image" src="../../../assets/images/juliana.png">
                 Juliana
             </div>
         </div>
@@ -113,7 +113,7 @@
             </ng-container>
             <ng-container *ngIf="!isEmpty(lpa)">
                 <div class="elemento">
-                    <img class="image" src="../../../assets/images/{{lpa | lowercase}}.jpg">
+                    <img class="image" src="../../../assets/images/{{lpa | lowercase}}.png">
                     {{lpa | titlecase}}
                 </div>
             </ng-container>
@@ -126,7 +126,7 @@
             </ng-container>
             <ng-container *ngIf="!isEmpty(mpa)">
                 <div class="elemento">
-                    <img class="image" src="../../../assets/images/{{mpa | lowercase}}.jpg">
+                    <img class="image" src="../../../assets/images/{{mpa | lowercase}}.png">
                     {{mpa | titlecase}}
                 </div>
             </ng-container>
@@ -139,7 +139,7 @@
             </ng-container>
             <ng-container *ngIf="!isEmpty(xpa)">
                 <div class="elemento">
-                    <img class="image" src="../../../assets/images/{{xpa | lowercase}}.jpg">
+                    <img class="image" src="../../../assets/images/{{xpa | lowercase}}.png">
                     {{xpa | titlecase}}
                 </div>
             </ng-container>
@@ -152,7 +152,7 @@
             </ng-container>
             <ng-container *ngIf="!isEmpty(jpa)">
                 <div class="elemento">
-                    <img class="image" src="../../../assets/images/{{jpa | lowercase}}.jpg">
+                    <img class="image" src="../../../assets/images/{{jpa | lowercase}}.png">
                     {{jpa | titlecase}}
                 </div>
             </ng-container>
@@ -165,26 +165,31 @@
             </ng-container>
             <ng-container *ngIf="!isEmpty(vpa)">
                 <div class="elemento">
-                    <img class="image" src="../../../assets/images/{{vpa | lowercase}}.jpg">
+                    <img class="image" src="../../../assets/images/{{vpa | lowercase}}.png">
                     {{vpa | titlecase}}
                 </div>
             </ng-container>
         </div>
         <div class="visita noPointer">
             <div class="elemento">
-                <img class="image" src="../../../assets/images/totakeke.jpg">
+                <img class="image" src="../../../assets/images/totakeke.png">
                 Totakeke
             </div>
         </div>
         <div class="visita last noPointer">
             <div class="elemento">
-                <img class="image" src="../../../assets/images/juliana.jpg">
+                <img class="image" src="../../../assets/images/juliana.png">
                 Juliana
             </div>
         </div>
     </div>
     <div class="flex-centered div-botones">
-        <button class="estelaButton boton-alargado" [style.border-color]="estela ? '#95E59B' : '#ade6e7' " [style.background-color]="estela ? '#CBF4C4' : '#d9f6f6' " (click)="cambiarEstela()">{{estela ? "Estela ya te ha visitado esta semana" : "Estela aún no te ha visitado"}}</button>
-        <button class="boton-imagen save" style="margin-bottom: 1vw;" (click)="guardar()"></button>
+      <div class="estela-container">
+        <img [src]="estela ? '../../../assets/images/estela.png' : '../../../assets/images/estela-gris.png'" style="width: 3vw; height: 3vw;margin-right:1vw">
+        <button class="estelaButton boton-alargado" [style.border-color]="estela ? '#95E59B' : '#ade6e7' " [style.background-color]="estela ? '#CBF4C4' : '#d9f6f6' " (click)="cambiarEstela()">
+          {{estela ? "Estela ya te ha visitado esta semana" : "Estela aún no te ha visitado"}}
+        </button>
+      </div>
+      <button class="boton-imagen save" style="margin-bottom: 1vw;" (click)="guardar()"></button>
     </div>
 </div>

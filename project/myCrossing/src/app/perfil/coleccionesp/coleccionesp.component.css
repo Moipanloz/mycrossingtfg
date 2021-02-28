@@ -41,8 +41,9 @@
 }
 
 .boton-circular{
-  background-size: cover;
   background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: 36.5% 38%;
 }
 
 span{
@@ -94,33 +95,33 @@ span{
 }
 
 #Estela{
-  background-color: #ac0c28;
+  background-color: #5f1e1e;
   border-color: #eb6363;
-  background-image: url("../../../assets/images/melocoton.png");
+  background-image: url("../../../assets/images/estela.png");
 }
 
 #Caza{
   background-color: #463b3d;
   border-color: #9b1f1f;
-  background-image: url("../../../assets/images/naranja.png");
+  background-image: url("../../../assets/images/kamilo.png");
 }
 
 #Pesca{
-  background-color: #79703d;
-  border-color: #fbff63;
-  background-image: url("../../../assets/images/cereza.png");
+  background-color: #d1d065;
+  border-color: #8f921c;
+  background-image: url("../../../assets/images/cj.png");
 }
 
 #Gulliver{
-  background-color: #f2f2f2;
-  border-color: #607ce7;
-  background-image: url("../../../assets/images/logo.png");
+  background-color: #607ce7;
+  border-color: #0352a6;
+  background-image: url("../../../assets/images/gulliver.png");
 }
 
-#Gullivarr{
+#Gullivarrr{
   background-color: #770b1d;
   border-color: #d2c402;
-  background-image: url("../../../assets/images/manzana.png");
+  background-image: url("../../../assets/images/gullivarrr.png");
 }
 
 #Coti{

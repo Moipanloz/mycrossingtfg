@@ -19,7 +19,7 @@ export class ItemsCEService {
     "Caza",
     "Pesca",
     "Gulliver",
-    "Gullivarr",
+    "Gullivarrr",
     "Coti",
     "Soponcio",
     "Copito",

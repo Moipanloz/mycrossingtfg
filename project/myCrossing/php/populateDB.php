@@ -29,7 +29,7 @@ $error = "Failed during create";
 
 $sql = "CREATE TABLE itemsce (
   id varchar(20) PRIMARY KEY,
-  source enum('DIY','Estacional','Estela','Caza','Pesca','Gulliver','Gullivarr','Coti','Soponcio','Copito','Renato','Conga') NOT NULL DEFAULT 'DIY'
+  source enum('DIY','Estacional','Estela','Caza','Pesca','Gulliver','Gullivarrr','Coti','Soponcio','Copito','Renato','Conga') NOT NULL DEFAULT 'DIY'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
