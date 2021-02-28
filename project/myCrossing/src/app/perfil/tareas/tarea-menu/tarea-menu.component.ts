@@ -10,6 +10,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class TareaMenuComponent {
 
   iconoForm : FormGroup;
+  iconos : Array<string> = ["bolsa-bayas","caña-pesca","diy","fosil","hierbajos","hoja","nabo","pascal",
+            "piedra","regalo","receta-en-botella","red-caza","movil","fragmento-estrella","ropa","regadera"];
 
   @HostBinding("style.top") y = "0px";
   @HostBinding("style.left") x = "0px";

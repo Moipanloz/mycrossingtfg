@@ -108,12 +108,12 @@ $sql = 'INSERT INTO usuarios (nombre, id, isla, fruta, cumpleanyos, hemisferio, 
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "INSERT INTO tareas (id, usuario_id, hecha, imagen_url) VALUES
-(NULL, 2, 0, '2'),
-(NULL, 2, 0, '5'),
-(NULL, 2, 0, '1'),
-(NULL, 3, 0, '2'),
-(NULL, 3, 1, '4'),
-(NULL, 3, 1, '3')";
+(NULL, 2, 0, 'bolsa-bayas'),
+(NULL, 2, 0, 'diy'),
+(NULL, 2, 0, 'fosil'),
+(NULL, 3, 0, 'hierbajos'),
+(NULL, 3, 1, 'regalo'),
+(NULL, 3, 1, 'receta-en-botella')";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 

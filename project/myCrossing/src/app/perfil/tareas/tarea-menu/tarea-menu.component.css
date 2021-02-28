@@ -19,3 +19,12 @@
 .btn-borrar{
   height: max-content;
 }
+
+.icon-wrap-menu{
+  margin-top: 1vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+

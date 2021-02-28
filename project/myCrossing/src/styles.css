@@ -2,6 +2,11 @@ body{
   margin: 0;
 }
 
+label{
+  font-size: 1.3vw;
+  font-weight: bold;
+}
+
 * {
   font-family: Varela Round, serif;
   outline: none;
@@ -49,6 +54,39 @@ body{
   background-repeat: no-repeat;
 }
 
+.bckg-img-boton{
+  background-size: 90%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.img-radio{
+  width: 3vw;
+  height: 3vw;
+  cursor: pointer;
+  border-radius: 50%;
+  margin: 0 0.4vw;
+  padding: 0.4vw;
+}
+
+.img-radio:hover{
+  background-color: #CBF4C4;
+}
+
+.img-radio-checked{
+  background-color:#c9f3f3;
+}
+
+.b-bold{
+  font-weight: bold;
+  font-size: 1.5vw;
+}
+
+.radio-hidden{
+  position: absolute;
+  opacity: 0;
+}
+
 .editar-blanco{
   background-image: url("./assets/images/editar-blanco.png");
 }
@@ -63,6 +101,18 @@ body{
 
 .save{
   background-image: url("./assets/images/save-verde.png");
+}
+
+.delete-rojo{
+  background-image: url("./assets/images/basura-roja.png");
+}
+
+.delete{
+  background-image: url("./assets/images/basura-gris.png");
+}
+
+.delete:hover{
+  background-image: url("./assets/images/basura-roja.png");
 }
 
 .menu-hr{

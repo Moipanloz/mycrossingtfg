@@ -36,7 +36,7 @@ export class TareasService {
         id: "",
         usuario_id: this.verification.user,
         hecha: 0,
-        imagen_url: "TODO"
+        imagen_url: "hoja"
       };
 
     return this.http.post(this.url, tarea, {params: parametros, withCredentials : true, responseType : "blob"}).toPromise();
