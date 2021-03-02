@@ -59,9 +59,10 @@ export class NavbarComponent {
   }
 
   updateCEInv(){
-    this._ceinv.updateItemsCE().then(() => {
-      alert("Actualizado el inventario de colecciones");
-      this.router.navigate[""];
-    });
+    this._ceinv.updateItemsCE();
+    //TODO
+    //Ver como poner pantalla de carga
+    alert("Actualizado el inventario de colecciones");
+    this.router.navigate[""];
   }
 }

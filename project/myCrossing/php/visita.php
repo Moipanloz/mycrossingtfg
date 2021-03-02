@@ -6,7 +6,7 @@ include "validators/usuarioValidator.php";
 include "validators/visitaValidator.php";
 
 if(isset($_GET["command"])){
-  $error = false;
+  $validation = false;
 
   switch($_GET["command"]){
 
@@ -15,12 +15,12 @@ if(isset($_GET["command"])){
         $userId = (int)$_GET["userId"]; //convierte el string en int
         $verifCode = $_GET["verif"];
 
-        $error =  checkExisteUser($conn, $userId) &&
+        $validation =  checkExisteUser($conn, $userId) &&
                   checkExisteVisita($userId, $conn) &&
                   checkVerification($conn, $userId, $verifCode);
 
         //Para que sea correcto debe dar true
-        if($error){
+        if($validation){
           $sql = "SELECT * FROM visitas WHERE usuario_id = $userId";
           $result = mysqli_query($conn,$sql);
           $myArray = array();
@@ -67,12 +67,12 @@ if(isset($_GET["command"])){
           $vpr = $request->vpr;
           $estela = $request->estela;
 
-          $error=TRUE;
-          $error =  checkExisteUser($conn, $userId) &&
+          $validation=TRUE;
+          $validation =  checkExisteUser($conn, $userId) &&
                     checkExisteVisita($userId, $conn) &&
                     checkVerification($conn, $userId, $verifCode);
 
-          if($error){
+          if($validation){
             $sql = "UPDATE visitas SET lpa = '$lpa', mpa = '$mpa', xpa = '$xpa', jpa = '$jpa', vpa = '$vpa', lpr = '$lpr', mpr = '$mpr', xpr = '$xpr', jpr = '$jpr', vpr = '$vpr', estela = '$estela' WHERE usuario_id = $userId";
             $result = mysqli_query($conn,$sql);
             print(json_encode("Exito"));
@@ -100,12 +100,12 @@ if(isset($_GET["command"])){
           $request = json_decode($putdata);
           $last_update = $request->last_update;
 
-          $error=TRUE;
-          $error =  checkExisteUser($conn, $userId) &&
+          $validation=TRUE;
+          $validation =  checkExisteUser($conn, $userId) &&
                     checkExisteVisita($userId, $conn) &&
                     checkVerification($conn, $userId, $verifCode);
 
-          if($error){
+          if($validation){
             $sql = "UPDATE visitas SET last_update = '$last_update' WHERE usuario_id = $userId";
             $result = mysqli_query($conn,$sql);
             print(json_encode("Exito"));
@@ -126,11 +126,11 @@ if(isset($_GET["command"])){
         $userId = $_GET["userId"];
         $verifCode = $_GET["verif"];
 
-        $error=TRUE;
-        $error =  checkExisteUser($conn, $userId) &&
+        $validation=TRUE;
+        $validation =  checkExisteUser($conn, $userId) &&
                   checkVerification($conn, $userId, $verifCode);
 
-        if($error){
+        if($validation){
           $sql = "INSERT INTO visitas(usuario_id) VALUES ($userId)";
           $result = mysqli_query($conn,$sql);
           print(json_encode('Exito'));

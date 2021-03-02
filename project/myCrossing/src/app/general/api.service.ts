@@ -20,5 +20,20 @@ export class ApiService {
     console.log(result);
     return result;
   }
-  
+
+  async readAllItems() : Promise<any> {
+    let resHW = await this.http.get<any>("http://acnhapi.com/v1/houseware").toPromise();
+    let resWM = await this.http.get<any>("http://acnhapi.com/v1/wallmounted").toPromise();
+    let resM = await this.http.get<any>("http://acnhapi.com/v1/misc").toPromise();
+    let res = Array<any>();
+    res.push(resHW, resWM, resM);
+    return res;
+  }
+
+  //No se usa de momento?
+  async readItemById(itemId: number, ruta : string) : Promise<string> {
+    let result = await this.http.get<any>("http://acnhapi.com/v1/"+ruta+"/"+itemId).toPromise();
+    return result;
+  }
+
 }

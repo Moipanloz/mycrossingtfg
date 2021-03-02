@@ -6,7 +6,7 @@ include "validators/usuarioValidator.php";
 include "validators/vecinoValidator.php";
 
 if(isset($_GET["command"])){
-  $error = false;
+  $validation = false;
 
   switch($_GET["command"]){
     case "read"://---------------------------------------------------------------------------------------------------READ
@@ -14,10 +14,10 @@ if(isset($_GET["command"])){
         $userId = $_GET["userId"];
         $verifCode = $_GET["verif"];
 
-        $error = checkExisteUser($conn, $userId) &&
+        $validation = checkExisteUser($conn, $userId) &&
                 checkVerification($conn, $userId, $verifCode);
 
-        if($error){
+        if($validation){
           $sql = "SELECT * FROM misvecinos WHERE usuario_id = $userId";
           $result = mysqli_query($conn,$sql);
           $myArray = array();
@@ -55,13 +55,13 @@ if(isset($_GET["command"])){
           $tieneVecino = checkTieneVecino($userId, $vecinoId, $conn);
           $tieneVecino = ! $tieneVecino;
 
-          $error = checkExisteUser($conn, $userId) &&
+          $validation = checkExisteUser($conn, $userId) &&
                    checkVerification($conn, $userId, $verifCode) &&
                    checkDatosCorrectos($vecinoId, $amistad) &&
                    checkNumeroVecinos($userId, $conn) &&
                    $tieneVecino;
 
-          if($error){
+          if($validation){
             $sql = "INSERT INTO misvecinos(vecino_id, usuario_id, amistad) VALUES ($vecinoId, $userId, '$amistad')";
             $result = mysqli_query($conn,$sql);
 
@@ -92,14 +92,14 @@ if(isset($_GET["command"])){
           $amistad = $request->amistad;
 
           $tieneVecino = checkTieneVecino($userId, $vecinoId, $conn);
-          $tieneVecino = ! $tieneVecino; // No se puede aplicar ! dentro de $error
+          $tieneVecino = ! $tieneVecino; // No se puede aplicar ! dentro de $validation
 
-          $error = checkExisteUser($conn, $userId) &&
+          $validation = checkExisteUser($conn, $userId) &&
                   checkVerification($conn, $userId, $verifCode) &&
                   checkDatosCorrectos($vecinoId, $amistad) &&
                   $tieneVecino;
 
-          if($error){
+          if($validation){
             $sql = "UPDATE misvecinos SET vecino_id = $vecinoId, amistad = '$amistad' WHERE vecino_id = $oldVecinoId AND usuario_id = $userId";
             $result = mysqli_query($conn,$sql);
 
@@ -128,12 +128,12 @@ if(isset($_GET["command"])){
           $vecinoId = $request->vecino_id;
           $amistad = $request->amistad;
 
-          $error = checkExisteUser($conn, $userId) &&
+          $validation = checkExisteUser($conn, $userId) &&
                   checkVerification($conn, $userId, $verifCode) &&
                   checkDatosCorrectos($vecinoId, $amistad) &&
                   checkTieneVecino($userId, $vecinoId, $conn);
 
-          if($error){
+          if($validation){
             $sql = "UPDATE misvecinos SET amistad = '$amistad' WHERE vecino_id = $vecinoId AND usuario_id = $userId";
             $result = mysqli_query($conn,$sql);
 
@@ -155,11 +155,11 @@ if(isset($_GET["command"])){
         $verifCode = $_GET["verif"];
         $vecinoId = $_GET["vecinoId"];
 
-        $error = checkExisteUser($conn, $userId) &&
+        $validation = checkExisteUser($conn, $userId) &&
                 checkVerification($conn, $userId, $verifCode) &&
                 checkTieneVecino($userId, $vecinoId, $conn);
 
-        if($error){
+        if($validation){
           $sql = "DELETE FROM misvecinos WHERE vecino_id = $vecinoId AND usuario_id = $userId";
           $result = mysqli_query($conn,$sql);
         }else{

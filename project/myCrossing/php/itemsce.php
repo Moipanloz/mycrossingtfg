@@ -23,15 +23,31 @@ if(isset($_GET["command"])){
       break;
 
     case "update"://------------------------------------------------------------------------------------------------UPDATE
-      //TODO CUANDO ESTE LA API
-      if(isset($_GET["userId"])){
+      if(isset($_GET["userId"]) && isset($_GET["verif"])){
+        $userId = $_GET["userId"];
+        $verifCode = $_GET["verif"];
 
-        $validation = checkAdmin($conn, $userId);
+        $postdata = file_get_contents("php://input");
 
-        print("TODO cuando este API");
+        if(isset($postdata) && !empty($postdata)){
+          //TODO
+          //Setear datos post
 
+          $validation = checkAdmin($conn, $userId);
+
+          if($validation){
+            //TODO
+            //Hacer query
+            $sql = "INSERT INTO visitas(usuario_id) VALUES ($userId)";
+            $result = mysqli_query($conn,$sql);
+          }else{
+            print("No se cumplen los requisitos");
+          }
+        }else{
+          print("No hay datos");
+        }
       } else {
-        print("No hay id de usuario");
+        print("Faltan parámetros");
       }
       break;
 

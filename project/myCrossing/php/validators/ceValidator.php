@@ -4,29 +4,29 @@ header('Access-Control-Allow-Origin: http://localhost:4200');
 header('Access-Control-Allow-Headers: content-type');
 
 function checkDatosCorrectos($conn, $itemId){
-  $error = TRUE;
+  $validation = TRUE;
 
   $sql = "SELECT id FROM itemsce WHERE id = '$itemId'";
   $result = mysqli_query($conn, $sql);
 
   if ($result->num_rows != 1) {
-    $error = FALSE;
+    $validation = FALSE;
     print("Objeto no válido");
   }
-  return $error;
+  return $validation;
 }
 
 function checkTieneItem($conn, $userId, $itemId){
-  $error = TRUE;
+  $validation = TRUE;
 
   $sql = "SELECT * FROM usuariosce WHERE itemce_id = '$itemId' AND usuario_id = $userId";
   $result = mysqli_query($conn, $sql);
 
   if ($result->num_rows != 1) {
-    $error = FALSE;
+    $validation = FALSE;
     print("Debes tener el item para eliminarlo de tu lista");
   }
-  return $error;
+  return $validation;
 }
 
 ?>

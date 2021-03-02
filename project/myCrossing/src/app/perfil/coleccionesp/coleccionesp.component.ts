@@ -1,3 +1,4 @@
+import { ApiService } from './../../general/api.service';
 import { ColeccionespService } from './coleccionesp.service';
 import { VerificationService } from 'app/general/verification.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
@@ -14,6 +15,7 @@ export class ColeccionespComponent implements OnInit {
   verification : VerificationService;
   _ce : ColeccionespService;
   _ceinv : ItemsCEService;
+  _api : ApiService;
   page_number : number = 1;
   listaUsuario : string[] = [];
   inventario : string[] = [];
@@ -28,10 +30,11 @@ export class ColeccionespComponent implements OnInit {
   @ViewChild("atras") atras : ElementRef;
   @ViewChild("alante") alante : ElementRef;
 
-  constructor(verification : VerificationService, ce : ColeccionespService, ceinv : ItemsCEService ) {
+  constructor(verification : VerificationService, ce : ColeccionespService, ceinv : ItemsCEService, api : ApiService ) {
     this.verification = verification;
     this._ce = ce;
     this._ceinv = ceinv;
+    this._api = api;
   }
 
   ngOnInit(){
@@ -123,5 +126,4 @@ export class ColeccionespComponent implements OnInit {
     }
     return result;
   }
-
 }

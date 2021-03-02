@@ -20,7 +20,7 @@
           <button [style]="{'background-image': checkTieneItem(listaUsuario.includes(item))}" class="boton-imagen editar" (click)="toggleCheck(item)"></button>
         </div>
         <div class="item flex-column-centered">
-          <img src="../../../assets/images/logo.png">
+          <img src="http://acnhapi.com/v1/images/furniture/{{item}}">
           <span>{{item}}</span>
         </div>
       </div>
@@ -32,4 +32,3 @@
   </div>
 </div>
 <span>Página {{page_number}}</span>
-
