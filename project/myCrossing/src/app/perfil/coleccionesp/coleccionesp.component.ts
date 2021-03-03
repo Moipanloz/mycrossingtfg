@@ -1,9 +1,7 @@
 import { IItem, IRecipe, items, recipes } from 'animal-crossing';
-import { ApiService } from './../../general/api.service';
 import { ColeccionespService } from './coleccionesp.service';
 import { VerificationService } from 'app/general/verification.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { ItemsCEService } from './itemsce.service';
 
 @Component({
   selector: 'app-coleccionesp',
@@ -15,11 +13,9 @@ export class ColeccionespComponent implements OnInit {
   colecciones : Map<string, string[]> = new Map();
   verification : VerificationService;
   _ce : ColeccionespService;
-  _ceinv : ItemsCEService;//del?
-  _api : ApiService;//del?
   page_number : number = 1;
   listaUsuario : string[] = [];
-  inventario : Map<string, Promise<any>>;//del?
+  inventario : Array<string> = new Array<string>();
   activeCollection : string = "DIY";
   listaObjetos : Array<any> = new Array<any>();
   selected = {
@@ -32,16 +28,14 @@ export class ColeccionespComponent implements OnInit {
   @ViewChild("atras") atras : ElementRef;
   @ViewChild("alante") alante : ElementRef;
 
-  constructor(verification : VerificationService, ce : ColeccionespService, ceinv : ItemsCEService, api : ApiService ) {
+  constructor(verification : VerificationService, ce : ColeccionespService) {
     this.verification = verification;
     this._ce = ce;
-    this._ceinv = ceinv;
-    this._api = api;
   }
 
   ngOnInit(){
     this.verification.verify().then(() => {
-      this.colecciones = this._ceinv.colecciones;
+      this.colecciones = this._ce.colecciones;
 
       let tempItems : Array<IItem> = new Array<IItem>();
       let tempRecipes : Array<IRecipe> = new Array<IRecipe>();
@@ -53,47 +47,25 @@ export class ColeccionespComponent implements OnInit {
       //Con los items tenemos que comprobar que la source no sea undefined ya que contiene items, como papel de carta,
       //que no dispone de source y por lo tanto siempre devolvera undefined
 
-      this.listaObjetos.concat(tempItems, tempRecipes);
+      this.listaObjetos.concat(tempItems, tempRecipes).sort();
 
+      if(this.listaObjetos.length <= 16){
+        this.alante.nativeElement.style.visibility = "hidden";
+      }
 
+      // Leemos los objetos del usuario por colección activa
+      this._ce.readCE().then(data => {
+        //Esto es para que solo coja la coleccion activa, descomentar si falla lo otro
 
-
-
-
-      this._ceinv.readItemsCE().then(inv => {
-        let index : number = 0;
-        for(let i = 0; i < this._ceinv.colecciones.values.length; i++){
-          if(inv[i]["source"] == this.activeCollection){
-            index = i;
-            break;
-          }
-        }
-
-        this.inventario.clear();
-        let s : string = inv[index]["GROUP_CONCAT(id)"];
-        let itArr = s.split(",");
-        itArr.sort();
-
-        for(let x = 0; x < itArr.length; x++){
-          this.inventario.set(itArr[x], this._api.readItemById(itArr[x],""));
-        }
-
-        // this.inventario = itemListApi;
-
-        // if(this.inventario.length <= 16){
-        //   this.alante.nativeElement.style.visibility = "hidden";
+        // let index : number = null;
+        // for(let i = 0; i < data.length; i++){
+        //   if(data[i]["source"] == this.activeCollection){
+        //     index = i;
+        //     break;
+        //   }
         // }
 
-      });
-
-      this._ce.readCE().then(data => {
-        let index : number = null;
-        for(let i = 0; i < data.length; i++){
-          if(data[i]["source"] == this.activeCollection){
-            index = i;
-            break;
-          }
-        }
+        let index : number = Object.keys(data).indexOf(this.activeCollection);
 
         if(index != null){
           let s : string = data[index]["GROUP_CONCAT(usuariosce.itemce_id)"];

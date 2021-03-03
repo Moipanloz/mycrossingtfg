@@ -13,27 +13,7 @@ export class ItemsCEService {
 
   url : string = "http://localhost/php/itemsce.php"
 
-  colecciones : Map<string, string[]> = new Map([
-    ["DIY",["pipo"]],
-    ["Estacional",["pipo"]],
-    ["Estela",["Celeste"]],
-    ["Caza",["Flick"]],
-    ["Pesca",["C.J."]],
-    ["Gulliver",["Gulliver"]],
-    ["Al y Paca",["Cyrus","Reese"]],
-    ["Pascal",["Pascal"]],
-    ["Gullivarrr",["Gullivarrr"]],
-    ["Coti",["Zipper","Egg bottle","Egg balloon","Collecting earth eggs","Learning all egg outfit DIYs","Collecting leaf eggs",
-  "Collecting sky eggs","Collecting stone eggs","Collecting water eggs","Collecting wood eggs"]],
-    ["Soponcio",["Jack"]],
-    ["Guindo",["Cozy Turkey Day DIY","Franklin"]],
-    ["Copito",["Snowboy"]],
-    ["Renato",["Jingle","Check Toy Day stockings the day after Toy Day"]],
-    ["Conga",["Pavé"]],
-    ["Dodo",["Dodo Airlines"]],
-    ["Mamá",["Mom"]],
-    ["Cumpleaños",["Birthday"]]
-  ]);
+
 
   readItemsCE(){
     let parametros = new HttpParams().set("command", "read")

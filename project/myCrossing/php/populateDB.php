@@ -5,10 +5,7 @@ require "openDB.php";
 // =====================================================================================================Tables
 // ---------------------------------------------------------------------------------------------Drop
 
-$sql = "DROP TABLE IF EXISTS usuariosce";
-$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
-
-$sql = "DROP TABLE IF EXISTS itemsce";
+$sql = "DROP TABLE IF EXISTS colesp";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "DROP TABLE IF EXISTS tareas";
@@ -27,12 +24,6 @@ $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $error = "Failed during create";
 
-$sql = "CREATE TABLE itemsce (
-  id varchar(20) PRIMARY KEY,
-  source enum('DIY','Estacional','Estela','Caza','Pesca','Gulliver','Gullivarrr','Coti','Soponcio','Copito','Renato','Conga') NOT NULL DEFAULT 'DIY'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1";
-$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
-
 $sql = "CREATE TABLE usuarios (
   id int(5) PRIMARY KEY AUTO_INCREMENT,
   nombre varchar(20) NOT NULL,
@@ -49,12 +40,12 @@ $sql = "CREATE TABLE usuarios (
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
-$sql = "CREATE TABLE usuariosce (
+$sql = "CREATE TABLE colesp (
   usuario_id int(5) NOT NULL,
-  itemce_id varchar(20) NOT NULL,
-  PRIMARY KEY (usuario_id, itemce_id),
-  FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON DELETE CASCADE,
-  FOREIGN KEY (itemce_id) REFERENCES itemsce (id) ON DELETE CASCADE
+  item_name varchar(30) NOT NULL,
+  item_source enum('DIY','Estacional','Estela','Caza','Pesca','Gulliver','Al y Paca','Pascal','Gullivarrr','Coti','Soponcio','Guindo','Copito','Renato','Conga','Dodo','Mama','Cumple') NOT NULL DEFAULT 'DIY',
+  PRIMARY KEY (usuario_id, item_name),
+  FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
@@ -116,7 +107,6 @@ $sql = "INSERT INTO tareas (id, usuario_id, hecha, imagen_url) VALUES
 (NULL, 3, 1, 'receta-en-botella')";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
-
 $sql = "INSERT INTO misvecinos (vecino_id, usuario_id, amistad) VALUES
 (1, 2, '1'),
 (1, 3, '1'),
@@ -124,63 +114,8 @@ $sql = "INSERT INTO misvecinos (vecino_id, usuario_id, amistad) VALUES
 (2, 3, '1')";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
-$sql = "INSERT INTO itemsce (id, source) VALUES
-('d1','DIY'),
-('d2','DIY'),
-('d3','DIY'),
-('d4','DIY'),
-('d5','DIY'),
-('e6','Estela'),
-('e7','Estela'),
-('e8','Estela'),
-('e9','Estela'),
-('e10','Estela'),
-('e11','Estela'),
-('e12','Estela'),
-('e13','Estela'),
-('e14','Estela'),
-('e15','Estela'),
-('e16','Estela'),
-('e17','Estela'),
-('e18','Estela'),
-('e19','Estela'),
-('e20','Estela'),
-('e21','Estela'),
-('e22','Estela'),
-('e23','Estela'),
-('e24','Estela'),
-('e25','Estela'),
-('e26','Estela')
-";
-$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
-
-$sql = "INSERT INTO usuariosce (usuario_id, itemce_id) VALUES
-(1, 'd1'),
-(1, 'd2'),
-(2, 'd3'),
-(1, 'd4'),
-(2, 'd5'),
-(2, 'e6'),
-(2, 'e7'),
-(2, 'e8'),
-(3, 'e9'),
-(1, 'e10'),
-(1, 'e11'),
-(1, 'e12'),
-(3, 'e13'),
-(1, 'e14'),
-(2, 'e15'),
-(3, 'e16'),
-(2, 'e17'),
-(1, 'e18'),
-(1, 'e19'),
-(1, 'e20'),
-(3, 'e21'),
-(2, 'e22'),
-(1, 'e23'),
-(1, 'e24'),
-(3, 'e25'),
-(3, 'e26')
+$sql = "INSERT INTO colesp (usuario_id, item_name, item_source) VALUES
+(2, 'wand', 'Estela')
 ";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
