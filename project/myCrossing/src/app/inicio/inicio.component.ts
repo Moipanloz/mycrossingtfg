@@ -22,5 +22,4 @@ export class InicioComponent implements OnInit {
       this.verification.verify();
     }
   }
-
 }

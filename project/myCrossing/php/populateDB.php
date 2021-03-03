@@ -102,9 +102,9 @@ $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 // ---------------------------------------------------------------------------------------------Populate
 
 $sql = 'INSERT INTO usuarios (nombre, id, isla, fruta, cumpleanyos, hemisferio, contrasenya, email, verification) VALUES
-("admin", 1, "admin", "PERA", "2011-11-01", "NORTE", "$2y$10$INLqgAvDChOWDryMsYTacOoXBPGFKNkPFT9tZYoJMt3SEYvYFKhfu", "admin@gmail.com", ""),
-("usuario2", NULL, "isla2", "PERA", "2011-11-01", "NORTE", "$2y$10$iZ5WsHshaQdziXgTQgF3MualwK2TgWvMQfxKYh8qqK2/mO4NXiqEG", "usuario2@gmail.com", "uVLDHRAnv3"),
-("usuario3", NULL, "isla3", "MANZANA", "2012-12-02", "SUR", "$2y$10$RdmmT/4ODxwnmyqM6Mt0tuGtr3QvvX1Wx.QepqR7cTR9nvePSoQZm", "usuario3@gmail.com", "")';
+("usuario1", 1, "isla1", "PERA", "2011-10-01", "NORTE", "$2y$10$JWDNNyA/07FYk8oiDvckQ.yurypHiJf1Ljby4gsAD4Xdprm5UAfS6", "usuario1@gmail.com", ""),
+("usuario2", NULL, "isla2", "PERA", "2012-11-02", "NORTE", "$2y$10$iZ5WsHshaQdziXgTQgF3MualwK2TgWvMQfxKYh8qqK2/mO4NXiqEG", "usuario2@gmail.com", "uVLDHRAnv3"),
+("usuario3", NULL, "isla3", "MANZANA", "2013-12-03", "SUR", "$2y$10$RdmmT/4ODxwnmyqM6Mt0tuGtr3QvvX1Wx.QepqR7cTR9nvePSoQZm", "usuario3@gmail.com", "")';
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "INSERT INTO tareas (id, usuario_id, hecha, imagen_url) VALUES

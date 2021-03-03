@@ -20,8 +20,13 @@
           <button [style]="{'background-image': checkTieneItem(listaUsuario.includes(item))}" class="boton-imagen editar" (click)="toggleCheck(item)"></button>
         </div>
         <div class="item flex-column-centered">
-          <img src="http://acnhapi.com/v1/images/furniture/{{item}}">
-          <span>{{item}}</span>
+          <ng-container *ngIf="item.url == '';else nookipediaAPI">
+            <img src="http://acnhapi.com/v1/images/furniture/{{item}}">
+          </ng-container>
+          <ng-template #nookipediaAPI>
+            <img src="{{item.url}}">
+          </ng-template>
+          <span></span>
         </div>
       </div>
     </ng-container>

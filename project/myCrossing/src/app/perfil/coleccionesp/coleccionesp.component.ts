@@ -1,3 +1,4 @@
+import { IItem, IRecipe, items, recipes } from 'animal-crossing';
 import { ApiService } from './../../general/api.service';
 import { ColeccionespService } from './coleccionesp.service';
 import { VerificationService } from 'app/general/verification.service';
@@ -11,15 +12,16 @@ import { ItemsCEService } from './itemsce.service';
 })
 export class ColeccionespComponent implements OnInit {
 
-  colecciones : string[] = [];
+  colecciones : Map<string, string[]> = new Map();
   verification : VerificationService;
   _ce : ColeccionespService;
-  _ceinv : ItemsCEService;
-  _api : ApiService;
+  _ceinv : ItemsCEService;//del?
+  _api : ApiService;//del?
   page_number : number = 1;
   listaUsuario : string[] = [];
-  inventario : string[] = [];
+  inventario : Map<string, Promise<any>>;//del?
   activeCollection : string = "DIY";
+  listaObjetos : Array<any> = new Array<any>();
   selected = {
     'border-width': '0.4vw'
   };
@@ -41,21 +43,46 @@ export class ColeccionespComponent implements OnInit {
     this.verification.verify().then(() => {
       this.colecciones = this._ceinv.colecciones;
 
+      let tempItems : Array<IItem> = new Array<IItem>();
+      let tempRecipes : Array<IRecipe> = new Array<IRecipe>();
+
+      //Obtenemos todos los sources asociados a la colección activa y filtramos la lista de items para que solo
+      //se quede con aquellos cuya source es minimo uno de los de la CE activa
+      tempItems = items.filter(i => i.source != undefined && i.source.some(s => this.colecciones.get(this.activeCollection).includes(s)));
+      tempRecipes = recipes.filter(i => i.source.some(s => this.colecciones.get(this.activeCollection).includes(s)));
+      //Con los items tenemos que comprobar que la source no sea undefined ya que contiene items, como papel de carta,
+      //que no dispone de source y por lo tanto siempre devolvera undefined
+
+      this.listaObjetos.concat(tempItems, tempRecipes);
+
+
+
+
+
+
       this._ceinv.readItemsCE().then(inv => {
         let index : number = 0;
-        for(let i = 0; i < this._ceinv.colecciones.length; i++){
+        for(let i = 0; i < this._ceinv.colecciones.values.length; i++){
           if(inv[i]["source"] == this.activeCollection){
             index = i;
             break;
           }
         }
-        let s : string = inv[index]["GROUP_CONCAT(id)"];
-        this.inventario = s.split(",");
-        this.inventario.sort();
 
-        if(this.inventario.length <= 16){
-          this.alante.nativeElement.style.visibility = "hidden";
+        this.inventario.clear();
+        let s : string = inv[index]["GROUP_CONCAT(id)"];
+        let itArr = s.split(",");
+        itArr.sort();
+
+        for(let x = 0; x < itArr.length; x++){
+          this.inventario.set(itArr[x], this._api.readItemById(itArr[x],""));
         }
+
+        // this.inventario = itemListApi;
+
+        // if(this.inventario.length <= 16){
+        //   this.alante.nativeElement.style.visibility = "hidden";
+        // }
 
       });
 
