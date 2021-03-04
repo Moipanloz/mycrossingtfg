@@ -115,7 +115,8 @@ $sql = "INSERT INTO misvecinos (vecino_id, usuario_id, amistad) VALUES
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "INSERT INTO colesp (usuario_id, item_name, item_source) VALUES
-(2, 'wand', 'Estela')
+(2, 'wand', 'Estela'),
+(2, 'flimsy axe', 'DIY')
 ";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 

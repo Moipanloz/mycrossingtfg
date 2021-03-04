@@ -1,8 +1,8 @@
 <div class="menu-botones flex-centered">
-  <ng-container *ngFor="let lista of colecciones">
+  <ng-container *ngFor="let lista of colecciones | keyvalue">
     <div class="flex-column-centered">
-      <button class="boton-circular" id="{{lista}}" (click)="setActiveCollection(lista)" [ngStyle]="lista == this.activeCollection ? selected : base" ></button>
-      <span>{{lista}}</span>
+      <button class="boton-circular" id="{{lista.key}}" (click)="setActiveCollection(lista.key)" [ngStyle]="lista.key == this.activeCollection ? selected : base" ></button>
+      <span>{{lista.key}}</span>
     </div>
   </ng-container>
 </div>
@@ -14,19 +14,14 @@
   </div>
 
   <div class="paginacion-content">
-    <ng-container *ngFor="let item of inventario | paginacion:page_number">
+    <ng-container *ngFor="let item of listaObjetos | paginacion:page_number">
       <div class="item-container">
         <div class="check-container">
-          <button [style]="{'background-image': checkTieneItem(listaUsuario.includes(item))}" class="boton-imagen editar" (click)="toggleCheck(item)"></button>
+          <button [style]="{'background-image': checkTieneItem(listaUsuario.includes(item.name))}" class="boton-imagen editar" (click)="toggleCheck(item)"></button>
         </div>
         <div class="item flex-column-centered">
-          <ng-container *ngIf="item.url == '';else nookipediaAPI">
-            <img src="http://acnhapi.com/v1/images/furniture/{{item}}">
-          </ng-container>
-          <ng-template #nookipediaAPI>
-            <img src="{{item.url}}">
-          </ng-template>
-          <span></span>
+          <img src="{{item.image}}">
+          <span>{{item.translations.spanish | capitalize}}</span>
         </div>
       </div>
     </ng-container>

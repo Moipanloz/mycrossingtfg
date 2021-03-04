@@ -54,15 +54,15 @@ export class ColeccionespService {
     return this.http.delete(this.url, {params: parametros, responseType: "blob"}).toPromise();
   }
 
-  addItemCE(item : string){
+  addItemCE(item : any,source : string){
     let parametros = new HttpParams()
     .set("command", "create")
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
     let x : ColeccionEspecial = {
-      item_name: item,
-      item_source: "TODO",//TODOOOOOOOOOOOO
+      item_name: item.name,
+      item_source: source,
       usuario_id: this.verification.user
     }
 

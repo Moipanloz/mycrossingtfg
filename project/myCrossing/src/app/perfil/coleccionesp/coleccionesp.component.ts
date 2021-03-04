@@ -1,4 +1,4 @@
-import { IItem, IRecipe, items, recipes } from 'animal-crossing';
+import { IItem, IRecipe, items, recipes, translations } from 'animal-crossing';
 import { ColeccionespService } from './coleccionesp.service';
 import { VerificationService } from 'app/general/verification.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
@@ -15,7 +15,6 @@ export class ColeccionespComponent implements OnInit {
   _ce : ColeccionespService;
   page_number : number = 1;
   listaUsuario : string[] = [];
-  inventario : Array<string> = new Array<string>();
   activeCollection : string = "DIY";
   listaObjetos : Array<any> = new Array<any>();
   selected = {
@@ -34,7 +33,7 @@ export class ColeccionespComponent implements OnInit {
   }
 
   ngOnInit(){
-    this.verification.verify().then(() => {
+    this.verification.verify().then(async() => {
       this.colecciones = this._ce.colecciones;
 
       let tempItems : Array<IItem> = new Array<IItem>();
@@ -42,12 +41,12 @@ export class ColeccionespComponent implements OnInit {
 
       //Obtenemos todos los sources asociados a la colección activa y filtramos la lista de items para que solo
       //se quede con aquellos cuya source es minimo uno de los de la CE activa
-      tempItems = items.filter(i => i.source != undefined && i.source.some(s => this.colecciones.get(this.activeCollection).includes(s)));
-      tempRecipes = recipes.filter(i => i.source.some(s => this.colecciones.get(this.activeCollection).includes(s)));
+      tempItems = await items.filter(i => i.source != undefined && i.source.some(s => this.colecciones.get(this.activeCollection).includes(s)));
+      tempRecipes = await recipes.filter(i => i.source.some(s => this.colecciones.get(this.activeCollection).includes(s)));
       //Con los items tenemos que comprobar que la source no sea undefined ya que contiene items, como papel de carta,
       //que no dispone de source y por lo tanto siempre devolvera undefined
 
-      this.listaObjetos.concat(tempItems, tempRecipes).sort();
+      this.listaObjetos = [].concat(tempItems, tempRecipes).sort();
 
       if(this.listaObjetos.length <= 16){
         this.alante.nativeElement.style.visibility = "hidden";
@@ -55,22 +54,21 @@ export class ColeccionespComponent implements OnInit {
 
       // Leemos los objetos del usuario por colección activa
       this._ce.readCE().then(data => {
-        //Esto es para que solo coja la coleccion activa, descomentar si falla lo otro
-
-        // let index : number = null;
-        // for(let i = 0; i < data.length; i++){
-        //   if(data[i]["source"] == this.activeCollection){
-        //     index = i;
-        //     break;
-        //   }
-        // }
-
-        let index : number = Object.keys(data).indexOf(this.activeCollection);
+        //Esto es para que solo coja la coleccion activa
+        let index : number = null;
+        for(let i = 0; i < data.length; i++){
+          if(data[i]["item_source"] == this.activeCollection){
+            index = i;
+            break;
+          }
+        }
 
         if(index != null){
-          let s : string = data[index]["GROUP_CONCAT(usuariosce.itemce_id)"];
+          let s : string = data[index]["GROUP_CONCAT(item_name)"];
           this.listaUsuario = s.split(",");
         }
+
+        //console.log(items.filter(i => i.source != undefined && i.source.some(s => this.colecciones.get("Caza").includes(s))));
       });
     });
   }
@@ -87,11 +85,11 @@ export class ColeccionespComponent implements OnInit {
   paginacionNavigation(action : string){
     if(action == "atras" && this.page_number > 1){
       --this.page_number;
-    }else if(action == "alante" && this.page_number * 16 < this.inventario.length){ //TODO
+    }else if(action == "alante" && this.page_number * 16 < this.listaObjetos.length){ //TODO
       ++this.page_number;
     }
 
-    if(this.page_number > 1 && this.page_number * 16 < this.inventario.length){ //TODO
+    if(this.page_number > 1 && this.page_number * 16 < this.listaObjetos.length){ //TODO
       this.atras.nativeElement.style.visibility = "visible";
       this.alante.nativeElement.style.visibility = "visible";
     }else if(this.page_number > 1){
@@ -103,13 +101,13 @@ export class ColeccionespComponent implements OnInit {
     }
   }
 
-  toggleCheck(item : string){
-    if(this.listaUsuario.includes(item)){
-      this._ce.borrarItemCE(item).then(() => {
+  toggleCheck(item : any){
+    if(this.listaUsuario.includes(item.name)){
+      this._ce.borrarItemCE(item.name).then(() => {
         this.ngOnInit();
       });
     }else{
-      this._ce.addItemCE(item).then(() => {
+      this._ce.addItemCE(item, this.activeCollection).then(() => {
         this.ngOnInit();
       });
     }
