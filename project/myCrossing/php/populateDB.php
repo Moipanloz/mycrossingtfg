@@ -59,7 +59,7 @@ $sql = "CREATE TABLE tareas (
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "CREATE TABLE misvecinos (
-  vecino_id int(5) NOT NULL,
+  vecino_id varchar(30) NOT NULL,
   usuario_id int(5) NOT NULL,
   amistad set('1','2','3','4','5','6') NOT NULL DEFAULT '1',
   PRIMARY KEY (vecino_id, usuario_id),

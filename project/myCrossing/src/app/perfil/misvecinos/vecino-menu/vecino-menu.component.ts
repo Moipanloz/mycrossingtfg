@@ -2,6 +2,7 @@ import { Component, EventEmitter, HostBinding, Input, Output, OnInit, ElementRef
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Vecino } from 'app/general/interfaces';
 import { debounceTime } from "rxjs/operators";
+import { IVillager, villagers } from 'animal-crossing';
 
 @Component({
   selector: 'app-vecino-menu',
@@ -137,56 +138,7 @@ export class VecinoMenuComponent implements OnInit {
   filtrar(value){
     this.valorFiltrar = value;
   }
-
-// ==================================== ESTO ES SIMULANDO LA LISTA PARA PODER FILTRAR ==========================
-//         BORRAR CUANDO ESTE LA API
-
-  testArray : Vecino[] = [{
-    nombre: "Rocio",
-    vecino_id: 1,
-    usuario_id: 0,
-    amistad: 2
-  },{
-    nombre: "Rocinante",
-    vecino_id: 2,
-    usuario_id: 0,
-    amistad: 4
-  },{
-    nombre: "Aurora",
-    vecino_id: 3,
-    usuario_id: 0,
-    amistad: 6
-  },{
-    nombre: "Bobi",
-    vecino_id: 13,
-    usuario_id: 0,
-    amistad: 6
-  },{
-    nombre: "Test20",
-    vecino_id: 20,
-    usuario_id: 0,
-    amistad: 6
-  },{
-    nombre: "Test21",
-    vecino_id: 21,
-    usuario_id: 0,
-    amistad: 6
-  },{
-    nombre: "Test22",
-    vecino_id: 22,
-    usuario_id: 0,
-    amistad: 6
-  },{
-    nombre: "Test23",
-    vecino_id: 23,
-    usuario_id: 0,
-    amistad: 6
-  },{
-    nombre: "Test24",
-    vecino_id: 24,
-    usuario_id: 0,
-    amistad: 6
-  }]
+  vecinosArray : IVillager[] = villagers.filter(v => v.name!="");
 
 
 

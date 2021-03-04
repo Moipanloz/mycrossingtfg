@@ -5,9 +5,9 @@
   </div>
   <hr class="menu-hr">
   <form [formGroup]="vecinoForm" (ngSubmit)="enviar(vecinoForm.value, false)">
-    <ng-container *ngFor="let vecino of testArray | filtroVecino:valorFiltrar"> <!-- todos los vecinos de la api -->
-      <input formControlName="id" type="radio" value="{{vecino.vecino_id}}"> <!-- valor desde api-->
-      <label>{{vecino.nombre}}</label> <!-- nombre desde api -->
+    <ng-container *ngFor="let vecino of vecinosArray | filtroVecino:valorFiltrar"> <!-- todos los vecinos de la api -->
+      <input formControlName="id" type="radio" value="{{vecino.uniqueEntryId}}"> <!-- valor desde api-->
+      <label>{{vecino.translations.spanish}}</label> <!-- nombre desde api -->
     </ng-container>
     <hr class="menu-hr">
     <button [disabled]="vecinoForm.invalid" type="submit">Listo</button>
