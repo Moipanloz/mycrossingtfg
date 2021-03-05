@@ -19,14 +19,10 @@ function checkSourceCorrecta($itemSource){
 function checkTieneItem($conn, $userId, $itemName){
   $validation = TRUE;
 
-  $sql = "SELECT * FROM colesp WHERE item_name = '$itemName' AND usuario_id = $userId";
-
-  //echo("---------LA QUERY ES------------");
-  //echo($sql);
-  $result = mysqli_query($conn, $sql);
-
-//    echo("-----RESULTADO----");
-  //  echo($result);
+  $result = $conn->prepare('SELECT * FROM colesp WHERE item_name = ? AND usuario_id = ?');
+  $result->bind_param('si', $itemName, $userId);
+  $result->execute();
+  $result->store_result();
 
   if ($result->num_rows != 1) {
     $validation = FALSE;

@@ -63,8 +63,9 @@ if(isset($_GET["command"])){
 
 
           if($validation){
-            $sql = "INSERT INTO colesp(usuario_id, item_name, item_source) VALUES ($userId, '$itemName', '$itemSource')";
-            $result = mysqli_query($conn,$sql);
+            $result = $conn->prepare('INSERT INTO colesp(usuario_id, item_name, item_source) VALUES (?, ?, ?)');
+            $result->bind_param('iss',$userId, $itemName,$itemSource);
+            $result->execute();
           }else{
             print("No se cumplen los requisitos");
           }
@@ -81,15 +82,15 @@ if(isset($_GET["command"])){
         $verifCode = $_GET["verif"];
         $userId = $_GET["userId"];
         $itemName = $_GET["itemName"];
-        $itemSource = null;
 
         $validation = checkExisteUser($conn, $userId) &&
                   checkVerification($conn, $userId, $verifCode) &&
                   checkTieneItem($conn, $userId, $itemName);
 
         if($validation){
-          $sql = "DELETE FROM colesp WHERE usuario_id = $userId AND item_name = '$itemName'";
-          $result = mysqli_query($conn,$sql);
+          $result = $conn->prepare('DELETE FROM colesp WHERE usuario_id = ? AND item_name = ?');
+          $result->bind_param('is',$userId, $itemName);
+          $result->execute();
         }else{
           print("No se cumplen los requisitos");
         }
