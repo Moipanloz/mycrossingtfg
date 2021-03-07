@@ -1,12 +1,13 @@
 <div class="menu-botones flex-centered">
   <ng-container *ngFor="let lista of colecciones | keyvalue">
     <div class="flex-column-centered">
-      <button class="boton-circular" id="{{lista.key}}" (click)="setActiveCollection(lista.key)" [ngStyle]="lista.key == this.activeCollection ? selected : base" ></button>
+      <button class="boton-circular flex-centered" id="{{lista.key}}" (click)="setActiveCollection(lista.key)" [ngStyle]="lista.key == this.activeCollection ? selected : base" >
+        <img src="../../../assets/images/{{lista.key}}.png">
+      </button>
       <span>{{lista.key}}</span>
     </div>
   </ng-container>
 </div>
-
 
 <div class="item-list-wrap flex-centered">
   <div class="boton-pag flex-column-centered" style="visibility: hidden;" #atras>
@@ -20,7 +21,7 @@
           <button [style]="{'background-image': checkTieneItem(listaUsuario.includes(item.name))}" class="boton-imagen editar" (click)="toggleCheck(item)"></button>
         </div>
         <div class="item flex-column-centered">
-          <img src="{{item.image}}">
+          <img [src]="getImage(item)">
           <span>{{item.translations.spanish | capitalize}}</span>
         </div>
       </div>
@@ -31,4 +32,4 @@
     <button class="boton-pag boton-circular b-verde" (click)="paginacionNavigation('alante')"> > </button>
   </div>
 </div>
-<span>Página {{page_number}}</span>
+<span>Página {{page_number}} de {{(this.listaObjetos.length / 16) | round:"techo"}}</span>
