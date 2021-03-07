@@ -2,7 +2,7 @@
   <ng-container *ngFor="let lista of colecciones | keyvalue">
     <div class="flex-column-centered">
       <button class="boton-circular flex-centered" id="{{lista.key}}" (click)="setActiveCollection(lista.key)" [ngStyle]="lista.key == this.activeCollection ? selected : base" >
-        <img src="../../../assets/images/{{lista.key}}.png">
+        <img src="../../../assets/images/{{lista.key | lowercase}}.png">
       </button>
       <span>{{lista.key}}</span>
     </div>

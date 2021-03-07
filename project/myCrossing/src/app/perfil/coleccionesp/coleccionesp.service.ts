@@ -2,14 +2,13 @@ import { VerificationService } from 'app/general/verification.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ColeccionEspecial } from 'app/general/interfaces';
-import { ItemsCEService } from './itemsce.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ColeccionespService {
 
-  constructor(private http : HttpClient, private verification : VerificationService, private _ceinv : ItemsCEService) { }
+  constructor(private http : HttpClient, private verification : VerificationService) { }
 
   url : string = "http://localhost/php/coleccionesespeciales.php"
 

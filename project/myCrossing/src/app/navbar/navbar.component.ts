@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { VerificationService } from 'app/general/verification.service';
-import { ItemsCEService } from 'app/perfil/coleccionesp/itemsce.service';
 
 @Component({
   selector: 'app-navbar',
@@ -16,14 +15,12 @@ export class NavbarComponent {
   cookieService: CookieService;
   menu : boolean = false;
   _user : UserService;
-  _ceinv : ItemsCEService;
 
   constructor(cookieService: CookieService, verification: VerificationService,
-     private router: Router, _user : UserService, _ceinv : ItemsCEService) {
+     private router: Router, _user : UserService) {
     this.cookieService = cookieService;
     this.verification = verification;
     this._user = _user;
-    this._ceinv = _ceinv;
   }
 
 
