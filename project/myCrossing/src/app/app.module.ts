@@ -1,3 +1,4 @@
+import { PaginacionService } from './general/paginacion.service';
 import { SharingModule } from './general/sharing.module';
 import { CapitalizePipe } from './general/capitalize.pipe';
 import { RouterModule } from '@angular/router';
@@ -16,6 +17,8 @@ import { PerfilModule } from './perfil/perfil.module';
 import { CookieService } from 'ngx-cookie-service';
 import { CommonModule } from '@angular/common';
 import { VerificationService } from './general/verification.service';
+import { CatRopaComponent } from './cat-ropa/cat-ropa.component';
+import { FiltroRopaPipe } from './cat-ropa/filtro-ropa.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { VerificationService } from './general/verification.service';
     LoginComponent,
     RegistroComponent,
     InicioComponent,
-    FooterComponent
+    FooterComponent,
+    CatRopaComponent,
+    FiltroRopaPipe
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,8 @@ import { VerificationService } from './general/verification.service';
   ],
   providers: [
     CookieService,
-    VerificationService
+    VerificationService,
+    PaginacionService
   ],
   bootstrap: [AppComponent]
 })

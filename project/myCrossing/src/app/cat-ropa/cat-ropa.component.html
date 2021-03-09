@@ -1,0 +1,53 @@
+<!-- Filtros búsqueda -->
+<div class="content-wrapper" style="background-color: pink;">
+  <div style="margin-top: 4vw;">
+    <h2>Catálogo de ropa</h2>
+    <input [formControl]="busqueda" type="text" placeholder="Buscar" style="width: 50%;">
+  </div>
+</div>
+
+<!-- Items -->
+<div class="content-wrapper">
+
+  <!-- Paginacion arriba -->
+  <div class="pag-menu flex-centered">
+    <button [style.visibility]="page_number != 1 ? 'visible' : 'hidden'" (click)="page_number = this._pag.pagAtras(page_number)"></button>
+    <ng-container *ngFor="let pag of num_paginas">
+      <button [style.background-color]="pag == page_number ? 'blue' : 'white'" (click)="page_number = pag">{{pag}}</button>
+    </ng-container>
+    <span>Página {{page_number}} poner botones</span>
+    <button [style.visibility]="max_items < listaItems.length && page_number * max_items < listaItems.length ? 'visible' : 'hidden'" (click)="page_number = this._pag.pagAlante(page_number, max_items, listaItems)"></button>
+  </div>
+
+  <!-- Grid -->
+  <div class="grid-w-gap" style="margin: 1vw 0">
+      <ng-container *ngFor="let item of listaItems | filtroRopa:nameFilter | paginacion:page_number:max_items">
+        <div class="grid-item-wrap flex-column-centered" style="justify-content: space-evenly;">
+          <img [src]="getImage(item, 0)" style="width: 7vw; height: 7vw;">
+          <span>{{item.translations.spanish | capitalize}}</span>
+
+          <!-- Variaciones -->
+          <div class="flex-centered" *ngIf="item.variations != null">
+            <ng-container *ngFor="let vari of item.variations | paginacion:page_number:3">
+              <button class="b-variacion flex-centered">
+                <img src="{{vari.storageImage}}" style="width: 3vw;height: 3vw;margin:0.2vw">
+              </button>
+            </ng-container>
+          </div>
+
+        </div>
+      </ng-container>
+  </div>
+
+  <!-- Paginacion abajo -->
+  <div class="pag-menu flex-centered">
+    <button [style.visibility]="page_number != 1 ? 'visible' : 'hidden'" (click)="page_number = this._pag.pagAtras(page_number)"></button>
+    <ng-container *ngFor="let pag of num_paginas">
+      <button [style.background-color]="pag == page_number ? 'blue' : 'white'" (click)="page_number = pag">{{pag}}</button>
+    </ng-container>
+    <span>Página {{page_number}} poner botones</span>
+    <button [style.visibility]="listaItems.length > max_items && page_number * max_items < listaItems.length ? 'visible' : 'hidden'" (click)="page_number = this._pag.pagAlante(page_number, max_items, listaItems)"></button>
+  </div>
+
+</div>
+

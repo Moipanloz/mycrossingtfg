@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from '../autenticacion/login/login.component';
 import { InicioComponent } from '../inicio/inicio.component';
 import { AuthGuard } from '../autenticacion/auth.guard';
+import { CatRopaComponent } from 'app/cat-ropa/cat-ropa.component';
 
 const rutas: Routes = [
 {
@@ -23,6 +24,9 @@ const rutas: Routes = [
   path: "perfil",
   component: PerfilComponent,
   canActivate: [AuthGuard]
+},{
+  path: "catalogo-ropa",
+  component: CatRopaComponent
 }
 ];
 

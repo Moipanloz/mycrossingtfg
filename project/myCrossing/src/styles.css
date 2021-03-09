@@ -190,4 +190,18 @@ label{
   box-shadow: 0px -10px 20px 0px rgb(23 23 23 / 55%);
 }
 
+.content-wrapper{
+  padding: 2vw;
+}
+
+.grid-w-gap{
+  display: grid;
+  grid-gap: 1vw;
+}
+
+.grid-item-wrap{
+  border-radius: 20px;
+  padding: 1vw;
+}
+
 

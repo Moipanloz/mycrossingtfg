@@ -1,0 +1,40 @@
+span{
+  font-size: 1.4vw;
+}
+
+*{
+  text-align: center;
+}
+
+.content-wrapper{
+  background-color: aquamarine;
+}
+
+.pag-menu{
+  width: 100%;
+  background-color: rgb(167, 118, 212);
+}
+
+.grid-w-gap{
+  grid-template-columns: repeat(5, 1fr);
+  background-color: coral;
+}
+
+.grid-item-wrap{
+  background-color: cornflowerblue;
+  position: relative;
+}
+
+.editar{
+  right: 1vw;
+  top: 1vw;
+}
+
+.b-variacion{
+  border-radius: 50%;
+  background-color: crimson;
+  margin: 0 0.5vw;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
