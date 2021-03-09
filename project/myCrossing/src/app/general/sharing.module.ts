@@ -4,17 +4,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VerificationService } from './verification.service';
 import { PaginacionPipe } from './paginacion.pipe';
+import { RoundPipe } from './round.pipe';
 
 @NgModule({
   declarations: [
     CapitalizePipe,
     ClickOutsideDirective,
-    PaginacionPipe
+    PaginacionPipe,
+    RoundPipe
 ],
   exports: [
     CapitalizePipe,
     ClickOutsideDirective,
-    PaginacionPipe
+    PaginacionPipe,
+    RoundPipe
 ],
   imports: [
     CommonModule

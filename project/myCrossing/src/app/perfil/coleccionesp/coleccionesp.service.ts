@@ -2,34 +2,33 @@ import { VerificationService } from 'app/general/verification.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ColeccionEspecial } from 'app/general/interfaces';
-import { ItemsCEService } from './itemsce.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ColeccionespService {
 
-  constructor(private http : HttpClient, private verification : VerificationService, private _ceinv : ItemsCEService) { }
+  constructor(private http : HttpClient, private verification : VerificationService) { }
 
   url : string = "http://localhost/php/coleccionesespeciales.php"
 
   colecciones : Map<string, string[]> = new Map([
-    ["DIY",["pipo"]],
-    ["Estacional",["pipo"]],
+    ["DIY",new Array<any>()],
+    ["Estacional",["young spring bamboo","cherry-blossom petals","summer shells","acorns and pine cones","maple leaves","mushrooms","snowflakes","ornaments"]],
     ["Estela",["Celeste"]],
-    ["Caza",["Flick"]],
-    ["Pesca",["C.J."]],
+    ["Kamilo",["Flick"]],
+    ["CJ",["C.J."]],
     ["Gulliver",["Gulliver"]],
-    ["Al y Paca",["Cyrus","Reese"]],
+    ["Boda",["Cyrus","Reese","Wedding Season"]],
     ["Pascal",["Pascal"]],
     ["Gullivarrr",["Gullivarrr"]],
     ["Coti",["Zipper","Egg bottle","Egg balloon","Collecting earth eggs","Learning all egg outfit DIYs","Collecting leaf eggs",
-  "Collecting sky eggs","Collecting stone eggs","Collecting water eggs","Collecting wood eggs"]],
-    ["Soponcio",["Jack"]],
-    ["Guindo",["Cozy Turkey Day DIY","Franklin"]],
+  "Collecting sky eggs","Collecting stone eggs","Collecting water eggs","Collecting wood eggs","Bunny Day"]],
+    ["Soponcio",["Jack","Halloween"]],
+    ["Guindo",["Cozy Turkey Day DIY","Franklin","Turkey Day"]],
     ["Copito",["Snowboy"]],
     ["Renato",["Jingle","Check Toy Day stockings the day after Toy Day"]],
-    ["Conga",["Pavé"]],
+    ["Conga",["Pavé","Festivale"]],
     ["Dodo",["Dodo Airlines"]],
     ["Mama",["Mom"]],
     ["Cumple",["Birthday"]]
@@ -54,15 +53,15 @@ export class ColeccionespService {
     return this.http.delete(this.url, {params: parametros, responseType: "blob"}).toPromise();
   }
 
-  addItemCE(item : string){
+  addItemCE(item : any,source : string){
     let parametros = new HttpParams()
     .set("command", "create")
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
     let x : ColeccionEspecial = {
-      item_name: item,
-      item_source: "TODO",//TODOOOOOOOOOOOO
+      item_name: item.name,
+      item_source: source,
       usuario_id: this.verification.user
     }
 

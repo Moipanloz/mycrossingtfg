@@ -3,28 +3,30 @@
 header('Access-Control-Allow-Origin: http://localhost:4200');
 header('Access-Control-Allow-Headers: content-type');
 
-function checkDatosCorrectos($conn, $itemId){
+function checkSourceCorrecta($itemSource){
   $validation = TRUE;
+  $colecciones = ["DIY","Estacional","Estela","Caza","Pesca","Gulliver","Al y Paca","Pascal","Gullivarrr",
+  "Coti","Soponcio","Guindo","Copito","Renato","Conga","Dodo","Mama","Cumple"];
 
-  $sql = "SELECT id FROM itemsce WHERE id = '$itemId'";
-  $result = mysqli_query($conn, $sql);
-
-  if ($result->num_rows != 1) {
+  if (!in_array($itemSource, $colecciones)) {
     $validation = FALSE;
-    print("Objeto no válido");
+    print("El item no pertenece a una colección válida");
   }
+
   return $validation;
 }
 
-function checkTieneItem($conn, $userId, $itemId){
+function checkTieneItem($conn, $userId, $itemName){
   $validation = TRUE;
 
-  $sql = "SELECT * FROM usuariosce WHERE itemce_id = '$itemId' AND usuario_id = $userId";
-  $result = mysqli_query($conn, $sql);
+  $result = $conn->prepare('SELECT * FROM colesp WHERE item_name = ? AND usuario_id = ?');
+  $result->bind_param('si', $itemName, $userId);
+  $result->execute();
+  $result->store_result();
 
   if ($result->num_rows != 1) {
     $validation = FALSE;
-    print("Debes tener el item para eliminarlo de tu lista");
+    print("No tienes el item");
   }
   return $validation;
 }

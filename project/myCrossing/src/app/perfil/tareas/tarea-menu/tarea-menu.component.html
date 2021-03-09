@@ -5,7 +5,7 @@
         <ng-container *ngFor="let icono of iconos">
           <label>
             <input formControlName="icono" type="radio" value="{{icono}}" class="radio-hidden">
-            <img src="../../../../assets/images/{{icono}}.png" [class]="iconoForm.value['icono'] == icono ? 'img-radio img-radio-checked' : 'img-radio'">
+            <img src="../../../../assets/images/{{icono | lowercase}}.png" [class]="iconoForm.value['icono'] == icono ? 'img-radio img-radio-checked' : 'img-radio'">
           </label>
         </ng-container>
       </div>

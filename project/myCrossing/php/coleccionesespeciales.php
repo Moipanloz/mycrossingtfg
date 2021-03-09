@@ -49,13 +49,23 @@ if(isset($_GET["command"])){
           $itemName = $request->item_name;
           $itemSource = $request->item_source;
 
+          $noTieneItem = checkTieneItem($conn, $userId, $itemName);
+
           $validation = checkExisteUser($conn, $userId) &&
                   checkVerification($conn, $userId, $verifCode) &&
-                  checkDatosCorrectos($conn, $itemName, $itemSource);
+                  !$noTieneItem &&
+                  checkSourceCorrecta($itemSource);
+                  //No se puede comprobar que el nombre es correcto
+
+          //echo("----SOURCE-------");
+          //echo($itemSource);
+
+
 
           if($validation){
-            $sql = "INSERT INTO colesp(usuario_id, item_name, item_source) VALUES ($userId, '$itemName', '$itemSource')";
-            $result = mysqli_query($conn,$sql);
+            $result = $conn->prepare('INSERT INTO colesp(usuario_id, item_name, item_source) VALUES (?, ?, ?)');
+            $result->bind_param('iss',$userId, $itemName,$itemSource);
+            $result->execute();
           }else{
             print("No se cumplen los requisitos");
           }
@@ -68,19 +78,19 @@ if(isset($_GET["command"])){
       break;
 
     case "delete"://---------------------------------------------------------------------------------------------------DELETE
-      if(isset($_GET["userId"]) && isset($_GET["verif"]) && isset($_GET["itemId"])){
+      if(isset($_GET["userId"]) && isset($_GET["verif"]) && isset($_GET["itemName"])){
         $verifCode = $_GET["verif"];
         $userId = $_GET["userId"];
         $itemName = $_GET["itemName"];
 
         $validation = checkExisteUser($conn, $userId) &&
                   checkVerification($conn, $userId, $verifCode) &&
-                  checkTieneItem($conn, $userId, $itemName) &&
-                  checkDatosCorrectos($conn, $itemName);
+                  checkTieneItem($conn, $userId, $itemName);
 
         if($validation){
-          $sql = "DELETE FROM colesp WHERE usuario_id = $userId AND item_name = '$itemName'";
-          $result = mysqli_query($conn,$sql);
+          $result = $conn->prepare('DELETE FROM colesp WHERE usuario_id = ? AND item_name = ?');
+          $result->bind_param('is',$userId, $itemName);
+          $result->execute();
         }else{
           print("No se cumplen los requisitos");
         }

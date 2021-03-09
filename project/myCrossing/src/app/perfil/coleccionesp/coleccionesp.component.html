@@ -1,12 +1,13 @@
 <div class="menu-botones flex-centered">
-  <ng-container *ngFor="let lista of colecciones">
+  <ng-container *ngFor="let lista of colecciones | keyvalue">
     <div class="flex-column-centered">
-      <button class="boton-circular" id="{{lista}}" (click)="setActiveCollection(lista)" [ngStyle]="lista == this.activeCollection ? selected : base" ></button>
-      <span>{{lista}}</span>
+      <button class="boton-circular flex-centered" id="{{lista.key}}" (click)="setActiveCollection(lista.key)" [ngStyle]="lista.key == this.activeCollection ? selected : base" >
+        <img src="../../../assets/images/{{lista.key | lowercase}}.png">
+      </button>
+      <span>{{lista.key}}</span>
     </div>
   </ng-container>
 </div>
-
 
 <div class="item-list-wrap flex-centered">
   <div class="boton-pag flex-column-centered" style="visibility: hidden;" #atras>
@@ -14,19 +15,14 @@
   </div>
 
   <div class="paginacion-content">
-    <ng-container *ngFor="let item of inventario | paginacion:page_number">
+    <ng-container *ngFor="let item of listaObjetos | paginacion:page_number">
       <div class="item-container">
         <div class="check-container">
-          <button [style]="{'background-image': checkTieneItem(listaUsuario.includes(item))}" class="boton-imagen editar" (click)="toggleCheck(item)"></button>
+          <button [style]="{'background-image': checkTieneItem(listaUsuario.includes(item.name))}" class="boton-imagen editar" (click)="toggleCheck(item)"></button>
         </div>
         <div class="item flex-column-centered">
-          <ng-container *ngIf="item.url == '';else nookipediaAPI">
-            <img src="http://acnhapi.com/v1/images/furniture/{{item}}">
-          </ng-container>
-          <ng-template #nookipediaAPI>
-            <img src="{{item.url}}">
-          </ng-template>
-          <span></span>
+          <img [src]="getImage(item)">
+          <span>{{item.translations.spanish | capitalize}}</span>
         </div>
       </div>
     </ng-container>
@@ -36,4 +32,4 @@
     <button class="boton-pag boton-circular b-verde" (click)="paginacionNavigation('alante')"> > </button>
   </div>
 </div>
-<span>Página {{page_number}}</span>
+<span>Página {{page_number}} de {{(this.listaObjetos.length / 16) | round:"techo"}}</span>

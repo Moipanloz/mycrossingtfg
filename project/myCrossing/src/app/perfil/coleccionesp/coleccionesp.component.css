@@ -33,7 +33,7 @@
 
 .menu-botones > div {
   margin: 1vw 1vw;
-  flex-basis: 13%;
+  flex-basis: 8%;
 }
 
 .boton-circular:hover{
@@ -41,9 +41,13 @@
 }
 
 .boton-circular{
-  background-repeat: no-repeat;
-  background-size: 80%;
-  background-position: 36.5% 38%;
+  padding: 0;
+  overflow: hidden;
+}
+
+.boton-circular > img{
+  width: 80%;
+  height: 80%;
 }
 
 span{
@@ -85,71 +89,89 @@ span{
 #DIY{
   background-color: #ffba6b;
   border-color: #c95c0c;
-  background-image: url("../../../assets/images/pera.png");
 }
 
 #Estacional{
-  background-color: white;
-  border-color: #abe7b0;
-  background-image: url("../../../assets/images/manzana.png");
+  background-color: #ffd8ff;
+  border-color: #e68cf5;
 }
 
 #Estela{
   background-color: #5f1e1e;
   border-color: #eb6363;
-  background-image: url("../../../assets/images/estela.png");
 }
 
-#Caza{
+#Kamilo{
   background-color: #463b3d;
   border-color: #9b1f1f;
-  background-image: url("../../../assets/images/kamilo.png");
 }
 
-#Pesca{
+#CJ{
   background-color: #d1d065;
   border-color: #8f921c;
-  background-image: url("../../../assets/images/cj.png");
 }
 
 #Gulliver{
   background-color: #607ce7;
   border-color: #0352a6;
-  background-image: url("../../../assets/images/gulliver.png");
+}
+
+#Boda{
+  background-color: #fbffd1;
+  border-color: #79ccff;
+}
+
+#Pascal{
+  background-color: #e6e3a5;
+  border-color: #eb5a5a;
 }
 
 #Gullivarrr{
   background-color: #770b1d;
   border-color: #d2c402;
-  background-image: url("../../../assets/images/gullivarrr.png");
 }
 
 #Coti{
-  background-color: #f2d527;
-  border-color: #2653ff;
-  background-image: url("../../../assets/images/logo.png");
+  background-color: #54add3;
+  border-color: #ffe413;
 }
 
 #Soponcio{
-  background-color: #e09416;
-  border-color: #5810e1;
-  background-image: url("../../../assets/images/logo.png");
+  background-color: #481c87;
+  border-color: #ff8503;
+}
+
+#Guindo{
+  background-color: #59417b;
+  border-color: #e541d7;
 }
 
 #Copito{
-  background-color: #e6e6e6;
-  border-color: #f95b0d;
-  background-image: url("../../../assets/images/logo.png");
+  background-color: #f6873d;
+  border-color: #e1e1e1;
 }
 
 #Renato{
   background-color: #b50202;
-  border-color: #cecece;
-  background-image: url("../../../assets/images/logo.png");
+  border-color: #a36d08;
 }
 
 #Conga{
-  background-color: #0d8bac;
-  border-color: #5fca1e;
-  background-image: url("../../../assets/images/logo.png");
+  background-color: #a4dc9f;
+  border-color: #0c8c8d;
+}
+
+#Dodo{
+  background-color: #0490ff;
+  border-color: #d4d4d4;
+}
+
+#Mama{
+  background-color: #a1c0ff;
+  border-color: #d41a1a;
+}
+
+#Cumple{
+  background-color: #f2f264;
+  border-color: #01a2d4;
 }
