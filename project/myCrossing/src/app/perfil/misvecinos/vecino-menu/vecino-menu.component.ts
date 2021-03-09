@@ -62,7 +62,7 @@ export class VecinoMenuComponent implements OnInit {
 
     }else{
 
-      if(this.vecino.vecino_id != 0){
+      if(this.vecino.vecino_id != '0'){
         this.vecinoForm.patchValue({
           id : ""+this.vecino.vecino_id
         });
@@ -103,7 +103,7 @@ export class VecinoMenuComponent implements OnInit {
   }
 
   enviar(value, amistad : boolean){
-    if(this.vecino.vecino_id == 0){
+    if(this.vecino.vecino_id == '0'){
       //viene del create
       this.vecino.vecino_id = value["id"];
       this.crear.emit(this.vecino);
@@ -122,7 +122,13 @@ export class VecinoMenuComponent implements OnInit {
             vecino_id: this.vecino.vecino_id,
             usuario_id : this.vecino.usuario_id,
             amistad : this.vecino.amistad,
-            nombre : this.vecino.nombre
+            nombre : this.vecino.nombre,
+            cumple : null,
+            especie : null,
+            personalidad : null,
+            genero : null,
+            imgIcon: null,
+            imgPhoto: null
           };
           let array = [oldVecino];
           this.vecino.vecino_id = value["id"];

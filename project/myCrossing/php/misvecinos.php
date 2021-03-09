@@ -62,7 +62,7 @@ if(isset($_GET["command"])){
                    $tieneVecino;
 
           if($validation){
-            $sql = "INSERT INTO misvecinos(vecino_id, usuario_id, amistad) VALUES ($vecinoId, $userId, '$amistad')";
+            $sql = "INSERT INTO misvecinos(vecino_id, usuario_id, amistad) VALUES ('$vecinoId', $userId, '$amistad')";
             $result = mysqli_query($conn,$sql);
 
           }else{

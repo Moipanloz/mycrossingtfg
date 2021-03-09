@@ -28,7 +28,7 @@ export class MisvecinosService {
     return this.http.get<Vecino[]>(this.url, {params : parametros, withCredentials : true});
   }
 
-  crearVecino(vecino : Vecino){
+  crearVecino(vecino : Vecino): Promise<Blob>{
     let parametros = new HttpParams()
     .set("command", "create")
     .set("verif", this.verification.verifCode)

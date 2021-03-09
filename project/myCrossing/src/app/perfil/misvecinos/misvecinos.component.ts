@@ -4,6 +4,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { Vecino } from '../../general/interfaces';
 import { VecinoMenuComponent } from './vecino-menu/vecino-menu.component';
 import { VerificationService } from 'app/general/verification.service';
+import { ApiService } from 'app/general/api.service';
+import { IVillager, villagers } from 'animal-crossing';
 
 @Component({
   selector: 'app-misvecinos',
@@ -21,15 +23,27 @@ export class MisvecinosComponent implements OnInit {
   exclude : boolean[] = [];
   vecinoMenu : Vecino = {
     nombre: "",
-    vecino_id: 0,
+    vecino_id: '0',
     usuario_id: 0,
-    amistad: 1
+    amistad: 1,
+    cumple : null,
+    especie : null,
+    personalidad : null,
+    genero : null,
+    imgIcon: null,
+    imgPhoto: null
   };
   vecinoShow : Vecino = {
     nombre: "",
-    vecino_id: 0,
+    vecino_id: '0',
     usuario_id: 0,
-    amistad: 1
+    amistad: 1,
+    cumple : null,
+    especie : null,
+    personalidad : null,
+    genero : null,
+    imgIcon: null,
+    imgPhoto: null
   };
 
   @ViewChild("show") show : ElementRef;
@@ -38,6 +52,7 @@ export class MisvecinosComponent implements OnInit {
   constructor(
     private _misvecinos : MisvecinosService,
     verification : VerificationService,
+    private _api : ApiService,
     cookieService : CookieService){
 
     this.cookieService = cookieService;
@@ -46,8 +61,9 @@ export class MisvecinosComponent implements OnInit {
 
   ngOnInit(){
     this.verification.verify().then(() => {
-      this._misvecinos.readMisVecinos().subscribe(data => {
+      this._misvecinos.readMisVecinos().subscribe(async data => {
         this.length = 10 - data.length;
+        this.data = [];
 
         for(let ex = 0; ex < data.length; ex++){
           this.exclude.push(false);
@@ -57,8 +73,21 @@ export class MisvecinosComponent implements OnInit {
           data.push(null);
         }
 
-        this.data = [];
-        this.data.push(data);
+        let aux:Vecino = null;
+        let aux2 : IVillager[];
+        for(let raw of data ){
+          if(raw!=null){
+            aux2 = villagers.filter(v => v.uniqueEntryId==raw.vecino_id);
+            aux = {nombre: aux2[0].translations.spanish, vecino_id: raw.vecino_id, usuario_id: raw.usuario_id, amistad: raw.amistad,
+              cumple: new Date(aux2[0].birthday),imgIcon: aux2[0].iconImage, imgPhoto: aux2[0].photoImage, personalidad: aux2[0].personality, especie: aux2[0].species, genero: aux2[0].gender};
+            let fecha = new Date(aux2[0].birthday);
+          }else{
+            aux=null;
+          }
+          this.data.push(aux);
+          aux2=null;
+        }
+
         this.show.nativeElement.style.visibility = "hidden";
       }, error => console.error(error));
     });
@@ -81,6 +110,12 @@ export class MisvecinosComponent implements OnInit {
     this._misvecinos.actualizarVecino(array[0], array[1]).then(() => {
       this.ngOnInit();
     });
+  }
+
+  mesToString(value){
+    let fecha : Date = new Date(value);
+    const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    return fecha.getDate() + " de " + meses[fecha.getMonth()];
   }
 
   actualizaAmistadVecino(vecino : Vecino){
@@ -116,9 +151,15 @@ export class MisvecinosComponent implements OnInit {
         // Viene del create
         this.vecinoMenu = {
           nombre: "",
-          vecino_id: 0,
+          vecino_id: '0',
           usuario_id: 0,
-          amistad: 1
+          amistad: 1,
+          cumple : null,
+          especie : null,
+          personalidad : null,
+          genero : null,
+          imgIcon: null,
+          imgPhoto: null
         }
 
         setTimeout(() => {

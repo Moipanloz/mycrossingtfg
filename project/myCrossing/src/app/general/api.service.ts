@@ -13,13 +13,11 @@ export class ApiService {
 
   async readAllVillagers() : Promise<any> {
     let result = await this.http.get<any>(this.url+"villagers").toPromise();
-    console.log(result['ant00']['id']);
     return result;
   }
 
-  async readVillagerById(villagerID: number) : Promise<any> {
-    let result = await this.http.get<any>(this.url+"villagers/" + villagerID).toPromise();
-    console.log(result);
+  readVillagerById(villagerID: number) : Promise<any> {
+    let result = this.http.get<any>(this.url+"villagers/" + villagerID).toPromise();
     return result;
   }
 

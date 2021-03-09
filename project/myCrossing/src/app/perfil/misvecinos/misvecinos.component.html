@@ -41,25 +41,25 @@
 
 <div id="vecino-grid">
   <div id="vecino-show" #show>
-    <img src="../../../assets/images/logo.png" id="vecino-img">
-    <h3>Nombre: {{this.vecinoShow.vecino_id}}</h3>
+    <img [src]="this.vecinoShow.imgPhoto" id="vecino-img">
+    <h3>Nombre: {{this.vecinoShow.nombre}}</h3>
     <div>
-      <p>Cumpleaños: 1 de Enero</p>
-      <p>Personalidad: Dulce</p>
-      <p>Especie: Pingüino</p>
-      <p>Género: Femenino</p>
+      <p>Cumpleaños: {{mesToString(this.vecinoShow.cumple)}}</p>
+      <p>Personalidad: {{this.vecinoShow.personalidad}}</p>
+      <p>Especie: {{this.vecinoShow.especie}}</p>
+      <p>Género: {{this.vecinoShow.genero}}</p>
     </div>
   </div>
 
-  <ng-container *ngFor="let vecino of data[0]">
+  <ng-container *ngFor="let vecino of data">
     <ng-container *ngIf="vecino != null; else vacio">
       <div>
 
         <div class="contenedor-vecino" (mouseenter)="toggleVecino(vecino)">
-          <img src="../../../assets/images/logo.png" class="icono" (click)="abreMenu($event, vecino, false)"> <!-- icono -->
+          <img [src]="vecino.imgIcon" class="icono" (click)="abreMenu($event, vecino, false)"> <!-- icono -->
           <div class="wrap-vecino">
-            <button [hidden]="!porcentajeMode" (click)="toggleExclude(data[0].indexOf(vecino))" class="exclude-button" [style]="{'background-image': checkExclude(data[0].indexOf(vecino))}"></button>
-            <span>{{vecino.vecino_id}}</span>
+            <button [hidden]="!porcentajeMode" (click)="toggleExclude(data.indexOf(vecino))" class="exclude-button" [style]="{'background-image': checkExclude(data.indexOf(vecino))}"></button>
+            <span>{{vecino.nombre}}</span>
             <button class="boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;" (click)="abreMenu($event, vecino, true)">
               {{vecino.amistad}}
             </button>
@@ -67,8 +67,8 @@
         </div>
 
         <div [hidden]="!porcentajeMode" class="porcentaje b-azul">
-          <ng-container *ngIf="this.porcentajes[this.data[0].indexOf(vecino)] != null; else excluido">
-            <span>{{this.porcentajes[this.data[0].indexOf(vecino)] | number : '1.2-2'}}%</span>
+          <ng-container *ngIf="this.porcentajes[this.data.indexOf(vecino)] != null; else excluido">
+            <span>{{this.porcentajes[this.data.indexOf(vecino)] | number : '1.2-2'}}%</span>
           </ng-container>
           <ng-template #excluido>
             <span>-</span>

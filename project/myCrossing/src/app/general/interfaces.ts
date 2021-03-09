@@ -22,9 +22,15 @@ export interface User{
 
 export interface Vecino{
   nombre: string; //para filtrar por nombre
-  vecino_id: number;
+  vecino_id: string;
   usuario_id: number;
   amistad: number;
+  cumple: Date;
+  personalidad: string;
+  especie: string;
+  genero: string;
+  imgIcon: string;
+  imgPhoto: string;
 }
 
 export interface ColeccionEspecial{
