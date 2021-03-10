@@ -108,10 +108,10 @@ $sql = "INSERT INTO tareas (id, usuario_id, hecha, imagen_url) VALUES
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "INSERT INTO misvecinos (vecino_id, usuario_id, amistad) VALUES
-(1, 2, '1'),
-(1, 3, '1'),
-(2, 2, '1'),
-(2, 3, '1')";
+('B3RyfNEqwGmcccRC3', 2, '3'),
+('B3RyfNEqwGmcccRC3', 3, '3'),
+('LBifxETQJGEaLhBjC', 2, '6'),
+('SGMdki6dzpDZyXAw5', 3, '6')";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "INSERT INTO colesp (usuario_id, item_name, item_source) VALUES

@@ -16,12 +16,18 @@
 
 <div class="popup-menu" style="width: 15vw; display: none;" #menuAmistad>
   <form [formGroup]="amistadForm" (ngSubmit)="enviar(amistadForm.value, true)">
-    <input formControlName="amistad" type="radio" value="1">
-    <input formControlName="amistad" type="radio" value="2">
-    <input formControlName="amistad" type="radio" value="3">
-    <input formControlName="amistad" type="radio" value="4">
-    <input formControlName="amistad" type="radio" value="5">
-    <input formControlName="amistad" type="radio" value="6">
+    <label for="rad1">1</label>
+    <input formControlName="amistad" id="rad1" type="radio" value="1">
+    <label for="rad1">2</label>
+    <input formControlName="amistad" id="rad2" type="radio" value="2">
+    <label for="rad1">3</label>
+    <input formControlName="amistad" id="rad3" type="radio" value="3">
+    <label for="rad1">4</label>
+    <input formControlName="amistad" id="rad4" type="radio" value="4">
+    <label for="rad1">5</label>
+    <input formControlName="amistad" id="rad5" type="radio" value="5">
+    <label for="rad1">6</label>
+    <input formControlName="amistad" id="rad6" type="radio" value="6">
     <hr class="menu-hr">
     <button [disabled]="amistadForm.invalid" type="submit">Listo</button>
   </form>

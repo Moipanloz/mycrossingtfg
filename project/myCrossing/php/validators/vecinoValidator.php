@@ -19,7 +19,7 @@ function checkDatosCorrectos($vecino_id, $amistad){
 
 function checkTieneVecino($userId, $vecinoId, $conn){
   $result = null;
-  $testquery = "SELECT * FROM misvecinos WHERE vecino_id = $vecinoId AND usuario_id = $userId";
+  $testquery = "SELECT * FROM misvecinos WHERE vecino_id = '$vecinoId' AND usuario_id = $userId";
   $validation = mysqli_query($conn, $testquery);
 
   if($validation->num_rows == 1){

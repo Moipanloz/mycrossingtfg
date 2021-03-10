@@ -134,7 +134,7 @@ if(isset($_GET["command"])){
                   checkTieneVecino($userId, $vecinoId, $conn);
 
           if($validation){
-            $sql = "UPDATE misvecinos SET amistad = '$amistad' WHERE vecino_id = $vecinoId AND usuario_id = $userId";
+            $sql = "UPDATE misvecinos SET amistad = '$amistad' WHERE vecino_id = '$vecinoId' AND usuario_id = $userId";
             $result = mysqli_query($conn,$sql);
 
           }else{
