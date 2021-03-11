@@ -100,7 +100,7 @@ if(isset($_GET["command"])){
                   $tieneVecino;
 
           if($validation){
-            $sql = "UPDATE misvecinos SET vecino_id = $vecinoId, amistad = '$amistad' WHERE vecino_id = $oldVecinoId AND usuario_id = $userId";
+            $sql = "UPDATE misvecinos SET vecino_id = $vecinoId, amistad = '$amistad' WHERE vecino_id = '$oldVecinoId' AND usuario_id = $userId";
             $result = mysqli_query($conn,$sql);
 
           }else{
@@ -154,13 +154,14 @@ if(isset($_GET["command"])){
         $userId = $_GET["userId"];
         $verifCode = $_GET["verif"];
         $vecinoId = $_GET["vecinoId"];
+        $vecinoId = substr($vecinoId, 1, -1);
 
         $validation = checkExisteUser($conn, $userId) &&
                 checkVerification($conn, $userId, $verifCode) &&
                 checkTieneVecino($userId, $vecinoId, $conn);
 
         if($validation){
-          $sql = "DELETE FROM misvecinos WHERE vecino_id = $vecinoId AND usuario_id = $userId";
+          $sql = "DELETE FROM misvecinos WHERE vecino_id = '$vecinoId' AND usuario_id = $userId";
           $result = mysqli_query($conn,$sql);
         }else{
           print("No se cumplen los requisitos");

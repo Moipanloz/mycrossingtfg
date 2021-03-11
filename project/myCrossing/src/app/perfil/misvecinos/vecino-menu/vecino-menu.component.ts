@@ -98,6 +98,7 @@ export class VecinoMenuComponent implements OnInit {
   }
 
   borrarVecino(){
+    console.log("inside");
     this.borrar.emit(this.vecino);
     this.cierraMenu(null);
   }

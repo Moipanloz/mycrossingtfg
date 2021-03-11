@@ -75,14 +75,6 @@ export class MisvecinosComponent implements OnInit {
 
         let aux:Vecino = null;
         let aux2 : IVillager[];
-        let aux3 : String[] = [];
-        let aux4 : Set<String>;
-        aux2=villagers.filter(v => v.name!='');
-        for(let vecino of aux2){
-          aux3.push(vecino.personality);
-        }
-        aux4 = new Set(aux3);
-        console.log(aux4);
         for(let raw of data ){
           if(raw!=null){
             aux2 = villagers.filter(v => v.uniqueEntryId==raw.vecino_id);
