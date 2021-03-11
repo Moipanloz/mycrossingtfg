@@ -18,7 +18,19 @@ export class CatRopaComponent implements OnInit {
   max_items : number = 40;
   num_paginas : Array<number> = new Array<number>()//Array(this.listaItems.length / this.max_items).fill().map((x,i) => i)//TODO ROUND PIPE
   _pag : PaginacionService;
-
+  botonFiltrar : string = "none";
+  tiposPrenda : Map<string, string> = new Map([
+    ["Headwear","Cabeza"],
+    ["Accessories","Accesorios"],
+    ["Tops","Partes arriba"],
+    ["Bottoms","Partes abajo"],
+    ["Dress-Up","Vestidos"],
+    ["Socks","Calcetines"],
+    ["Shoes","Zapatos"],
+    ["Bags","Mochilas"],
+    ["Umbrellas","Paraguas"],
+    ["Clothing Other","Otros"]
+  ]);
   nameFilter : string = "";
   busqueda = new FormControl("");
 
@@ -29,10 +41,13 @@ export class CatRopaComponent implements OnInit {
 
   ngOnInit() {
     this._verif.verify().then( async () => {
-      this.listaItems = await items.filter(i => i.sourceSheet == "Accessories" || i.sourceSheet == "Tops" ||
-      i.sourceSheet == "Headwear" || i.sourceSheet == "Socks" || i.sourceSheet == "Dress-Up" || i.sourceSheet == "Bags" ||
-      i.sourceSheet == "Shoes" || i.sourceSheet == "Umbrellas" || i.sourceSheet == "Bottoms" || i.sourceSheet == "Clothing Other");
-
+      if(this.botonFiltrar == "none"){
+        this.listaItems = await items.filter(i => i.sourceSheet == "Accessories" || i.sourceSheet == "Tops" ||
+        i.sourceSheet == "Headwear" || i.sourceSheet == "Socks" || i.sourceSheet == "Dress-Up" || i.sourceSheet == "Bags" ||
+        i.sourceSheet == "Shoes" || i.sourceSheet == "Umbrellas" || i.sourceSheet == "Bottoms" || i.sourceSheet == "Clothing Other");
+      }else{
+        this.listaItems = await items.filter(i => i.sourceSheet == this.botonFiltrar);
+      }
       this.busqueda.valueChanges.pipe(debounceTime(300)).subscribe(value => this.filtrar(value));
     });
   }
@@ -49,6 +64,15 @@ export class CatRopaComponent implements OnInit {
 
   filtrar(value){
     this.nameFilter = value;
+  }
+
+  activaFiltro(key : string){
+    if(this.botonFiltrar == key){
+      this.botonFiltrar = "none"
+    }else{
+      this.botonFiltrar = key
+    }
+    this.ngOnInit();
   }
 
 }

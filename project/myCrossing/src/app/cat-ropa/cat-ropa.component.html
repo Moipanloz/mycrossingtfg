@@ -3,6 +3,9 @@
   <div style="margin-top: 4vw;">
     <h2>Catálogo de ropa</h2>
     <input [formControl]="busqueda" type="text" placeholder="Buscar" style="width: 50%;">
+    <div class="flex-centered">
+      <button *ngFor="let tipo of tiposPrenda | keyvalue" (click)="activaFiltro(tipo.key)" [class]="this.botonFiltrar == tipo.key ? 'boton-alargado b-verde' : 'boton-alargado b-azul'">{{tipo.value}}</button>
+    </div>
   </div>
 </div>
 
