@@ -21,7 +21,7 @@ export interface User{
 }
 
 export interface Vecino{
-  nombre: string; //para filtrar por nombre
+  nombre: string;
   vecino_id: string;
   usuario_id: number;
   amistad: number;

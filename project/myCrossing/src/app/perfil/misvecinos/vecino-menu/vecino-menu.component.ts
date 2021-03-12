@@ -81,7 +81,6 @@ export class VecinoMenuComponent implements OnInit {
       this.divVecino.nativeElement.style.display = "block";
       e.stopPropagation();
     }
-
   }
 
   cierraMenu(amistad : boolean){
@@ -98,17 +97,20 @@ export class VecinoMenuComponent implements OnInit {
   }
 
   borrarVecino(){
-    console.log("inside");
-    this.borrar.emit(this.vecino);
+    if(this.vecino.vecino_id.length == 17){
+      this.borrar.emit(this.vecino);
+    }
     this.cierraMenu(null);
   }
 
   enviar(value, amistad : boolean){
     if(this.vecino.vecino_id == '0'){
       //viene del create
-      this.vecino.vecino_id = value["id"];
-      this.crear.emit(this.vecino);
-      this.cierraMenu(null);
+      if(value["id"] != 1){ //Por algun motivo, si borras cuando no hay ninguno, se llama a enviar con id=1
+        this.vecino.vecino_id = value["id"];
+        this.crear.emit(this.vecino);
+        this.cierraMenu(null);
+      }
     }else{
       if (amistad){
         if(this.vecino.amistad != value["amistad"]){

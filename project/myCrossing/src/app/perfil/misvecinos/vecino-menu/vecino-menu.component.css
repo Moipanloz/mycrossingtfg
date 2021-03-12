@@ -6,16 +6,19 @@
   display: flex;
   flex-wrap: wrap;
   overflow-y: scroll;
-  height: 50vw;
+  height: 30vh;
+  margin: 1vw 0;
 }
 .elementList{
   display: grid;
   width: 8vw;
   text-align: center;
 }
-.botones{
-  padding-right: 4vw;
-  padding-top: 1vw;
-  display: grid;
 
+.popup-menu{
+  padding: 4%;
+}
+
+#botones{
+  justify-content: space-around;
 }

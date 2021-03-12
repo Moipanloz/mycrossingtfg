@@ -80,7 +80,6 @@ export class MisvecinosComponent implements OnInit {
             aux2 = villagers.filter(v => v.uniqueEntryId==raw.vecino_id);
             aux = {nombre: aux2[0].translations.spanish, vecino_id: raw.vecino_id, usuario_id: raw.usuario_id, amistad: raw.amistad,
               cumple: new Date(aux2[0].birthday),imgIcon: aux2[0].iconImage, imgPhoto: aux2[0].photoImage, personalidad: aux2[0].personality, especie: aux2[0].species, genero: aux2[0].gender};
-            let fecha = new Date(aux2[0].birthday);
           }else{
             aux=null;
           }
@@ -125,9 +124,11 @@ export class MisvecinosComponent implements OnInit {
   }
 
   borraVecino(vecino : Vecino){
-    this._misvecinos.borrarVecino(vecino).then(() => {
-      this.ngOnInit();
-    });
+    if(vecino.vecino_id.length == 17){
+      this._misvecinos.borrarVecino(vecino).then(() => {
+        this.ngOnInit();
+      });
+    }
   }
 
   abreMenu(event, vecino : Vecino, amistad : boolean){
@@ -234,9 +235,9 @@ export class MisvecinosComponent implements OnInit {
 
     // Recoge en un array las amistades de los vecinos que tiene el user si no estan excluidos
     // y cuenta el numero de vecinos con amistad 6
-    for(let vecino of this.data[0]){
+    for(let vecino of this.data){
       if(vecino != null){
-        if(!this.exclude[this.data[0].indexOf(vecino)]){
+        if(!this.exclude[this.data.indexOf(vecino)]){
           amistadCalc.push(vecino.amistad);
           amistadFull.push(vecino.amistad);
         }else{

@@ -41,7 +41,7 @@
 
 <div id="vecino-grid">
   <div id="vecino-show" #show>
-    <img [src]="this.vecinoShow.imgPhoto" id="vecino-img">
+    <img [src]="this.vecinoShow.imgPhoto" id="vecino-img" style="border-radius: 20px;">
     <h3>Nombre: {{this.vecinoShow.nombre}}</h3>
     <div>
       <p><img src="../../../assets/images/cumple.png" style="width: 2vw; height: 2vw;">: {{mesToString(this.vecinoShow.cumple)}}</p>
@@ -56,7 +56,7 @@
       <div>
 
         <div class="contenedor-vecino" (mouseenter)="toggleVecino(vecino)">
-          <img [src]="vecino.imgIcon" class="icono" (click)="abreMenu($event, vecino, false)"> <!-- icono -->
+          <img [src]="vecino.imgIcon" class="icono" (click)="abreMenu($event, vecino, false)">
           <div class="wrap-vecino">
             <button [hidden]="!porcentajeMode" (click)="toggleExclude(data.indexOf(vecino))" class="exclude-button" [style]="{'background-image': checkExclude(data.indexOf(vecino))}"></button>
             <span>{{vecino.nombre}}</span>

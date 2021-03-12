@@ -1,23 +1,22 @@
-<div style="width: 20vw; height: 60vw; display: none;" class="popup-menu" (busquedaEmitter)="filtrar($event)" #menuVecino>
-  <div>
-    <input [formControl]="busqueda" type="text" placeholder="Buscar" style="width: -webkit-fill-available;">
+<div style="width: 42vw; height: 25vw; display: none;" class="popup-menu flex-column" (busquedaEmitter)="filtrar($event)" #menuVecino>
+  <div class="flex-centered">
+    <input [formControl]="busqueda" type="text" placeholder="Buscar" style="width: 70%;">
   </div>
   <form [formGroup]="vecinoForm" (ngSubmit)="enviar(vecinoForm.value, false)">
-    <div class="botones">
-      <button style="justify-self: center;" (click)="borrarVecino()" class="boton-imagen delete"></button>
-      <button [disabled]="vecinoForm.invalid" type="submit" class="boton-imagen save" style="margin-bottom: 1vw;justify-self: center; grid-column: 2;"></button>
-    </div>
     <div class="lista">
-      <ng-container *ngFor="let vecino of vecinosArray | filtroVecino:valorFiltrar"> <!-- todos los vecinos de la api -->
+      <ng-container *ngFor="let vecino of vecinosArray | filtroVecino:valorFiltrar">
         <div class="elementList">
           <label>
             <input formControlName="id" type="radio" value="{{vecino.uniqueEntryId}}" class="radio-hidden">
             <img [src]="vecino.iconImage" [class]="vecinoForm.value['id'] == vecino.uniqueEntryId ? 'img-radio img-radio-checked' : 'img-radio'">
           </label>
-          <!--<input formControlName="id" type="radio" value="{{vecino.uniqueEntryId}}"> --> <!-- valor desde api-->
-          <label>{{vecino.translations.spanish}}</label> <!-- nombre desde api -->
+          <label>{{vecino.translations.spanish}}</label>
         </div>
       </ng-container>
+    </div>
+    <div class="flex-centered" id="botones">
+      <button (click)="borrarVecino()" class="boton-imagen delete"></button>
+      <button [disabled]="vecinoForm.invalid" type="submit" class="boton-imagen save"></button>
     </div>
   </form>
 </div>
