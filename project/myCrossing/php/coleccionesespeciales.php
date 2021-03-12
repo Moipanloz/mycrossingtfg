@@ -57,11 +57,6 @@ if(isset($_GET["command"])){
                   checkSourceCorrecta($itemSource);
                   //No se puede comprobar que el nombre es correcto
 
-          //echo("----SOURCE-------");
-          //echo($itemSource);
-
-
-
           if($validation){
             $result = $conn->prepare('INSERT INTO colesp(usuario_id, item_name, item_source) VALUES (?, ?, ?)');
             $result->bind_param('iss',$userId, $itemName,$itemSource);

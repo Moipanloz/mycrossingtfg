@@ -43,7 +43,7 @@ $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 $sql = "CREATE TABLE colesp (
   usuario_id int(5) NOT NULL,
   item_name varchar(30) NOT NULL,
-  item_source enum('DIY','Estacional','Estela','Caza','Pesca','Gulliver','Al y Paca','Pascal','Gullivarrr','Coti','Soponcio','Guindo','Copito','Renato','Conga','Dodo','Mama','Cumple') NOT NULL DEFAULT 'DIY',
+  item_source enum('DIY','Estacional','Estela','Kamilo','CJ','Gulliver','Boda','Pascal','Gullivarrr','Coti','Soponcio','Guindo','Copito','Renato','Conga','Dodo','Mama','Cumple') NOT NULL DEFAULT 'DIY',
   PRIMARY KEY (usuario_id, item_name),
   FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1";

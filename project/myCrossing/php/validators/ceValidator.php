@@ -5,7 +5,7 @@ header('Access-Control-Allow-Headers: content-type');
 
 function checkSourceCorrecta($itemSource){
   $validation = TRUE;
-  $colecciones = ["DIY","Estacional","Estela","Caza","Pesca","Gulliver","Al y Paca","Pascal","Gullivarrr",
+  $colecciones = ["DIY","Estacional","Estela","Kamilo","CJ","Gulliver","Boda","Pascal","Gullivarrr",
   "Coti","Soponcio","Guindo","Copito","Renato","Conga","Dodo","Mama","Cumple"];
 
   if (!in_array($itemSource, $colecciones)) {
