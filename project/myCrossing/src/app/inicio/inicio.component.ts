@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
-import { VerificationService } from 'app/general/verification.service';
+import { VerificationService } from 'app/general/services/verification.service';
 import { items, translations, npcs } from 'animal-crossing';
 
 @Component({

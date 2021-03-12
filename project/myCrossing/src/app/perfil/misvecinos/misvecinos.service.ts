@@ -3,7 +3,7 @@ import { HttpParams, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Vecino } from 'app/general/interfaces';
-import { VerificationService } from 'app/general/verification.service';
+import { VerificationService } from 'app/general/services/verification.service';
 
 @Injectable({
   providedIn: 'root'

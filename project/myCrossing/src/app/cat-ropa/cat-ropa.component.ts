@@ -1,5 +1,5 @@
-import { PaginacionService } from './../general/paginacion.service';
-import { VerificationService } from './../general/verification.service';
+import { PaginacionService } from './../general/services/paginacion.service';
+import { VerificationService } from './../general/services/verification.service';
 import { IItem, items } from 'animal-crossing';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
@@ -72,6 +72,9 @@ export class CatRopaComponent implements OnInit {
     }else{
       this.botonFiltrar = key
     }
+    this.page_number = 1;
+    this.nameFilter = "";
+    this.busqueda.setValue("");
     this.ngOnInit();
   }
 

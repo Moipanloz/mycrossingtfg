@@ -1,23 +1,26 @@
-import { ClickOutsideDirective } from 'app/general/clickOutside.directive';
-import { CapitalizePipe } from './capitalize.pipe';
+import { ClickOutsideDirective } from 'app/general/directives/clickOutside.directive';
+import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { VerificationService } from './verification.service';
-import { PaginacionPipe } from './paginacion.pipe';
-import { RoundPipe } from './round.pipe';
+import { VerificationService } from './services/verification.service';
+import { PaginacionPipe } from './pipes/paginacion.pipe';
+import { RoundPipe } from './pipes/round.pipe';
+import { FiltroAcPipe } from './pipes/filtro-ac.pipe';
 
 @NgModule({
   declarations: [
     CapitalizePipe,
     ClickOutsideDirective,
     PaginacionPipe,
-    RoundPipe
+    RoundPipe,
+    FiltroAcPipe
 ],
   exports: [
     CapitalizePipe,
     ClickOutsideDirective,
     PaginacionPipe,
-    RoundPipe
+    RoundPipe,
+    FiltroAcPipe
 ],
   imports: [
     CommonModule

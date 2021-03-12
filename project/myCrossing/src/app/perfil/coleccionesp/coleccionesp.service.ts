@@ -1,4 +1,4 @@
-import { VerificationService } from 'app/general/verification.service';
+import { VerificationService } from 'app/general/services/verification.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ColeccionEspecial } from 'app/general/interfaces';

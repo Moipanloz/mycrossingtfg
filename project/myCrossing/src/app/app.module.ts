@@ -1,6 +1,5 @@
-import { PaginacionService } from './general/paginacion.service';
+import { PaginacionService } from './general/services/paginacion.service';
 import { SharingModule } from './general/sharing.module';
-import { CapitalizePipe } from './general/capitalize.pipe';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -16,9 +15,8 @@ import { FooterComponent } from './footer/footer.component';
 import { PerfilModule } from './perfil/perfil.module';
 import { CookieService } from 'ngx-cookie-service';
 import { CommonModule } from '@angular/common';
-import { VerificationService } from './general/verification.service';
+import { VerificationService } from './general/services/verification.service';
 import { CatRopaComponent } from './cat-ropa/cat-ropa.component';
-import { FiltroRopaPipe } from './cat-ropa/filtro-ropa.pipe';
 
 @NgModule({
   declarations: [
@@ -28,8 +26,7 @@ import { FiltroRopaPipe } from './cat-ropa/filtro-ropa.pipe';
     RegistroComponent,
     InicioComponent,
     FooterComponent,
-    CatRopaComponent,
-    FiltroRopaPipe
+    CatRopaComponent
   ],
   imports: [
     BrowserModule,

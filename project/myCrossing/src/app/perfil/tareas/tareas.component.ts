@@ -3,7 +3,7 @@ import { TareasService } from './tarea.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Tarea } from '../../general/interfaces';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { VerificationService } from 'app/general/verification.service';
+import { VerificationService } from 'app/general/services/verification.service';
 
 @Component({
   selector: 'app-tareas',

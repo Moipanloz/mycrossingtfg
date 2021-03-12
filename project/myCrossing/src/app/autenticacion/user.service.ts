@@ -2,7 +2,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { User } from '../general/interfaces';
-import { VerificationService } from 'app/general/verification.service';
+import { VerificationService } from 'app/general/services/verification.service';
 
 @Injectable({
   providedIn: 'root'

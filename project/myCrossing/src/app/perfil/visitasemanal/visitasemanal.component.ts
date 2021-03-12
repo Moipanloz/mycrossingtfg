@@ -1,7 +1,5 @@
-import { LowerCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { VerificationService } from 'app/general/verification.service';
+import { VerificationService } from 'app/general/services/verification.service';
 import { CookieService } from 'ngx-cookie-service';
 import { VisitasService } from './visitas.service';
 

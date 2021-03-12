@@ -1,4 +1,4 @@
-import { VerificationService } from 'app/general/verification.service';
+import { VerificationService } from 'app/general/services/verification.service';
 import { Component } from '@angular/core';
 
 @Component({

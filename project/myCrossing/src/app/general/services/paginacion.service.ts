@@ -17,5 +17,8 @@ export class PaginacionService {
     return pag_number;
   }
 
+  checkSigPagFiltrado(){
+
+  }
 
 }

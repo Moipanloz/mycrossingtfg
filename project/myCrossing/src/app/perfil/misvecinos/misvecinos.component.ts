@@ -3,8 +3,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Vecino } from '../../general/interfaces';
 import { VecinoMenuComponent } from './vecino-menu/vecino-menu.component';
-import { VerificationService } from 'app/general/verification.service';
-import { ApiService } from 'app/general/api.service';
+import { VerificationService } from 'app/general/services/verification.service';
 import { IVillager, villagers } from 'animal-crossing';
 
 @Component({
@@ -52,7 +51,6 @@ export class MisvecinosComponent implements OnInit {
   constructor(
     private _misvecinos : MisvecinosService,
     verification : VerificationService,
-    private _api : ApiService,
     cookieService : CookieService){
 
     this.cookieService = cookieService;

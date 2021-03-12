@@ -1,6 +1,7 @@
+import { PaginacionService } from './../../general/services/paginacion.service';
 import { IItem, IRecipe, items, recipes } from 'animal-crossing';
 import { ColeccionespService } from './coleccionesp.service';
-import { VerificationService } from 'app/general/verification.service';
+import { VerificationService } from 'app/general/services/verification.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
@@ -17,6 +18,7 @@ export class ColeccionespComponent implements OnInit {
   listaUsuario : string[] = [];
   activeCollection : string = "Boda";
   page_max : number = 0;
+  max_items : number = 16;
   listaObjetos : Array<any> = new Array<any>();
   selected = {
     'border-width': '0.4vw'
@@ -28,7 +30,7 @@ export class ColeccionespComponent implements OnInit {
   @ViewChild("atras") atras : ElementRef;
   @ViewChild("alante") alante : ElementRef;
 
-  constructor(verification : VerificationService, ce : ColeccionespService) {
+  constructor(verification : VerificationService, ce : ColeccionespService, public _pag : PaginacionService) {
     this.verification = verification;
     this._ce = ce;
   }
@@ -149,25 +151,6 @@ export class ColeccionespComponent implements OnInit {
     this.atras.nativeElement.style.visibility = "hidden";
     this.alante.nativeElement.style.visibility = "visible";
     this.ngOnInit();
-  }
-
-  paginacionNavigation(action : string){
-    if(action == "atras" && this.page_number > 1){
-      --this.page_number;
-    }else if(action == "alante" && this.page_number * 16 < this.listaObjetos.length){ //TODO
-      ++this.page_number;
-    }
-
-    if(this.page_number > 1 && this.page_number * 16 < this.listaObjetos.length){ //TODO
-      this.atras.nativeElement.style.visibility = "visible";
-      this.alante.nativeElement.style.visibility = "visible";
-    }else if(this.page_number > 1){
-      this.atras.nativeElement.style.visibility = "visible";
-      this.alante.nativeElement.style.visibility = "hidden";
-    }else{
-      this.atras.nativeElement.style.visibility = "hidden";
-      this.alante.nativeElement.style.visibility = "visible";
-    }
   }
 
   toggleCheck(item : any){

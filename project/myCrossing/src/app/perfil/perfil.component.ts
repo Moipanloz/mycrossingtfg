@@ -4,7 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { User } from 'app/general/interfaces';
 import { UserService } from 'app/autenticacion/user.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { VerificationService } from 'app/general/verification.service';
+import { VerificationService } from 'app/general/services/verification.service';
 
 
 @Component({
