@@ -6,22 +6,20 @@ h2, span{
   text-align: center;
 }
 
-.content-wrapper{
-  background-color: aquamarine;
+.content-wrapper-bot{
+  background-color: pink;
 }
 
 .pag-menu{
   width: 100%;
-  background-color: rgb(167, 118, 212);
 }
 
 .grid-w-gap{
   grid-template-columns: repeat(5, 1fr);
-  background-color: coral;
 }
 
 .grid-item-wrap{
-  background-color: cornflowerblue;
+  background-color: #f3caea;
   position: relative;
 }
 
@@ -32,9 +30,41 @@ h2, span{
 
 .b-variacion{
   border-radius: 50%;
-  background-color: crimson;
   margin: 0 0.5vw;
   padding: 0;
   border: none;
   cursor: pointer;
+}
+
+.b-darkGreen{
+  background-color: rgb(157 228 163);
+}
+
+.b-darkBlue{
+  background-color: #ade6e7;
+}
+
+.b-darkPink{
+  background-color: rgb(228 157 203);
+}
+
+.b-darkPurple{
+  background-color: #c380ec;
+}
+
+.boton-circular{
+  width: 2vw;
+  height: 2vw;
+  padding: 0;
+}
+
+.b-pag{
+  border-radius: 5px;
+  border-style: none;
+  margin: 0 0.1vw;
+  cursor: pointer;
+}
+
+.b-pag:hover{
+  background-color: rgb(157 228 163);
 }

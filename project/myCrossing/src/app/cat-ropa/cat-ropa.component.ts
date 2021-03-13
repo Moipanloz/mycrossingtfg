@@ -16,7 +16,7 @@ export class CatRopaComponent implements OnInit {
   _verif : VerificationService;
   page_number : number = 1;
   max_items : number = 40;
-  num_paginas : Array<number> = new Array<number>()//Array(this.listaItems.length / this.max_items).fill().map((x,i) => i)//TODO ROUND PIPE
+  num_paginas : Array<number>;
   _pag : PaginacionService;
   botonFiltrar : string = "none";
   tiposPrenda : Map<string, string> = new Map([
@@ -49,6 +49,8 @@ export class CatRopaComponent implements OnInit {
         this.listaItems = await items.filter(i => i.sourceSheet == this.botonFiltrar);
       }
       this.busqueda.valueChanges.pipe(debounceTime(300)).subscribe(value => this.filtrar(value));
+
+      this.num_paginas = Array.from({length: Math.ceil(this.listaItems.length / this.max_items)}, (_, i) => i+1);
     });
   }
 
@@ -76,6 +78,15 @@ export class CatRopaComponent implements OnInit {
     this.nameFilter = "";
     this.busqueda.setValue("");
     this.ngOnInit();
+  }
+
+  getImgVariation(item : IItem, varNum : number){
+    let img = this.getImageElement(item);
+    img.setAttribute("src", this.getImage(item, varNum));
+  }
+
+  getImageElement(item : IItem){
+    return document.getElementById(item.name.replace(" ", ""));
   }
 
 }
