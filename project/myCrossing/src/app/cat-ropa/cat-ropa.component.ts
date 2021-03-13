@@ -50,7 +50,7 @@ export class CatRopaComponent implements OnInit {
       }
       this.busqueda.valueChanges.pipe(debounceTime(300)).subscribe(value => this.filtrar(value));
 
-      this.num_paginas = Array.from({length: Math.ceil(this.listaItems.length / this.max_items)}, (_, i) => i+1);
+      this.num_paginas = this.getPaginas(this.listaItems);
     });
   }
 
@@ -66,6 +66,7 @@ export class CatRopaComponent implements OnInit {
 
   filtrar(value){
     this.nameFilter = value;
+    this.page_number = 1;
   }
 
   activaFiltro(key : string){
@@ -89,4 +90,7 @@ export class CatRopaComponent implements OnInit {
     return document.getElementById(item.name.replace(" ", ""));
   }
 
+  getPaginas(lista : Array<any>){
+    return Array.from({length: Math.ceil(lista.length / this.max_items)}, (_, i) => i+1)
+  }
 }
