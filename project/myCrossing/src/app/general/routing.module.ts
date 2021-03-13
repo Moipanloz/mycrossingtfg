@@ -1,3 +1,4 @@
+import { CatMuebleComponent } from './../cat-mueble/cat-mueble.component';
 import { PerfilComponent } from '../perfil/perfil.component';
 import { RegistroComponent } from '../autenticacion/registro/registro.component';
 import { NgModule } from '@angular/core';
@@ -27,6 +28,9 @@ const rutas: Routes = [
 },{
   path: "catalogo-ropa",
   component: CatRopaComponent
+},{
+  path: "catalogo-muebles",
+  component: CatMuebleComponent
 }
 ];
 

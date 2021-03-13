@@ -17,6 +17,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { CommonModule } from '@angular/common';
 import { VerificationService } from './general/services/verification.service';
 import { CatRopaComponent } from './cat-ropa/cat-ropa.component';
+import { CatMuebleComponent } from './cat-mueble/cat-mueble.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CatRopaComponent } from './cat-ropa/cat-ropa.component';
     RegistroComponent,
     InicioComponent,
     FooterComponent,
-    CatRopaComponent
+    CatRopaComponent,
+    CatMuebleComponent
   ],
   imports: [
     BrowserModule,

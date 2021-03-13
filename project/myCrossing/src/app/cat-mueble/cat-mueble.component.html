@@ -1,10 +1,10 @@
 <!-- Filtros búsqueda -->
-<div class="content-wrapper-top" style="background-color: pink;">
+<div class="content-wrapper-top" style="background-color: #d6fbd5;">
   <div style="margin-top: 4vw;">
-    <h2>Catálogo de ropa</h2>
+    <h2>Catálogo de muebles</h2>
     <div class="flex-centered" style="padding-bottom: 1vw;">
       <div class="flex-centered" style="flex-wrap: wrap;flex-basis: 40vw; margin-right: 1.5vw;">
-        <button *ngFor="let tipo of tiposPrenda | keyvalue" (click)="activaFiltro(tipo.key)" [class]="this.botonFiltrar == tipo.key ? 'boton-alargado b-verde' : 'boton-alargado b-azul'" style="margin:0.5vw">{{tipo.value}}</button>
+        <button *ngFor="let tipo of tiposMueble | keyvalue" (click)="activaFiltro(tipo.key)" [class]="this.botonFiltrar == tipo.key ? 'boton-alargado b-verde' : 'boton-alargado b-azul'" style="margin:0.5vw">{{tipo.value}}</button>
       </div>
       <input [formControl]="busqueda" type="text" placeholder="Buscar" style="width: 30%;">
     </div>
@@ -81,8 +81,8 @@
           <!-- Variaciones -->
           <div style="display: flex; width:13vw" [class]="item.variations.length < 4 ? 'flex-centered variMenu' : 'variMenu scroll-x'" *ngIf="item.variations != null">
             <ng-container *ngFor="let vari of item.variations">
-              <button [class]="getImageElement(item).getAttribute('src') != vari.storageImage ? 'b-variacion flex-centered b-darkPink' : 'b-variacion flex-centered b-darkPurple'" (click)="getImgVariation(item, item.variations.indexOf(vari))">
-                <img src="{{vari.storageImage}}" style="width: 3vw;height: 3vw;margin:0.2vw">
+              <button [class]="getImageElement(item).getAttribute('src') != vari.image ? 'b-variacion flex-centered b-lightGreen' : 'b-variacion flex-centered b-darkGreener'" (click)="getImgVariation(item, item.variations.indexOf(vari))">
+                <img src="{{vari.image}}" style="width: 3vw;height: 3vw;margin:0.2vw">
               </button>
             </ng-container>
           </div>
