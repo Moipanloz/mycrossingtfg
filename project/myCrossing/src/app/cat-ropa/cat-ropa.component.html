@@ -2,7 +2,7 @@
 <div class="content-wrapper-top" style="background-color: pink;">
   <div style="margin-top: 4vw;">
     <h2>Catálogo de ropa</h2>
-    <div class="flex-centered">
+    <div class="flex-centered" style="padding-bottom: 1vw;">
       <div class="flex-centered" style="flex-wrap: wrap;flex-basis: 40vw; margin-right: 1.5vw;">
         <button *ngFor="let tipo of tiposPrenda | keyvalue" (click)="activaFiltro(tipo.key)" [class]="this.botonFiltrar == tipo.key ? 'boton-alargado b-verde' : 'boton-alargado b-azul'" style="margin:0.5vw">{{tipo.value}}</button>
       </div>
