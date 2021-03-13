@@ -18,7 +18,7 @@
   <div class="pag-menu flex-centered">
     <button [style.visibility]="page_number != 1 ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAtras(page_number)"> < </button>
 
-    <ng-container *ngIf="this.getPaginas(listaItems | filtroAc:nameFilter).length < 31; else paginacionComprimida">
+    <ng-container *ngIf="this.getPaginas(listaItems | filtroAc:nameFilter).length < 25; else paginacionComprimida">
       <ng-container *ngFor="let pag of this.getPaginas(listaItems | filtroAc:nameFilter)">
         <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
       </ng-container>
@@ -95,7 +95,7 @@
   <div class="pag-menu flex-centered">
     <button [style.visibility]="page_number != 1 ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAtras(page_number)"> < </button>
 
-    <ng-container *ngIf="this.getPaginas(listaItems | filtroAc:nameFilter).length < 31; else paginacionComprimida">
+    <ng-container *ngIf="this.getPaginas(listaItems | filtroAc:nameFilter).length < 25; else paginacionComprimida">
       <ng-container *ngFor="let pag of this.getPaginas(listaItems | filtroAc:nameFilter)">
         <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
       </ng-container>
