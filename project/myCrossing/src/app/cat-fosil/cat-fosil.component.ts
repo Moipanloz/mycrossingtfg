@@ -50,6 +50,8 @@ export class CatFosilComponent implements OnInit {
             this.listaItems = await items.filter(i => i.sourceSheet == "Fossils");
           }
         });
+      }else{
+        this.listaItems = await items.filter(i => i.sourceSheet == "Fossils");
       }
 
       this.busqueda.valueChanges.pipe(debounceTime(300)).subscribe(value => this.filtrar(value));
