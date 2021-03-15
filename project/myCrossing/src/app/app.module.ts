@@ -18,6 +18,7 @@ import { CommonModule } from '@angular/common';
 import { VerificationService } from './general/services/verification.service';
 import { CatRopaComponent } from './cat-ropa/cat-ropa.component';
 import { CatMuebleComponent } from './cat-mueble/cat-mueble.component';
+import { CatFosilComponent } from './cat-fosil/cat-fosil.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CatMuebleComponent } from './cat-mueble/cat-mueble.component';
     InicioComponent,
     FooterComponent,
     CatRopaComponent,
-    CatMuebleComponent
+    CatMuebleComponent,
+    CatFosilComponent
   ],
   imports: [
     BrowserModule,

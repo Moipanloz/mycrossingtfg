@@ -50,7 +50,7 @@ export class ColeccionespService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.delete(this.url, {params: parametros, responseType: "blob"}).toPromise();
+    return this.http.get(this.url, {params: parametros, responseType: "blob"}).toPromise();
   }
 
   addItemCE(item : any,source : string){

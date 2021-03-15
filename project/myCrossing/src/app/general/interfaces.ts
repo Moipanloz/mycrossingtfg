@@ -54,3 +54,8 @@ export interface Visita{
   estela: boolean;
   last_update: string;
 }
+
+export interface Fosil{
+  nombre_fosil : string;
+  usuario_id : number;
+}

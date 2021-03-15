@@ -68,7 +68,7 @@ export class TareasService {
     // Se usa post ya que en el .php se obtiene los datos del input, ya que
     // no hay implementado end-points tipo "tareas/1" debido a que la estructura
     // de la pagina no esta pensada de dicha forma
-    return this.http.delete(this.url, {params: parametros, withCredentials : true, responseType : "blob"}).toPromise();
+    return this.http.get(this.url, {params: parametros, withCredentials : true, responseType : "blob"}).toPromise();
   }
 
 
