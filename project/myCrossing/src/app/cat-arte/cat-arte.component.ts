@@ -24,6 +24,9 @@ export class CatArteComponent implements OnInit {
   nameFilter : string = "";
   busqueda = new FormControl("");
   _catarte : CatArteService;
+  menuFalsificacion : boolean = false;
+  menuReal : string = "";
+  menuFalso : string = "";
 
   constructor(verif : VerificationService, pag : PaginacionService, catarte : CatArteService) {
     this._verif = verif;
@@ -114,4 +117,18 @@ export class CatArteComponent implements OnInit {
     }
   }
 
+  verFalsificacion(e : MouseEvent, item : any){
+    this.menuFalsificacion = !this.menuFalsificacion;
+    this.menuReal = items.find(f => f.name == item.name && f.genuine == true).image;
+    this.menuFalso = items.find(f => f.name == item.name && f.genuine == false).image;
+    e.stopPropagation();
+  }
+
+  tieneFalsificacion(item : any){
+    let res = false;
+    if(items.filter(f => f.name == item.name).length == 2){
+      res = true;
+    }
+    return res;
+  }
 }

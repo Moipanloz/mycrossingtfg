@@ -23,7 +23,5 @@ export class InicioComponent implements OnInit {
     if(!this.verification.verified){
       this.verification.verify();
     }
-
-    console.log(items.filter(f => f.sourceSheet == "Art"));
   }
 }
