@@ -19,6 +19,7 @@ import { VerificationService } from './general/services/verification.service';
 import { CatRopaComponent } from './cat-ropa/cat-ropa.component';
 import { CatMuebleComponent } from './cat-mueble/cat-mueble.component';
 import { CatFosilComponent } from './cat-fosil/cat-fosil.component';
+import { CatArteComponent } from './cat-arte/cat-arte.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CatFosilComponent } from './cat-fosil/cat-fosil.component';
     FooterComponent,
     CatRopaComponent,
     CatMuebleComponent,
-    CatFosilComponent
+    CatFosilComponent,
+    CatArteComponent
   ],
   imports: [
     BrowserModule,

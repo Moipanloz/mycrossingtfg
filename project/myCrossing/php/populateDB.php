@@ -5,6 +5,9 @@ require "openDB.php";
 // =====================================================================================================Tables
 // ---------------------------------------------------------------------------------------------Drop
 
+$sql = "DROP TABLE IF EXISTS catarte";
+$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
 $sql = "DROP TABLE IF EXISTS catfosiles";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
@@ -96,6 +99,14 @@ $sql = "CREATE TABLE catfosiles (
   FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
+$sql = "CREATE TABLE catarte (
+  usuario_id int(5) NOT NULL,
+  nombre_arte varchar(30) NOT NULL,
+  PRIMARY KEY (nombre_arte, usuario_id),
+  FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1";
+$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 // ---------------------------------------------------------------------------------------------Alter
 
 $sql = "ALTER TABLE usuarios AUTO_INCREMENT = 2";
@@ -133,6 +144,11 @@ $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 $sql = "INSERT INTO catfosiles (usuario_id, nombre_fosil) VALUES
 (2, 'ammonite'),
 (2, 'amber')";
+$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
+$sql = "INSERT INTO catarte (usuario_id, nombre_arte) VALUES
+(2, 'academicpainting'),
+(2, 'amazingpainting')";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 // ===================================================================================================== Events
 // ---------------------------------------------------------------------------------------------Drop

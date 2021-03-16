@@ -1,0 +1,70 @@
+span{
+  font-size: 1.4vw;
+}
+
+h2, span{
+  text-align: center;
+}
+
+.content-wrapper-bot{
+  background-color: #e2d4b9;
+}
+
+.pag-menu{
+  width: 100%;
+}
+
+.grid-w-gap{
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid-item-wrap{
+  background-color: #fff8c4;
+  position: relative;
+}
+
+.editar{
+  right: 1vw;
+  top: 1vw;
+}
+
+.b-variacion{
+  border-radius: 50%;
+  margin: 0 0.5vw;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.b-darkGreen{
+  background-color: rgb(157 228 163);
+}
+
+.b-darkBlue{
+  background-color: #ade6e7;
+}
+
+.b-lightGreen{
+  background-color: #85c583;
+}
+
+.b-darkGreener{
+  background-color: #41b054;
+}
+
+.boton-circular{
+  width: 2vw;
+  height: 2vw;
+  padding: 0;
+}
+
+.b-pag{
+  border-radius: 5px;
+  border-style: none;
+  margin: 0 0.1vw;
+  cursor: pointer;
+}
+
+.b-pag:hover{
+  background-color: rgb(157 228 163);
+}

@@ -59,3 +59,8 @@ export interface Fosil{
   nombre_fosil : string;
   usuario_id : number;
 }
+
+export interface Arte{
+  nombre_arte : string;
+  usuario_id : number;
+}

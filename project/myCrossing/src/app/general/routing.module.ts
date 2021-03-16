@@ -1,3 +1,4 @@
+import { CatArteComponent } from './../cat-arte/cat-arte.component';
 import { CatFosilComponent } from './../cat-fosil/cat-fosil.component';
 import { CatMuebleComponent } from './../cat-mueble/cat-mueble.component';
 import { PerfilComponent } from '../perfil/perfil.component';
@@ -35,6 +36,9 @@ const rutas: Routes = [
 },{
   path: "catalogo-fosiles",
   component: CatFosilComponent
+},{
+  path: "catalogo-arte",
+  component: CatArteComponent
 }
 ];
 
