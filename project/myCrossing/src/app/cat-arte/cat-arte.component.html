@@ -1,5 +1,5 @@
 <!-- Filtros búsqueda -->
-<div class="content-wrapper-top" style="background-color: #e2d4b9;">
+<div class="content-wrapper-top" style="background-color: #efc985;">
   <div style="margin-top: 4vw;">
     <h2>Catálogo de Obras de Arte</h2>
     <div class="flex-centered" style="padding-bottom: 1vw;">
@@ -92,7 +92,7 @@
         <div class="grid-item-wrap flex-column-centered" style="justify-content: space-evenly;">
           <div class="check-container" *ngIf="this._verif.user != null">
             <button [style.background-image]="this.listaUsuario.includes(item.name.replace(' ','')) ? 'url(../../assets/images/check-rojo.png)' : 'url(../../assets/images/check-gris.png)'" class="boton-imagen editar" (click)="toggleCheck(item)"></button>
-            <button class="boton-imagen editar left icono-ojo" (click)="verFalsificacion($event, item)" *ngIf="tieneFalsificacion(item)"></button>
+            <button class="boton-imagen editar left b-falso" [style.background-image]="'url('+urlArteFalso+')'" (click)="verFalsificacion($event, item)" *ngIf="tieneFalsificacion(item)"></button>
           </div>
           <img [src]="getImage(item, 0)" style="width: 7vw; height: 7vw;" [id]='item.name.replace(" ", "")'>
           <span>{{item.translations.spanish | capitalize}}</span>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { IItem, items } from 'animal-crossing';
+import { IItem, items, reactions } from 'animal-crossing';
 import { PaginacionService } from 'app/general/services/paginacion.service';
 import { VerificationService } from 'app/general/services/verification.service';
 import { CatArteService } from './cat-arte.service';
@@ -27,6 +27,7 @@ export class CatArteComponent implements OnInit {
   menuFalsificacion : boolean = false;
   menuReal : string = "";
   menuFalso : string = "";
+  urlArteFalso : string = reactions.find(f => f.name == "Mischief").image;
 
   constructor(verif : VerificationService, pag : PaginacionService, catarte : CatArteService) {
     this._verif = verif;

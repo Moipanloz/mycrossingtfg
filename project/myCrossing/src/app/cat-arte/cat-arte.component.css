@@ -13,7 +13,7 @@ p{
 }
 
 .content-wrapper-bot{
-  background-color: #e2d4b9;
+  background-color: #efc985;
 }
 
 .pag-menu{
@@ -25,7 +25,7 @@ p{
 }
 
 .grid-item-wrap{
-  background-color: #fff8c4;
+  background-color: #f9ddb2;
   position: relative;
 }
 
@@ -39,8 +39,9 @@ p{
   top: 1vw;
 }
 
-.icono-ojo{
-  background-image: url("../../assets/images/logo.png");
+.b-falso{
+  width: 3vw;
+  height: 3vw;
 }
 
 .b-variacion{
