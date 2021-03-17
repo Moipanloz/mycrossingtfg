@@ -20,6 +20,7 @@ import { CatRopaComponent } from './cat-ropa/cat-ropa.component';
 import { CatMuebleComponent } from './cat-mueble/cat-mueble.component';
 import { CatFosilComponent } from './cat-fosil/cat-fosil.component';
 import { CatArteComponent } from './cat-arte/cat-arte.component';
+import { CatInsectosComponent } from './cat-insectos/cat-insectos.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CatArteComponent } from './cat-arte/cat-arte.component';
     CatRopaComponent,
     CatMuebleComponent,
     CatFosilComponent,
-    CatArteComponent
+    CatArteComponent,
+    CatInsectosComponent
   ],
   imports: [
     BrowserModule,

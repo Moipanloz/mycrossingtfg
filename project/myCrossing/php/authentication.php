@@ -17,17 +17,17 @@ if(isset($_GET['command'])){
         $verifCode = $_GET["verif"];
 
         $validation = checkExisteUser($conn, $userId) &&
-                checkVerification($conn, $userId, $verifCode);
+                checkVerificationJson($conn, $userId, $verifCode);
 
         if($validation){
           $sql = "UPDATE usuarios SET verification = NULL WHERE id = $userId";
           $result = mysqli_query($conn,$sql);
         }else{
-          print("Error: No se cumplen los requisitos");
+          print(json_encode("Error: No se cumplen los requisitos"));
         }
 
       }else{
-        print("Error: Faltan parametros");
+        print(json_encode("Error: Faltan parametros"));
       }
 
       break;
@@ -61,7 +61,7 @@ if(isset($_GET['command'])){
           print(json_encode("Email o contraseña incorrectos"));
         }
       }else{
-        print("No hay datos");
+        print(json_encode("No hay datos"));
       }
 
       break;
@@ -73,7 +73,7 @@ if(isset($_GET['command'])){
         $verifCode = $_GET['verif'];
 
         $validation = checkExisteUser($conn, $userId) &&
-                checkVerification($conn, $userId, $verifCode);
+                checkVerificationJson($conn, $userId, $verifCode);
 
         if($validation){
           $sql = "SELECT nombre, isla, fruta, cumpleanyos, hemisferio, id_suenyo, id_switch, apodo_aldeano FROM usuarios WHERE id = $userId";
@@ -86,10 +86,10 @@ if(isset($_GET['command'])){
               print(json_encode($myArray));
           }
         }else{
-          print("No cumple los requerimientos");
+          print(json_encode("No cumple los requerimientos"));
         }
       }else{
-        print("Faltan parametros");
+        print(json_encode("Faltan parametros"));
       }
       break;
 
@@ -100,7 +100,7 @@ if(isset($_GET['command'])){
         $verifCode = $_GET['verif'];
 
         $validation = checkExisteUser($conn, $userId) &&
-                checkVerification($conn, $userId, $verifCode);
+                checkVerificationJson($conn, $userId, $verifCode);
 
         if($validation){
           $sql = "SELECT verification, nombre FROM usuarios WHERE id = $userId";
@@ -111,11 +111,9 @@ if(isset($_GET['command'])){
               }
               print(json_encode($myArray));
           }
-        }else{
-          print(json_encode("Error"));
         }
       }else{
-        print("No ha introducido id de usuario que leer");
+        print(json_encode("No ha introducido id de usuario que leer"));
       }
       break;
 
@@ -179,7 +177,7 @@ if(isset($_GET['command'])){
         }
 
       }else{
-        print("No hay datos");
+        print(json_encode("No hay datos"));
       }
       break;
 
@@ -217,23 +215,23 @@ if(isset($_GET['command'])){
             $sql = "UPDATE usuarios SET nombre = '$nombre', isla = '$isla', fruta = '$fruta', cumpleanyos = '$cumpleanyos', hemisferio = '$hemisferio', id_switch = '$id_switch', id_suenyo = '$id_suenyo', apodo_aldeano = '$apodo_aldeano' WHERE id = $userId";
             $result = mysqli_query($conn,$sql);
           }else{
-            print("No se cumplen los requisitos");
+            print(json_encode("No se cumplen los requisitos"));
           }
 
         }else{
-          print("No hay datos");
+          print(json_encode("No hay datos"));
         }
 
       }else{
-        print("Faltan parametros");
+        print(json_encode("Faltan parametros"));
       }
       break;
 
     default:
-      print "Comando no valido";
+      print(json_encode("Comando no valido"));
   }
 }else{
-  print "Comando no seleccionado";
+  print(json_encode("Comando no seleccionado"));
 }
 mysqli_close($conn);
 ?>

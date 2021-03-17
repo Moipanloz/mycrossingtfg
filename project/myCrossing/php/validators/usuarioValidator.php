@@ -191,6 +191,18 @@ function checkVerification($conn, $userId, $verifCode){
   return $devolver;
 }
 
+function checkVerificationJson($conn, $userId, $verifCode){
+  //Comprueba que el codigo  de verificacion pertenece al usuario
+  $devolver = TRUE;
+  $sql = "SELECT * FROM usuarios WHERE id = $userId AND verification = '$verifCode'";
+  $result = mysqli_query($conn,$sql);
+  if ($result->num_rows != 1) {
+    $devolver= FALSE;
+    print(json_encode("Codigo de verificacion incorrecto, Error"));
+  }
+  return $devolver;
+}
+
 function checkPassword($conn, $email, $userPass){
   //Comprueba que la contraseña introducida por el usuario coincide con la de la DB
   $devolver = TRUE;
