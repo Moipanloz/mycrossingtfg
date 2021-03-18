@@ -10,22 +10,29 @@ describe('MisvecinosService', () => {
 
   //Servicios
   let misVecinosService: MisvecinosService;
-  let _verif : jasmine.SpyObj<VerificationService>;
   let httpMock : HttpTestingController;
   let httpClient : HttpClient;
   let cookieService : CookieService;
 
+  let verificationStub : any;
+
   //Constantes
-  const verifSpy = jasmine.createSpyObj('VerificationService', ['verifCode', 'user']);
   const VERIF_CODE = "verific";
   const USER_ID = 1;
 
   beforeEach(() => {
+
+    verificationStub = {
+      verifCode: VERIF_CODE,
+      user: USER_ID
+    }
+
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [
         MisvecinosService,
-        CookieService
+        CookieService,
+        { provide: VerificationService, useValue: verificationStub }
       ]
     });
 
@@ -34,8 +41,6 @@ describe('MisvecinosService', () => {
     httpMock = TestBed.inject(HttpTestingController);
     httpClient = TestBed.inject(HttpClient);
     cookieService = TestBed.inject(CookieService);
-
-    //Mocks
 
   });
 
@@ -55,16 +60,13 @@ describe('MisvecinosService', () => {
       imgPhoto: "photo"
     }];
 
-    verifSpy.verifCode.and.returnValue(VERIF_CODE);
-    verifSpy.user.and.returnValue(USER_ID);
-
     //Act
     misVecinosService.readMisVecinos().subscribe(vec => {
       //Assert
       expect(vec).toEqual(vecino);
     });
 
-    const req = httpMock.expectOne("http://localhost/php/misvecinos.php?command=read&verif=verific&userId=1");
+    const req = httpMock.expectOne("http://localhost/php/misvecinos.php?command=read&verif="+VERIF_CODE+"&userId="+USER_ID);
     expect(req.request.method).toEqual("GET");
     req.flush(vecino);
     httpMock.verify();
