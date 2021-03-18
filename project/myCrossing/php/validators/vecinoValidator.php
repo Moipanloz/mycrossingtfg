@@ -2,17 +2,13 @@
 
 header('Access-Control-Allow-Headers: content-type');
 
-function checkDatosCorrectos($vecino_id, $amistad){
+function checkDatosCorrectos($amistad){
   $result = null;
-
-  //TODO
-  //if($vecino_id){} // comprobar que este dentro de la lista de la api
-
-  if(0 < $amistad && $amistad < 10){
+  if(0 < $amistad && $amistad < 7){
     $result = true;
   }else{
     $result = false;
-    print("La amistad debe estar comprendida entre 1 y 6");
+    die("La amistad debe estar comprendida entre 1 y 6");
   }
   return $result;
 }
@@ -26,7 +22,7 @@ function checkTieneVecino($userId, $vecinoId, $conn){
     $result = true;
   }else{
     $result = false;
-    print("No tienes a este vecino");
+    die("No tienes a este vecino");
   }
   return $result;
 }
@@ -41,10 +37,8 @@ function checkNumeroVecinos($userId, $conn){
     $result = true;
   }else{
     $result = false;
-    print("Ya tienes el número máximo de vecinos");
+    die("Ya tienes el número máximo de vecinos");
   }
 
   return $result;
 }
-
-?>

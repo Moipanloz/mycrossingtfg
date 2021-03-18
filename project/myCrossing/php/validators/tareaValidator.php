@@ -67,5 +67,3 @@ function checkNumeroTareas($userId, $conn){
 
   return $result;
 }
-
-?>

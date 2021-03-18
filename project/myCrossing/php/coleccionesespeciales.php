@@ -87,7 +87,6 @@ if(isset($_GET["command"])){
           $result->bind_param('is',$userId, $itemName);
           $result->execute();
         }else{
-          print("No se cumplen los requisitos");
         }
       } else {
         print("Faltan parametros");
@@ -100,5 +99,3 @@ if(isset($_GET["command"])){
 }
 
 $conn -> close();
-
-?>

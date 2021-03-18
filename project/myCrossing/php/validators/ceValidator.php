@@ -26,9 +26,7 @@ function checkTieneItem($conn, $userId, $itemName){
 
   if ($result->num_rows != 1) {
     $validation = FALSE;
-    print("No tienes el item");
+    die("No tienes el item");
   }
   return $validation;
 }
-
-?>

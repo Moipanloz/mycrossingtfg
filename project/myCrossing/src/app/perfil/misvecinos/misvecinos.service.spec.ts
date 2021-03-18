@@ -14,19 +14,28 @@ describe('MisvecinosService', () => {
   let httpClient : HttpClient;
   let cookieService : CookieService;
 
-  let verificationStub : any;
-
   //Constantes
   const VERIF_CODE = "verific";
   const USER_ID = 1;
+  const VECINO : Vecino[] = [{
+    nombre: "nombre",
+    vecino_id: "id",
+    usuario_id: 1,
+    amistad: 1,
+    cumple: new Date(),
+    personalidad: "personalidad",
+    especie: "especie",
+    genero: "genero",
+    imgIcon: "icon",
+    imgPhoto: "photo"
+  }];
+
+  const verificationStub = {
+    verifCode: VERIF_CODE,
+    user: USER_ID
+  }
 
   beforeEach(() => {
-
-    verificationStub = {
-      verifCode: VERIF_CODE,
-      user: USER_ID
-    }
-
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [
@@ -46,30 +55,28 @@ describe('MisvecinosService', () => {
 
 
   it('Deberia leer los vecinos del usuario', () => {
-    //Arrange
-    let vecino : Vecino[] = [{
-      nombre: "nombre",
-      vecino_id: "id",
-      usuario_id: 1,
-      amistad: 1,
-      cumple: new Date(),
-      personalidad: "personalidad",
-      especie: "especie",
-      genero: "genero",
-      imgIcon: "icon",
-      imgPhoto: "photo"
-    }];
 
-    //Act
     misVecinosService.readMisVecinos().subscribe(vec => {
-      //Assert
-      expect(vec).toEqual(vecino);
+      expect(vec).toEqual(VECINO);
     });
 
     const req = httpMock.expectOne("http://localhost/php/misvecinos.php?command=read&verif="+VERIF_CODE+"&userId="+USER_ID);
     expect(req.request.method).toEqual("GET");
-    req.flush(vecino);
+    req.flush(VECINO);
     httpMock.verify();
   });
 
+
+  // it('Deberia crear un vecino', () => {
+  //   //Act
+  //   misVecinosService.crearVecino().then(vec => {
+  //     //Assert
+  //     expect(vec).toEqual(vecino);
+  //   });
+
+  //   const req = httpMock.expectOne("http://localhost/php/misvecinos.php?command=read&verif="+VERIF_CODE+"&userId="+USER_ID);
+  //   expect(req.request.method).toEqual("GET");
+  //   req.flush(vecino);
+  //   httpMock.verify();
+  // });
 });

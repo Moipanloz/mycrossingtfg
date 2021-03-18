@@ -18,5 +18,3 @@ function checkTieneFosil($conn, $userId, $nombreFosil){
   }
   return $validation;
 }
-
-?>

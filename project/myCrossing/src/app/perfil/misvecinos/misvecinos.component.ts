@@ -59,7 +59,7 @@ export class MisvecinosComponent implements OnInit {
 
   ngOnInit(){
     this.verification.verify().then(() => {
-      this._misvecinos.readMisVecinos().subscribe(async data => {
+      this._misvecinos.readMisVecinos().then(async data => {
         this.length = 10 - data.length;
         this.data = [];
 
@@ -125,7 +125,7 @@ export class MisvecinosComponent implements OnInit {
     if(vecino.vecino_id.length == 17){
       this._misvecinos.borrarVecino(vecino).then(() => {
         this.ngOnInit();
-      });
+      }).catch(err => console.error(err.message));
     }
   }
 

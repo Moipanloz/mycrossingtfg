@@ -101,5 +101,3 @@ if(isset($_GET["command"])){
 }
 
 $conn -> close();
-
-?>

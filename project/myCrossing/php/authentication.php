@@ -236,4 +236,3 @@ if(isset($_GET['command'])){
   print "Comando no seleccionado";
 }
 mysqli_close($conn);
-?>

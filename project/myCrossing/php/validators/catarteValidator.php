@@ -18,5 +18,3 @@ function checkTieneArte($conn, $userId, $nombreArte){
   }
   return $validation;
 }
-
-?>

@@ -27,15 +27,8 @@ if(isset($_GET["command"])){
               $myArray[] = $row;
             }
           }
-
           print json_encode($myArray, JSON_NUMERIC_CHECK);
-
-        }else{
-          print("No se cumplen los requisitos");
         }
-
-      }else{
-        print("Faltan parametros");
       }
       break;
 
@@ -52,28 +45,20 @@ if(isset($_GET["command"])){
           $vecinoId = $request->vecino_id;
           $amistad = $request->amistad;
 
-          $tieneVecino = checkTieneVecino($userId, $vecinoId, $conn);
-          $tieneVecino = ! $tieneVecino;
+          //$tieneVecino = checkTieneVecino($userId, $vecinoId, $conn);
+          //$tieneVecino = ! $tieneVecino;
 
           $validation = checkExisteUser($conn, $userId) &&
                    checkVerification($conn, $userId, $verifCode) &&
-                   checkDatosCorrectos($vecinoId, $amistad) &&
-                   checkNumeroVecinos($userId, $conn) &&
-                   $tieneVecino;
+                   checkDatosCorrectos($amistad) &&
+                   checkNumeroVecinos($userId, $conn); //&&
+                   //$tieneVecino;
 
           if($validation){
             $sql = "INSERT INTO misvecinos(vecino_id, usuario_id, amistad) VALUES ('$vecinoId', $userId, '$amistad')";
             $result = mysqli_query($conn,$sql);
-
-          }else{
-            print("No se cumplen los requisitos");
           }
-
-        }else{
-          print("No hay datos");
         }
-      } else {
-        print("Faltan parametros");
       }
       break;
 
@@ -102,16 +87,8 @@ if(isset($_GET["command"])){
           if($validation){
             $sql = "UPDATE misvecinos SET vecino_id = $vecinoId, amistad = '$amistad' WHERE vecino_id = '$oldVecinoId' AND usuario_id = $userId";
             $result = mysqli_query($conn,$sql);
-
-          }else{
-            print("No se cumplen los requisitos");
           }
-        }else{
-          print("No hay datos");
         }
-
-      } else {
-        print("Faltan parametros");
       }
       break;
 
@@ -136,16 +113,8 @@ if(isset($_GET["command"])){
           if($validation){
             $sql = "UPDATE misvecinos SET amistad = '$amistad' WHERE vecino_id = '$vecinoId' AND usuario_id = $userId";
             $result = mysqli_query($conn,$sql);
-
-          }else{
-            print("No se cumplen los requisitos");
           }
-        }else{
-          print("No hay datos");
         }
-
-      } else {
-        print("Faltan parametros");
       }
       break;
 
@@ -163,19 +132,13 @@ if(isset($_GET["command"])){
         if($validation){
           $sql = "DELETE FROM misvecinos WHERE vecino_id = '$vecinoId' AND usuario_id = $userId";
           $result = mysqli_query($conn,$sql);
-        }else{
-          print("No se cumplen los requisitos");
         }
-      }else{
-        print("Faltan parametros");
       }
       break;
 
     default:
-      print("Comando no válido");
+      die("Comando no válido");
   }
 }
 
 $conn -> close();
-
-?>

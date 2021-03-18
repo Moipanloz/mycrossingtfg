@@ -16,5 +16,3 @@ function checkExisteVisita($tareaId, $conn){
   }
   return $result;
 }
-
-?>

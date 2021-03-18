@@ -23,5 +23,3 @@ function connect(){
 }
 
 $conn = connect();
-
-?>

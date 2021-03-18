@@ -207,6 +207,3 @@ function checkPassword($conn, $email, $userPass){
 
   return $devolver;
 }
-
-?>
-
