@@ -79,7 +79,7 @@
             <div class="check-container" *ngIf="this._verif.user != null">
               <button [style.background-image]="this.listaUsuario.includes(creature.translations.spanish.replace(' ','')) ? 'url(../../assets/images/check-rojo.png)' : 'url(../../assets/images/check-gris.png)'" class="boton-imagen editar" (click)="toggleCheck(creature)"></button>
             </div>
-            <img [src]="creature.critterpediaImage" style="height: 5vw; max-width: 10vw;" [id]='creature.name.replace(" ", "")'>
+            <img (click)="mostrar(creature)" [src]="creature.critterpediaImage" style="cursor: pointer; height: 5vw; max-width: 10vw;" [id]='creature.translations.spanish.replace(" ", "")'>
             <span>{{creature.translations.spanish | capitalize}}</span>
           </div>
         </ng-container>
@@ -142,5 +142,25 @@
       <button [style.visibility]="max_items < listaCreatures.length && page_number * max_items < (listaCreatures | filtroAc:nameFilter).length ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAlante(page_number, max_items, listaCreatures)"> > </button>
     </div>
 
+  </div>
+  <!--   Pop-ups   -->
+  <div class="oscuro" (click)="hide=true" [style.visibility]="hide ? 'hidden': 'visible'"></div>
+  <div class="panel" [style.visibility]="hide ? 'hidden': 'visible'">
+    <div style="width: 100%; text-align: -webkit-center; display: flex; justify-content: space-around;">
+      <span class="spanImg" (click)="isNorth=true" [style.background-color]="isNorth ? '#67c13db5' : '#0000ff00'" [style.cursor]="isNorth ? 'default' : 'pointer'">
+        <img src="../../assets/images/hemisferio-norte.png" class="imagenHemisferio">
+      </span>
+      <div class="grid-item-wrap flex-column-centered" style="width: fit-content;">
+        <img [src]="shownCreature.critterpediaImage" style="width: 9vw; padding: 1vw; max-height: 12vw;" [id]='shownCreature.translations.spanish.replace(" ", "")'>
+      </div>
+      <span class="spanImg" (click)="isNorth=false" [style.background-color]="!isNorth ? '#67c13db5' : '#0000ff00'" [style.cursor]="!isNorth ? 'default' : 'pointer'">
+        <img src="../../assets/images/hemisferio-sur.png" class="imagenHemisferio">
+      </span>  </div>
+    <div class="datos"><b>Nombre:</b> {{shownCreature.translations.spanish | capitalize}}</div>
+    <div class="datos"><b>Donde obtener:</b> {{shownCreature.whereHow | traducir | capitalize}}</div>
+    <div class="datos"><b>Clima:</b> {{shownCreature.weather | traducir | capitalize}}</div>
+    <div class="datos"><b>Precio:</b> {{shownCreature.sell}}</div>
+    <div class="datos"><b>Meses capturable:</b> {{((isNorth) ? shownCreature.hemispheres.north.monthsArray : shownCreature.hemispheres.south.monthsArray) | mesesTextuales}}</div>
+    <div class="datos"><b>Horario de captura:</b> {{(isNorth) ? shownCreature.hemispheres.north.time : shownCreature.hemispheres.south.time}}</div>
   </div>
 

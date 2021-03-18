@@ -21,6 +21,8 @@ import { CatMuebleComponent } from './cat-mueble/cat-mueble.component';
 import { CatFosilComponent } from './cat-fosil/cat-fosil.component';
 import { CatArteComponent } from './cat-arte/cat-arte.component';
 import { CatInsectosComponent } from './cat-insectos/cat-insectos.component';
+import { TraducirPipe } from './cat-insectos/traducir.pipe';
+import { MesesTextualesPipe } from './cat-insectos/meses-textuales.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { CatInsectosComponent } from './cat-insectos/cat-insectos.component';
     CatMuebleComponent,
     CatFosilComponent,
     CatArteComponent,
-    CatInsectosComponent
+    CatInsectosComponent,
+    TraducirPipe,
+    MesesTextualesPipe
   ],
   imports: [
     BrowserModule,

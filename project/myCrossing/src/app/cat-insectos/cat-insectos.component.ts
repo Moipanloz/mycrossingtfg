@@ -14,6 +14,9 @@ import { debounceTime } from "rxjs/operators";
 export class CatInsectosComponent implements OnInit {
 
   listaCreatures = new Array<ICreature>();
+  shownCreature : ICreature = creatures.filter(i => i.sourceSheet == "Insects")[0];
+  hide : Boolean = true;
+  isNorth : Boolean = true;
   listaUsuario : Array<string>;
   _verif : VerificationService;
   page_number : number = 1;
@@ -57,18 +60,12 @@ export class CatInsectosComponent implements OnInit {
       this.num_paginas = this.getPaginas(this.listaCreatures);
     });
   }
-/*
-  getImage(item : ICreature, varNum : number){
-    let res : string;
-    if(item.variations != null){
-      res = item.variations[varNum].image;
-    }else if(item.image == null || item.image == undefined){
-      res = item.storageImage;
-    }else{
-      res = item.image;
-    }
-    return res;
-  }*/
+
+  mostrar(creature:ICreature){
+    this.shownCreature=creature;
+    console.log(creature);
+    this.hide=false;
+  }
 
   filtrar(value){
     this.nameFilter = value;
@@ -86,15 +83,6 @@ export class CatInsectosComponent implements OnInit {
     this.busqueda.setValue("");
     this.ngOnInit();
   }
-/*
-  getImgVariation(item : IItem, varNum : number){
-    let img = this.getImageElement(item);
-    img.setAttribute("src", this.getImage(item, varNum));
-  }
-
-  getImageElement(item : IItem){
-    return document.getElementById(item.name.replace(" ", ""));
-  }*/
 
   getPaginas(lista : Array<any>){
     return Array.from({length: Math.ceil(lista.length / this.max_items)}, (_, i) => i+1);
