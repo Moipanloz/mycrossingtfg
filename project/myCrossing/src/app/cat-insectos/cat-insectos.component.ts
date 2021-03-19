@@ -17,6 +17,9 @@ export class CatInsectosComponent implements OnInit {
   shownCreature : ICreature = creatures.filter(i => i.sourceSheet == "Insects")[0];
   hide : Boolean = true;
   isNorth : Boolean = true;
+  filtrando : Boolean = true;
+  filtroAcWe : string="";
+  filtroAcWhe : string="";
   listaUsuario : Array<string>;
   _verif : VerificationService;
   page_number : number = 1;
@@ -60,10 +63,24 @@ export class CatInsectosComponent implements OnInit {
       this.num_paginas = this.getPaginas(this.listaCreatures);
     });
   }
-
+  filtraWhe(filtro : string){
+    this.page_number=1;
+    if(this.filtroAcWhe==filtro){
+      this.filtroAcWhe="";
+    }else{
+      this.filtroAcWhe=filtro;
+    }
+  }
+  filtraWe(filtro : string){
+    this.page_number=1;
+    if(this.filtroAcWe==filtro){
+      this.filtroAcWe="";
+    }else{
+      this.filtroAcWe=filtro;
+    }
+  }
   mostrar(creature:ICreature){
     this.shownCreature=creature;
-    console.log(creature);
     this.hide=false;
   }
 

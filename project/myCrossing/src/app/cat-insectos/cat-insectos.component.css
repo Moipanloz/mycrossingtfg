@@ -105,3 +105,40 @@ span{
   .spanImg:hover{
     background-color: #85c583 !important;
   }
+  .bigFilterContainerBrown{
+    display: grid;
+    width: 40vw;
+    height: 18vw;
+    border-radius: 2vw;
+    border-style: solid;
+    border-color: #b56e6e;
+    background-color: #cd9b78;
+  }
+  .bigFilterContainerYellow{
+    display: block;
+    margin-left: 1vw;
+    width: 18vw;
+    height: 18vw;
+    border-radius: 2vw;
+    border-style: solid;
+    border-color: #a4a77b;
+    background-color: #dbdb9e;
+  }
+  .weatherButton{
+    font-size: 1vw;
+    height: 4.8vw;
+    margin:0.5vw;
+    width: -webkit-fill-available;
+  }
+  .whereButton{
+    height: 6vw;
+    font-size: 1vw;
+    margin:0.5vw;
+  }
+  .extraButton{
+    font-size: 1vw;
+    margin: 0.5vw;
+    padding: 0;
+    width: 10vw;
+    height: 4vw;
+  }
