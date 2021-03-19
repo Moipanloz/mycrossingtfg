@@ -3,7 +3,7 @@
 require "openDB.php";
 
 include "validators/usuarioValidator.php";
-//include "validators/catbichoValidator.php";
+include "validators/catBichoValidator.php";
 
 
 if(isset($_GET["command"])){
@@ -15,8 +15,8 @@ if(isset($_GET["command"])){
         $userId = $_GET["userId"];
         $verifCode = $_GET["verif"];
 
-        $validation = true; //checkExisteUser($conn, $userId) &&
-                //checkVerification($conn, $userId, $verifCode);
+        $validation = checkExisteUser($conn, $userId) &&
+                checkVerification($conn, $userId, $verifCode);
 
         if($validation){
           $result = $conn->prepare('SELECT nombre_criatura FROM catbichos WHERE usuario_id = ?');
@@ -52,11 +52,11 @@ if(isset($_GET["command"])){
           $request = json_decode($postdata);
           $nombreCriatura = $request->nombre_criatura;
 
-          //$noTieneFosil = checkTieneFosil($conn, $userId, $nombreFosil);
+          $noTieneCriatura = checkTieneCriatura($conn, $userId, $nombreCriatura);
 
-          $validation = true;/*checkExisteUser($conn, $userId) &&
+          $validation = checkExisteUser($conn, $userId) &&
                   checkVerification($conn, $userId, $verifCode) &&
-                  !$noTieneFosil;*/
+                  !$noTieneCriatura;
 
           if($validation){
             $result = $conn->prepare('INSERT INTO catbichos(usuario_id, nombre_criatura) VALUES (?, ?)');
@@ -79,9 +79,9 @@ if(isset($_GET["command"])){
         $userId = $_GET["userId"];
         $nombreCriatura = $_GET["nombreCriatura"];
 
-        $validation = true;/*checkExisteUser($conn, $userId) &&
+        $validation = checkExisteUser($conn, $userId) &&
                   checkVerification($conn, $userId, $verifCode) &&
-                  checkTieneFosil($conn, $userId, $nombreFosil);*/
+                  checkTieneCriatura($conn, $userId, $nombreCriatura);
 
         if($validation){
           $result = $conn->prepare('DELETE FROM catbichos WHERE usuario_id = ? AND nombre_criatura = ?');
