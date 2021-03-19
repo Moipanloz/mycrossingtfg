@@ -17,7 +17,7 @@ export class CatInsectosComponent implements OnInit {
   shownCreature : ICreature = creatures.filter(i => i.sourceSheet == "Insects")[0];
   hide : Boolean = true;
   isNorth : Boolean = true;
-  filtrando : Boolean = true;
+  filtrando : Boolean = false;
   filtroAcWe : string="";
   filtroAcWhe : string="";
   listaUsuario : Array<string>;

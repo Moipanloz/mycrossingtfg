@@ -1,184 +1,186 @@
 <!-- Filtros búsqueda -->
 <div class="content-wrapper-top" style="background-color: #e2d4b9;">
-    <div style="margin-top: 4vw;">
-      <h2>Catálogo de insectos</h2>
-      <div class="flex-centered" [style.display]="filtrando ? 'flex' : 'none'" style="padding-bottom: 1vw;">
-        <div class="bigFilterContainerBrown">
-          <button class="boton-alargado whereButton" (click)="filtraWhe('On trees (any kind)')" [class]="this.filtroAcWhe == 'On trees (any kind)' ? 'b-verde' : 'b-azul'" style="grid-column: 1;">Sobre árboles (cualquier tipo)</button>
-          <button class="boton-alargado whereButton" (click)="filtraWhe('On hardwood/cedar trees')" [class]="this.filtroAcWhe == 'On hardwood/cedar trees' ? 'b-verde' : 'b-azul'" style="grid-column: 2;">Sobre árboles hardwood o cedar</button>
-          <button class="boton-alargado whereButton" (click)="filtraWhe('Flying near flowers')" [class]="this.filtroAcWhe == 'Flying near flowers' ? 'b-verde' : 'b-azul'" style="grid-column: 3;">Volando cerca de flores</button>
-          <button class="boton-alargado whereButton" (click)="filtraWhe('Flying near water')" [class]="this.filtroAcWhe == 'Flying near water' ? 'b-verde' : 'b-azul'" style="grid-column: 4;">Volando cerca del agua</button>
-          <button class="boton-alargado whereButton" (click)="filtraWhe('On tree stumps')" [class]="this.filtroAcWhe == 'On tree stumps' ? 'b-verde' : 'b-azul'" style="height: 4vw; grid-column: 1;">Sobre tocones</button>
-          <button class="boton-alargado whereButton" (click)="filtraWhe('Flying')" [class]="this.filtroAcWhe == 'Flying' ? 'b-verde' : 'b-azul'" style="height: 4vw; grid-column: 2;">Volando</button>
-          <button class="boton-alargado whereButton" (click)="filtraWhe('On the ground')" [class]="this.filtroAcWhe == 'On the ground' ? 'b-verde' : 'b-azul'" style="height: 4vw; grid-column: 3;">En el suelo</button>
-          <button class="boton-alargado whereButton" (click)="filtraWhe('On flowers')" [class]="this.filtroAcWhe == 'On flowers' ? 'b-verde' : 'b-azul'" style="height: 4vw; grid-column: 4;">Sobre flores</button>
-          <button class="boton-alargado whereButton" (click)="filtraWhe('On rivers/ponds')" [class]="this.filtroAcWhe == 'On rivers/ponds' ? 'b-verde' : 'b-azul'" style="height: 4vw; grid-column: 1;">Sobre ríos o estanques</button>
-          <button class="boton-alargado whereButton" (click)="filtraWhe('On palm trees')" [class]="this.filtroAcWhe == 'On palm trees' ? 'b-verde' : 'b-azul'" style="height: 4vw; grid-column: 2;">Sobre palmeras</button>
-          <button class="boton-alargado whereButton" (click)="filtraWhe('Other')" [class]="this.filtroAcWhe == 'Other' ? 'b-verde' : 'b-azul'" style="height: 4vw; grid-column: 3;">Otros</button>
-        </div>
-        <div class="bigFilterContainerYellow">
-          <button class="boton-alargado weatherButton" (click)="filtraWe('Any weather')" [class]="this.filtroAcWe == 'Any weather' ? 'b-verde' : 'b-azul'">Cualquier clima</button>
-          <button class="boton-alargado weatherButton" (click)="filtraWe('Any except rain')" [class]="this.filtroAcWe == 'Any except rain' ? 'b-verde' : 'b-azul'">Cualquier clima menos lluvia</button>
-          <button class="boton-alargado weatherButton" (click)="filtraWe('Rain only')" [class]="this.filtroAcWe == 'Rain only' ? 'b-verde' : 'b-azul'">Solo durante lluvia</button>
-        </div>
-        <div style="margin-right: 1vw; width: 10vw;" [style.display]="this._verif.user == null ? 'none' : 'block'">
-          <button class="boton-alargado extraButton" (click)="activaFiltro('obtenido')" [class]="this.botonFiltrar == 'obtenido' ? 'b-verde' : 'b-azul'">Obtenidos</button>
-          <button class="boton-alargado extraButton" (click)="activaFiltro('falta')" [class]="this.botonFiltrar == 'falta' ? 'b-verde' : 'b-azul'">Me faltan</button>
-        </div>
-        <input [formControl]="busqueda" type="text" placeholder="Buscar" [style.width]="this._verif.user == null ? '50%' : '30%'">
+  <div style="margin-top: 4vw;">
+    <h2>Catálogo de insectos</h2>
+    <button class="boton-alargado" style="margin-bottom: 1vw;" (click)="filtrando=!filtrando">{{filtrando ? "Ocultar":"Mostrar"}} filtros</button>
+    <div class="flex-centered" [style.display]="filtrando ? 'flex' : 'none'" style="padding-bottom: 1vw;">
+      <div class="bigFilterContainerBrown">
+        <button class="boton-alargado whereButton" (click)="filtraWhe('On trees (any kind)')" [class]="this.filtroAcWhe == 'On trees (any kind)' ? 'b-verde' : 'b-azul'" style="grid-column: 1;">Sobre árboles (cualquier tipo)</button>
+        <button class="boton-alargado whereButton" (click)="filtraWhe('On hardwood/cedar trees')" [class]="this.filtroAcWhe == 'On hardwood/cedar trees' ? 'b-verde' : 'b-azul'" style="grid-column: 2;">Sobre árboles hardwood o cedar</button>
+        <button class="boton-alargado whereButton" (click)="filtraWhe('Flying near flowers')" [class]="this.filtroAcWhe == 'Flying near flowers' ? 'b-verde' : 'b-azul'" style="grid-column: 3;">Volando cerca de flores</button>
+        <button class="boton-alargado whereButton" (click)="filtraWhe('Flying near water')" [class]="this.filtroAcWhe == 'Flying near water' ? 'b-verde' : 'b-azul'" style="grid-column: 4;">Volando cerca del agua</button>
+        <button class="boton-alargado whereButton" (click)="filtraWhe('On tree stumps')" [class]="this.filtroAcWhe == 'On tree stumps' ? 'b-verde' : 'b-azul'" style="height: 4vw; grid-column: 1;">Sobre tocones</button>
+        <button class="boton-alargado whereButton" (click)="filtraWhe('Flying')" [class]="this.filtroAcWhe == 'Flying' ? 'b-verde' : 'b-azul'" style="height: 4vw; grid-column: 2;">Volando</button>
+        <button class="boton-alargado whereButton" (click)="filtraWhe('On the ground')" [class]="this.filtroAcWhe == 'On the ground' ? 'b-verde' : 'b-azul'" style="height: 4vw; grid-column: 3;">En el suelo</button>
+        <button class="boton-alargado whereButton" (click)="filtraWhe('On flowers')" [class]="this.filtroAcWhe == 'On flowers' ? 'b-verde' : 'b-azul'" style="height: 4vw; grid-column: 4;">Sobre flores</button>
+        <button class="boton-alargado whereButton" (click)="filtraWhe('On rivers/ponds')" [class]="this.filtroAcWhe == 'On rivers/ponds' ? 'b-verde' : 'b-azul'" style="height: 4vw; grid-column: 1;">Sobre ríos o estanques</button>
+        <button class="boton-alargado whereButton" (click)="filtraWhe('On palm trees')" [class]="this.filtroAcWhe == 'On palm trees' ? 'b-verde' : 'b-azul'" style="height: 4vw; grid-column: 2;">Sobre palmeras</button>
+        <button class="boton-alargado whereButton" (click)="filtraWhe('Other')" [class]="this.filtroAcWhe == 'Other' ? 'b-verde' : 'b-azul'" style="height: 4vw; grid-column: 3;">Otros</button>
       </div>
+      <div class="bigFilterContainerYellow">
+        <button class="boton-alargado weatherButton" (click)="filtraWe('Any weather')" [class]="this.filtroAcWe == 'Any weather' ? 'b-verde' : 'b-azul'">Cualquier clima</button>
+        <button class="boton-alargado weatherButton" (click)="filtraWe('Any except rain')" [class]="this.filtroAcWe == 'Any except rain' ? 'b-verde' : 'b-azul'">Cualquier clima menos lluvia</button>
+        <button class="boton-alargado weatherButton" (click)="filtraWe('Rain only')" [class]="this.filtroAcWe == 'Rain only' ? 'b-verde' : 'b-azul'">Solo durante lluvia</button>
+      </div>
+      <div style="margin-right: 1vw; width: 10vw;" [style.display]="this._verif.user == null ? 'none' : 'block'">
+        <button class="boton-alargado extraButton" (click)="activaFiltro('obtenido')" [class]="this.botonFiltrar == 'obtenido' ? 'b-verde' : 'b-azul'">Obtenidos</button>
+        <button class="boton-alargado extraButton" (click)="activaFiltro('falta')" [class]="this.botonFiltrar == 'falta' ? 'b-verde' : 'b-azul'">Me faltan</button>
+      </div>
+      <input [formControl]="busqueda" type="text" placeholder="Buscar" [style.width]="this._verif.user == null ? '50%' : '30%'">
     </div>
   </div>
+</div>
 
   <!-- Items -->
-  <div class="content-wrapper-bot">
+<div class="content-wrapper-bot" style="min-height: 22vw;">
 
-    <!-- Paginacion arriba -->
-    <div class="pag-menu flex-centered">
-      <button [style.visibility]="page_number != 1 ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAtras(page_number)"> < </button>
+  <!-- Paginacion arriba -->
+  <div class="pag-menu flex-centered">
+    <button [style.visibility]="page_number != 1 ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAtras(page_number)"> < </button>
 
-      <ng-container *ngIf="this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).length < 25; else paginacionComprimida">
-        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter)">
+    <ng-container *ngIf="this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).length < 25; else paginacionComprimida">
+      <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter)">
+        <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+      </ng-container>
+    </ng-container>
+
+    <ng-template #paginacionComprimida>
+      <!-- Paginacion start -->
+      <ng-container *ngIf="page_number < 11">
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(0, 11)">
+          <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+        <button class="b-darkBlue b-pag">·</button>
+        <button class="b-darkBlue b-pag">·</button>
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(this.getPaginas(listaCreatures | filtroAc:nameFilter).length - 2, this.getPaginas(listaCreatures | filtroAc:nameFilter).length)">
+          <button class="b-darkBlue b-pag" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+      </ng-container>
+
+      <!-- Paginacion mid -->
+      <ng-container #mid *ngIf="10 < page_number && page_number < this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).length - 10">
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroAc:nameFilter).slice(0, 2)">
+          <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+        <button class="b-darkBlue b-pag">·</button>
+        <button class="b-darkBlue b-pag">·</button>
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(page_number-4, page_number+3)">
+          <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+        <button class="b-darkBlue b-pag">·</button>
+        <button class="b-darkBlue b-pag">·</button>
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(this.getPaginas(listaCreatures | filtroAc:nameFilter).length - 2, this.getPaginas(listaCreatures | filtroAc:nameFilter).length)">
+          <button class="b-darkBlue b-pag" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+      </ng-container>
+
+      <!-- Paginacion end -->
+      <ng-container #midOfin *ngIf="this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).length - 11 < page_number">
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(0, 2)">
+          <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+        <button class="b-darkBlue b-pag">·</button>
+        <button class="b-darkBlue b-pag">·</button>
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(this.getPaginas(listaCreatures | filtroAc:nameFilter).length - 12, this.getPaginas(listaCreatures | filtroAc:nameFilter).length)">
           <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
         </ng-container>
       </ng-container>
 
-      <ng-template #paginacionComprimida>
-        <!-- Paginacion start -->
-        <ng-container *ngIf="page_number < 11">
-          <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(0, 11)">
-            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
-          </ng-container>
-          <button class="b-darkBlue b-pag">·</button>
-          <button class="b-darkBlue b-pag">·</button>
-          <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(this.getPaginas(listaCreatures | filtroAc:nameFilter).length - 2, this.getPaginas(listaCreatures | filtroAc:nameFilter).length)">
-            <button class="b-darkBlue b-pag" (click)="page_number = pag">{{pag}}</button>
-          </ng-container>
-        </ng-container>
+    </ng-template>
 
-        <!-- Paginacion mid -->
-        <ng-container #mid *ngIf="10 < page_number && page_number < this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).length - 10">
-          <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroAc:nameFilter).slice(0, 2)">
-            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
-          </ng-container>
-          <button class="b-darkBlue b-pag">·</button>
-          <button class="b-darkBlue b-pag">·</button>
-          <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(page_number-4, page_number+3)">
-            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
-          </ng-container>
-          <button class="b-darkBlue b-pag">·</button>
-          <button class="b-darkBlue b-pag">·</button>
-          <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(this.getPaginas(listaCreatures | filtroAc:nameFilter).length - 2, this.getPaginas(listaCreatures | filtroAc:nameFilter).length)">
-            <button class="b-darkBlue b-pag" (click)="page_number = pag">{{pag}}</button>
-          </ng-container>
-        </ng-container>
+    <button [style.visibility]="max_items < listaCreatures.length && page_number * max_items < (listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).length ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAlante(page_number, max_items, listaCreatures)"> > </button>
+  </div>
 
-        <!-- Paginacion end -->
-        <ng-container #midOfin *ngIf="this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).length - 11 < page_number">
-          <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(0, 2)">
-            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
-          </ng-container>
-          <button class="b-darkBlue b-pag">·</button>
-          <button class="b-darkBlue b-pag">·</button>
-          <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(this.getPaginas(listaCreatures | filtroAc:nameFilter).length - 12, this.getPaginas(listaCreatures | filtroAc:nameFilter).length)">
-            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
-          </ng-container>
-        </ng-container>
-
-      </ng-template>
-
-      <button [style.visibility]="max_items < listaCreatures.length && page_number * max_items < (listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).length ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAlante(page_number, max_items, listaCreatures)"> > </button>
-    </div>
-
-    <!-- Grid -->
-    <div class="grid-w-gap" style="margin: 1vw 0">
-        <ng-container *ngFor="let creature of listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter | paginacion:page_number:max_items">
-          <div class="grid-item-wrap flex-column-centered" style="justify-content: space-evenly;">
-            <div class="check-container" *ngIf="this._verif.user != null">
-              <button [style.background-image]="this.listaUsuario.includes(creature.translations.spanish.replace(' ','')) ? 'url(../../assets/images/check-rojo.png)' : 'url(../../assets/images/check-gris.png)'" class="boton-imagen editar" (click)="toggleCheck(creature)"></button>
-            </div>
-            <img (click)="mostrar(creature)" [src]="creature.critterpediaImage" style="cursor: pointer; height: 5vw; max-width: 10vw; padding-left: 2vw; padding-right: 2vw;" [id]='creature.translations.spanish.replace(" ", "")'>
-            <span>{{creature.translations.spanish | capitalize}}</span>
+  <!-- Grid -->
+  <div class="grid-w-gap" style="margin: 1vw 0">
+      <ng-container *ngFor="let creature of listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter | paginacion:page_number:max_items">
+        <div class="grid-item-wrap flex-column-centered" style="justify-content: space-evenly;">
+          <div class="check-container" *ngIf="this._verif.user != null">
+            <button [style.background-image]="this.listaUsuario.includes(creature.translations.spanish.replace(' ','')) ? 'url(../../assets/images/check-rojo.png)' : 'url(../../assets/images/check-gris.png)'" class="boton-imagen editar" (click)="toggleCheck(creature)"></button>
           </div>
+          <img (click)="mostrar(creature)" [src]="creature.critterpediaImage" style="cursor: pointer; height: 5vw; max-width: 10vw; padding-left: 2vw; padding-right: 2vw;" [id]='creature.translations.spanish.replace(" ", "")'>
+          <span>{{creature.translations.spanish | capitalize}}</span>
+        </div>
+      </ng-container>
+  </div>
+
+  <!-- Paginacion abajo -->
+  <div class="pag-menu flex-centered">
+    <button [style.visibility]="page_number != 1 ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAtras(page_number)"> < </button>
+
+    <ng-container *ngIf="this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).length < 25; else paginacionComprimida">
+      <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter)">
+        <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+      </ng-container>
+    </ng-container>
+
+    <ng-template #paginacionComprimida>
+      <!-- Paginacion start -->
+      <ng-container *ngIf="page_number < 11">
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(0, 11)">
+          <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
         </ng-container>
-    </div>
+        <button class="b-darkBlue b-pag">·</button>
+        <button class="b-darkBlue b-pag">·</button>
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(this.getPaginas(listaCreatures | filtroAc:nameFilter).length - 2, this.getPaginas(listaCreatures | filtroAc:nameFilter).length)">
+          <button class="b-darkBlue b-pag" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+      </ng-container>
 
-    <!-- Paginacion abajo -->
-    <div class="pag-menu flex-centered">
-      <button [style.visibility]="page_number != 1 ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAtras(page_number)"> < </button>
+      <!-- Paginacion mid -->
+      <ng-container #mid *ngIf="10 < page_number && page_number < this.getPaginas(listaCreatures | filtroAc:nameFilter).length - 10">
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(0, 2)">
+          <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+        <button class="b-darkBlue b-pag">·</button>
+        <button class="b-darkBlue b-pag">·</button>
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(page_number-4, page_number+3)">
+          <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+        <button class="b-darkBlue b-pag">·</button>
+        <button class="b-darkBlue b-pag">·</button>
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(this.getPaginas(listaCreatures | filtroAc:nameFilter).length - 2, this.getPaginas(listaCreatures | filtroAc:nameFilter).length)">
+          <button class="b-darkBlue b-pag" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+      </ng-container>
 
-      <ng-container *ngIf="this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).length < 25; else paginacionComprimida">
-        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter)">
+      <!-- Paginacion end -->
+      <ng-container #midOfin *ngIf="this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).length - 11 < page_number">
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(0, 2)">
+          <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+        <button class="b-darkBlue b-pag">·</button>
+        <button class="b-darkBlue b-pag">·</button>
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(this.getPaginas(listaCreatures | filtroAc:nameFilter).length - 12, this.getPaginas(listaCreatures | filtroAc:nameFilter).length)">
           <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
         </ng-container>
       </ng-container>
 
-      <ng-template #paginacionComprimida>
-        <!-- Paginacion start -->
-        <ng-container *ngIf="page_number < 11">
-          <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(0, 11)">
-            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
-          </ng-container>
-          <button class="b-darkBlue b-pag">·</button>
-          <button class="b-darkBlue b-pag">·</button>
-          <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(this.getPaginas(listaCreatures | filtroAc:nameFilter).length - 2, this.getPaginas(listaCreatures | filtroAc:nameFilter).length)">
-            <button class="b-darkBlue b-pag" (click)="page_number = pag">{{pag}}</button>
-          </ng-container>
-        </ng-container>
+    </ng-template>
 
-        <!-- Paginacion mid -->
-        <ng-container #mid *ngIf="10 < page_number && page_number < this.getPaginas(listaCreatures | filtroAc:nameFilter).length - 10">
-          <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(0, 2)">
-            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
-          </ng-container>
-          <button class="b-darkBlue b-pag">·</button>
-          <button class="b-darkBlue b-pag">·</button>
-          <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(page_number-4, page_number+3)">
-            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
-          </ng-container>
-          <button class="b-darkBlue b-pag">·</button>
-          <button class="b-darkBlue b-pag">·</button>
-          <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(this.getPaginas(listaCreatures | filtroAc:nameFilter).length - 2, this.getPaginas(listaCreatures | filtroAc:nameFilter).length)">
-            <button class="b-darkBlue b-pag" (click)="page_number = pag">{{pag}}</button>
-          </ng-container>
-        </ng-container>
-
-        <!-- Paginacion end -->
-        <ng-container #midOfin *ngIf="this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).length - 11 < page_number">
-          <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(0, 2)">
-            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
-          </ng-container>
-          <button class="b-darkBlue b-pag">·</button>
-          <button class="b-darkBlue b-pag">·</button>
-          <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).slice(this.getPaginas(listaCreatures | filtroAc:nameFilter).length - 12, this.getPaginas(listaCreatures | filtroAc:nameFilter).length)">
-            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
-          </ng-container>
-        </ng-container>
-
-      </ng-template>
-
-      <button [style.visibility]="max_items < listaCreatures.length && page_number * max_items < (listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).length ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAlante(page_number, max_items, listaCreatures)"> > </button>
-    </div>
-
+    <button [style.visibility]="max_items < listaCreatures.length && page_number * max_items < (listaCreatures | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).length ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAlante(page_number, max_items, listaCreatures)"> > </button>
   </div>
+
+</div>
   <!--   Pop-ups   -->
-  <div class="oscuro" (click)="hide=true" [style.visibility]="hide ? 'hidden': 'visible'"></div>
-  <div class="panel" [style.visibility]="hide ? 'hidden': 'visible'">
-    <div style="width: 100%; text-align: -webkit-center; display: flex; justify-content: space-around;">
-      <span class="spanImg" (click)="isNorth=true" [style.background-color]="isNorth ? '#67c13db5' : '#0000ff00'" [style.cursor]="isNorth ? 'default' : 'pointer'">
-        <img src="../../assets/images/hemisferio-norte.png" class="imagenHemisferio">
-      </span>
-      <div class="grid-item-wrap flex-column-centered" style="width: fit-content;">
-        <img [src]="shownCreature.critterpediaImage" style="width: 9vw; padding: 1vw; max-height: 12vw;" [id]='shownCreature.translations.spanish.replace(" ", "")'>
-      </div>
-      <span class="spanImg" (click)="isNorth=false" [style.background-color]="!isNorth ? '#67c13db5' : '#0000ff00'" [style.cursor]="!isNorth ? 'default' : 'pointer'">
-        <img src="../../assets/images/hemisferio-sur.png" class="imagenHemisferio">
-      </span>  </div>
-    <div class="datos"><b>Nombre:</b> {{shownCreature.translations.spanish | capitalize}}</div>
-    <div class="datos"><b>Donde obtener:</b> {{shownCreature.whereHow | traducir | capitalize}}</div>
-    <div class="datos"><b>Clima:</b> {{shownCreature.weather | traducir | capitalize}}</div>
-    <div class="datos"><b>Precio:</b> {{shownCreature.sell}}</div>
-    <div class="datos"><b>Meses capturable:</b> {{((isNorth) ? shownCreature.hemispheres.north.monthsArray : shownCreature.hemispheres.south.monthsArray) | mesesTextuales}}</div>
-    <div class="datos"><b>Horario de captura:</b> {{(isNorth) ? shownCreature.hemispheres.north.time : shownCreature.hemispheres.south.time}}</div>
+<div class="oscuro" (click)="hide=true" [style.display]="hide ? 'none': 'block'"></div>
+<div class="panel" [style.display]="hide ? 'none': 'block'">
+  <div style="width: 100%; text-align: -webkit-center; display: flex; justify-content: space-around;">
+    <span class="spanImg" (click)="isNorth=true" [style.background-color]="isNorth ? '#67c13db5' : '#0000ff00'" [style.cursor]="isNorth ? 'default' : 'pointer'">
+      <img src="../../assets/images/hemisferio-norte.png" class="imagenHemisferio">
+    </span>
+    <div class="grid-item-wrap flex-column-centered" style="width: fit-content;">
+      <img [src]="shownCreature.critterpediaImage" style="width: 9vw; padding: 1vw; max-height: 12vw;" [id]='shownCreature.translations.spanish.replace(" ", "")'>
+    </div>
+    <span class="spanImg" (click)="isNorth=false" [style.background-color]="!isNorth ? '#67c13db5' : '#0000ff00'" [style.cursor]="!isNorth ? 'default' : 'pointer'">
+      <img src="../../assets/images/hemisferio-sur.png" class="imagenHemisferio">
+    </span>
   </div>
+  <div class="datos"><b>Nombre:</b> {{shownCreature.translations.spanish | capitalize}}</div>
+  <div class="datos"><b>Donde obtener:</b> {{shownCreature.whereHow | traducir | capitalize}}</div>
+  <div class="datos"><b>Clima:</b> {{shownCreature.weather | traducir | capitalize}}</div>
+  <div class="datos"><b>Precio:</b> {{shownCreature.sell}}</div>
+  <div class="datos"><b>Meses capturable:</b> {{((isNorth) ? shownCreature.hemispheres.north.monthsArray : shownCreature.hemispheres.south.monthsArray) | mesesTextuales}}</div>
+  <div class="datos" style="margin-bottom: 0px;"><b>Horario de captura:</b> {{(isNorth) ? shownCreature.hemispheres.north.time : shownCreature.hemispheres.south.time}}</div>
+</div>
 
