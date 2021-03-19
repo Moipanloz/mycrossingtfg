@@ -20,6 +20,10 @@ import { CatRopaComponent } from './cat-ropa/cat-ropa.component';
 import { CatMuebleComponent } from './cat-mueble/cat-mueble.component';
 import { CatFosilComponent } from './cat-fosil/cat-fosil.component';
 import { CatArteComponent } from './cat-arte/cat-arte.component';
+import { CatInsectosComponent } from './cat-insectos/cat-insectos.component';
+import { TraducirPipe } from './cat-insectos/traducir.pipe';
+import { MesesTextualesPipe } from './cat-insectos/meses-textuales.pipe';
+import { FiltroCategoriaPipe } from './cat-insectos/filtro-categoria.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { CatArteComponent } from './cat-arte/cat-arte.component';
     CatRopaComponent,
     CatMuebleComponent,
     CatFosilComponent,
-    CatArteComponent
+    CatArteComponent,
+    CatInsectosComponent,
+    TraducirPipe,
+    MesesTextualesPipe,
+    FiltroCategoriaPipe
   ],
   imports: [
     BrowserModule,

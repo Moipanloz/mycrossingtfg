@@ -30,8 +30,7 @@ export class VerificationService {
 
       let datos = await this.http.get("http://localhost/php/authentication.php", {params: parametros, headers: headers}).toPromise();
       let verif = datos[0]['verification'];
-
-      if(JSON.stringify(datos)=="[\"Error\"]"){
+      if(JSON.stringify(datos).includes("Error")){
         this.logged = false;
         this.user = null;
       }else{
