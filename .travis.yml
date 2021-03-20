@@ -6,6 +6,7 @@ node_js:
   - "10"
 
 addons:
+  chrome: stable
   apt:
     sources:
       - google-chrome
@@ -17,6 +18,7 @@ cache:
      - ./node_modules
 
 install:
+  - cd project/myCrossing
   - npm install
 
 script:
