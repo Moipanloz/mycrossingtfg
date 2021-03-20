@@ -13,8 +13,7 @@ function checkTieneFosil($conn, $userId, $nombreFosil){
 
   if ($result->num_rows != 1) {
     $validation = FALSE;
-    print("No tienes el fosil");
-    print("$result->num_rows");
+    die("No tienes el fosil");
   }
   return $validation;
 }

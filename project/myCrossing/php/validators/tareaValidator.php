@@ -5,65 +5,75 @@ header('Access-Control-Allow-Headers: content-type');
 
 function checkTareaOwner($userId, $tareaId, $conn){
   //Comprueba que la tarea pasada pertenece al usuario
-  $result = null;
-  $testquery = "SELECT usuario_id FROM tareas WHERE id = $tareaId";
-  $validation = mysqli_query($conn, $testquery);
-  $data = mysqli_fetch_array($validation);
+  $validation = null;
+
+  $result = $conn->prepare('SELECT usuario_id FROM tareas WHERE id = ?');
+  $result->bind_param('i', $tareaId);
+  $result->execute();
+  $result->store_result();
+  $data = mysqli_fetch_array($result);
 
     if($data[0] == $userId){
-      $result = true;
+      $validation = true;
     }else{
-      $result = false;
-      print("No eres el dueño de la tarea");
+      $validation = false;
+      die("No eres el dueño de la tarea");
     }
-  return $result;
+  return $validation;
 }
 
 function checkExisteTarea($tareaId, $conn){
-  $result = null;
-  $testquery = "SELECT * FROM tareas WHERE id = $tareaId";
-  $validation = mysqli_query($conn, $testquery);
+  $validation = null;
 
-  if($validation->num_rows == 1){
-    $result = true;
+  $result = $conn->prepare('SELECT * FROM tareas WHERE id = ?');
+  $result->bind_param('i', $tareaId);
+  $result->execute();
+  $result->store_result();
+
+  if($result->num_rows == 1){
+    $validation = true;
   }else{
-    $result = false;
-    print("No existe tarea con este id");
+    $validation = false;
+    die("No existe tarea con este id");
   }
-  return $result;
+  return $validation;
 }
 
 function checkDatosTareaCorrectos($imagenUrl, $hecha){
-  $result = null;
+  $validation = null;
 
   if($imagenUrl != null && strlen($imagenUrl) < 100){
-    $result = true;
+    $validation = true;
   }else{
-    $result = false;
-    print("Imagen incorrecta");
+    $validation = false;
+    die("Imagen incorrecta");
+    return $validation;
   }
 
   if($hecha == 0 || $hecha == 1 || $hecha == false || $hecha == true){
-    $result = true;
+    $validation = true;
   }else{
-    $result = false;
-    print("Hecha incorrecta");
+    $validation = false;
+    die("El valor de resolución de la tarea es incorrecto");
   }
 
-  return $result;
+  return $validation;
 }
 
 function checkNumeroTareas($userId, $conn){
-  $result = null;
+  $validation = null;
 
-  $sql = "SELECT * FROM tareas WHERE usuario_id = $userId";
-  $query = mysqli_query($conn,$sql);
+  $result = $conn->prepare('SELECT * FROM tareas WHERE usuario_id = ?');
+  $result->bind_param('i', $userId);
+  $result->execute();
+  $result->store_result();
 
-  if ($query->num_rows < 10) {
-    $result = true;
+  if ($result->num_rows < 10) {
+    $validation = true;
   }else{
-    $result = false;
+    $validation = false;
+    die("No puede haber más de 10 tareas");
   }
 
-  return $result;
+  return $validation;
 }

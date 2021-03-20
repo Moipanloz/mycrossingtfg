@@ -13,8 +13,7 @@ function checkTieneArte($conn, $userId, $nombreArte){
 
   if ($result->num_rows != 1) {
     $validation = FALSE;
-    print("No tienes la obra de arte");
-    print("$result->num_rows");
+    die("No tienes la obra de arte");
   }
   return $validation;
 }

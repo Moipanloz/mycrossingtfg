@@ -3,42 +3,41 @@
 header('Access-Control-Allow-Headers: content-type');
 
 function checkDatosCorrectos($amistad){
-  $result = null;
-  if(0 < $amistad && $amistad < 7){
-    $result = true;
-  }else{
-    $result = false;
+  $validation = true;
+  if(1 > $amistad && $amistad > 6){
+    $validation = false;
     die("La amistad debe estar comprendida entre 1 y 6");
   }
-  return $result;
+  return $validation;
 }
 
 function checkTieneVecino($userId, $vecinoId, $conn){
-  $result = null;
-  $testquery = "SELECT * FROM misvecinos WHERE vecino_id = '$vecinoId' AND usuario_id = $userId";
-  $validation = mysqli_query($conn, $testquery);
+  $validation = true;
 
-  if($validation->num_rows == 1){
-    $result = true;
-  }else{
-    $result = false;
+  $result = $conn->prepare('SELECT * FROM misvecinos WHERE vecino_id = ? AND usuario_id = ?');
+  $result->bind_param('si', $vecinoId, $userId);
+  $result->execute();
+  $result->store_result();
+
+  if($result->num_rows != 1){
+    $validation = false;
     die("No tienes a este vecino");
   }
-  return $result;
+  return $validation;
 }
 
 function checkNumeroVecinos($userId, $conn){
-  $result = null;
+  $validation = true;
 
-  $sql = "SELECT * FROM misvecinos WHERE usuario_id = $userId";
-  $query = mysqli_query($conn,$sql);
+  $result = $conn->prepare('SELECT * FROM misvecinos WHERE usuario_id = ?');
+  $result->bind_param('i', $userId);
+  $result->execute();
+  $result->store_result();
 
-  if ($query->num_rows < 10) {
-    $result = true;
-  }else{
-    $result = false;
+  if ($result->num_rows > 9) {
+    $validation = false;
     die("Ya tienes el número máximo de vecinos");
   }
 
-  return $result;
+  return $validation;
 }
