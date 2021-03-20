@@ -20,25 +20,24 @@ if(isset($_GET['command'])){
                 checkVerification($conn, $userId, $verifCode);
 
         if($validation){
-          $sql = "UPDATE usuarios SET verification = NULL WHERE id = $userId";
-          $result = mysqli_query($conn,$sql);
-        }else{
-          print("Error: No se cumplen los requisitos");
+          $result = $conn->prepare('UPDATE usuarios SET verification = NULL WHERE id = ?');
+          $result->bind_param('i', $userId);
+          $result->execute();
         }
-
       }else{
-        print("Error: Faltan parametros");
+        die("Error: Faltan parametros");
       }
 
       break;
-
     // ========================================================================================================= LOGIN
     case "login":
 
       $postdata = file_get_contents("php://input");
-      $request = json_decode($postdata);
 
-      if(isset($request) && !empty($request)){
+      if(isset($postdata) && !empty($postdata)){
+
+        $request = json_decode($postdata);
+
         $userPass = $request->clave;
         $verif = $request->key;
         $email = $request->email;
@@ -47,25 +46,23 @@ if(isset($_GET['command'])){
                 checkPassword($conn, $email, $userPass);
 
         if($validation){
-          $sqlVerif = "UPDATE usuarios SET verification = '$verif' WHERE email = '$email'";
-          $resultVerif = mysqli_query($conn,$sqlVerif);
+          //Actualiza el codigo de verificacion
+          $result = $conn->prepare('UPDATE usuarios SET verification = ? WHERE email = ?');
+          $result->bind_param('ss', $verif, $email);
+          $result->execute();
 
-          $sqlData = "SELECT nombre, id, verification FROM usuarios WHERE email = '$email'";
-          $resultData = mysqli_query($conn,$sqlData);
-
-          $userResult = mysqli_fetch_assoc($resultData);
-
+          //Devuelve el usuario
+          $result = $conn->prepare('SELECT nombre, id, verification FROM usuarios WHERE email = ?');
+          $result->bind_param('s', $email);
+          $result->execute();
+          $result->store_result();
+          $userResult = mysqli_fetch_assoc($result);
           print(json_encode($userResult));
-
-        }else{
-          print(json_encode("Email o contraseña incorrectos"));
         }
       }else{
-        print("No hay datos");
+        die("No hay datos");
       }
-
       break;
-
     // ========================================================================================================= READ
     case "read":
       if(isset($_GET['userId']) && isset($_GET["verif"])){
@@ -76,20 +73,21 @@ if(isset($_GET['command'])){
                 checkVerification($conn, $userId, $verifCode);
 
         if($validation){
-          $sql = "SELECT nombre, isla, fruta, cumpleanyos, hemisferio, id_suenyo, id_switch, apodo_aldeano FROM usuarios WHERE id = $userId";
-          $result = mysqli_query($conn,$sql);
+          $result = $conn->prepare('SELECT nombre, isla, fruta, cumpleanyos, hemisferio, id_suenyo, id_switch, apodo_aldeano FROM usuarios WHERE id = ?');
+          $result->bind_param('i', $userId);
+          $result->execute();
+          $result->store_result();
           $myArray = array();
+
           if ($result->num_rows > 0) {
               while($row = $result->fetch_assoc()) {
                   $myArray[] = $row;
               }
               print(json_encode($myArray));
           }
-        }else{
-          print("No cumple los requerimientos");
         }
       }else{
-        print("Faltan parametros");
+        die("Faltan parametros");
       }
       break;
 
@@ -103,28 +101,29 @@ if(isset($_GET['command'])){
                 checkVerification($conn, $userId, $verifCode);
 
         if($validation){
-          $sql = "SELECT verification, nombre FROM usuarios WHERE id = $userId";
-          $result = mysqli_query($conn,$sql);
+          $result = $conn->prepare('SELECT verification, nombre FROM usuarios WHERE id = ?');
+          $result->bind_param('i', $userId);
+          $result->execute();
+          $result->store_result();
+
           if ($result->num_rows > 0) {
               while($row = $result->fetch_assoc()) {
                   $myArray[] = $row;
               }
               print(json_encode($myArray));
           }
-        }else{
-          print(json_encode("Error"));
         }
       }else{
-        print("No ha introducido id de usuario que leer");
+        die("Faltan parametros");
       }
       break;
-
     // ========================================================================================================= REGISTER
     case "register":
       $postdata = file_get_contents("php://input");
-      $request = json_decode($postdata);
 
-      if(isset($request) && !empty($request)){
+      if(isset($postdata) && !empty($postdata)){
+        $request = json_decode($postdata);
+
         $nombre = $request->nombre;
         $userPass = $request->clave;
         $isla = $request->isla;
@@ -142,44 +141,38 @@ if(isset($_GET['command'])){
         if($validation){
           $contrasenya = password_hash($userPass, PASSWORD_BCRYPT);
 
-          $sql = "INSERT INTO usuarios (nombre, contrasenya, isla, fruta, cumpleanyos, verification, email, hemisferio";
-          $sql2 = ") VALUES ('$nombre', '$contrasenya', '$isla', '$fruta', '$cumpleanyos', '$verif', '$email', '$hemisferio'";
-
-          if(!empty($id_switch)){
-            $sql .= ", id_switch";
-            $sql2 .= ", '$id_switch'";
+          if(empty($id_switch)){
+            $id_switch = null;
           }
 
-          if(!empty($id_suenyo)){
-            $sql .= ", id_suenyo";
-            $sql2 .= ", '$id_suenyo'";
-          }
-          if(!empty($apodo_aldeano)){
-            $sql .= ", apodo_aldeano";
-            $sql2 .= ", '$apodo_aldeano'";
+          if(empty($id_suenyo)){
+            $id_suenyo = null;
           }
 
-          $sql2 .= ")";
-          $sql .= $sql2;
+          if(empty($apodo_aldeano)){
+            $apodo_aldeano = null;
+          }
 
-          $result = mysqli_query($conn,$sql);
+          //Registro
+          $result = $conn->prepare('INSERT INTO usuarios (nombre, contrasenya, isla, fruta, cumpleanyos, verification, email, hemisferio, id_switch, id_suenyo, apodo_aldeano) VALUES (?,?,?,?,?,?,?,?,?,?,?)');
+          $result->bind_param('sssssssssss', $nombre, $contrasenya, $isla, $fruta, $cumpleanyos, $verif, $email, $hemisferio, $id_switch, $id_suenyo, $apodo_aldeano);
+          $result->execute();
 
           //Tiene que devolver el usuario para asignarle las cookies
-          $sql = "SELECT * FROM usuarios WHERE email = '$email'";
-          $result = mysqli_query($conn,$sql);
+          $result = $conn->prepare('SELECT * FROM usuarios WHERE email = ?');
+          $result->bind_param('s', $email);
+          $result->execute();
+          $result->store_result();
+
           if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
               $myArray[] = $row;
             }
             print(json_encode($myArray));
           }
-
-        }else{
-          print(json_encode("Error"));
         }
-
       }else{
-        print("No hay datos");
+        die("No hay datos");
       }
       break;
 
@@ -214,25 +207,23 @@ if(isset($_GET['command'])){
                     checkVerification($conn, $userId, $verifCode);
 
           if($validation){
-            $sql = "UPDATE usuarios SET nombre = '$nombre', isla = '$isla', fruta = '$fruta', cumpleanyos = '$cumpleanyos', hemisferio = '$hemisferio', id_switch = '$id_switch', id_suenyo = '$id_suenyo', apodo_aldeano = '$apodo_aldeano' WHERE id = $userId";
-            $result = mysqli_query($conn,$sql);
-          }else{
-            print("No se cumplen los requisitos");
+            $result = $conn->prepare('UPDATE usuarios SET nombre = ? , isla = ? , fruta = ? , cumpleanyos = ? , hemisferio = ? , id_switch = ? , id_suenyo = ? , apodo_aldeano = ? WHERE id = ?');
+            $result->bind_param('ssssssssi', $nombre, $isla, $fruta, $cumpleanyos, $hemisferio, $id_switch, $id_suenyo, $apodo_aldeano, $userId);
+            $result->execute();
           }
-
         }else{
-          print("No hay datos");
+          die("No hay datos");
         }
 
       }else{
-        print("Faltan parametros");
+        die("Faltan parametros");
       }
       break;
 
     default:
-      print "Comando no valido";
+      die("Comando no valido");
   }
 }else{
-  print "Comando no seleccionado";
+  die("Comando no seleccionado");
 }
 mysqli_close($conn);

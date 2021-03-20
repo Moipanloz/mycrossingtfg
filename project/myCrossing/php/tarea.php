@@ -18,27 +18,22 @@ if(isset($_GET["command"])){
         $validation = checkExisteUser($conn, $userId) &&
                  checkVerification($conn, $userId, $verifCode);
 
-        //Para que sea correcto debe dar true
         if($validation){
-          $sql = "SELECT * FROM tareas WHERE usuario_id = $userId";
-          $result = mysqli_query($conn,$sql);
+          $result = $conn->prepare('SELECT * FROM tareas WHERE usuario_id = ?');
+          $result->bind_param('i', $userId);
+          $result->execute();
+          $result->store_result();
           $myArray = array();
 
           if ($result->num_rows > 0) {
-            // output data of each row
             while($row = $result->fetch_assoc()) {
               $myArray[] = $row;
             }
           }
-
           print(json_encode($myArray, JSON_NUMERIC_CHECK));
-
-        }else{
-          print("No se cumplen los requisitos");
         }
-
       }else{
-        print("Faltan parametros");
+        die("Faltan parametros");
       }
       break;
 
@@ -72,18 +67,15 @@ if(isset($_GET["command"])){
                     checkDatosTareaCorrectos($imagenUrl, $hecha);
 
           if($validation){
-            $sql = "UPDATE tareas SET hecha = $hecha, imagen_url = '$imagenUrl' WHERE id = $tareaId";
-            $result = mysqli_query($conn,$sql);
-          }else{
-            print("No se cumplen los requisitos");
+            $result = $conn->prepare('UPDATE tareas SET hecha = ?, imagen_url = ? WHERE id = ?');
+            $result->bind_param('isi', $hecha, $imagenUrl, $tareaId);
+            $result->execute();
           }
-
         }else{
-          print("No hay datos");
+          die("No hay datos");
         }
-
       }else{
-        print("Faltan parametros");
+        die("Faltan parametros");
       }
       break;
 
@@ -106,21 +98,16 @@ if(isset($_GET["command"])){
                     checkNumeroTareas($userId, $conn);
 
           if($validation){
-            $sql = "INSERT INTO tareas(id, usuario_id, hecha, imagen_url) VALUES ('', $userId, $hecha, '$imagenUrl')";
-            $result = mysqli_query($conn,$sql);
-
-          }else{
-            print("No se cumplen los requisitos");
+            $result = $conn->prepare('INSERT INTO tareas(id, usuario_id, hecha, imagen_url) VALUES("",?,?,?)');
+            $result->bind_param('iis',$userId, $hecha, $imagenUrl);
+            $result->execute();
           }
-
         }else{
-          print("No hay datos");
+          die("No hay datos");
         }
-
       }else{
-        print("Faltan parametros");
+        die("Faltan parametros");
       }
-
       break;
 
     case "delete"://---------------------------------------------------------------------------------------------------DELETE
@@ -135,20 +122,19 @@ if(isset($_GET["command"])){
                   checkTareaOwner($userId, $tareaId, $conn);
 
         if($validation){
-          $sql = "DELETE FROM tareas WHERE id = $tareaId";
-          $result = mysqli_query($conn,$sql);
-        }else{
-          print("No se cumplen los requisitos");
+          $result = $conn->prepare('DELETE FROM tareas WHERE id = ?');
+          $result->bind_param('i', $tareaId);
+          $result->execute();
         }
-
       }else{
-        print("Faltan parametros");
+        die("Faltan parametros");
       }
       break;
 
     default:
-      print("Comando no valido");
+      die("Comando no valido");
   }
+}else{
+  die("Comando no seleccionado");
 }
-
 $conn -> close();

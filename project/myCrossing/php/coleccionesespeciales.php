@@ -18,8 +18,10 @@ if(isset($_GET["command"])){
                 checkVerification($conn, $userId, $verifCode);
 
         if($validation){
-          $sql = "SELECT item_source, GROUP_CONCAT(item_name) FROM colesp WHERE usuario_id = $userId GROUP BY item_source";
-          $result = mysqli_query($conn,$sql);
+          $result = $conn->prepare('SELECT item_source, GROUP_CONCAT(item_name) FROM colesp WHERE usuario_id = ? GROUP BY item_source');
+          $result->bind_param('i',$userId);
+          $result->execute();
+          $result->store_result();
           $myArray = array();
 
           if ($result->num_rows > 0) {
@@ -28,11 +30,9 @@ if(isset($_GET["command"])){
             }
           }
           print json_encode($myArray, JSON_NUMERIC_CHECK);
-        }else{
-          print("No se cumplen los requisitos");
         }
       }else{
-        print("Faltan parametros");
+        die("Faltan parametros");
       }
       break;
 
@@ -61,14 +61,12 @@ if(isset($_GET["command"])){
             $result = $conn->prepare('INSERT INTO colesp(usuario_id, item_name, item_source) VALUES (?, ?, ?)');
             $result->bind_param('iss',$userId, $itemName,$itemSource);
             $result->execute();
-          }else{
-            print("No se cumplen los requisitos");
           }
         }else{
-          print("No hay datos");
+          die("No hay datos");
         }
-      } else {
-        print("Faltan parametros");
+      }else{
+        die("Faltan parametros");
       }
       break;
 
@@ -86,16 +84,17 @@ if(isset($_GET["command"])){
           $result = $conn->prepare('DELETE FROM colesp WHERE usuario_id = ? AND item_name = ?');
           $result->bind_param('is',$userId, $itemName);
           $result->execute();
-        }else{
         }
-      } else {
-        print("Faltan parametros");
+      }else{
+        die("Faltan parametros");
       }
       break;
 
     default:
-      print("Comando no válido");
+      die("Comando no válido");
   }
+}else{
+  die("Comando no seleccionado");
 }
 
 $conn -> close();

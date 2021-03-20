@@ -32,11 +32,9 @@ if(isset($_GET["command"])){
             }
           }
           print json_encode($myArray, JSON_NUMERIC_CHECK);
-        }else{
-          print("No se cumplen los requisitos");
         }
       }else{
-        print("Faltan parametros");
+        die("Faltan parametros");
       }
       break;
 
@@ -62,14 +60,12 @@ if(isset($_GET["command"])){
             $result = $conn->prepare('INSERT INTO catarte(usuario_id, nombre_arte) VALUES (?, ?)');
             $result->bind_param('is',$userId, $nombreArte);
             $result->execute();
-          }else{
-            print("No se cumplen los requisitos");
           }
         }else{
-          print("No hay datos");
+          die("No hay datos");
         }
-      } else {
-        print("Faltan parametros");
+      }else{
+        die("Faltan parametros");
       }
       break;
 
@@ -87,17 +83,17 @@ if(isset($_GET["command"])){
           $result = $conn->prepare('DELETE FROM catarte WHERE usuario_id = ? AND nombre_arte = ?');
           $result->bind_param('is',$userId, $nombreArte);
           $result->execute();
-        }else{
-          print("No se cumplen los requisitos");
         }
       } else {
-        print("Faltan parametros");
+        die("Faltan parametros");
       }
       break;
 
     default:
-      print("Comando no válido");
+      die("Comando no válido");
   }
+}else{
+  die("Comando no seleccionado");
 }
 
 $conn -> close();

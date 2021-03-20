@@ -18,8 +18,10 @@ if(isset($_GET["command"])){
                 checkVerification($conn, $userId, $verifCode);
 
         if($validation){
-          $sql = "SELECT * FROM misvecinos WHERE usuario_id = $userId";
-          $result = mysqli_query($conn,$sql);
+          $result = $conn->prepare('SELECT * FROM misvecinos WHERE usuario_id = ?');
+          $result->bind_param('i', $userId);
+          $result->execute();
+          $result->store_result();
           $myArray = array();
 
           if ($result->num_rows > 0) {
@@ -29,6 +31,8 @@ if(isset($_GET["command"])){
           }
           print json_encode($myArray, JSON_NUMERIC_CHECK);
         }
+      }else{
+        die("Faltan parametros");
       }
       break;
 
@@ -45,20 +49,25 @@ if(isset($_GET["command"])){
           $vecinoId = $request->vecino_id;
           $amistad = $request->amistad;
 
-          //$tieneVecino = checkTieneVecino($userId, $vecinoId, $conn);
-          //$tieneVecino = ! $tieneVecino;
+          $tieneVecino = checkTieneVecino($userId, $vecinoId, $conn);
+          $tieneVecino = ! $tieneVecino;
 
           $validation = checkExisteUser($conn, $userId) &&
                    checkVerification($conn, $userId, $verifCode) &&
                    checkDatosCorrectos($amistad) &&
-                   checkNumeroVecinos($userId, $conn); //&&
-                   //$tieneVecino;
+                   checkNumeroVecinos($userId, $conn) &&
+                   $tieneVecino;
 
           if($validation){
-            $sql = "INSERT INTO misvecinos(vecino_id, usuario_id, amistad) VALUES ('$vecinoId', $userId, '$amistad')";
-            $result = mysqli_query($conn,$sql);
+            $result = $conn->prepare('INSERT INTO misvecinos(vecino_id, usuario_id, amistad) VALUES (?,?,?)');
+            $result->bind_param('sis', $vecinoId, $userId, $amistad);
+            $result->execute();
           }
+        }else{
+          die("No hay datos");
         }
+      }else{
+        die("Faltan parametros");
       }
       break;
 
@@ -85,10 +94,15 @@ if(isset($_GET["command"])){
                   $tieneVecino;
 
           if($validation){
-            $sql = "UPDATE misvecinos SET vecino_id = $vecinoId, amistad = '$amistad' WHERE vecino_id = '$oldVecinoId' AND usuario_id = $userId";
-            $result = mysqli_query($conn,$sql);
+            $result = $conn->prepare('UPDATE misvecinos SET vecino_id = ?, amistad = ? WHERE vecino_id = ? AND usuario_id = ?');
+            $result->bind_param('ssii', $vecinoId, $amistad, $oldVecinoId, $userId,);
+            $result->execute();
           }
+        }else{
+          die("No hay datos");
         }
+      }else{
+        die("Faltan parametros");
       }
       break;
 
@@ -111,10 +125,15 @@ if(isset($_GET["command"])){
                   checkTieneVecino($userId, $vecinoId, $conn);
 
           if($validation){
-            $sql = "UPDATE misvecinos SET amistad = '$amistad' WHERE vecino_id = '$vecinoId' AND usuario_id = $userId";
-            $result = mysqli_query($conn,$sql);
+            $result = $conn->prepare('UPDATE misvecinos SET amistad = ? WHERE vecino_id = ? AND usuario_id = ?');
+            $result->bind_param('sii', $amistad, $vecinoId, $userId,);
+            $result->execute();
           }
+        }else{
+          die("No hay datos");
         }
+      }else{
+        die("Faltan parametros");
       }
       break;
 
@@ -130,15 +149,20 @@ if(isset($_GET["command"])){
                 checkTieneVecino($userId, $vecinoId, $conn);
 
         if($validation){
-          $sql = "DELETE FROM misvecinos WHERE vecino_id = '$vecinoId' AND usuario_id = $userId";
-          $result = mysqli_query($conn,$sql);
+          $result = $conn->prepare('DELETE FROM misvecinos WHERE vecino_id = ? AND usuario_id = ?');
+          $result->bind_param('ii', $vecinoId, $userId);
+          $result->execute();
         }
+      }else{
+        die("Faltan parametros");
       }
       break;
 
     default:
       die("Comando no válido");
   }
+}else{
+  die("Comando no seleccionado");
 }
 
 $conn -> close();
