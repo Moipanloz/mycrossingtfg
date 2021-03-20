@@ -10,9 +10,12 @@ export class FiltroCategoriaPezPipe implements PipeTransform {
     let result : any[] = [];
     if(whereFilter=="" && shadowFilter=="")  return lista;
     if(whereFilter!=""){
-      if(whereFilter=="Other"){
-        let list : string[] = ["Pond", "Sea", "River"];
-        result = lista.filter(a => !list.includes(a.whereHow));
+      if(whereFilter=="River"){
+        let list : string[] = ["River", "River (clifftop)", "River (mouth)"];
+        result = lista.filter(a => list.includes(a.whereHow));
+      }else if(whereFilter=="Sea"){
+        let list2 : string[] = ["Sea", "Sea (rainy days)"];
+        result = lista.filter(a => list2.includes(a.whereHow));
       }else{
         result = lista.filter(a => a.whereHow==whereFilter);
       }

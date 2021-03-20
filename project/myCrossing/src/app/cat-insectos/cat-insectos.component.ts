@@ -40,6 +40,7 @@ export class CatInsectosComponent implements OnInit {
   ngOnInit() {
     this._verif.verify().then( async () => {
       if(this._verif.user != null){
+        this.isNorth = this._verif.hemisferio=="NORTE";
         this.listaUsuario = new Array<string>();
         this._catbicho.readBicho().then(async listaUsuario => {
           for(let i = 0; i < listaUsuario.length; i++){

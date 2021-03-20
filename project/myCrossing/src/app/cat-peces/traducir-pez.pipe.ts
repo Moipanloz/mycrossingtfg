@@ -41,7 +41,7 @@ export class TraducirPezPipe implements PipeTransform {
         result="Río";
         break;
       case "Pier":
-        result="Mueller";
+        result="Muelle";
         break;
       case "Pond":
         result="Estanque";

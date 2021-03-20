@@ -21,10 +21,10 @@ export class CatInsectosService {
     return this.http.get<any[]>(this.url, {params: parametros}).toPromise();
   }
 
-  borrarBicho(fosil : string){
+  borrarBicho(criatura : string){
     let parametros = new HttpParams()
     .set("command", "delete")
-    .set("nombreCriatura", fosil)
+    .set("nombreCriatura", criatura)
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 

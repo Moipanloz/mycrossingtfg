@@ -65,6 +65,11 @@ export interface Bicho{
   usuario_id : number;
 }
 
+export interface Pez{
+  nombre_criatura : string;
+  usuario_id : number;
+}
+
 export interface Arte{
   nombre_arte : string;
   usuario_id : number;

@@ -39,10 +39,8 @@ export class CatPecesComponent implements OnInit {
 
   ngOnInit() {
     this._verif.verify().then( async () => {
-      let list : number[] = [];
-      await creatures.filter(i => i.sourceSheet == "Fish").forEach(f => {if(!list[f.shadow]){list[f.shadow]=1;}else{list[f.shadow]=list[f.shadow]+1;}});
-      console.log(list);
       if(this._verif.user != null){
+        this.isNorth = this._verif.hemisferio=="NORTE";
         this.listaUsuario = new Array<string>();
         this._catpez.readPez().then(async listaUsuario => {
           for(let i = 0; i < listaUsuario.length; i++){

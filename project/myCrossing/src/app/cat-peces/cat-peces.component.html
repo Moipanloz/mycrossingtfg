@@ -20,7 +20,7 @@
                 <button class="boton-alargado whereButton" (click)="filtraWhe('Pond')" [class]="this.filtroAcWhe == 'Pond' ? 'b-verde' : 'b-azul'">Estanque</button>
                 <button class="boton-alargado whereButton" (click)="filtraWhe('River')" [class]="this.filtroAcWhe == 'River' ? 'b-verde' : 'b-azul'">Río</button>
                 <button class="boton-alargado whereButton" (click)="filtraWhe('Sea')" [class]="this.filtroAcWhe == 'Sea' ? 'b-verde' : 'b-azul'">Mar</button>
-                <button class="boton-alargado whereButton" (click)="filtraWhe('Other')" [class]="this.filtroAcWhe == 'Other' ? 'b-verde' : 'b-azul'">Otros</button>
+                <button class="boton-alargado whereButton" (click)="filtraWhe('Pier')" [class]="this.filtroAcWhe == 'Pier' ? 'b-verde' : 'b-azul'">Muelle</button>
             </div>
             <div style="margin-right: 1vw; width: 10vw;" [style.display]="this._verif.user == null ? 'none' : 'block'">
                 <button class="boton-alargado extraButton" (click)="activaFiltro('obtenido')" [class]="this.botonFiltrar == 'obtenido' ? 'b-verde' : 'b-azul'">Obtenidos</button>
@@ -96,7 +96,7 @@
         <ng-container *ngFor="let creature of listaCreatures | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter | paginacion:page_number:max_items">
         <div class="grid-item-wrap flex-column-centered" style="justify-content: space-evenly;">
             <div class="check-container" *ngIf="this._verif.user != null">
-            <button [style.background-image]="this.listaUsuario.includes(creature.translations.spanish.replace(' ','')) ? 'url(../../assets/images/check-rojo.png)' : 'url(../../assets/images/check-gris.png)'" class="boton-imagen editar" (click)="toggleCheck(creature)"></button>
+                <button [style.background-image]="this.listaUsuario.includes(creature.translations.spanish.replace(' ','')) ? 'url(../../assets/images/check-rojo.png)' : 'url(../../assets/images/check-gris.png)'" class="boton-imagen editar" (click)="toggleCheck(creature)"></button>
             </div>
             <img (click)="mostrar(creature)" [src]="creature.critterpediaImage" style="cursor: pointer; max-height: 10vw; width: 8vw; padding-left: 2vw; padding-right: 2vw;" [id]='creature.translations.spanish.replace(" ", "")'>
             <span>{{creature.translations.spanish | capitalize}}</span>
@@ -166,15 +166,12 @@
 <div class="oscuro" (click)="hide=true" [style.display]="hide ? 'none': 'block'"></div>
 <div class="panel" [style.display]="hide ? 'none': 'block'">
     <div style="width: 100%; text-align: -webkit-center; display: flex; justify-content: space-around;">
-    <span class="spanImg" (click)="isNorth=true" [style.background-color]="isNorth ? '#67c13db5' : '#0000ff00'" [style.cursor]="isNorth ? 'default' : 'pointer'">
-        <img src="../../assets/images/hemisferio-norte.png" class="imagenHemisferio">
-    </span>
-    <div class="grid-item-wrap flex-column-centered" style="width: fit-content;">
-        <img [src]="shownCreature.critterpediaImage" style="width: 9vw; padding: 1vw; max-height: 12vw;" [id]='shownCreature.translations.spanish.replace(" ", "")'>
-    </div>
-    <span class="spanImg" (click)="isNorth=false" [style.background-color]="!isNorth ? '#67c13db5' : '#0000ff00'" [style.cursor]="!isNorth ? 'default' : 'pointer'">
-        <img src="../../assets/images/hemisferio-sur.png" class="imagenHemisferio">
-    </span>
+        <span class="spanImg" (click)="isNorth=!isNorth" style="background-color:#67c13db5; cursor:pointer;">
+            <img [src]="isNorth ? '../../assets/images/hemisferio-norte.png' : '../../assets/images/hemisferio-sur.png'" class="imagenHemisferio">
+        </span>
+        <div class="grid-item-wrap flex-column-centered" style="width: fit-content;">
+            <img [src]="shownCreature.critterpediaImage" style="width: 9vw; padding: 1vw; max-height: 12vw;" [id]='shownCreature.translations.spanish.replace(" ", "")'>
+        </div>
     </div>
     <div class="datos"><b>Nombre:</b> {{shownCreature.translations.spanish | capitalize}}</div>
     <div class="datos"><b>Donde obtener:</b> {{shownCreature.whereHow | traducirPez | capitalize}}</div>

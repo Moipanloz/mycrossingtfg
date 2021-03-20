@@ -8,6 +8,7 @@ export class TraducirPipe implements PipeTransform {
   transform(value: string): string {
     if(!value)  return value;
     let result : string = null;
+    if(value[0]=="All day") return "Todo el día";
     switch(value){
       case "Any weather":
         result="Cualquier clima";
@@ -94,7 +95,7 @@ export class TraducirPipe implements PipeTransform {
         result="Sobre rocas en la playa";
         break;
       default:
-        result="value";
+        result=value;
     }
     return result;
   }
