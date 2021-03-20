@@ -103,7 +103,7 @@ if(isset($_GET['command'])){
                 checkVerificationJson($conn, $userId, $verifCode);
 
         if($validation){
-          $sql = "SELECT verification, nombre FROM usuarios WHERE id = $userId";
+          $sql = "SELECT verification, nombre, hemisferio FROM usuarios WHERE id = $userId";
           $result = mysqli_query($conn,$sql);
           if ($result->num_rows > 0) {
               while($row = $result->fetch_assoc()) {

@@ -9,6 +9,7 @@ export class MesesTextualesPipe implements PipeTransform {
     if(!value) return value;
     let lista : string[] = value.toString().split(',');
     let result : string = "";
+    if(lista.length==12)  return "Todos los meses";
     for(let mes of lista){
       switch(mes){
         case '1':

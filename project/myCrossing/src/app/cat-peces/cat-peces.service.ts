@@ -1,18 +1,18 @@
 import { VerificationService } from 'app/general/services/verification.service';
 import { HttpParams, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Bicho } from 'app/general/interfaces';
+import { Pez } from 'app/general/interfaces';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CatInsectosService {
+export class CatPecesService {
 
-  url : string = "http://localhost/php/catbichos.php";
+  url : string = "http://localhost/php/catpeces.php";
 
   constructor(public verification : VerificationService, public http : HttpClient) { }
 
-  readBicho(){
+  readPez(){
     let parametros = new HttpParams()
     .set("command", "read")
     .set("verif", this.verification.verifCode)
@@ -21,7 +21,7 @@ export class CatInsectosService {
     return this.http.get<any[]>(this.url, {params: parametros}).toPromise();
   }
 
-  borrarBicho(criatura : string){
+  borrarPez(criatura : string){
     let parametros = new HttpParams()
     .set("command", "delete")
     .set("nombreCriatura", criatura)
@@ -31,13 +31,13 @@ export class CatInsectosService {
     return this.http.get(this.url, {params: parametros, responseType: "blob"}).toPromise();
   }
 
-  addBicho(criatura : string){
+  addPez(criatura : string){
     let parametros = new HttpParams()
     .set("command", "create")
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    let x : Bicho = {
+    let x : Pez = {
       nombre_criatura: criatura,
       usuario_id: this.verification.user
     }

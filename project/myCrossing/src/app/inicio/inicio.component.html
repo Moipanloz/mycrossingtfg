@@ -24,7 +24,7 @@
         <img class="imagen-inicio" *ngSwitchCase="2" src="../../assets/images/kamilo-caza.png" alt="caza"/>
         <img class="imagen-inicio" *ngSwitchCase="3" src="../../assets/images/buceo.png" alt="buceo"/>
       </ng-container>
-      <button id="peces" (mouseover)="imagen = 1">Peces</button>
+      <button id="peces" routerLink="/catalogo-peces" (mouseover)="imagen = 1">Peces</button>
       <button id="bichos" routerLink="/catalogo-insectos" (mouseover)="imagen = 2">Bichos</button>
       <button id="criaturas-marinas" (mouseover)="imagen = 3">Criaturas marinas</button>
     </div>

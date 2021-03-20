@@ -166,21 +166,18 @@
 <div class="oscuro" (click)="hide=true" [style.display]="hide ? 'none': 'block'"></div>
 <div class="panel" [style.display]="hide ? 'none': 'block'">
   <div style="width: 100%; text-align: -webkit-center; display: flex; justify-content: space-around;">
-    <span class="spanImg" (click)="isNorth=true" [style.background-color]="isNorth ? '#67c13db5' : '#0000ff00'" [style.cursor]="isNorth ? 'default' : 'pointer'">
-      <img src="../../assets/images/hemisferio-norte.png" class="imagenHemisferio">
-    </span>
+    <span class="spanImg" (click)="isNorth=!isNorth" style="background-color:#67c13db5; cursor:pointer;">
+      <img [src]="isNorth ? '../../assets/images/hemisferio-norte.png' : '../../assets/images/hemisferio-sur.png'" class="imagenHemisferio">
+  </span>
     <div class="grid-item-wrap flex-column-centered" style="width: fit-content;">
       <img [src]="shownCreature.critterpediaImage" style="width: 9vw; padding: 1vw; max-height: 12vw;" [id]='shownCreature.translations.spanish.replace(" ", "")'>
     </div>
-    <span class="spanImg" (click)="isNorth=false" [style.background-color]="!isNorth ? '#67c13db5' : '#0000ff00'" [style.cursor]="!isNorth ? 'default' : 'pointer'">
-      <img src="../../assets/images/hemisferio-sur.png" class="imagenHemisferio">
-    </span>
   </div>
   <div class="datos"><b>Nombre:</b> {{shownCreature.translations.spanish | capitalize}}</div>
   <div class="datos"><b>Donde obtener:</b> {{shownCreature.whereHow | traducir | capitalize}}</div>
   <div class="datos"><b>Clima:</b> {{shownCreature.weather | traducir | capitalize}}</div>
   <div class="datos"><b>Precio:</b> {{shownCreature.sell}}</div>
   <div class="datos"><b>Meses capturable:</b> {{((isNorth) ? shownCreature.hemispheres.north.monthsArray : shownCreature.hemispheres.south.monthsArray) | mesesTextuales}}</div>
-  <div class="datos" style="margin-bottom: 0px;"><b>Horario de captura:</b> {{(isNorth) ? shownCreature.hemispheres.north.time : shownCreature.hemispheres.south.time}}</div>
+  <div class="datos" style="margin-bottom: 0px;"><b>Horario de captura:</b> {{((isNorth) ? shownCreature.hemispheres.north.time : shownCreature.hemispheres.south.time) | traducir}}</div>
 </div>
 

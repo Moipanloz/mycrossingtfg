@@ -9,6 +9,7 @@ export class VerificationService {
   verified: boolean = false;
   cookieService: CookieService;
   nombre : string = "";
+  hemisferio : string = "";
   verifCode : string = "";
 
   constructor(cookieService: CookieService, private http: HttpClient){
@@ -38,6 +39,7 @@ export class VerificationService {
           this.logged = true;
           this.user = userId;
           this.nombre = datos[0]["nombre"];
+          this.hemisferio = datos[0]["hemisferio"];
           this.verifCode = datos[0]["verification"];
         }else{
           this.logged = false;

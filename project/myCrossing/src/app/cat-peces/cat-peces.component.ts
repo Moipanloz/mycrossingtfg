@@ -1,4 +1,4 @@
-import { CatInsectosService } from './cat-insectos.service';
+import { CatPecesService } from './cat-peces.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ICreature, creatures } from 'animal-crossing';
@@ -7,18 +7,18 @@ import { VerificationService } from 'app/general/services/verification.service';
 import { debounceTime } from "rxjs/operators";
 
 @Component({
-  selector: 'app-cat-insectos',
-  templateUrl: './cat-insectos.component.html',
-  styleUrls: ['./cat-insectos.component.css']
+  selector: 'app-cat-peces',
+  templateUrl: './cat-peces.component.html',
+  styleUrls: ['./cat-peces.component.css']
 })
-export class CatInsectosComponent implements OnInit {
+export class CatPecesComponent implements OnInit {
 
   listaCreatures = new Array<ICreature>();
-  shownCreature : ICreature = creatures.filter(i => i.sourceSheet == "Insects")[0];
+  shownCreature : ICreature = creatures.filter(i => i.sourceSheet == "Fish")[0];
   hide : Boolean = true;
   isNorth : Boolean = true;
   filtrando : Boolean = false;
-  filtroAcWe : string="";
+  filtroAcShadow : string="";
   filtroAcWhe : string="";
   listaUsuario : Array<string>;
   _verif : VerificationService;
@@ -29,12 +29,12 @@ export class CatInsectosComponent implements OnInit {
   botonFiltrar : string = "none";
   nameFilter : string = "";
   busqueda = new FormControl("");
-  _catbicho : CatInsectosService;
+  _catpez : CatPecesService;
 
-  constructor(verif : VerificationService, pag : PaginacionService, catbicho : CatInsectosService) {
+  constructor(verif : VerificationService, pag : PaginacionService, catpez : CatPecesService) {
     this._verif = verif;
     this._pag = pag;
-    this._catbicho = catbicho;
+    this._catpez = catpez;
   }
 
   ngOnInit() {
@@ -42,23 +42,23 @@ export class CatInsectosComponent implements OnInit {
       if(this._verif.user != null){
         this.isNorth = this._verif.hemisferio=="NORTE";
         this.listaUsuario = new Array<string>();
-        this._catbicho.readBicho().then(async listaUsuario => {
+        this._catpez.readPez().then(async listaUsuario => {
           for(let i = 0; i < listaUsuario.length; i++){
             this.listaUsuario.push(listaUsuario[i]["nombre_criatura"]);
           }
 
           if(this.botonFiltrar != "none"){
             if(this.botonFiltrar == "obtenido"){
-              this.listaCreatures = await creatures.filter(i => i.sourceSheet == "Insects" && this.listaUsuario.includes(i.translations.spanish.replace(' ','')));
+              this.listaCreatures = await creatures.filter(i => i.sourceSheet == "Fish" && this.listaUsuario.includes(i.translations.spanish.replace(' ','')));
             }else{
-              this.listaCreatures = await creatures.filter(i => i.sourceSheet == "Insects" && !this.listaUsuario.includes(i.translations.spanish.replace(' ','')));
+              this.listaCreatures = await creatures.filter(i => i.sourceSheet == "Fish" && !this.listaUsuario.includes(i.translations.spanish.replace(' ','')));
             }
           }else{
-            this.listaCreatures = await creatures.filter(i => i.sourceSheet == "Insects");
+            this.listaCreatures = await creatures.filter(i => i.sourceSheet == "Fish");
           }
         });
       }else{
-        this.listaCreatures = await creatures.filter(i => i.sourceSheet == "Insects");
+        this.listaCreatures = await creatures.filter(i => i.sourceSheet == "Fish");
       }
       this.busqueda.valueChanges.pipe(debounceTime(300)).subscribe(value => this.filtrar(value));
       this.num_paginas = this.getPaginas(this.listaCreatures);
@@ -72,12 +72,12 @@ export class CatInsectosComponent implements OnInit {
       this.filtroAcWhe=filtro;
     }
   }
-  filtraWe(filtro : string){
+  filtraShadow(filtro : string){
     this.page_number=1;
-    if(this.filtroAcWe==filtro){
-      this.filtroAcWe="";
+    if(this.filtroAcShadow==filtro){
+      this.filtroAcShadow="";
     }else{
-      this.filtroAcWe=filtro;
+      this.filtroAcShadow=filtro;
     }
   }
   mostrar(creature:ICreature){
@@ -109,11 +109,11 @@ export class CatInsectosComponent implements OnInit {
   toggleCheck(criatura : ICreature){
     let nombreCriatura : string = criatura.translations.spanish.replace(" ", "");
     if(this.listaUsuario.includes(nombreCriatura)){
-      this._catbicho.borrarBicho(nombreCriatura).then(() => {
+      this._catpez.borrarPez(nombreCriatura).then(() => {
         this.ngOnInit();
       });
     }else{
-      this._catbicho.addBicho(nombreCriatura).then(() => {
+      this._catpez.addPez(nombreCriatura).then(() => {
         this.ngOnInit();
       });
     }

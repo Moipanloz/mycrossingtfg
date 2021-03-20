@@ -11,6 +11,7 @@ import { InicioComponent } from '../inicio/inicio.component';
 import { AuthGuard } from '../autenticacion/auth.guard';
 import { CatRopaComponent } from 'app/cat-ropa/cat-ropa.component';
 import { CatInsectosComponent } from 'app/cat-insectos/cat-insectos.component';
+import { CatPecesComponent } from 'app/cat-peces/cat-peces.component';
 
 const rutas: Routes = [
 {
@@ -43,6 +44,9 @@ const rutas: Routes = [
 },{
   path: "catalogo-insectos",
   component: CatInsectosComponent
+},{
+  path: "catalogo-peces",
+  component: CatPecesComponent
 }
 ];
 
