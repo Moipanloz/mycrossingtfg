@@ -28,6 +28,7 @@ import { FiltroCategoriaPipe } from './cat-insectos/filtro-categoria.pipe';
 import { CatPecesComponent } from './cat-peces/cat-peces.component';
 import { TraducirPezPipe } from './cat-peces/traducir-pez.pipe';
 import { FiltroCategoriaPezPipe } from './cat-peces/filtro-categoria-pez.pipe';
+import { CatCriaturasMarinasComponent } from './cat-criaturas-marinas/cat-criaturas-marinas.component';
 
 @NgModule({
   declarations: [
@@ -42,12 +43,8 @@ import { FiltroCategoriaPezPipe } from './cat-peces/filtro-categoria-pez.pipe';
     CatFosilComponent,
     CatArteComponent,
     CatInsectosComponent,
-    TraducirPipe,
-    MesesTextualesPipe,
-    FiltroCategoriaPipe,
     CatPecesComponent,
-    TraducirPezPipe,
-    FiltroCategoriaPezPipe
+    CatCriaturasMarinasComponent
   ],
   imports: [
     BrowserModule,
