@@ -11,7 +11,8 @@ function checkTareaOwner($userId, $tareaId, $conn){
   $result->bind_param('i', $tareaId);
   $result->execute();
   $result->store_result();
-  $data = mysqli_fetch_array($result);
+  $res = $result->get_result();
+  $data = $res->fetch_array();
 
     if($data[0] == $userId){
       $validation = true;

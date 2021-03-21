@@ -1,3 +1,4 @@
+import { ErrorService } from './../../general/services/error.service';
 import { TareaMenuComponent } from './tarea-menu/tarea-menu.component';
 import { TareasService } from './tarea.service';
 import { CookieService } from 'ngx-cookie-service';
@@ -18,6 +19,7 @@ export class TareasComponent implements OnInit{
   cookieService: CookieService;
   modoEdicion : boolean = false;
   tareaMenu : Tarea;
+  _error : ErrorService;
 
   @ViewChild(TareaMenuComponent) menu : TareaMenuComponent;
   @ViewChild("botonEdit") botonEdit : ElementRef;
@@ -25,10 +27,12 @@ export class TareasComponent implements OnInit{
   constructor(
     verification : VerificationService,
     cookieService: CookieService,
-    private _tarea : TareasService){
+    private _tarea : TareasService,
+    errorService : ErrorService){
 
     this.verification = verification;
     this.cookieService = cookieService;
+    this._error = errorService;
   }
 
   ngOnInit(){
@@ -36,7 +40,13 @@ export class TareasComponent implements OnInit{
       this._tarea.readTareas().then(data => {
         this.data = [];
         this.data.push(data);
-      },error => console.error(error));
+      }).catch(err => {
+        this._error.setNewError(err.message);
+        setTimeout(() => {this._error.cleanError()}, 3000)
+      });
+    }).catch(err => {
+      this._error.setNewError(err.message);
+      setTimeout(() => {this._error.cleanError()}, 3000)
     });
   }
 
@@ -73,6 +83,9 @@ export class TareasComponent implements OnInit{
     if(this.data[0].length < 10){
       this._tarea.crearTarea().then(() => {
         this.ngOnInit();
+      }).catch(err => {
+        this._error.setNewError(err.message);
+        setTimeout(() => {this._error.cleanError()}, 3000)
       });
     }else{
       alert("No se pueden crear mas tareas");
@@ -95,12 +108,18 @@ export class TareasComponent implements OnInit{
   actualizaTarea(tarea : Tarea){
     this._tarea.actualizaTarea(tarea).then(() => {
       this.ngOnInit();
+    }).catch(err => {
+      this._error.setNewError(err.message);
+      setTimeout(() => {this._error.cleanError()}, 3000)
     });
   }
 
   borrarTarea(tarea : Tarea){
     this._tarea.borrarTarea(tarea).then(() => {
       this.ngOnInit();
+    }).catch(err => {
+      this._error.setNewError(err.message);
+      setTimeout(() => {this._error.cleanError()}, 3000)
     });
   }
 

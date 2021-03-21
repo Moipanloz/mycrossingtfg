@@ -27,7 +27,10 @@ export class NavbarComponent {
   }
 
   ngOnInit(){
-    this.verification.verify().then().catch(err => this._error.setNewError(err.message));
+    this.verification.verify().then().catch(err => {
+      this._error.setNewError(err.message);
+      setTimeout(() => {this._error.cleanError()}, 3000)
+    });
   }
 
   logOut(){
@@ -39,7 +42,10 @@ export class NavbarComponent {
       this.verification.nombre = "";
       this.menu = false;
       this.router.navigate([""]);
-    }).catch(err => this._error.setNewError(err.message));
+    }).catch(err => {
+      this._error.setNewError(err.message);
+      setTimeout(() => {this._error.cleanError()}, 3000)
+    });
   }
 
   toggleMenu(){

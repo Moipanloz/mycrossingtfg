@@ -1,3 +1,4 @@
+import { ErrorService } from './../general/services/error.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
@@ -5,6 +6,7 @@ import { User } from 'app/general/interfaces';
 import { UserService } from 'app/autenticacion/user.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { VerificationService } from 'app/general/services/verification.service';
+import { ErrorService } from 'app/general/services/error.service';
 
 
 @Component({
@@ -21,7 +23,7 @@ export class PerfilComponent implements OnInit {
   _user : UserService;
   modoEdicion : boolean = false;
   userForm : FormGroup;
-
+  _error : ErrorService;
   usuario : User = {
     id: 0,
     nombre: "",
@@ -42,11 +44,13 @@ export class PerfilComponent implements OnInit {
     cookieService: CookieService,
     private _builder : FormBuilder,
     _user: UserService,
-    http: HttpClient) {
+    http: HttpClient,
+    errorService : ErrorService) {
     this.verification = verification;
     this.cookieService = cookieService;
     this.http = http;
     this._user = _user;
+    this._error = errorService;
     this.userForm = this._builder.group({
       nombre : ["", this.notBlankValidator],
       apodo_aldeano : [""],
@@ -151,13 +155,12 @@ export class PerfilComponent implements OnInit {
             this.zodiaco.nativeElement.src = "../../assets/images/piscis.png";
             break;
         }
-
         this.fondoRandom();
-
       });
+    }).catch(err => {
+      this._error.setNewError(err.message);
+      setTimeout(() => {this._error.cleanError()}, 3000)
     });
-
-
   }
 
   fondoRandom(){
@@ -265,6 +268,9 @@ export class PerfilComponent implements OnInit {
     this._user.updateUser(userUpdt).then(() => {
       this.toggleEdicion();
       this.ngOnInit();
+    }).catch(err => {
+      this._error.setNewError(err.message);
+      setTimeout(() => {this._error.cleanError()}, 3000)
     });
   }
 }

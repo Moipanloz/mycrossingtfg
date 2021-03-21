@@ -14,13 +14,13 @@ export class VisitasService {
     this.verification = verification;
   }
 
-  readVisitas() : Observable<Visita[]>{
+  readVisitas() : Promise<Visita[]>{
     let parametros = new HttpParams()
       .set("command", "read")
       .set("verif", this.verification.verifCode)
       .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get<Visita[]>(this.url, {params: parametros});
+    return this.http.get<Visita[]>(this.url, {params: parametros}).toPromise();
   }
 
   async updateVisitas(lpa:string, mpa:string, xpa:string, jpa:string, vpa:string,

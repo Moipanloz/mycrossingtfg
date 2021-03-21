@@ -22,10 +22,11 @@ if(isset($_GET["command"])){
           $result->bind_param('i',$userId);
           $result->execute();
           $result->store_result();
+          $res = $result->get_result();
           $myArray = array();
 
           if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
+            while($row = $res->fetch_assoc()) {
               $myArray[] = $row;
             }
           }

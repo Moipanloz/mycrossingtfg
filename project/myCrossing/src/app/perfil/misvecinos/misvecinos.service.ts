@@ -63,7 +63,7 @@ export class MisvecinosService {
     .set("vecinoId", JSON.stringify(vecino.vecino_id))
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.delete(this.url, {params : parametros, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get(this.url, {params : parametros, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
 }

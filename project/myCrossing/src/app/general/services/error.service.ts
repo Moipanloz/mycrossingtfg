@@ -1,34 +1,30 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ErrorService {
 
-  mensaje : string = "pp";
-  esconder : boolean = true;
-
-  errorVisChange : Subject<boolean> = new Subject<boolean>();
-  errorMssgChange : Subject<string> = new Subject<string>();
+  errorVisChange : BehaviorSubject<boolean>;
+  errorMssgChange : BehaviorSubject<string>;
 
   constructor() {
-    this.errorVisChange.subscribe((vis) => {
-      this.esconder = vis;
-    });
-
-    this.errorMssgChange.subscribe((mesj) => {
-      this.mensaje = mesj;
-      console.log("nuevo valor")
-      console.log(this.mensaje)
-
-    });
+    this.errorVisChange = new BehaviorSubject<boolean>(true);
+    this.errorMssgChange = new BehaviorSubject<string>("");
   }
 
   setNewError(mssg : string){
     this.errorVisChange.next(false);
     this.errorMssgChange.next(mssg);
-    console.log(mssg);
+  }
+
+  getErrorVis() : Observable<boolean>{
+    return this.errorVisChange.asObservable();
+  }
+
+  getErrorMssg() : Observable<string>{
+    return this.errorMssgChange.asObservable();
   }
 
   cleanError(){
