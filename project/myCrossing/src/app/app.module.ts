@@ -1,3 +1,4 @@
+import { ErrorService } from './general/services/error.service';
 import { PaginacionService } from './general/services/paginacion.service';
 import { SharingModule } from './general/sharing.module';
 import { RouterModule } from '@angular/router';
@@ -48,7 +49,8 @@ import { CatArteComponent } from './cat-arte/cat-arte.component';
   providers: [
     CookieService,
     VerificationService,
-    PaginacionService
+    PaginacionService,
+    ErrorService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,7 @@
 <app-navbar></app-navbar>
+<div [hidden]="esconder" (showError)="showNewError($event)" class="div-error">
+  <p><strong>Error:</strong> {{errMssg}}</p>
+</div>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
 

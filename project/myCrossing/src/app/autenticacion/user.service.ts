@@ -24,7 +24,7 @@ export class UserService {
     .set("verif", this.verification.verifCode)
     .set("command", "read");
 
-    return this.http.get<User>(this.url, {params: parametros}).toPromise();
+    return this.http.get<User>(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   login(user : any, key : string) : Promise<User>{
@@ -33,7 +33,7 @@ export class UserService {
 
     user.key = key;
 
-    return this.http.post<User>(this.url, user, {params: parametros}).toPromise();
+    return this.http.post<User>(this.url, user, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   register(user : any, key : string) : Promise<any>{
@@ -41,7 +41,7 @@ export class UserService {
 
     user.verif = key;
 
-    return this.http.post(this.url, user, {params: parametros, responseType: "json"}).toPromise();
+    return this.http.post(this.url, user, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   logOut(){
@@ -51,7 +51,7 @@ export class UserService {
     .set("userId", JSON.stringify(userId))
     .set("verif", this.verification.verifCode)
     .set("command", "logout");
-    return this.http.get(this.url, {params: parametros, responseType: "text"}).toPromise();
+    return this.http.get(this.url, {params: parametros, responseType: "text"}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   updateUser(usuario : User){
@@ -59,7 +59,7 @@ export class UserService {
     .set("userId", JSON.stringify(this.verification.user))
     .set("verif", this.verification.verifCode)
     .set("command", "update");
-    return this.http.post(this.url, usuario, {params: parametros, responseType: "blob"}).toPromise();
+    return this.http.post(this.url, usuario, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
 }

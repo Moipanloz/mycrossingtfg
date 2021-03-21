@@ -1,3 +1,4 @@
+import { ErrorService } from './../../general/services/error.service';
 import { MisvecinosService } from './misvecinos.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
@@ -17,6 +18,7 @@ export class MisvecinosComponent implements OnInit {
   length : number;
   verification : VerificationService;
   cookieService: CookieService;
+  _error : ErrorService;
   porcentajeMode : boolean = false;
   porcentajes : number[] = [];
   exclude : boolean[] = [];
@@ -51,10 +53,12 @@ export class MisvecinosComponent implements OnInit {
   constructor(
     private _misvecinos : MisvecinosService,
     verification : VerificationService,
-    cookieService : CookieService){
+    cookieService : CookieService,
+    errorService : ErrorService){
 
     this.cookieService = cookieService;
     this.verification = verification;
+    this._error = errorService;
    }
 
   ngOnInit(){
@@ -125,7 +129,7 @@ export class MisvecinosComponent implements OnInit {
     if(vecino.vecino_id.length == 17){
       this._misvecinos.borrarVecino(vecino).then(() => {
         this.ngOnInit();
-      }).catch(err => console.error(err.message));
+      }).catch(err => this._error.setNewError(err.message));
     }
   }
 

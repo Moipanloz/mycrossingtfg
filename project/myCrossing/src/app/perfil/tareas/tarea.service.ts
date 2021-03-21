@@ -17,13 +17,13 @@ export class TareasService {
     this.verification = verification;
   }
 
-  readTareas() : Observable<Tarea[]>{
+  readTareas() : Promise<Tarea[]>{
     let parametros = new HttpParams()
       .set("command", "read")
       .set("verif", this.verification.verifCode)
       .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get<Tarea[]>(this.url, {params: parametros, withCredentials : true});
+    return this.http.get<Tarea[]>(this.url, {params: parametros, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   crearTarea(){
@@ -39,7 +39,7 @@ export class TareasService {
         imagen_url: "hoja"
       };
 
-    return this.http.post(this.url, tarea, {params: parametros, withCredentials : true, responseType : "blob"}).toPromise();
+    return this.http.post(this.url, tarea, {params: parametros, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   async actualizaTarea(tarea : Tarea){
@@ -53,9 +53,7 @@ export class TareasService {
       .set("verif", this.verification.verifCode)
       .set("userId", JSON.stringify(this.verification.user));
 
-    // responseType: blob hace que si el responseType que devolvia no es el que estaba seteado,
-    // devuelve un objeto Blob con los datos
-    return this.http.put(this.url, tarea, {params: parametros, withCredentials : true, responseType : "blob"}).toPromise();
+    return this.http.put(this.url, tarea, {params: parametros, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   borrarTarea(tarea){
@@ -65,10 +63,7 @@ export class TareasService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    // Se usa post ya que en el .php se obtiene los datos del input, ya que
-    // no hay implementado end-points tipo "tareas/1" debido a que la estructura
-    // de la pagina no esta pensada de dicha forma
-    return this.http.get(this.url, {params: parametros, withCredentials : true, responseType : "blob"}).toPromise();
+    return this.http.get(this.url, {params: parametros, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
 

@@ -16,9 +16,4 @@ export class PaginacionService {
     pag_number > 1 ? --pag_number : "";
     return pag_number;
   }
-
-  checkSigPagFiltrado(){
-
-  }
-
 }

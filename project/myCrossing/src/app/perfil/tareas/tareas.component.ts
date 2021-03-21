@@ -33,7 +33,7 @@ export class TareasComponent implements OnInit{
 
   ngOnInit(){
     this.verification.verify().then(() => {
-      this._tarea.readTareas().subscribe(data => {
+      this._tarea.readTareas().then(data => {
         this.data = [];
         this.data.push(data);
       },error => console.error(error));
