@@ -29,7 +29,7 @@ export class VerificationService {
       .set('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token')
       .set('Access-Control-Allow-Methods', 'OPTIONS, PUT, DELETE, POST, GET');
 
-      let datos = await this.http.get("http://localhost/php/authentication.php", {params: parametros, headers: headers}).toPromise();
+      let datos = await this.http.get("http://localhost/php/authentication.php", {params: parametros, headers: headers}).toPromise().catch(err => {throw new Error(err.error.text)});
       let verif = datos[0]['verification'];
       if(JSON.stringify(datos).includes("Error")){
         this.logged = false;
@@ -65,7 +65,7 @@ export class VerificationService {
 
   async verifyIfNotVerified(){
     if(!this.verified){
-      await this.verify();
+      await this.verify().catch(err => {throw new Error(err.error.text)});
     }
   }
 

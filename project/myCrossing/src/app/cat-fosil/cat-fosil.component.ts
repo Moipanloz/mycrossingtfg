@@ -1,3 +1,4 @@
+import { ErrorService } from './../general/services/error.service';
 import { CatFosilService } from './cat-fosil.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
@@ -24,8 +25,9 @@ export class CatFosilComponent implements OnInit {
   nameFilter : string = "";
   busqueda = new FormControl("");
   _catfosil : CatFosilService;
+  _error : ErrorService;
 
-  constructor(verif : VerificationService, pag : PaginacionService, catfosil : CatFosilService) {
+  constructor(verif : VerificationService, pag : PaginacionService, catfosil : CatFosilService, errorService : ErrorService) {
     this._verif = verif;
     this._pag = pag;
     this._catfosil = catfosil;
@@ -49,6 +51,9 @@ export class CatFosilComponent implements OnInit {
           }else{
             this.listaItems = await items.filter(i => i.sourceSheet == "Fossils");
           }
+        }).catch(err => {
+          this._error.setNewError(err.message);
+          setTimeout(() => {this._error.cleanError()}, 3000)
         });
       }else{
         this.listaItems = await items.filter(i => i.sourceSheet == "Fossils");
@@ -56,6 +61,9 @@ export class CatFosilComponent implements OnInit {
 
       this.busqueda.valueChanges.pipe(debounceTime(300)).subscribe(value => this.filtrar(value));
       this.num_paginas = this.getPaginas(this.listaItems);
+    }).catch(err => {
+      this._error.setNewError(err.message);
+      setTimeout(() => {this._error.cleanError()}, 3000)
     });
   }
 
@@ -106,10 +114,16 @@ export class CatFosilComponent implements OnInit {
     if(this.listaUsuario.includes(nombreFosil)){
       this._catfosil.borrarFosil(nombreFosil).then(() => {
         this.ngOnInit();
+      }).catch(err => {
+        this._error.setNewError(err.message);
+        setTimeout(() => {this._error.cleanError()}, 3000)
       });
     }else{
       this._catfosil.addFosil(nombreFosil).then(() => {
         this.ngOnInit();
+      }).catch(err => {
+        this._error.setNewError(err.message);
+        setTimeout(() => {this._error.cleanError()}, 3000)
       });
     }
   }

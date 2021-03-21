@@ -18,7 +18,7 @@ export class CatFosilService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get<any[]>(this.url, {params: parametros}).toPromise();
+    return this.http.get<any[]>(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   borrarFosil(fosil : string){
@@ -28,7 +28,7 @@ export class CatFosilService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get(this.url, {params: parametros, responseType: "blob"}).toPromise();
+    return this.http.get(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   addFosil(fosil : string){
@@ -42,6 +42,6 @@ export class CatFosilService {
       usuario_id: this.verification.user
     }
 
-    return this.http.post(this.url, x, {params: parametros, responseType: "blob"}).toPromise();
+    return this.http.post(this.url, x, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 }

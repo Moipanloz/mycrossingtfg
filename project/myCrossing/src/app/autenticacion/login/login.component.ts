@@ -1,3 +1,4 @@
+import { ErrorService } from './../../general/services/error.service';
 import { UserService } from 'app/autenticacion/user.service';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -13,18 +14,19 @@ import { VerificationService } from 'app/general/services/verification.service';
 
 export class LoginComponent {
 
-  aviso: String = "";
-  cookieService: CookieService;
-  verification: VerificationService;
-  loginForm: FormGroup;
-  submitted: boolean = false;
-  _user: UserService;
+  cookieService : CookieService;
+  verification : VerificationService;
+  loginForm : FormGroup;
+  submitted : boolean = false;
+  _user : UserService;
+  _error : ErrorService;
 
   constructor(cookieService: CookieService, verification: VerificationService, private _builder: FormBuilder,
-    private router:Router, _user : UserService) {
+    private router:Router, _user : UserService, errorService : ErrorService) {
     this.cookieService = cookieService;
     this.verification = verification;
     this._user = _user;
+    this._error = errorService;
     this.loginForm = this._builder.group({
       email: ['', Validators.required],
       clave: ['', Validators.required]
@@ -51,9 +53,10 @@ export class LoginComponent {
           this.cookieService.set('userId', this.verification.user.toString());
           this.verification.verified = true;
           this.router.navigate(['']);
-        }else{
-          this.aviso = "El usuario no existe o la contraseña no es correcta";
         }
+      }).catch(err => {
+        this._error.setNewError(err.message);
+        setTimeout(() => {this._error.cleanError()}, 3000)
       });
     }
   }

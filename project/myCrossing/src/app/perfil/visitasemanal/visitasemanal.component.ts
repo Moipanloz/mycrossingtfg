@@ -1,3 +1,4 @@
+import { ErrorService } from './../../general/services/error.service';
 import { Component, OnInit } from '@angular/core';
 import { VerificationService } from 'app/general/services/verification.service';
 import { CookieService } from 'ngx-cookie-service';
@@ -12,13 +13,16 @@ export class VisitasemanalComponent implements OnInit {
 
   verification: VerificationService;
   cookieService: CookieService;
+  _error : ErrorService;
   constructor(
     verification : VerificationService,
     cookieService: CookieService,
-    private visitas : VisitasService){
+    private visitas : VisitasService,
+    errorService : ErrorService){
 
     this.verification = verification;
     this.cookieService = cookieService;
+    this._error = errorService;
   }
   hide :boolean = true;
   modificando:string;
@@ -50,7 +54,7 @@ export class VisitasemanalComponent implements OnInit {
   vpr = null;
   ngOnInit(): void {
     this.verification.verify().then(() => {
-      this.visitas.readVisitas().subscribe(data => {
+      this.visitas.readVisitas().then(data => {
         if(data.toString()=="No hubo resultados"){
           this.visitas.createVisita();
         }else{
@@ -78,7 +82,13 @@ export class VisitasemanalComponent implements OnInit {
             }
           }
         }
-      },error => console.error(error));
+      }).catch(err => {
+        this._error.setNewError(err.message);
+        setTimeout(() => {this._error.cleanError()}, 3000)
+      });
+    }).catch(err => {
+      this._error.setNewError(err.message);
+      setTimeout(() => {this._error.cleanError()}, 3000)
     });
   }
   dayOfWeek(date: Date):number {
@@ -386,6 +396,7 @@ export class VisitasemanalComponent implements OnInit {
       this.avisar("Ha ocurrido un error", 4);
     }
   }
+
   isEmpty(str) {
     return (!str || 0 === str.length);
   }

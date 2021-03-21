@@ -22,21 +22,18 @@ if(isset($_GET["command"])){
           $result = $conn->prepare('SELECT nombre_fosil FROM catfosiles WHERE usuario_id = ?');
           $result->bind_param('i',$userId);
           $result->execute();
-          $result = $result->get_result();
-
+          $res = $result->get_result();
           $myArray = array();
 
-          if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
+          if ($res->num_rows > 0) {
+            while($row = $res->fetch_assoc()) {
               $myArray[] = $row;
             }
           }
           print json_encode($myArray, JSON_NUMERIC_CHECK);
-        }else{
-          print("No se cumplen los requisitos");
         }
       }else{
-        print("Faltan parametros");
+        die("Faltan parametros");
       }
       break;
 
@@ -52,24 +49,20 @@ if(isset($_GET["command"])){
           $request = json_decode($postdata);
           $nombreFosil = $request->nombre_fosil;
 
-          $noTieneFosil = checkTieneFosil($conn, $userId, $nombreFosil);
-
           $validation = checkExisteUser($conn, $userId) &&
                   checkVerification($conn, $userId, $verifCode) &&
-                  !$noTieneFosil;
+                  checkNoTieneFosil($conn, $userId, $nombreFosil);
 
           if($validation){
             $result = $conn->prepare('INSERT INTO catfosiles(usuario_id, nombre_fosil) VALUES (?, ?)');
             $result->bind_param('is',$userId, $nombreFosil);
             $result->execute();
-          }else{
-            print("No se cumplen los requisitos");
           }
         }else{
-          print("No hay datos");
+          die("No hay datos");
         }
       } else {
-        print("Faltan parametros");
+        die("Faltan parametros");
       }
       break;
 
@@ -87,19 +80,17 @@ if(isset($_GET["command"])){
           $result = $conn->prepare('DELETE FROM catfosiles WHERE usuario_id = ? AND nombre_fosil = ?');
           $result->bind_param('is',$userId, $nombreFosil);
           $result->execute();
-        }else{
-          print("No se cumplen los requisitos");
         }
-      } else {
-        print("Faltan parametros");
+      }else{
+        die("Faltan parametros");
       }
       break;
 
     default:
-      print("Comando no válido");
+      die("Comando no válido");
   }
+}else{
+  die("Comando no seleccionado");
 }
 
 $conn -> close();
-
-?>

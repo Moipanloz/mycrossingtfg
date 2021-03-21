@@ -12,27 +12,32 @@ function checkDatos($nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $
 
   if(strlen(trim($nombre)) == 0){
     $devolver = FALSE;
-    print("El nombre no puede estar vacío");
+    die("El nombre no puede estar vacío");
+    return $devolver;
   }
 
   if(strlen($nombre) > 20){
     $devolver = FALSE;
-    print("El nombre no puede ocupar más de 20 carácteres");
+    die("El nombre no puede ocupar más de 20 carácteres");
+    return $devolver;
   }
 
   if(strlen(trim($isla)) == 0){
     $devolver = FALSE;
-    print("El nombre de la isla no puede estar vacío");
+    die("El nombre de la isla no puede estar vacío");
+    return $devolver;
   }
 
   if(strlen($isla) > 20){
     $devolver = FALSE;
-    print("El nombre de la isla no puede ocupar más de 20 carácteres");
+    die("El nombre de la isla no puede ocupar más de 20 carácteres");
+    return $devolver;
   }
 
   if($fruta != "PERA" && $fruta != "MANZANA" && $fruta != "MELOCOTON" && $fruta != "CEREZA" && $fruta != "NARANJA"){
     $devolver = FALSE;
-    print("Selecciona una fruta válida");
+    die("Selecciona una fruta válida");
+    return $devolver;
   }
 
   $cumpleUser = date("Y-m-d", strtotime($cumpleanyos));
@@ -41,30 +46,35 @@ function checkDatos($nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $
 
   if($cumpleUser > $fechaHoy){
     $devolver = FALSE;
-    print("Selecciona una fecha válida");
+    die("Selecciona una fecha válida");
+    return $devolver;
   }
 
   if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
     $devolver = FALSE;
-    print("Email no válido");
+    die("Email no válido");
+    return $devolver;
   }
 
   if($hemisferio != "NORTE" && $hemisferio != "SUR"){
     $devolver = FALSE;
-    print("Selecciona un hemisferio válido");
+    die("Selecciona un hemisferio válido");
+    return $devolver;
   }
 
   if(!empty($id_suenyo)){
     if(!preg_match("/^DA-[0-9]{4}-[0-9]{4}-[0-9]{4}$/", $id_suenyo)){
       $devolver = FALSE;
-      print("Código de sueño no válido");
+      die("Código de sueño no válido");
+      return $devolver;
     }
   }
 
   if(!empty($id_switch)){
     if(!preg_match("/^SW-[0-9]{4}-[0-9]{4}-[0-9]{4}$/", $id_switch)){
       $devolver = FALSE;
-      print("Código de switch no válido");
+      die("Código de switch no válido");
+      return $devolver;
     }
   }
 
@@ -75,31 +85,41 @@ function checkDatosCreate($conn, $email, $id_suenyo, $id_switch){
   //Para el create, si estos campos devuelven 1 o mas es que ya estan en uso y no pueden ser registrados
   $devolver = TRUE;
 
-  $sql = "SELECT * FROM usuarios WHERE email = '$email'";
-  $emailResult = mysqli_query($conn, $sql);
+  $emailResult = $conn->prepare('SELECT * FROM usuarios WHERE email = ?');
+  $emailResult->bind_param('s', $email);
+  $emailResult->execute();
+  $emailResult->store_result();
 
   if($emailResult->num_rows > 0) {
     $devolver = FALSE;
-    print("Email ya en uso");
+    die("Email ya en uso");
+    return $devolver;
   }
 
   if(!empty($id_suenyo)){
-    $sql = "SELECT * FROM usuarios WHERE id_suenyo = '$id_suenyo'";
-    $suenyoResult = mysqli_query($conn, $sql);
+
+    $suenyoResult = $conn->prepare('SELECT * FROM usuarios WHERE id_suenyo = ?');
+    $suenyoResult->bind_param('s', $id_suenyo);
+    $suenyoResult->execute();
+    $suenyoResult->store_result();
 
     if($suenyoResult->num_rows > 0){
       $devolver = FALSE;
-      print("Código de sueño ya en uso");
+      die("Código de sueño ya en uso");
+      return $devolver;
     }
   }
 
   if(!empty($id_switch)){
-    $sql = "SELECT * FROM usuarios WHERE id_switch = '$id_switch'";
-    $switchResult = mysqli_query($conn, $sql);
+    $switchResult = $conn->prepare('SELECT * FROM usuarios WHERE id_switch = ?');
+    $switchResult->bind_param('s', $id_switch);
+    $switchResult->execute();
+    $switchResult->store_result();
 
     if($switchResult->num_rows > 0){
       $devolver = FALSE;
-      print("Código de switch ya en uso");
+      die("Código de switch ya en uso");
+      return $devolver;
     }
   }
 
@@ -108,37 +128,45 @@ function checkDatosCreate($conn, $email, $id_suenyo, $id_switch){
 
 function checkDatosUpdate($conn, $userId, $email, $id_suenyo, $id_switch){
   //Para el update, si estos campos devuelven 1 hay que comprobar que no sean los del mismo user
-
   $devolver = TRUE;
 
-  $sql = "SELECT * FROM usuarios WHERE email = '$email'";
-  $emailResult = mysqli_query($conn, $sql);
-  $checkId = mysqli_fetch_assoc($emailResult)["id"];
+  $emailResult = $conn->prepare('SELECT * FROM usuarios WHERE email = ?');
+  $emailResult->bind_param('s', $email);
+  $emailResult->execute();
+  $result = $emailResult->get_result();
+  $checkId = $result->fetch_assoc()["id"];
 
-  if($emailResult->num_rows > 0 && $checkId != $userId) {
+  if($result->num_rows > 0 && $checkId != $userId) {
     $devolver = FALSE;
-    print("Email ya en uso");
+    die("Email ya en uso");
+    return $devolver;
   }
 
   if(!empty($id_suenyo)){
-    $sql = "SELECT * FROM usuarios WHERE id_suenyo = '$id_suenyo'";
-    $suenyoResult = mysqli_query($conn, $sql);
-    $checkId = mysqli_fetch_assoc($suenyoResult)["id"];
+    $suenyoResult = $conn->prepare('SELECT * FROM usuarios WHERE id_suenyo = ?');
+    $suenyoResult->bind_param('s', $id_suenyo);
+    $suenyoResult->execute();
+    $result = $suenyoResult->get_result();
+    $checkId = $result->fetch_assoc()["id"];
 
-    if($suenyoResult->num_rows > 0 && $checkId != $userId){
+    if($result->num_rows > 0 && $checkId != $userId){
       $devolver = FALSE;
-      print("Código de sueño ya en uso");
+      die("Código de sueño ya en uso");
+      return $devolver;
     }
   }
 
   if(!empty($id_switch)){
-    $sql = "SELECT * FROM usuarios WHERE id_switch = '$id_switch'";
-    $switchResult = mysqli_query($conn, $sql);
-    $checkId = mysqli_fetch_assoc($switchResult)["id"];
+    $switchResult = $conn->prepare('SELECT * FROM usuarios WHERE id_switch = ?');
+    $switchResult->bind_param('s', $id_switch);
+    $switchResult->execute();
+    $result = $switchResult->get_result();
+    $checkId = $result->fetch_assoc()["id"];
 
-    if($switchResult->num_rows > 0 && $checkId != $userId){
+    if($result->num_rows > 0 && $checkId != $userId){
       $devolver = FALSE;
-      print("Código de switch ya en uso");
+      die("Código de switch ya en uso");
+      return $devolver;
     }
   }
 
@@ -147,11 +175,16 @@ function checkDatosUpdate($conn, $userId, $email, $id_suenyo, $id_switch){
 
 function checkExisteUser($conn, $userId){
   //Comprueba que exista el usuario
-  $devolver = FALSE;
-  $sql = "SELECT * FROM usuarios WHERE id = $userId";
-  $result = mysqli_query($conn,$sql);
-  if ($result->num_rows == 1) {
-    $devolver= TRUE;
+  $devolver = TRUE;
+
+  $result = $conn->prepare('SELECT * FROM usuarios WHERE id = ?');
+  $result->bind_param('i', $userId);
+  $result->execute();
+  $result->store_result();
+
+  if ($result->num_rows != 1) {
+    $devolver= FALSE;
+    die("No existe el usuario");
   }
   return $devolver;
 }
@@ -159,22 +192,15 @@ function checkExisteUser($conn, $userId){
 function checkExisteUserByEmail($conn, $email){
   //Comprueba que exista un usuario asociado al email
   $devolver = TRUE;
-  $sql = "SELECT * FROM usuarios WHERE email = '$email'";
-  $result = mysqli_query($conn,$sql);
+
+  $result = $conn->prepare('SELECT * FROM usuarios WHERE email = ?');
+  $result->bind_param('s', $email);
+  $result->execute();
+  $result->store_result();
+
   if ($result->num_rows != 1) {
     $devolver= FALSE;
-    print("No existe un usuario con ese email");
-  }
-  return $devolver;
-}
-
-function checkAdmin($conn, $userId){
-  //Comprueba que el usuario es el admin
-  $devolver = FALSE;
-  $sql = "SELECT * FROM usuarios WHERE id = $userId";
-  $result = mysqli_query($conn,$sql);
-  if ($result->num_rows == 1 && $result['nombre']=="admin" && $userId == 1) {
-    $devolver= TRUE;
+    die("No existe un usuario con ese email");
   }
   return $devolver;
 }
@@ -182,12 +208,17 @@ function checkAdmin($conn, $userId){
 function checkVerification($conn, $userId, $verifCode){
   //Comprueba que el codigo  de verificacion pertenece al usuario
   $devolver = TRUE;
-  $sql = "SELECT * FROM usuarios WHERE id = $userId AND verification = '$verifCode'";
-  $result = mysqli_query($conn,$sql);
+
+  $result = $conn->prepare('SELECT * FROM usuarios WHERE id = ? AND verification = ?');
+  $result->bind_param('is', $userId, $verifCode);
+  $result->execute();
+  $result->store_result();
+
   if ($result->num_rows != 1) {
     $devolver= FALSE;
-    print("Código de verificacion incorrecto");
+    die("Código de verificacion incorrecto");
   }
+
   return $devolver;
 }
 
@@ -207,18 +238,16 @@ function checkPassword($conn, $email, $userPass){
   //Comprueba que la contraseña introducida por el usuario coincide con la de la DB
   $devolver = TRUE;
 
-  $sql = "SELECT contrasenya FROM usuarios WHERE email = '$email'";
-  $result = mysqli_query($conn,$sql);
-
-  $storedPass = mysqli_fetch_assoc($result);
+  $stmt = $conn->prepare('SELECT contrasenya FROM usuarios WHERE email = ?');
+  $stmt->bind_param('s', $email);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $storedPass = $result->fetch_assoc();
 
   if(!password_verify($userPass, $storedPass['contrasenya'])){
     $devolver= FALSE;
-    print("Contraseña incorrecta");
+    die("Usuario o contraseña incorrectos");
   }
 
   return $devolver;
 }
-
-?>
-

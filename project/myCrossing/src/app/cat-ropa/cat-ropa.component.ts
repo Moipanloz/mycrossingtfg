@@ -1,3 +1,4 @@
+import { ErrorService } from './../general/services/error.service';
 import { PaginacionService } from './../general/services/paginacion.service';
 import { VerificationService } from './../general/services/verification.service';
 import { IItem, items } from 'animal-crossing';
@@ -19,6 +20,7 @@ export class CatRopaComponent implements OnInit {
   num_paginas : Array<number>;
   _pag : PaginacionService;
   botonFiltrar : string = "none";
+  _error : ErrorService;
   tiposPrenda : Map<string, string> = new Map([
     ["Headwear","Cabeza"],
     ["Accessories","Accesorios"],
@@ -34,9 +36,10 @@ export class CatRopaComponent implements OnInit {
   nameFilter : string = "";
   busqueda = new FormControl("");
 
-  constructor(verif : VerificationService, pag : PaginacionService) {
+  constructor(verif : VerificationService, pag : PaginacionService, errorService : ErrorService) {
     this._verif = verif;
     this._pag = pag;
+    this._error = errorService;
   }
 
   ngOnInit() {
@@ -51,6 +54,9 @@ export class CatRopaComponent implements OnInit {
       this.busqueda.valueChanges.pipe(debounceTime(300)).subscribe(value => this.filtrar(value));
 
       this.num_paginas = this.getPaginas(this.listaItems);
+    }).catch(err => {
+      this._error.setNewError(err.message);
+      setTimeout(() => {this._error.cleanError()}, 3000)
     });
   }
 

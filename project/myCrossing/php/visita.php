@@ -21,28 +21,21 @@ if(isset($_GET["command"])){
 
         //Para que sea correcto debe dar true
         if($validation){
-          $sql = "SELECT * FROM visitas WHERE usuario_id = $userId";
-          $result = mysqli_query($conn,$sql);
+          $result = $conn->prepare('SELECT * FROM visitas WHERE usuario_id = ?');
+          $result->bind_param('i', $userId);
+          $result->execute();
+          $res = $result->get_result();
           $myArray = array();
 
-          if ($result->num_rows > 0) {
-            // output data of each row
-            while($row = $result->fetch_assoc()) {
+          if ($res->num_rows > 0) {
+            while($row = $res->fetch_assoc()) {
               $myArray[] = $row;
             }
-          }else{
-            print json_encode("No hubo resultados");
-            break;
           }
-
           print json_encode($myArray, JSON_NUMERIC_CHECK);
-
-        }else{
-          print("No se cumplen los requisitos");
         }
-
       }else{
-        print("Faltan parametros");
+        die("Faltan parametros");
       }
       break;
     case "update"://---------------------------------------------------------------------------------------------------UPDATE
@@ -73,19 +66,15 @@ if(isset($_GET["command"])){
                     checkVerification($conn, $userId, $verifCode);
 
           if($validation){
-            $sql = "UPDATE visitas SET lpa = '$lpa', mpa = '$mpa', xpa = '$xpa', jpa = '$jpa', vpa = '$vpa', lpr = '$lpr', mpr = '$mpr', xpr = '$xpr', jpr = '$jpr', vpr = '$vpr', estela = '$estela' WHERE usuario_id = $userId";
-            $result = mysqli_query($conn,$sql);
-            print(json_encode("Exito"));
-          }else{
-            print("No se cumplen los requisitos");
+            $result = $conn->prepare('UPDATE visitas SET lpa = ?, mpa = ?, xpa = ?, jpa = ?, vpa = ?, lpr = ?, mpr = ?, xpr = ?, jpr = ?, vpr = ?, estela = ? WHERE usuario_id = ?');
+            $result->bind_param('sssssssssssi',$lpa,$mpa,$xpa,$jpa,$vpa,$lpr,$mpr,$xpr,$jpr,$vpr,$estela,$userId);
+            $result->execute();
           }
-
         }else{
-          print("No hay datos");
+          die("No hay datos");
         }
-
       }else{
-        print("Faltan parametros");
+        die("Faltan parametros");
       }
       break;
     case "set_fecha"://---------------------------------------------------------------------------------------------------SET-FECHA
@@ -106,19 +95,16 @@ if(isset($_GET["command"])){
                     checkVerification($conn, $userId, $verifCode);
 
           if($validation){
-            $sql = "UPDATE visitas SET last_update = '$last_update' WHERE usuario_id = $userId";
-            $result = mysqli_query($conn,$sql);
-            print(json_encode("Exito"));
-          }else{
-            print("No se cumplen los requisitos");
+            $result = $conn->prepare('UPDATE visitas SET last_update = ? WHERE usuario_id = ?');
+            $result->bind_param('si', $last_update, $userId);
+            $result->execute();
+            $result->store_result();
           }
-
         }else{
-          print("No hay datos");
+          die("No hay datos");
         }
-
       }else{
-        print("Faltan parametros");
+        die("Faltan parametros");
       }
       break;
     case "create"://---------------------------------------------------------------------------------------------------CREATE
@@ -131,23 +117,20 @@ if(isset($_GET["command"])){
                   checkVerification($conn, $userId, $verifCode);
 
         if($validation){
-          $sql = "INSERT INTO visitas(usuario_id) VALUES ($userId)";
-          $result = mysqli_query($conn,$sql);
-          print(json_encode('Exito'));
-        }else{
-          print(json_encode("No se cumplen los requisitos"));
+          $result = $conn->prepare('INSERT INTO visitas(usuario_id) VALUES (?)');
+          $result->bind_param('i', $userId);
+          $result->execute();
         }
-
       }else{
-        print(json_encode("Faltan parametros"));
+        die("Faltan parametros");
       }
       break;
 
     default:
-      print(json_encode("Comando no valido"));
+      die("Comando no valido");
   }
+}else{
+  die("Comando no seleccionado");
 }
 
 $conn -> close();
-
-?>

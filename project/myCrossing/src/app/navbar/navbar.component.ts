@@ -1,3 +1,4 @@
+import { ErrorService } from './../general/services/error.service';
 import { UserService } from 'app/autenticacion/user.service';
 import { Component } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
@@ -15,33 +16,35 @@ export class NavbarComponent {
   cookieService: CookieService;
   menu : boolean = false;
   _user : UserService;
+  _error : ErrorService;
 
   constructor(cookieService: CookieService, verification: VerificationService,
-     private router: Router, _user : UserService) {
+     private router: Router, _user : UserService, errorService : ErrorService) {
     this.cookieService = cookieService;
     this.verification = verification;
     this._user = _user;
+    this._error = errorService;
   }
 
-
   ngOnInit(){
-    this.verification.verify();
+    this.verification.verify().then().catch(err => {
+      this._error.setNewError(err.message);
+      setTimeout(() => {this._error.cleanError()}, 3000)
+    });
   }
 
   logOut(){
-    this._user.logOut().then(data => {
-      if(!data.includes("Error:")){
-        this.cookieService.delete('verif');
-        this.cookieService.delete('userId');
-        this.verification.logged = false;
-        this.verification.user = null;
-        this.verification.nombre = "";
-        this.menu = false;
-        this.router.navigate([""]);
-      }else{
-        alert("Hubo un error al cerrar la sesión");
-      }
-
+    this._user.logOut().then(() => {
+      this.cookieService.delete('verif');
+      this.cookieService.delete('userId');
+      this.verification.logged = false;
+      this.verification.user = null;
+      this.verification.nombre = "";
+      this.menu = false;
+      this.router.navigate([""]);
+    }).catch(err => {
+      this._error.setNewError(err.message);
+      setTimeout(() => {this._error.cleanError()}, 3000)
     });
   }
 

@@ -1,3 +1,4 @@
+import { ErrorService } from './../../general/services/error.service';
 import { PaginacionService } from './../../general/services/paginacion.service';
 import { IItem, IRecipe, items, recipes } from 'animal-crossing';
 import { ColeccionespService } from './coleccionesp.service';
@@ -19,6 +20,7 @@ export class ColeccionespComponent implements OnInit {
   activeCollection : string = "Boda";
   page_max : number = 0;
   max_items : number = 16;
+  _error : ErrorService;
   listaObjetos : Array<any> = new Array<any>();
   selected = {
     'border-width': '0.4vw'
@@ -30,9 +32,10 @@ export class ColeccionespComponent implements OnInit {
   @ViewChild("atras") atras : ElementRef;
   @ViewChild("alante") alante : ElementRef;
 
-  constructor(verification : VerificationService, ce : ColeccionespService, public _pag : PaginacionService) {
+  constructor(verification : VerificationService, ce : ColeccionespService, public _pag : PaginacionService, errorService : ErrorService) {
     this.verification = verification;
     this._ce = ce;
+    this._error = errorService;
   }
 
   ngOnInit(){
@@ -138,7 +141,13 @@ export class ColeccionespComponent implements OnInit {
           let s : string = data[index]["GROUP_CONCAT(item_name)"];
           this.listaUsuario = s.split(",");
         }
+      }).catch(err => {
+        this._error.setNewError(err.message);
+        setTimeout(() => {this._error.cleanError()}, 3000)
       });
+    }).catch(err => {
+      this._error.setNewError(err.message);
+      setTimeout(() => {this._error.cleanError()}, 3000)
     });
 
     this.page_max = this.listaObjetos.length / 16;
@@ -157,10 +166,16 @@ export class ColeccionespComponent implements OnInit {
     if(this.listaUsuario.includes(item.name)){
       this._ce.borrarItemCE(item.name).then(() => {
         this.ngOnInit();
+      }).catch(err => {
+        this._error.setNewError(err.message);
+        setTimeout(() => {this._error.cleanError()}, 3000)
       });
     }else{
       this._ce.addItemCE(item, this.activeCollection).then(() => {
         this.ngOnInit();
+      }).catch(err => {
+        this._error.setNewError(err.message);
+        setTimeout(() => {this._error.cleanError()}, 3000)
       });
     }
   }

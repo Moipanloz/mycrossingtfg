@@ -1,3 +1,4 @@
+import { ErrorService } from './general/services/error.service';
 import { PaginacionService } from './general/services/paginacion.service';
 import { SharingModule } from './general/sharing.module';
 import { RouterModule } from '@angular/router';
@@ -62,7 +63,8 @@ import { FiltroCategoriaPezPipe } from './cat-peces/filtro-categoria-pez.pipe';
   providers: [
     CookieService,
     VerificationService,
-    PaginacionService
+    PaginacionService,
+    ErrorService
   ],
   bootstrap: [AppComponent]
 })

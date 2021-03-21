@@ -3,18 +3,17 @@
 header('Access-Control-Allow-Origin: http://localhost:4200');
 header('Access-Control-Allow-Headers: content-type');
 
-function checkExisteVisita($tareaId, $conn){
-  $result = null;
-  $testquery = "SELECT * FROM tareas WHERE id = $tareaId";
-  $validation = mysqli_query($conn, $testquery);
+function checkExisteVisita($userId, $conn){
+  $validation = true;
 
-  if($validation->num_rows == 1){
-    $result = true;
-  }else{
-    $result = false;
-    print("No existe tarea con este id");
+  $result = $conn->prepare('SELECT * FROM visitas WHERE usuario_id = ?');
+  $result->bind_param('i', $userId);
+  $result->execute();
+  $result->store_result();
+
+  if($result->num_rows != 1){
+    $validation = false;
+    die("No existe la visita");
   }
-  return $result;
+  return $validation;
 }
-
-?>

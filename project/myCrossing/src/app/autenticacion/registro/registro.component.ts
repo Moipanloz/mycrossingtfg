@@ -1,8 +1,8 @@
+import { ErrorService } from './../../general/services/error.service';
 import { ColeccionespService } from './../../perfil/coleccionesp/coleccionesp.service';
 import { UserService } from 'app/autenticacion/user.service';
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import {Router} from '@angular/router';
 import { VerificationService } from 'app/general/services/verification.service';
@@ -22,20 +22,22 @@ export class RegistroComponent {
   aviso: String = "";
   submitted: Boolean = false;
   _ce :  ColeccionespService;
+  _error : ErrorService;
 
   constructor(
     private router:Router,
     cookieService: CookieService,
     verification: VerificationService,
-    private http: HttpClient,
     private _builder: FormBuilder,
     _user: UserService,
-    _ce :  ColeccionespService) {
+    _ce :  ColeccionespService,
+    errorService : ErrorService) {
 
     this.verification = verification;
     this.cookieService = cookieService;
     this._user = _user;
     this._ce = _ce;
+    this._error = errorService;
     this.registerForm = this._builder.group({
       nombre: ['', Validators.required],
       clave: ['', Validators.required],
@@ -59,19 +61,18 @@ export class RegistroComponent {
     let key = this.verification.makeRandomKey();
 
     this._user.register(user, key).then(data => {
-      if(JSON.stringify(data) != "[\"Error\"]"){
-        this.cookieService.set( 'verif', key );
-        this.cookieService.set( 'userId', data[0]['id'] );
-        this.verification.verified = true;
-        this.verification.logged = true;
-        this.verification.user = data[0]['id'];
-        this.verification.nombre = data[0]["nombre"];
-        this.verification.verifCode = key;
-        this.router.navigate(['']);
-      }else{
-        this.aviso = "El email ya está en uso";
-      }
-    });
+      this.cookieService.set( 'verif', key );
+      this.cookieService.set( 'userId', data[0]['id'] );
+      this.verification.verified = true;
+      this.verification.logged = true;
+      this.verification.user = data[0]['id'];
+      this.verification.nombre = data[0]["nombre"];
+      this.verification.verifCode = key;
+      this.router.navigate(['']);
+    }).catch(err => {
+      this._error.setNewError(err.message);
+      setTimeout(() => {this._error.cleanError()}, 3000)
+    });;
   }
 }
 

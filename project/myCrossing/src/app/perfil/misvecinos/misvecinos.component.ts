@@ -1,3 +1,4 @@
+import { ErrorService } from './../../general/services/error.service';
 import { MisvecinosService } from './misvecinos.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
@@ -17,6 +18,7 @@ export class MisvecinosComponent implements OnInit {
   length : number;
   verification : VerificationService;
   cookieService: CookieService;
+  _error : ErrorService;
   porcentajeMode : boolean = false;
   porcentajes : number[] = [];
   exclude : boolean[] = [];
@@ -51,15 +53,17 @@ export class MisvecinosComponent implements OnInit {
   constructor(
     private _misvecinos : MisvecinosService,
     verification : VerificationService,
-    cookieService : CookieService){
+    cookieService : CookieService,
+    errorService : ErrorService){
 
     this.cookieService = cookieService;
     this.verification = verification;
+    this._error = errorService;
    }
 
   ngOnInit(){
     this.verification.verify().then(() => {
-      this._misvecinos.readMisVecinos().subscribe(async data => {
+      this._misvecinos.readMisVecinos().then(async data => {
         this.length = 10 - data.length;
         this.data = [];
 
@@ -86,7 +90,13 @@ export class MisvecinosComponent implements OnInit {
         }
 
         this.show.nativeElement.style.visibility = "hidden";
-      }, error => console.error(error));
+      }).catch(err => {
+        this._error.setNewError(err.message);
+        setTimeout(() => {this._error.cleanError()}, 3000)
+      });
+    }).catch(err => {
+      this._error.setNewError(err.message);
+      setTimeout(() => {this._error.cleanError()}, 3000)
     });
   }
 
@@ -100,12 +110,18 @@ export class MisvecinosComponent implements OnInit {
   crearVecino(vecino : Vecino){
     this._misvecinos.crearVecino(vecino).then(() => {
       this.ngOnInit();
+    }).catch(err => {
+      this._error.setNewError(err.message);
+      setTimeout(() => {this._error.cleanError()}, 3000)
     });
   }
 
   actualizaVecino(array : Vecino[]){
     this._misvecinos.actualizarVecino(array[0], array[1]).then(() => {
       this.ngOnInit();
+    }).catch(err => {
+      this._error.setNewError(err.message);
+      setTimeout(() => {this._error.cleanError()}, 3000)
     });
   }
 
@@ -118,6 +134,9 @@ export class MisvecinosComponent implements OnInit {
   actualizaAmistadVecino(vecino : Vecino){
     this._misvecinos.actualizarAmistadVecino(vecino).then(() => {
       this.ngOnInit();
+    }).catch(err => {
+      this._error.setNewError(err.message);
+      setTimeout(() => {this._error.cleanError()}, 3000)
     });
   }
 
@@ -125,6 +144,9 @@ export class MisvecinosComponent implements OnInit {
     if(vecino.vecino_id.length == 17){
       this._misvecinos.borrarVecino(vecino).then(() => {
         this.ngOnInit();
+      }).catch(err => {
+        this._error.setNewError(err.message);
+        setTimeout(() => {this._error.cleanError()}, 3000)
       });
     }
   }

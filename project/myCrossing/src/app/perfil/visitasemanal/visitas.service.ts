@@ -14,13 +14,13 @@ export class VisitasService {
     this.verification = verification;
   }
 
-  readVisitas() : Observable<Visita[]>{
+  readVisitas() : Promise<Visita[]>{
     let parametros = new HttpParams()
       .set("command", "read")
       .set("verif", this.verification.verifCode)
       .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get<Visita[]>(this.url, {params: parametros});
+    return this.http.get<Visita[]>(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   async updateVisitas(lpa:string, mpa:string, xpa:string, jpa:string, vpa:string,
@@ -30,14 +30,14 @@ export class VisitasService {
       .set("verif", this.verification.verifCode)
       .set("userId", JSON.stringify(this.verification.user));
     let visita:Visita = {usuario_id:null,estela:estela,lpa:lpa,mpa:mpa,xpa:xpa,jpa:jpa,vpa:vpa,lpr:lpr,mpr:mpr,xpr:xpr,jpr:jpr,vpr:vpr,last_update:null};
-    return this.http.put<string>(this.url, visita, {params: parametros}).toPromise();
+    return this.http.put<string>(this.url, visita, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
   async createVisita() : Promise<void>{
     let parametros = new HttpParams()
       .set("command", "create")
       .set("verif", this.verification.verifCode)
       .set("userId", JSON.stringify(this.verification.user));
-    this.http.put<string>(this.url, null, {params: parametros}).toPromise();
+    this.http.put<string>(this.url, null, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
   setFecha(fecha: string):Promise<string> {
     let parametros = new HttpParams()
@@ -45,6 +45,6 @@ export class VisitasService {
       .set("verif", this.verification.verifCode)
       .set("userId", JSON.stringify(this.verification.user));
     let visita:Visita = {usuario_id:null,estela:null,lpa:null,mpa:null,xpa:null,jpa:null,vpa:null,lpr:null,mpr:null,xpr:null,jpr:null,vpr:null,last_update:fecha};
-    return this.http.put<string>(this.url, visita, {params: parametros}).toPromise();
+    return this.http.put<string>(this.url, visita, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 }

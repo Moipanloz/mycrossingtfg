@@ -1,3 +1,4 @@
+import { ErrorService } from './../general/services/error.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { IItem, items, reactions } from 'animal-crossing';
@@ -27,12 +28,14 @@ export class CatArteComponent implements OnInit {
   menuFalsificacion : boolean = false;
   menuReal : string = "";
   menuFalso : string = "";
+  _error : ErrorService;
   urlArteFalso : string = reactions.find(f => f.name == "Mischief").image;
 
-  constructor(verif : VerificationService, pag : PaginacionService, catarte : CatArteService) {
+  constructor(verif : VerificationService, pag : PaginacionService, catarte : CatArteService, errorService : ErrorService) {
     this._verif = verif;
     this._pag = pag;
     this._catarte = catarte;
+    this._error = errorService;
   }
 
   ngOnInit() {
@@ -53,6 +56,9 @@ export class CatArteComponent implements OnInit {
           }else{
             this.listaItems = await items.filter(i => i.sourceSheet == "Art" &&  i.genuine == true);
           }
+        }).catch(err => {
+          this._error.setNewError(err.message);
+          setTimeout(() => {this._error.cleanError()}, 3000)
         });
       }else{
         this.listaItems = await items.filter(i => i.sourceSheet == "Art" &&  i.genuine == true);
@@ -60,7 +66,10 @@ export class CatArteComponent implements OnInit {
 
       this.busqueda.valueChanges.pipe(debounceTime(300)).subscribe(value => this.filtrar(value));
       this.num_paginas = this.getPaginas(this.listaItems);
-    });
+    }).catch(err => {
+      this._error.setNewError(err.message);
+      setTimeout(() => {this._error.cleanError()}, 3000)
+    });;
   }
 
   getImage(item : IItem, varNum : number){
@@ -110,10 +119,16 @@ export class CatArteComponent implements OnInit {
     if(this.listaUsuario.includes(nombreArte)){
       this._catarte.borrarArte(nombreArte).then(() => {
         this.ngOnInit();
+      }).catch(err => {
+        this._error.setNewError(err.message);
+        setTimeout(() => {this._error.cleanError()}, 3000)
       });
     }else{
       this._catarte.addArte(nombreArte).then(() => {
         this.ngOnInit();
+      }).catch(err => {
+        this._error.setNewError(err.message);
+        setTimeout(() => {this._error.cleanError()}, 3000)
       });
     }
   }
