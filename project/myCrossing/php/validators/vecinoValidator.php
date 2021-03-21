@@ -26,6 +26,21 @@ function checkTieneVecino($userId, $vecinoId, $conn){
   return $validation;
 }
 
+function checkNoTieneVecino($userId, $vecinoId, $conn){
+  $validation = true;
+
+  $result = $conn->prepare('SELECT * FROM misvecinos WHERE vecino_id = ? AND usuario_id = ?');
+  $result->bind_param('si', $vecinoId, $userId);
+  $result->execute();
+  $result->store_result();
+
+  if($result->num_rows != 0){
+    $validation = false;
+    die("Ya tienes a este vecino");
+  }
+  return $validation;
+}
+
 function checkNumeroVecinos($userId, $conn){
   $validation = true;
 

@@ -30,3 +30,18 @@ function checkTieneItem($conn, $userId, $itemName){
   }
   return $validation;
 }
+
+function checkNoTieneItem($conn, $userId, $itemName){
+  $validation = TRUE;
+
+  $result = $conn->prepare('SELECT * FROM colesp WHERE item_name = ? AND usuario_id = ?');
+  $result->bind_param('si', $itemName, $userId);
+  $result->execute();
+  $result->store_result();
+
+  if ($result->num_rows != 0) {
+    $validation = FALSE;
+    die("Ya tienes el item");
+  }
+  return $validation;
+}

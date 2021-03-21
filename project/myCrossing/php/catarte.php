@@ -50,11 +50,9 @@ if(isset($_GET["command"])){
           $request = json_decode($postdata);
           $nombreArte = $request->nombre_arte;
 
-          $noTieneArte = checkTieneArte($conn, $userId, $nombreArte);
-
           $validation = checkExisteUser($conn, $userId) &&
                   checkVerification($conn, $userId, $verifCode) &&
-                  !$noTieneArte;
+                  checkNoTieneArte($conn, $userId, $nombreArte);
 
           if($validation){
             $result = $conn->prepare('INSERT INTO catarte(usuario_id, nombre_arte) VALUES (?, ?)');

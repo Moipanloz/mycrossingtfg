@@ -50,11 +50,9 @@ if(isset($_GET["command"])){
           $request = json_decode($postdata);
           $nombreFosil = $request->nombre_fosil;
 
-          $noTieneFosil = checkTieneFosil($conn, $userId, $nombreFosil);
-
           $validation = checkExisteUser($conn, $userId) &&
                   checkVerification($conn, $userId, $verifCode) &&
-                  !$noTieneFosil;
+                  checkNoTieneFosil($conn, $userId, $nombreFosil);
 
           if($validation){
             $result = $conn->prepare('INSERT INTO catfosiles(usuario_id, nombre_fosil) VALUES (?, ?)');

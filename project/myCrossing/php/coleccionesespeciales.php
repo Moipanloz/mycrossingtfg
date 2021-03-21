@@ -49,11 +49,9 @@ if(isset($_GET["command"])){
           $itemName = $request->item_name;
           $itemSource = $request->item_source;
 
-          $noTieneItem = checkTieneItem($conn, $userId, $itemName);
-
           $validation = checkExisteUser($conn, $userId) &&
                   checkVerification($conn, $userId, $verifCode) &&
-                  !$noTieneItem &&
+                  checkNoTieneItem($conn, $userId, $itemName) &&
                   checkSourceCorrecta($itemSource);
                   //No se puede comprobar que el nombre es correcto
 

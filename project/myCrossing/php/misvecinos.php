@@ -49,14 +49,11 @@ if(isset($_GET["command"])){
           $vecinoId = $request->vecino_id;
           $amistad = $request->amistad;
 
-          $tieneVecino = checkTieneVecino($userId, $vecinoId, $conn);
-          $tieneVecino = ! $tieneVecino;
-
           $validation = checkExisteUser($conn, $userId) &&
                    checkVerification($conn, $userId, $verifCode) &&
                    checkDatosCorrectos($amistad) &&
                    checkNumeroVecinos($userId, $conn) &&
-                   $tieneVecino;
+                   checkNoTieneVecino($userId, $vecinoId, $conn);
 
           if($validation){
             $result = $conn->prepare('INSERT INTO misvecinos(vecino_id, usuario_id, amistad) VALUES (?,?,?)');
@@ -85,13 +82,10 @@ if(isset($_GET["command"])){
           $vecinoId = $request->vecino_id;
           $amistad = $request->amistad;
 
-          $tieneVecino = checkTieneVecino($userId, $vecinoId, $conn);
-          $tieneVecino = ! $tieneVecino; // No se puede aplicar ! dentro de $validation
-
           $validation = checkExisteUser($conn, $userId) &&
                   checkVerification($conn, $userId, $verifCode) &&
                   checkDatosCorrectos($vecinoId, $amistad) &&
-                  $tieneVecino;
+                  checkNoTieneVecino($userId, $vecinoId, $conn);
 
           if($validation){
             $result = $conn->prepare('UPDATE misvecinos SET vecino_id = ?, amistad = ? WHERE vecino_id = ? AND usuario_id = ?');

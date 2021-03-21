@@ -17,3 +17,18 @@ function checkTieneFosil($conn, $userId, $nombreFosil){
   }
   return $validation;
 }
+
+function checkNoTieneFosil($conn, $userId, $nombreFosil){
+  $validation = TRUE;
+
+  $result = $conn->prepare('SELECT * FROM catfosiles WHERE nombre_fosil = ? AND usuario_id = ?');
+  $result->bind_param('si', $nombreFosil, $userId);
+  $result->execute();
+  $result->store_result();
+
+  if ($result->num_rows != 0) {
+    $validation = FALSE;
+    die("Ya tienes el fosil");
+  }
+  return $validation;
+}
