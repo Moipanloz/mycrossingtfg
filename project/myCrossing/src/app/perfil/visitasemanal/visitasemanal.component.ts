@@ -396,6 +396,7 @@ export class VisitasemanalComponent implements OnInit {
       this.avisar("Ha ocurrido un error", 4);
     }
   }
+
   isEmpty(str) {
     return (!str || 0 === str.length);
   }

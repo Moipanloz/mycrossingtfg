@@ -1,4 +1,3 @@
-import { ErrorService } from './../general/services/error.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';

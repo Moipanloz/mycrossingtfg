@@ -21,11 +21,10 @@ if(isset($_GET["command"])){
           $result = $conn->prepare('SELECT item_source, GROUP_CONCAT(item_name) FROM colesp WHERE usuario_id = ? GROUP BY item_source');
           $result->bind_param('i',$userId);
           $result->execute();
-          $result->store_result();
           $res = $result->get_result();
           $myArray = array();
 
-          if ($result->num_rows > 0) {
+          if ($res->num_rows > 0) {
             while($row = $res->fetch_assoc()) {
               $myArray[] = $row;
             }

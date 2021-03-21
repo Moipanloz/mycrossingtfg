@@ -24,11 +24,10 @@ if(isset($_GET["command"])){
           $result = $conn->prepare('SELECT * FROM visitas WHERE usuario_id = ?');
           $result->bind_param('i', $userId);
           $result->execute();
-          $result->store_result();
           $res = $result->get_result();
           $myArray = array();
 
-          if ($result->num_rows > 0) {
+          if ($res->num_rows > 0) {
             while($row = $res->fetch_assoc()) {
               $myArray[] = $row;
             }

@@ -10,7 +10,6 @@ function checkTareaOwner($userId, $tareaId, $conn){
   $result = $conn->prepare('SELECT usuario_id FROM tareas WHERE id = ?');
   $result->bind_param('i', $tareaId);
   $result->execute();
-  $result->store_result();
   $res = $result->get_result();
   $data = $res->fetch_array();
 

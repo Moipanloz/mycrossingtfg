@@ -133,11 +133,10 @@ function checkDatosUpdate($conn, $userId, $email, $id_suenyo, $id_switch){
   $emailResult = $conn->prepare('SELECT * FROM usuarios WHERE email = ?');
   $emailResult->bind_param('s', $email);
   $emailResult->execute();
-  $emailResult->store_result();
   $result = $emailResult->get_result();
   $checkId = $result->fetch_assoc()["id"];
 
-  if($emailResult->num_rows > 0 && $checkId != $userId) {
+  if($result->num_rows > 0 && $checkId != $userId) {
     $devolver = FALSE;
     die("Email ya en uso");
     return $devolver;
@@ -147,11 +146,10 @@ function checkDatosUpdate($conn, $userId, $email, $id_suenyo, $id_switch){
     $suenyoResult = $conn->prepare('SELECT * FROM usuarios WHERE id_suenyo = ?');
     $suenyoResult->bind_param('s', $id_suenyo);
     $suenyoResult->execute();
-    $suenyoResult->store_result();
     $result = $suenyoResult->get_result();
     $checkId = $result->fetch_assoc()["id"];
 
-    if($suenyoResult->num_rows > 0 && $checkId != $userId){
+    if($result->num_rows > 0 && $checkId != $userId){
       $devolver = FALSE;
       die("Código de sueño ya en uso");
       return $devolver;
@@ -162,11 +160,10 @@ function checkDatosUpdate($conn, $userId, $email, $id_suenyo, $id_switch){
     $switchResult = $conn->prepare('SELECT * FROM usuarios WHERE id_switch = ?');
     $switchResult->bind_param('s', $id_switch);
     $switchResult->execute();
-    $switchResult->store_result();
     $result = $switchResult->get_result();
     $checkId = $result->fetch_assoc()["id"];
 
-    if($switchResult->num_rows > 0 && $checkId != $userId){
+    if($result->num_rows > 0 && $checkId != $userId){
       $devolver = FALSE;
       die("Código de switch ya en uso");
       return $devolver;

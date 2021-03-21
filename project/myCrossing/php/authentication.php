@@ -76,11 +76,10 @@ if(isset($_GET['command'])){
           $result = $conn->prepare('SELECT nombre, isla, fruta, cumpleanyos, hemisferio, id_suenyo, id_switch, apodo_aldeano FROM usuarios WHERE id = ?');
           $result->bind_param('i', $userId);
           $result->execute();
-          $result->store_result();
           $res = $result->get_result();
           $myArray = array();
 
-          if ($result->num_rows > 0) {
+          if ($res->num_rows > 0) {
             while($row = $res->fetch_assoc()) {
               $myArray[] = $row;
             }
@@ -105,10 +104,9 @@ if(isset($_GET['command'])){
           $result = $conn->prepare('SELECT verification, nombre FROM usuarios WHERE id = ?');
           $result->bind_param('i', $userId);
           $result->execute();
-          $result->store_result();
           $res = $result->get_result();
 
-          if ($result->num_rows > 0) {
+          if ($res->num_rows > 0) {
               while($row = $res->fetch_assoc()) {
                   $myArray[] = $row;
               }
@@ -164,11 +162,9 @@ if(isset($_GET['command'])){
           $result = $conn->prepare('SELECT * FROM usuarios WHERE email = ?');
           $result->bind_param('s', $email);
           $result->execute();
-          $result->store_result();
           $res = $result->get_result();
 
-
-          if ($result->num_rows > 0) {
+          if ($res->num_rows > 0) {
             while($row = $res->fetch_assoc()) {
               $myArray[] = $row;
             }
@@ -202,7 +198,6 @@ if(isset($_GET['command'])){
           $getEmail = $conn->prepare('SELECT email FROM usuarios WHERE id = ?');
           $getEmail->bind_param('i', $userId);
           $getEmail->execute();
-          $getEmail->store_result();
           $res = $getEmail->get_result();
           $email = $res->fetch_assoc()["email"];
 

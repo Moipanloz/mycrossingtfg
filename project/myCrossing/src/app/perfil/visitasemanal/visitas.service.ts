@@ -20,7 +20,7 @@ export class VisitasService {
       .set("verif", this.verification.verifCode)
       .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get<Visita[]>(this.url, {params: parametros}).toPromise();
+    return this.http.get<Visita[]>(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   async updateVisitas(lpa:string, mpa:string, xpa:string, jpa:string, vpa:string,

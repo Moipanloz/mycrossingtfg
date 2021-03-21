@@ -21,11 +21,10 @@ if(isset($_GET["command"])){
           $result = $conn->prepare('SELECT * FROM misvecinos WHERE usuario_id = ?');
           $result->bind_param('i', $userId);
           $result->execute();
-          $result->store_result();
           $res = $result->get_result();
           $myArray = array();
 
-          if ($result->num_rows > 0) {
+          if ($res->num_rows > 0) {
             while($row = $res->fetch_assoc()) {
               $myArray[] = $row;
             }
@@ -86,11 +85,12 @@ if(isset($_GET["command"])){
           $validation = checkExisteUser($conn, $userId) &&
                   checkVerification($conn, $userId, $verifCode) &&
                   checkDatosCorrectos($vecinoId, $amistad) &&
+                  checkTieneVecino($userId, $oldVecinoId, $conn) &&
                   checkNoTieneVecino($userId, $vecinoId, $conn);
 
           if($validation){
             $result = $conn->prepare('UPDATE misvecinos SET vecino_id = ?, amistad = ? WHERE vecino_id = ? AND usuario_id = ?');
-            $result->bind_param('ssii', $vecinoId, $amistad, $oldVecinoId, $userId,);
+            $result->bind_param('sssi', $vecinoId, $amistad, $oldVecinoId, $userId,);
             $result->execute();
           }
         }else{
@@ -121,7 +121,7 @@ if(isset($_GET["command"])){
 
           if($validation){
             $result = $conn->prepare('UPDATE misvecinos SET amistad = ? WHERE vecino_id = ? AND usuario_id = ?');
-            $result->bind_param('sii', $amistad, $vecinoId, $userId,);
+            $result->bind_param('ssi', $amistad, $vecinoId, $userId,);
             $result->execute();
           }
         }else{
@@ -145,7 +145,7 @@ if(isset($_GET["command"])){
 
         if($validation){
           $result = $conn->prepare('DELETE FROM misvecinos WHERE vecino_id = ? AND usuario_id = ?');
-          $result->bind_param('ii', $vecinoId, $userId);
+          $result->bind_param('si', $vecinoId, $userId);
           $result->execute();
         }
       }else{
