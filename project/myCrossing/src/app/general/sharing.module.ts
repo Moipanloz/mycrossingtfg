@@ -6,6 +6,13 @@ import { VerificationService } from './services/verification.service';
 import { PaginacionPipe } from './pipes/paginacion.pipe';
 import { RoundPipe } from './pipes/round.pipe';
 import { FiltroAcPipe } from './pipes/filtro-ac.pipe';
+import { FiltroCategoriaCmPipe } from 'app/cat-criaturas-marinas/filtro-categoria-cm.pipe';
+import { TraducirCmPipe } from 'app/cat-criaturas-marinas/traducir-cm.pipe';
+import { FiltroCategoriaPipe } from 'app/cat-insectos/filtro-categoria.pipe';
+import { MesesTextualesPipe } from 'app/cat-insectos/meses-textuales.pipe';
+import { TraducirPipe } from 'app/cat-insectos/traducir.pipe';
+import { FiltroCategoriaPezPipe } from 'app/cat-peces/filtro-categoria-pez.pipe';
+import { TraducirPezPipe } from 'app/cat-peces/traducir-pez.pipe';
 
 @NgModule({
   declarations: [
@@ -13,14 +20,28 @@ import { FiltroAcPipe } from './pipes/filtro-ac.pipe';
     ClickOutsideDirective,
     PaginacionPipe,
     RoundPipe,
-    FiltroAcPipe
+    FiltroAcPipe,
+    FiltroCategoriaCmPipe,
+    TraducirCmPipe,
+    TraducirPezPipe,
+    FiltroCategoriaPezPipe,
+    TraducirPipe,
+    MesesTextualesPipe,
+    FiltroCategoriaPipe
 ],
   exports: [
     CapitalizePipe,
     ClickOutsideDirective,
     PaginacionPipe,
     RoundPipe,
-    FiltroAcPipe
+    FiltroAcPipe,
+    FiltroCategoriaCmPipe,
+    TraducirCmPipe,
+    TraducirPezPipe,
+    FiltroCategoriaPezPipe,
+    TraducirPipe,
+    MesesTextualesPipe,
+    FiltroCategoriaPipe
 ],
   imports: [
     CommonModule

@@ -70,6 +70,11 @@ export interface Pez{
   usuario_id : number;
 }
 
+export interface CriaturaMarina{
+  nombre_criatura : string;
+  usuario_id : number;
+}
+
 export interface Arte{
   nombre_arte : string;
   usuario_id : number;
