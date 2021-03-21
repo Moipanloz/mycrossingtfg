@@ -1,15 +1,38 @@
-import { Injectable, Output, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ErrorService {
 
-  @Output() showError = new EventEmitter<string>();
+  mensaje : string = "pp";
+  esconder : boolean = true;
 
-  constructor() { }
+  errorVisChange : Subject<boolean> = new Subject<boolean>();
+  errorMssgChange : Subject<string> = new Subject<string>();
+
+  constructor() {
+    this.errorVisChange.subscribe((vis) => {
+      this.esconder = vis;
+    });
+
+    this.errorMssgChange.subscribe((mesj) => {
+      this.mensaje = mesj;
+      console.log("nuevo valor")
+      console.log(this.mensaje)
+
+    });
+  }
 
   setNewError(mssg : string){
-    this.showError.emit(mssg);
+    this.errorVisChange.next(false);
+    this.errorMssgChange.next(mssg);
+    console.log(mssg);
+  }
+
+  cleanError(){
+    this.errorVisChange.next(true);
+    this.errorMssgChange.next("");
   }
 }

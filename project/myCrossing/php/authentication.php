@@ -55,8 +55,8 @@ if(isset($_GET['command'])){
           $result = $conn->prepare('SELECT nombre, id, verification FROM usuarios WHERE email = ?');
           $result->bind_param('s', $email);
           $result->execute();
-          $result->store_result();
-          $userResult = mysqli_fetch_assoc($result);
+          $userResult = $result->get_result();
+          $userResult = $userResult->fetch_assoc();
           print(json_encode($userResult));
         }
       }else{
@@ -77,13 +77,14 @@ if(isset($_GET['command'])){
           $result->bind_param('i', $userId);
           $result->execute();
           $result->store_result();
+          $res = $result->get_result();
           $myArray = array();
 
           if ($result->num_rows > 0) {
-              while($row = $result->fetch_assoc()) {
-                  $myArray[] = $row;
-              }
-              print(json_encode($myArray));
+            while($row = $res->fetch_assoc()) {
+              $myArray[] = $row;
+            }
+            print(json_encode($myArray));
           }
         }
       }else{
@@ -105,9 +106,10 @@ if(isset($_GET['command'])){
           $result->bind_param('i', $userId);
           $result->execute();
           $result->store_result();
+          $res = $result->get_result();
 
           if ($result->num_rows > 0) {
-              while($row = $result->fetch_assoc()) {
+              while($row = $res->fetch_assoc()) {
                   $myArray[] = $row;
               }
               print(json_encode($myArray));
@@ -163,9 +165,11 @@ if(isset($_GET['command'])){
           $result->bind_param('s', $email);
           $result->execute();
           $result->store_result();
+          $res = $result->get_result();
+
 
           if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
+            while($row = $res->fetch_assoc()) {
               $myArray[] = $row;
             }
             print(json_encode($myArray));
@@ -195,11 +199,12 @@ if(isset($_GET['command'])){
           $id_suenyo = $request->id_suenyo;
           $apodo_aldeano = $request->apodo_aldeano;
 
-          $sql = "SELECT email FROM usuarios WHERE id = $userId";
-          $getEmail = mysqli_query($conn, $sql);
-
-          $row = mysqli_fetch_assoc($getEmail);
-          $email = $row["email"];
+          $getEmail = $conn->prepare('SELECT email FROM usuarios WHERE id = ?');
+          $getEmail->bind_param('i', $userId);
+          $getEmail->execute();
+          $getEmail->store_result();
+          $res = $getEmail->get_result();
+          $email = $res->fetch_assoc()["email"];
 
           $validation =  checkExisteUser($conn, $userId) &&
                     checkDatos($nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_suenyo, $id_switch) &&

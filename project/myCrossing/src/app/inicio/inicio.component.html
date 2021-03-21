@@ -9,7 +9,9 @@
         <h3>¡Lleva al día el progreso de tu isla!</h3>
       </div>
       <div id="portada-item3">
-        <button *ngIf="!verification.logged" routerLink="/registro">Empieza ya</button>
+        <ng-container *ngIf="!verification.logged">
+          <button routerLink="/registro">Empieza ya</button>
+        </ng-container>
       </div>
       <br>
     </div>

@@ -134,7 +134,8 @@ function checkDatosUpdate($conn, $userId, $email, $id_suenyo, $id_switch){
   $emailResult->bind_param('s', $email);
   $emailResult->execute();
   $emailResult->store_result();
-  $checkId = mysqli_fetch_assoc($emailResult)["id"];
+  $result = $emailResult->get_result();
+  $checkId = $result->fetch_assoc()["id"];
 
   if($emailResult->num_rows > 0 && $checkId != $userId) {
     $devolver = FALSE;
@@ -147,7 +148,8 @@ function checkDatosUpdate($conn, $userId, $email, $id_suenyo, $id_switch){
     $suenyoResult->bind_param('s', $id_suenyo);
     $suenyoResult->execute();
     $suenyoResult->store_result();
-    $checkId = mysqli_fetch_assoc($suenyoResult)["id"];
+    $result = $suenyoResult->get_result();
+    $checkId = $result->fetch_assoc()["id"];
 
     if($suenyoResult->num_rows > 0 && $checkId != $userId){
       $devolver = FALSE;
@@ -161,7 +163,8 @@ function checkDatosUpdate($conn, $userId, $email, $id_suenyo, $id_switch){
     $switchResult->bind_param('s', $id_switch);
     $switchResult->execute();
     $switchResult->store_result();
-    $checkId = mysqli_fetch_assoc($switchResult)["id"];
+    $result = $switchResult->get_result();
+    $checkId = $result->fetch_assoc()["id"];
 
     if($switchResult->num_rows > 0 && $checkId != $userId){
       $devolver = FALSE;
@@ -226,15 +229,15 @@ function checkPassword($conn, $email, $userPass){
   //Comprueba que la contraseña introducida por el usuario coincide con la de la DB
   $devolver = TRUE;
 
-  $result = $conn->prepare('SELECT contrasenya FROM usuarios WHERE email = ?');
-  $result->bind_param('s', $email);
-  $result->execute();
-  $result->store_result();
-  $storedPass = mysqli_fetch_assoc($result);
+  $stmt = $conn->prepare('SELECT contrasenya FROM usuarios WHERE email = ?');
+  $stmt->bind_param('s', $email);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $storedPass = $result->fetch_assoc();
 
   if(!password_verify($userPass, $storedPass['contrasenya'])){
     $devolver= FALSE;
-    die("Contraseña incorrecta");
+    die("Usuario o contraseña incorrectos");
   }
 
   return $devolver;

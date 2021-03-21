@@ -1,5 +1,6 @@
+import { ErrorService } from './general/services/error.service';
 import { VerificationService } from 'app/general/services/verification.service';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,25 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'My Crossing';
   verification : VerificationService;
-  esconder : boolean = true;
-  //PONER VACIO
-  errMssg : string = "Error de prueba";
+  esconder : boolean;
+  errMssg : string;
 
-  constructor(){}
+  constructor(errorService : ErrorService){
+    console.log("construyendo app")
+    console.log(errorService.mensaje);
+    console.log(this.errMssg);
+    errorService.errorMssgChange.subscribe(mesj => mesj);
+    this.errMssg = errorService.mensaje;
+    this.esconder = errorService.esconder;
+    console.log(this.errMssg);
 
-  ngOnInit(){
-    this.esconder = true;
-    this.errMssg = "";
-  }
-
-  showNewError(mssg : string){
-    this.esconder = false;
-    this.errMssg = mssg;
-
-    //Esperar unos segundos
-    //this.ngOnInit();
   }
 }
