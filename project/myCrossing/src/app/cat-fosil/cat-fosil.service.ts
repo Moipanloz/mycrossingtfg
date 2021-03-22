@@ -12,13 +12,13 @@ export class CatFosilService {
 
   constructor(public verification : VerificationService, public http : HttpClient) { }
 
-  readFosil(){
+  readFosil() : Promise<Fosil[]>{
     let parametros = new HttpParams()
     .set("command", "read")
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get<any[]>(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get<Fosil[]>(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   borrarFosil(fosil : string){

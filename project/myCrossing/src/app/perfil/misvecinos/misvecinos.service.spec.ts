@@ -56,7 +56,7 @@ describe('MisvecinosService', () => {
 
   it('Deberia leer los vecinos del usuario', () => {
 
-    misVecinosService.readMisVecinos().subscribe(vec => {
+    misVecinosService.readMisVecinos().then(vec => {
       expect(vec).toEqual(VECINO);
     });
 
