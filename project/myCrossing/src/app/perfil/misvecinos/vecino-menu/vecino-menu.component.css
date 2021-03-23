@@ -13,6 +13,7 @@
   display: grid;
   width: 8vw;
   text-align: center;
+  height: fit-content;
 }
 
 .popup-menu{
@@ -22,3 +23,12 @@
 #botones{
   justify-content: space-around;
 }
+
+.amistad{
+  background-image: url("../../../../assets/images/corazon.png");
+  filter: drop-shadow(2px -1px 0 #F7F3E8) drop-shadow(-2px 0px 0 #F7F3E8) drop-shadow(1px 2px 0 #F7F3E8);
+}
+
+/* .popup-menu > form > label{
+  margin: 0 0.5vw;
+} */

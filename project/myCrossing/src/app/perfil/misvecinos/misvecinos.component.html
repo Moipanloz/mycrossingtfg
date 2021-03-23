@@ -40,17 +40,18 @@
 </div>
 
 <div id="vecino-grid">
+  <!-- Informacion vecino -->
   <div id="vecino-show" #show>
     <img [src]="this.vecinoShow.imgPhoto" id="vecino-img" style="border-radius: 20px;">
-    <h3>Nombre: {{this.vecinoShow.nombre}}</h3>
+    <h2>{{this.vecinoShow.nombre}}</h2>
     <div>
-      <p><img src="../../../assets/images/cumple.png" style="width: 2vw; height: 2vw;">: {{mesToString(this.vecinoShow.cumple)}}</p>
-      <p>Personalidad: {{this.vecinoShow.personalidad | vecinos}}</p>
-      <p>Especie: {{this.vecinoShow.especie | vecinos}}</p>
-      <p>Género: {{this.vecinoShow.genero | vecinos}}</p>
+      <p style="font-size: 1vw;"><strong>Cumple:</strong> {{mesToString(this.vecinoShow.cumple)}}</p>
+      <p style="font-size: 1vw;"><strong>Tipo:</strong> {{this.vecinoShow.personalidad | vecinos}}</p>
+      <p style="font-size: 1vw;"><strong>Especie:</strong> {{this.vecinoShow.especie | vecinos}}</p>
+      <p style="font-size: 1vw;"><strong>Género:</strong> {{this.vecinoShow.genero | vecinos}}</p>
     </div>
   </div>
-
+  <!-- Listado vecinos -->
   <ng-container *ngFor="let vecino of data">
     <ng-container *ngIf="vecino != null; else vacio">
       <div>

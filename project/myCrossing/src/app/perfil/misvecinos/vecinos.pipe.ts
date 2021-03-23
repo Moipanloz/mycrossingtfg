@@ -15,13 +15,10 @@ export class VecinosPipe implements PipeTransform {
         res='Femenino';
         break;
       case 'Bird':
-        res='Pajaro';
+        res='Pájaro';
         break;
       case 'Squirrel':
         res='Ardilla';
-        break;
-      case 'Female':
-        res='Masculino';
         break;
       case 'Pig':
         res='Cerdo';
@@ -36,7 +33,7 @@ export class VecinosPipe implements PipeTransform {
         res='Koala';
         break;
       case 'Eagle':
-        res='Aguila';
+        res='Águila';
         break;
       case 'Anteater':
         res='Oso hormiguero';
@@ -45,7 +42,7 @@ export class VecinosPipe implements PipeTransform {
         res='Toro';
         break;
       case 'Mouse':
-        res='Raton';
+        res='Ratón';
         break;
       case 'Cat':
         res='Gato';
@@ -54,13 +51,13 @@ export class VecinosPipe implements PipeTransform {
         res='Caballo';
         break;
       case 'Kangaroo':
-        res='Kanguro';
+        res='Canguro';
         break;
       case 'Wolf':
         res='Lobo';
         break;
       case 'Penguin':
-        res='Pinguino';
+        res='Pingüino';
         break;
       case 'Chicken':
         res='Pollo';
@@ -78,7 +75,7 @@ export class VecinosPipe implements PipeTransform {
         res='Tigre';
         break;
       case 'Cub':
-        res='Lobezno';
+        res='Osito';
         break;
       case 'Dog':
         res='Perro';
@@ -87,7 +84,7 @@ export class VecinosPipe implements PipeTransform {
         res='Oso';
         break;
       case 'Hippo':
-        res='Hipopotamo';
+        res='Hipopótamo';
         break;
       case 'Duck':
         res='Pato';
@@ -96,13 +93,13 @@ export class VecinosPipe implements PipeTransform {
         res='Cabra';
         break;
       case 'Ostrich':
-        res='Avestruz';
+        res='Avestrúz';
         break;
       case 'Rabbit':
         res='Conejo';
         break;
       case 'Lion':
-        res='Leon';
+        res='León';
         break;
       case 'Frog':
         res='Rana';
@@ -123,25 +120,25 @@ export class VecinosPipe implements PipeTransform {
         res='Malhumorado';
         break;
       case 'Peppy':
-        res='Lleno de vida';
+        res='Vivaracha';
         break;
       case 'Big Sister':
-        res='Gran hermano';
+        res='Hermana mayor';
         break;
       case 'Lazy':
         res='Perezoso';
         break;
       case 'Normal':
-        res='Normal';
+        res='Dulce';
         break;
       case 'Snooty':
-        res='Presumido';
+        res='Presumida';
         break;
       case 'Jock':
         res='Deportista';
         break;
       case 'Smug':
-        res='Orgulloso';
+        res='Altanero';
         break;
       default:
         res=value;
