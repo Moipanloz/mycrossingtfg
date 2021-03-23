@@ -35,19 +35,19 @@
   <div class="dv-inicio">
     <p id="titulo">¡Completa el Museo!</p>
     <div class="grid-3">
-      <button id="fosiles" routerLink="/catalogo-fosiles">Fosiles</button>
-      <span>imagen</span>
-      <button id="arte" routerLink="/catalogo-arte">Arte</button>
+      <button id="fosiles" routerLink="/catalogo-fosiles" (hover)="ladino_socrates = '../../assets/images/socrates-big.png'">Fosiles</button>
+      <img [src]="ladino_socrates">
+      <button id="arte" routerLink="/catalogo-arte" (hover)="ladino_socrates = '../../assets/images/ladino-big.png'">Arte</button>
     </div>
   </div>
   <hr id="hr-azul">
   <div class="dv-inicio">
     <p id="titulo">¡Ve de compras!</p>
     <div class="grid-4">
-      <span>imagen</span>
+      <img src="../../assets/images/tendo-big.png">
       <button id="muebles" routerLink="/catalogo-muebles">Muebles</button>
       <button id="ropa" routerLink="/catalogo-ropa">Ropa</button>
-      <span>imagen</span>
+      <img src="../../assets/images/pili-big.png">
     </div>
   </div>
   <hr id="hr-azul">

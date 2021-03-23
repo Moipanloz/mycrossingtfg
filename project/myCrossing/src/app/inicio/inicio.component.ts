@@ -12,6 +12,7 @@ export class InicioComponent implements OnInit {
   verification: VerificationService;
   cookieService: CookieService;
   _error : ErrorService;
+  ladino_socrates : string = '../../assets/images/socrates-big.png';
 
   constructor(cookieService: CookieService, verification: VerificationService, errorService : ErrorService) {
     this.verification = verification;

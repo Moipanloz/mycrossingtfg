@@ -106,6 +106,14 @@ Light gris: #a5a5a4
   grid-column-gap: 5vw;
 }
 
+.grid-4 > img{
+  width: 10vw;
+}
+
+.grid-3 > img{
+  width: 7.8vw;
+}
+
 .grid-3{
   display: grid;
   grid-template-columns: auto auto auto;
