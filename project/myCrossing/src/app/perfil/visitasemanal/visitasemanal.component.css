@@ -15,6 +15,31 @@
   justify-content: space-around;
 }
 
+#menu-wrap > div{
+  margin:1vw 2vw;
+}
+
+.boton-hover:hover{
+  background-color: #CBF4C4;
+}
+
+.boton-imagen{
+  width: 4vw;
+  height: 4vw;
+  border-radius: 50%;
+  background-position: center;
+  background-size: 80%;
+}
+
+.no-point{
+  cursor: initial;
+}
+
+.boton-circular{
+  width: 2.5vw;
+  height: 2.5vw;
+}
+
 .estelaButton{
     font-size: 1.2vw;
 }
@@ -64,14 +89,13 @@
 }
 .panel{
     top:25%;
-    left:40%;
-    padding: 2%;
+    left:25%;
+    padding: 1%;
     position: fixed;
-    border-style: solid;
+    border-style: none;
     border-radius: 2vw;
-    border-color: #edd9a3;
-    border-width: 0.5vw;
-    background-color: #ffefc4;
+    background-color: #F7F3E8;
+    box-shadow: 0px 0px 10px 1px rgb(23 23 23 / 55%);
 }
 .grid{
     display: grid;

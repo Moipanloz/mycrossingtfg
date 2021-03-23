@@ -1,6 +1,6 @@
 import { ErrorService } from './../../general/services/error.service';
 import { MisvecinosService } from './misvecinos.service';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Vecino } from '../../general/interfaces';
 import { VecinoMenuComponent } from './vecino-menu/vecino-menu.component';
@@ -49,6 +49,12 @@ export class MisvecinosComponent implements OnInit {
 
   @ViewChild("show") show : ElementRef;
   @ViewChild(VecinoMenuComponent) menu : VecinoMenuComponent;
+
+  @HostListener("window:scroll")
+  onScroll(){
+    this.cierraMenu(true);
+    this.cierraMenu(false);
+  }
 
   constructor(
     private _misvecinos : MisvecinosService,

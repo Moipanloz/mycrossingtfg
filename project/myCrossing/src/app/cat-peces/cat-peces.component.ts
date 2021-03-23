@@ -1,5 +1,5 @@
 import { CatPecesService } from './cat-peces.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ICreature, creatures } from 'animal-crossing';
 import { PaginacionService } from 'app/general/services/paginacion.service';
@@ -35,6 +35,11 @@ export class CatPecesComponent implements OnInit {
     this._verif = verif;
     this._pag = pag;
     this._catpez = catpez;
+  }
+
+  @HostListener("window:scroll")
+  onScroll(){
+    this.hide = true;
   }
 
   ngOnInit() {

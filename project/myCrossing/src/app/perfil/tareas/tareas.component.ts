@@ -3,7 +3,7 @@ import { TareaMenuComponent } from './tarea-menu/tarea-menu.component';
 import { TareasService } from './tarea.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Tarea } from '../../general/interfaces';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { VerificationService } from 'app/general/services/verification.service';
 
 @Component({
@@ -23,6 +23,11 @@ export class TareasComponent implements OnInit{
 
   @ViewChild(TareaMenuComponent) menu : TareaMenuComponent;
   @ViewChild("botonEdit") botonEdit : ElementRef;
+
+  @HostListener("window:scroll")
+  onScroll(){
+    this.cierraMenu();
+  }
 
   constructor(
     verification : VerificationService,

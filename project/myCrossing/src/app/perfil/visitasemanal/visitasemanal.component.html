@@ -1,17 +1,44 @@
 <div class="visitasContainer">
     <div class="oscuro" (click)="hide=true" [style.visibility]="hide ? 'hidden': 'visible'"></div>
-    <div class="panel" [style.visibility]="hide ? 'hidden': 'visible'">
-        <div class="grid">
-            <button (click)="agrega('Alcatifa', alcatifa)" [style.opacity]="alcatifa ? '1': '0.4'" class="izq">Alcatifa</button>
-            <button (click)="agrega('Betunio', betunio)" [style.opacity]="betunio ? '1': '0.4'" class="der">Betunio</button>
-            <button (click)="agrega('Tili', tili)" [style.opacity]="tili ? '1': '0.4'" class="izq">Tili</button>
-            <button (click)="agrega('Gandulio', gandulio)" [style.opacity]="gandulio ? '1': '0.4'" class="der">Gandulio</button>
-            <button (click)="agrega('Kamilo', kamilo)" [style.opacity]="kamilo ? '1': '0.4'" class="izq">Kamilo</button>
-            <button (click)="agrega('CJ', cj)" [style.opacity]="cj ? '1': '0.4'" class="der">CJ</button>
-            <button (click)="agrega('Gulliver', gulliver)" [style.opacity]="gulliver ? '1': '0.4'" class="izq">Gulliver</button>
-            <button (click)="agrega('Gullivarrr', gullivarrr)" [style.opacity]="gullivarrr ? '1': '0.4'" class="der">Gullivarrr</button>
-            <button style="margin-bottom: 0vw;" (click)="agrega('Ladino', ladino)" [style.opacity]="ladino ? '1': '0.4'" class="izq">Ladino</button>
-            <button style="margin-bottom: 0vw;" (click)="agrega('', true)" class="der">Mantener vacío</button>
+    <div class="panel flex" style="width: 50%;" [style.visibility]="hide ? 'hidden': 'visible'">
+        <div id="menu-wrap" class="flex-centered" style="flex-wrap: wrap;flex-basis: 25vw;">
+          <div class="flex-column-centered" [style.opacity]="alcatifa ? '1': '0.4'">
+            <button (click)="agrega('Alcatifa', alcatifa)" [class]="alcatifa ? 'boton-imagen boton-hover' : 'boton-imagen no-point'" style="background-image: url('../../../assets/images/alcatifa.png');"></button>
+            <span>Alcatifa</span>
+          </div>
+          <div class="flex-column-centered" [style.opacity]="betunio ? '1': '0.4'">
+            <button (click)="agrega('Betunio', betunio)" [class]="betunio ? 'boton-imagen boton-hover' : 'boton-imagen no-point'" style="background-image: url('../../../assets/images/betunio.png');"></button>
+            <span>Betunio</span>
+          </div>
+          <div class="flex-column-centered" [style.opacity]="tili ? '1': '0.4'">
+            <button (click)="agrega('Tili', tili)" [class]="tili ? 'boton-imagen boton-hover' : 'boton-imagen no-point'" style="background-image: url('../../../assets/images/tili.png');"></button>
+            <span>Tili</span>
+          </div>
+          <div class="flex-column-centered" [style.opacity]="gandulio ? '1': '0.4'">
+            <button (click)="agrega('Gandulio', gandulio)" [class]="gandulio ? 'boton-imagen boton-hover' : 'boton-imagen no-point'" style="background-image: url('../../../assets/images/gandulio.png');"></button>
+            <span>Gandulio</span>
+          </div>
+          <div class="flex-column-centered" [style.opacity]="kamilo ? '1': '0.4'">
+            <button (click)="agrega('Kamilo', kamilo)" [class]="kamilo ? 'boton-imagen boton-hover' : 'boton-imagen no-point'" style="background-image: url('../../../assets/images/kamilo.png');"></button>
+            <span>Kamilo</span>
+          </div>
+          <div class="flex-column-centered" [style.opacity]="cj ? '1': '0.4'">
+            <button (click)="agrega('CJ', cj)" [class]="cj ? 'boton-imagen boton-hover' : 'boton-imagen no-point'" style="background-image: url('../../../assets/images/cj.png');"></button>
+            <span>CJ</span>
+          </div>
+          <div class="flex-column-centered" [style.opacity]="gulliver ? '1': '0.4'">
+            <button (click)="agrega('Gulliver', gulliver)" [class]="gulliver ? 'boton-imagen boton-hover' : 'boton-imagen no-point'" style="background-image: url('../../../assets/images/gulliver.png');"></button>
+            <span>Gulliver</span>
+          </div>
+          <div class="flex-column-centered" [style.opacity]="gullivarrr ? '1': '0.4'">
+            <button (click)="agrega('Gullivarrr', gullivarrr)" [class]="gullivarrr ? 'boton-imagen boton-hover' : 'boton-imagen no-point'" style="background-image: url('../../../assets/images/gullivarrr.png');"></button>
+            <span>Gullivarrr</span>
+          </div>
+          <div class="flex-column-centered" [style.opacity]="ladino ? '1': '0.4'">
+            <button (click)="agrega('Ladino', ladino)" [class]="ladino ? 'boton-imagen boton-hover' : 'boton-imagen no-point'" style="background-image: url('../../../assets/images/ladino.png');"></button>
+            <span>Ladino</span>
+          </div>
+          <button class="boton-imagen delete" style="border-radius: 0px;width: 3vw;height: 3vw;margin: 1vw 2vw" (click)="agrega('', true)"></button>
         </div>
     </div>
     <div class="notificacion" [style.visibility]="avisando ? 'visible': 'hidden'">{{aviso}}</div>
@@ -190,6 +217,6 @@
           {{estela ? "Estela ya te ha visitado esta semana" : "Estela aún no te ha visitado"}}
         </button>
       </div>
-      <button class="boton-imagen save" style="margin-bottom: 1vw;" (click)="guardar()"></button>
+      <button class="boton-imagen save" style="margin-bottom: 1vw;width: 2vw;height: 2vw;border-radius: 0px;" (click)="guardar()"></button>
     </div>
 </div>

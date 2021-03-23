@@ -1,5 +1,5 @@
 import { ErrorService } from './../../general/services/error.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { VerificationService } from 'app/general/services/verification.service';
 import { CookieService } from 'ngx-cookie-service';
 import { VisitasService } from './visitas.service';
@@ -24,6 +24,12 @@ export class VisitasemanalComponent implements OnInit {
     this.cookieService = cookieService;
     this._error = errorService;
   }
+
+  @HostListener("window:scroll")
+  onScroll(){
+    this.hide = true;
+  }
+
   hide :boolean = true;
   modificando:string;
   modificado:boolean=false;
