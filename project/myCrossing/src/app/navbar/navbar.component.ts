@@ -30,7 +30,6 @@ export class NavbarComponent {
   }
 
   ngOnInit(){
-    console.log(this._comunicacion.activar);
     this.verification.verify().then().catch(err => {
       this._error.setNewError(err.message);
       setTimeout(() => {this._error.cleanError()}, 3000)

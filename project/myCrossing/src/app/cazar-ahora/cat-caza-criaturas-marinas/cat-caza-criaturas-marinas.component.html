@@ -3,8 +3,8 @@
     <div style="margin-top: 4vw;">
         <h2>¡Caza criaturas marinas!</h2>
         <button class="boton-alargado" style="margin-bottom: 1vw; margin-right: 1vw;" (click)="toggleFiltrando()">{{filtrando ? "Ocultar":"Mostrar"}} filtros</button>
-        <button class="boton-alargado" style="margin-bottom: 1vw; margin-right: 1vw;" routerLink="/cat-caza-insectos">Insectos</button>
-        <button class="boton-alargado" style="margin-bottom: 1vw; margin-right: 1vw;" routerLink="/cat-caza-peces">Peces</button>
+        <button class="boton-alargado" style="margin-bottom: 1vw; margin-right: 1vw;" (click)="cambiaSer('insectos')">Insectos</button>
+        <button class="boton-alargado" style="margin-bottom: 1vw; margin-right: 1vw;" (click)="cambiaSer('peces')">Peces</button>
         <button class="boton-alargado b-verde" style="margin-bottom: 1vw; margin-right: 1vw;">Criaturas marinas</button>
         <div class="flex-centered" [style.display]="filtrando ? 'flex' : 'none'" style="padding-bottom: 1vw;">
             <div class="bigFilterContainerBrown">

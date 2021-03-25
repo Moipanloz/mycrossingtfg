@@ -4,8 +4,8 @@
       <h2>¡Caza insectos!</h2>
       <button class="boton-alargado" style="margin-bottom: 1vw; margin-right: 1vw;" (click)="toggleFiltrando()">{{filtrando ? "Ocultar":"Mostrar"}} filtros</button>
       <button class="boton-alargado b-verde" style="margin-bottom: 1vw; margin-right: 1vw;">Insectos</button>
-      <button class="boton-alargado" style="margin-bottom: 1vw; margin-right: 1vw;" routerLink="/cat-caza-peces">Peces</button>
-      <button class="boton-alargado" style="margin-bottom: 1vw; margin-right: 1vw;" routerLink="/cat-caza-criaturas-marinas">Criaturas marinas</button>
+      <button class="boton-alargado" style="margin-bottom: 1vw; margin-right: 1vw;" (click)="cambiaSer('peces')">Peces</button>
+      <button class="boton-alargado" style="margin-bottom: 1vw; margin-right: 1vw;" (click)="cambiaSer('criaturasMarinas')">Criaturas marinas</button>
       <div class="flex-centered" [style.display]="filtrando ? 'flex' : 'none'" style="padding-bottom: 1vw;">
         <div class="bigFilterContainerBrown">
           <button class="boton-alargado whereButton" (click)="filtraWhe('On trees (any kind)')" [class]="this.filtroAcWhe == 'On trees (any kind)' ? 'b-verde' : 'b-azul'" style="grid-column: 1;">Sobre árboles (cualquier tipo)</button>

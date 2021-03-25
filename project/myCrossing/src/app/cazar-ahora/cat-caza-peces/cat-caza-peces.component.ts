@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ICreature, creatures } from 'animal-crossing';
 import { CatPecesService } from 'app/cat-peces/cat-peces.service';
 import { ComunicacionService } from 'app/general/services/comunicacion.service';
@@ -40,7 +41,7 @@ export class CatCazaPecesComponent implements OnInit {
   hora = new FormControl((new Date).getHours());
   mes = new FormControl((new Date).getMonth()+1);
 
-  constructor(verif : VerificationService, pag : PaginacionService, catpez : CatPecesService, comunicacion : ComunicacionService) {
+  constructor(private router : Router, verif : VerificationService, pag : PaginacionService, catpez : CatPecesService, comunicacion : ComunicacionService) {
     this._verif = verif;
     this._pag = pag;
     this._catpez = catpez;
@@ -48,12 +49,15 @@ export class CatCazaPecesComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(this._comunicacion["hora"]!=null && this._comunicacion["hora"]!=""){
-      this.hora.setValue(this._comunicacion["hora"]);
+    let aux = this._comunicacion.buscaDato("hora");
+    if(aux!=null){
+      this.hora.setValue(Number.parseInt(aux.substring(5,aux.length-1)));
+      this._comunicacion.eliminaDato("hora");
     }
-    if(this._comunicacion["mes"]!=null && this._comunicacion["hora"]!=null){
-      console.log(this._comunicacion["mes"]);
-      this.mes.setValue(this._comunicacion["mes"]);
+    aux = this._comunicacion.buscaDato("mes");
+    if(aux!=null){
+      this.mes.setValue(Number.parseInt(aux.substring(4,aux.length-1)));
+      this._comunicacion.eliminaDato("mes");
     }
     this.filtrando=this._comunicacion.buscaDato("filtrando")!=null;
     this.botonFiltrar=(this._comunicacion.buscaDato("obtenido")!=null)?"obtenido":((this._comunicacion.buscaDato("falta")!=null)?"falta":"none");
@@ -80,11 +84,25 @@ export class CatCazaPecesComponent implements OnInit {
         this.listaCreatures = await creatures.filter(i => i.sourceSheet == "Fish");
       }
       this.busqueda.valueChanges.pipe(debounceTime(300)).subscribe(value => this.filtrar(value));
-      this.hora.valueChanges.pipe(debounceTime(300)).subscribe(value =>{this._comunicacion.datos["hora"]=this.hora.value});
-      this.hora.valueChanges.pipe(debounceTime(300)).subscribe(value =>{this._comunicacion.datos["mes"]=this.mes.value; console.log(this.mes.value);});
       this.num_paginas = this.getPaginas(this.listaCreatures);
     });
     this._comunicacion.activar=true;
+  }
+  cambiaSer(ser : string){
+    if(ser!="peces"){
+      this._comunicacion.datos.push("hora(" + this.hora.value + ")");
+      this._comunicacion.datos.push("mes(" + this.mes.value + ")");
+    }
+    switch(ser){
+      case "insectos":
+        this.router.navigate(['/cat-caza-insectos']);
+        break;
+      case "peces":
+        break;
+      case "criaturasMarinas":
+        this.router.navigate(['/cat-caza-criaturas-marinas']);
+        break;
+    }
   }
   toggleFiltrando(){
     this.filtrando=!this.filtrando;
