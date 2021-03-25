@@ -98,15 +98,17 @@
 
     <!-- Grid -->
     <div class="grid-w-gap" style="margin: 1vw 0">
-        <ng-container *ngFor="let creature of listaCreatures | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter | paginacion:page_number:max_items">
+      <ng-container *ngFor="let creature of listaCreatures | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter | paginacion:page_number:max_items">
         <div class="grid-item-wrap flex-column-centered" style="justify-content: space-evenly;">
             <div class="check-container" *ngIf="this._verif.user != null">
                 <button [style.background-image]="this.listaUsuario.includes(creature.translations.spanish.replace(' ','')) ? 'url(../../assets/images/check-rojo.png)' : 'url(../../assets/images/check-gris.png)'" class="boton-imagen editar" (click)="toggleCheck(creature)"></button>
             </div>
-            <img (click)="mostrar(creature)" [src]="creature.critterpediaImage" style="cursor: pointer; max-height: 10vw; width: 8vw; padding-left: 2vw; padding-right: 2vw;" [id]='creature.translations.spanish.replace(" ", "")'>
+            <div style="width: 8vw; height: 8vw;" class="flex-centered">
+              <img (click)="mostrar(creature)" [src]="creature.critterpediaImage" style="cursor: pointer;max-width: 100%;max-height: 100%;" [id]='creature.translations.spanish.replace(" ", "")'>
+            </div>
             <span>{{creature.translations.spanish | capitalize}}</span>
         </div>
-        </ng-container>
+      </ng-container>
     </div>
 
     <!-- Paginacion abajo -->
