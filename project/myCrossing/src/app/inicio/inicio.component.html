@@ -19,44 +19,39 @@
 
   <div class="dv-inicio" id="dv-0">
     <p id="titulo">¡A cazar se ha dicho!</p>
-    <div class="grid-4">
-      <ng-container [ngSwitch]="imagen">
-        <img class="imagen-inicio" *ngSwitchDefault src="../../assets/images/cj-pesca.png" alt="pesca"/>
-        <img class="imagen-inicio" *ngSwitchCase="1" src="../../assets/images/cj-pesca.png" alt="pesca"/>
-        <img class="imagen-inicio" *ngSwitchCase="2" src="../../assets/images/kamilo-caza.png" alt="caza"/>
-        <img class="imagen-inicio" *ngSwitchCase="3" src="../../assets/images/buceo.png" alt="buceo"/>
-      </ng-container>
-      <button id="peces" routerLink="/catalogo-peces" (mouseover)="imagen = 1">Peces</button>
-      <button id="bichos" routerLink="/catalogo-insectos" (mouseover)="imagen = 2">Bichos</button>
-      <button id="criaturas-marinas" routerLink="/catalogo-criaturas-marinas" (mouseover)="imagen = 3">Criaturas marinas</button>
+    <div class="grid-inicio grid-1" id="less-margin">
+      <img src="../../assets/images/caza-pesca-big.png">
+      <button id="peces" class="bckg-img-boton" routerLink="/catalogo-peces"><h2>Peces</h2></button>
+      <button id="bichos" class="bckg-img-boton" routerLink="/catalogo-insectos" ><h2>Insectos</h2></button>
+      <button id="criaturas-marinas" class="bckg-img-boton" routerLink="/catalogo-criaturas-marinas"><h2>Criaturas marinas</h2></button>
     </div>
   </div>
   <hr id="hr-azul">
   <div class="dv-inicio">
     <p id="titulo">¡Completa el Museo!</p>
-    <div class="grid-3">
-      <button id="fosiles" routerLink="/catalogo-fosiles" (hover)="ladino_socrates = '../../assets/images/socrates-big.png'">Fosiles</button>
-      <img [src]="ladino_socrates">
-      <button id="arte" routerLink="/catalogo-arte" (hover)="ladino_socrates = '../../assets/images/ladino-big.png'">Arte</button>
+    <div class="grid-inicio grid-2">
+      <button id="fosiles" class="bckg-img-boton" routerLink="/catalogo-fosiles"><h2>Fósiles</h2></button>
+      <img src="../../assets/images/socrates-big.png">
+      <button id="arte" class="bckg-img-boton" routerLink="/catalogo-arte"><h2>Arte</h2></button>
     </div>
   </div>
   <hr id="hr-azul">
   <div class="dv-inicio">
     <p id="titulo">¡Ve de compras!</p>
-    <div class="grid-4">
+    <div class="grid-inicio grid-3">
       <img src="../../assets/images/tendo-big.png">
-      <button id="muebles" routerLink="/catalogo-muebles">Muebles</button>
-      <button id="ropa" routerLink="/catalogo-ropa">Ropa</button>
+      <button id="muebles" class="bckg-img-boton" routerLink="/catalogo-muebles"><h2>Muebles</h2></button>
+      <button id="ropa" class="bckg-img-boton" routerLink="/catalogo-ropa"><h2>Ropa</h2></button>
       <img src="../../assets/images/pili-big.png">
     </div>
   </div>
   <hr id="hr-azul">
   <div class="dv-inicio">
     <p id="titulo">¡Una isla llena de vida!</p>
-    <div class="grid-3">
-      <span>imagen</span>
-      <button id="vecinos">Vecinos</button>
-      <button id="calendario">Calendario</button>
+    <div class="grid-inicio grid-4">
+      <img src="../../assets/images/regando-big.png">
+      <button id="vecinos" class="bckg-img-boton"><h2>Vecinos</h2></button>
+      <button id="calendario" class="bckg-img-boton"><h2>Calendario</h2></button>
     </div>
   </div>
 

@@ -77,7 +77,11 @@ Light gris: #a5a5a4
 }
 
 #dv-0{
-  box-shadow: 0px -10px 20px 0px rgb(23 23 23 / 55%)
+  box-shadow: 0px -10px 20px 0px rgb(23 23 23 / 55%);
+}
+
+#less-margin{
+  margin: 1vw auto;
 }
 
 .dv-inicio > #titulo{
@@ -89,7 +93,7 @@ Light gris: #a5a5a4
 .dv-inicio > div{
   width: fit-content;
   height: fit-content;
-  margin: 1vw auto;
+  margin: 3vw auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -100,21 +104,23 @@ Light gris: #a5a5a4
   width: 20vw;
 }
 
-.grid-4{
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  grid-column-gap: 5vw;
+.grid-1 > img{
+  width: 23vw;
 }
 
-.grid-4 > img{
-  width: 10vw;
+.grid-2 > img{
+  width: 16vw;
 }
 
 .grid-3 > img{
-  width: 7.8vw;
+  width: 10vw;
 }
 
-.grid-3{
+.grid-4 > img{
+  width: 14vw;
+}
+
+.grid-inicio{
   display: grid;
   grid-template-columns: auto auto auto;
   grid-column-gap: 5vw;
@@ -130,48 +136,57 @@ Light gris: #a5a5a4
   border-style: solid;
 }
 
+h2{
+  margin: 0 0 8vw 0;
+}
+
+.bckg-img-boton{
+  background-size: contain;
+}
+
 #peces{
-  border-color: rgb(63, 63, 255);
-  background-color: rgb(45, 163, 241);
+  border-color: rgb(73 73 193);
+  background-image: url("../../assets/images/fondo-pesca.png");
 }
 
 #bichos{
   border-color: rgb(12, 124, 12);
-  background-color: rgb(104, 230, 104);}
+  background-image: url("../../assets/images/fondo-caza.png");
+}
 
 #criaturas-marinas{
   border-color: rgb(44, 44, 121);
-  background-color: rgb(99, 99, 192);
+  background-image: url("../../assets/images/fondo-criaturas-marinas.png");
 }
 
 #fosiles{
-  border-color: rgb(53, 47, 31);
-  background-color: rgb(156, 151, 107);
+  border-color: rgb(111 95 51);
+  background-image: url("../../assets/images/fondo-fosiles.png");
 }
 
 #arte{
-  border-color: rgb(207, 196, 33);
-  background-color: rgb(255, 253, 153);
+  border-color: rgb(138 44 185);
+  background-image: url("../../assets/images/fondo-arte.png");
 }
 
 #muebles{
-  border-color: rgb(29, 238, 29);
-  background-color: rgb(36, 255, 91);
+  border-color: rgb(56 148 56);
+  background-image: url("../../assets/images/fondo-muebles.png");
 }
 
 #ropa{
-  border-color: rgb(174, 47, 179);
-  background-color: rgb(255, 149, 237);
+  border-color: rgb(222 89 186);
+  background-image: url("../../assets/images/fondo-ropa.png");
 }
 
 #vecinos{
-  border-color: rgb(85, 15, 133);
-  background-color: rgb(153, 62, 238);
+  border-color: rgb(199 119 47);
+  background-image: url("../../assets/images/fondo-vecinos.png");
 }
 
 #calendario{
-  border-color: rgb(255, 135, 36);
-  background-color: rgb(255, 160, 97);
+  border-color: rgb(44 107 105);
+  background-image: url("../../assets/images/fondo-calendario.png");
 }
 
 
