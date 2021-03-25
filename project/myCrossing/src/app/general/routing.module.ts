@@ -13,6 +13,10 @@ import { CatRopaComponent } from 'app/cat-ropa/cat-ropa.component';
 import { CatInsectosComponent } from 'app/cat-insectos/cat-insectos.component';
 import { CatPecesComponent } from 'app/cat-peces/cat-peces.component';
 import { CatCriaturasMarinasComponent } from 'app/cat-criaturas-marinas/cat-criaturas-marinas.component';
+import { CatCazarAhoraComponent } from 'app/cat-cazar-ahora/cat-cazar-ahora.component';
+import { CatCazaInsectosComponent } from 'app/cazar-ahora/cat-caza-insectos/cat-caza-insectos.component';
+import { CatCazaPecesComponent } from 'app/cazar-ahora/cat-caza-peces/cat-caza-peces.component';
+import { CatCazaCriaturasMarinasComponent } from 'app/cazar-ahora/cat-caza-criaturas-marinas/cat-caza-criaturas-marinas.component';
 
 const rutas: Routes = [
 {
@@ -51,6 +55,18 @@ const rutas: Routes = [
 },{
   path: "catalogo-criaturas-marinas",
   component: CatCriaturasMarinasComponent
+},{
+  path: "catalogo-cazar-ahora",
+  component: CatCazarAhoraComponent
+},{
+  path: "cat-caza-insectos",
+  component: CatCazaInsectosComponent
+},{
+  path: "cat-caza-peces",
+  component: CatCazaPecesComponent
+},{
+  path: "cat-caza-criaturas-marinas",
+  component: CatCazaCriaturasMarinasComponent
 }
 ];
 

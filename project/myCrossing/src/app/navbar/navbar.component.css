@@ -67,6 +67,10 @@ img {
   background-color: rgb(174, 253, 180);
 }
 
+.activado{
+  background-color: rgb(174, 253, 180);
+}
+
 .login{
   margin: 0 0 0 6vw;
 }
