@@ -1,9 +1,10 @@
 import { ErrorService } from './../general/services/error.service';
 import { UserService } from 'app/autenticacion/user.service';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { VerificationService } from 'app/general/services/verification.service';
+import { ComunicacionService } from 'app/general/services/comunicacion.service';
 
 @Component({
   selector: 'app-navbar',
@@ -17,13 +18,15 @@ export class NavbarComponent {
   menu : boolean = false;
   _user : UserService;
   _error : ErrorService;
+  _comunicacion : ComunicacionService;
 
   constructor(cookieService: CookieService, verification: VerificationService,
-     private router: Router, _user : UserService, errorService : ErrorService) {
+     private router: Router, _user : UserService, errorService : ErrorService, comunicacion: ComunicacionService) {
     this.cookieService = cookieService;
     this.verification = verification;
     this._user = _user;
     this._error = errorService;
+    this._comunicacion = comunicacion;
   }
 
   ngOnInit(){

@@ -1,0 +1,188 @@
+<!-- Filtros búsqueda -->
+<div class="content-wrapper-top" style="background-color: #e2d4b9;">
+    <div style="margin-top: 4vw;">
+        <h2>¡Caza peces!</h2>
+        <button class="boton-alargado" style="margin-bottom: 1vw; margin-right: 1vw;" (click)="toggleFiltrando()">{{filtrando ? "Ocultar":"Mostrar"}} filtros</button>
+        <button class="boton-alargado" style="margin-bottom: 1vw; margin-right: 1vw;" (click)="cambiaSer('insectos')">Insectos</button>
+        <button class="boton-alargado b-verde" style="margin-bottom: 1vw; margin-right: 1vw;">Peces</button>
+        <button class="boton-alargado" style="margin-bottom: 1vw; margin-right: 1vw;" (click)="cambiaSer('criaturasMarinas')">Criaturas marinas</button>
+        <div class="flex-centered" [style.display]="filtrando ? 'flex' : 'none'" style="padding-bottom: 1vw;">
+            <div class="bigFilterContainerBrown">
+                <div style="font-size: 1.5vw; padding-left: 2vw; padding-top: 0.5vw;"><b>Sombra</b></div>
+                <button class="boton-alargado shadowButton" (click)="filtraShadow('X-Small')" [class]="this.filtroAcShadow == 'X-Small' ? 'b-verde' : 'b-azul'" style="grid-column: 1;">Diminuta</button>
+                <button class="boton-alargado shadowButton" (click)="filtraShadow('Small')" [class]="this.filtroAcShadow == 'Small' ? 'b-verde' : 'b-azul'" style="grid-column: 2;">Pequeña</button>
+                <button class="boton-alargado shadowButton" (click)="filtraShadow('Medium')" [class]="this.filtroAcShadow == 'Medium' ? 'b-verde' : 'b-azul'" style="grid-column: 3;">Mediana</button>
+                <button class="boton-alargado shadowButton" (click)="filtraShadow('Large')" [class]="this.filtroAcShadow == 'Large' ? 'b-verde' : 'b-azul'" style="grid-column: 4;">Grande</button>
+                <button class="boton-alargado shadowButton" (click)="filtraShadow('X-Large')" [class]="this.filtroAcShadow == 'X-Large' ? 'b-verde' : 'b-azul'" style="grid-column: 1;">Muy grande</button>
+                <button class="boton-alargado shadowButton" (click)="filtraShadow('XX-Large')" [class]="this.filtroAcShadow == 'XX-Large' ? 'b-verde' : 'b-azul'" style="grid-column: 2;">Gigante</button>
+                <button class="boton-alargado shadowButton" (click)="filtraShadow('X-Large w/Fin')" [class]="this.filtroAcShadow == 'X-Large w/Fin' ? 'b-verde' : 'b-azul'" style="grid-column: 3;">Muy grande con aleta</button>
+                <button class="boton-alargado shadowButton" (click)="filtraShadow('Long')" [class]="this.filtroAcShadow == 'Long' ? 'b-verde' : 'b-azul'" style="grid-column: 4;">Alargada</button>
+            </div>
+            <div class="bigFilterContainerYellow">
+                <div style="font-size: 1.5vw; padding-left: 2vw; padding-top: 0.5vw;"><b>Lugares</b></div>
+                <button class="boton-alargado whereButton" (click)="filtraWhe('Pond')" [class]="this.filtroAcWhe == 'Pond' ? 'b-verde' : 'b-azul'">Estanque</button>
+                <button class="boton-alargado whereButton" (click)="filtraWhe('River')" [class]="this.filtroAcWhe == 'River' ? 'b-verde' : 'b-azul'">Río</button>
+                <button class="boton-alargado whereButton" (click)="filtraWhe('Sea')" [class]="this.filtroAcWhe == 'Sea' ? 'b-verde' : 'b-azul'">Mar</button>
+                <button class="boton-alargado whereButton" (click)="filtraWhe('Pier')" [class]="this.filtroAcWhe == 'Pier' ? 'b-verde' : 'b-azul'">Muelle</button>
+            </div>
+            <div style="margin-right: 1vw; width: 10vw;" [style.display]="this._verif.user == null ? 'none' : 'block'">
+                <button class="boton-alargado extraButton" (click)="activaFiltro('obtenido')" [class]="this.botonFiltrar == 'obtenido' ? 'b-verde' : 'b-azul'">Obtenidos</button>
+                <button class="boton-alargado extraButton" (click)="activaFiltro('falta')" [class]="this.botonFiltrar == 'falta' ? 'b-verde' : 'b-azul'">Me faltan</button>
+                <div style="display: inline-flex; margin-left: 1vw; margin-top: 1vw;"><b style="font-size: 1.5vw;">Hora:</b><input class="tiempo" [formControl]="hora" type="number" placeholder="24"></div>
+                <div style="display: inline-flex; margin-left: 1vw; margin-top: 1vw;"><b style="font-size: 1.5vw;">Mes:</b><input class="tiempo" [formControl]="mes" type="number" placeholder="12"></div>
+            </div>
+            <input [formControl]="busqueda" type="text" placeholder="Buscar" [style.width]="this._verif.user == null ? '50%' : '30%'">
+        </div>
+    </div>
+</div>
+
+    <!-- Items -->
+<div class="content-wrapper-bot" style="min-height: 22vw;">
+
+    <!-- Paginacion arriba -->
+    <div class="pag-menu flex-centered">
+    <button [style.visibility]="page_number != 1 ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAtras(page_number)"> < </button>
+
+    <ng-container *ngIf="this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter).length < 25; else paginacionComprimida">
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter)">
+        <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+    </ng-container>
+
+    <ng-template #paginacionComprimida>
+        <!-- Paginacion start -->
+        <ng-container *ngIf="page_number < 11">
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter).slice(0, 11)">
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+        <button class="b-darkBlue b-pag">·</button>
+        <button class="b-darkBlue b-pag">·</button>
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter).slice(this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroAc:nameFilter).length - 2, this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroAc:nameFilter).length)">
+            <button class="b-darkBlue b-pag" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+        </ng-container>
+
+        <!-- Paginacion mid -->
+        <ng-container #mid *ngIf="10 < page_number && page_number < this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter).length - 10">
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroAc:nameFilter).slice(0, 2)">
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+        <button class="b-darkBlue b-pag">·</button>
+        <button class="b-darkBlue b-pag">·</button>
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter).slice(page_number-4, page_number+3)">
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+        <button class="b-darkBlue b-pag">·</button>
+        <button class="b-darkBlue b-pag">·</button>
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter).slice(this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroAc:nameFilter).length - 2, this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroAc:nameFilter).length)">
+            <button class="b-darkBlue b-pag" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+        </ng-container>
+
+        <!-- Paginacion end -->
+        <ng-container #midOfin *ngIf="this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter).length - 11 < page_number">
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter).slice(0, 2)">
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+        <button class="b-darkBlue b-pag">·</button>
+        <button class="b-darkBlue b-pag">·</button>
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter).slice(this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroAc:nameFilter).length - 12, this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroAc:nameFilter).length)">
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+        </ng-container>
+
+    </ng-template>
+
+    <button [style.visibility]="max_items < listaCreatures.length && page_number * max_items < (listaCreatures | cazable:isNorth:mes.value:hora.value | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter).length ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAlante(page_number, max_items, listaCreatures)"> > </button>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid-w-gap" style="margin: 1vw 0">
+        <ng-container *ngFor="let creature of listaCreatures | cazable:isNorth:mes.value:hora.value | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter | paginacion:page_number:max_items">
+        <div class="grid-item-wrap flex-column-centered" style="justify-content: space-evenly;">
+            <div class="check-container" *ngIf="this._verif.user != null">
+                <button [style.background-image]="this.listaUsuario.includes(creature.translations.spanish.replace(' ','')) ? 'url(../../assets/images/check-rojo.png)' : 'url(../../assets/images/check-gris.png)'" class="boton-imagen editar" (click)="toggleCheck(creature)"></button>
+            </div>
+            <img (click)="mostrar(creature)" [src]="creature.critterpediaImage" style="cursor: pointer; max-height: 10vw; width: 8vw; padding-left: 2vw; padding-right: 2vw;" [id]='creature.translations.spanish.replace(" ", "")'>
+            <span>{{creature.translations.spanish | capitalize}}</span>
+        </div>
+        </ng-container>
+    </div>
+
+    <!-- Paginacion abajo -->
+    <div class="pag-menu flex-centered">
+    <button [style.visibility]="page_number != 1 ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAtras(page_number)"> < </button>
+
+    <ng-container *ngIf="this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter).length < 25; else paginacionComprimida">
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter)">
+        <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+    </ng-container>
+
+    <ng-template #paginacionComprimida>
+        <!-- Paginacion start -->
+        <ng-container *ngIf="page_number < 11">
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter).slice(0, 11)">
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+        <button class="b-darkBlue b-pag">·</button>
+        <button class="b-darkBlue b-pag">·</button>
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter).slice(this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroAc:nameFilter).length - 2, this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroAc:nameFilter).length)">
+            <button class="b-darkBlue b-pag" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+        </ng-container>
+
+        <!-- Paginacion mid -->
+        <ng-container #mid *ngIf="10 < page_number && page_number < this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroAc:nameFilter).length - 10">
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter).slice(0, 2)">
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+        <button class="b-darkBlue b-pag">·</button>
+        <button class="b-darkBlue b-pag">·</button>
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter).slice(page_number-4, page_number+3)">
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+        <button class="b-darkBlue b-pag">·</button>
+        <button class="b-darkBlue b-pag">·</button>
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter).slice(this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroAc:nameFilter).length - 2, this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroAc:nameFilter).length)">
+            <button class="b-darkBlue b-pag" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+        </ng-container>
+
+        <!-- Paginacion end -->
+        <ng-container #midOfin *ngIf="this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter).length - 11 < page_number">
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter).slice(0, 2)">
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+        <button class="b-darkBlue b-pag">·</button>
+        <button class="b-darkBlue b-pag">·</button>
+        <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter).slice(this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroAc:nameFilter).length - 12, this.getPaginas(listaCreatures | cazable:isNorth:mes.value:hora.value | filtroAc:nameFilter).length)">
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+        </ng-container>
+
+    </ng-template>
+
+    <button [style.visibility]="max_items < listaCreatures.length && page_number * max_items < (listaCreatures | cazable:isNorth:mes.value:hora.value | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter).length ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAlante(page_number, max_items, listaCreatures)"> > </button>
+    </div>
+
+</div>
+    <!--   Pop-ups   -->
+<div class="oscuro" (click)="hide=true" [style.display]="hide ? 'none': 'block'"></div>
+<div class="panel" [style.display]="hide ? 'none': 'block'">
+    <div style="width: 100%; text-align: -webkit-center; display: flex; justify-content: space-around;">
+        <span class="spanImg" (click)="toggleHemisphere()" style="background-color:#67c13db5; cursor:pointer;">
+            <img [src]="isNorth ? '../../assets/images/hemisferio-norte.png' : '../../assets/images/hemisferio-sur.png'" class="imagenHemisferio">
+        </span>
+        <div class="grid-item-wrap flex-column-centered" style="width: fit-content;">
+            <img [src]="shownCreature.critterpediaImage" style="width: 9vw; padding: 1vw; max-height: 12vw;" [id]='shownCreature.translations.spanish.replace(" ", "")'>
+        </div>
+    </div>
+    <div class="datos"><b>Nombre:</b> {{shownCreature.translations.spanish | capitalize}}</div>
+    <div class="datos"><b>Donde obtener:</b> {{shownCreature.whereHow | traducirPez | capitalize}}</div>
+    <div class="datos"><b>Sombra:</b> {{shownCreature.shadow | traducirPez | capitalize}}</div>
+    <div class="datos"><b>Precio:</b> {{shownCreature.sell}}</div>
+    <div class="datos"><b>Meses capturable:</b> {{((isNorth) ? shownCreature.hemispheres.north.monthsArray : shownCreature.hemispheres.south.monthsArray) | mesesTextuales}}</div>
+    <div class="datos" style="margin-bottom: 0px;"><b>Horario de captura:</b> {{((isNorth) ? shownCreature.hemispheres.north.time : shownCreature.hemispheres.south.time) | traducirPez}}</div>
+</div>
+

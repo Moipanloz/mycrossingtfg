@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { ComunicacionService } from './comunicacion.service';
 
 @Injectable({ providedIn: 'root' })
 export class VerificationService {
@@ -11,12 +12,15 @@ export class VerificationService {
   nombre : string = "";
   hemisferio : string = "";
   verifCode : string = "";
+  _comunication : ComunicacionService;
 
-  constructor(cookieService: CookieService, private http: HttpClient){
+  constructor(cookieService: CookieService, private http: HttpClient, comunication : ComunicacionService){
     this.cookieService = cookieService;
+    this._comunication=comunication;
   }
 
   async verify() {
+    this._comunication.activar=false;
     if(this.cookieService.check("verif") && this.cookieService.check("userId")){
       let userId:number = +this.cookieService.get("userId");
       let parametros = new HttpParams()

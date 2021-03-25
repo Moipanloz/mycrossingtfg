@@ -22,13 +22,12 @@ import { CatMuebleComponent } from './cat-mueble/cat-mueble.component';
 import { CatFosilComponent } from './cat-fosil/cat-fosil.component';
 import { CatArteComponent } from './cat-arte/cat-arte.component';
 import { CatInsectosComponent } from './cat-insectos/cat-insectos.component';
-import { TraducirPipe } from './cat-insectos/traducir.pipe';
-import { MesesTextualesPipe } from './cat-insectos/meses-textuales.pipe';
-import { FiltroCategoriaPipe } from './cat-insectos/filtro-categoria.pipe';
 import { CatPecesComponent } from './cat-peces/cat-peces.component';
-import { TraducirPezPipe } from './cat-peces/traducir-pez.pipe';
-import { FiltroCategoriaPezPipe } from './cat-peces/filtro-categoria-pez.pipe';
 import { CatCriaturasMarinasComponent } from './cat-criaturas-marinas/cat-criaturas-marinas.component';
+import { CatCazarAhoraComponent } from './cat-cazar-ahora/cat-cazar-ahora.component';
+import { CatCazaInsectosComponent } from './cazar-ahora/cat-caza-insectos/cat-caza-insectos.component';
+import { CatCazaPecesComponent } from './cazar-ahora/cat-caza-peces/cat-caza-peces.component';
+import { CatCazaCriaturasMarinasComponent } from './cazar-ahora/cat-caza-criaturas-marinas/cat-caza-criaturas-marinas.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +43,11 @@ import { CatCriaturasMarinasComponent } from './cat-criaturas-marinas/cat-criatu
     CatArteComponent,
     CatInsectosComponent,
     CatPecesComponent,
-    CatCriaturasMarinasComponent
+    CatCriaturasMarinasComponent,
+    CatCazarAhoraComponent,
+    CatCazaInsectosComponent,
+    CatCazaPecesComponent,
+    CatCazaCriaturasMarinasComponent
   ],
   imports: [
     BrowserModule,
