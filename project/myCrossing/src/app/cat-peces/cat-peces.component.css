@@ -40,6 +40,20 @@ span{
     background-color: rgb(157 228 163);
   }
 
+  h3{
+    margin-left: 0.5vw;
+  }
+
+  #wrap-filtros{
+    padding-bottom: 1vw;
+    display:flex;
+    margin: auto;
+  }
+
+  #filtro-sombra > button, #filtro-lugar > button, #filtro-usuario > button{
+    margin: 0.2vw;
+  }
+
   .b-darkBlue{
     background-color: #ade6e7;
   }
