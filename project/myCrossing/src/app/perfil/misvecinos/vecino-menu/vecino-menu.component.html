@@ -1,7 +1,7 @@
 <!-- Menu vecino-->
 <div style="width: 42vw; height: 25vw; display: none;" class="popup-menu flex-column" (busquedaEmitter)="filtrar($event)" #menuVecino>
   <div class="flex-centered">
-    <input [formControl]="busqueda" type="text" placeholder="Buscar" style="width: 70%;">
+    <input [formControl]="busqueda" type="text" placeholder="Buscar" style="width: 70%;" class="text-input">
   </div>
   <form [formGroup]="vecinoForm" (ngSubmit)="enviar(vecinoForm.value, false)">
     <div class="lista">

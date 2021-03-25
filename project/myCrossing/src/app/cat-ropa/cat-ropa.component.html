@@ -6,7 +6,7 @@
       <div class="flex-centered" style="flex-wrap: wrap;flex-basis: 40vw; margin-right: 1.5vw;">
         <button *ngFor="let tipo of tiposPrenda | keyvalue" (click)="activaFiltro(tipo.key)" [class]="this.botonFiltrar == tipo.key ? 'boton-alargado b-verde' : 'boton-alargado b-azul'" style="margin:0.5vw">{{tipo.value}}</button>
       </div>
-      <input [formControl]="busqueda" type="text" placeholder="Buscar" style="width: 30%;">
+      <input [formControl]="busqueda" class="text-input" type="text" placeholder="Buscar" style="width: 30%;">
     </div>
   </div>
 </div>

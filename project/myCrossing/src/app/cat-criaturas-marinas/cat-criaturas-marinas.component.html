@@ -16,7 +16,7 @@
                 <button class="boton-alargado extraButton" (click)="activaFiltro('obtenido')" [class]="this.botonFiltrar == 'obtenido' ? 'b-verde' : 'b-azul'">Obtenidos</button>
                 <button class="boton-alargado extraButton" (click)="activaFiltro('falta')" [class]="this.botonFiltrar == 'falta' ? 'b-verde' : 'b-azul'">Me faltan</button>
             </div>
-            <input [formControl]="busqueda" type="text" placeholder="Buscar" [style.width]="this._verif.user == null ? '50%' : '30%'">
+            <input [formControl]="busqueda" class="text-input" type="text" placeholder="Buscar" [style.width]="this._verif.user == null ? '50%' : '30%'">
         </div>
     </div>
 </div>

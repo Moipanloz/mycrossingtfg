@@ -10,7 +10,7 @@
             <label for="email">Email: </label>
           </div>
           <div class="fieldinput">
-            <input id="email" formControlName='email' type="email">
+            <input id="email" class="text-input" formControlName='email' type="email">
           </div>
         </div>
         <ng-container *ngIf="loginForm.controls.email.errors && submitted">
@@ -25,7 +25,7 @@
             <label for="password">Contraseña: </label>
           </div>
           <div class="fieldinput">
-            <input type="password" id="password" formControlName='clave'>
+            <input type="password" class="text-input" id="password" formControlName='clave'>
           </div>
         </div>
         <ng-container *ngIf="loginForm.controls.clave.errors && submitted">
