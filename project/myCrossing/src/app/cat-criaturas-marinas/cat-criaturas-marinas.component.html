@@ -2,21 +2,24 @@
 <div class="content-wrapper-top" style="background-color: #e2d4b9;">
     <div style="margin-top: 4vw;">
         <h2>Catálogo de Criaturas Marinas</h2>
-        <button class="boton-alargado" style="margin-bottom: 1vw;" (click)="filtrando=!filtrando">{{filtrando ? "Ocultar":"Mostrar"}} filtros</button>
-        <div class="flex-centered" [style.display]="filtrando ? 'flex' : 'none'" style="padding-bottom: 1vw;">
-            <div class="bigFilterContainerBrown">
-                <div style="font-size: 1.5vw; padding-left: 2vw; padding-top: 0.5vw;"><b>Sombra</b></div>
-                <button class="boton-alargado shadowButton" (click)="filtraShadow('X-Small')" [class]="this.filtroAcShadow == 'X-Small' ? 'b-verde' : 'b-azul'" style="grid-column: 1;">Diminuta</button>
-                <button class="boton-alargado shadowButton" (click)="filtraShadow('Small')" [class]="this.filtroAcShadow == 'Small' ? 'b-verde' : 'b-azul'" style="grid-column: 2;">Pequeña</button>
-                <button class="boton-alargado shadowButton" (click)="filtraShadow('Medium')" [class]="this.filtroAcShadow == 'Medium' ? 'b-verde' : 'b-azul'" style="grid-column: 3;">Mediana</button>
-                <button class="boton-alargado shadowButton" (click)="filtraShadow('Large')" [class]="this.filtroAcShadow == 'Large' ? 'b-verde' : 'b-azul'" style="grid-column: 4;">Grande</button>
-                <button class="boton-alargado shadowButton" (click)="filtraShadow('X-Large')" [class]="this.filtroAcShadow == 'X-Large' ? 'b-verde' : 'b-azul'" style="grid-column: 5;">Muy grande</button>
+        <div id="wrap-filtros" class="flex-centered" style="align-items: unset;">
+          <div style="width: 35%;" class="flex-column-centered">
+            <h3>Sombra</h3>
+            <div class="flex-centered" style="flex-wrap: wrap;" id="filtro-sombra">
+                <button class="boton-alargado" (click)="filtraShadow('X-Small')" [class]="this.filtroAcShadow == 'X-Small' ? 'b-verde' : 'b-azul'">Diminuta</button>
+                <button class="boton-alargado" (click)="filtraShadow('Small')" [class]="this.filtroAcShadow == 'Small' ? 'b-verde' : 'b-azul'">Pequeña</button>
+                <button class="boton-alargado" (click)="filtraShadow('Medium')" [class]="this.filtroAcShadow == 'Medium' ? 'b-verde' : 'b-azul'">Mediana</button>
+                <button class="boton-alargado" (click)="filtraShadow('Large')" [class]="this.filtroAcShadow == 'Large' ? 'b-verde' : 'b-azul'">Grande</button>
+                <button class="boton-alargado" (click)="filtraShadow('X-Large')" [class]="this.filtroAcShadow == 'X-Large' ? 'b-verde' : 'b-azul'">Muy grande</button>
+              </div>
             </div>
-            <div style="margin-right: 1vw; width: 10vw;" [style.display]="this._verif.user == null ? 'none' : 'block'">
-                <button class="boton-alargado extraButton" (click)="activaFiltro('obtenido')" [class]="this.botonFiltrar == 'obtenido' ? 'b-verde' : 'b-azul'">Obtenidos</button>
-                <button class="boton-alargado extraButton" (click)="activaFiltro('falta')" [class]="this.botonFiltrar == 'falta' ? 'b-verde' : 'b-azul'">Me faltan</button>
+            <div class="flex-column-centered" style="width: 35%;">
+              <input [formControl]="busqueda" class="text-input" style="width: 80%;margin-top: 2vw" type="text" placeholder="Buscar">
+              <div class="flex-column-entered" style="margin:0.5vw" [style.display]="this._verif.user == null ? 'none' : 'block'" id="filtro-usuario">
+                <button class="boton-alargado" (click)="activaFiltro('obtenido')" [class]="this.botonFiltrar == 'obtenido' ? 'b-verde' : 'b-azul'">Obtenidos</button>
+                <button class="boton-alargado" (click)="activaFiltro('falta')" [class]="this.botonFiltrar == 'falta' ? 'b-verde' : 'b-azul'">Me faltan</button>
+              </div>
             </div>
-            <input [formControl]="busqueda" class="text-input" type="text" placeholder="Buscar" [style.width]="this._verif.user == null ? '50%' : '30%'">
         </div>
     </div>
 </div>
@@ -88,7 +91,9 @@
             <div class="check-container" *ngIf="this._verif.user != null">
                 <button [style.background-image]="this.listaUsuario.includes(creature.translations.spanish.replace(' ','')) ? 'url(../../assets/images/check-rojo.png)' : 'url(../../assets/images/check-gris.png)'" class="boton-imagen editar" (click)="toggleCheck(creature)"></button>
             </div>
-            <img (click)="mostrar(creature)" [src]="creature.critterpediaImage" style="cursor: pointer; max-height: 10vw; width: 8vw; padding-left: 2vw; padding-right: 2vw;" [id]='creature.translations.spanish.replace(" ", "")'>
+            <div style="width: 8vw; height: 8vw;" class="flex-centered">
+              <img (click)="mostrar(creature)" [src]="creature.critterpediaImage" style="cursor: pointer;max-width: 100%;max-height: 100%;" [id]='creature.translations.spanish.replace(" ", "")'>
+            </div>
             <span>{{creature.translations.spanish | capitalize}}</span>
         </div>
         </ng-container>
