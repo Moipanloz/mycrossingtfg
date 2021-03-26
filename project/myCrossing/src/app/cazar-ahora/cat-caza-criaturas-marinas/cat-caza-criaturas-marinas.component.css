@@ -141,3 +141,7 @@ span{
     height: 1vw;
     margin-left: 0.5vw;
   }
+  .selectMonth{
+    width: 9vw;
+    height: 2vw;
+  }

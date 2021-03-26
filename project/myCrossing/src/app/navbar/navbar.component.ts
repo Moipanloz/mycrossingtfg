@@ -36,6 +36,11 @@ export class NavbarComponent {
     });
   }
 
+  irInicio(){
+    this._comunicacion.activar=false;
+    this.router.navigate(['']);
+  }
+
   logOut(){
     this._user.logOut().then(() => {
       this.cookieService.delete('verif');

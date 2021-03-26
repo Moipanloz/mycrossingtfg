@@ -6,18 +6,18 @@ import { ICreature } from 'animal-crossing';
 })
 export class CazablePipe implements PipeTransform {
 
-  transform(lista: Array<ICreature>, isNorth:boolean, mes:number, hora:number): Array<any> {
+  transform(lista: Array<ICreature>, isNorth:boolean, mes:any, hora:number): Array<any> {
     if(!lista)  return lista;
     let list2 : ICreature[] = [];
     lista.forEach(c=>{
       if(isNorth){
-        if(mes < 1 || mes > 13 || c.hemispheres.north.monthsArray.includes(mes)){
+        if(mes < 1 || mes > 13 || c.hemispheres.north.monthsArray.includes(Number.parseInt(mes))){
           if(hora < 0 || hora > 23 || c.hemispheres.north.timeArray.includes(hora)){
             list2.push(c);
           }
         }
       }else{
-        if(mes < 1 || mes > 13 || c.hemispheres.south.monthsArray.includes(mes)){
+        if(mes < 1 || mes > 13 || c.hemispheres.south.monthsArray.includes(Number.parseInt(mes))){
           if(hora < 0 || hora > 23 || c.hemispheres.south.timeArray.includes(hora)){
             list2.push(c);
           }
