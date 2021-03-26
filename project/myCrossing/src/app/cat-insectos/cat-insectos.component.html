@@ -2,38 +2,31 @@
 <div class="content-wrapper-top" style="background-color: #e2d4b9;">
   <div style="margin-top: 4vw;">
     <h2>Catálogo de insectos</h2>
-    <div id="wrap-filtros" class="flex-centered" style="align-items: unset;">
-      <div style="width: 35%;" class="flex-column-centered">
-          <h3>Lugar</h3>
-          <div class="flex-centered" style="flex-wrap: wrap;" id="filtro-lugar">
-            <button class="boton-alargado" (click)="filtraWhe('On trees (any kind)')" [class]="this.filtroAcWhe == 'On trees (any kind)' ? 'b-verde' : 'b-azul'">Sobre árboles (cualquier tipo)</button>
-            <button class="boton-alargado" (click)="filtraWhe('On hardwood/cedar trees')" [class]="this.filtroAcWhe == 'On hardwood/cedar trees' ? 'b-verde' : 'b-azul'">Sobre árboles hardwood o cedar</button>
-            <button class="boton-alargado" (click)="filtraWhe('Flying near flowers')" [class]="this.filtroAcWhe == 'Flying near flowers' ? 'b-verde' : 'b-azul'">Volando cerca de flores</button>
-            <button class="boton-alargado" (click)="filtraWhe('Flying near water')" [class]="this.filtroAcWhe == 'Flying near water' ? 'b-verde' : 'b-azul'">Volando cerca del agua</button>
-            <button class="boton-alargado" (click)="filtraWhe('On tree stumps')" [class]="this.filtroAcWhe == 'On tree stumps' ? 'b-verde' : 'b-azul'">Sobre tocones</button>
-            <button class="boton-alargado" (click)="filtraWhe('Flying')" [class]="this.filtroAcWhe == 'Flying' ? 'b-verde' : 'b-azul'">Volando</button>
-            <button class="boton-alargado" (click)="filtraWhe('On the ground')" [class]="this.filtroAcWhe == 'On the ground' ? 'b-verde' : 'b-azul'">En el suelo</button>
-            <button class="boton-alargado" (click)="filtraWhe('On flowers')" [class]="this.filtroAcWhe == 'On flowers' ? 'b-verde' : 'b-azul'">Sobre flores</button>
-            <button class="boton-alargado" (click)="filtraWhe('On rivers/ponds')" [class]="this.filtroAcWhe == 'On rivers/ponds' ? 'b-verde' : 'b-azul'">Sobre ríos o estanques</button>
-            <button class="boton-alargado" (click)="filtraWhe('On palm trees')" [class]="this.filtroAcWhe == 'On palm trees' ? 'b-verde' : 'b-azul'">Sobre palmeras</button>
-            <button class="boton-alargado" (click)="filtraWhe('Other')" [class]="this.filtroAcWhe == 'Other' ? 'b-verde' : 'b-azul'">Otros</button>
-          </div>
+    <button class="boton-alargado" style="margin-bottom: 1vw;" (click)="filtrando=!filtrando">{{filtrando ? "Ocultar":"Mostrar"}} filtros</button>
+    <div class="flex-centered" [style.display]="filtrando ? 'flex' : 'none'" style="padding-bottom: 1vw;">
+      <div class="bigFilterContainerBrown">
+        <button class="boton-alargado whereButton" (click)="filtraWhe('On trees (any kind)')" [class]="this.filtroAcWhe == 'On trees (any kind)' ? 'b-verde' : 'b-azul'" style="grid-column: 1;">Sobre árboles (cualquier tipo)</button>
+        <button class="boton-alargado whereButton" (click)="filtraWhe('On hardwood/cedar trees')" [class]="this.filtroAcWhe == 'On hardwood/cedar trees' ? 'b-verde' : 'b-azul'" style="grid-column: 2;">Sobre árboles hardwood o cedar</button>
+        <button class="boton-alargado whereButton" (click)="filtraWhe('Flying near flowers')" [class]="this.filtroAcWhe == 'Flying near flowers' ? 'b-verde' : 'b-azul'" style="grid-column: 3;">Volando cerca de flores</button>
+        <button class="boton-alargado whereButton" (click)="filtraWhe('Flying near water')" [class]="this.filtroAcWhe == 'Flying near water' ? 'b-verde' : 'b-azul'" style="grid-column: 4;">Volando cerca del agua</button>
+        <button class="boton-alargado whereButton" (click)="filtraWhe('On tree stumps')" [class]="this.filtroAcWhe == 'On tree stumps' ? 'b-verde' : 'b-azul'" style="height: 4vw; grid-column: 1;">Sobre tocones</button>
+        <button class="boton-alargado whereButton" (click)="filtraWhe('Flying')" [class]="this.filtroAcWhe == 'Flying' ? 'b-verde' : 'b-azul'" style="height: 4vw; grid-column: 2;">Volando</button>
+        <button class="boton-alargado whereButton" (click)="filtraWhe('On the ground')" [class]="this.filtroAcWhe == 'On the ground' ? 'b-verde' : 'b-azul'" style="height: 4vw; grid-column: 3;">En el suelo</button>
+        <button class="boton-alargado whereButton" (click)="filtraWhe('On flowers')" [class]="this.filtroAcWhe == 'On flowers' ? 'b-verde' : 'b-azul'" style="height: 4vw; grid-column: 4;">Sobre flores</button>
+        <button class="boton-alargado whereButton" (click)="filtraWhe('On rivers/ponds')" [class]="this.filtroAcWhe == 'On rivers/ponds' ? 'b-verde' : 'b-azul'" style="height: 4vw; grid-column: 1;">Sobre ríos o estanques</button>
+        <button class="boton-alargado whereButton" (click)="filtraWhe('On palm trees')" [class]="this.filtroAcWhe == 'On palm trees' ? 'b-verde' : 'b-azul'" style="height: 4vw; grid-column: 2;">Sobre palmeras</button>
+        <button class="boton-alargado whereButton" (click)="filtraWhe('Other')" [class]="this.filtroAcWhe == 'Other' ? 'b-verde' : 'b-azul'" style="height: 4vw; grid-column: 3;">Otros</button>
       </div>
-      <div style="width: 20%;justify-content: unset;margin: 0 1vw" class="flex-column-centered">
-        <h3>Clima</h3>
-        <div class="flex-centered" style="flex-wrap: wrap;" id="filtro-clima">
-          <button class="boton-alargado" (click)="filtraWe('Any weather')" [class]="this.filtroAcWe == 'Any weather' ? 'b-verde' : 'b-azul'">Cualquier clima</button>
-          <button class="boton-alargado" (click)="filtraWe('Any except rain')" [class]="this.filtroAcWe == 'Any except rain' ? 'b-verde' : 'b-azul'">Cualquier clima menos lluvia</button>
-          <button class="boton-alargado" (click)="filtraWe('Rain only')" [class]="this.filtroAcWe == 'Rain only' ? 'b-verde' : 'b-azul'">Solo durante lluvia</button>
-        </div>
+      <div class="bigFilterContainerYellow">
+        <button class="boton-alargado weatherButton" (click)="filtraWe('Any weather')" [class]="this.filtroAcWe == 'Any weather' ? 'b-verde' : 'b-azul'">Cualquier clima</button>
+        <button class="boton-alargado weatherButton" (click)="filtraWe('Any except rain')" [class]="this.filtroAcWe == 'Any except rain' ? 'b-verde' : 'b-azul'">Cualquier clima menos lluvia</button>
+        <button class="boton-alargado weatherButton" (click)="filtraWe('Rain only')" [class]="this.filtroAcWe == 'Rain only' ? 'b-verde' : 'b-azul'">Solo durante lluvia</button>
       </div>
-      <div class="flex-column-centered" style="width: 35%;">
-        <input [formControl]="busqueda" class="text-input" style="width: 80%;margin-top: 2vw" type="text" placeholder="Buscar">
-        <div class="flex-column-entered" style="margin:0.5vw" [style.display]="this._verif.user == null ? 'none' : 'block'" id="filtro-usuario">
-          <button class="boton-alargado" (click)="activaFiltro('obtenido')" [class]="this.botonFiltrar == 'obtenido' ? 'b-verde' : 'b-azul'">Obtenidos</button>
-          <button class="boton-alargado" (click)="activaFiltro('falta')" [class]="this.botonFiltrar == 'falta' ? 'b-verde' : 'b-azul'">Me faltan</button>
-        </div>
+      <div style="margin-right: 1vw; width: 10vw;" [style.display]="this._verif.user == null ? 'none' : 'block'">
+        <button class="boton-alargado extraButton" (click)="activaFiltro('obtenido')" [class]="this.botonFiltrar == 'obtenido' ? 'b-verde' : 'b-azul'">Obtenidos</button>
+        <button class="boton-alargado extraButton" (click)="activaFiltro('falta')" [class]="this.botonFiltrar == 'falta' ? 'b-verde' : 'b-azul'">Me faltan</button>
       </div>
+      <input [formControl]="busqueda" class="text-input" type="text" placeholder="Buscar" [style.width]="this._verif.user == null ? '50%' : '30%'">
     </div>
   </div>
 </div>
@@ -105,9 +98,7 @@
           <div class="check-container" *ngIf="this._verif.user != null">
             <button [style.background-image]="this.listaUsuario.includes(creature.translations.spanish.replace(' ','')) ? 'url(../../assets/images/check-rojo.png)' : 'url(../../assets/images/check-gris.png)'" class="boton-imagen editar" (click)="toggleCheck(creature)"></button>
           </div>
-          <div style="width: 8vw; height: 8vw;" class="flex-centered">
-            <img (click)="mostrar(creature)" [src]="creature.critterpediaImage" style="cursor: pointer;max-width: 100%;max-height: 100%;" [id]='creature.translations.spanish.replace(" ", "")'>
-          </div>
+          <img (click)="mostrar(creature)" [src]="creature.critterpediaImage" style="cursor: pointer; height: 5vw; max-width: 10vw; padding-left: 2vw; padding-right: 2vw;" [id]='creature.translations.spanish.replace(" ", "")'>
           <span>{{creature.translations.spanish | capitalize}}</span>
         </div>
       </ng-container>

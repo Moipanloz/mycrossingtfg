@@ -6,14 +6,14 @@
             <div style="width: 35%;" class="flex-column-centered">
                 <h3>Sombra</h3>
                 <div class="flex-centered" style="flex-wrap: wrap;" id="filtro-sombra">
-                  <button class="boton-alargado" (click)="filtraShadow('X-Small')" [class]="this.filtroAcShadow == 'X-Small' ? 'b-verde' : 'b-azul'">Diminuta</button>
-                  <button class="boton-alargado" (click)="filtraShadow('Small')" [class]="this.filtroAcShadow == 'Small' ? 'b-verde' : 'b-azul'" >Pequeña</button>
-                  <button class="boton-alargado" (click)="filtraShadow('Medium')" [class]="this.filtroAcShadow == 'Medium' ? 'b-verde' : 'b-azul'">Mediana</button>
-                  <button class="boton-alargado" (click)="filtraShadow('Large')" [class]="this.filtroAcShadow == 'Large' ? 'b-verde' : 'b-azul'">Grande</button>
-                  <button class="boton-alargado" (click)="filtraShadow('X-Large')" [class]="this.filtroAcShadow == 'X-Large' ? 'b-verde' : 'b-azul'">Muy grande</button>
-                  <button class="boton-alargado" (click)="filtraShadow('XX-Large')" [class]="this.filtroAcShadow == 'XX-Large' ? 'b-verde' : 'b-azul'">Gigante</button>
-                  <button class="boton-alargado" (click)="filtraShadow('X-Large w/Fin')" [class]="this.filtroAcShadow == 'X-Large w/Fin' ? 'b-verde' : 'b-azul'">Muy grande con aleta</button>
-                  <button class="boton-alargado" (click)="filtraShadow('Long')" [class]="this.filtroAcShadow == 'Long' ? 'b-verde' : 'b-azul'">Alargada</button>
+                  <button class="boton-alargado" (click)="filtraShadow('X-Small')" [class]="this.filtroAcShadow == 'X-Small' ? 'b-verde' : 'b-azul'" style="grid-column: 1;">Diminuta</button>
+                  <button class="boton-alargado" (click)="filtraShadow('Small')" [class]="this.filtroAcShadow == 'Small' ? 'b-verde' : 'b-azul'" style="grid-column: 2;">Pequeña</button>
+                  <button class="boton-alargado" (click)="filtraShadow('Medium')" [class]="this.filtroAcShadow == 'Medium' ? 'b-verde' : 'b-azul'" style="grid-column: 3;">Mediana</button>
+                  <button class="boton-alargado" (click)="filtraShadow('Large')" [class]="this.filtroAcShadow == 'Large' ? 'b-verde' : 'b-azul'" style="grid-column: 4;">Grande</button>
+                  <button class="boton-alargado" (click)="filtraShadow('X-Large')" [class]="this.filtroAcShadow == 'X-Large' ? 'b-verde' : 'b-azul'" style="grid-column: 1;">Muy grande</button>
+                  <button class="boton-alargado" (click)="filtraShadow('XX-Large')" [class]="this.filtroAcShadow == 'XX-Large' ? 'b-verde' : 'b-azul'" style="grid-column: 2;">Gigante</button>
+                  <button class="boton-alargado" (click)="filtraShadow('X-Large w/Fin')" [class]="this.filtroAcShadow == 'X-Large w/Fin' ? 'b-verde' : 'b-azul'" style="grid-column: 3;">Muy grande con aleta</button>
+                  <button class="boton-alargado" (click)="filtraShadow('Long')" [class]="this.filtroAcShadow == 'Long' ? 'b-verde' : 'b-azul'" style="grid-column: 4;">Alargada</button>
                 </div>
             </div>
             <div style="width: 20%;justify-content: unset;margin: 0 1vw" class="flex-column-centered">
@@ -166,7 +166,7 @@
     </ng-template>
 
     <button [style.visibility]="max_items < listaCreatures.length && page_number * max_items < (listaCreatures | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter).length ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAlante(page_number, max_items, listaCreatures)"> > </button>
-  </div>
+    </div>
 
 </div>
     <!--   Pop-ups   -->
