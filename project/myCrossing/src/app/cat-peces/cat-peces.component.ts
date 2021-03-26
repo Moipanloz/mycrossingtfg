@@ -30,6 +30,22 @@ export class CatPecesComponent implements OnInit {
   nameFilter : string = "";
   busqueda = new FormControl("");
   _catpez : CatPecesService;
+  shownCreatureMeses : number[] = new Array<number>();
+  shownCreatureHoras : string[] = new Array<string>();
+  meses : Map<number, string> = new Map([
+    [1,"Enero"],
+    [2,"Febrero"],
+    [3,"Marzo"],
+    [4,"Abril"],
+    [5,"Mayo"],
+    [6,"Junio"],
+    [7,"Julio"],
+    [8,"Agosto"],
+    [9,"Septiembre"],
+    [10,"Octubre"],
+    [11,"Noviembre"],
+    [12,"Diciembre"]
+  ]);
 
   constructor(verif : VerificationService, pag : PaginacionService, catpez : CatPecesService) {
     this._verif = verif;
@@ -40,6 +56,7 @@ export class CatPecesComponent implements OnInit {
   @HostListener("window:scroll")
   onScroll(){
     this.hide = true;
+    this.isNorth = this._verif.hemisferio=="NORTE";
   }
 
   ngOnInit() {
@@ -87,6 +104,7 @@ export class CatPecesComponent implements OnInit {
   }
   mostrar(creature:ICreature){
     this.shownCreature=creature;
+    this.cambiaHemisferio();
     this.hide=false;
   }
 
@@ -105,6 +123,18 @@ export class CatPecesComponent implements OnInit {
     this.nameFilter = "";
     this.busqueda.setValue("");
     this.ngOnInit();
+  }
+
+  cambiaHemisferio(){
+    this.isNorth = !this.isNorth;
+
+    if(this.isNorth){
+      this.shownCreatureHoras = this.shownCreature.hemispheres.north.time;
+      this.shownCreatureMeses = this.shownCreature.hemispheres.north.monthsArray;
+    }else{
+      this.shownCreatureHoras = this.shownCreature.hemispheres.south.time;
+      this.shownCreatureMeses = this.shownCreature.hemispheres.south.monthsArray;
+    }
   }
 
   getPaginas(lista : Array<any>){

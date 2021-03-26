@@ -147,6 +147,15 @@ label{
   justify-content: center;
 }
 
+.no-pointer{
+  cursor: auto;
+}
+.flex-between{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .check-button-empty{
   background-color: blue;
 }
