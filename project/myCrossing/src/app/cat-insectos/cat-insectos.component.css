@@ -18,6 +18,7 @@ h2, span{
   grid-template-columns: repeat(5, 1fr);
 }
 
+
 .grid-item-wrap{
   background-color: #fff8c4;
   position: relative;
