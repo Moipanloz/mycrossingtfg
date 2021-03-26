@@ -15,12 +15,30 @@
                 <button class="boton-alargado shadowButton" (click)="filtraShadow('Large')" [class]="this.filtroAcShadow == 'Large' ? 'b-verde' : 'b-azul'" style="grid-column: 4;">Grande</button>
                 <button class="boton-alargado shadowButton" (click)="filtraShadow('X-Large')" [class]="this.filtroAcShadow == 'X-Large' ? 'b-verde' : 'b-azul'" style="grid-column: 5;">Muy grande</button>
             </div>
-            <div style="margin-right: 1vw; width: 10vw;" [style.display]="this._verif.user == null ? 'none' : 'block'">
-                <button class="boton-alargado extraButton" (click)="activaFiltro('obtenido')" [class]="this.botonFiltrar == 'obtenido' ? 'b-verde' : 'b-azul'">Obtenidos</button>
-                <button class="boton-alargado extraButton" (click)="activaFiltro('falta')" [class]="this.botonFiltrar == 'falta' ? 'b-verde' : 'b-azul'">Me faltan</button>
+            <div style="margin-right: 1vw; width: 10vw;">
+                <div [style.display]="this._verif.user == null ? 'none' : 'block'">
+                  <button class="boton-alargado extraButton" (click)="activaFiltro('obtenido')" [class]="this.botonFiltrar == 'obtenido' ? 'b-verde' : 'b-azul'">Obtenidos</button>
+                  <button class="boton-alargado extraButton" (click)="activaFiltro('falta')" [class]="this.botonFiltrar == 'falta' ? 'b-verde' : 'b-azul'">Me faltan</button>
+                </div>
                 <div style="display: inline-flex; margin-left: 1vw; margin-top: 1vw;"><b style="font-size: 1.5vw;">Hora:</b><input class="tiempo" [formControl]="hora" type="number" placeholder="24"></div>
-                <div style="display: inline-flex; margin-left: 1vw; margin-top: 1vw;"><b style="font-size: 1.5vw;">Mes:</b><input class="tiempo" [formControl]="mes" type="number" placeholder="12"></div>
-            </div>
+                <div style="display: inline-flex; margin-left: 1vw; margin-top: 1vw;">
+                  <b style="font-size: 1.5vw;">Mes:</b>
+                  <select class="tiempo selectMonth" [formControl]="mes">
+                    <option value="1">Enero</option>
+                    <option value="2">Febrero</option>
+                    <option value="3">Marzo</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Mayo</option>
+                    <option value="6">Junio</option>
+                    <option value="7">Julio</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                  </select>
+                </div>
+              </div>
             <input [formControl]="busqueda" type="text" placeholder="Buscar" [style.width]="this._verif.user == null ? '50%' : '30%'">
         </div>
     </div>
