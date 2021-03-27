@@ -20,7 +20,7 @@ export class TraducirPipe implements PipeTransform {
         result="Solo durante lluvia";
         break;
       case "On trees (any kind)":
-        result="Sobre árboles (cualquier tipo)";
+        result="En árboles o palmeras";
         break;
       case "Flying near flowers":
         result="Volando cerca de flores";
@@ -29,7 +29,7 @@ export class TraducirPipe implements PipeTransform {
         result="Sobre nabos podridos o chuches";
         break;
       case "Shaking trees (hardwood or cedar only)":
-        result="Sacudiendo arboles (hardwood o cedar)";
+        result="Sacudiendo arboles";
         break;
       case "Flying near water":
         result="Volando cerca del agua";
@@ -38,10 +38,10 @@ export class TraducirPipe implements PipeTransform {
         result="En el suelo";
         break;
       case "On palm trees":
-        result="Sobre palmeras";
+        result="En palmeras";
         break;
       case "On hardwood/cedar trees":
-        result="Sobre árboles hardwood o cedar";
+        result="En árboles";
         break;
       case "From hitting rocks":
         result="Golpeando rocas";
@@ -53,31 +53,31 @@ export class TraducirPipe implements PipeTransform {
         result="Volando";
         break;
       case "On rivers/ponds":
-        result="Sobre ríos o estanques";
+        result="En ríos o estanques";
         break;
       case "Pushing snowballs":
         result="Empujando bolas de nieve";
         break;
       case "On villagers":
-        result="Sobre aldeanos";
+        result="En aldeanos";
         break;
       case "Flying near trash (boots, tires, cans, used fountain fireworks) or rotten turnips":
         result="Volando cerca de basura o nabos podridos";
         break;
       case "Disguised on shoreline":
-        result="Camuflado a la orilla del mar";
+        result="Camuflado en la playa";
         break;
       case "On flowers":
-        result="Sobre flores";
+        result="En flores";
         break;
       case "Underground (dig where noise is loudest)":
-        result="Bajo tierra (cava donde más se escuche)";
+        result="Bajo tierra";
         break;
       case "Flying near light sources":
         result="Volando cerca de luces";
         break;
       case "On white flowers":
-        result="Sobre flores blancas";
+        result="En flores blancas";
         break;
       case "Flying near blue/purple/black flowers":
         result="Volando cerca de flores azules, moradas o negras";
@@ -92,7 +92,10 @@ export class TraducirPipe implements PipeTransform {
         result="Sacudiendo árboles";
         break;
       case "On beach rocks":
-        result="Sobre rocas en la playa";
+        result="En rocas de la playa";
+        break;
+      case "All day":
+        result="Todo el día";
         break;
       default:
         result=value;

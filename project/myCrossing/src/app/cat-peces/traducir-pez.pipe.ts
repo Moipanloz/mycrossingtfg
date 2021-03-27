@@ -8,7 +8,6 @@ export class TraducirPezPipe implements PipeTransform {
   transform(value: string): string {
     if(!value)  return value;
     let result : string = null;
-    if(value[0]=="All day") return "Todo el día";
     switch(value){
       case "XX-Large":
         result="Gigante";

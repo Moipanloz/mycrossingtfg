@@ -13,6 +13,7 @@ import { debounceTime } from "rxjs/operators";
 })
 export class CatPecesComponent implements OnInit {
 
+  HEMISFERIO : string = "";
   listaCreatures = new Array<ICreature>();
   shownCreature : ICreature = creatures.filter(i => i.sourceSheet == "Fish")[0];
   hide : Boolean = true;
@@ -56,13 +57,15 @@ export class CatPecesComponent implements OnInit {
   @HostListener("window:scroll")
   onScroll(){
     this.hide = true;
-    this.isNorth = this._verif.hemisferio=="NORTE";
+    this.isNorth = this.HEMISFERIO=="NORTE";
   }
 
   ngOnInit() {
     this._verif.verify().then( async () => {
       if(this._verif.user != null){
-        this.isNorth = this._verif.hemisferio=="NORTE";
+        this.HEMISFERIO = this._verif.hemisferio;
+        this.isNorth = this.HEMISFERIO == "NORTE";
+        this.checkMesesYHora();
         this.listaUsuario = new Array<string>();
         this._catpez.readPez().then(async listaUsuario => {
           for(let i = 0; i < listaUsuario.length; i++){
@@ -86,6 +89,7 @@ export class CatPecesComponent implements OnInit {
       this.num_paginas = this.getPaginas(this.listaCreatures);
     });
   }
+
   filtraWhe(filtro : string){
     this.page_number=1;
     if(this.filtroAcWhe==filtro){
@@ -94,6 +98,7 @@ export class CatPecesComponent implements OnInit {
       this.filtroAcWhe=filtro;
     }
   }
+
   filtraShadow(filtro : string){
     this.page_number=1;
     if(this.filtroAcShadow==filtro){
@@ -102,15 +107,24 @@ export class CatPecesComponent implements OnInit {
       this.filtroAcShadow=filtro;
     }
   }
-  mostrar(creature:ICreature){
+
+  mostrar(e : MouseEvent, creature:ICreature){
     this.shownCreature=creature;
-    this.cambiaHemisferio();
+    this.isNorth = this.HEMISFERIO == "NORTE";
+    this.checkMesesYHora();
     this.hide=false;
+    e.stopPropagation();
   }
 
   filtrar(value){
     this.nameFilter = value;
     this.page_number = 1;
+  }
+
+  cierraMenu(){
+    if(!this.hide){
+      this.hide = true;
+    }
   }
 
   activaFiltro(key : string){
@@ -127,7 +141,10 @@ export class CatPecesComponent implements OnInit {
 
   cambiaHemisferio(){
     this.isNorth = !this.isNorth;
+    this.checkMesesYHora();
+  }
 
+  checkMesesYHora(){
     if(this.isNorth){
       this.shownCreatureHoras = this.shownCreature.hemispheres.north.time;
       this.shownCreatureMeses = this.shownCreature.hemispheres.north.monthsArray;

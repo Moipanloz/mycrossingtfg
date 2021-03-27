@@ -101,7 +101,7 @@ if(isset($_GET['command'])){
                 checkVerificationJson($conn, $userId, $verifCode);
 
         if($validation){
-          $result = $conn->prepare('SELECT verification, nombre FROM usuarios WHERE id = ?');
+          $result = $conn->prepare('SELECT verification, nombre, hemisferio FROM usuarios WHERE id = ?');
           $result->bind_param('i', $userId);
           $result->execute();
           $res = $result->get_result();

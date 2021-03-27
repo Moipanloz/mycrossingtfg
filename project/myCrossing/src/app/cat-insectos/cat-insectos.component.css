@@ -7,7 +7,7 @@ h2, span{
 }
 
 .content-wrapper-bot{
-  background-color: #e2d4b9;
+  background-color: #62b179;
 }
 
 .pag-menu{
@@ -20,12 +20,17 @@ h2, span{
 
 
 .grid-item-wrap{
-  background-color: #fff8c4;
+  background-color: #beffbb;
   position: relative;
 }
 
 .editar{
   right: 1vw;
+  top: 1vw;
+}
+
+.editar-left{
+  left: 1vw;
   top: 1vw;
 }
 
@@ -92,19 +97,16 @@ h3{
     background-color: rgba(0, 0, 0, 0.644);
 }
 .panel{
-    top:12%;
-    left:30%;
-    padding: 2%;
-    padding-bottom: 0.2vw;
-    padding-top: 0.3vw;
-    width: 35vw;
-    font-size: 1.5vw;
-    position: fixed;
-    border-style: solid;
-    border-radius: 2vw;
-    border-color: #edd9a3;
-    border-width: 0.5vw;
-    background-color: #ffefc4;
+  top:15%;
+  left:30%;
+  width: 35vw;
+  font-size: 1.5vw;
+  position: fixed;
+  border-style: none;
+  padding: 3%;
+  border-radius: 15px;
+  background-color: #F7F3E8;
+  box-shadow: 0px 0px 10px 1px rgb(23 23 23 / 55%);
 }
 .datos{
   margin-top: 1vw;
@@ -141,22 +143,4 @@ h3{
   border-color: #a4a77b;
   background-color: #dbdb9e;
 }
-.whereButton{
-  font-size: 1vw;
-  height: 2.9vw;
-  margin:0.5vw;
-  width: -webkit-fill-available;
-}
-.shadowButton{
-  height: 6vw;
-  font-size: 1vw;
-  margin:0.5vw;
-  width: 8vw;
-}
-.extraButton{
-  font-size: 1vw;
-  margin: 0.5vw;
-  padding: 0;
-  width: 10vw;
-  height: 4vw;
-}
+

@@ -13,6 +13,7 @@ import { debounceTime } from "rxjs/operators";
 })
 export class CatInsectosComponent implements OnInit {
 
+  HEMISFERIO : string = "";
   listaCreatures = new Array<ICreature>();
   shownCreature : ICreature = creatures.filter(i => i.sourceSheet == "Insects")[0];
   hide : Boolean = true;
@@ -30,6 +31,22 @@ export class CatInsectosComponent implements OnInit {
   nameFilter : string = "";
   busqueda = new FormControl("");
   _catbicho : CatInsectosService;
+  shownCreatureMeses : number[] = new Array<number>();
+  shownCreatureHoras : string[] = new Array<string>();
+  meses : Map<number, string> = new Map([
+    [1,"Enero"],
+    [2,"Febrero"],
+    [3,"Marzo"],
+    [4,"Abril"],
+    [5,"Mayo"],
+    [6,"Junio"],
+    [7,"Julio"],
+    [8,"Agosto"],
+    [9,"Septiembre"],
+    [10,"Octubre"],
+    [11,"Noviembre"],
+    [12,"Diciembre"]
+  ]);
 
   constructor(verif : VerificationService, pag : PaginacionService, catbicho : CatInsectosService) {
     this._verif = verif;
@@ -40,12 +57,15 @@ export class CatInsectosComponent implements OnInit {
   @HostListener("window:scroll")
   onScroll(){
     this.hide = true;
+    this.isNorth = this.HEMISFERIO=="NORTE";
   }
 
   ngOnInit() {
     this._verif.verify().then( async () => {
       if(this._verif.user != null){
-        this.isNorth = this._verif.hemisferio=="NORTE";
+        this.HEMISFERIO = this._verif.hemisferio;
+        this.isNorth = this.HEMISFERIO == "NORTE";
+        this.checkMesesYHora();
         this.listaUsuario = new Array<string>();
         this._catbicho.readBicho().then(async listaUsuario => {
           for(let i = 0; i < listaUsuario.length; i++){
@@ -69,6 +89,7 @@ export class CatInsectosComponent implements OnInit {
       this.num_paginas = this.getPaginas(this.listaCreatures);
     });
   }
+
   filtraWhe(filtro : string){
     this.page_number=1;
     if(this.filtroAcWhe==filtro){
@@ -77,6 +98,22 @@ export class CatInsectosComponent implements OnInit {
       this.filtroAcWhe=filtro;
     }
   }
+
+  cambiaHemisferio(){
+    this.isNorth = !this.isNorth;
+    this.checkMesesYHora();
+  }
+
+  checkMesesYHora(){
+    if(this.isNorth){
+      this.shownCreatureHoras = this.shownCreature.hemispheres.north.time;
+      this.shownCreatureMeses = this.shownCreature.hemispheres.north.monthsArray;
+    }else{
+      this.shownCreatureHoras = this.shownCreature.hemispheres.south.time;
+      this.shownCreatureMeses = this.shownCreature.hemispheres.south.monthsArray;
+    }
+  }
+
   filtraWe(filtro : string){
     this.page_number=1;
     if(this.filtroAcWe==filtro){
@@ -85,9 +122,19 @@ export class CatInsectosComponent implements OnInit {
       this.filtroAcWe=filtro;
     }
   }
-  mostrar(creature:ICreature){
+
+  cierraMenu(){
+    if(!this.hide){
+      this.hide = true;
+    }
+  }
+
+  mostrar(e : MouseEvent, creature:ICreature){
     this.shownCreature=creature;
+    this.isNorth = this.HEMISFERIO == "NORTE";
+    this.checkMesesYHora();
     this.hide=false;
+    e.stopPropagation();
   }
 
   filtrar(value){

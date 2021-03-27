@@ -104,7 +104,7 @@
                 <button [style.background-image]="this.listaUsuario.includes(creature.translations.spanish.replace(' ','')) ? 'url(../../assets/images/check-rojo.png)' : 'url(../../assets/images/check-gris.png)'" class="boton-imagen editar" (click)="toggleCheck(creature)"></button>
             </div>
             <div style="width: 8vw; height: 8vw;" class="flex-centered">
-              <img (click)="mostrar(creature)" [src]="creature.critterpediaImage" style="cursor: pointer;max-width: 100%;max-height: 100%;" [id]='creature.translations.spanish.replace(" ", "")'>
+              <img (click)="mostrar($event, creature)" [src]="creature.critterpediaImage" style="cursor: pointer;max-width: 100%;max-height: 100%;" [id]='creature.translations.spanish.replace(" ", "")'>
             </div>
             <span>{{creature.translations.spanish | capitalize}}</span>
         </div>
@@ -170,12 +170,12 @@
 
 </div>
     <!--   Pop-ups   -->
-<div class="panel flex-between" [style.display]="hide ? 'none': 'flex'">
+<div class="panel flex-between" [style.display]="hide ? 'none': 'flex'" (clickOutside)="cierraMenu()">
     <img (click)="cambiaHemisferio()" [src]="isNorth ? '../../assets/images/hemisferio-norte.png' : '../../assets/images/hemisferio-sur.png'" class="img-radio editar editar-left" style="width: unset;height: unset;">
 
-    <div class="flex-column-centered" style="margin-left:3vw;max-width: 60%;max-height: 35vw;">
+    <div class="flex-column-centered" style="margin-left:3vw;max-width: 60%;max-height: 31vw;">
       <div class="flex-column-centered">
-        <img [src]="shownCreature.critterpediaImage" style="max-width: 100%;max-height: 15vw" [id]='shownCreature.translations.spanish.replace(" ", "")'>
+        <img [src]="shownCreature.critterpediaImage" style="max-width: 100%;max-height: 10vw" [id]='shownCreature.translations.spanish.replace(" ", "")'>
         <p><strong>{{shownCreature.translations.spanish | capitalize}}</strong></p>
       </div>
       <div>
