@@ -28,6 +28,7 @@ import { CatCazarAhoraComponent } from './cat-cazar-ahora/cat-cazar-ahora.compon
 import { CatCazaInsectosComponent } from './cazar-ahora/cat-caza-insectos/cat-caza-insectos.component';
 import { CatCazaPecesComponent } from './cazar-ahora/cat-caza-peces/cat-caza-peces.component';
 import { CatCazaCriaturasMarinasComponent } from './cazar-ahora/cat-caza-criaturas-marinas/cat-caza-criaturas-marinas.component';
+import { CatVecinosComponent } from './cat-vecinos/cat-vecinos.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { CatCazaCriaturasMarinasComponent } from './cazar-ahora/cat-caza-criatur
     CatCazarAhoraComponent,
     CatCazaInsectosComponent,
     CatCazaPecesComponent,
-    CatCazaCriaturasMarinasComponent
+    CatCazaCriaturasMarinasComponent,
+    CatVecinosComponent
   ],
   imports: [
     BrowserModule,
