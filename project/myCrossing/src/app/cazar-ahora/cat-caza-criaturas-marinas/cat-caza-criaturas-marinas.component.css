@@ -186,12 +186,9 @@ span{
     background-image: url("../../../assets/images/volver-verde.png");
   }
 
-  h3,h4{
-    margin-left: 0.5vw;
-  }
-
   h4{
     margin:0;
+    margin-left: 0.5vw;
   }
 
   #wrap-filtros{
