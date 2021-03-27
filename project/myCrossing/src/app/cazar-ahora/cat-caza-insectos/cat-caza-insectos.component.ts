@@ -104,7 +104,7 @@ export class CatCazaInsectosComponent implements OnInit {
         this.listaCreatures = await creatures.filter(i => i.sourceSheet == "Insects");
       }
       this.busqueda.valueChanges.pipe(debounceTime(300)).subscribe(value => this.filtrar(value));
-      this.hora.valueChanges.pipe(debounceTime(150)).subscribe(v=>{if(v<0){this.hora.setValue(0)}else if(v>23){this.hora.setValue(23)}});
+      this.hora.valueChanges.pipe(debounceTime(150)).subscribe(v=>{if(v<0){this.hora.setValue(23)}else if(v>23){this.hora.setValue(0)}});
       this.num_paginas = this.getPaginas(this.listaCreatures);
     });
     this.filtrando=this._comunicacion.buscaDato("filtrando")!=null;
