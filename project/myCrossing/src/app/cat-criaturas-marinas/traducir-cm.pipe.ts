@@ -37,6 +37,21 @@ export class TraducirCmPipe implements PipeTransform {
       case "All day":
         result="Todo el día";
         break;
+      case "Stationary":
+        result="Inmóvil";
+        break;
+      case "Very slow":
+        result="Muy lenta";
+        break;
+      case "Slow":
+        result="Lenta";
+        break;
+      case "Fast":
+        result="Rápida";
+        break;
+      case "Very fast":
+        result="Muy rápida";
+        break;
       default:
         result=value;
     }
