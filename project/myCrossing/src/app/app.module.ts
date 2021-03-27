@@ -24,7 +24,6 @@ import { CatArteComponent } from './cat-arte/cat-arte.component';
 import { CatInsectosComponent } from './cat-insectos/cat-insectos.component';
 import { CatPecesComponent } from './cat-peces/cat-peces.component';
 import { CatCriaturasMarinasComponent } from './cat-criaturas-marinas/cat-criaturas-marinas.component';
-import { CatCazarAhoraComponent } from './cat-cazar-ahora/cat-cazar-ahora.component';
 import { CatCazaInsectosComponent } from './cazar-ahora/cat-caza-insectos/cat-caza-insectos.component';
 import { CatCazaPecesComponent } from './cazar-ahora/cat-caza-peces/cat-caza-peces.component';
 import { CatCazaCriaturasMarinasComponent } from './cazar-ahora/cat-caza-criaturas-marinas/cat-caza-criaturas-marinas.component';
@@ -44,7 +43,6 @@ import { CatCazaCriaturasMarinasComponent } from './cazar-ahora/cat-caza-criatur
     CatInsectosComponent,
     CatPecesComponent,
     CatCriaturasMarinasComponent,
-    CatCazarAhoraComponent,
     CatCazaInsectosComponent,
     CatCazaPecesComponent,
     CatCazaCriaturasMarinasComponent

@@ -18,8 +18,10 @@ export class CatCazaInsectosComponent implements OnInit {
   @HostListener("window:scroll")
   onScroll(){
     this.hide=true;
+    this.isNorth = this.HEMISFERIO=="NORTE";
   }
 
+  HEMISFERIO : string = "";
   listaCreatures = new Array<ICreature>();
   shownCreature : ICreature = creatures.filter(i => i.sourceSheet == "Insects")[0];
   hide : Boolean = true;
@@ -41,6 +43,22 @@ export class CatCazaInsectosComponent implements OnInit {
   hola = this.mes.value
   _catbicho : CatInsectosService;
   _comunicacion : ComunicacionService;
+  shownCreatureMeses : number[] = new Array<number>();
+  shownCreatureHoras : string[] = new Array<string>();
+  meses : Map<number, string> = new Map([
+    [1,"Enero"],
+    [2,"Febrero"],
+    [3,"Marzo"],
+    [4,"Abril"],
+    [5,"Mayo"],
+    [6,"Junio"],
+    [7,"Julio"],
+    [8,"Agosto"],
+    [9,"Septiembre"],
+    [10,"Octubre"],
+    [11,"Noviembre"],
+    [12,"Diciembre"]
+  ]);
 
   constructor(private router : Router, verif : VerificationService, pag : PaginacionService, catbicho : CatInsectosService, comunicacion : ComunicacionService) {
     this._verif = verif;
@@ -64,8 +82,9 @@ export class CatCazaInsectosComponent implements OnInit {
     this.botonFiltrar=(this._comunicacion.buscaDato("obtenido")!=null)?"obtenido":((this._comunicacion.buscaDato("falta")!=null)?"falta":"none");
     this._verif.verify().then( async () => {
       if(this._verif.user != null){
-        this.isNorth = this._verif.hemisferio=="NORTE";
-        this.listaUsuario = new Array<string>();
+        this.HEMISFERIO = this._verif.hemisferio;
+        this.isNorth = this.HEMISFERIO == "NORTE";
+        this.checkMesesYHora();        this.listaUsuario = new Array<string>();
         this._catbicho.readBicho().then(async listaUsuario => {
           for(let i = 0; i < listaUsuario.length; i++){
             this.listaUsuario.push(listaUsuario[i]["nombre_criatura"]);
@@ -106,6 +125,7 @@ export class CatCazaInsectosComponent implements OnInit {
         break;
     }
   }
+
   toggleFiltrando(){
     this.filtrando=!this.filtrando;
     if(this.filtrando){
@@ -114,6 +134,7 @@ export class CatCazaInsectosComponent implements OnInit {
       this._comunicacion.eliminaDato("filtrando");
     }
   }
+
   filtraWhe(filtro : string){
     this.page_number=1;
     if(this.filtroAcWhe==filtro){
@@ -122,10 +143,19 @@ export class CatCazaInsectosComponent implements OnInit {
       this.filtroAcWhe=filtro;
     }
   }
+
+  volverFechaActual(){
+    let date = new Date();
+    this.mes.setValue(date.getMonth()+1);
+    this.hora.setValue(date.getHours());
+    this.page_number=1;
+  }
+
   toggleHemisphere(){
     this.isNorth=!this.isNorth;
     this.page_number=1;
   }
+
   filtraWe(filtro : string){
     this.page_number=1;
     if(this.filtroAcWe==filtro){
@@ -134,14 +164,39 @@ export class CatCazaInsectosComponent implements OnInit {
       this.filtroAcWe=filtro;
     }
   }
-  mostrar(creature:ICreature){
+
+  mostrar(e : MouseEvent, creature:ICreature){
     this.shownCreature=creature;
+    this.isNorth = this.HEMISFERIO == "NORTE";
+    this.checkMesesYHora();
     this.hide=false;
+    e.stopPropagation();
   }
 
   filtrar(value){
     this.nameFilter = value;
     this.page_number = 1;
+  }
+
+  cierraMenu(){
+    if(!this.hide){
+      this.hide = true;
+    }
+  }
+
+  cambiaHemisferio(){
+    this.isNorth = !this.isNorth;
+    this.checkMesesYHora();
+  }
+
+  checkMesesYHora(){
+    if(this.isNorth){
+      this.shownCreatureHoras = this.shownCreature.hemispheres.north.time;
+      this.shownCreatureMeses = this.shownCreature.hemispheres.north.monthsArray;
+    }else{
+      this.shownCreatureHoras = this.shownCreature.hemispheres.south.time;
+      this.shownCreatureMeses = this.shownCreature.hemispheres.south.monthsArray;
+    }
   }
 
   activaFiltro(key : string){

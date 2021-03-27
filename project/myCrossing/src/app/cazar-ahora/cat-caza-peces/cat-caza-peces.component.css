@@ -7,7 +7,7 @@ span{
   }
 
   .content-wrapper-bot{
-    background-color: #e2d4b9;
+    background-color: #93c8ff;
   }
 
   .pag-menu{
@@ -19,7 +19,7 @@ span{
   }
 
   .grid-item-wrap{
-    background-color: #fff8c4;
+    background-color: #b5d6ff;
     position: relative;
   }
 
@@ -77,22 +77,25 @@ span{
       background-color: rgba(0, 0, 0, 0.644);
   }
   .panel{
-      top:12%;
-      left:30%;
-      padding: 2%;
-      padding-bottom: 0.2vw;
-      padding-top: 0.3vw;
-      width: 35vw;
-      font-size: 1.5vw;
-      position: fixed;
-      border-style: solid;
-      border-radius: 2vw;
-      border-color: #edd9a3;
-      border-width: 0.5vw;
-      background-color: #ffefc4;
-  }
+    top:15%;
+    left:30%;
+    width: 35vw;
+    font-size: 1.5vw;
+    position: fixed;
+    border-style: none;
+    padding: 3%;
+    border-radius: 15px;
+    background-color: #F7F3E8;
+    box-shadow: 0px 0px 10px 1px rgb(23 23 23 / 55%);
+}
   .datos{
     margin-top: 1vw;
+  }
+
+  .editar-left{
+    left: 1vw;
+    top: 1vw;
+
   }
   .imagenHemisferio{
     width: 5vw;
@@ -107,44 +110,25 @@ span{
   .spanImg:hover{
     background-color: #85c583 !important;
   }
-  .bigFilterContainerBrown{
-    display: grid;
-    width: 40vw;
-    height: 18vw;
-    border-radius: 2vw;
-    border-style: solid;
-    border-color: #b56e6e;
-    background-color: #cd9b78;
+
+  h3,h4{
+    margin-left: 0.5vw;
   }
-  .bigFilterContainerYellow{
-    display: block;
-    margin-left: 1vw;
-    width: 18vw;
-    height: 18vw;
-    border-radius: 2vw;
-    border-style: solid;
-    border-color: #a4a77b;
-    background-color: #dbdb9e;
+
+  h4{
+    margin:0;
   }
-  .whereButton{
-    font-size: 1vw;
-    height: 2.9vw;
-    margin:0.5vw;
-    width: -webkit-fill-available;
+
+  #wrap-filtros{
+    padding-bottom: 1vw;
+    display:flex;
+    margin: auto;
   }
-  .shadowButton{
-    height: 6vw;
-    font-size: 1vw;
-    margin:0.5vw;
-    width: 8vw;
+
+  #filtro-sombra > button, #filtro-lugar > button, #filtro-usuario > button{
+    margin: 0.2vw;
   }
-  .extraButton{
-    font-size: 1vw;
-    margin: 0.5vw;
-    padding: 0;
-    width: 10vw;
-    height: 4vw;
-  }
+
   .tiempo{
     font-size: 1.5vw;
     width: 3vw;
@@ -155,3 +139,47 @@ span{
     width: 9vw;
     height: 2vw;
   }
+
+  .input-hora, .input-mes {
+    text-align: center;
+    margin-left: 0.5vw;
+  }
+
+  .input-hora{
+    width: 2.5vw;
+    height: 1vw;
+  }
+
+  .input-mes{
+    height: 2vw;
+  }
+
+  #time-wrap > div{
+    margin: 0.5vw;
+    width: 100%;
+    justify-content: unset;
+  }
+
+  .editar-top-left{
+    top: 9vw;
+    right: unset;
+  }
+
+  #ser-wrap > button {
+    background-size: 60%;
+    margin: 0.5vw 0;
+    background-position: center;
+    border-radius: 50px;
+    width: 3vw;
+    height: 3vw;
+    border-style: solid;
+  }
+
+  #volver{
+    background-image: url("../../../assets/images/volver-azul.png");
+  }
+
+  #volver:hover{
+    background-image: url("../../../assets/images/volver-verde.png");
+  }
+

@@ -49,6 +49,7 @@ export class NavbarComponent {
       this.verification.user = null;
       this.verification.nombre = "";
       this.menu = false;
+      this._comunicacion.activar = false;
       this.router.navigate([""]);
     }).catch(err => {
       this._error.setNewError(err.message);

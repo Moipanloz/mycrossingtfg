@@ -18,8 +18,10 @@ export class CatCazaPecesComponent implements OnInit {
   @HostListener("window:scroll")
   onScroll(){
     this.hide=true;
+    this.isNorth = this.HEMISFERIO=="NORTE";
   }
 
+  HEMISFERIO : string = "";
   listaCreatures = new Array<ICreature>();
   shownCreature : ICreature = creatures.filter(i => i.sourceSheet == "Fish")[0];
   hide : Boolean = true;
@@ -40,6 +42,22 @@ export class CatCazaPecesComponent implements OnInit {
   _comunicacion : ComunicacionService;
   hora = new FormControl((new Date).getHours());
   mes = new FormControl((new Date).getMonth()+1);
+  shownCreatureMeses : number[] = new Array<number>();
+  shownCreatureHoras : string[] = new Array<string>();
+  meses : Map<number, string> = new Map([
+    [1,"Enero"],
+    [2,"Febrero"],
+    [3,"Marzo"],
+    [4,"Abril"],
+    [5,"Mayo"],
+    [6,"Junio"],
+    [7,"Julio"],
+    [8,"Agosto"],
+    [9,"Septiembre"],
+    [10,"Octubre"],
+    [11,"Noviembre"],
+    [12,"Diciembre"]
+  ]);
 
   constructor(private router : Router, verif : VerificationService, pag : PaginacionService, catpez : CatPecesService, comunicacion : ComunicacionService) {
     this._verif = verif;
@@ -63,7 +81,9 @@ export class CatCazaPecesComponent implements OnInit {
     this.botonFiltrar=(this._comunicacion.buscaDato("obtenido")!=null)?"obtenido":((this._comunicacion.buscaDato("falta")!=null)?"falta":"none");
     this._verif.verify().then( async () => {
       if(this._verif.user != null){
-        this.isNorth = this._verif.hemisferio=="NORTE";
+        this.HEMISFERIO = this._verif.hemisferio;
+        this.isNorth = this.HEMISFERIO == "NORTE";
+        this.checkMesesYHora();
         this.listaUsuario = new Array<string>();
         this._catpez.readPez().then(async listaUsuario => {
           for(let i = 0; i < listaUsuario.length; i++){
@@ -84,11 +104,12 @@ export class CatCazaPecesComponent implements OnInit {
         this.listaCreatures = await creatures.filter(i => i.sourceSheet == "Fish");
       }
       this.busqueda.valueChanges.pipe(debounceTime(300)).subscribe(value => this.filtrar(value));
-      this.hora.valueChanges.pipe(debounceTime(150)).subscribe(v=>{if(v<0){this.hora.setValue(0)}else if(v>23){this.hora.setValue(23)}});
+      this.hora.valueChanges.pipe(debounceTime(150)).subscribe(v=>{if(v<0){this.hora.setValue(23)}else if(v>23){this.hora.setValue(0)}});
       this.num_paginas = this.getPaginas(this.listaCreatures);
     });
     this._comunicacion.activar=true;
   }
+
   cambiaSer(ser : string){
     if(ser!="peces"){
       this._comunicacion.datos.push("hora(" + this.hora.value + ")");
@@ -105,6 +126,7 @@ export class CatCazaPecesComponent implements OnInit {
         break;
     }
   }
+
   toggleFiltrando(){
     this.filtrando=!this.filtrando;
     if(this.filtrando){
@@ -113,10 +135,19 @@ export class CatCazaPecesComponent implements OnInit {
       this._comunicacion.eliminaDato("filtrando");
     }
   }
+
+  volverFechaActual(){
+    let date = new Date();
+    this.mes.setValue(date.getMonth()+1);
+    this.hora.setValue(date.getHours());
+    this.page_number=1;
+  }
+
   toggleHemisphere(){
     this.isNorth=!this.isNorth;
     this.page_number=1;
   }
+
   filtraWhe(filtro : string){
     this.page_number=1;
     if(this.filtroAcWhe==filtro){
@@ -125,6 +156,7 @@ export class CatCazaPecesComponent implements OnInit {
       this.filtroAcWhe=filtro;
     }
   }
+
   filtraShadow(filtro : string){
     this.page_number=1;
     if(this.filtroAcShadow==filtro){
@@ -133,9 +165,13 @@ export class CatCazaPecesComponent implements OnInit {
       this.filtroAcShadow=filtro;
     }
   }
-  mostrar(creature:ICreature){
+
+  mostrar(e : MouseEvent, creature:ICreature){
     this.shownCreature=creature;
+    this.isNorth = this.HEMISFERIO == "NORTE";
+    this.checkMesesYHora();
     this.hide=false;
+    e.stopPropagation();
   }
 
   filtrar(value){
@@ -156,6 +192,27 @@ export class CatCazaPecesComponent implements OnInit {
     this.nameFilter = "";
     this.busqueda.setValue("");
     this.ngOnInit();
+  }
+
+  cierraMenu(){
+    if(!this.hide){
+      this.hide = true;
+    }
+  }
+
+  cambiaHemisferio(){
+    this.isNorth = !this.isNorth;
+    this.checkMesesYHora();
+  }
+
+  checkMesesYHora(){
+    if(this.isNorth){
+      this.shownCreatureHoras = this.shownCreature.hemispheres.north.time;
+      this.shownCreatureMeses = this.shownCreature.hemispheres.north.monthsArray;
+    }else{
+      this.shownCreatureHoras = this.shownCreature.hemispheres.south.time;
+      this.shownCreatureMeses = this.shownCreature.hemispheres.south.monthsArray;
+    }
   }
 
   getPaginas(lista : Array<any>){
