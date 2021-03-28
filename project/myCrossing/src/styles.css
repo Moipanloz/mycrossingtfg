@@ -190,6 +190,11 @@ label{
   border-color: rgb(149, 229, 155);
 }
 
+.b-azul:hover{
+  background-color: rgb(203, 244, 196);
+  border-color: rgb(149, 229, 155);
+}
+
 .b-amarillo{
   background-color: #ffefc4;
   border-color: #edd9a3;

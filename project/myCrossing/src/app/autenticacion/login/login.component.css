@@ -1,81 +1,83 @@
 .titulo{
-  font-size: 5vw;
   text-align: center;
   margin-bottom: 3%;
 }
 .error{
   font-size: 1vw;
-  padding-left: 10%;
   margin-bottom: 2%;
   color: red;
-
 }
 .field{
-  padding-left: 10%;
-  width: 100%;
   display: flex;
-  margin-bottom: 2%;
-  margin-top: 10%;
+  margin-bottom: 5%;
 }
-.fieldlabel{
-  width: 8vw;
+
+label{
+  font-size: 1.2vw;
 }
-.fieldinput{
-  text-align: right;
-  width: 5vw;
-  margin-left: 15%;
-}
-input{
-  font-size: 1.3vw;
-}
+
 .iniciar{
-  margin-bottom: 3%;
-  margin-top: 10%;
+  margin-bottom: 15%;
+  margin-top: 35%;
   text-align: center;
 }
 .pantalla{
-  border-style: solid;
-  border-radius: 10%;
-  border-color: black;
-  border-width: 1.5px;
+  border-style: none;
+  border-radius: 100px;
   padding: 3% 3% 2% 3%;
-  background-color: rgb(210, 255, 214);
+  background-color: #fbf9ec;
 }
+
+.movil-grande{
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.top-movil{
+  margin:auto;
+  width: 75%;
+  margin-top:5%;
+  position: absolute;
+}
+
 .menu{
   width: 100%;
   text-align: center;
 }
 button{
-  font-size: 2vw;
-}
-.botonmovil{
-  padding: 7% 7% 7% 7%;
-  margin: 5% 0% 0% 42%;
-  border-style: solid;
-  border-radius: 100%;
-  border-color: black;
-  border-width: 1.5px;
-  background-color: #ceebaf;
-  width: 1%;
-  margin-top: 5%;
+  font-size: 1.2vw;
 }
 
 .formulario{
-  border-style: solid;
-  border-radius: 10%;
-  border-color: black;
-  border-width: 1.5px;
-  background-color: #fffec2;
+  border-style: none;
+  border-radius: 100px;
+  background-color: #fbf9ec;
   padding-top: 10%;
-  padding-bottom: 30%;
 }
 
 .movil{
-  padding: 2vw 30% 0% 30%;
+  padding: 2vw 37vw;
+}
+
+.botonmovil{
+  border-radius: 100%;
+  background-color: #e0d9cf;
+  width: 1vh;
+  height: 1vh;
+}
+
+.azul{
+  border-style: solid;
+  border-width: 5%;
+  border-color: #21a0ad;
 }
 
 .background{
   height: 100%;
+  background-image: url("../../../assets/images/caracola-blur.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: #c9f3f3;
   font-size: 2vw;
   padding: 5vw 0;
