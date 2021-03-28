@@ -15,7 +15,7 @@
     <ng-template #logueado>
       <div (clickOutside)="cierraMenu()" class="cierra-wrap">
         <span style="font-size: 1.3vw;"><b>{{this.verification.nombre | capitalize}}</b></span>
-        <img src="../../assets/images/logo.png" (click)="toggleMenu()" style="margin-left: 5%"/>
+        <img src="../../assets/images/imagen-perfil.png" (click)="toggleMenu()" style="margin-left: 5%"/>
         <div class="dropdown-menu" [hidden]="!menu" >
           <button class="button-menu" routerLink="/perfil" routerLinkActive="activo" (click)="menu = false">Perfil</button>
           <button class="button-menu" (click)="logOut()">Cierra sesión</button>
