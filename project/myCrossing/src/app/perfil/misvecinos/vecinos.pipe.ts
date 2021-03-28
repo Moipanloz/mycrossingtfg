@@ -206,7 +206,7 @@ function traduceLista(value:string, categoria: string){
   }else{
     switch(value){
       case 'Active':
-        res='Activo';
+        res='Deportivo';
         break;
       case 'Cool':
         res='Guay';

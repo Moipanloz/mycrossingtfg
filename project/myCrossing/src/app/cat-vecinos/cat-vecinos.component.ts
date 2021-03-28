@@ -15,6 +15,7 @@ export class CatVecinosComponent implements OnInit {
   listaVillagers = new Array<IVillager>();
   shownVillager : IVillager = villagers.filter(i => i.sourceSheet != null)[0];
   hide : Boolean = true;
+  filtroAcGen : String = "";
   filtrando : Boolean = false;
   listaUsuario : Array<string>;
   _verif : VerificationService;
@@ -25,6 +26,8 @@ export class CatVecinosComponent implements OnInit {
   botonFiltrar : string = "none";
   nameFilter : string = "";
   busqueda = new FormControl("");
+  personality = new FormControl("Todos");
+  specie = new FormControl("Todos");
 
   constructor(verif : VerificationService, pag : PaginacionService) {
     this._verif = verif;
@@ -44,6 +47,14 @@ export class CatVecinosComponent implements OnInit {
       this.num_paginas = this.getPaginas(this.listaVillagers);
     });
   }
+  filtraGen(genero : string){
+    if(this.filtroAcGen==genero){
+      this.filtroAcGen="";
+    }else{
+      this.filtroAcGen = genero;
+    }
+  }
+
   mostrar(villager:IVillager){
     this.shownVillager=villager;
     this.hide=false;

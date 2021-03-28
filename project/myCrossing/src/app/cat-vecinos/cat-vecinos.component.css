@@ -93,11 +93,11 @@ h3{
 }
 .panel{
     top:12%;
-    left:30%;
+    left:35%;
     padding: 2%;
     padding-bottom: 0.2vw;
     padding-top: 0.3vw;
-    width: 35vw;
+    width: 25vw;
     font-size: 1.5vw;
     position: fixed;
     border-style: solid;
@@ -123,4 +123,11 @@ h3{
     padding: 0;
     width: 10vw;
     height: 4vw;
+}
+.selector{
+    font-size: 1.2vw;
+    margin: 0.5vw;
+    padding: 0;
+    width: 10vw;
+    height: 1.7vw;
 }
