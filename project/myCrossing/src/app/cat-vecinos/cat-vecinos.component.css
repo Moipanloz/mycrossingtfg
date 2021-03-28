@@ -7,7 +7,7 @@ h2, span{
 }
 
 .content-wrapper-bot{
-    background-color: #e2d4b9;
+    background-color: #ff9d72;
 }
 
 .pag-menu{
@@ -20,7 +20,7 @@ h2, span{
 
 
 .grid-item-wrap{
-    background-color: #fff8c4;
+    background-color: #f7cda4;
     position: relative;
 }
 
@@ -41,17 +41,13 @@ h2, span{
     background-color: rgb(157 228 163);
 }
 
-h3{
-    margin-left: 0.5vw;
-}
-
 #wrap-filtros{
     padding-bottom: 1vw;
     display:flex;
     margin: auto;
 }
 
-#filtro-clima > button, #filtro-lugar > button, #filtro-usuario > button{
+#filtro-personalidad > button{
     margin: 0.2vw;
 }
 
@@ -73,6 +69,13 @@ h3{
     padding: 0;
 }
 
+.btn-genero{
+  width: 2.5vw;
+  height: 2.5vw;
+  background-size: 70%;
+}
+
+
 .b-pag{
     border-radius: 5px;
     border-style: none;
@@ -92,19 +95,16 @@ h3{
     background-color: rgba(0, 0, 0, 0.644);
 }
 .panel{
-    top:12%;
-    left:35%;
-    padding: 2%;
-    padding-bottom: 0.2vw;
-    padding-top: 0.3vw;
-    width: 25vw;
-    font-size: 1.5vw;
-    position: fixed;
-    border-style: solid;
-    border-radius: 2vw;
-    border-color: #edd9a3;
-    border-width: 0.5vw;
-    background-color: #ffefc4;
+  top:10%;
+  left:30%;
+  width: 35vw;
+  font-size: 1.5vw;
+  position: fixed;
+  border-style: none;
+  padding: 2%;
+  border-radius: 15px;
+  background-color: #F7F3E8;
+  box-shadow: 0px 0px 10px 1px rgb(23 23 23 / 55%);
 }
 .datos{
     margin-top: 1vw;
@@ -116,13 +116,6 @@ h3{
 }
 .spanImg:hover{
     background-color: #85c583 !important;
-}
-.extraButton{
-    font-size: 1vw;
-    margin: 0.5vw;
-    padding: 0;
-    width: 10vw;
-    height: 4vw;
 }
 .selector{
     font-size: 1.2vw;

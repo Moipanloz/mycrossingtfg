@@ -1,220 +1,218 @@
 <!-- Filtros búsqueda -->
-<div class="content-wrapper-top" style="background-color: #e2d4b9;">
+<div class="content-wrapper-top" style="background-color: #ff9d72;">
     <div style="margin-top: 4vw;">
-      <h2>Catálogo de insectos</h2>
+      <h2>Listado de Vecinos</h2>
       <div id="wrap-filtros" class="flex-centered" style="align-items: unset;">
         <div style="width: 35%;" class="flex-column-centered">
-            <div style="display:flex;">
-                <b style="font-size: 1.5vw;">Personalidad: </b>
-                <select [formControl]="personality" class="selector">
-                    <option value="Todos">Todos</option>
-                    <option value="Cranky">Malhumorado</option>
-                    <option value="Peppy">Vivaracha</option>
-                    <option value="Big Sister">Hermana mayor</option>
-                    <option value="Lazy">Perezoso</option>
-                    <option value="Normal">Dulce</option>
-                    <option value="Snooty">Presumida</option>
-                    <option value="Jock">Deportista</option>
-                    <option value="Smug">Altanero</option>
-                </select>
-            </div>
-            <div style="display:flex;">
-                <b style="font-size: 1.5vw;">Especie: </b>
-                <select [formControl]="specie" class="selector">
-                    <option value="Todos">Todos</option>
-                    <option value="Bird">Pájaro</option>
-                    <option value="Squirrel">Ardilla</option>
-                    <option value="Pig">Cerdo</option>
-                    <option value="Gorilla">Gorila</option>
-                    <option value="Alligator">Cocodrilo</option>
-                    <option value="Koala">Koala</option>
-                    <option value="Eagle">Águila</option>
-                    <option value="Anteater">Oso hormiguero</option>
-                    <option value="Bull">Toro</option>
-                    <option value="Mouse">Ratón</option>
-                    <option value="Cat">Gato</option>
-                    <option value="Horse">Caballo</option>
-                    <option value="Kangaroo">Canguro</option>
-                    <option value="Wolf">Lobo</option>
-                    <option value="Penguin">Pingüino</option>
-                    <option value="Chicken">Pollo</option>
-                    <option value="Elephant">Elefante</option>
-                    <option value="Sheep">Oveja</option>
-                    <option value="Deer">Ciervo</option>
-                    <option value="Tiger">Tigre</option>
-                    <option value="Cub">Osito</option>
-                    <option value="Dog">Perro</option>
-                    <option value="Bear">Oso</option>
-                    <option value="Hippo">Hipopótamo</option>
-                    <option value="Duck">Pato</option>
-                    <option value="Goat">Cabra</option>
-                    <option value="Ostrich">Avestrúz</option>
-                    <option value="Rabbit">Conejo</option>
-                    <option value="Lion">León</option>
-                    <option value="Frog">Rana</option>
-                    <option value="Monkey">Mono</option>
-                    <option value="Rhino">Rinoceronte</option>
-                    <option value="Octopus">Pulpo</option>
-                    <option value="Cow">Vaca</option>
-                </select>
-            </div>
+          <h3>Personalidad: </h3>
+          <div class="flex-centered" style="flex-wrap: wrap;" id="filtro-personalidad">
+            <button class="boton-alargado" (click)="filtraPersonalidad('Cranky')" [class]="this.filtroAcPersonalidad == 'Cranky' ? 'b-verde' : 'b-azul'">Malhumorado</button>
+            <button class="boton-alargado" (click)="filtraPersonalidad('Peppy')" [class]="this.filtroAcPersonalidad == 'Peppy' ? 'b-verde' : 'b-azul'">Vivaracha</button>
+            <button class="boton-alargado" (click)="filtraPersonalidad('Big Sister')" [class]="this.filtroAcPersonalidad == 'Big Sister' ? 'b-verde' : 'b-azul'">Hermana mayor</button>
+            <button class="boton-alargado" (click)="filtraPersonalidad('Lazy')" [class]="this.filtroAcPersonalidad == 'Lazy' ? 'b-verde' : 'b-azul'">Perezoso</button>
+            <button class="boton-alargado" (click)="filtraPersonalidad('Normal')" [class]="this.filtroAcPersonalidad == 'Normal' ? 'b-verde' : 'b-azul'">Dulce</button>
+            <button class="boton-alargado" (click)="filtraPersonalidad('Snooty')" [class]="this.filtroAcPersonalidad == 'Snooty' ? 'b-verde' : 'b-azul'">Presumida</button>
+            <button class="boton-alargado" (click)="filtraPersonalidad('Jock')" [class]="this.filtroAcPersonalidad == 'Jock' ? 'b-verde' : 'b-azul'">Deportista</button>
+            <button class="boton-alargado" (click)="filtraPersonalidad('Smug')" [class]="this.filtroAcPersonalidad == 'Smug' ? 'b-verde' : 'b-azul'">Altanero</button>
+          </div>
+        </div>
+        <div style="width: 20%;justify-content: unset;margin: 0 1vw" class="flex-column-centered">
+          <h3>Especie: </h3>
+          <select [formControl]="specie" class="text-input">
+              <option value="Todos">Todos</option>
+              <option value="Bird">Pájaro</option>
+              <option value="Squirrel">Ardilla</option>
+              <option value="Pig">Cerdo</option>
+              <option value="Gorilla">Gorila</option>
+              <option value="Alligator">Cocodrilo</option>
+              <option value="Koala">Koala</option>
+              <option value="Eagle">Águila</option>
+              <option value="Anteater">Oso hormiguero</option>
+              <option value="Bull">Toro</option>
+              <option value="Mouse">Ratón</option>
+              <option value="Cat">Gato</option>
+              <option value="Horse">Caballo</option>
+              <option value="Kangaroo">Canguro</option>
+              <option value="Wolf">Lobo</option>
+              <option value="Penguin">Pingüino</option>
+              <option value="Chicken">Pollo</option>
+              <option value="Elephant">Elefante</option>
+              <option value="Sheep">Oveja</option>
+              <option value="Deer">Ciervo</option>
+              <option value="Tiger">Tigre</option>
+              <option value="Cub">Osito</option>
+              <option value="Dog">Perro</option>
+              <option value="Bear">Oso</option>
+              <option value="Hippo">Hipopótamo</option>
+              <option value="Duck">Pato</option>
+              <option value="Goat">Cabra</option>
+              <option value="Ostrich">Avestrúz</option>
+              <option value="Rabbit">Conejo</option>
+              <option value="Lion">León</option>
+              <option value="Frog">Rana</option>
+              <option value="Monkey">Mono</option>
+              <option value="Rhino">Rinoceronte</option>
+              <option value="Octopus">Pulpo</option>
+              <option value="Cow">Vaca</option>
+          </select>
         </div>
         <div class="flex-column-centered" style="width: 35%;">
           <input [formControl]="busqueda" class="text-input" style="width: 80%;margin-top: 2vw" type="text" placeholder="Buscar">
           <div class="flex-column-entered" style="margin:0.5vw">
-            <button class="boton-circular b-azul bckg-img-boton" style="background-image: url(../../assets/images/femenino.png);" (click)="filtraGen('f')" [class]="this.filtroAcGen == 'f' ? 'b-verde' : 'b-azul'"></button>
-            <button class="boton-circular b-azul bckg-img-boton" style="background-image: url(../../assets/images/masculino.png);" (click)="filtraGen('m')" [class]="this.filtroAcGen == 'm' ? 'b-verde' : 'b-azul'"></button>
+            <button class="boton-circular b-azul bckg-img-boton btn-genero" style="background-image: url(../../assets/images/genero-femenino.png);" (click)="filtraGen('f')" [class]="this.filtroAcGen == 'f' ? 'b-verde' : 'b-azul'"></button>
+            <button class="boton-circular b-azul bckg-img-boton btn-genero" style="background-image: url(../../assets/images/genero-masculino.png);" (click)="filtraGen('m')" [class]="this.filtroAcGen == 'm' ? 'b-verde' : 'b-azul'"></button>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+
     <!-- Items -->
   <div class="content-wrapper-bot" style="min-height: 22vw;">
-  
+
     <!-- Paginacion arriba -->
     <div class="pag-menu flex-centered">
       <button [style.visibility]="page_number != 1 ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAtras(page_number)"> < </button>
-  
-      <ng-container *ngIf="this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).length < 25; else paginacionComprimida">
-        <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter)">
+
+      <ng-container *ngIf="this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).length < 25; else paginacionComprimida">
+        <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter)">
           <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
         </ng-container>
       </ng-container>
-  
+
       <ng-template #paginacionComprimida>
         <!-- Paginacion start -->
         <ng-container *ngIf="page_number < 11">
-          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).slice(0, 11)">
+          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).slice(0, 11)">
             <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
           </ng-container>
           <button class="b-darkBlue b-pag">·</button>
           <button class="b-darkBlue b-pag">·</button>
-          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).slice(this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).length - 2, this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).length)">
+          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).slice(this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).length - 2, this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).length)">
             <button class="b-darkBlue b-pag" (click)="page_number = pag">{{pag}}</button>
           </ng-container>
         </ng-container>
-  
+
         <!-- Paginacion mid -->
-        <ng-container #mid *ngIf="10 < page_number && page_number < this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).length - 10">
-          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).slice(0, 2)">
+        <ng-container #mid *ngIf="10 < page_number && page_number < this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).length - 10">
+          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).slice(0, 2)">
             <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
           </ng-container>
           <button class="b-darkBlue b-pag">·</button>
           <button class="b-darkBlue b-pag">·</button>
-          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).slice(page_number-4, page_number+3)">
+          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).slice(page_number-4, page_number+3)">
             <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
           </ng-container>
           <button class="b-darkBlue b-pag">·</button>
           <button class="b-darkBlue b-pag">·</button>
-          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).slice(this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).length - 2, this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).length)">
+          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).slice(this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).length - 2, this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).length)">
             <button class="b-darkBlue b-pag" (click)="page_number = pag">{{pag}}</button>
           </ng-container>
         </ng-container>
-  
+
         <!-- Paginacion end -->
-        <ng-container #midOfin *ngIf="this.getPaginas(listaVillagers | filtroCategoria:filtroAcWhe:filtroAcWe | filtroCategoria:filtroAcWhe:filtroAcWe | filtroAc:nameFilter).length - 11 < page_number">
-          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).slice(0, 2)">
+        <ng-container #midOfin *ngIf="this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).length - 11 < page_number">
+          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).slice(0, 2)">
             <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
           </ng-container>
           <button class="b-darkBlue b-pag">·</button>
           <button class="b-darkBlue b-pag">·</button>
-          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).slice(this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).length - 12, this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).length)">
+          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).slice(this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).length - 12, this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).length)">
             <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
           </ng-container>
         </ng-container>
-  
+
       </ng-template>
-  
-      <button [style.visibility]="max_items < listaVillagers.length && page_number * max_items < (listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).length ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAlante(page_number, max_items, listaVillagers)"> > </button>
+
+      <button [style.visibility]="max_items < listaVillagers.length && page_number * max_items < (listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).length ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAlante(page_number, max_items, listaVillagers)"> > </button>
     </div>
-  
+
     <!-- Grid -->
     <div class="grid-w-gap" style="margin: 1vw 0">
-        <ng-container *ngFor="let villager of listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter | paginacion:page_number:max_items">
+        <ng-container *ngFor="let villager of listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter | paginacion:page_number:max_items">
           <div class="grid-item-wrap flex-column-centered" style="justify-content: space-evenly;">
             <div style="width: 8vw; height: 8vw;" class="flex-centered">
-              <img (click)="mostrar(villager)" [src]="villager.iconImage" style="cursor: pointer;max-width: 100%;max-height: 100%;" [id]='villager.translations.spanish.replace(" ", "")'>
+              <img (click)="mostrar($event, villager)" [src]="villager.iconImage" style="cursor: pointer;max-width: 100%;max-height: 100%;" [id]='villager.translations.spanish.replace(" ", "")'>
             </div>
             <span>{{villager.translations.spanish | capitalize}}</span>
           </div>
         </ng-container>
     </div>
-  
+
     <!-- Paginacion abajo -->
     <div class="pag-menu flex-centered">
       <button [style.visibility]="page_number != 1 ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAtras(page_number)"> < </button>
-  
-      <ng-container *ngIf="this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).length < 25; else paginacionComprimida">
-        <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter)">
+
+      <ng-container *ngIf="this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).length < 25; else paginacionComprimida">
+        <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter)">
           <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
         </ng-container>
       </ng-container>
-  
+
       <ng-template #paginacionComprimida>
         <!-- Paginacion start -->
         <ng-container *ngIf="page_number < 11">
-          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).slice(0, 11)">
+          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).slice(0, 11)">
             <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
           </ng-container>
           <button class="b-darkBlue b-pag">·</button>
           <button class="b-darkBlue b-pag">·</button>
-          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).slice(this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).length - 2, this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).length)">
+          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).slice(this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).length - 2, this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).length)">
             <button class="b-darkBlue b-pag" (click)="page_number = pag">{{pag}}</button>
           </ng-container>
         </ng-container>
-  
+
         <!-- Paginacion mid -->
-        <ng-container #mid *ngIf="10 < page_number && page_number < this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).length - 10">
-          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).slice(0, 2)">
+        <ng-container #mid *ngIf="10 < page_number && page_number < this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).length - 10">
+          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).slice(0, 2)">
             <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
           </ng-container>
           <button class="b-darkBlue b-pag">·</button>
           <button class="b-darkBlue b-pag">·</button>
-          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).slice(page_number-4, page_number+3)">
+          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).slice(page_number-4, page_number+3)">
             <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
           </ng-container>
           <button class="b-darkBlue b-pag">·</button>
           <button class="b-darkBlue b-pag">·</button>
-          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).slice(this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).length - 2, this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).length)">
+          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).slice(this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).length - 2, this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).length)">
             <button class="b-darkBlue b-pag" (click)="page_number = pag">{{pag}}</button>
           </ng-container>
         </ng-container>
-  
+
         <!-- Paginacion end -->
-        <ng-container #midOfin *ngIf="this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).length - 11 < page_number">
-          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).slice(0, 2)">
+        <ng-container #midOfin *ngIf="this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).length - 11 < page_number">
+          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).slice(0, 2)">
             <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
           </ng-container>
           <button class="b-darkBlue b-pag">·</button>
           <button class="b-darkBlue b-pag">·</button>
-          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).slice(this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).length - 12, this.getPaginas(listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).length)">
+          <ng-container *ngFor="let pag of this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).slice(this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).length - 12, this.getPaginas(listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).length)">
             <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
           </ng-container>
         </ng-container>
-  
+
       </ng-template>
-  
-      <button [style.visibility]="max_items < listaVillagers.length && page_number * max_items < (listaVillagers | filtraVecinos:personality.value:specie.value:filtroAcGen | filtroAc:nameFilter).length ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAlante(page_number, max_items, listaVillagers)"> > </button>
+
+      <button [style.visibility]="max_items < listaVillagers.length && page_number * max_items < (listaVillagers | filtraVecinos:filtroAcPersonalidad:specie.value:filtroAcGen | filtroAc:nameFilter).length ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAlante(page_number, max_items, listaVillagers)"> > </button>
     </div>
-  
+
   </div>
     <!--   Pop-ups   -->
-  <div class="oscuro" (click)="hide=true" [style.display]="hide ? 'none': 'block'"></div>
-  <div class="panel" [style.display]="hide ? 'none': 'block'">
-    <div style="width: 100%; text-align: -webkit-center; display: flex; justify-content: space-around;">
-      <div class="grid-item-wrap flex-column-centered" style="width: fit-content;">
-        <img [src]="shownVillager.photoImage" style="border-radius: 2vw; width: 9vw; padding: 1vw; max-height: 12vw;" id='villager.translations.spanish.replace(" ", "")'>
+    <div class="panel flex-column-centered" [style.display]="hide ? 'none': 'flex'" (clickOutside)="cierraMenu()">
+      <div class="flex-column-centered" style="width:100%">
+        <div style="width:100%;display:flex;justify-content: space-evenly;">
+          <img [src]="shownVillager.photoImage" style="border-radius: 2vw; padding: 1vw; max-height: 12vw;" id='villager.translations.spanish.replace(" ", "")'>
+          <img [src]="shownVillager.houseImage" style="border-radius: 2vw; padding: 1vw; max-height: 12vw;" id='villager.translations.spanish.replace(" ", "")'>
+        </div>
+        <h3>{{shownVillager.translations.spanish}}</h3>
       </div>
-    </div>
-    <div class="datos"><b>Nombre: </b>{{shownVillager.translations.spanish}}</div>
-    <div class="datos"><b>Cumpleaños: </b>{{shownVillager.birthday}}</div>
-    <div class="datos"><b>Género: </b>{{shownVillager.gender | vecinos:'gender'}}</div>
-    <div class="datos"><b>Especie: </b>{{shownVillager.species | vecinos:'specie'}}</div>
-    <div class="datos"><b>Personalidad: </b>{{shownVillager.personality | vecinos:'personality'}}</div>
-    <div class="datos"><b>Colores favoritos: </b>{{shownVillager.colors | vecinos:'color'}}</div>
-    <div class="datos" style="margin-bottom: 0px;"><b>Estilos favoritos: </b>{{shownVillager.styles | vecinos:'style'}}</div>
+      <div>
+        <p class="datos"><b>Cumpleaños: </b>{{mesToString(shownVillager.birthday)}}</p>
+        <p class="datos"><b>Género: </b>{{shownVillager.gender | vecinos:'gender'}}</p>
+        <p class="datos"><b>Especie: </b>{{shownVillager.species | vecinos:'specie'}}</p>
+        <p class="datos"><b>Personalidad: </b>{{shownVillager.personality | vecinos:'personality'}}</p>
+        <p class="datos"><b>Colores favoritos: </b>{{shownVillager.colors | vecinos:'color'}}</p>
+        <p class="datos"><b>Estilos favoritos: </b>{{shownVillager.styles | vecinos:'style'}}</p>
+      </div>
   </div>
-  
-  
+

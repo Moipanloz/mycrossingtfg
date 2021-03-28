@@ -14,9 +14,10 @@ export class CatVecinosComponent implements OnInit {
 
   listaVillagers = new Array<IVillager>();
   shownVillager : IVillager = villagers.filter(i => i.sourceSheet != null)[0];
-  hide : Boolean = true;
-  filtroAcGen : String = "";
-  filtrando : Boolean = false;
+  hide : boolean = true;
+  filtroAcGen : string = "";
+  filtroAcPersonalidad : string = "";
+  filtrando : boolean = false;
   listaUsuario : Array<string>;
   _verif : VerificationService;
   page_number : number = 1;
@@ -26,7 +27,6 @@ export class CatVecinosComponent implements OnInit {
   botonFiltrar : string = "none";
   nameFilter : string = "";
   busqueda = new FormControl("");
-  personality = new FormControl("Todos");
   specie = new FormControl("Todos");
 
   constructor(verif : VerificationService, pag : PaginacionService) {
@@ -42,8 +42,10 @@ export class CatVecinosComponent implements OnInit {
   ngOnInit() {
     this._verif.verify().then( async () => {
       this.listaVillagers = await villagers.filter(i => i.sourceSheet != null);
-      console.log(this.listaVillagers[0]);
       this.busqueda.valueChanges.pipe(debounceTime(300)).subscribe(value => this.filtrar(value));
+      this.specie.valueChanges.subscribe(() => {
+        this.page_number = 1;
+      })
       this.num_paginas = this.getPaginas(this.listaVillagers);
     });
   }
@@ -53,12 +55,36 @@ export class CatVecinosComponent implements OnInit {
     }else{
       this.filtroAcGen = genero;
     }
+    this.page_number = 1;
   }
 
-  mostrar(villager:IVillager){
+  filtraPersonalidad(personalidad : string){
+    if(this.filtroAcPersonalidad==personalidad){
+      this.filtroAcPersonalidad="";
+    }else{
+      this.filtroAcPersonalidad = personalidad;
+    }
+    this.page_number = 1;
+  }
+
+  mesToString(value){
+    let fecha : string[] = value.split("/");
+    const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    return fecha[1] + " de " + meses[fecha[0]];
+  }
+
+  mostrar(e : MouseEvent, villager:IVillager){
     this.shownVillager=villager;
     this.hide=false;
+    e.stopPropagation();
   }
+
+  cierraMenu(){
+    if(!this.hide){
+      this.hide = true;
+    }
+  }
+
 
   filtrar(value){
     this.nameFilter = value;

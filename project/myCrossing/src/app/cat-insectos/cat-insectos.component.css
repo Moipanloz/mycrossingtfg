@@ -120,23 +120,3 @@ h2, span{
 .spanImg:hover{
   background-color: #85c583 !important;
 }
-.bigFilterContainerBrown{
-  display: grid;
-  width: 40vw;
-  height: 18vw;
-  border-radius: 2vw;
-  border-style: solid;
-  border-color: #b56e6e;
-  background-color: #cd9b78;
-}
-.bigFilterContainerYellow{
-  display: block;
-  margin-left: 1vw;
-  width: 18vw;
-  height: 18vw;
-  border-radius: 2vw;
-  border-style: solid;
-  border-color: #a4a77b;
-  background-color: #dbdb9e;
-}
-
