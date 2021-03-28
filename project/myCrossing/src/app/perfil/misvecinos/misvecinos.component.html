@@ -46,9 +46,9 @@
     <h2>{{this.vecinoShow.nombre}}</h2>
     <div>
       <p style="font-size: 1vw;"><strong>Cumple:</strong> {{mesToString(this.vecinoShow.cumple)}}</p>
-      <p style="font-size: 1vw;"><strong>Tipo:</strong> {{this.vecinoShow.personalidad | vecinos}}</p>
-      <p style="font-size: 1vw;"><strong>Especie:</strong> {{this.vecinoShow.especie | vecinos}}</p>
-      <p style="font-size: 1vw;"><strong>Género:</strong> {{this.vecinoShow.genero | vecinos}}</p>
+      <p style="font-size: 1vw;"><strong>Tipo:</strong> {{this.vecinoShow.personalidad | vecinos:'personality'}}</p>
+      <p style="font-size: 1vw;"><strong>Especie:</strong> {{this.vecinoShow.especie | vecinos:'specie'}}</p>
+      <p style="font-size: 1vw;"><strong>Género:</strong> {{this.vecinoShow.genero | vecinos:'gender'}}</p>
     </div>
   </div>
   <!-- Listado vecinos -->

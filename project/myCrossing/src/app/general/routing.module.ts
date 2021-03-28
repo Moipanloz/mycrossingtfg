@@ -16,6 +16,7 @@ import { CatCriaturasMarinasComponent } from 'app/cat-criaturas-marinas/cat-cria
 import { CatCazaInsectosComponent } from 'app/cazar-ahora/cat-caza-insectos/cat-caza-insectos.component';
 import { CatCazaPecesComponent } from 'app/cazar-ahora/cat-caza-peces/cat-caza-peces.component';
 import { CatCazaCriaturasMarinasComponent } from 'app/cazar-ahora/cat-caza-criaturas-marinas/cat-caza-criaturas-marinas.component';
+import { CatVecinosComponent } from 'app/cat-vecinos/cat-vecinos.component';
 
 const rutas: Routes = [
 {
@@ -63,6 +64,9 @@ const rutas: Routes = [
 },{
   path: "cat-caza-criaturas-marinas",
   component: CatCazaCriaturasMarinasComponent
+},{
+  path: "catalogo-vecinos",
+  component: CatVecinosComponent
 }
 ];
 

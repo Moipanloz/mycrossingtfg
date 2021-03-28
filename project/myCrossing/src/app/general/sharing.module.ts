@@ -14,6 +14,7 @@ import { TraducirPipe } from 'app/cat-insectos/traducir.pipe';
 import { FiltroCategoriaPezPipe } from 'app/cat-peces/filtro-categoria-pez.pipe';
 import { TraducirPezPipe } from 'app/cat-peces/traducir-pez.pipe';
 import { CazablePipe } from '../cazar-ahora/cat-caza-insectos/cazable.pipe';
+import { VecinosPipe } from 'app/perfil/misvecinos/vecinos.pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CazablePipe } from '../cazar-ahora/cat-caza-insectos/cazable.pipe';
     TraducirPipe,
     MesesTextualesPipe,
     FiltroCategoriaPipe,
-    CazablePipe
+    CazablePipe,
+    VecinosPipe
 ],
   exports: [
     CapitalizePipe,
@@ -44,7 +46,8 @@ import { CazablePipe } from '../cazar-ahora/cat-caza-insectos/cazable.pipe';
     TraducirPipe,
     MesesTextualesPipe,
     FiltroCategoriaPipe,
-    CazablePipe
+    CazablePipe,
+    VecinosPipe
 ],
   imports: [
     CommonModule
