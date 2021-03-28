@@ -24,8 +24,6 @@ export class CatMuebleComponent implements OnInit {
   tiposMueble : Map<string, string> = new Map([
     ["Miscellaneous","Misc."],
     ["Housewares","Muebles"],
-    ["Photos","Fotos"],
-    ["Posters","Posters"],
     ["Rugs","Alfombras"],
     ["Fencing","Vallas"],
     ["Floors","Suelos"],
@@ -45,8 +43,7 @@ export class CatMuebleComponent implements OnInit {
     this._verif.verify().then( async () => {
       if(this.botonFiltrar == "none"){
         this.listaItems = await items.filter(i => i.sourceSheet == "Miscellaneous" || i.sourceSheet == "Housewares" ||
-        i.sourceSheet == "Photos" || i.sourceSheet == "Posters" || i.sourceSheet == "Rugs" || i.sourceSheet == "Fencing" ||
-        i.sourceSheet == "Floors" || i.sourceSheet == "Wall-mounted" || i.sourceSheet == "Wallpaper");
+        i.sourceSheet == "Rugs" || i.sourceSheet == "Fencing" || i.sourceSheet == "Floors" || i.sourceSheet == "Wall-mounted" || i.sourceSheet == "Wallpaper");
       }else{
         this.listaItems = await items.filter(i => i.sourceSheet == this.botonFiltrar);
       }
