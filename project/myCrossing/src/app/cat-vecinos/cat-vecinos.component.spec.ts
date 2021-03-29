@@ -1,25 +1,45 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
+import { VerificationService } from 'app/general/services/verification.service';
 
 import { CatVecinosComponent } from './cat-vecinos.component';
-
+class MockVerificationService{
+  logged = false;
+  async verify(){}
+}
 describe('CatVecinosComponent', () => {
-  let component: CatVecinosComponent;
-  let fixture: ComponentFixture<CatVecinosComponent>;
+  let component : CatVecinosComponent;
+  let verificationService : VerificationService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CatVecinosComponent ]
+      providers: [ CatVecinosComponent, { provide: VerificationService, useClass: MockVerificationService} ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CatVecinosComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    component = TestBed.inject(CatVecinosComponent);
+    verificationService = TestBed.inject(VerificationService);
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should filter by gen', () => {
+    expect(component.filtroAcGen).toBeFalsy();
+    component.filtraGen('f');
+    expect(component.filtroAcGen).toEqual('f');
+  });
+
+  it('should filter by personality', () => {
+    expect(component.filtroAcPersonalidad).toBeFalsy();
+    component.filtraPersonalidad('Cranky');
+    expect(component.filtroAcPersonalidad).toEqual('Cranky');
+  });
+
+  it('should have list', async () => {
+    await component.ngOnInit();
+    expect(component.listaVillagers.length).not.toBe(0);
   });
 });
