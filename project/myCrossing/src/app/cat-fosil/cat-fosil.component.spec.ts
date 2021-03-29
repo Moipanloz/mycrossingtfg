@@ -1,25 +1,36 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CookieService } from 'ngx-cookie-service';
 import { CatFosilComponent } from './cat-fosil.component';
+import { CatFosilService } from './cat-fosil.service';
 
 describe('CatFosilComponent', () => {
-  let component: CatFosilComponent;
+  //Servicios
+  let catFosilService: CatFosilService;
+  let cookieService : CookieService;
+  let catFosilComponent: CatFosilComponent;
   let fixture: ComponentFixture<CatFosilComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CatFosilComponent ]
+      declarations: [ CatFosilComponent ],
+      providers: [
+        CatFosilService,
+        CookieService
+      ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CatFosilComponent);
-    component = fixture.componentInstance;
+    catFosilService = TestBed.inject(CatFosilService);
+    cookieService = TestBed.inject(CookieService);
+
+    catFosilComponent = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('Deberia ', () => {
+    expect(catFosilComponent).toBeTruthy();
   });
 });
