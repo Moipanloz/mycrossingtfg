@@ -4,7 +4,7 @@
     <h2>¿Qué puedo cazar ahora?</h2>
     <img (click)="cambiaHemisferio()" [src]="isNorth ? '../../../assets/images/hemisferio-norte.png': '../../../assets/images/hemisferio-sur.png'" class="editar editar-top-left img-radio" style="width: unset;height: unset;">
     <div id="wrap-filtros" class="flex-centered" style="align-items: unset;">
-      <div style="width: 35%;" class="flex-column-centered">
+      <div style="width: 35%;justify-content: unset" class="flex-column-centered">
         <h3>Lugar</h3>
         <div class="flex-centered" style="flex-wrap: wrap;" id="filtro-lugar">
           <button class="boton-alargado" (click)="filtraWhe('On trees (any kind)')" [class]="this.filtroAcWhe == 'On trees (any kind)' ? 'b-verde' : 'b-azul'">Sobre árboles (cualquier tipo)</button>
@@ -19,15 +19,15 @@
           <button class="boton-alargado" (click)="filtraWhe('On palm trees')" [class]="this.filtroAcWhe == 'On palm trees' ? 'b-verde' : 'b-azul'">Sobre palmeras</button>
           <button class="boton-alargado" (click)="filtraWhe('Other')" [class]="this.filtroAcWhe == 'Other' ? 'b-verde' : 'b-azul'">Otros</button>
         </div>
+      </div>
+      <div style="width: 20%;justify-content: unset;margin: 0 1vw" class="flex-column-centered">
+        <h3>Clima</h3>
+        <div class="flex-centered" style="flex-wrap: wrap;" id="filtro-clima">
+          <button class="boton-alargado" (click)="filtraWe('Any weather')" [class]="this.filtroAcWe == 'Any weather' ? 'b-verde' : 'b-azul'">Cualquier clima</button>
+          <button class="boton-alargado" (click)="filtraWe('Any except rain')" [class]="this.filtroAcWe == 'Any except rain' ? 'b-verde' : 'b-azul'">Cualquier clima menos lluvia</button>
+          <button class="boton-alargado" (click)="filtraWe('Rain only')" [class]="this.filtroAcWe == 'Rain only' ? 'b-verde' : 'b-azul'">Solo durante lluvia</button>
         </div>
-        <div style="width: 20%;justify-content: unset;margin: 0 1vw" class="flex-column-centered">
-          <h3>Clima</h3>
-          <div class="flex-centered" style="flex-wrap: wrap;" id="filtro-clima">
-            <button class="boton-alargado" (click)="filtraWe('Any weather')" [class]="this.filtroAcWe == 'Any weather' ? 'b-verde' : 'b-azul'">Cualquier clima</button>
-            <button class="boton-alargado" (click)="filtraWe('Any except rain')" [class]="this.filtroAcWe == 'Any except rain' ? 'b-verde' : 'b-azul'">Cualquier clima menos lluvia</button>
-            <button class="boton-alargado" (click)="filtraWe('Rain only')" [class]="this.filtroAcWe == 'Rain only' ? 'b-verde' : 'b-azul'">Solo durante lluvia</button>
-          </div>
-        </div>
+      </div>
 
         <div class="flex-column-centered" style="width: 35%;">
           <input [formControl]="busqueda" class="text-input" style="width: 80%;margin-top: 2vw" type="text" placeholder="Buscar">
