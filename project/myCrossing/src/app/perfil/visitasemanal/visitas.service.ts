@@ -2,7 +2,6 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Visita } from 'app/general/interfaces';
 import { VerificationService } from 'app/general/services/verification.service';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
