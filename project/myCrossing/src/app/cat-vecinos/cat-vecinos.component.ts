@@ -39,15 +39,14 @@ export class CatVecinosComponent implements OnInit {
     this.hide = true;
   }
 
-  ngOnInit() {
-    this._verif.verify().then( async () => {
-      this.listaVillagers = await villagers.filter(i => i.sourceSheet != null);
-      this.busqueda.valueChanges.pipe(debounceTime(300)).subscribe(value => this.filtrar(value));
-      this.specie.valueChanges.subscribe(() => {
-        this.page_number = 1;
-      })
-      this.num_paginas = this.getPaginas(this.listaVillagers);
-    });
+  async ngOnInit() {
+    this._verif.verify();
+    this.listaVillagers = await villagers.filter(i => i.sourceSheet != null);
+    this.busqueda.valueChanges.pipe(debounceTime(300)).subscribe(value => this.filtrar(value));
+    this.specie.valueChanges.subscribe(() => {
+      this.page_number = 1;
+    })
+    this.num_paginas = this.getPaginas(this.listaVillagers);
   }
   filtraGen(genero : string){
     if(this.filtroAcGen==genero){
