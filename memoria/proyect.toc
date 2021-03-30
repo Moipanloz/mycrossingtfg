@@ -40,10 +40,11 @@
 \contentsline {subsection}{\numberline {6.3.1}It. 3 - Perfil}{38}{subsection.6.3.1}%
 \contentsline {subsection}{\numberline {6.3.2}It. 3 - Mantener sesiones}{38}{subsection.6.3.2}%
 \contentsline {subsection}{\numberline {6.3.3}It. 3 - Features del perfil}{39}{subsection.6.3.3}%
-\contentsline {chapter}{\numberline {7}Pruebas}{40}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Comparación con otras alternativas}{41}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Manual}{42}{chapter.9}%
-\contentsline {chapter}{Conclusiones y desarrollos futuros}{43}{chapter*.11}%
-\contentsline {chapter}{Apéndices}{44}{chapter*.12}%
-\contentsline {chapter}{Referencias}{45}{chapter*.13}%
+\contentsline {subsection}{\numberline {6.3.4}It. 4 - API incompleta}{39}{subsection.6.3.4}%
+\contentsline {chapter}{\numberline {7}Pruebas}{41}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Comparación con otras alternativas}{42}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Manual}{43}{chapter.9}%
+\contentsline {chapter}{Conclusiones y desarrollos futuros}{44}{chapter*.11}%
+\contentsline {chapter}{Apéndices}{45}{chapter*.12}%
+\contentsline {chapter}{Referencias}{46}{chapter*.13}%
 \contentsfinish 
