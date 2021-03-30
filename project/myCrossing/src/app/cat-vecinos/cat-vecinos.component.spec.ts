@@ -42,4 +42,8 @@ describe('CatVecinosComponent', () => {
     await component.ngOnInit();
     expect(component.listaVillagers.length).not.toBe(0);
   });
+
+  it('should transform date', () => {
+    expect(component.mesToString('1/1')).toBe('1 de Febrero');
+  });
 });
