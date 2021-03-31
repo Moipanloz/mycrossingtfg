@@ -71,35 +71,25 @@
                   <label for="fruta">Fruta:* </label>
               </div>
               <div class="flex-centered">
-                <div class="radioinputs">
-                  <label>
+                <div class="radioinputs flex-centered">
                     <input type="radio" class="radio-hidden" id="pera" formControlName='fruta' value="PERA">
                     <img alt="Pera" [class]="registerForm.value['fruta'] == 'PERA' ? 'img-radio img-radio-checked' : 'img-radio'" width="8%" height="8%" src="../../../assets/images/pera.png">
-                  </label>
                 </div>
-                <div class="radioinputs">
-                  <label>
+                <div class="radioinputs flex-centered">
                     <input type="radio" class="radio-hidden" id="manzana" formControlName='fruta' value="MANZANA">
                     <img alt="Manzana" [class]="registerForm.value['fruta'] == 'MANZANA' ? 'img-radio img-radio-checked' : 'img-radio'" width="8%" height="8%" src="../../../assets/images/manzana.png">
-                  </label>
                 </div>
-                <div class="radioinputs">
-                  <label>
+                <div class="radioinputs flex-centered">
                     <input type="radio" class="radio-hidden" id="naranja" formControlName='fruta' value="NARANJA">
                     <img alt="Naranja" [class]="registerForm.value['fruta'] == 'NARANJA' ? 'img-radio img-radio-checked' : 'img-radio'" width="8%" height="8%" src="../../../assets/images/naranja.png">
-                  </label>
                 </div>
-                <div class="radioinputs">
-                  <label>
+                <div class="radioinputs flex-centered">
                     <input type="radio" class="radio-hidden" id="cereza" formControlName='fruta' value="CEREZA">
                     <img alt="Cereza" [class]="registerForm.value['fruta'] == 'CEREZA' ? 'img-radio img-radio-checked' : 'img-radio'" width="8%" height="8%" src="../../../assets/images/cereza.png">
-                  </label>
                 </div>
-                <div class="radioinputs">
-                  <label>
+                <div class="radioinputs flex-centered">
                     <input type="radio" class="radio-hidden" id="melocoton" formControlName='fruta' value="MELOCOTON">
                     <img alt="Melocoton" [class]="registerForm.value['fruta'] == 'MELOCOTON' ? 'img-radio img-radio-checked' : 'img-radio'" width="8%" height="8%" src="../../../assets/images/melocoton.png">
-                  </label>
                 </div>
               </div>
             </div>
@@ -110,7 +100,7 @@
                 </ng-container >
               </div>
             </ng-container >
-            <div class="field  flex-between">
+            <div class="field flex-between">
               <div>
                 <label for="cumpleanyos">Cumpleaños:* </label>
               </div>
@@ -143,17 +133,13 @@
                 <label for="hemisferio">Hemisferio:* </label>
               </div>
               <div class="flex-centered" style="width: 40%;">
-                <div class="radioinputs">
-                  <label>
+                <div class="radioinputs flex-centered">
                     <input type="radio" class="radio-hidden" id="norte" formControlName='hemisferio' value="NORTE">
                     <img alt="Norte" [class]="registerForm.value['hemisferio'] == 'NORTE' ? 'img-radio img-radio-checked' : 'img-radio'" width="6%" height="6%" src="../../../assets/images/hemisferio-norte.png">
-                  </label>
                 </div>
-                <div class="radioinputs">
-                  <label>
+                <div class="radioinputs flex-centered">
                     <input type="radio" class="radio-hidden" id="sur" formControlName='hemisferio' value="SUR">
                     <img alt="Sur" [class]="registerForm.value['hemisferio'] == 'SUR' ? 'img-radio img-radio-checked' : 'img-radio'" width="6%" height="6%" src="../../../assets/images/hemisferio-sur.png">
-                  </label>
                 </div>
               </div>
             </div>
