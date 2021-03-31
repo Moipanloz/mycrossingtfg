@@ -1,8 +1,7 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { Visita } from 'app/general/interfaces';
 import { VerificationService } from 'app/general/services/verification.service';
-import { Observable } from 'rxjs';
 
 import { VisitasService } from './visitas.service';
 
@@ -12,6 +11,7 @@ class MockVerificationService{
   verifCode = 'soyunverifcode';
   user = 4;
 }
+/*
 class MockHttpService{
   lista : Visita[] = [{usuario_id: '4', lpa: 'VecinoLunesPa', mpa: 'VecinoMartesPa', xpa: 'VecinoMiercolesPa',
   jpa: 'VecinoJuevesPa',vpa: 'VecinoViernesPa', lpr: 'VecinoLunesPr', mpr: 'VecinoMartesPr',
@@ -46,25 +46,26 @@ class MockHttpService{
     }
   }
 }
-
+*/
 describe('VisitasService', () => {
   let service: VisitasService;
   let verificationService : VerificationService;
-  let http : HttpClient;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      providers: [ VisitasService, { provide: VerificationService, useClass: MockVerificationService}, { provide: HttpClient, useClass: MockHttpService} ]
+      providers: [ { provide: VerificationService, useClass: MockVerificationService}, VisitasService],
+      imports: [ HttpClientTestingModule ]
     })
     .compileComponents();
-  });
-
-  beforeEach(() => {
     service = TestBed.inject(VisitasService);
     verificationService = TestBed.inject(VerificationService);
-    http = TestBed.inject(HttpClient);
   });
 
+  it('should read', async ()=>{
+    console.log(await service.readVisitas());
+  });
+
+  /*
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
@@ -104,6 +105,5 @@ describe('VisitasService', () => {
       {usuario_id: '4', lpa: null, mpa: null, xpa: null, jpa: null,
           vpa: null, lpr: null, mpr: null, xpr: null,
           jpr: null, vpr: null, estela: null, last_update: '0'}], "Tras crear");
-    
-  });
+  });*/
 });
