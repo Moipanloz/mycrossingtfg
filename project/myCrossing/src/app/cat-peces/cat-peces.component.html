@@ -111,9 +111,16 @@
       </ng-container>
     </div>
 
+    <ng-container *ngIf="(listaCreatures | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter | paginacion:page_number:max_items).length == 0" >
+      <div class="flex-column-centered" style="margin: 3% 0">
+        <img src="../../assets/images/error.png" style="width: 10vw;">
+        <p><strong>No hubo resultados</strong></p>
+      </div>
+    </ng-container>
+
     <!-- Paginacion abajo -->
-    <div class="pag-menu flex-centered">
-    <button [style.visibility]="page_number != 1 ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAtras(page_number)"> < </button>
+    <div class="pag-menu flex-centered" [style.padding-top]="(listaCreatures | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter | paginacion:page_number:max_items).length < 6 ? '14vw' : '0' ">
+      <button [style.visibility]="page_number != 1 ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAtras(page_number)"> < </button>
 
     <ng-container *ngIf="this.getPaginas(listaCreatures | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter).length < 25; else paginacionComprimida">
         <ng-container *ngFor="let pag of this.getPaginas(listaCreatures | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter)">
