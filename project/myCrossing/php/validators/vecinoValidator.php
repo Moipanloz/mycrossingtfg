@@ -21,7 +21,7 @@ function checkTieneVecino($userId, $oldVecinoId, $conn){
 
   if($result->num_rows != 1){
     $validation = false;
-    die("No tienes a este vecino"."   ".$result->num_rows);
+    die("No tienes a este vecino");
   }
   return $validation;
 }

@@ -41,7 +41,7 @@ export class MisvecinosService {
     let parametros = new HttpParams()
     .set("command", "updateVecino")
     .set("verif", this.verification.verifCode)
-    .set("oldVecinoId", JSON.stringify(oldVecino.vecino_id))
+    .set("oldVecinoId", oldVecino.vecino_id)
     .set("userId", JSON.stringify(this.verification.user));
 
     return this.http.put(this.url, newVecino, {params : parametros, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});

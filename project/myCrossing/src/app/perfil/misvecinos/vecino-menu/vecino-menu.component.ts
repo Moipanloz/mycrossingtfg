@@ -123,10 +123,20 @@ export class VecinoMenuComponent implements OnInit {
             imgPhoto: null
           };
 
-          let array = [oldVecino];
-          this.vecino.vecino_id = value["id"];
-          this.vecino.amistad = 1;
-          array.push(this.vecino);
+          let newVecino : Vecino = {
+            vecino_id: value["id"],
+            usuario_id : this.vecino.usuario_id,
+            amistad : 1,
+            nombre : null,
+            cumple : null,
+            especie : null,
+            personalidad : null,
+            genero : null,
+            imgIcon: null,
+            imgPhoto: null
+          };
+
+          let array = [oldVecino, newVecino];
           this.actualizarVecino.emit(array);
           this.cierraMenu(null);
         }
