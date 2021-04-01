@@ -139,11 +139,10 @@
     background-color: #F7F3E8;
     padding: 3vw;
     border-radius: 2vw;
-    font-size: 2vw;
-    border-color: #edd9a3;
-    border-style: solid;
-    border-width: 0.5vw;
+    font-size: 1.5vw;
+    border-style: none;
     box-shadow: 0px 0px 10px 1px rgb(23 23 23 / 55%);
+    z-index: 5;
 }
 
 .estela-container{

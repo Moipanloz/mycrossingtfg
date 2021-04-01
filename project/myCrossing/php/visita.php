@@ -16,7 +16,6 @@ if(isset($_GET["command"])){
         $verifCode = $_GET["verif"];
 
         $validation =  checkExisteUser($conn, $userId) &&
-                  checkExisteVisita($userId, $conn) &&
                   checkVerification($conn, $userId, $verifCode);
 
         //Para que sea correcto debe dar true

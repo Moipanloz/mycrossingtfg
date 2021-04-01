@@ -61,7 +61,7 @@ export class VisitasemanalComponent implements OnInit {
   ngOnInit(): void {
     this.verification.verify().then(() => {
       this.visitas.readVisitas().then(data => {
-        if(data.toString()=="No hubo resultados"){
+        if(data.length == 0){
           this.visitas.createVisita();
         }else{
           this.lpa=data[0]['lpa'];
