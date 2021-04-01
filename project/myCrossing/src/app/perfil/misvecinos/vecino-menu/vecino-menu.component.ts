@@ -114,7 +114,7 @@ export class VecinoMenuComponent implements OnInit {
             vecino_id: this.vecino.vecino_id,
             usuario_id : this.vecino.usuario_id,
             amistad : this.vecino.amistad,
-            nombre : this.vecino.nombre,
+            nombre : null,
             cumple : null,
             especie : null,
             personalidad : null,
@@ -122,6 +122,7 @@ export class VecinoMenuComponent implements OnInit {
             imgIcon: null,
             imgPhoto: null
           };
+
           let array = [oldVecino];
           this.vecino.vecino_id = value["id"];
           this.vecino.amistad = 1;
