@@ -19,6 +19,7 @@ export class MisvecinosComponent implements OnInit {
   verification : VerificationService;
   cookieService: CookieService;
   _error : ErrorService;
+  position : boolean = true;
   porcentajeMode : boolean = false;
   porcentajes : number[] = [];
   exclude : boolean[] = [];
@@ -157,9 +158,10 @@ export class MisvecinosComponent implements OnInit {
     }
   }
 
-  abreMenu(event, vecino : Vecino, amistad : boolean){
+  abreMenu(event, vecino : Vecino, amistad : boolean, position : number){
     let coord = this.obtenPosicion(event);
     if(amistad){
+      this.position = false;
       // Se ha hecho click en el boton de amistad
       if(this.vecinoMenu != null && this.vecinoMenu.vecino_id == vecino.vecino_id && this.menu.divAmistad.nativeElement.style.display == "block"){
         // si el vecino ya esta seteado, y ademas coincide con el id que le pasas y el menu se ve
@@ -168,11 +170,12 @@ export class MisvecinosComponent implements OnInit {
         this.vecinoMenu = vecino;
         // Esta feo, pero probando con promises y await no sale
         setTimeout(() => {
-          this.menu.abreMenu(event, coord, amistad);
+          this.menu.abreMenu(event, coord, amistad, position);
         }, 100);
       }
 
     }else{
+      this.position = true;
 
       if(vecino == null){
         // Viene del create
@@ -190,7 +193,7 @@ export class MisvecinosComponent implements OnInit {
         }
 
         setTimeout(() => {
-          this.menu.abreMenu(event, coord, amistad);
+          this.menu.abreMenu(event, coord, amistad, null);
         }, 100);
 
       }else{
@@ -207,7 +210,7 @@ export class MisvecinosComponent implements OnInit {
 
           // Esta feo, pero probando con promises y await no sale
           setTimeout(() => {
-            this.menu.abreMenu(event, coord, amistad);
+            this.menu.abreMenu(event, coord, amistad, null);
           }, 100);
 
         }

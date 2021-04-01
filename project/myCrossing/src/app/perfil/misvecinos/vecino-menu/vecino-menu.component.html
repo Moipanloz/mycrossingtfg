@@ -3,7 +3,7 @@
   <div class="flex-centered">
     <input [formControl]="busqueda" type="text" placeholder="Buscar" style="width: 70%;" class="text-input">
   </div>
-  <form [formGroup]="vecinoForm" (ngSubmit)="enviar(vecinoForm.value, false)">
+  <form [formGroup]="vecinoForm" (ngSubmit)="enviar(vecinoForm.value, false)" style="height: 75%;">
     <div class="lista">
       <ng-container *ngFor="let vecino of vecinosArray | filtroVecino:valorFiltrar">
         <div class="elementList">
@@ -23,31 +23,31 @@
 </div>
 
 <!-- Menu amistad-->
-<div class="popup-menu" style="width: 22vw; display: none;" #menuAmistad>
-  <form [formGroup]="amistadForm" class="flex-centered" style="justify-content: space-around;" (ngSubmit)="enviar(amistadForm.value, true)">
+<div class="popup-menu amistad-popup" style="display:none" #menuAmistad>
+  <form [formGroup]="amistadForm" class="flex-column-centered" style="justify-content: space-around;height: 100%;" (ngSubmit)="enviar(amistadForm.value, true)">
     <label>
-      <input formControlName="amistad" class="radio-hidden" id="rad1" type="radio" value="1">
-      <button class="boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">1</button>
-    </label>
-    <label>
-      <input formControlName="amistad" class="radio-hidden" id="rad2" type="radio" value="2">
-      <button class="boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">2</button>
-    </label>
-    <label>
-      <input formControlName="amistad" class="radio-hidden" id="rad3" type="radio" value="3">
-      <button class="boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">3</button>
-    </label>
-    <label>
-      <input formControlName="amistad" class="radio-hidden" id="rad4" type="radio" value="4">
-      <button class="boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">4</button>
+      <input formControlName="amistad" class="radio-hidden" id="rad6" type="radio" value="6">
+      <button class="boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">6</button>
     </label>
     <label>
       <input formControlName="amistad" class="radio-hidden" id="rad5" type="radio" value="5">
       <button class="boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">5</button>
     </label>
     <label>
-      <input formControlName="amistad" class="radio-hidden" id="rad6" type="radio" value="6">
-      <button class="boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">6</button>
+      <input formControlName="amistad" class="radio-hidden" id="rad4" type="radio" value="4">
+      <button class="boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">4</button>
+    </label>
+    <label>
+      <input formControlName="amistad" class="radio-hidden" id="rad3" type="radio" value="3">
+      <button class="boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">3</button>
+    </label>
+    <label>
+      <input formControlName="amistad" class="radio-hidden" id="rad2" type="radio" value="2">
+      <button class="boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">2</button>
+    </label>
+    <label>
+      <input formControlName="amistad" class="radio-hidden" id="rad1" type="radio" value="1">
+      <button class="boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">1</button>
     </label>
     <button [disabled]="amistadForm.invalid" class="boton-imagen save" style="width: 1.5vw;height: 1.5vw;" type="submit"></button>
   </form>
