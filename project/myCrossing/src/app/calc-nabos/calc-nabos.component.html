@@ -1,22 +1,91 @@
-<div class="flex-column-centered">
+<div class="flex-column-centered padding-nav-footer" style="background-color: rgb(255, 0, 43);">
   <!-- Informacion -->
-  <div class="w100 margin-nav" style="background-color: pink;">
+  <div class="w100" style="background-color: pink;">
     <h2>Mercado de nabos</h2>
-    <div class="flex-between" style="background-color: rgb(255, 134, 150);">
-      <img src="../../assets/images/juliana.png">
-      <p>Esto es un parrafo de informasao</p>
-      <div class="flex-column-centered" style="background-color: rgb(195, 233, 126);">
-        <img src="../../assets/images/juliana.png">
-        <img src="../../assets/images/juliana.png">
-        <img src="../../assets/images/juliana.png">
-        <img src="../../assets/images/juliana.png">
+    <div class="flex-between info-wrap">
+      <!-- Información general -->
+      <div class="flex-column-centered info-general">
+        <h3>¿Por donde empiezo?</h3>
+        <div style="text-align: center;">
+          <p>Cada domingo vendrá a tu isla Juliana, una particular jabalí que se dedica a vender nabos.</p>
+
+          <p>Los nabos se venden a un precio que oscila entre las 90 y las 110 bayas el manojo de 10, y su único
+            uso es el de venderlos posteriormente a Tendo y Nendo para sacar beneficio (¡o intentarlo!).</p>
+
+          <p>MiniNook compra los nabos de Lunes a Sábado, y el precio cambia dos veces al dia: a las 12PM y a las 5AM.
+            Además, estas variaciones de precio siguen uno de cuatro posibles patrones (los que ves a la derecha).
+            Cada semana se elegirá un patrón mediante una serie de cálculos y los precios a los que Tendo y Nendo compren
+            los nabos dependerán de este patrón.</p>
+
+          <p>Debido a como funcionan los patrones, si no empieza a haber una subida en el precio de compra a partir del Jueves
+            por la tarde, es muy improbable que se trate de un patron "Pico pequeño" o "Pico alto", por lo que puede ser
+            mejor opción no arriesgarse demasiado, vender cuanto antes y aminorar las pérdidas.</p>
+
+          <br>
+          <h3 style="color:red">¡ATENCIÓN!</h3>
+          <p style="color:red"> Hacer time travel hace que se pudran los nabos, ¡así que ten cuidado!</p>
+
+        </div>
+        <img src="../../assets/images/juliana-big.png">
       </div>
+
+      <!-- Patrones -->
+      <div class="flex-column-centered" style="align-items: unset; width: 90%">
+        <div class="flex-between patron-tag" (mouseenter)="this.filtrosView[0] = true" (mouseleave)="this.filtrosView[0] = false">
+          <div class="flex-column-centered">
+            <h3>Aleatorio</h3>
+            <p [style.display]="filtrosView[0] ? 'block' : 'none'">Va subiendo y bajando sin seguir ningún orden en particular.
+              Puedes llegar a sacar algo de beneficio, pero es arriesgado.</p>
+          </div>
+          <img src="../../assets/images/aleatorio.png">
+        </div>
+
+        <div class="flex-between patron-tag" (mouseenter)="this.filtrosView[1] = true" (mouseleave)="this.filtrosView[1] = false">
+          <div class="flex-column-centered">
+            <h3>Descendiente</h3>
+            <p [style.display]="filtrosView[1] ? 'block' : 'none'">El precio va bajando durante toda la semana, por lo que
+              para evitar grandes pérdidas hay que vender cuanto antes.</p>
+          </div>
+          <img src="../../assets/images/descenso.png">
+        </div>
+
+        <div class="flex-between patron-tag" (mouseenter)="this.filtrosView[2] = true" (mouseleave)="this.filtrosView[2] = false">
+          <div class="flex-column-centered">
+            <h3>Pico pequeño</h3>
+            <p [style.display]="filtrosView[2] ? 'block' : 'none'">Empieza bajando pero luego sube 3 veces, alcanzando en el
+              tercer salto el precio de venta más alto, y luego vuelve a bajar.
+              Lo mejor es venderlo en ese tercer ascenso consecutivo.</p>
+          </div>
+          <img src="../../assets/images/pico-pequenio.png">
+        </div>
+
+        <div class="flex-between patron-tag" (mouseenter)="this.filtrosView[3] = true" (mouseleave)="this.filtrosView[3] = false">
+          <div class="flex-column-centered">
+            <h3>Pico alto</h3>
+            <p [style.display]="filtrosView[3] ? 'block' : 'none'">Igual que el anterior, con la diferencia de que entre el primer
+              y segundo ascenso hay un descenso. Sin embargo, el segundo y
+              tercer ascenso son mucho más pronunciados y se alcanzan precios
+              muy altos.</p>
+          </div>
+          <img src="../../assets/images/pico-grande.png">
+        </div>
+
+      </div>
+
     </div>
   </div>
 
   <!-- Calculadora -->
   <div class="w100" style="background-color: orange;">
-    hola placeholder
-  </div>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos unde a fugit
+      atque quidem repellendus maiores eos fuga quia ab voluptates, laboriosam maxime natus
+       corrupti suscipit odit non, expedita repellat ex ipsa itaque veniam. Consequatur
+       voluptatum perspiciatis a, repellendus impedit suscipit dolores vero aliquid sit incidunt
+        voluptas cum, culpa eius molestias voluptate soluta velit architecto repellat corporis
+         reprehenderit. Quam, optio. Nobis quas iste ab dignissimos minus ullam cupiditate laboriosam
+         ipsa itaque! Sapiente autem enim accusamus quas iste, sed, iusto ex perferendis eum error magni
+         suscipit obcaecati molestias ea cupiditate corporis eveniet? Quia maxime facilis ratione nulla
+         vitae nemo molestias adipisci.</p>
+    </div>
 
 </div>

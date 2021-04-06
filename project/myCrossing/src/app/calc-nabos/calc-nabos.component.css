@@ -1,3 +1,40 @@
 h2 {
   text-align: center;
 }
+
+.patron-tag > img{
+  width: 25vw;
+}
+
+.patron-tag{
+  margin: 1vw 0;
+  border-radius: 20px;
+  background-color: aqua;
+  overflow: hidden;
+}
+
+.patron-tag > div{
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  padding: 1vw;
+}
+
+.info-general{
+  justify-content: unset;
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  padding-top: 4vw;
+  margin-right:4vw;
+  height:fit-content;
+  background-color: yellowgreen;
+  width: 90%;
+}
+
+.info-wrap{
+  position: relative;
+  padding: 1vw 2vw;
+  align-items:unset;
+  background-color: rgb(255, 134, 150);
+}
