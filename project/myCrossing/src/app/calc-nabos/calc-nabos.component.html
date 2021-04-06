@@ -33,7 +33,7 @@
       <div class="flex-column-centered" style="align-items: unset; width: 90%">
         <div class="flex-between patron-tag" (mouseenter)="this.filtrosView[0] = true" (mouseleave)="this.filtrosView[0] = false">
           <div class="flex-column-centered">
-            <h3>Aleatorio</h3>
+            <h2>Aleatorio</h2>
             <p [style.display]="filtrosView[0] ? 'block' : 'none'">Va subiendo y bajando sin seguir ningún orden en particular.
               Puedes llegar a sacar algo de beneficio, pero es arriesgado.</p>
           </div>
@@ -42,7 +42,7 @@
 
         <div class="flex-between patron-tag" (mouseenter)="this.filtrosView[1] = true" (mouseleave)="this.filtrosView[1] = false">
           <div class="flex-column-centered">
-            <h3>Descendiente</h3>
+            <h2>Descendiente</h2>
             <p [style.display]="filtrosView[1] ? 'block' : 'none'">El precio va bajando durante toda la semana, por lo que
               para evitar grandes pérdidas hay que vender cuanto antes.</p>
           </div>
@@ -51,7 +51,7 @@
 
         <div class="flex-between patron-tag" (mouseenter)="this.filtrosView[2] = true" (mouseleave)="this.filtrosView[2] = false">
           <div class="flex-column-centered">
-            <h3>Pico pequeño</h3>
+            <h2>Pico pequeño</h2>
             <p [style.display]="filtrosView[2] ? 'block' : 'none'">Empieza bajando pero luego sube 3 veces, alcanzando en el
               tercer salto el precio de venta más alto, y luego vuelve a bajar.
               Lo mejor es venderlo en ese tercer ascenso consecutivo.</p>
@@ -61,7 +61,7 @@
 
         <div class="flex-between patron-tag" (mouseenter)="this.filtrosView[3] = true" (mouseleave)="this.filtrosView[3] = false">
           <div class="flex-column-centered">
-            <h3>Pico alto</h3>
+            <h2>Pico alto</h2>
             <p [style.display]="filtrosView[3] ? 'block' : 'none'">Igual que el anterior, con la diferencia de que entre el primer
               y segundo ascenso hay un descenso. Sin embargo, el segundo y
               tercer ascenso son mucho más pronunciados y se alcanzan precios
