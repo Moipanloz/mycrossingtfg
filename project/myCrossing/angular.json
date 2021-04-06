@@ -62,7 +62,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "myCrossing:build"
+            "browserTarget": "myCrossing:build",
+            "disableHostCheck": true
           },
           "configurations": {
             "production": {

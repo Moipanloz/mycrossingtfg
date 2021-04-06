@@ -11,11 +11,11 @@ function checkDatosCorrectos($amistad){
   return $validation;
 }
 
-function checkTieneVecino($userId, $vecinoId, $conn){
+function checkTieneVecino($userId, $oldVecinoId, $conn){
   $validation = true;
 
   $result = $conn->prepare('SELECT * FROM misvecinos WHERE vecino_id = ? AND usuario_id = ?');
-  $result->bind_param('si', $vecinoId, $userId);
+  $result->bind_param('si', $oldVecinoId, $userId);
   $result->execute();
   $result->store_result();
 

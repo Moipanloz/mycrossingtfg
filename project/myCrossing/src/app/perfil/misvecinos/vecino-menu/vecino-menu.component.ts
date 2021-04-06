@@ -21,7 +21,6 @@ export class VecinoMenuComponent implements OnInit {
   @Output() actualizarVecino = new EventEmitter<Vecino[]>();
   @Output() actualizarAmistad = new EventEmitter<Vecino>();
 
-
   @HostBinding("style.top") y = "0px";
   @HostBinding("style.left") x = "0px";
 
@@ -29,7 +28,6 @@ export class VecinoMenuComponent implements OnInit {
   amistadForm : FormGroup;
   busqueda = new FormControl("");
   valorFiltrar : string = "";
-
 
   constructor(private _builder : FormBuilder) {
     this.vecinoForm = this._builder.group({
@@ -45,18 +43,13 @@ export class VecinoMenuComponent implements OnInit {
     this.busqueda.valueChanges.pipe(debounceTime(300)).subscribe(value => this.filtrar(value));
   }
 
-  abreMenu(e : MouseEvent, coord : Array<number>, amistad : boolean){
+  abreMenu(e : MouseEvent, coord : Array<number>, amistad : boolean, position : number){
     if(amistad){
       this.amistadForm.patchValue({
         amistad : ""+this.vecino.amistad
       });
-
-      let a : string = this.divAmistad.nativeElement.style.width;
-      let width = parseInt(a.split("v", 2)[0]);
-      let x = coord[0] - (width / 2) - 2.525;
-
-      this.x = x+"%";
-      this.y = coord[1]+1+"%";
+      this.x = ((position%5)+1) * 15 + (position%5) * 1.2 + "%";
+      this.y = coord[1]-23+"%";
       this.divAmistad.nativeElement.style.display = "block";
       e.stopPropagation();
 
@@ -72,12 +65,8 @@ export class VecinoMenuComponent implements OnInit {
         });
       }
 
-      let a : string = this.divVecino.nativeElement.style.width;
-      let width = parseInt(a.split("v", 2)[0]);
-      let x = coord[0] - (width / 2) + 3.5;
-
-      this.x = x+"%";
-      this.y = coord[1]+1+"%";
+      this.y = "30%";
+      this.x = "27%";
       this.divVecino.nativeElement.style.display = "block";
       e.stopPropagation();
     }
@@ -125,7 +114,7 @@ export class VecinoMenuComponent implements OnInit {
             vecino_id: this.vecino.vecino_id,
             usuario_id : this.vecino.usuario_id,
             amistad : this.vecino.amistad,
-            nombre : this.vecino.nombre,
+            nombre : null,
             cumple : null,
             especie : null,
             personalidad : null,
@@ -133,10 +122,21 @@ export class VecinoMenuComponent implements OnInit {
             imgIcon: null,
             imgPhoto: null
           };
-          let array = [oldVecino];
-          this.vecino.vecino_id = value["id"];
-          this.vecino.amistad = 1;
-          array.push(this.vecino);
+
+          let newVecino : Vecino = {
+            vecino_id: value["id"],
+            usuario_id : this.vecino.usuario_id,
+            amistad : 1,
+            nombre : null,
+            cumple : null,
+            especie : null,
+            personalidad : null,
+            genero : null,
+            imgIcon: null,
+            imgPhoto: null
+          };
+
+          let array = [oldVecino, newVecino];
           this.actualizarVecino.emit(array);
           this.cierraMenu(null);
         }

@@ -85,8 +85,15 @@
         </ng-container>
     </div>
 
+    <ng-container *ngIf="(listaItems | filtroAc:nameFilter | paginacion:page_number:max_items).length == 0" >
+      <div class="flex-column-centered" style="margin: 3% 0">
+        <img src="../../assets/images/error.png" style="width: 10vw;">
+        <p><strong>No hubo resultados</strong></p>
+      </div>
+    </ng-container>
+
     <!-- Paginacion abajo -->
-    <div class="pag-menu flex-centered">
+    <div class="pag-menu flex-centered" [style.padding-top]="(listaItems | filtroAc:nameFilter | paginacion:page_number:max_items).length < 6 ? '18vw' : '0' ">
       <button [style.visibility]="page_number != 1 ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAtras(page_number)"> < </button>
 
       <ng-container *ngIf="this.getPaginas(listaItems | filtroAc:nameFilter).length < 25; else paginacionComprimida">
