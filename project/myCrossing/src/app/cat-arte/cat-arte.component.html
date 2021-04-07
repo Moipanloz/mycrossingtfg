@@ -92,8 +92,9 @@
         <div class="grid-item-wrap flex-column-centered" style="justify-content: space-evenly;">
           <div class="check-container" *ngIf="this._verif.user != null">
             <button [style.background-image]="this.listaUsuario.includes(item.name.replace(' ','')) ? 'url(../../assets/images/check-rojo.png)' : 'url(../../assets/images/check-gris.png)'" class="boton-imagen editar" (click)="toggleCheck(item)"></button>
-            <button class="boton-imagen editar left b-falso" [style.background-image]="'url('+urlArteFalso+')'" (click)="verFalsificacion($event, item)" *ngIf="tieneFalsificacion(item)"></button>
           </div>
+          <button class="boton-imagen editar left b-falso" [style.background-image]="'url('+urlArteFalso+')'" (click)="verFalsificacion($event, item)" *ngIf="tieneFalsificacion(item)"></button>
+
           <img [src]="getImage(item, 0)" style="width: 7vw; height: 7vw;" [id]='item.name.replace(" ", "")'>
           <span>{{item.translations.spanish | capitalize}}</span>
         </div>
