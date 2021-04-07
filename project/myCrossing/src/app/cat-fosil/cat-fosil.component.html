@@ -4,8 +4,8 @@
       <h2>Catálogo de fósiles</h2>
       <div class="flex-centered" style="padding-bottom: 1vw;">
         <div class="flex-centered" style="flex-wrap: wrap;margin-right: 1.5vw;" [style.display]="this._verif.user == null ? 'none' : 'block'">
-          <button (click)="activaFiltro('obtenido')" [class]="this.botonFiltrar == 'obtenido' ? 'boton-alargado b-verde' : 'boton-alargado b-azul'" style="margin:0.5vw">Obtenidos</button>
-          <button (click)="activaFiltro('falta')" [class]="this.botonFiltrar == 'falta' ? 'boton-alargado b-verde' : 'boton-alargado b-azul'" style="margin:0.5vw">Me faltan</button>
+          <button (click)="activaFiltro('obtenido')" [class]="this.botonFiltrar == 'obtenido' ? 'boton-alargado b-verde' : 'boton-alargado b-azul b-azul-hover'" style="margin:0.5vw">Obtenidos</button>
+          <button (click)="activaFiltro('falta')" [class]="this.botonFiltrar == 'falta' ? 'boton-alargado b-verde' : 'boton-alargado b-azul b-azul-hover'" style="margin:0.5vw">Me faltan</button>
         </div>
         <input [formControl]="busqueda" class="text-input" type="text" placeholder="Buscar" [style.width]="this._verif.user == null ? '50%' : '30%'">
       </div>

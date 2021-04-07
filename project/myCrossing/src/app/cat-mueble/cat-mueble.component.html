@@ -4,7 +4,7 @@
     <h2>Catálogo de muebles</h2>
     <div class="flex-centered" style="padding-bottom: 1vw;">
       <div class="flex-centered" style="flex-wrap: wrap;flex-basis: 40vw; margin-right: 1.5vw;">
-        <button *ngFor="let tipo of tiposMueble | keyvalue" (click)="activaFiltro(tipo.key)" [class]="this.botonFiltrar == tipo.key ? 'boton-alargado b-verde' : 'boton-alargado b-azul'" style="margin:0.5vw">{{tipo.value}}</button>
+        <button *ngFor="let tipo of tiposMueble | keyvalue" (click)="activaFiltro(tipo.key)" [class]="this.botonFiltrar == tipo.key ? 'boton-alargado b-verde' : 'boton-alargado b-azul b-azul-hover'" style="margin:0.5vw">{{tipo.value}}</button>
       </div>
       <input [formControl]="busqueda" class="text-input" type="text" placeholder="Buscar" style="width: 30%;">
     </div>

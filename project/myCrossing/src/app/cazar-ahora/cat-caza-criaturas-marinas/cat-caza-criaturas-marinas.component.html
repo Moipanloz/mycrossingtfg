@@ -8,22 +8,22 @@
           <div style="width: 35%;justify-content:unset" class="flex-column-centered">
             <h3>Sombra</h3>
             <div class="flex-centered" style="flex-wrap: wrap;" id="filtro-sombra">
-                <button class="boton-alargado" (click)="filtraShadow('X-Small')" [class]="this.filtroAcShadow == 'X-Small' ? 'b-verde' : 'b-azul'">Diminuta</button>
-                <button class="boton-alargado" (click)="filtraShadow('Small')" [class]="this.filtroAcShadow == 'Small' ? 'b-verde' : 'b-azul'">Pequeña</button>
-                <button class="boton-alargado" (click)="filtraShadow('Medium')" [class]="this.filtroAcShadow == 'Medium' ? 'b-verde' : 'b-azul'">Mediana</button>
-                <button class="boton-alargado" (click)="filtraShadow('Large')" [class]="this.filtroAcShadow == 'Large' ? 'b-verde' : 'b-azul'">Grande</button>
-                <button class="boton-alargado" (click)="filtraShadow('X-Large')" [class]="this.filtroAcShadow == 'X-Large' ? 'b-verde' : 'b-azul'">Muy grande</button>
+                <button class="boton-alargado" (click)="filtraShadow('X-Small')" [class]="this.filtroAcShadow == 'X-Small' ? 'b-verde' : 'b-azul b-azul-hover'">Diminuta</button>
+                <button class="boton-alargado" (click)="filtraShadow('Small')" [class]="this.filtroAcShadow == 'Small' ? 'b-verde' : 'b-azul b-azul-hover'">Pequeña</button>
+                <button class="boton-alargado" (click)="filtraShadow('Medium')" [class]="this.filtroAcShadow == 'Medium' ? 'b-verde' : 'b-azul b-azul-hover'">Mediana</button>
+                <button class="boton-alargado" (click)="filtraShadow('Large')" [class]="this.filtroAcShadow == 'Large' ? 'b-verde' : 'b-azul b-azul-hover'">Grande</button>
+                <button class="boton-alargado" (click)="filtraShadow('X-Large')" [class]="this.filtroAcShadow == 'X-Large' ? 'b-verde' : 'b-azul b-azul-hover'">Muy grande</button>
               </div>
           </div>
           <div style="width: 35%;justify-content:unset" class="flex-column-centered">
             <h3>Velocidad</h3>
             <div class="flex-centered" style="flex-wrap: wrap;" id="filtro-velocidad">
-                <button class="boton-alargado" (click)="filtraVelocidad('Stationary')" [class]="this.filtroAcVelocidad == 'Stationary' ? 'b-verde' : 'b-azul'">Inmóvil</button>
-                <button class="boton-alargado" (click)="filtraVelocidad('Very slow')" [class]="this.filtroAcVelocidad == 'Very slow' ? 'b-verde' : 'b-azul'">Muy lenta</button>
-                <button class="boton-alargado" (click)="filtraVelocidad('Slow')" [class]="this.filtroAcVelocidad == 'Slow' ? 'b-verde' : 'b-azul'">Lenta</button>
-                <button class="boton-alargado" (click)="filtraVelocidad('Medium')" [class]="this.filtroAcVelocidad == 'Medium' ? 'b-verde' : 'b-azul'">Media</button>
-                <button class="boton-alargado" (click)="filtraVelocidad('Fast')" [class]="this.filtroAcVelocidad == 'Fast' ? 'b-verde' : 'b-azul'">Rápida</button>
-                <button class="boton-alargado" (click)="filtraVelocidad('Very fast')" [class]="this.filtroAcVelocidad == 'Very fast' ? 'b-verde' : 'b-azul'">Muy rápida</button>
+                <button class="boton-alargado" (click)="filtraVelocidad('Stationary')" [class]="this.filtroAcVelocidad == 'Stationary' ? 'b-verde' : 'b-azul b-azul-hover'">Inmóvil</button>
+                <button class="boton-alargado" (click)="filtraVelocidad('Very slow')" [class]="this.filtroAcVelocidad == 'Very slow' ? 'b-verde' : 'b-azul b-azul-hover'">Muy lenta</button>
+                <button class="boton-alargado" (click)="filtraVelocidad('Slow')" [class]="this.filtroAcVelocidad == 'Slow' ? 'b-verde' : 'b-azul b-azul-hover'">Lenta</button>
+                <button class="boton-alargado" (click)="filtraVelocidad('Medium')" [class]="this.filtroAcVelocidad == 'Medium' ? 'b-verde' : 'b-azul b-azul-hover'">Media</button>
+                <button class="boton-alargado" (click)="filtraVelocidad('Fast')" [class]="this.filtroAcVelocidad == 'Fast' ? 'b-verde' : 'b-azul b-azul-hover'">Rápida</button>
+                <button class="boton-alargado" (click)="filtraVelocidad('Very fast')" [class]="this.filtroAcVelocidad == 'Very fast' ? 'b-verde' : 'b-azul b-azul-hover'">Muy rápida</button>
               </div>
           </div>
           <div class="flex-column-centered" style="width: 35%;">
@@ -47,14 +47,14 @@
                 </div>
               </div>
               <div class="flex-column-centered" style="margin:0.5vw" [style.display]="this._verif.user == null ? 'none' : 'flex'" id="filtro-usuario">
-                <button class="boton-alargado" (click)="activaFiltro('obtenido')" [class]="this.botonFiltrar == 'obtenido' ? 'b-verde' : 'b-azul'">Obtenidos</button>
-                <button class="boton-alargado" (click)="activaFiltro('falta')" [class]="this.botonFiltrar == 'falta' ? 'b-verde' : 'b-azul'">Me faltan</button>
+                <button class="boton-alargado" (click)="activaFiltro('obtenido')" [class]="this.botonFiltrar == 'obtenido' ? 'b-verde' : 'b-azul  b-azul-hover'">Obtenidos</button>
+                <button class="boton-alargado" (click)="activaFiltro('falta')" [class]="this.botonFiltrar == 'falta' ? 'b-verde' : 'b-azul  b-azul-hover'">Me faltan</button>
               </div>
             </div>
           </div>
           <div class="flex-column-centered" style="width: 5vw;" id="ser-wrap">
-            <button class="boton-imagen b-azul" [style.background-image]="'url(../../../assets/images/insecto-icon.png)'" (click)="cambiaSer('insectos')"></button>
-            <button class="boton-imagen b-azul" [style.background-image]="'url(../../../assets/images/pez-icon.png)'" (click)="cambiaSer('peces')"></button>
+            <button class="boton-imagen b-azul b-azul-hover" [style.background-image]="'url(../../../assets/images/insecto-icon.png)'" (click)="cambiaSer('insectos')"></button>
+            <button class="boton-imagen b-azul b-azul-hover" [style.background-image]="'url(../../../assets/images/pez-icon.png)'" (click)="cambiaSer('peces')"></button>
             <button class="boton-imagen b-verde" [style.background-image]="'url(../../../assets/images/criatura-marina-icon.png)'"></button>
           </div>
       </div>

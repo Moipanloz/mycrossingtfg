@@ -191,7 +191,7 @@ label{
   border-color: rgb(149, 229, 155);
 }
 
-.b-azul:hover{
+.b-azul-hover:hover{
   background-color: rgb(203, 244, 196);
   border-color: rgb(149, 229, 155);
 }
@@ -257,4 +257,3 @@ label{
 .padding-nav-footer{
   padding: 4vw 0;
 }
-
