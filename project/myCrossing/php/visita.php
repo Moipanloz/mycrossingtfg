@@ -1,6 +1,8 @@
 <?php
+header('Access-Control-Allow-Origin: http://localhost:9876');
 
 require "openDB.php";
+header('Access-Control-Allow-Origin: http://localhost:9876');
 
 include "validators/usuarioValidator.php";
 include "validators/visitaValidator.php";
@@ -68,6 +70,7 @@ if(isset($_GET["command"])){
             $result = $conn->prepare('UPDATE visitas SET lpa = ?, mpa = ?, xpa = ?, jpa = ?, vpa = ?, lpr = ?, mpr = ?, xpr = ?, jpr = ?, vpr = ?, estela = ? WHERE usuario_id = ?');
             $result->bind_param('sssssssssssi',$lpa,$mpa,$xpa,$jpa,$vpa,$lpr,$mpr,$xpr,$jpr,$vpr,$estela,$userId);
             $result->execute();
+            print("Exito");
           }
         }else{
           die("No hay datos");
@@ -98,6 +101,7 @@ if(isset($_GET["command"])){
             $result->bind_param('si', $last_update, $userId);
             $result->execute();
             $result->store_result();
+            print("Exito");
           }
         }else{
           die("No hay datos");
@@ -119,6 +123,7 @@ if(isset($_GET["command"])){
           $result = $conn->prepare('INSERT INTO visitas(usuario_id) VALUES (?)');
           $result->bind_param('i', $userId);
           $result->execute();
+          print("Exito");
         }
       }else{
         die("Faltan parametros");

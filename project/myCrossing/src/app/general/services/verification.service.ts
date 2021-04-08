@@ -29,7 +29,7 @@ export class VerificationService {
       .set("command", "getKey");
 
       let headers = new HttpHeaders()
-      .set('Access-Control-Allow-Origin', 'http://localhost:4200')
+      .set('Access-Control-Allow-Origin', '*')
       .set('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token')
       .set('Access-Control-Allow-Methods', 'OPTIONS, PUT, DELETE, POST, GET');
 

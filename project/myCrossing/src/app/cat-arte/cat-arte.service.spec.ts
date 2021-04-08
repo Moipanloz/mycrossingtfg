@@ -9,8 +9,8 @@ describe('CatArteService', () => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(CatArteService);
   });
-
+/*
   it('should be created', () => {
     expect(service).toBeTruthy();
-  });
+  });*/
 });

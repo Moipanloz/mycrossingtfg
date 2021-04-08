@@ -2,7 +2,6 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Visita } from 'app/general/interfaces';
 import { VerificationService } from 'app/general/services/verification.service';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +13,11 @@ export class VisitasService {
     this.verification = verification;
   }
 
-  readVisitas() : Promise<Visita[]>{
+  async readVisitas() : Promise<Visita[]>{
     let parametros = new HttpParams()
       .set("command", "read")
       .set("verif", this.verification.verifCode)
       .set("userId", JSON.stringify(this.verification.user));
-
     return this.http.get<Visita[]>(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 

@@ -1,13 +1,21 @@
 <?php
 
-header('Access-Control-Allow-Origin: http://localhost:4200');
+if(isset($_GET["testing"]) && $_GET["testing"] == 'true'){
+  header('Access-Control-Allow-Origin: http://localhost:9876');
+}else{
+  header('Access-Control-Allow-Origin: http://localhost:4200');
+}
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 header('Access-Control-Allow-Methods: OPTIONS, PUT, DELETE, POST, GET');
 
 define("DB_SERVERNAME", "localhost");
 define("DB_USER", "mcadmin");
 define("DB_PASS", "thisismypass");
-define("DB_NAME", "mycrossingdb");
+if(isset($_GET["testing"]) && $_GET["testing"] == 'true'){
+  define("DB_NAME", "mycrossingtestdb");
+}else{
+  define("DB_NAME", "mycrossingdb");
+}
 
 function connect(){
 
