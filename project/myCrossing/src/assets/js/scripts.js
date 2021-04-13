@@ -97,7 +97,7 @@ const initialize = function () {
   $(document).trigger("input");
 
   $("#reset").on("click", function () {
-    if (window.confirm("ATENCION vas a reiniciar")) {
+    if (window.confirm("¡ATENCIÓN! Vas a reiniciar los datos")) {
       sell_inputs.forEach(input => input.value = '');
       fillFields([], false, -1);
       update();

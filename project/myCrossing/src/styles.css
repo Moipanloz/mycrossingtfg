@@ -7,7 +7,8 @@
 --verde: #95E59B;
 --l-verde: #CBF4C4;
 --blanco: #F7F3E8;
---l-rojo: #ff7673;
+--rojo: #ff7673;
+--l-rojo: #f7a09e;
 --l-gris: #a5a5a4;
 }
 
@@ -214,6 +215,11 @@ label{
   border-color: rgb(149, 229, 155);
 }
 
+.b-rojo-hover:hover{
+  background-color: var(--l-rojo);
+  border-color: var(--rojo);
+}
+
 .b-amarillo{
   background-color: #ffefc4;
   border-color: #edd9a3;
@@ -221,6 +227,10 @@ label{
 
 .shadow{
   box-shadow: 0px -10px 20px 0px rgb(23 23 23 / 55%);
+}
+
+.shadow-ins-bot{
+  box-shadow: 0px 15px 20px 0px rgb(23 23 23 / 55%);
 }
 
 .content-wrapper-top{
@@ -272,6 +282,21 @@ label{
   width: 100%;
 }
 
-.padding-nav-footer{
-  padding: 4vw 0;
+.padding-nav{
+  padding-top: 5vw;
+}
+
+.padding-footer{
+  padding-bottom: 3vw;
+}
+
+.warning {
+  color: var(--rojo);
+}
+
+.background-img{
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #c9f3f3;
 }
