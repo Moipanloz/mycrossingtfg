@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-calc-nabos',
   templateUrl: './calc-nabos.component.html',
-  styleUrls: ['./calc-nabos.component.css']
+  styleUrls: ['./calc-nabos.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CalcNabosComponent implements OnInit {
 

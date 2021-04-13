@@ -1,3 +1,16 @@
+:root{
+--amarillo: #edd9a3;
+--l-amarillo: #ffefc4;
+--azul: #ade6e7;
+--l-azul: #c9f3f3;
+--xl-azul: #d9f6f6;
+--verde: #95E59B;
+--l-verde: #CBF4C4;
+--blanco: #F7F3E8;
+--l-rojo: #ff7673;
+--l-gris: #a5a5a4;
+}
+
 body{
   margin: 0;
 }
@@ -189,6 +202,11 @@ label{
 .b-verde{
   background-color: rgb(203, 244, 196);
   border-color: rgb(149, 229, 155);
+}
+
+.b-azul-hover{
+  background-color: #d9f6f6;
+  border-color: #ade6e7;
 }
 
 .b-azul-hover:hover{

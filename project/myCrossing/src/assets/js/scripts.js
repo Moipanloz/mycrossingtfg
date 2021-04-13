@@ -60,6 +60,8 @@ const fillFields = function (prices, first_buy, previous_pattern) {
   checkRadioByValue(first_buy_radios, first_buy);
   checkRadioByValue(previous_pattern_radios, previous_pattern);
 
+  const buy_input = $("#buy");
+
   buy_input.focus();
   buy_input.val(prices[0] || '');
   buy_input.blur();
@@ -94,8 +96,6 @@ const initialize = function () {
 
   $(document).trigger("input");
 
-  $("#permalink-btn").on("click", copyPermalink);
-
   $("#reset").on("click", function () {
     if (window.confirm("ATENCION vas a reiniciar")) {
       sell_inputs.forEach(input => input.value = '');
@@ -103,8 +103,6 @@ const initialize = function () {
       update();
     }
   });
-
-  console.log('finished initializing');
   state.initialized = true;
 };
 
@@ -298,7 +296,7 @@ const calculateOutput = function (data, first_buy, previous_pattern) {
     hideChart()
     return;
   }
-  let pat_desc = {0:"fluctuating", 1:"large-spike", 2:"decreasing", 3:"small-spike", 4:"all"};
+  let pat_desc = {0:"Variante", 1:"Pico grande", 2:"Descendiente", 3:"Pico pequeño", 4:"Todos"};
   let output_possibilities = "";
   let predictor = new Predictor(data, first_buy, previous_pattern);
   let analyzed_possibilities = predictor.analyze_possibilities();
@@ -325,7 +323,7 @@ const calculateOutput = function (data, first_buy, previous_pattern) {
     for (let day of poss.prices.slice(2)) {
       let price_class = getPriceClass(style_price, day.max);
       if (day.min !== day.max) {
-        out_line += `<td class='${price_class}'>${day.min} ${a} ${day.max}</td>`;
+        out_line += `<td class='${price_class}'>${day.min} ${"a"} ${day.max}</td>`;
       } else {
         out_line += `<td class='${price_class}'>${day.min}</td>`;
       }
@@ -338,8 +336,6 @@ const calculateOutput = function (data, first_buy, previous_pattern) {
   }
 
   $("#output").html(output_possibilities);
-
-  update_chart(data, analyzed_possibilities);
 };
 
 const generatePermalink = function (buy_price, sell_prices, first_buy, previous_pattern) {
@@ -403,3 +399,23 @@ const update = function () {
 
   calculateOutput(prices, first_buy, previous_pattern);
 };
+
+$(document).ready(initialize);
+$("#irMercadoNabos").click(initialize);
+
+let delayTimer;
+  $(document).on('input', function(event) {
+    //prevent radio input from updating content twice per input change
+    if(event.target.type === 'radio'){ return }
+    // adding short delay after input to help mitigate potential lag after keystrokes
+    clearTimeout(delayTimer);
+    delayTimer = setTimeout(function() {
+      updateContent();
+    }, 500);
+  });
+
+  $('input[type = radio]').on('change', updateContent);
+
+  function updateContent() {
+    update();
+  }

@@ -33,7 +33,7 @@
       <div class="flex-column-centered" style="align-items: unset; width: 90%">
         <div class="flex-between patron-tag" (mouseenter)="this.filtrosView[0] = true" (mouseleave)="this.filtrosView[0] = false">
           <div class="flex-column-centered">
-            <h2>Aleatorio</h2>
+            <h2>Variante</h2>
             <p [style.display]="filtrosView[0] ? 'block' : 'none'">Va subiendo y bajando sin seguir ningún orden en particular.
               Puedes llegar a sacar algo de beneficio, pero es arriesgado.</p>
           </div>
@@ -61,7 +61,7 @@
 
         <div class="flex-between patron-tag" (mouseenter)="this.filtrosView[3] = true" (mouseleave)="this.filtrosView[3] = false">
           <div class="flex-column-centered">
-            <h2>Pico alto</h2>
+            <h2>Pico grande</h2>
             <p [style.display]="filtrosView[3] ? 'block' : 'none'">Igual que el anterior, con la diferencia de que entre el primer
               y segundo ascenso hay un descenso. Sin embargo, el segundo y
               tercer ascenso son mucho más pronunciados y se alcanzan precios
@@ -90,130 +90,117 @@
   <div>
     <form class="input__form">
       <div class="form__row">
-        <h6 data-i18n="first-time.title"></h6>
+        <h3>¿Es la primera vez que compras?</h3>
         <div class="input__group">
-          <label data-i18n="[html]first-time.description"></label>
           <div class="input__radio-buttons">
             <input type="radio" id="first-time-radio-no" name="first-time" value="false" checked>
-            <label for="first-time-radio-no" data-i18n="first-time.no"></label>
+            <label for="first-time-radio-no">No</label>
             <input type="radio" id="first-time-radio-yes" name="first-time" value="true">
-            <label for="first-time-radio-yes" data-i18n="first-time.yes"></label>
+            <label for="first-time-radio-yes">Si</label>
           </div>
         </div>
       </div>
 
       <div class="form__row">
-        <h6 data-i18n="patterns.title"></h6>
+        <h3>Patrón anterior</h3>
         <div class="input__group">
-          <label for="" data-i18n="[html]patterns.description"></label>
           <div class="input__radio-buttons">
             <input type="radio" id="pattern-radio-unknown" name="pattern" value="-1" checked>
-            <label data-i18n="patterns.unknown" for="pattern-radio-unknown"></label>
+            <label for="pattern-radio-unknown">No lo sé</label>
             <input type="radio" id="pattern-radio-fluctuating" name="pattern" value="0">
-            <label data-i18n="patterns.fluctuating" for="pattern-radio-fluctuating"></label>
+            <label for="pattern-radio-fluctuating">Variante</label>
             <input type="radio" id="pattern-radio-small-spike" name="pattern" value="3">
-            <label data-i18n="patterns.small-spike" for="pattern-radio-small-spike"></label>
+            <label for="pattern-radio-small-spike">Pico pequeño</label>
             <input type="radio" id="pattern-radio-large-spike" name="pattern" value="1">
-            <label data-i18n="patterns.large-spike" for="pattern-radio-large-spike"></label>
+            <label for="pattern-radio-large-spike">Pico grande</label>
             <input type="radio" id="pattern-radio-decreasing" name="pattern" value="2">
-            <label data-i18n="patterns.decreasing" for="pattern-radio-decreasing"></label>
+            <label for="pattern-radio-decreasing">Descendiente</label>
           </div>
         </div>
       </div>
 
       <div class="form__row">
-        <h6 data-i18n="weekdays.sunday"></h6>
+        <h3>Precio al que compraste los nabos</h3>
         <div class="input__group">
-          <label data-i18n="[html]prices.description" for='buy'></label>
-          <input type="number" pattern="\d*" id="buy" placeholder="..." />
-
+          <input type="number" class="text-input" pattern="\d*" id="buy" placeholder="..." />
         </div>
       </div>
-      <i data-i18n="prices.open.am"></i>
-      <i data-i18n="prices.open.pm"></i>
       <div class="form__flex-wrap">
         <div class="form__row">
-          <h6 data-i18n="weekdays.monday"></h6>
+          <h3>Lunes</h3>
           <div class="input__group">
-            <label data-i18n="times.morning" for="sell_2"></label>
-            <input type="number" pattern="\d*" id="sell_2" placeholder="..." />
+            <label for="sell_2">AM</label>
+            <input type="number" class="text-input" pattern="\d*" id="sell_2" placeholder="..." />
           </div>
           <div class="input__group">
-            <label data-i18n="times.afternoon" for="sell_3"></label>
-            <input type="number" pattern="\d*" id="sell_3" placeholder="..." />
-          </div>
-        </div>
-
-        <div class="form__row">
-          <h6 data-i18n="weekdays.tuesday"></h6>
-          <div class="input__group">
-            <label data-i18n="times.morning" for="sell_4"></label>
-            <input type="number" pattern="\d*" id="sell_4" placeholder="..." />
-          </div>
-          <div class="input__group">
-            <label data-i18n="times.afternoon" for="sell_5"></label>
-            <input type="number" pattern="\d*" id="sell_5" placeholder="..." />
+            <label for="sell_3">PM</label>
+            <input type="number" class="text-input" pattern="\d*" id="sell_3" placeholder="..." />
           </div>
         </div>
 
         <div class="form__row">
-          <h6 data-i18n="weekdays.wednesday"></h6>
+          <h3>Martes</h3>
           <div class="input__group">
-            <label data-i18n="times.morning" for="sell_6"></label>
-            <input type="number" pattern="\d*" id="sell_6" placeholder="..." />
+            <label for="sell_4">AM</label>
+            <input type="number" class="text-input" pattern="\d*" id="sell_4" placeholder="..." />
           </div>
           <div class="input__group">
-            <label data-i18n="times.afternoon" for="sell_7"></label>
-            <input type="number" pattern="\d*" id="sell_7" placeholder="..." />
-          </div>
-        </div>
-
-        <div class="form__row">
-          <h6 data-i18n="weekdays.thursday"></h6>
-          <div class="input__group">
-            <label data-i18n="times.morning" for="sell_8"></label>
-            <input type="number" pattern="\d*" id="sell_8" placeholder="..." />
-          </div>
-          <div class="input__group">
-            <label data-i18n="times.afternoon" for="sell_9"></label>
-            <input type="number" pattern="\d*" id="sell_9" placeholder="..." />
+            <label for="sell_5">PM</label>
+            <input type="number" class="text-input" pattern="\d*" id="sell_5" placeholder="..." />
           </div>
         </div>
 
         <div class="form__row">
-          <h6 data-i18n="weekdays.friday"></h6>
+          <h3>Miércoles</h3>
           <div class="input__group">
-            <label data-i18n="times.morning" for="sell_10"></label>
-            <input type="number" pattern="\d*" id="sell_10" placeholder="..." />
+            <label for="sell_6">AM</label>
+            <input type="number" class="text-input" pattern="\d*" id="sell_6" placeholder="..." />
           </div>
           <div class="input__group">
-            <label data-i18n="times.afternoon" for="sell_11"></label>
-            <input type="number" pattern="\d*" id="sell_11" placeholder="..." />
+            <label for="sell_7">PM</label>
+            <input type="number" class="text-input" pattern="\d*" id="sell_7" placeholder="..." />
           </div>
         </div>
 
         <div class="form__row">
-          <h6 data-i18n="weekdays.saturday"></h6>
+          <h3>Jueves</h3>
           <div class="input__group">
-            <label data-i18n="times.morning" for="sell_12"></label>
-            <input type="number" pattern="\d*" id="sell_12" placeholder="..." />
+            <label for="sell_8">AM</label>
+            <input type="number" class="text-input" pattern="\d*" id="sell_8" placeholder="..." />
           </div>
           <div class="input__group">
-            <label data-i18n="times.afternoon" for="sell_13"></label>
-            <input type="number" pattern="\d*" id="sell_13" placeholder="..." />
+            <label for="sell_9">PM</label>
+            <input type="number" class="text-input" pattern="\d*" id="sell_9" placeholder="..." />
+          </div>
+        </div>
+
+        <div class="form__row">
+          <h3>Viernes</h3>
+          <div class="input__group">
+            <label for="sell_10">AM</label>
+            <input type="number" class="text-input" pattern="\d*" id="sell_10" placeholder="..." />
+          </div>
+          <div class="input__group">
+            <label for="sell_11">PM</label>
+            <input type="number" class="text-input" pattern="\d*" id="sell_11" placeholder="..." />
+          </div>
+        </div>
+
+        <div class="form__row">
+          <h3>Sábado</h3>
+          <div class="input__group">
+            <label for="sell_12">AM</label>
+            <input type="number" class="text-input" pattern="\d*" id="sell_12" placeholder="..." />
+          </div>
+          <div class="input__group">
+            <label for="sell_13">PM</label>
+            <input type="number" class="text-input" pattern="\d*" id="sell_13" placeholder="..." />
           </div>
         </div>
       </div>
-      <input id="permalink-input" type="text" readOnly />
-      <div id="permalink-btn" class="button permalink">
-        <span data-i18n="prices.copy-permalink"></span>
-        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-          <path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path>
-        </svg>
-      </div>
-      <button type="button" id="reset" class="button button--reset" name="action" data-i18n="prices.reset"></button>
+
+      <button type="button" id="reset" class="button button--reset boton-alargado b-azul-hover" name="action">Resetear</button>
     </form>
-
   </div>
 
   <!-- Tabla -->
@@ -221,59 +208,57 @@
     <table id="turnipTable">
       <thead>
         <tr>
-          <th valign="bottom" data-i18n="patterns.pattern"></th>
-          <th colspan="2" valign="bottom" data-i18n="output.chance"></th>
+          <th valign="bottom">Patrón</th>
+          <th colspan="2" valign="bottom">Probabilidad(%)</th>
           <th colspan="2">
-            <div data-i18n="weekdays.monday"></div>
+            <div>Lunes</div>
             <div>
-              <span data-i18n="times.morning"></span>
-              <span data-i18n="times.afternoon"></span>
+              <span>AM</span>
+              <span>PM</span>
             </div>
           </th>
           <th colspan="2">
-            <div data-i18n="weekdays.tuesday"></div>
+            <div>Martes</div>
             <div>
-              <span data-i18n="times.morning"></span>
-              <span data-i18n="times.afternoon"></span>
+              <span>AM</span>
+              <span>PM</span>
             </div>
           </th>
           <th colspan="2">
-            <div data-i18n="weekdays.wednesday"></div>
+            <div>Miércoles</div>
             <div>
-              <span data-i18n="times.morning"></span>
-              <span data-i18n="times.afternoon"></span>
+              <span>AM</span>
+              <span>PM</span>
             </div>
           </th>
           <th colspan="2">
-            <div data-i18n="weekdays.thursday"></div>
+            <div>Jueves</div>
             <div>
-              <span data-i18n="times.morning"></span>
-              <span data-i18n="times.afternoon"></span>
+              <span>AM</span>
+              <span>PM</span>
             </div>
           </th>
           <th colspan="2">
-            <div data-i18n="weekdays.friday"></div>
+            <div>Viernes</div>
             <div>
-              <span data-i18n="times.morning"></span>
-              <span data-i18n="times.afternoon"></span>
+              <span>AM</span>
+              <span>PM</span>
             </div>
           </th>
           <th colspan="2">
-            <div data-i18n="weekdays.saturday"></div>
+            <div>Sábado</div>
             <div>
-              <span data-i18n="times.morning"></span>
-              <span data-i18n="times.afternoon"></span>
+              <span>AM</span>
+              <span>PM</span>
             </div>
           </th>
-          <th valign="bottom" data-i18n="output.minimum"></th>
-          <th valign="bottom" data-i18n="output.maximum"></th>
+          <th valign="bottom">Mínimo garantizado</th>
+          <th valign="bottom">Máximo potencial</th>
         </tr>
       </thead>
       <tbody id="output"></tbody>
     </table>
   </div>
-
-
 </div>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
