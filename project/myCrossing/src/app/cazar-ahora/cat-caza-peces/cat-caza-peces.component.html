@@ -9,23 +9,23 @@
           <div style="width: 35%;justify-content:unset" class="flex-column-centered">
             <h3>Sombra</h3>
             <div class="flex-centered" style="flex-wrap: wrap;" id="filtro-sombra">
-              <button class="boton-alargado" (click)="filtraShadow('X-Small')" [class]="this.filtroAcShadow == 'X-Small' ? 'b-verde' : 'b-azul'" style="grid-column: 1;">Diminuta</button>
-              <button class="boton-alargado" (click)="filtraShadow('Small')" [class]="this.filtroAcShadow == 'Small' ? 'b-verde' : 'b-azul'" style="grid-column: 2;">Pequeña</button>
-              <button class="boton-alargado" (click)="filtraShadow('Medium')" [class]="this.filtroAcShadow == 'Medium' ? 'b-verde' : 'b-azul'" style="grid-column: 3;">Mediana</button>
-              <button class="boton-alargado" (click)="filtraShadow('Large')" [class]="this.filtroAcShadow == 'Large' ? 'b-verde' : 'b-azul'" style="grid-column: 4;">Grande</button>
-              <button class="boton-alargado" (click)="filtraShadow('X-Large')" [class]="this.filtroAcShadow == 'X-Large' ? 'b-verde' : 'b-azul'" style="grid-column: 1;">Muy grande</button>
-              <button class="boton-alargado" (click)="filtraShadow('XX-Large')" [class]="this.filtroAcShadow == 'XX-Large' ? 'b-verde' : 'b-azul'" style="grid-column: 2;">Gigante</button>
-              <button class="boton-alargado" (click)="filtraShadow('X-Large w/Fin')" [class]="this.filtroAcShadow == 'X-Large w/Fin' ? 'b-verde' : 'b-azul'" style="grid-column: 3;">Muy grande con aleta</button>
-              <button class="boton-alargado" (click)="filtraShadow('Long')" [class]="this.filtroAcShadow == 'Long' ? 'b-verde' : 'b-azul'" style="grid-column: 4;">Alargada</button>
+              <button class="boton-alargado" (click)="filtraShadow('X-Small')" [class]="this.filtroAcShadow == 'X-Small' ? 'b-verde' : 'b-azul b-azul-hover'" style="grid-column: 1;">Diminuta</button>
+              <button class="boton-alargado" (click)="filtraShadow('Small')" [class]="this.filtroAcShadow == 'Small' ? 'b-verde' : 'b-azul b-azul-hover'" style="grid-column: 2;">Pequeña</button>
+              <button class="boton-alargado" (click)="filtraShadow('Medium')" [class]="this.filtroAcShadow == 'Medium' ? 'b-verde' : 'b-azul b-azul-hover'" style="grid-column: 3;">Mediana</button>
+              <button class="boton-alargado" (click)="filtraShadow('Large')" [class]="this.filtroAcShadow == 'Large' ? 'b-verde' : 'b-azul b-azul-hover'" style="grid-column: 4;">Grande</button>
+              <button class="boton-alargado" (click)="filtraShadow('X-Large')" [class]="this.filtroAcShadow == 'X-Large' ? 'b-verde' : 'b-azul b-azul-hover'" style="grid-column: 1;">Muy grande</button>
+              <button class="boton-alargado" (click)="filtraShadow('XX-Large')" [class]="this.filtroAcShadow == 'XX-Large' ? 'b-verde' : 'b-azul b-azul-hover'" style="grid-column: 2;">Gigante</button>
+              <button class="boton-alargado" (click)="filtraShadow('X-Large w/Fin')" [class]="this.filtroAcShadow == 'X-Large w/Fin' ? 'b-verde' : 'b-azul b-azul-hover'" style="grid-column: 3;">Muy grande con aleta</button>
+              <button class="boton-alargado" (click)="filtraShadow('Long')" [class]="this.filtroAcShadow == 'Long' ? 'b-verde' : 'b-azul b-azul-hover'" style="grid-column: 4;">Alargada</button>
             </div>
           </div>
           <div style="width: 20%;justify-content: unset;margin: 0 1vw" class="flex-column-centered">
             <h3>Lugares</h3>
             <div style="flex-wrap: wrap;" id="filtro-lugar">
-              <button class="boton-alargado" (click)="filtraWhe('Pond')" [class]="this.filtroAcWhe == 'Pond' ? 'b-verde' : 'b-azul'">Estanque</button>
-              <button class="boton-alargado" (click)="filtraWhe('River')" [class]="this.filtroAcWhe == 'River' ? 'b-verde' : 'b-azul'">Río</button>
-              <button class="boton-alargado" (click)="filtraWhe('Sea')" [class]="this.filtroAcWhe == 'Sea' ? 'b-verde' : 'b-azul'">Mar</button>
-              <button class="boton-alargado" (click)="filtraWhe('Pier')" [class]="this.filtroAcWhe == 'Pier' ? 'b-verde' : 'b-azul'">Muelle</button>
+              <button class="boton-alargado" (click)="filtraWhe('Pond')" [class]="this.filtroAcWhe == 'Pond' ? 'b-verde' : 'b-azul b-azul-hover'">Estanque</button>
+              <button class="boton-alargado" (click)="filtraWhe('River')" [class]="this.filtroAcWhe == 'River' ? 'b-verde' : 'b-azul b-azul-hover'">Río</button>
+              <button class="boton-alargado" (click)="filtraWhe('Sea')" [class]="this.filtroAcWhe == 'Sea' ? 'b-verde' : 'b-azul b-azul-hover'">Mar</button>
+              <button class="boton-alargado" (click)="filtraWhe('Pier')" [class]="this.filtroAcWhe == 'Pier' ? 'b-verde' : 'b-azul b-azul-hover'">Muelle</button>
             </div>
           </div>
 
@@ -50,15 +50,15 @@
                 </div>
               </div>
               <div class="flex-column-centered" style="margin:0.5vw" [style.display]="this._verif.user == null ? 'none' : 'flex'" id="filtro-usuario">
-                <button class="boton-alargado" (click)="activaFiltro('obtenido')" [class]="this.botonFiltrar == 'obtenido' ? 'b-verde' : 'b-azul'">Obtenidos</button>
-                <button class="boton-alargado" (click)="activaFiltro('falta')" [class]="this.botonFiltrar == 'falta' ? 'b-verde' : 'b-azul'">Me faltan</button>
+                <button class="boton-alargado" (click)="activaFiltro('obtenido')" [class]="this.botonFiltrar == 'obtenido' ? 'b-verde' : 'b-azul  b-azul-hover'">Obtenidos</button>
+                <button class="boton-alargado" (click)="activaFiltro('falta')" [class]="this.botonFiltrar == 'falta' ? 'b-verde' : 'b-azul  b-azul-hover'">Me faltan</button>
               </div>
             </div>
           </div>
           <div class="flex-column-centered" style="width: 5vw;" id="ser-wrap">
-            <button class="boton-imagen b-azul" [style.background-image]="'url(../../../assets/images/insecto-icon.png)'" (click)="cambiaSer('insectos')"></button>
+            <button class="boton-imagen b-azul b-azul-hover" [style.background-image]="'url(../../../assets/images/insecto-icon.png)'" (click)="cambiaSer('insectos')"></button>
             <button class="boton-imagen b-verde" [style.background-image]="'url(../../../assets/images/pez-icon.png)'"></button>
-            <button class="boton-imagen b-azul" [style.background-image]="'url(../../../assets/images/criatura-marina-icon.png)'" (click)="cambiaSer('criaturasMarinas')"></button>
+            <button class="boton-imagen b-azul b-azul-hover" [style.background-image]="'url(../../../assets/images/criatura-marina-icon.png)'" (click)="cambiaSer('criaturasMarinas')"></button>
           </div>
         </div>
     </div>

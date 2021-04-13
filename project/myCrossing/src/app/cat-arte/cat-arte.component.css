@@ -86,20 +86,16 @@ p{
 }
 
 .panel{
-  top:25%;
+  top:30%;
   left:30%;
-  padding: 2%;
+  width: 35vw;
+  font-size: 1.5vw;
   position: fixed;
-  border-style: solid;
-  border-radius: 2vw;
-  border-color: #edd9a3;
-  border-width: 0.5vw;
-  background-color: #ffefc4;
-  z-index: 1;
-  height: 30%;
-  width: 35%;
-  display: flex;
-  align-items: center;
+  border-style: none;
+  padding: 3%;
+  border-radius: 15px;
+  background-color: #F7F3E8;
+  box-shadow: 0px 0px 10px 1px rgb(23 23 23 / 55%);
   z-index: 5;
 }
 

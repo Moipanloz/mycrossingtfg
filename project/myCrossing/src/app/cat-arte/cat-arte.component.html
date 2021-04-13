@@ -4,8 +4,8 @@
     <h2>Catálogo de Obras de Arte</h2>
     <div class="flex-centered" style="padding-bottom: 1vw;">
       <div class="flex-centered" style="flex-wrap: wrap;margin-right: 1.5vw;" [style.display]="this._verif.user == null ? 'none' : 'block'">
-        <button (click)="activaFiltro('obtenido')" [class]="this.botonFiltrar == 'obtenido' ? 'boton-alargado b-verde' : 'boton-alargado b-azul'" style="margin:0.5vw">Obtenidos</button>
-        <button (click)="activaFiltro('falta')" [class]="this.botonFiltrar == 'falta' ? 'boton-alargado b-verde' : 'boton-alargado b-azul'" style="margin:0.5vw">Me faltan</button>
+        <button (click)="activaFiltro('obtenido')" [class]="this.botonFiltrar == 'obtenido' ? 'boton-alargado b-verde' : 'boton-alargado b-azul b-azul-hover'" style="margin:0.5vw">Obtenidos</button>
+        <button (click)="activaFiltro('falta')" [class]="this.botonFiltrar == 'falta' ? 'boton-alargado b-verde' : 'boton-alargado b-azul b-azul-hover'" style="margin:0.5vw">Me faltan</button>
       </div>
       <input [formControl]="busqueda" class="text-input" type="text" placeholder="Buscar" [style.width]="this._verif.user == null ? '50%' : '30%'">
     </div>
@@ -90,8 +90,10 @@
   <div class="grid-w-gap" style="margin: 1vw 0">
       <ng-container *ngFor="let item of listaItems | filtroAc:nameFilter | paginacion:page_number:max_items">
         <div class="grid-item-wrap flex-column-centered" style="justify-content: space-evenly;">
-          <div class="check-container" *ngIf="this._verif.user != null">
-            <button [style.background-image]="this.listaUsuario.includes(item.name.replace(' ','')) ? 'url(../../assets/images/check-rojo.png)' : 'url(../../assets/images/check-gris.png)'" class="boton-imagen editar" (click)="toggleCheck(item)"></button>
+          <div class="check-container">
+            <div *ngIf="this._verif.user != null">
+              <button [style.background-image]="this.listaUsuario.includes(item.name.replace(' ','')) ? 'url(../../assets/images/check-rojo.png)' : 'url(../../assets/images/check-gris.png)'" class="boton-imagen editar" (click)="toggleCheck(item)"></button>
+            </div>
             <button class="boton-imagen editar left b-falso" [style.background-image]="'url('+urlArteFalso+')'" (click)="verFalsificacion($event, item)" *ngIf="tieneFalsificacion(item)"></button>
           </div>
           <img [src]="getImage(item, 0)" style="width: 7vw; height: 7vw;" [id]='item.name.replace(" ", "")'>

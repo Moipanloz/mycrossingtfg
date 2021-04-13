@@ -1,5 +1,5 @@
 import { ErrorService } from './../general/services/error.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { IItem, items, reactions } from 'animal-crossing';
 import { PaginacionService } from 'app/general/services/paginacion.service';
@@ -30,6 +30,12 @@ export class CatArteComponent implements OnInit {
   menuFalso : string = "";
   _error : ErrorService;
   urlArteFalso : string = reactions.find(f => f.name == "Mischief").image;
+
+  @HostListener("window:scroll")
+  onScroll(){
+    this.menuFalsificacion = false;
+  }
+
 
   constructor(verif : VerificationService, pag : PaginacionService, catarte : CatArteService, errorService : ErrorService) {
     this._verif = verif;

@@ -17,6 +17,7 @@ import { CatCazaInsectosComponent } from 'app/cazar-ahora/cat-caza-insectos/cat-
 import { CatCazaPecesComponent } from 'app/cazar-ahora/cat-caza-peces/cat-caza-peces.component';
 import { CatCazaCriaturasMarinasComponent } from 'app/cazar-ahora/cat-caza-criaturas-marinas/cat-caza-criaturas-marinas.component';
 import { CatVecinosComponent } from 'app/cat-vecinos/cat-vecinos.component';
+import { CalcNabosComponent } from 'app/calc-nabos/calc-nabos.component';
 
 const rutas: Routes = [
 {
@@ -67,6 +68,9 @@ const rutas: Routes = [
 },{
   path: "catalogo-vecinos",
   component: CatVecinosComponent
+},{
+  path: "mercado-nabos",
+  component: CalcNabosComponent
 }
 ];
 

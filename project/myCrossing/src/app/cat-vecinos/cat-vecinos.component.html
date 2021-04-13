@@ -6,14 +6,14 @@
         <div style="width: 35%;" class="flex-column-centered">
           <h3>Personalidad: </h3>
           <div class="flex-centered" style="flex-wrap: wrap;" id="filtro-personalidad">
-            <button class="boton-alargado" (click)="filtraPersonalidad('Cranky')" [class]="this.filtroAcPersonalidad == 'Cranky' ? 'b-verde' : 'b-azul'">Malhumorado</button>
-            <button class="boton-alargado" (click)="filtraPersonalidad('Peppy')" [class]="this.filtroAcPersonalidad == 'Peppy' ? 'b-verde' : 'b-azul'">Vivaracha</button>
-            <button class="boton-alargado" (click)="filtraPersonalidad('Big Sister')" [class]="this.filtroAcPersonalidad == 'Big Sister' ? 'b-verde' : 'b-azul'">Hermana mayor</button>
-            <button class="boton-alargado" (click)="filtraPersonalidad('Lazy')" [class]="this.filtroAcPersonalidad == 'Lazy' ? 'b-verde' : 'b-azul'">Perezoso</button>
-            <button class="boton-alargado" (click)="filtraPersonalidad('Normal')" [class]="this.filtroAcPersonalidad == 'Normal' ? 'b-verde' : 'b-azul'">Dulce</button>
-            <button class="boton-alargado" (click)="filtraPersonalidad('Snooty')" [class]="this.filtroAcPersonalidad == 'Snooty' ? 'b-verde' : 'b-azul'">Presumida</button>
-            <button class="boton-alargado" (click)="filtraPersonalidad('Jock')" [class]="this.filtroAcPersonalidad == 'Jock' ? 'b-verde' : 'b-azul'">Deportista</button>
-            <button class="boton-alargado" (click)="filtraPersonalidad('Smug')" [class]="this.filtroAcPersonalidad == 'Smug' ? 'b-verde' : 'b-azul'">Altanero</button>
+            <button class="boton-alargado" (click)="filtraPersonalidad('Cranky')" [class]="this.filtroAcPersonalidad == 'Cranky' ? 'b-verde' : 'b-azul b-azul-hover'">Malhumorado</button>
+            <button class="boton-alargado" (click)="filtraPersonalidad('Peppy')" [class]="this.filtroAcPersonalidad == 'Peppy' ? 'b-verde' : 'b-azul b-azul-hover'">Vivaracha</button>
+            <button class="boton-alargado" (click)="filtraPersonalidad('Big Sister')" [class]="this.filtroAcPersonalidad == 'Big Sister' ? 'b-verde' : 'b-azul b-azul-hover'">Hermana mayor</button>
+            <button class="boton-alargado" (click)="filtraPersonalidad('Lazy')" [class]="this.filtroAcPersonalidad == 'Lazy' ? 'b-verde' : 'b-azul b-azul-hover'">Perezoso</button>
+            <button class="boton-alargado" (click)="filtraPersonalidad('Normal')" [class]="this.filtroAcPersonalidad == 'Normal' ? 'b-verde' : 'b-azul b-azul-hover'">Dulce</button>
+            <button class="boton-alargado" (click)="filtraPersonalidad('Snooty')" [class]="this.filtroAcPersonalidad == 'Snooty' ? 'b-verde' : 'b-azul b-azul-hover'">Presumida</button>
+            <button class="boton-alargado" (click)="filtraPersonalidad('Jock')" [class]="this.filtroAcPersonalidad == 'Jock' ? 'b-verde' : 'b-azul b-azul-hover'">Deportista</button>
+            <button class="boton-alargado" (click)="filtraPersonalidad('Smug')" [class]="this.filtroAcPersonalidad == 'Smug' ? 'b-verde' : 'b-azul b-azul-hover'">Altanero</button>
           </div>
         </div>
         <div style="width: 20%;justify-content: unset;margin: 0 1vw" class="flex-column-centered">
@@ -59,8 +59,8 @@
         <div class="flex-column-centered" style="width: 35%;">
           <input [formControl]="busqueda" class="text-input" style="width: 80%;margin-top: 2vw" type="text" placeholder="Buscar">
           <div class="flex-column-entered" style="margin:0.5vw">
-            <button class="boton-circular b-azul bckg-img-boton btn-genero" style="background-image: url(../../assets/images/genero-femenino.png);" (click)="filtraGen('f')" [class]="this.filtroAcGen == 'f' ? 'b-verde' : 'b-azul'"></button>
-            <button class="boton-circular b-azul bckg-img-boton btn-genero" style="background-image: url(../../assets/images/genero-masculino.png);" (click)="filtraGen('m')" [class]="this.filtroAcGen == 'm' ? 'b-verde' : 'b-azul'"></button>
+            <button class="boton-circular b-azul bckg-img-boton btn-genero" style="background-image: url(../../assets/images/genero-femenino.png);" (click)="filtraGen('f')" [class]="this.filtroAcGen == 'f' ? 'b-verde' : 'b-azul b-azul-hover'"></button>
+            <button class="boton-circular b-azul bckg-img-boton btn-genero" style="background-image: url(../../assets/images/genero-masculino.png);" (click)="filtraGen('m')" [class]="this.filtroAcGen == 'm' ? 'b-verde' : 'b-azul b-azul-hover'"></button>
           </div>
         </div>
       </div>

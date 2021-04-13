@@ -1,0 +1,266 @@
+<div class="flex-column-centered padding-nav" style="background-color: var(--blanco);">
+  <h1>Mercado de nabos</h1>
+
+  <!-- Calculadora -->
+  <div class="w100 shadow-ins-bot" style="position:relative; background-color: var(--blanco);">
+    <div>
+      <form class="input__form">
+        <div class="flex-between" style="width: 65%; margin:auto; text-align: center;margin-top: 2%;">
+          <div class="form__row">
+            <h3>¿Es la primera vez que compras?</h3>
+            <div class="input__group" style="width: 100%;">
+              <div class="input__radio-buttons" style="width: 100%;">
+                <input type="radio" id="first-time-radio-no" name="first-time" value="false" checked>
+                <label for="first-time-radio-no">No</label>
+                <input type="radio" id="first-time-radio-yes" name="first-time" value="true">
+                <label for="first-time-radio-yes">Si</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <h3>Patrón anterior</h3>
+            <div class="input__group">
+              <div class="input__radio-buttons">
+                <input type="radio" id="pattern-radio-unknown" name="pattern" value="-1" checked>
+                <label for="pattern-radio-unknown">No lo sé</label>
+                <input type="radio" id="pattern-radio-fluctuating" name="pattern" value="0">
+                <label for="pattern-radio-fluctuating">Variante</label>
+                <input type="radio" id="pattern-radio-small-spike" name="pattern" value="3">
+                <label for="pattern-radio-small-spike">Pico pequeño</label>
+                <input type="radio" id="pattern-radio-large-spike" name="pattern" value="1">
+                <label for="pattern-radio-large-spike">Pico grande</label>
+                <input type="radio" id="pattern-radio-decreasing" name="pattern" value="2">
+                <label for="pattern-radio-decreasing">Descendiente</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <h3>Precio al que compraste los nabos</h3>
+            <div class="input__group">
+              <input type="number" class="text-input" pattern="\d*" id="buy" placeholder="..." />
+            </div>
+          </div>
+      </div>
+
+        <div class="form__flex-wrap" style="margin-top: 2%;">
+          <div class="form__row">
+            <h3>Lunes</h3>
+            <div class="input__group">
+              <label for="sell_2">AM</label>
+              <input type="number" class="text-input" pattern="\d*" id="sell_2" placeholder="..." />
+            </div>
+            <div class="input__group">
+              <label for="sell_3">PM</label>
+              <input type="number" class="text-input" pattern="\d*" id="sell_3" placeholder="..." />
+            </div>
+          </div>
+
+          <div class="form__row">
+            <h3>Martes</h3>
+            <div class="input__group">
+              <label for="sell_4">AM</label>
+              <input type="number" class="text-input" pattern="\d*" id="sell_4" placeholder="..." />
+            </div>
+            <div class="input__group">
+              <label for="sell_5">PM</label>
+              <input type="number" class="text-input" pattern="\d*" id="sell_5" placeholder="..." />
+            </div>
+          </div>
+
+          <div class="form__row">
+            <h3>Miércoles</h3>
+            <div class="input__group">
+              <label for="sell_6">AM</label>
+              <input type="number" class="text-input" pattern="\d*" id="sell_6" placeholder="..." />
+            </div>
+            <div class="input__group">
+              <label for="sell_7">PM</label>
+              <input type="number" class="text-input" pattern="\d*" id="sell_7" placeholder="..." />
+            </div>
+          </div>
+
+          <div class="form__row">
+            <h3>Jueves</h3>
+            <div class="input__group">
+              <label for="sell_8">AM</label>
+              <input type="number" class="text-input" pattern="\d*" id="sell_8" placeholder="..." />
+            </div>
+            <div class="input__group">
+              <label for="sell_9">PM</label>
+              <input type="number" class="text-input" pattern="\d*" id="sell_9" placeholder="..." />
+            </div>
+          </div>
+
+          <div class="form__row">
+            <h3>Viernes</h3>
+            <div class="input__group">
+              <label for="sell_10">AM</label>
+              <input type="number" class="text-input" pattern="\d*" id="sell_10" placeholder="..." />
+            </div>
+            <div class="input__group">
+              <label for="sell_11">PM</label>
+              <input type="number" class="text-input" pattern="\d*" id="sell_11" placeholder="..." />
+            </div>
+          </div>
+
+          <div class="form__row">
+            <h3>Sábado</h3>
+            <div class="input__group">
+              <label for="sell_12">AM</label>
+              <input type="number" class="text-input" pattern="\d*" id="sell_12" placeholder="..." />
+            </div>
+            <div class="input__group">
+              <label for="sell_13">PM</label>
+              <input type="number" class="text-input" pattern="\d*" id="sell_13" placeholder="..." />
+            </div>
+          </div>
+        </div>
+
+        <button type="button" id="reset" class="button button--reset boton-alargado b-azul b-rojo-hover" name="action">Resetear</button>
+      </form>
+    </div>
+
+    <!-- Tabla -->
+    <div class="flex-centered" style="margin: 2%;">
+      <div class="table-wrapper">
+        <table id="turnipTable">
+          <thead>
+            <tr>
+              <th valign="bottom">Patrón</th>
+              <th colspan="2" valign="bottom">Probabilidad(%)</th>
+              <th colspan="2">
+                <div>Lunes</div>
+                <div>
+                  <span>AM</span>
+                  <span>PM</span>
+                </div>
+              </th>
+              <th colspan="2">
+                <div>Martes</div>
+                <div>
+                  <span>AM</span>
+                  <span>PM</span>
+                </div>
+              </th>
+              <th colspan="2">
+                <div>Miércoles</div>
+                <div>
+                  <span>AM</span>
+                  <span>PM</span>
+                </div>
+              </th>
+              <th colspan="2">
+                <div>Jueves</div>
+                <div>
+                  <span>AM</span>
+                  <span>PM</span>
+                </div>
+              </th>
+              <th colspan="2">
+                <div>Viernes</div>
+                <div>
+                  <span>AM</span>
+                  <span>PM</span>
+                </div>
+              </th>
+              <th colspan="2">
+                <div>Sábado</div>
+                <div>
+                  <span>AM</span>
+                  <span>PM</span>
+                </div>
+              </th>
+              <th valign="bottom">Mínimo garantizado</th>
+              <th valign="bottom">Máximo potencial</th>
+            </tr>
+          </thead>
+          <tbody id="output"></tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Informacion -->
+  <div class="w100 background-img padding-nav-footer" style="padding: 3vw 0">
+    <div class="flex-between info-wrap">
+      <!-- Información general -->
+      <div class="flex-column-centered info-general">
+        <h3>¿Por donde empiezo?</h3>
+        <div style="text-align: center;">
+          <p>Cada domingo vendrá a tu isla Juliana, una particular jabalí que se dedica a vender nabos.</p>
+
+          <p>Los nabos se venden a un precio que oscila entre las 90 y las 110 bayas el manojo de 10, y su único
+            uso es el de venderlos posteriormente a Tendo y Nendo para sacar beneficio (¡o intentarlo!).</p>
+
+          <p>MiniNook compra los nabos de Lunes a Sábado, y el precio cambia dos veces al dia: a las 12PM y a las 5AM.
+            Además, estas variaciones de precio siguen uno de cuatro posibles patrones (los que ves a la derecha).
+            Cada semana se elegirá un patrón mediante una serie de cálculos y los precios a los que Tendo y Nendo compren
+            los nabos dependerán de este patrón.</p>
+
+          <p>Debido a como funcionan los patrones, si no empieza a haber una subida en el precio de compra a partir del Jueves
+            por la tarde, es muy improbable que se trate de un patron "Pico pequeño" o "Pico alto", por lo que puede ser
+            mejor opción no arriesgarse demasiado, vender cuanto antes y aminorar las pérdidas.</p>
+
+          <br>
+          <h3 class="warning">¡ATENCIÓN!</h3>
+          <p class="warning"> Hacer time travel hace que se pudran los nabos, ¡así que ten cuidado!</p>
+
+        </div>
+        <img src="../../assets/images/juliana-big.png">
+      </div>
+
+      <!-- Patrones -->
+      <div class="flex-column-centered" style="align-items: unset; width: 90%">
+        <div class="flex-between patron-tag" (mouseenter)="this.filtrosView[0] = true" (mouseleave)="this.filtrosView[0] = false" [style.background-color]="filtrosView[0] ? 'var(--l-verde)' : 'var(--l-azul)'">
+          <div class="flex-column-centered">
+            <h2>Variante</h2>
+            <p [style.display]="filtrosView[0] ? 'block' : 'none'">Va subiendo y bajando sin seguir ningún orden en particular.
+              Puedes llegar a sacar algo de beneficio, pero es arriesgado.</p>
+          </div>
+          <img src="../../assets/images/aleatorio.png">
+        </div>
+
+        <div class="flex-between patron-tag" (mouseenter)="this.filtrosView[1] = true" (mouseleave)="this.filtrosView[1] = false" [style.background-color]="filtrosView[1] ? 'var(--l-verde)' : 'var(--l-azul)'">
+          <div class="flex-column-centered">
+            <h2>Descendiente</h2>
+            <p [style.display]="filtrosView[1] ? 'block' : 'none'">El precio va bajando durante toda la semana, por lo que
+              para evitar grandes pérdidas hay que vender cuanto antes.</p>
+          </div>
+          <img src="../../assets/images/descenso.png">
+        </div>
+
+        <div class="flex-between patron-tag" (mouseenter)="this.filtrosView[2] = true" (mouseleave)="this.filtrosView[2] = false" [style.background-color]="filtrosView[2] ? 'var(--l-verde)' : 'var(--l-azul)'">
+          <div class="flex-column-centered">
+            <h2>Pico pequeño</h2>
+            <p [style.display]="filtrosView[2] ? 'block' : 'none'">Empieza bajando pero luego sube 3 veces, alcanzando en el
+              tercer salto el precio de venta más alto, y luego vuelve a bajar.</p>
+          </div>
+          <img src="../../assets/images/pico-pequenio.png">
+        </div>
+
+        <div class="flex-between patron-tag" (mouseenter)="this.filtrosView[3] = true" (mouseleave)="this.filtrosView[3] = false" [style.background-color]="filtrosView[3] ? 'var(--l-verde)' : 'var(--l-azul)'">
+          <div class="flex-column-centered">
+            <h2>Pico grande</h2>
+            <p [style.display]="filtrosView[3] ? 'block' : 'none'">Similar al anterior, aunque el segundo y
+              tercer ascenso son mucho más pronunciados y se alcanzan precios muy altos.</p>
+          </div>
+          <img src="../../assets/images/pico-grande.png">
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/19.4.2/i18next.min.js" integrity="sha384-heKFZqp863HDEF6obW4Nvk9hF5pRjZThVwrDiV+tSCKPBTnu6vf5lu8QJGDwGv0X" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha384-i+dHPTzZw7YVZOx9lbH5l6lP74sLRtMtwN2XjVqjf3uAGAREAF4LMIUDTWEVs4LI" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/i18next-xhr-backend/3.2.2/i18nextXHRBackend.min.js" integrity="sha384-E1yZPo675XVLefQp/3MbG3T1eRDvW41iRKovK3OCHS2dWMrcF/F3/+74qwmoX1jX" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/i18next-browser-languagedetector/4.0.2/i18nextBrowserLanguageDetector.min.js" integrity="sha384-FYlRD8WE3hzVKyoaW6rmqYtUfv1ajxElK/c9bKM1NUnbsJ/VUiUv2YFEQP1AJdOQ" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-i18next/1.2.1/jquery-i18next.min.js" integrity="sha384-fLTSt6zHOb152KeFkj7kSiXdkyjKf6fjk5bdzWYLDPDo9evwd9PVs3TKoYYaaxdl" crossorigin="anonymous"></script>
+
