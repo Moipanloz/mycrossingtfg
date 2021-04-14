@@ -30,6 +30,10 @@ import { CatCazaCriaturasMarinasComponent } from './cazar-ahora/cat-caza-criatur
 import { CatVecinosComponent } from './cat-vecinos/cat-vecinos.component';
 import { FiltraVecinosPipe } from './cat-vecinos/filtra-vecinos.pipe';
 import { CalcNabosComponent } from './calc-nabos/calc-nabos.component';
+import { CalEventosComponent } from './cal-eventos/cal-eventos.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -51,7 +55,8 @@ import { CalcNabosComponent } from './calc-nabos/calc-nabos.component';
     CatCazaCriaturasMarinasComponent,
     CatVecinosComponent,
     FiltraVecinosPipe,
-    CalcNabosComponent
+    CalcNabosComponent,
+    CalEventosComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +67,9 @@ import { CalcNabosComponent } from './calc-nabos/calc-nabos.component';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    SharingModule
+    SharingModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    BrowserAnimationsModule
   ],
   providers: [
     CookieService,

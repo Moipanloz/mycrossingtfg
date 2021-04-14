@@ -1,3 +1,4 @@
+import { CalEventosComponent } from './../cal-eventos/cal-eventos.component';
 import { CatArteComponent } from './../cat-arte/cat-arte.component';
 import { CatFosilComponent } from './../cat-fosil/cat-fosil.component';
 import { CatMuebleComponent } from './../cat-mueble/cat-mueble.component';
@@ -71,6 +72,9 @@ const rutas: Routes = [
 },{
   path: "mercado-nabos",
   component: CalcNabosComponent
+},{
+  path: "calendario",
+  component: CalEventosComponent
 }
 ];
 
