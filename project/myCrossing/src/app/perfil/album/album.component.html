@@ -1,0 +1,10 @@
+<div class="container-album">
+    <div class="container-main-photo">
+        <img src="{{mostrado}}" class="full-image">
+    </div>
+    <div class="container-photos">
+        <ng-container *ngFor="let item of imagenes">
+            <div class="partial-image-container"><img src="{{item}}" (click)="muestra(item)" class="mini-full-image"></div>
+        </ng-container>
+    </div>
+</div>
