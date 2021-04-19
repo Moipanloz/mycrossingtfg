@@ -10,7 +10,6 @@
             [view]="view"
             [(viewDate)]="viewDate"
             (viewDateChange)="closeOpenMonthViewDay()"
-            (click)="actualizaEventos()"
           >
             <
           </div>
@@ -26,7 +25,7 @@
             [view]="view"
             [(viewDate)]="viewDate"
             (viewDateChange)="closeOpenMonthViewDay()"
-            (click)="actualizaEventos()"
+            (click)="getEvents()"
           >
             >
           </div>
@@ -42,9 +41,10 @@
         [weekStartsOn]=1
         (dayClicked)="dayClicked($event.day)"
         (eventClicked)="handleEvent('Clicked', $event.event)"
+        (click)="getEvents()"
+
       >
       </mwl-calendar-month-view>
     </div>
   </div>
 </div>
-

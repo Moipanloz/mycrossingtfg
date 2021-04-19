@@ -145,7 +145,7 @@ h2{
 }
 
 #arte{
-  border-color: rgb(138 44 185);
+  border-color: rgb(173 85 70);
   background-image: url("../../assets/images/fondo-arte.png");
 }
 
@@ -164,9 +164,9 @@ h2{
   background-image: url("../../assets/images/fondo-vecinos.png");
 }
 
-#calendario{
-  border-color: rgb(44 107 105);
-  background-image: url("../../assets/images/fondo-calendario.png");
+#musica{
+  border-color: rgb(98 183 180);
+  background-image: url("../../assets/images/fondo-musica.png");
 }
 
 

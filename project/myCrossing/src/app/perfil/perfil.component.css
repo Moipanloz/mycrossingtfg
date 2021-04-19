@@ -153,3 +153,8 @@ span {
   height: 1.5vw;
   font-size: 1vw;
 }
+
+.boton-circular{
+  width: 4vw;
+  height: 4vw;
+}

@@ -1,5 +1,5 @@
 .padding-footer{
-  padding-top: 4vw;
+  padding-top: 6vw;
 }
 
 .background-img{
@@ -28,4 +28,16 @@
 .mes{
   text-align: center;
   width: 20%;
+}
+
+.cal-event{
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  background-color: unset !important;
+  background-image: url("https://acnhcdn.com/latest/NpcIcon/duk03.png") !important;
+  background-size: cover;
+}
+
+.cal-day-badge{
+  display: none !important;
 }

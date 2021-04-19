@@ -1,26 +1,13 @@
-import { Component, ChangeDetectionStrategy, ViewChild, TemplateRef, ViewEncapsulation, OnInit } from '@angular/core';
+import { debounceTime } from 'rxjs/operators';
+import { Component, ChangeDetectionStrategy, ViewChild, TemplateRef, ViewEncapsulation, OnInit, ElementRef } from '@angular/core';
 import { startOfDay, endOfDay, subDays, addDays, endOfMonth, isSameDay, isSameMonth, addHours } from 'date-fns';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { NgbModal } from '../../../node_modules/@ng-bootstrap/ng-bootstrap';
 import { CalendarEvent, CalendarEventAction, CalendarEventTimesChangedEvent, CalendarView } from 'angular-calendar';
 import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
-
-
-const colors: any = {
-  red: {
-    primary: '#ad2121',
-    secondary: '#FAE3E3',
-  },
-  blue: {
-    primary: '#1e90ff',
-    secondary: '#D1E8FF',
-  },
-  yellow: {
-    primary: '#e3bc08',
-    secondary: '#FDF1BA',
-  },
-};
+import { seasonsAndEvents, villagers } from 'animal-crossing';
+import { EventoCustom } from 'app/general/interfaces';
 
 @Component({
   selector: 'app-cal-eventos',
@@ -29,6 +16,7 @@ const colors: any = {
   styleUrls: ['./cal-eventos.component.css'],
   encapsulation: ViewEncapsulation.None
 })
+
 export class CalEventosComponent implements OnInit {
 
   @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
@@ -38,15 +26,46 @@ export class CalEventosComponent implements OnInit {
   locale : string = "es";
   CalendarView = CalendarView;
   viewDate: Date = new Date();
+  events: EventoCustom[] = [];
 
   modalData: {
     action: string;
-    event: CalendarEvent;
+    event: EventoCustom;
   };
+
+  colors: any = {
+    evento: {
+      primary: '#e3bc08',
+      secondary: '#FDF1BA'
+    },
+    cumple: {
+      primary: '#e3bc08',
+      secondary: '#FDF1BA'
+    }
+  };
+
+  constructor(private modal: NgbModal, private elementRef : ElementRef) {}
 
   ngOnInit() : void{
     registerLocaleData(localeEs);
+    this.getEvents();
   }
+
+  ngAfterViewInit(){
+    let elements = this.elementRef.nativeElement.querySelectorAll(".cal-event");
+    for(let el of elements){
+      if(el.classList.includes("eventIcon")){
+        let name = el.classList[1].split("-")[1];
+        let icon = villagers.filter(v => v.name == name)[0].iconImage;
+        //console.log(villagers.filter(v => v.name == name)[0]);
+        //console.log(el.style.backgroundImage);
+        el.style.backgroundImage = 'url("'+icon+'")';
+        //el.setAttribute("background-image",'url("'+icon+'")');
+      }
+    }
+    console.log();
+  }
+
 
   // actions: CalendarEventAction[] = [
   //   {
@@ -66,17 +85,31 @@ export class CalEventosComponent implements OnInit {
   //   },
   // ];
 
+  getEvents(){
+    this.events = [];
+    let fecha = new Date();
+    // seasonsAndEvents.forEach(f => console.log(f))
+    villagers.filter(v => parseInt(v.birthday.split("/")[0]) == fecha.getMonth()+1).forEach(vecino => {
+      let cumpleanio = this.viewDate.getFullYear()+"-";
+      let mes = vecino.birthday.split("/")[0];
+      mes.length != 1 ? cumpleanio = cumpleanio+mes+"-" : cumpleanio = cumpleanio+"0"+mes+"-";
+      let dia = vecino.birthday.split("/")[1];
+      dia.length != 1 ? cumpleanio = cumpleanio+dia : cumpleanio = cumpleanio+"0"+dia;
+
+      this.events.push({
+        start: new Date(cumpleanio),
+        end: new Date(cumpleanio),
+        title: 'Cumpleaños de '+vecino.translations.spanish,
+        cssClass: "eventIcon-"+vecino.name,
+        allDay: true,
+        draggable: false,
+        image: vecino.iconImage
+      });
+    });
+  }
+
   refresh: Subject<any> = new Subject();
 
-  events: CalendarEvent[] = [
-    {
-      start: new Date(this.viewDate.getFullYear()+"-04-17"),
-      end: new Date(this.viewDate.getFullYear()+"-04-17"),
-      title: 'A 3 day event',
-      color: colors.red,
-      allDay: true,
-      draggable: false,
-    }];
   //   {
   //     start: startOfDay(new Date()),
   //     title: 'An event with no end date',
@@ -105,8 +138,6 @@ export class CalEventosComponent implements OnInit {
   // ];
 
   activeDayIsOpen: boolean = true;
-
-  constructor(private modal: NgbModal) {}
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {
@@ -140,7 +171,7 @@ export class CalEventosComponent implements OnInit {
   //   this.handleEvent('Dropped or resized', event);
   // }
 
-  handleEvent(action: string, event: CalendarEvent): void {
+  handleEvent(action: string, event: EventoCustom): void {
     this.modalData = { event, action };
     this.modal.open(this.modalContent, { size: 'lg' });
   }
@@ -172,10 +203,6 @@ export class CalEventosComponent implements OnInit {
 
   closeOpenMonthViewDay() {
     this.activeDayIsOpen = false;
-  }
-
-  actualizaEventos(){
-    console.log(this.viewDate)
   }
 
 }

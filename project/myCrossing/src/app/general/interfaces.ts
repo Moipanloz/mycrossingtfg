@@ -1,3 +1,4 @@
+import { CalendarEvent } from 'angular-calendar';
 export interface Tarea{
   id: number;
   usuario_id: number;
@@ -78,4 +79,8 @@ export interface CriaturaMarina{
 export interface Arte{
   nombre_arte : string;
   usuario_id : number;
+}
+
+export interface EventoCustom extends CalendarEvent{
+  image: string;
 }
