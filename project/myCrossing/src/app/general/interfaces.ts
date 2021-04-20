@@ -80,7 +80,3 @@ export interface Arte{
   nombre_arte : string;
   usuario_id : number;
 }
-
-export interface EventoCustom extends CalendarEvent{
-  image: string;
-}

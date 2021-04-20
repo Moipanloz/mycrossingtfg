@@ -7,7 +7,7 @@
   height: unset;
 }
 
-.boton-circular{
+.b-small{
   width: 1.5vw;
   height: 1.5vw;
   text-align: center;
@@ -39,4 +39,53 @@
 
 .cal-day-badge{
   display: none !important;
+}
+
+.cal-open{
+  background-color: unset !important;
+}
+
+.menu-evento{
+  top:25%;
+  left:17%;
+  width: 60%;
+  font-size: 1.5vw;
+  position: fixed;
+  border-style: none;
+  padding: 3%;
+  border-radius: 15px;
+  background-color: var(--blanco);
+  box-shadow: 0px 0px 10px 1px rgb(23 23 23 / 55%);
+  z-index: 5;
+}
+
+.menu-evento h3{
+  margin-top: 1%;
+  margin-bottom: 7%;
+  text-align: center;
+}
+
+.info-images{
+  width: 4em;
+  height: 4em;
+}
+
+.info-wrap{
+  display: flex;
+  justify-content: center;
+}
+
+.info-wrap p{
+  margin: 0;
+}
+
+.info-wrap > img{
+  width: 7em;
+  height: 7em;
+  margin-right: 5%;
+}
+
+.info-wrap > div > div{
+  margin-top:5%;
+  width: 100%;
 }

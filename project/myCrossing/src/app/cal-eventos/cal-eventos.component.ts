@@ -1,12 +1,11 @@
 import { Component, ChangeDetectionStrategy, ViewChild, TemplateRef, ViewEncapsulation, OnInit, ElementRef } from '@angular/core';
 import { isSameDay, isSameMonth } from 'date-fns';
-import { Subject } from 'rxjs';
 import { NgbModal } from '../../../node_modules/@ng-bootstrap/ng-bootstrap';
 import { CalendarEvent, CalendarView } from 'angular-calendar';
 import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
-import { seasonsAndEvents, villagers } from 'animal-crossing';
-import { EventoCustom } from 'app/general/interfaces';
+import { npcs, villagers } from 'animal-crossing';
+import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-cal-eventos',
@@ -20,28 +19,197 @@ export class CalEventosComponent implements OnInit {
 
   @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
 
+  @HostListener("window:scroll")
+  onScroll(){
+    this.infoEvento = false;
+  }
+
   view: CalendarView = CalendarView.Month;
 
   locale : string = "es";
   CalendarView = CalendarView;
   viewDate: Date = new Date();
-  events: EventoCustom[] = [];
+  events: CalendarEvent[] = [];
+  infoEvento : boolean = false;
+  shownEvent : any = {};
 
   modalData: {
     action: string;
-    event: EventoCustom;
+    event: CalendarEvent;
   };
 
   colors: any = {
-    evento: {
-      primary: '#e3bc08',
-      secondary: '#FDF1BA'
-    },
     cumple: {
-      primary: '#e3bc08',
-      secondary: '#FDF1BA'
+      primary: '#d41c1c',
+      secondary: '#d2ffce'
     }
   };
+
+  // Para la caza de bichos, torneo de pesca y fuegos artificiales
+  // hay que calcularlo en funcion del dia y del mes, asi como del
+  // hemisferio, por lo que de momento no se cuenta como evento
+  eventosJuego = [
+    {
+      titulo: "Caza del Huevo",
+      inicio: "04-12",
+      fin: "04-12",
+      npc: "Zipper",
+      color: {
+        primary: '#d41c1c',
+        secondary: '#f9fda0'
+      },
+      descripcion: "Verás que un conejo bastante particular llega a tu isla dando saltos"
+      +" y escondiendo huevos por todas partes. Puedes buscar y recoger los distintos"
+      +" tipos de huevos para fabricar recetas muy coloridas y prendas acorde al evento.",
+      imagenes:[
+        "https://acnhcdn.com/latest/DIYRecipeIcon/FtrEggArch.png",
+        "https://acnhcdn.com/latest/FtrIcon/FtrEggBasket.png",
+        "https://acnhcdn.com/latest/DIYRecipeIcon/FtrEggBalloonA.png",
+        "https://acnhcdn.com/latest/DIYRecipeIcon/CapHatEggparty0.png"
+      ],
+      icono: "https://acnhcdn.com/latest/NpcIcon/pyn.png"
+    },{
+      titulo: "Cuenta atrás",
+      inicio: "12-31",
+      fin: "12-31",
+      npc: "Isabelle",
+      color: {
+        primary: '#d41c1c',
+        secondary: '#cb96ff'
+      },
+      descripcion: "Verás que un conejo bastante particular llega a tu isla dando saltos"
+      +" y escondiendo huevos por todas partes. Puedes buscar y recoger los distintos"
+      +" tipos de huevos para fabricar recetas muy coloridas y prendas acorde al evento.",
+      imagenes:[
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png"
+      ],
+      icono: "https://acnhcdn.com/latest/NpcIcon/sza.png"
+    },{
+      titulo: "Carnaval",
+      inicio: "02-15",
+      fin: "02-15",
+      npc: "Pavé",
+      color: {
+        primary: '#d41c1c',
+        secondary: '#8fd4c6'
+      },
+      descripcion: "Verás que un conejo bastante particular llega a tu isla dando saltos"
+      +" y escondiendo huevos por todas partes. Puedes buscar y recoger los distintos"
+      +" tipos de huevos para fabricar recetas muy coloridas y prendas acorde al evento.",
+      imagenes:[
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png"
+      ],
+      icono: "https://acnhcdn.com/latest/NpcIcon/pck.png"
+    },{
+      titulo: "Halloween",
+      inicio: "10-31",
+      fin: "10-31",
+      npc: "Jack",
+      color: {
+        primary: '#d41c1c',
+        secondary: '#ffb889'
+      },
+      descripcion: "Verás que un conejo bastante particular llega a tu isla dando saltos"
+      +" y escondiendo huevos por todas partes. Puedes buscar y recoger los distintos"
+      +" tipos de huevos para fabricar recetas muy coloridas y prendas acorde al evento.",
+      imagenes:[
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png"
+      ],
+      icono: "https://acnhcdn.com/latest/NpcIcon/pkn.png"
+    },{
+      titulo: "Día de los Juguetes",
+      inicio: "12-24",
+      fin: "12-24",
+      npc: "Jingle",
+      color: {
+        primary: '#d41c1c',
+        secondary: '#ffadad'
+      },
+      descripcion: "Verás que un conejo bastante particular llega a tu isla dando saltos"
+      +" y escondiendo huevos por todas partes. Puedes buscar y recoger los distintos"
+      +" tipos de huevos para fabricar recetas muy coloridas y prendas acorde al evento.",
+      imagenes:[
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png"
+      ],
+      icono: "https://acnhcdn.com/latest/NpcIcon/rei.png"
+    },{
+      titulo: "Día del Pavo",
+      inicio: "11-26",
+      fin: "11-26",
+      npc: "Franklin",
+      color: {
+        primary: '#d41c1c',
+        secondary: '#fac6ff'
+      },
+      descripcion: "Verás que un conejo bastante particular llega a tu isla dando saltos"
+      +" y escondiendo huevos por todas partes. Puedes buscar y recoger los distintos"
+      +" tipos de huevos para fabricar recetas muy coloridas y prendas acorde al evento.",
+      imagenes:[
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png"
+      ],
+      icono: "https://acnhcdn.com/latest/NpcIcon/tuk.png"
+    },{
+      titulo: "Día de los Enamorados",
+      inicio: "02-14",
+      fin: "02-14",
+      npc: "Celeste",
+      color: {
+        primary: '#d41c1c',
+        secondary: '#ff9f92'
+      },
+      descripcion: "Verás que un conejo bastante particular llega a tu isla dando saltos"
+      +" y escondiendo huevos por todas partes. Puedes buscar y recoger los distintos"
+      +" tipos de huevos para fabricar recetas muy coloridas y prendas acorde al evento.",
+      imagenes:[
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png"
+      ],
+      icono: "https://acnhcdn.com/latest/NpcIcon/ows.png"
+    },{
+      titulo: "Temporada de Bodas",
+      inicio: "06-01",
+      fin: "06-01",
+      npc: "Reese",
+      color: {
+        primary: '#d41c1c',
+        secondary: '#ffcef5'
+      },
+      descripcion: "Verás que un conejo bastante particular llega a tu isla dando saltos"
+      +" y escondiendo huevos por todas partes. Puedes buscar y recoger los distintos"
+      +" tipos de huevos para fabricar recetas muy coloridas y prendas acorde al evento.",
+      imagenes:[
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png",
+        "https://acnhcdn.com/latest/NpcIcon/sza.png"
+      ],
+      icono: "https://acnhcdn.com/latest/NpcIcon/alw.png"
+    }
+  ]
 
   constructor(private modal: NgbModal, private elementRef : ElementRef) {}
 
@@ -61,36 +229,30 @@ export class CalEventosComponent implements OnInit {
     for(let el of elements){
       let name = el.classList[1].split("-")[1];
       let vecino = villagers.filter(v => v.name == name);
+      let icon = "";
+
+      // Hay que realizar algunas comprobaciones para que no se cuelen etiquetas no deseadas
+      // Primero filtramos los cumpleaños
       if(vecino.length != 0){
-        let icon = vecino[0].iconImage;
-        el.style.backgroundImage = 'url("'+icon+'")';
+        icon = vecino[0].iconImage;
+      }else{
+
+        // Si no es un cumpleaños, comprobamos si es un evento
+        let npc = npcs.filter(n => n.name == name);
+        if(npc.length != 0){
+          icon = npc[0].iconImage;
+        }
       }
+      el.style.backgroundImage = 'url("'+icon+'")';
+
     }
   }
-
-  // actions: CalendarEventAction[] = [
-  //   {
-  //     label: '<i class="fas fa-fw fa-pencil-alt"></i>',
-  //     a11yLabel: 'Edit',
-  //     onClick: ({ event }: { event: CalendarEvent }): void => {
-  //       this.handleEvent('Edited', event);
-  //     },
-  //   },
-  //   {
-  //     label: '<i class="fas fa-fw fa-trash-alt"></i>',
-  //     a11yLabel: 'Delete',
-  //     onClick: ({ event }: { event: CalendarEvent }): void => {
-  //       this.events = this.events.filter((iEvent) => iEvent !== event);
-  //       this.handleEvent('Deleted', event);
-  //     },
-  //   },
-  // ];
 
   getEvents(): Promise<any>{
     let promise = new Promise<any>((resolve, reject) => {
       this.events = [];
-      let fecha = new Date();
-      // seasonsAndEvents.forEach(f => console.log(f))
+
+      // Primero cargamos los cumpleaños
       villagers.filter(v => parseInt(v.birthday.split("/")[0]) == this.viewDate.getMonth()+1).forEach(vecino => {
         let cumpleanio = this.viewDate.getFullYear()+"-";
         let mes = vecino.birthday.split("/")[0];
@@ -105,42 +267,30 @@ export class CalEventosComponent implements OnInit {
           cssClass: "eventIcon-"+vecino.name,
           allDay: true,
           draggable: false,
-          image: vecino.iconImage
+          color: this.colors.cumple
         });
       });
+
+      // Por último cargamos los eventos
+      for(let ev of this.eventosJuego){
+        let fechaInicio = this.viewDate.getFullYear()+"-"+ev.inicio;
+        let fechaFin = this.viewDate.getFullYear()+"-"+ev.fin;
+
+        this.events.push({
+          start: new Date(fechaInicio),
+          end: new Date(fechaFin),
+          title: ev.titulo,
+          cssClass: "eventIcon-"+ev.npc,
+          allDay: true,
+          draggable: false,
+          color: ev.color
+        });
+      }
+
       resolve(this.events);
     })
     return promise;
   }
-
-  refresh: Subject<any> = new Subject();
-
-  //   {
-  //     start: startOfDay(new Date()),
-  //     title: 'An event with no end date',
-  //     color: colors.yellow,
-  //     actions: this.actions,
-  //   },
-  //   {
-  //     start: subDays(endOfMonth(new Date()), 3),
-  //     end: addDays(endOfMonth(new Date()), 3),
-  //     title: 'A long event that spans 2 months',
-  //     color: colors.blue,
-  //     allDay: true,
-  //   },
-  //   {
-  //     start: addHours(startOfDay(new Date()), 2),
-  //     end: addHours(new Date(), 2),
-  //     title: 'A draggable and resizable event',
-  //     color: colors.yellow,
-  //     actions: this.actions,
-  //     resizable: {
-  //       beforeStart: true,
-  //       afterEnd: true,
-  //     },
-  //     draggable: true,
-  //   },
-  // ];
 
   activeDayIsOpen: boolean = true;
 
@@ -158,56 +308,20 @@ export class CalEventosComponent implements OnInit {
     }
   }
 
-  // eventTimesChanged({
-  //   event,
-  //   newStart,
-  //   newEnd,
-  // }: CalendarEventTimesChangedEvent): void {
-  //   this.events = this.events.map((iEvent) => {
-  //     if (iEvent === event) {
-  //       return {
-  //         ...event,
-  //         start: newStart,
-  //         end: newEnd,
-  //       };
-  //     }
-  //     return iEvent;
-  //   });
-  //   this.handleEvent('Dropped or resized', event);
-  // }
-
-  handleEvent(action: string, event: EventoCustom): void {
+  handleEvent(action: string, event: CalendarEvent): void {
     this.modalData = { event, action };
     this.modal.open(this.modalContent, { size: 'lg' });
-  }
 
-  // addEvent(): void {
-  //   this.events = [
-  //     ...this.events,
-  //     {
-  //       title: 'New event',
-  //       start: startOfDay(new Date()),
-  //       end: endOfDay(new Date()),
-  //       color: colors.red,
-  //       draggable: true,
-  //       resizable: {
-  //         beforeStart: true,
-  //         afterEnd: true,
-  //       },
-  //     },
-  //   ];
-  // }
-
-  // deleteEvent(eventToDelete: CalendarEvent) {
-  //   this.events = this.events.filter((event) => event !== eventToDelete);
-  // }
-
-  setView(view: CalendarView) {
-    this.view = view;
-  }
-
-  closeOpenMonthViewDay() {
-    this.activeDayIsOpen = false;
+    console.log("Has clickado")
+    if(event.color != this.colors.cumple){
+      for(let ev of this.eventosJuego){
+        if(ev.titulo == event.title){
+          this.shownEvent = ev;
+          break;
+        }
+      }
+      this.infoEvento = true;
+    }
   }
 
 }
