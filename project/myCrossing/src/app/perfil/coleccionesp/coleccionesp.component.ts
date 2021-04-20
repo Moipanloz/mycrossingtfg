@@ -105,6 +105,8 @@ export class ColeccionespComponent implements OnInit {
         this.listaObjetos = listaTemp.sort();
       }else if(this.activeCollection == "Guindo"){
         this.listaObjetos.splice(this.listaObjetos.indexOf(items.find(i => i.name == "Cozy Turkey Day DIY")), 1); //Eliminar el set DIY
+        this.listaObjetos = this.listaObjetos.filter(i => i.sourceSheet != "Recipes"); // Ademas solo nos quedamos con los que no sean recetas para no duplicado
+        console.log(this.listaObjetos)
       }else if(this.activeCollection == "Mama"){
         this.listaObjetos.splice(this.listaObjetos.indexOf(items.find(i => i.name == "Mom's lively kitchen mat")), 1); //Hacer que solo se muestre 1 alfombra
         this.listaObjetos.splice(this.listaObjetos.indexOf(items.find(i => i.name == "Mom's playful kitchen mat")), 1);

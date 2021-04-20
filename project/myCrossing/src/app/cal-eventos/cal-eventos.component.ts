@@ -77,15 +77,14 @@ export class CalEventosComponent implements OnInit {
         primary: '#d41c1c',
         secondary: '#cb96ff'
       },
-      descripcion: "Verás que un conejo bastante particular llega a tu isla dando saltos"
-      +" y escondiendo huevos por todas partes. Puedes buscar y recoger los distintos"
-      +" tipos de huevos para fabricar recetas muy coloridas y prendas acorde al evento.",
+      descripcion: "¡Presta atención a la cuenta atrás! En la plaza del ayuntamiento"
+      +" han colocado un contador digital para celebrar la entrada del año nuevo. Además"
+      +" podrás jugar a la tómbola de Ladino para conseguir varios accesorios y objetos"
+      +" para celebrar el año nuevo.",
       imagenes:[
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png"
+        "https://acnhcdn.com/latest/FtrIcon/CapHatNewyearsilkPurple.png",
+        "https://acnhcdn.com/latest/FtrIcon/CapOrnamentFStarband0.png",
+        "https://acnhcdn.com/latest/FtrIcon/CapHatNewyearRed.png"
       ],
       icono: "https://acnhcdn.com/latest/NpcIcon/sza.png"
     },{
@@ -97,15 +96,15 @@ export class CalEventosComponent implements OnInit {
         primary: '#d41c1c',
         secondary: '#8fd4c6'
       },
-      descripcion: "Verás que un conejo bastante particular llega a tu isla dando saltos"
-      +" y escondiendo huevos por todas partes. Puedes buscar y recoger los distintos"
-      +" tipos de huevos para fabricar recetas muy coloridas y prendas acorde al evento.",
+      descripcion: "¡Prepárate porque Conga viene con ganas de mover el esqueleto!"
+      +" Recoge las plumas de colores que revoloteen por la isla y entrégaselas para"
+      +" para recibir recompensas o fabrica tus propios muebles festivos con ellas.",
       imagenes:[
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png"
+        "https://acnhcdn.com/latest/FtrIcon/FtrCarnivalFloat.png",
+        "https://acnhcdn.com/latest/FtrIcon/FtrCarnivalLantern_Remake_0_0.png",
+        "https://acnhcdn.com/latest/FtrIcon/FtrCarnivalParasol_Remake_0_0.png",
+        "https://acnhcdn.com/latest/DIYRecipeIcon/FeatherRainbow.png",
+        "https://acnhcdn.com/latest/FtrIcon/FtrCarnivalSurdo_Remake_0_0.png"
       ],
       icono: "https://acnhcdn.com/latest/NpcIcon/pck.png"
     },{
@@ -117,15 +116,15 @@ export class CalEventosComponent implements OnInit {
         primary: '#d41c1c',
         secondary: '#ffb889'
       },
-      descripcion: "Verás que un conejo bastante particular llega a tu isla dando saltos"
-      +" y escondiendo huevos por todas partes. Puedes buscar y recoger los distintos"
-      +" tipos de huevos para fabricar recetas muy coloridas y prendas acorde al evento.",
+      descripcion: "¡BÚ! Disfrázate junto a tus vecinos y haz truco o trato,"
+      +" y presta atención porque puede que haya a alguien que tenga mucho interés"
+      +" por las chuches y esté dispuesto a darte algo a cambio, ¡como recetas"
+      +" o muebles de escalofrío!",
       imagenes:[
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png"
+        "https://acnhcdn.com/latest/DIYRecipeIcon/FtrHwnStand.png",
+        "https://acnhcdn.com/latest/FtrIcon/CapFullfaceHalloween0.png",
+        "https://acnhcdn.com/latest/DIYRecipeIcon/FtrHwnSweets.png",
+        "https://acnhcdn.com/latest/FtrIcon/CapHatWitch0.png"
       ],
       icono: "https://acnhcdn.com/latest/NpcIcon/pkn.png"
     },{
@@ -137,15 +136,14 @@ export class CalEventosComponent implements OnInit {
         primary: '#d41c1c',
         secondary: '#ffadad'
       },
-      descripcion: "Verás que un conejo bastante particular llega a tu isla dando saltos"
-      +" y escondiendo huevos por todas partes. Puedes buscar y recoger los distintos"
-      +" tipos de huevos para fabricar recetas muy coloridas y prendas acorde al evento.",
+      descripcion: "Espero que te hayas portado bien, porque si no en vez de"
+      +" recetas y muebles navideños, ¡tendrás un calcetín lleno de carbón!"
+      +" Aunque siempre puedes repartir los regalos de Navidad a tus vecinos"
+      +" y hacer una buena acción, quizás Renato se lo piense y te deje algo en el calcetín.",
       imagenes:[
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png"
+        "https://acnhcdn.com/latest/FtrIcon/FtrCrsSled.png",
+        "https://acnhcdn.com/latest/DIYRecipeIcon/FtrCrsPresents.png",
+        "https://acnhcdn.com/latest/FtrIcon/FtrCrsSocksWall.png"
       ],
       icono: "https://acnhcdn.com/latest/NpcIcon/rei.png"
     },{
@@ -157,37 +155,18 @@ export class CalEventosComponent implements OnInit {
         primary: '#d41c1c',
         secondary: '#fac6ff'
       },
-      descripcion: "Verás que un conejo bastante particular llega a tu isla dando saltos"
-      +" y escondiendo huevos por todas partes. Puedes buscar y recoger los distintos"
-      +" tipos de huevos para fabricar recetas muy coloridas y prendas acorde al evento.",
+      descripcion: "¡Prepara platos riquísimos con Guindo y ofrecele a tus vecinos"
+      +" un día del Pavo de rechupete! Guindo necesita ayuda para cocinar sus famosos"
+      +" platos y te ha contratado como pinche de cocina, así que ¡recolecta los mejores"
+      +" ingredientes y cocinad juntos un almuerzo exquisito! Si lo haces bien puede"
+      +" que te ganes alguna que otra receta para fabricar muebles festivos.",
       imagenes:[
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png"
+        "https://acnhcdn.com/latest/FtrIcon/FtrHarvestDecoration_Remake_0_0.png",
+        "https://acnhcdn.com/latest/FtrIcon/FtrHarvestFireplace_Remake_0_0.png",
+        "https://acnhcdn.com/latest/FtrIcon/FtrCornucopia.png",
+        "https://acnhcdn.com/latest/FtrIcon/FtrHarvestEnamelpod_Remake_0_0.png"
       ],
       icono: "https://acnhcdn.com/latest/NpcIcon/tuk.png"
-    },{
-      titulo: "Día de los Enamorados",
-      inicio: "02-14",
-      fin: "02-14",
-      npc: "Celeste",
-      color: {
-        primary: '#d41c1c',
-        secondary: '#ff9f92'
-      },
-      descripcion: "Verás que un conejo bastante particular llega a tu isla dando saltos"
-      +" y escondiendo huevos por todas partes. Puedes buscar y recoger los distintos"
-      +" tipos de huevos para fabricar recetas muy coloridas y prendas acorde al evento.",
-      imagenes:[
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png"
-      ],
-      icono: "https://acnhcdn.com/latest/NpcIcon/ows.png"
     },{
       titulo: "Temporada de Bodas",
       inicio: "06-01",
@@ -197,15 +176,17 @@ export class CalEventosComponent implements OnInit {
         primary: '#d41c1c',
         secondary: '#ffcef5'
       },
-      descripcion: "Verás que un conejo bastante particular llega a tu isla dando saltos"
-      +" y escondiendo huevos por todas partes. Puedes buscar y recoger los distintos"
-      +" tipos de huevos para fabricar recetas muy coloridas y prendas acorde al evento.",
+      descripcion: "Algo se cuece en la Fotopía, y es que ¡Al y Paca están de boda!"
+      +" Da rienda a tu lado más creativo y decora el set con unos muebles de ensueño"
+      +" siguiendo las indicaciones de los dos tortolitos. Si haces un buen trabajo, obtendrás"
+      +" unas joyas amorosas que podrás intercambiar con Al a cambio de los muebles y vestidos"
+      +" más elegantes.",
       imagenes:[
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png",
-        "https://acnhcdn.com/latest/NpcIcon/sza.png"
+        "https://acnhcdn.com/1.2.0/FtrIcon/FtrWeddingArch_Remake_0_0.png",
+        "https://acnhcdn.com/1.2.0/FtrIcon/TopsTexOnepieceDressNWedding.png",
+        "https://acnhcdn.com/1.2.0/FtrIcon/FtrWeddingCake_Remake_0_0.png",
+        "https://acnhcdn.com/latest/DIYRecipeIcon/ToolStickJune.png",
+        "https://acnhcdn.com/1.2.0/FtrIcon/FtrWeddingOrgan_Remake_0_0.png"
       ],
       icono: "https://acnhcdn.com/latest/NpcIcon/alw.png"
     }
