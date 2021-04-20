@@ -1,9 +1,8 @@
-import { debounceTime } from 'rxjs/operators';
 import { Component, ChangeDetectionStrategy, ViewChild, TemplateRef, ViewEncapsulation, OnInit, ElementRef } from '@angular/core';
-import { startOfDay, endOfDay, subDays, addDays, endOfMonth, isSameDay, isSameMonth, addHours } from 'date-fns';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { isSameDay, isSameMonth } from 'date-fns';
+import { Subject } from 'rxjs';
 import { NgbModal } from '../../../node_modules/@ng-bootstrap/ng-bootstrap';
-import { CalendarEvent, CalendarEventAction, CalendarEventTimesChangedEvent, CalendarView } from 'angular-calendar';
+import { CalendarEvent, CalendarView } from 'angular-calendar';
 import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
 import { seasonsAndEvents, villagers } from 'animal-crossing';
@@ -48,24 +47,26 @@ export class CalEventosComponent implements OnInit {
 
   ngOnInit() : void{
     registerLocaleData(localeEs);
-    this.getEvents();
+    this.getEvents().then(()=>{
+      // El primer onInit funciona bien, pero los siguientes
+      // no cargan los iconos, por lo que es necesario esperar
+      setTimeout(()=>{
+        this.getIconos();
+      }, 300);
+    });
   }
 
-  ngAfterViewInit(){
+  getIconos(){
     let elements = this.elementRef.nativeElement.querySelectorAll(".cal-event");
     for(let el of elements){
-      if(el.classList.includes("eventIcon")){
-        let name = el.classList[1].split("-")[1];
-        let icon = villagers.filter(v => v.name == name)[0].iconImage;
-        //console.log(villagers.filter(v => v.name == name)[0]);
-        //console.log(el.style.backgroundImage);
+      let name = el.classList[1].split("-")[1];
+      let vecino = villagers.filter(v => v.name == name);
+      if(vecino.length != 0){
+        let icon = vecino[0].iconImage;
         el.style.backgroundImage = 'url("'+icon+'")';
-        //el.setAttribute("background-image",'url("'+icon+'")');
       }
     }
-    console.log();
   }
-
 
   // actions: CalendarEventAction[] = [
   //   {
@@ -85,27 +86,31 @@ export class CalEventosComponent implements OnInit {
   //   },
   // ];
 
-  getEvents(){
-    this.events = [];
-    let fecha = new Date();
-    // seasonsAndEvents.forEach(f => console.log(f))
-    villagers.filter(v => parseInt(v.birthday.split("/")[0]) == fecha.getMonth()+1).forEach(vecino => {
-      let cumpleanio = this.viewDate.getFullYear()+"-";
-      let mes = vecino.birthday.split("/")[0];
-      mes.length != 1 ? cumpleanio = cumpleanio+mes+"-" : cumpleanio = cumpleanio+"0"+mes+"-";
-      let dia = vecino.birthday.split("/")[1];
-      dia.length != 1 ? cumpleanio = cumpleanio+dia : cumpleanio = cumpleanio+"0"+dia;
+  getEvents(): Promise<any>{
+    let promise = new Promise<any>((resolve, reject) => {
+      this.events = [];
+      let fecha = new Date();
+      // seasonsAndEvents.forEach(f => console.log(f))
+      villagers.filter(v => parseInt(v.birthday.split("/")[0]) == this.viewDate.getMonth()+1).forEach(vecino => {
+        let cumpleanio = this.viewDate.getFullYear()+"-";
+        let mes = vecino.birthday.split("/")[0];
+        mes.length != 1 ? cumpleanio = cumpleanio+mes+"-" : cumpleanio = cumpleanio+"0"+mes+"-";
+        let dia = vecino.birthday.split("/")[1];
+        dia.length != 1 ? cumpleanio = cumpleanio+dia : cumpleanio = cumpleanio+"0"+dia;
 
-      this.events.push({
-        start: new Date(cumpleanio),
-        end: new Date(cumpleanio),
-        title: 'Cumpleaños de '+vecino.translations.spanish,
-        cssClass: "eventIcon-"+vecino.name,
-        allDay: true,
-        draggable: false,
-        image: vecino.iconImage
+        this.events.push({
+          start: new Date(cumpleanio),
+          end: new Date(cumpleanio),
+          title: 'Cumpleaños de '+vecino.translations.spanish,
+          cssClass: "eventIcon-"+vecino.name,
+          allDay: true,
+          draggable: false,
+          image: vecino.iconImage
+        });
       });
-    });
+      resolve(this.events);
+    })
+    return promise;
   }
 
   refresh: Subject<any> = new Subject();
