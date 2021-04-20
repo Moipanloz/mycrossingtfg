@@ -2,11 +2,6 @@
   padding-top: 6vw;
 }
 
-.background-img{
-  background-image: url("../../assets/images/muelle-blur.png");
-  height: unset;
-}
-
 .b-small{
   width: 1.5vw;
   height: 1.5vw;
@@ -88,4 +83,8 @@
 .info-wrap > div > div{
   margin-top:5%;
   width: 100%;
+}
+
+.cal-today{
+  background-color: #e0fdfd !important;
 }
