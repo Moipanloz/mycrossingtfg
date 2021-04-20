@@ -293,7 +293,6 @@ export class CalEventosComponent implements OnInit {
     this.modalData = { event, action };
     this.modal.open(this.modalContent, { size: 'lg' });
 
-    console.log("Has clickado")
     if(event.color != this.colors.cumple){
       for(let ev of this.eventosJuego){
         if(ev.titulo == event.title){
