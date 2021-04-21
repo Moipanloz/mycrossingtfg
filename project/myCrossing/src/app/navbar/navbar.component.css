@@ -28,6 +28,11 @@ img {
   height: auto;
   cursor: pointer;
   border-radius: 50%;
+  padding: 0.2rem;
+}
+
+#img-perfil:hover{
+  background-color: var(--verde);
 }
 
 #menu{
@@ -79,9 +84,10 @@ img {
   width: 10vw;
   border-radius: 0 0 10px 10px;
   position: absolute;
-  top: 4vw;
+  top: 4.4vw;
   overflow: hidden;
   background-color: rgb(247, 243, 232);
+  transition: 0.3s;
 }
 
 .dropdown-menu > button {

@@ -114,6 +114,12 @@
   border-width: 10px;
   cursor: pointer;
   border-style: solid;
+  transition: 0.3s;
+}
+
+.dv-inicio > * > button:hover{
+  transform: scale(1.1);
+  border-width: 5px;
 }
 
 h2{
@@ -168,5 +174,4 @@ h2{
   border-color: rgb(98 183 180);
   background-image: url("../../assets/images/fondo-musica.png");
 }
-
 

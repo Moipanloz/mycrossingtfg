@@ -1,5 +1,5 @@
 <div id="nav">
-  <img (click)="irInicio()" src="../../assets/images/logo.png"/>
+  <img (click)="irInicio()" src="../../assets/images/logo.png" class="b-scale"/>
 
   <div id="menu">
     <button [class]="_comunicacion.activar ? 'activado':''" class="button-nav" routerLink="/cat-caza-insectos" routerLinkActive="activo">Cazar ahora</button>
@@ -16,7 +16,7 @@
     <ng-template #logueado>
       <div (clickOutside)="cierraMenu()" class="cierra-wrap">
         <span style="font-size: 1.3vw;"><b>{{this.verification.nombre | capitalize}}</b></span>
-        <img src="../../assets/images/imagen-perfil.png" (click)="toggleMenu()" style="margin-left: 5%"/>
+        <img src="../../assets/images/imagen-perfil.png" (click)="toggleMenu()" class="b-scale" id="img-perfil" style="margin-left: 5%"/>
         <div class="dropdown-menu" [hidden]="!menu" >
           <button class="button-menu" routerLink="/perfil" routerLinkActive="activo" (click)="menu = false">Perfil</button>
           <button class="button-menu" (click)="logOut()">Cierra sesión</button>

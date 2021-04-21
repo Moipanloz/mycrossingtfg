@@ -1,5 +1,5 @@
 <div class="visitasContainer">
-    <div class="panel flex" style="width: 50%;" [style.visibility]="hide ? 'hidden': 'visible'">
+    <div class="panel flex" style="width: 50%;" [style.visibility]="hide ? 'hidden': 'visible'" (clickOutside)="cierraMenu()">
         <div id="menu-wrap" class="flex-centered" style="flex-wrap: wrap;flex-basis: 25vw;">
           <div class="flex-column-centered" [style.opacity]="alcatifa ? '1': '0.4'">
             <button (click)="agrega('Alcatifa', alcatifa)" [class]="alcatifa ? 'boton-imagen boton-hover' : 'boton-imagen no-point'" style="background-image: url('../../../assets/images/alcatifa.png');"></button>

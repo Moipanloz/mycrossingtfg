@@ -120,10 +120,19 @@ export class VisitasemanalComponent implements OnInit {
     }
 
   }
-  vacio(event: any, datos:string){
+
+  cierraMenu(){
+    if(!this.hide){
+      this.hide = true;
+    }
+  }
+
+
+  vacio(event: MouseEvent, datos:string){
     if(this.hide==false){
       this.hide=true;
       this.modificando=null;
+      event.stopPropagation();
     }else{
       this.hide=false;
       this.modificando=datos;
@@ -172,6 +181,7 @@ export class VisitasemanalComponent implements OnInit {
       if(!this.isEmpty(aux)){
         this.aceptar(aux);
       }
+      event.stopPropagation();
     }
   }
   getValor(value: string):string{
