@@ -80,8 +80,9 @@ export class ColeccionespComponent implements OnInit {
 
 
       //==========================EXCLUSIONES==========================//
-
-      if(this.activeCollection == "Renato"){
+      if(this.activeCollection == "Boda"){
+        this.listaObjetos.splice(this.listaObjetos.indexOf(items.find(i => i.name == "heart crystal")), 1); //Eliminar la bolsa de regalos
+      }else if(this.activeCollection == "Renato"){
         this.listaObjetos.splice(this.listaObjetos.indexOf(items.find(i => i.name == "magic bag")), 1); //Eliminar la bolsa de regalos
       }else if(this.activeCollection == "Caza" || this.activeCollection == "Pesca"){ //Elimnar las estatuas de peces y bichos
         let listaTemp = new Array<any>();
