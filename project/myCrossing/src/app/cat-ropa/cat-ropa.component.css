@@ -10,8 +10,13 @@ h2, span{
   background-color: pink;
 }
 
+.content-wrapper-top{
+  position: relative;
+}
+
 .pag-menu{
   width: 100%;
+  position: relative;
 }
 
 .grid-w-gap{
@@ -21,6 +26,7 @@ h2, span{
 .grid-item-wrap{
   background-color: #fdd2f4;
   position: relative;
+  box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
 }
 
 .editar{
@@ -67,4 +73,44 @@ h2, span{
 
 .b-pag:hover{
   background-color: rgb(157 228 163);
+}
+
+.bg-scroll-1{
+  background-image: url("../../assets/images/bg-0.svg");
+  background-size: 200px;
+  height: 200%;
+  width: 200%;
+  position: fixed;
+  top: -200px;
+  left: -300px;
+  animation: scroll1 20s linear infinite;
+}
+
+.bg-scroll-2{
+  background-image: url("../../assets/images/bg-1.svg");
+  background-size: 200px;
+  height: 200%;
+  width: 200%;
+  position: fixed;
+  top: -200px;
+  left: -500px;
+  animation: scroll2 20s linear infinite;
+}
+
+@keyframes scroll1 {
+  0% {
+      transform: rotate(15deg) translate(0, 0);
+  }
+  100% {
+      transform: rotate(15deg) translate(-200px, -200px);
+  }
+}
+
+@keyframes scroll2 {
+  0% {
+      transform: rotate(15deg) translate(0, 0);
+  }
+  100% {
+      transform: rotate(15deg) translate(200px, 200px);
+  }
 }
