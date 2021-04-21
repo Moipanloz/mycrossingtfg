@@ -75,6 +75,11 @@ export interface CriaturaMarina{
   usuario_id : number;
 }
 
+export interface Foto{
+  usuario_id : number;
+  url_image : String;
+}
+
 export interface Arte{
   nombre_arte : string;
   usuario_id : number;

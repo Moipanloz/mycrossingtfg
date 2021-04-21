@@ -8,6 +8,9 @@ require "openDB.php";
 $sql = "DROP TABLE IF EXISTS catarte";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
+$sql = "DROP TABLE IF EXISTS album";
+$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
 $sql = "DROP TABLE IF EXISTS catfosiles";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
@@ -143,7 +146,7 @@ $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "CREATE TABLE album (
   usuario_id int(5) NOT NULL,
-  url_img varchar(30) NOT NULL,
+  url_img varchar(200) NOT NULL,
   PRIMARY KEY (usuario_id, url_img),
   FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1";

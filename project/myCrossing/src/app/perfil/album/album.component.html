@@ -6,8 +6,8 @@
         <ng-container *ngFor="let item of imagenes">
             <div class="partial-image-container"><img src="{{item}}" (click)="muestra(item)" class="mini-full-image"></div>
         </ng-container>
-        <div class="partial-image-container" style="padding-top: 2vw;" (click)="abreModalImagen()">
-            <button class="b-bold boton-circular b-amarillo" style="width: 3vw; height: 3vw;">+</button>
+        <div class="partial-image-container" style="padding-top: 2vw;">
+            <button (click)="abreModalImagen()" class="b-bold boton-circular b-amarillo" style="width: 3vw; height: 3vw;">+</button>
         </div>
     </div>
 </div>
@@ -18,8 +18,8 @@
         <label for="inputUrlImagen" style="padding-right: 1.5vw;">Url imagen</label>
         <input id="inputUrlImagen" style="font-size: 1.5vw;" type="text">
         <br>
-        <ng-container *ngIf="errorImageForm">
-            <div class="error">La url es incorrecta</div>
+        <ng-container *ngIf="errorImageForm!=''">
+            <div class="error">{{errorImageForm}}</div>
         </ng-container>
         <button (click)="enviarDatos()" style="margin-top: 1vw;">Guardar</button>
     </div>
