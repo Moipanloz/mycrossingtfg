@@ -6,5 +6,21 @@
         <ng-container *ngFor="let item of imagenes">
             <div class="partial-image-container"><img src="{{item}}" (click)="muestra(item)" class="mini-full-image"></div>
         </ng-container>
+        <div class="partial-image-container" style="padding-top: 2vw;" (click)="abreModalImagen()">
+            <button class="b-bold boton-circular b-amarillo" style="width: 3vw; height: 3vw;">+</button>
+        </div>
+    </div>
+</div>
+<div class="fondo" [style.display]="agregaImagen?'block':'none'" (click)="cierraModalImagen()"></div>
+<div class="container-panel" id="imageModal" (click)="cierraModalImagen()" [style.display]="agregaImagen?'flex':'none'" style="text-align: center;">
+    <div class="panel" (click)="paraPropagacion($event)">
+        <h2>Agregar imagen</h2>
+        <label for="inputUrlImagen" style="padding-right: 1.5vw;">Url imagen</label>
+        <input id="inputUrlImagen" style="font-size: 1.5vw;" type="text">
+        <br>
+        <ng-container *ngIf="errorImageForm">
+            <div class="error">La url es incorrecta</div>
+        </ng-container>
+        <button (click)="enviarDatos()" style="margin-top: 1vw;">Guardar</button>
     </div>
 </div>

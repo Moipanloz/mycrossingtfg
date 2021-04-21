@@ -140,6 +140,14 @@ $sql = "CREATE TABLE catarte (
   FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
+$sql = "CREATE TABLE album (
+  usuario_id int(5) NOT NULL,
+  url_img varchar(30) NOT NULL,
+  PRIMARY KEY (usuario_id, url_img),
+  FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1";
+$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 // ---------------------------------------------------------------------------------------------Alter
 
 $sql = "ALTER TABLE usuarios AUTO_INCREMENT = 2";
