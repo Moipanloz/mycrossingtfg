@@ -49,6 +49,12 @@
     width: max-content;
     height: fit-content;
 }
+.b-borrado-imagen{
+    width: 13vw !important;
+    height: 4vw !important;
+    border-radius: 3vw;
+    font-size: 1vw;
+}
 .boton-circular{
   width: 2.5vw;
   height: 2.5vw;

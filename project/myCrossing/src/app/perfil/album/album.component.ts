@@ -17,6 +17,7 @@ export class AlbumComponent implements OnInit {
   }
   imagenes = [];
   mostrado="";
+  borradoImagen=false;
   agregaImagen=false;
   errorImageForm="";
   async ngOnInit(): Promise<void> {
@@ -34,8 +35,20 @@ export class AlbumComponent implements OnInit {
   onScroll(){
     this.agregaImagen = false;
   }
+  activaBorradoImagen(){
+    this.borradoImagen=!this.borradoImagen;
+  }
   muestra(item: string){
-    this.mostrado = item;
+    if(this.borradoImagen){
+      this.albumService.eliminaFoto(item);
+      let i = this.imagenes.indexOf(item);
+      this.imagenes.splice(i,1);
+      if(this.imagenes.length==0){
+        this.borradoImagen=false;
+      }
+    }else{
+      this.mostrado = item;
+    }
   }
   abreModalImagen(){
     this.agregaImagen=true;
@@ -49,7 +62,8 @@ export class AlbumComponent implements OnInit {
   enviarDatos(){
     let datos: String = $("#inputUrlImagen").val().toString();
     if(datos!=null && !this.imagenes.includes(datos)){
-      if(datos.match('^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$')){
+      if(datos.match('^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$')
+      && !(datos.includes("data:image") && datos.includes("base64"))){
         this.errorImageForm='';
         this.albumService.agregaFoto(datos);
         $("#inputUrlImagen").val('');

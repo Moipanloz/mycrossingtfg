@@ -57,6 +57,28 @@ if(isset($_GET["command"])){
         die("Faltan parametros");
       }
       break;
+    case "delete":
+      $postdata = file_get_contents("php://input");
+      if(isset($_GET["verif"]) && isset($postdata) && !empty($postdata)){
+        $verifCode = $_GET["verif"];
+        $request = json_decode($postdata);
+        $userId = $request->usuario_id;
+        $url_image = $request->url_image;
+        
+        $validation =  checkExisteUser($conn, $userId) &&
+                  checkVerification($conn, $userId, $verifCode);
+
+        //Para que sea correcto debe dar true
+        if($validation){
+          $result = $conn->prepare('DELETE FROM album WHERE usuario_id = ? AND url_img = ?');
+          $result->bind_param('is', $userId, $url_image);
+          $result->execute();
+          print(json_encode("Exito"));
+        }
+      }else{
+        die("Faltan parametros");
+      }
+      break;
     default:
       die("Comando no valido");
   }
