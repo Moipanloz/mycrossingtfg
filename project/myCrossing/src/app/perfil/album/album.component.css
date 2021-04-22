@@ -1,0 +1,95 @@
+.container-album{
+    height: 25vw;
+    display: flex;
+    margin-bottom: 7vw;
+}
+.container-main-photo{
+    text-align: center;
+    width: 58vw;
+    margin-left: 5vw;
+    padding: 1vw;
+    background-color: bisque;
+    border-radius: 3vw;
+    border-color: #ffba6b;
+    border-style: solid;
+    border-width: 0.35vw;
+}
+.container-photos{
+    border-width: 0.35vw;
+    border-style: solid;
+    border-color: #adb07c;
+    border-radius: 3vw;
+    margin-left: 5vw;
+    width: 28vw;
+    padding: 1vw;
+    text-align: left;
+    background-color: #f7ffa5;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: overlay;
+}
+.full-image{
+    background-color: #fdffdc;
+    margin: 0.5vw;
+    padding: 0.5vw;
+    border-radius: 2vw;
+    max-width: 56vw;
+    height: 20.5vw;
+}
+.mini-full-image{
+    background-color: #fdffdc;
+    margin: 1vw;
+    padding: 0.4vw;
+    border-radius: 0.5vw;
+    width: 5.5vw;
+    max-height: 4.5vw;
+}
+.partial-image-container{
+    text-align: center;
+    width: max-content;
+    height: fit-content;
+}
+.b-borrado-imagen{
+    width: 13vw !important;
+    height: 4vw !important;
+    border-radius: 3vw;
+    font-size: 1vw;
+}
+.boton-circular{
+  width: 2.5vw;
+  height: 2.5vw;
+}
+.panel{
+    padding: 1%;
+    border-style: none;
+    border-radius: 2vw;
+    background-color: #F7F3E8;
+    box-shadow: 0px 0px 10px 1px rgb(23 23 23 / 55%);
+    z-index: 15;
+    width: fit-content;
+    width: 40vw;
+    font-size: 1.5vw;
+}
+.error{
+    margin-top: 1vw;
+    padding: 1vw;
+    background-color: rgb(248 155 155);
+    border-radius: 2vw;
+    border-style: solid;
+    width: fit-content;
+    border-color: #e76783;
+    margin-left: 12vw;
+}
+.container-panel{
+    top:25%;
+    position: fixed;
+    place-content: center;
+    width: 100%;
+}
+.fondo{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+}

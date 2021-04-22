@@ -11,6 +11,7 @@ import { TareaMenuComponent } from './tareas/tarea-menu/tarea-menu.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { VecinoMenuComponent } from './misvecinos/vecino-menu/vecino-menu.component';
 import { CookieService } from 'ngx-cookie-service';
+import { AlbumComponent } from './album/album.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CookieService } from 'ngx-cookie-service';
     MisvecinosComponent,
     TareaMenuComponent,
     VecinoMenuComponent,
-    FiltroVecinoPipe
+    FiltroVecinoPipe,
+    AlbumComponent
   ],
   imports: [
     CommonModule,
