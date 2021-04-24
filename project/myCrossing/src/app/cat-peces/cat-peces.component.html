@@ -116,7 +116,7 @@
     </div>
 
     <ng-container *ngIf="(listaCreatures | filtroCategoriaPez:filtroAcWhe:filtroAcShadow | filtroAc:nameFilter | paginacion:page_number:max_items).length == 0" >
-      <div class="flex-column-centered" style="background-color: #b5d6ff;border-radius: 50px;position:relative;margin: 3% 0">
+      <div class="flex-column-centered no-result">
         <img src="../../assets/images/error.png" style="width: 10vw;">
         <p><strong>No hubo resultados</strong></p>
       </div>
