@@ -225,6 +225,7 @@ label{
 .b-verde{
   background-color: rgb(203, 244, 196);
   border-color: rgb(149, 229, 155);
+  transform: scale(1.1);
 }
 
 .b-azul-hover{
@@ -329,4 +330,79 @@ label{
 
 .b-scale:hover{
   transform: scale(1.1);
+}
+
+.b-scale-xl{
+  transition: 0.3s;
+}
+
+.b-scale-xl:hover{
+  transform: scale(1.5);
+}
+
+.bg-scroll-1{
+  background-size: 200px;
+  height: 200%;
+  width: 200%;
+  position: fixed;
+  top: -200px;
+  left: -300px;
+  animation: scroll1 20s linear infinite;
+}
+
+.bg-scroll-2{
+  background-size: 200px;
+  height: 200%;
+  width: 200%;
+  position: fixed;
+  top: -200px;
+  left: -500px;
+  animation: scroll2 20s linear infinite;
+}
+
+@keyframes scroll1 {
+  0% {
+      transform: rotate(15deg) translate(0, 0);
+  }
+  100% {
+      transform: rotate(15deg) translate(-200px, -200px);
+  }
+}
+
+@keyframes scroll2 {
+  0% {
+      transform: rotate(15deg) translate(0, 0);
+  }
+  100% {
+      transform: rotate(15deg) translate(200px, 200px);
+  }
+}
+
+.burbuja-title{
+  display: flex;
+  justify-content: center;
+  width: 40rem;
+  height: 12.5rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: auto;
+  margin-bottom: 1vw;
+  align-items: center;
+}
+
+.wrap-scale img{
+  transition: 0.3s;
+}
+
+.wrap-scale:hover img{
+  transform: scale(1.1);
+}
+
+.wrap-scale{
+  transition: 0.3s;
+  border-radius: 100%;
+}
+
+.wrap-scale:hover{
+  background-color: #b3c4da;
 }
