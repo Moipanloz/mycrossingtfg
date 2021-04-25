@@ -226,6 +226,7 @@ label{
   background-color: rgb(203, 244, 196);
   border-color: rgb(149, 229, 155);
   transform: scale(1.1);
+  font-weight: bold;
 }
 
 .b-azul-hover{
@@ -401,8 +402,4 @@ label{
 .wrap-scale{
   transition: 0.3s;
   border-radius: 100%;
-}
-
-.wrap-scale:hover{
-  background-color: #b3c4da;
 }
