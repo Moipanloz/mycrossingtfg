@@ -14,6 +14,9 @@ $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 $sql = "DROP TABLE IF EXISTS catfosiles";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
+$sql = "DROP TABLE IF EXISTS catcanciones";
+$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
 $sql = "DROP TABLE IF EXISTS catbichos";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
@@ -108,6 +111,14 @@ $sql = "CREATE TABLE catfosiles (
   usuario_id int(5) NOT NULL,
   nombre_fosil varchar(30) NOT NULL,
   PRIMARY KEY (nombre_fosil, usuario_id),
+  FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1";
+$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
+$sql = "CREATE TABLE catcanciones (
+  usuario_id int(5) NOT NULL,
+  nombre_cancion varchar(30) NOT NULL,
+  PRIMARY KEY (nombre_cancion, usuario_id),
   FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));

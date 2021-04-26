@@ -61,6 +61,11 @@ export interface Fosil{
   usuario_id : number;
 }
 
+export interface Cancion{
+  nombre_cancion : string;
+  usuario_id : number;
+}
+
 export interface Bicho{
   nombre_criatura : string;
   usuario_id : number;
