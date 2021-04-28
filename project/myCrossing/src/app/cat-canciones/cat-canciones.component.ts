@@ -19,6 +19,7 @@ export class CatCancionesComponent implements OnInit {
   _verif : VerificationService;
   page_number : number = 1;
   max_items : number = 40;
+  filtroSrc: String = "";
   num_paginas : Array<number>;
   _pag : PaginacionService;
   botonFiltrar : string = "none";
@@ -100,6 +101,14 @@ export class CatCancionesComponent implements OnInit {
         this.playing=true;
         $("#audio").trigger("play");
       }
+    }
+  }
+
+  activaFiltroSrc(filtro: String){
+    if(this.filtroSrc==filtro){
+      this.filtroSrc = "";
+    }else{
+      this.filtroSrc = filtro;
     }
   }
 
