@@ -7,7 +7,7 @@ h2, span{
 }
 
 .content-wrapper-bot{
-  background-color: #efc985;
+  background-color: #883f3f;
 }
 
 .pag-menu{
@@ -21,7 +21,7 @@ h2, span{
 }
 
 .grid-item-wrap{
-  background-color: #f9ddb2;
+  background-color: #f9b2b2;
   position: relative;
   box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
   transition: 0.3s;
@@ -46,7 +46,7 @@ h2, span{
   padding-bottom: 1vw;
   display:flex;
   margin: auto;
-  background-color: #f9ddb2;
+  background-color: #f9b2b2;
   border-radius: 50px;
   box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
 }
@@ -124,15 +124,15 @@ h2, span{
 }
 
 .bg-scroll-1{
-  background-image: url("../../assets/images/pez-bg-0.png");
+  background-image: url("../../assets/images/arte-bg-0.png");
 }
 
 .bg-scroll-2{
-  background-image: url("../../assets/images/pez-bg-1.png");
+  background-image: url("../../assets/images/arte-bg-1.png");
 }
 
 .no-result{
-  background-color: #f9ddb2;
+  background-color: #f9b2b2;
   border-radius: 50px;
   position:relative;
   margin: 3% 0;
@@ -140,9 +140,9 @@ h2, span{
 }
 
 .burbuja-title{
-  background-image: url("../../assets/images/bubble-pez.png");
+  background-image: url("../../assets/images/bubble-arte.png");
 }
 
 :host{
-  background-color: #efc985;
+  background-color: #883f3f;
 }
