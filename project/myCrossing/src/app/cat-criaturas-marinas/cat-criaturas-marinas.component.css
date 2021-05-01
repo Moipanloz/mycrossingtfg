@@ -150,12 +150,12 @@ h2, span{
 }
 
 .bg-scroll-1{
-  background-image: url("../../assets/images/pez-bg-0.png");
+  background-image: url("../../assets/images/crit-marina-bg-0.png");
 }
 
 
 .bg-scroll-2{
-  background-image: url("../../assets/images/pez-bg-1.png");
+  background-image: url("../../assets/images/crit-marina-bg-1.png");
 }
 
 .no-result{
@@ -166,7 +166,7 @@ h2, span{
   box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
 }
 .burbuja-title{
-  background-image: url("../../assets/images/bubble-pez.png");
+  background-image: url("../../assets/images/bubble-crit-marina.png");
 }
 
 :host{

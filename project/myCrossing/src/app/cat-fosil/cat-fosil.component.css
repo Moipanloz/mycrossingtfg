@@ -7,7 +7,7 @@ span{
   }
 
   .content-wrapper-bot{
-    background-color: #e2d4b9;
+    background-color: #b39d74;
   }
 
   .pag-menu{
@@ -85,11 +85,11 @@ span{
   }
 
 .bg-scroll-1{
-  background-image: url("../../assets/images/pez-bg-0.png");
+  background-image: url("../../assets/images/fosil-bg-0.png");
 }
 
 .bg-scroll-2{
-  background-image: url("../../assets/images/pez-bg-1.png");
+  background-image: url("../../assets/images/fosil-bg-1.png");
 }
 
 .no-result{
@@ -101,9 +101,9 @@ span{
 }
 
 .burbuja-title{
-  background-image: url("../../assets/images/bubble-pez.png");
+  background-image: url("../../assets/images/bubble-fosil.png");
 }
 
 :host{
-  background-color: #e2d4b9;
+  background-color: #b39d74;
 }
