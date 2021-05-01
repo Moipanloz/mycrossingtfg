@@ -38,16 +38,6 @@ export class CatCancionesComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    let lista: Number[] = [];
-    items.filter(i => i.sourceSheet == "Music").forEach(i=>{i.sourceNotes.forEach(s=>{
-      if(lista[s]==null){
-        lista[s]=1;
-      }else{
-        lista[s]=lista[s]+1;
-      }
-    })});
-
     this._verif.verify().then( async () => {
       if(this._verif.user != null){
         this.listaUsuario = new Array<string>();
@@ -58,19 +48,19 @@ export class CatCancionesComponent implements OnInit {
 
           if(this.botonFiltrar != "none"){
             if(this.botonFiltrar == "obtenido"){
-              this.listaItems = await items.filter(i => i.sourceSheet == "Music" && this.listaUsuario.includes(i.name.replace(' ','')));
+              this.listaItems = await items.filter(i => i.sourceSheet == "Music" && !i.name.includes("Hazure") && this.listaUsuario.includes(i.name.replace(' ','')));
             }else{
-              this.listaItems = await items.filter(i => i.sourceSheet == "Music" && !this.listaUsuario.includes(i.name.replace(' ','')));
+              this.listaItems = await items.filter(i => i.sourceSheet == "Music" && !i.name.includes("Hazure") && !this.listaUsuario.includes(i.name.replace(' ','')));
             }
           }else{
-            this.listaItems = await items.filter(i => i.sourceSheet == "Music");
+            this.listaItems = await items.filter(i => i.sourceSheet == "Music" && !i.name.includes("Hazure"));
           }
         }).catch(err => {
           this._error.setNewError(err.message);
           setTimeout(() => {this._error.cleanError()}, 3000)
         });
       }else{
-        this.listaItems = await items.filter(i => i.sourceSheet == "Music");
+        this.listaItems = await items.filter(i => i.sourceSheet == "Music" && !i.name.includes("Hazure"));
       }
 
       this.busqueda.valueChanges.pipe(debounceTime(300)).subscribe(value => this.filtrar(value));
