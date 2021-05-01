@@ -1,11 +1,13 @@
 <div class="flex-column-centered padding-nav padding-footer background-img" style='background-image:  url("../../assets/images/muelle-blur.png");height: unset;'>
-  <h1>Calendario</h1>
-  <div class="calendario-wrap">
+    <div class="burbuja-title">
+      <h1>Calendario</h1>
+    </div>
+    <div class="calendario-wrap">
     <div class="flex-centered">
       <div class="col-md-4">
         <div class="btn-group">
           <div
-            class="b-small flex-centered boton-circular b-azul-hover"
+            class="b-small flex-centered boton-circular b-scale b-azul-hover"
             mwlCalendarPreviousView
             [view]="view"
             [(viewDate)]="viewDate"
@@ -20,7 +22,7 @@
       </div>
       <div class="btn-group">
         <div
-            class=" flex-centered b-small boton-circular b-azul-hover"
+            class=" flex-centered b-small boton-circular b-azul-hover b-scale"
             mwlCalendarNextView
             [view]="view"
             [(viewDate)]="viewDate"
