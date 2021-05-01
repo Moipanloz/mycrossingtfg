@@ -1,8 +1,9 @@
-<div class="flex-column-centered padding-nav" style="background-color: var(--blanco);">
-  <h1>Mercado de nabos</h1>
-
+<div class="flex-column-centered padding-nav" style="background-image: url('../../assets/images/plaza-ayto-blur.jpg');">
+  <div class="burbuja-title" style="margin: 3rem auto 1rem">
+    <h1>Mercado de nabos</h1>
+  </div>
   <!-- Calculadora -->
-  <div class="w100 shadow-ins-bot" style="position:relative; background-color: var(--blanco);">
+  <div class="w100" style="margin-top: 2rem;box-shadow: 0px -15px 20px 0px rgb(23 23 23 / 55%);position:relative; background-color: var(--blanco);">
     <div>
       <form class="input__form">
         <div class="flex-between" style="width: 65%; margin:auto; text-align: center;margin-top: 2%;">
@@ -118,7 +119,7 @@
           </div>
         </div>
 
-        <button type="button" id="reset" class="button button--reset boton-alargado b-azul b-rojo-hover" name="action">Resetear</button>
+        <button type="button" id="reset" class="b-scale button button--reset boton-alargado b-azul b-rojo-hover" name="action">Resetear</button>
       </form>
     </div>
 
@@ -184,7 +185,8 @@
   </div>
 
   <!-- Informacion -->
-  <div class="w100 background-img padding-nav-footer" style='background-image: url("../../assets/images/plaza-ayto-blur.jpg");padding: 3vw 0'>
+  <div class="w100 background-img padding-nav-footer" style='background-image: url("../../assets/images/plaza-ayto-blur.jpg");padding: 3vw 0;box-shadow: inset 0px 15px 20px 0px rgb(23 23 23 / 55%);
+  '>
     <div class="flex-between info-wrap">
       <!-- Información general -->
       <div class="flex-column-centered info-general">
@@ -217,7 +219,7 @@
         <div class="flex-between patron-tag" (mouseenter)="this.filtrosView[0] = true" (mouseleave)="this.filtrosView[0] = false" [style.background-color]="filtrosView[0] ? 'var(--l-verde)' : 'var(--l-azul)'">
           <div class="flex-column-centered">
             <h2>Variante</h2>
-            <p [style.display]="filtrosView[0] ? 'block' : 'none'">Va subiendo y bajando sin seguir ningún orden en particular.
+            <p [class]="filtrosView[0] ? 'pShow' : 'pHide'">Va subiendo y bajando sin seguir ningún orden en particular.
               Puedes llegar a sacar algo de beneficio, pero es arriesgado.</p>
           </div>
           <img src="../../assets/images/aleatorio.png">
@@ -226,7 +228,7 @@
         <div class="flex-between patron-tag" (mouseenter)="this.filtrosView[1] = true" (mouseleave)="this.filtrosView[1] = false" [style.background-color]="filtrosView[1] ? 'var(--l-verde)' : 'var(--l-azul)'">
           <div class="flex-column-centered">
             <h2>Descendiente</h2>
-            <p [style.display]="filtrosView[1] ? 'block' : 'none'">El precio va bajando durante toda la semana, por lo que
+            <p [class]="filtrosView[1] ? 'pShow' : 'pHide'">El precio va bajando durante toda la semana, por lo que
               para evitar grandes pérdidas hay que vender cuanto antes.</p>
           </div>
           <img src="../../assets/images/descenso.png">
@@ -235,7 +237,7 @@
         <div class="flex-between patron-tag" (mouseenter)="this.filtrosView[2] = true" (mouseleave)="this.filtrosView[2] = false" [style.background-color]="filtrosView[2] ? 'var(--l-verde)' : 'var(--l-azul)'">
           <div class="flex-column-centered">
             <h2>Pico pequeño</h2>
-            <p [style.display]="filtrosView[2] ? 'block' : 'none'">Empieza bajando pero luego sube 3 veces, alcanzando en el
+            <p [class]="filtrosView[2] ? 'pShow' : 'pHide'">Empieza bajando pero luego sube 3 veces, alcanzando en el
               tercer salto el precio de venta más alto, y luego vuelve a bajar.</p>
           </div>
           <img src="../../assets/images/pico-pequenio.png">
@@ -243,8 +245,8 @@
 
         <div class="flex-between patron-tag" (mouseenter)="this.filtrosView[3] = true" (mouseleave)="this.filtrosView[3] = false" [style.background-color]="filtrosView[3] ? 'var(--l-verde)' : 'var(--l-azul)'">
           <div class="flex-column-centered">
-            <h2>Pico grande</h2>
-            <p [style.display]="filtrosView[3] ? 'block' : 'none'">Similar al anterior, aunque el segundo y
+            <h2 class="slide-top">Pico grande</h2>
+            <p [class]="filtrosView[3] ? 'pShow' : 'pHide'">Similar al anterior, aunque el segundo y
               tercer ascenso son mucho más pronunciados y se alcanzan precios muy altos.</p>
           </div>
           <img src="../../assets/images/pico-grande.png">

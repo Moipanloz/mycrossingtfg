@@ -331,6 +331,7 @@ label{
 
 .b-scale:hover{
   transform: scale(1.1);
+  box-shadow: 0 1px 6px var(--shadow-5), 0 3px 6px var(--shadow-9);
 }
 
 .b-scale-xl{
@@ -402,4 +403,16 @@ label{
 .wrap-scale{
   transition: 0.3s;
   border-radius: 100%;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
