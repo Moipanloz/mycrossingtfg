@@ -28,7 +28,7 @@ export class CatCancionesComponent implements OnInit {
   _catCancion : CatCancionService;
   _error : ErrorService;
   playing: boolean = false;
-  cancionActual: IItem = items.filter(i=>i.sourceSheet=="Music")[0];//"https://acnhapi.com/v1/music/1";
+  cancionActual: IItem = items.filter(i=>i.sourceSheet=="Music")[0];
 
   constructor(verif : VerificationService, pag : PaginacionService, catCancion : CatCancionService, errorService : ErrorService) {
     this._verif = verif;
@@ -38,7 +38,7 @@ export class CatCancionesComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
     let lista: Number[] = [];
     items.filter(i => i.sourceSheet == "Music").forEach(i=>{i.sourceNotes.forEach(s=>{
       if(lista[s]==null){
@@ -47,9 +47,6 @@ export class CatCancionesComponent implements OnInit {
         lista[s]=lista[s]+1;
       }
     })});
-    console.log(lista);
-    console.log(items.filter(i => i.sourceSheet == "Music"));
-
 
     this._verif.verify().then( async () => {
       if(this._verif.user != null){
