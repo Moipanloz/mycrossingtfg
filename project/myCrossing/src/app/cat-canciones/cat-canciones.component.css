@@ -7,11 +7,13 @@ span{
   }
 
   .content-wrapper-bot{
-    background-color: #e2d4b9;
+    background-color: #f1ed88;
   }
 
   .pag-menu{
     width: 100%;
+    position: relative;
+    margin-top: 1vw;
   }
 
   .grid-w-gap{
@@ -19,8 +21,10 @@ span{
   }
 
   .grid-item-wrap{
-    background-color: #fff8c4;
+    background-color: #fff4a4;
     position: relative;
+    box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
+    transition: 0.3s;
   }
 
   .editar{
@@ -38,6 +42,8 @@ span{
 
   .b-darkGreen{
     background-color: rgb(157 228 163);
+    transform: scale(1.1);
+    font-weight: bold;
   }
 
   .b-darkBlue{
@@ -50,6 +56,23 @@ span{
 
   .b-darkGreener{
     background-color: #41b054;
+  }
+
+  #wrap-filtros{
+    padding-bottom: 1vw;
+    display:flex;
+    margin: auto;
+    background-color: #fff4a4;
+    border-radius: 50px;
+    box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
+  }
+
+  #wrap-filtros button{
+    margin: 0.2vw;
+  }
+
+  .wrap-scale:hover img{
+    transform: scale(0.8);
   }
 
   .boton-circular{
@@ -68,3 +91,112 @@ span{
   .b-pag:hover{
     background-color: rgb(157 228 163);
   }
+
+
+.bg-scroll-1{
+  background-image: url("../../assets/images/cancion-bg-0.png");
+}
+
+.bg-scroll-2{
+  background-image: url("../../assets/images/cancion-bg-1.png");
+}
+
+.no-result{
+  background-color: #fff4a4;
+  border-radius: 50px;
+  position:relative;
+  margin: 3% 0;
+  box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
+}
+
+.burbuja-title{
+  background-image: url("../../assets/images/bubble-cancion.png");
+}
+
+:host{
+  background-color: #f1ed88;
+}
+
+.wrap-scale:hover{
+  background-color: #e4d569;
+}
+
+.wrap-scale{
+  z-index: 2;
+}
+
+.reproduciendo img{
+  transform: scale(0.8);
+}
+
+@keyframes scrollSong {
+  0% {
+      transform: rotate(15deg) translate(0, 0);
+  }
+  100% {
+      transform: rotate(15deg) translate(200px, 200px);
+  }
+}
+
+.bg-scroll-song{
+  height: 500%;
+  width: 500%;
+  background-image: url('../../assets/images/mueble-bg-0.png');
+  animation: scrollSong 10s linear infinite;
+  top: -300px;
+  left: -300px;
+  position: absolute;
+  z-index: -1;
+}
+
+.reproduciendo-wrap{
+  width: 8vw;
+  height: 8vw;
+  border-radius: 100%;
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+  top: 1vw;
+}
+
+.reproductor{
+  position: fixed;
+  display: flex;
+  left: 10px;
+  z-index: 50;
+  bottom: 10px;
+  width: 20rem;
+  background-color: var(--blanco);
+  border-radius: 50px;
+  padding: 0.5rem;
+  box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
+}
+
+.reproductor img{
+  width: 5rem;
+  height: 5rem;
+  border-radius: 100%;
+}
+
+.gira{
+  animation: rotate-center 15s linear infinite both;
+}
+
+@keyframes rotate-center {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+audio::-webkit-media-controls-current-time-display, audio::-webkit-media-controls-time-remaining-display{
+  display: none;
+}
+
+audio::-webkit-media-controls-panel{
+  background-color: var(--blanco);
+}
+
+
