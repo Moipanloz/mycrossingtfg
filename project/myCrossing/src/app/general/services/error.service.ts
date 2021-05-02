@@ -17,6 +17,7 @@ export class ErrorService {
   setNewError(mssg : string){
     this.errorVisChange.next(false);
     this.errorMssgChange.next(mssg);
+    console.log(mssg);
   }
 
   getErrorVis() : Observable<boolean>{

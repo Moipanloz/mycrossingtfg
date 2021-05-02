@@ -1,8 +1,6 @@
 <?php
-header('Access-Control-Allow-Origin: http://localhost:9876');
 
 require "openDB.php";
-header('Access-Control-Allow-Origin: http://localhost:9876');
 
 include "validators/usuarioValidator.php";
 include "validators/visitaValidator.php";

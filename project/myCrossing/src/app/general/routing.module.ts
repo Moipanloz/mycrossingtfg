@@ -19,6 +19,7 @@ import { CatCazaPecesComponent } from 'app/cazar-ahora/cat-caza-peces/cat-caza-p
 import { CatCazaCriaturasMarinasComponent } from 'app/cazar-ahora/cat-caza-criaturas-marinas/cat-caza-criaturas-marinas.component';
 import { CatVecinosComponent } from 'app/cat-vecinos/cat-vecinos.component';
 import { CalcNabosComponent } from 'app/calc-nabos/calc-nabos.component';
+import { CatCancionesComponent } from 'app/cat-canciones/cat-canciones.component';
 
 const rutas: Routes = [
 {
@@ -75,6 +76,9 @@ const rutas: Routes = [
 },{
   path: "calendario",
   component: CalEventosComponent
+},{
+  path: "catalogo-canciones",
+  component: CatCancionesComponent
 }
 ];
 
