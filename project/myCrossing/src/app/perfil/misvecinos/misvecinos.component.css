@@ -71,6 +71,15 @@ p, span, li, h4{
   position: relative;
 }
 
+#moveout-info > div{
+  text-align: center;
+}
+
+#moveout-info ul{
+  text-align: left;
+  margin-left: 33%
+}
+
 #button-wrap{
   display: flex;
   flex-direction: column;

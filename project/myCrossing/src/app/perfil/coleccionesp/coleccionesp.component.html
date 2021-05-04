@@ -11,7 +11,7 @@
 
 <div class="item-list-wrap flex-centered">
   <div class="boton-pag flex-column-centered" style="visibility: hidden;" #atras>
-    <button class="boton-pag boton-circular b-azul-hover b-scale" [style.visibility]="page_number != 1 ? 'visible' : 'hidden'" (click)="page_number = this._pag.pagAtras(page_number)"> < </button>
+    <button class="boton-pag boton-circular b-azul-hover b-scale" style="font-weight: bold;" [style.visibility]="page_number != 1 ? 'visible' : 'hidden'" (click)="page_number = this._pag.pagAtras(page_number)"> < </button>
   </div>
 
   <div class="paginacion-content">
@@ -29,7 +29,7 @@
   </div>
 
   <div class="boton-pag flex-column-centered" style="visibility: visible;" #alante>
-    <button class="boton-pag boton-circular b-azul-hover b-scale" [style.visibility]="listaObjetos.length > max_items && page_number * max_items < listaObjetos.length ? 'visible' : 'hidden'" (click)="page_number = this._pag.pagAlante(page_number, max_items, listaObjetos)"> > </button>
+    <button class="boton-pag boton-circular b-azul-hover b-scale" style="font-weight: bold;" [style.visibility]="listaObjetos.length > max_items && page_number * max_items < listaObjetos.length ? 'visible' : 'hidden'" (click)="page_number = this._pag.pagAlante(page_number, max_items, listaObjetos)"> > </button>
   </div>
 </div>
 <span>Página {{page_number}} de {{(this.listaObjetos.length / 16) | round:"techo"}}</span>
