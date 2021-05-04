@@ -43,6 +43,7 @@ p, span, li, h4{
 .icono{
   width: 8vw;
   height: auto;
+  cursor: pointer;
 }
 
 .wrap-vecino{
@@ -67,6 +68,7 @@ p, span, li, h4{
   padding: 2vw;
   margin-bottom: 2vw;
   border-radius: 30px;
+  position: relative;
 }
 
 #button-wrap{
@@ -74,12 +76,18 @@ p, span, li, h4{
   flex-direction: column;
 }
 
+.boton-circular{
+  width: 3vw;
+  height: 3vw;
+}
+
 #close-menu{
-  left: 92vw;
-  top: 59vw;
+  right: 1rem;
+  top: 1rem;
   width: 2vw;
   height: 2vw;
   padding: 0;
+  margin: 0;
 }
 
 .porcentaje{
@@ -102,5 +110,10 @@ p, span, li, h4{
   background-color: transparent;
   cursor: pointer;
   background-repeat: no-repeat;
+  transition: 0.3s;
+}
+
+.exclude-button:hover{
+  background-image: url('../../../assets/images/excluido-rojo.png') !important;
 }
 

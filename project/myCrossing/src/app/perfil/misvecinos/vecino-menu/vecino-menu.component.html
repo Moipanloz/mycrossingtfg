@@ -16,8 +16,8 @@
       </ng-container>
     </div>
     <div class="flex-centered" id="botones">
-      <button (click)="borrarVecino()" class="boton-imagen delete"></button>
-      <button [disabled]="vecinoForm.invalid" type="submit" class="boton-imagen save"></button>
+      <button (click)="borrarVecino()" class="b-scale boton-imagen delete"></button>
+      <button [disabled]="vecinoForm.invalid" type="submit" class="b-scale boton-imagen save"></button>
     </div>
   </form>
 </div>
@@ -27,27 +27,27 @@
   <form [formGroup]="amistadForm" class="flex-column-centered" style="justify-content: space-around;height: 100%;" (ngSubmit)="enviar(amistadForm.value, true)">
     <label>
       <input #am6 formControlName="amistad" class="radio-hidden" id="rad6" type="radio" value="6">
-      <button (click)="am6.click()" class="boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">6</button>
+      <button (click)="am6.click()" class="b-scale boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">6</button>
     </label>
     <label>
       <input #am5 formControlName="amistad" class="radio-hidden" id="rad5" type="radio" value="5">
-      <button (click)="am5.click()" class="boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">5</button>
+      <button (click)="am5.click()" class="b-scale boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">5</button>
     </label>
     <label>
       <input #am4 formControlName="amistad" class="radio-hidden" id="rad4" type="radio" value="4">
-      <button (click)="am4.click()" class="boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">4</button>
+      <button (click)="am4.click()" class="b-scale boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">4</button>
     </label>
     <label>
       <input #am3 formControlName="amistad" class="radio-hidden" id="rad3" type="radio" value="3">
-      <button (click)="am3.click()" class="boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">3</button>
+      <button (click)="am3.click()" class="b-scale boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">3</button>
     </label>
     <label>
       <input #am2 formControlName="amistad" class="radio-hidden" id="rad2" type="radio" value="2">
-      <button (click)="am2.click()" class="boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">2</button>
+      <button (click)="am2.click()" class="b-scale boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">2</button>
     </label>
     <label>
       <input #am1 formControlName="amistad" class="radio-hidden" id="rad1" type="radio" value="1">
-      <button (click)="am1.click()" class="boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">1</button>
+      <button (click)="am1.click()" class="b-scale boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">1</button>
     </label>
   </form>
 </div>
