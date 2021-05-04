@@ -86,6 +86,7 @@ label{
   background-color: transparent;
   cursor: pointer;
   background-repeat: no-repeat;
+  transition: 0.3s;
 }
 
 .bckg-img-boton{
@@ -151,7 +152,7 @@ label{
 }
 
 .save{
-  background-image: url("./assets/images/save-verde.png");
+  background-image: url("./assets/images/check-verde.png");
 }
 
 .delete-rojo{
@@ -160,6 +161,7 @@ label{
 
 .delete{
   background-image: url("./assets/images/basura-gris.png");
+  transition: 0.3s;
 }
 
 .delete:hover{
