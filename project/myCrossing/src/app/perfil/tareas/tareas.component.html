@@ -9,7 +9,7 @@
 
     <!-- Tarea todo -->
     <ng-template #todo>
-      <button (click)="!modoEdicion ? checkTarea(tarea) : abreMenu($event, tarea)" class="boton-circular b-azul bckg-img-boton" [style.background-image]="'url(../../../assets/images/'+ tarea.imagen_url + '.png)'"></button>
+      <button (click)="!modoEdicion ? checkTarea(tarea) : abreMenu($event, tarea)" class="b-scale boton-circular b-azul-hover bckg-img-boton" [style.background-image]="'url(../../../assets/images/'+ tarea.imagen_url + '.png)'"></button>
     </ng-template>
 
   </ng-container>
@@ -19,11 +19,11 @@
 
   <!-- Boton crear -->
   <ng-container *ngIf="modoEdicion && data[0].length < 10">
-    <button (click)="crearTarea()" class="b-bold boton-circular b-amarillo">+</button>
+    <button (click)="crearTarea()" class="b-scale b-crear b-bold boton-circular b-amarillo">+</button>
   </ng-container>
 
   <!-- Boton modo edicion -->
-  <button class="editar boton-imagen editar-azul" #botonEdit (click)="activaEdicion()"></button>
+  <button class="b-scale-xl editar boton-imagen editar-azul" #botonEdit (click)="activaEdicion()"></button>
 
 </div>
 

@@ -58,16 +58,18 @@ export class TareasComponent implements OnInit{
   activaEdicion(){
     this.modoEdicion = !this.modoEdicion;
     if(this.modoEdicion){
-      this.botonEdit.nativeElement.classList.add("editar-verde");
+      this.botonEdit.nativeElement.classList.add("check-verde");
       this.botonEdit.nativeElement.classList.remove("editar-azul");
+      this.botonEdit.nativeElement.classList.remove("b-scale-xl");
     }else{
-      this.botonEdit.nativeElement.classList.remove("editar-verde");
+      this.botonEdit.nativeElement.classList.remove("check-verde");
       this.botonEdit.nativeElement.classList.add("editar-azul");
+      this.botonEdit.nativeElement.classList.add("b-scale-xl");
     }
   }
 
   abreMenu(event, tarea : Tarea){
-    if(this.tareaMenu != null && this.tareaMenu.id == tarea.id && this.menu.visibility == "visible"){
+    if(this.tareaMenu != null && this.tareaMenu.id == tarea.id && this.menu.display == "block"){
         this.menu.cierraMenu();
     }else{
       this.tareaMenu = tarea;

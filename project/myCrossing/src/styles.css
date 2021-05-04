@@ -105,11 +105,11 @@ label{
 }
 
 .img-radio:hover{
-  background-color: #CBF4C4;
+  background-color: #c9f3f3;
 }
 
 .img-radio-checked{
-  background-color:#c9f3f3;
+  background-color:#CBF4C4;
 }
 
 .b-bold{
@@ -128,12 +128,26 @@ label{
   background-image: url("./assets/images/editar-blanco.png");
 }
 
+.check-verde{
+  background-image: url("./assets/images/check-verde.png");
+  transform: scale(1.5);
+  transition: 0.3s;
+}
+
+.check-verde:hover{
+  transform: scale(1.1);
+}
+
 .editar-verde{
-  background-image: url("./assets/images/editar-verde.png");
+  background-image: url("./assets/images/check-verde.png");
 }
 
 .editar-azul{
   background-image: url("./assets/images/editar-azul.png");
+}
+
+.editar-azul:hover{
+  background-image: url("./assets/images/editar-verde.png");
 }
 
 .save{
@@ -227,6 +241,11 @@ label{
   border-color: rgb(149, 229, 155);
   transform: scale(1.1);
   font-weight: bold;
+  transition: 0.3s;
+}
+
+.b-verde:active{
+  transform: scale(1);
 }
 
 .b-azul-hover{
@@ -334,6 +353,10 @@ label{
   box-shadow: 0 1px 6px var(--shadow-5), 0 3px 6px var(--shadow-9);
 }
 
+.b-scale:active{
+  transform: scale(1);
+}
+
 .b-scale-xl{
   transition: 0.3s;
 }
@@ -415,4 +438,9 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+.b-crear{
+  width: 2.5vw;
+  height: 2.5vw;
 }

@@ -20,6 +20,10 @@
   height: max-content;
 }
 
+.delete{
+  transition: 0.3s;
+}
+
 .icon-wrap-menu{
   margin-top: 1vw;
   display: flex;
