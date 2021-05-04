@@ -1,6 +1,6 @@
 <div class="menu-botones flex-centered">
   <ng-container *ngFor="let lista of colecciones | keyvalue">
-    <div class="flex-column-centered">
+    <div class="flex-column-centered" [class]="lista.key == this.activeCollection ? 'selected' : ''">
       <button class="boton-circular flex-centered" id="{{lista.key}}" (click)="setActiveCollection(lista.key)" [ngStyle]="lista.key == this.activeCollection ? selected : base" >
         <img src="../../../assets/images/{{lista.key | lowercase}}.png">
       </button>
@@ -11,14 +11,14 @@
 
 <div class="item-list-wrap flex-centered">
   <div class="boton-pag flex-column-centered" style="visibility: hidden;" #atras>
-    <button class="boton-pag boton-circular b-verde" [style.visibility]="page_number != 1 ? 'visible' : 'hidden'" (click)="page_number = this._pag.pagAtras(page_number)"> < </button>
+    <button class="boton-pag boton-circular b-azul-hover b-scale" [style.visibility]="page_number != 1 ? 'visible' : 'hidden'" (click)="page_number = this._pag.pagAtras(page_number)"> < </button>
   </div>
 
   <div class="paginacion-content">
     <ng-container *ngFor="let item of listaObjetos | paginacion:page_number:max_items">
       <div class="item-container">
         <div class="check-container">
-          <button [style]="{'background-image': checkTieneItem(listaUsuario.includes(item.name))}" class="boton-imagen editar" (click)="toggleCheck(item)"></button>
+          <button [style]="{'background-image': checkTieneItem(listaUsuario.includes(item.name))}" class="b-scale-xl boton-imagen editar" (click)="toggleCheck(item)"></button>
         </div>
         <div class="item flex-column-centered">
           <img [src]="getImage(item)">
@@ -29,7 +29,7 @@
   </div>
 
   <div class="boton-pag flex-column-centered" style="visibility: visible;" #alante>
-    <button class="boton-pag boton-circular b-verde" [style.visibility]="listaObjetos.length > max_items && page_number * max_items < listaObjetos.length ? 'visible' : 'hidden'" (click)="page_number = this._pag.pagAlante(page_number, max_items, listaObjetos)"> > </button>
+    <button class="boton-pag boton-circular b-azul-hover b-scale" [style.visibility]="listaObjetos.length > max_items && page_number * max_items < listaObjetos.length ? 'visible' : 'hidden'" (click)="page_number = this._pag.pagAlante(page_number, max_items, listaObjetos)"> > </button>
   </div>
 </div>
 <span>Página {{page_number}} de {{(this.listaObjetos.length / 16) | round:"techo"}}</span>
