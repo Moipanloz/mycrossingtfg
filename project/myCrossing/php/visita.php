@@ -68,7 +68,6 @@ if(isset($_GET["command"])){
             $result = $conn->prepare('UPDATE visitas SET lpa = ?, mpa = ?, xpa = ?, jpa = ?, vpa = ?, lpr = ?, mpr = ?, xpr = ?, jpr = ?, vpr = ?, estela = ? WHERE usuario_id = ?');
             $result->bind_param('sssssssssssi',$lpa,$mpa,$xpa,$jpa,$vpa,$lpr,$mpr,$xpr,$jpr,$vpr,$estela,$userId);
             $result->execute();
-            print("Exito");
           }
         }else{
           die("No hay datos");

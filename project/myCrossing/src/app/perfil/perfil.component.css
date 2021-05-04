@@ -28,15 +28,16 @@ p{
 }
 
 span {
-  font-size: 0.9vw;
+  font-size: 1vw;
 }
 
 #perfil{
   background-color: rgba(247, 243, 232);
-    border-radius: 0 30px 30px 0;
-    border-color: #d1dbb8;
-    border-style: solid;
-    border-width: 0.5vw;
+  border-radius: 0 30px 30px 0;
+  border-color: #d1dbb8;
+  border-style: solid;
+  border-width: 0.5vw;
+  box-shadow: 0px 0px 10px 1px rgb(23 23 23 / 55%)
 }
 
 .bckg{
@@ -100,8 +101,13 @@ span {
   margin: 0 0 1vw 0;
 }
 
+.img-radio{
+  width: 2vw;
+  height: 2vw;
+}
+
 #secondary {
-  margin: 2vw 2vw;
+  padding: 1rem;
   width: 100%;
   position: relative;
 }
@@ -132,6 +138,7 @@ span {
 #tools{
   margin: 0 2vw;
   border-radius: 30px;
+  box-shadow: 0px 0px 10px 1px rgb(23 23 23 / 55%);
 }
 
 #tools > h2 {
