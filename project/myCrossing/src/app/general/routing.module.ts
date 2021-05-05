@@ -20,6 +20,7 @@ import { CatCazaCriaturasMarinasComponent } from 'app/cazar-ahora/cat-caza-criat
 import { CatVecinosComponent } from 'app/cat-vecinos/cat-vecinos.component';
 import { CalcNabosComponent } from 'app/calc-nabos/calc-nabos.component';
 import { CatCancionesComponent } from 'app/cat-canciones/cat-canciones.component';
+import { CatSuenoComponent } from 'app/cat-sueno/cat-sueno.component';
 
 const rutas: Routes = [
 {
@@ -79,6 +80,9 @@ const rutas: Routes = [
 },{
   path: "catalogo-canciones",
   component: CatCancionesComponent
+},{
+  path: "cat-sueno",
+  component: CatSuenoComponent
 }
 ];
 

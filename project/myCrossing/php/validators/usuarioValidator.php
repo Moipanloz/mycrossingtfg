@@ -5,7 +5,7 @@ header('Access-Control-Allow-Methods: PUT, DELETE, POST, GET');
 
 header("Access-Control-Allow-Credentials: true");
 
-function checkDatos($nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_suenyo, $id_switch){
+function checkDatos($nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_switch){
   //Comorueba que los datos son correctos
   $devolver = TRUE;
 
@@ -61,14 +61,6 @@ function checkDatos($nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $
     return $devolver;
   }
 
-  if(!empty($id_suenyo)){
-    if(!preg_match("/^DA-[0-9]{4}-[0-9]{4}-[0-9]{4}$/", $id_suenyo)){
-      $devolver = FALSE;
-      die("Código de sueño no válido");
-      return $devolver;
-    }
-  }
-
   if(!empty($id_switch)){
     if(!preg_match("/^SW-[0-9]{4}-[0-9]{4}-[0-9]{4}$/", $id_switch)){
       $devolver = FALSE;
@@ -80,7 +72,7 @@ function checkDatos($nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $
   return $devolver;
 }
 
-function checkDatosCreate($conn, $email, $id_suenyo, $id_switch){
+function checkDatosCreate($conn, $email, $id_switch){
   //Para el create, si estos campos devuelven 1 o mas es que ya estan en uso y no pueden ser registrados
   $devolver = TRUE;
 
@@ -93,20 +85,6 @@ function checkDatosCreate($conn, $email, $id_suenyo, $id_switch){
     $devolver = FALSE;
     die("Email ya en uso");
     return $devolver;
-  }
-
-  if(!empty($id_suenyo)){
-
-    $suenyoResult = $conn->prepare('SELECT * FROM usuarios WHERE id_suenyo = ?');
-    $suenyoResult->bind_param('s', $id_suenyo);
-    $suenyoResult->execute();
-    $suenyoResult->store_result();
-
-    if($suenyoResult->num_rows > 0){
-      $devolver = FALSE;
-      die("Código de sueño ya en uso");
-      return $devolver;
-    }
   }
 
   if(!empty($id_switch)){
@@ -125,7 +103,7 @@ function checkDatosCreate($conn, $email, $id_suenyo, $id_switch){
   return $devolver;
 }
 
-function checkDatosUpdate($conn, $userId, $email, $id_suenyo, $id_switch){
+function checkDatosUpdate($conn, $userId, $email, $id_switch){
   //Para el update, si estos campos devuelven 1 hay que comprobar que no sean los del mismo user
   $devolver = TRUE;
 
@@ -139,20 +117,6 @@ function checkDatosUpdate($conn, $userId, $email, $id_suenyo, $id_switch){
     $devolver = FALSE;
     die("Email ya en uso");
     return $devolver;
-  }
-
-  if(!empty($id_suenyo)){
-    $suenyoResult = $conn->prepare('SELECT * FROM usuarios WHERE id_suenyo = ?');
-    $suenyoResult->bind_param('s', $id_suenyo);
-    $suenyoResult->execute();
-    $result = $suenyoResult->get_result();
-    $checkId = $result->fetch_assoc()["id"];
-
-    if($result->num_rows > 0 && $checkId != $userId){
-      $devolver = FALSE;
-      die("Código de sueño ya en uso");
-      return $devolver;
-    }
   }
 
   if(!empty($id_switch)){

@@ -72,7 +72,7 @@ if(isset($_GET['command'])){
                 checkVerificationJson($conn, $userId, $verifCode);
 
         if($validation){
-          $result = $conn->prepare('SELECT nombre, isla, fruta, cumpleanyos, hemisferio, id_suenyo, id_switch, apodo_aldeano FROM usuarios WHERE id = ?');
+          $result = $conn->prepare('SELECT nombre, isla, fruta, cumpleanyos, hemisferio, id_switch, apodo_aldeano FROM usuarios WHERE id = ?');
           $result->bind_param('i', $userId);
           $result->execute();
           $res = $result->get_result();
@@ -130,12 +130,11 @@ if(isset($_GET['command'])){
         $cumpleanyos = $request->cumpleanyos;
         $email = $request->email;
         $hemisferio = $request->hemisferio;
-        $id_suenyo = $request->id_suenyo;
         $id_switch = $request->id_switch;
         $verif = $request->verif;
 
-        $validation = checkDatos($nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_suenyo, $id_switch) &&
-                checkDatosCreate($conn, $email, $id_suenyo, $id_switch);
+        $validation = checkDatos($nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_switch) &&
+                checkDatosCreate($conn, $email, $id_switch);
 
         if($validation){
           $contrasenya = password_hash($userPass, PASSWORD_BCRYPT);
@@ -144,17 +143,13 @@ if(isset($_GET['command'])){
             $id_switch = null;
           }
 
-          if(empty($id_suenyo)){
-            $id_suenyo = null;
-          }
-
           if(empty($apodo_aldeano)){
             $apodo_aldeano = null;
           }
 
           //Registro
-          $result = $conn->prepare('INSERT INTO usuarios (nombre, contrasenya, isla, fruta, cumpleanyos, verification, email, hemisferio, id_switch, id_suenyo, apodo_aldeano) VALUES (?,?,?,?,?,?,?,?,?,?,?)');
-          $result->bind_param('sssssssssss', $nombre, $contrasenya, $isla, $fruta, $cumpleanyos, $verif, $email, $hemisferio, $id_switch, $id_suenyo, $apodo_aldeano);
+          $result = $conn->prepare('INSERT INTO usuarios (nombre, contrasenya, isla, fruta, cumpleanyos, verification, email, hemisferio, id_switch, apodo_aldeano) VALUES (?,?,?,?,?,?,?,?,?,?)');
+          $result->bind_param('ssssssssss', $nombre, $contrasenya, $isla, $fruta, $cumpleanyos, $verif, $email, $hemisferio, $id_switch, $apodo_aldeano);
           $result->execute();
 
           //Tiene que devolver el usuario para asignarle las cookies
@@ -191,7 +186,6 @@ if(isset($_GET['command'])){
           $cumpleanyos = $request->cumpleanyos;
           $hemisferio = $request->hemisferio;
           $id_switch = $request->id_switch;
-          $id_suenyo = $request->id_suenyo;
           $apodo_aldeano = $request->apodo_aldeano;
 
           $getEmail = $conn->prepare('SELECT email FROM usuarios WHERE id = ?');
@@ -201,13 +195,13 @@ if(isset($_GET['command'])){
           $email = $res->fetch_assoc()["email"];
 
           $validation =  checkExisteUser($conn, $userId) &&
-                    checkDatos($nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_suenyo, $id_switch) &&
-                    checkDatosUpdate($conn, $userId, $email, $id_suenyo, $id_switch) &&
+                    checkDatos($nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_switch) &&
+                    checkDatosUpdate($conn, $userId, $email, $id_switch) &&
                     checkVerification($conn, $userId, $verifCode);
 
           if($validation){
-            $result = $conn->prepare('UPDATE usuarios SET nombre = ? , isla = ? , fruta = ? , cumpleanyos = ? , hemisferio = ? , id_switch = ? , id_suenyo = ? , apodo_aldeano = ? WHERE id = ?');
-            $result->bind_param('ssssssssi', $nombre, $isla, $fruta, $cumpleanyos, $hemisferio, $id_switch, $id_suenyo, $apodo_aldeano, $userId);
+            $result = $conn->prepare('UPDATE usuarios SET nombre = ? , isla = ? , fruta = ? , cumpleanyos = ? , hemisferio = ? , id_switch = ? , apodo_aldeano = ? WHERE id = ?');
+            $result->bind_param('sssssssi', $nombre, $isla, $fruta, $cumpleanyos, $hemisferio, $id_switch, $apodo_aldeano, $userId);
             $result->execute();
           }
         }else{

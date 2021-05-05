@@ -47,7 +47,6 @@ export class RegistroComponent {
       cumpleanyos: ['', Validators.required],
       hemisferio: ['NORTE', Validators.required],
       id_switch: ['', Validators.compose([Validators.maxLength(17), Validators.minLength(17), CustomValidator.switch])],
-      id_suenyo: ['', Validators.compose([Validators.maxLength(17), Validators.minLength(17), CustomValidator.dream])],
       apodo_aldeano: ['', ]
     })
   }

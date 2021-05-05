@@ -36,6 +36,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CatCancionesComponent } from './cat-canciones/cat-canciones.component';
 import { FiltroSrcPipe } from './cat-canciones/filtro-src.pipe';
+import { CatSuenoComponent } from './cat-sueno/cat-sueno.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { FiltroSrcPipe } from './cat-canciones/filtro-src.pipe';
     CalcNabosComponent,
     CalEventosComponent,
     CatCancionesComponent,
-    FiltroSrcPipe
+    FiltroSrcPipe,
+    CatSuenoComponent
   ],
   imports: [
     BrowserModule,

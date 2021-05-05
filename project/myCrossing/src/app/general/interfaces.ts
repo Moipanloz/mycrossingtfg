@@ -17,7 +17,6 @@ export interface User{
   email: string;
   verification: string;
   id_switch: string;
-  id_suenyo: string;
   apodo_aldeano: string;
 }
 

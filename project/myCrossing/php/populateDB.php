@@ -55,7 +55,6 @@ $sql = "CREATE TABLE usuarios (
   contrasenya varchar(100) NOT NULL,
   email varchar(30) UNIQUE KEY NOT NULL,
   verification varchar(40) DEFAULT NULL,
-  id_suenyo varchar(17) UNIQUE KEY DEFAULT NULL,
   id_switch varchar(17) UNIQUE KEY DEFAULT NULL,
   apodo_aldeano varchar(30) DEFAULT NULL
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1";

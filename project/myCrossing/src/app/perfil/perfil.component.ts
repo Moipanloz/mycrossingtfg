@@ -34,7 +34,6 @@ export class PerfilComponent implements OnInit {
     email: "",
     verification: "",
     id_switch: "",
-    id_suenyo: "",
     apodo_aldeano: ""
   };
 
@@ -57,8 +56,7 @@ export class PerfilComponent implements OnInit {
       hemisferio : ["", Validators.required],
       fruta : ["", Validators.required],
       cumpleanyos: ["", Validators.required],
-      id_switch: [""],
-      id_suenyo : [""]
+      id_switch: [""]
     });
   }
 
@@ -221,10 +219,6 @@ export class PerfilComponent implements OnInit {
         this.usuario.apodo_aldeano = "";
       }
 
-      if(this.usuario.id_suenyo == null){
-        this.usuario.id_suenyo = "";
-      }
-
       if(this.usuario.id_switch == null){
         this.usuario.id_switch = "";
       }
@@ -236,8 +230,7 @@ export class PerfilComponent implements OnInit {
         hemisferio : ""+this.usuario.hemisferio,
         fruta : ""+this.usuario.fruta,
         cumpleanyos: ""+this.usuario.cumpleanyos,
-        id_switch: ""+this.usuario.id_switch,
-        id_suenyo : ""+this.usuario.id_suenyo
+        id_switch: ""+this.usuario.id_switch
       });
     }
   }
@@ -260,7 +253,6 @@ export class PerfilComponent implements OnInit {
       cumpleanyos : value["cumpleanyos"],
       hemisferio : value["hemisferio"],
       id_switch : value["id_switch"],
-      id_suenyo : value["id_suenyo"],
       apodo_aldeano : value["apodo_aldeano"]
      };
 
