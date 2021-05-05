@@ -45,6 +45,9 @@ export class AlbumComponent implements OnInit {
       this.imagenes.splice(i,1);
       if(this.imagenes.length==0){
         this.borradoImagen=false;
+        this.mostrado = "";
+      }else{
+        this.mostrado = this.imagenes[0];
       }
     }else{
       this.mostrado = item;
@@ -62,13 +65,16 @@ export class AlbumComponent implements OnInit {
   enviarDatos(){
     let datos: String = $("#inputUrlImagen").val().toString();
     if(datos!=null && !this.imagenes.includes(datos)){
-      if(datos.match('^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$')
+      if(datos.match(/^(http(s)?:\/\/)?(www.)?((\w|-))+\.(\w|-)+(\.(\w|-)+)*((\/(\w|-)+))*(\.(\w|-)+)?((\?(\w|-)+\=(\w|-)+)(\&(\w|-)+\=(\w|-)+)*)?$/gm)
       && !(datos.includes("data:image") && datos.includes("base64"))){
         this.errorImageForm='';
         this.albumService.agregaFoto(datos);
         $("#inputUrlImagen").val('');
         this.agregaImagen = false;
         this.imagenes.push(datos);
+        if(this.imagenes.length==1){
+          this.mostrado = this.imagenes[0];
+        }
       }else{
         this.errorImageForm="Esta url es incorrecta";
       }

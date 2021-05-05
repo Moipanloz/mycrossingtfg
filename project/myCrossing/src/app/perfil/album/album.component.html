@@ -1,9 +1,9 @@
 <div class="container-album">
     <div class="container-main-photo">
-        <ng-container *ngIf="mostrado!=null">
+        <ng-container *ngIf="mostrado!=null && mostrado!=''">
             <img src="{{mostrado}}" class="full-image">
         </ng-container>
-        <ng-container *ngIf="mostrado==null">
+        <ng-container *ngIf="mostrado==null || mostrado==''">
             <p>Guarda tus fotos para poder acceder a ellas en cualquier momento</p>
         </ng-container>
     </div>
