@@ -18,7 +18,6 @@ export class CatCazaPecesComponent implements OnInit {
   @HostListener("window:scroll")
   onScroll(){
     this.hide=true;
-    this.isNorth = this.HEMISFERIO=="NORTE";
   }
 
   HEMISFERIO : string = "";

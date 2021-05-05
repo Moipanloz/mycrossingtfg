@@ -12,10 +12,14 @@ span{
 
   .pag-menu{
     width: 100%;
+    position: relative;
+    margin-top: 1vw;
   }
 
   .grid-w-gap{
     grid-template-columns: repeat(5, 1fr);
+    position: relative;
+    transition: 0.3s;
   }
 
   .grid-item-wrap{
@@ -38,6 +42,8 @@ span{
 
   .b-darkGreen{
     background-color: rgb(157 228 163);
+    transform: scale(1.1);
+    font-weight: bold;
   }
 
   .b-darkBlue{
@@ -165,8 +171,9 @@ span{
   }
 
   .editar-top-left{
-    top: 9vw;
+    top: 15vw;
     right: unset;
+    left:1vw;
   }
 
   #ser-wrap > button {
@@ -180,11 +187,7 @@ span{
   }
 
   #volver{
-    background-image: url("../../../assets/images/volver-azul.png");
-  }
-
-  #volver:hover{
-    background-image: url("../../../assets/images/volver-verde.png");
+    background-image: url("../../../assets/images/volver-rojo.png");
   }
 
   h4{
@@ -193,13 +196,45 @@ span{
   }
 
   #wrap-filtros{
-    padding-bottom: 1vw;
+    padding: 1vw 0;
     display:flex;
     margin: auto;
+    background-color: #b8b9ff;
+    border-radius: 50px;
+    box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
   }
 
   #filtro-sombra > button, #filtro-velocidad > button, #filtro-usuario > button{
     margin: 0.2vw;
   }
+
+  .bg-scroll-1{
+    background-image: url("../../../assets/images/crit-marina-bg-0.png");
+  }
+
+
+  .bg-scroll-2{
+    background-image: url("../../../assets/images/crit-marina-bg-1.png");
+  }
+
+  .no-result{
+    background-color: #b8b9ff;
+    border-radius: 50px;
+    position:relative;
+    margin: 3% 0;
+    box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
+  }
+  .burbuja-title{
+    background-image: url("../../../assets/images/bubble-cazar-ahora.png");
+  }
+
+  :host{
+    background-color: #8181de;
+  }
+
+  .wrap-scale:hover{
+    background-color: #9d8cc5;
+  }
+
 
 
