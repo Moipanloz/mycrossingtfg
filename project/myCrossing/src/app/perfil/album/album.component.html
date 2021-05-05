@@ -18,7 +18,7 @@
 
       <div [class]="imagenes.length!=0 ? 'flex-between' : 'flex-centered'" [style]="imagenes.length!=0 ? 'margin-top: 1vw;' : ''">
           <div>
-              <button (click)="abreModalImagen()" class="b-bold boton-circular b-amarillo b-scale" style="width: 3vw; height: 3vw;">+</button>
+              <button (click)="abreModalImagen()" class="b-bold boton-circular b-amarillo b-shadow b-scale" style="width: 3vw; height: 3vw;">+</button>
           </div>
           <ng-container *ngIf="imagenes.length!=0">
               <div>
