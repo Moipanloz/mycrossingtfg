@@ -60,6 +60,18 @@ export interface Fosil{
   usuario_id : number;
 }
 
+export interface Sueno{
+  usuario_id : number;
+  codigo_sueno : string;
+  foto1: string;
+  foto2: string;
+  foto3: string;
+  nombre: string;
+  nombre_isla: string;
+  likes: number;
+  foto_seleccionada: number;
+}
+
 export interface Cancion{
   nombre_cancion : string;
   usuario_id : number;

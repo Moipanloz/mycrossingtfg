@@ -31,6 +31,7 @@ export class CatFosilComponent implements OnInit {
     this._verif = verif;
     this._pag = pag;
     this._catfosil = catfosil;
+    this._error = errorService;
   }
 
   ngOnInit() {
