@@ -48,5 +48,5 @@
 \contentsline {chapter}{\numberline {9}Manual}{45}{chapter.9}%
 \contentsline {chapter}{Conclusiones y desarrollos futuros}{46}{chapter*.11}%
 \contentsline {chapter}{Apéndices}{47}{chapter*.12}%
-\contentsline {chapter}{Referencias}{48}{chapter*.13}%
+\contentsline {chapter}{Bibliografía}{48}{chapter*.13}%
 \contentsfinish 
