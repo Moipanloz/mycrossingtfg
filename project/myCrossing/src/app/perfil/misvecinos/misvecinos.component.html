@@ -1,10 +1,10 @@
 <div style="display: flex; justify-content: flex-end;">
-  <button [hidden]="porcentajeMode" (click)="toggleMoveout()" class="boton-alargado b-azul" style="margin-bottom: 1.5vw; font-size: 1.2vw;">¿Quién será el próximo en irse?</button>
+  <button [hidden]="porcentajeMode" (click)="toggleMoveout()" class="boton-alargado b-azul-hover b-scale" style="margin-bottom: 1.5vw; font-size: 1.2vw;">¿Quién será el próximo en irse?</button>
 </div>
 
 <div [hidden]="!porcentajeMode" id="moveout-info" >
   <div>
-    <button class="editar boton-circular b-verde" id="close-menu" (click)="toggleMoveout()">x</button>
+    <button class="editar boton-circular b-azul-hover b-scale" id="close-menu" (click)="toggleMoveout()">▲</button>
 
     <h3 class="centrado">¿Qué vecino será el próximo en mudarse?</h3>
     <h4>Aquí puedes calcular la probabilidad que tiene cada vecino de irse de tu isla</h4>
@@ -35,7 +35,7 @@
     </p>
   </div>
   <div id="button-wrap">
-    <button class="centrado boton-alargado b-verde" style="font-size: 1.2vw;" (click)="calculaPorcentaje()">Calcular porcentaje</button>
+    <button class="centrado boton-alargado b-verde" style="font-size: 1.2vw;font-weight: unset;" (click)="calculaPorcentaje()">Calcular porcentaje</button>
   </div>
 </div>
 
@@ -57,11 +57,11 @@
       <div>
 
         <div class="contenedor-vecino" (mouseenter)="toggleVecino(vecino)">
-          <img [src]="vecino.imgIcon" class="icono" (click)="abreMenu($event, vecino, false, null)">
+          <img [src]="vecino.imgIcon" class="icono b-scale" (click)="abreMenu($event, vecino, false, null)">
           <div class="wrap-vecino">
-            <button [hidden]="!porcentajeMode" (click)="toggleExclude(data.indexOf(vecino))" class="exclude-button" [style]="{'background-image': checkExclude(data.indexOf(vecino))}"></button>
+            <button [hidden]="!porcentajeMode" (click)="toggleExclude(data.indexOf(vecino))" class="b-scale exclude-button" [style]="{'background-image': checkExclude(data.indexOf(vecino))}"></button>
             <span>{{vecino.nombre}}</span>
-            <button class="boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;" (click)="abreMenu($event, vecino, true, this.data.indexOf(vecino))">
+            <button class="boton-imagen amistad b-scale" style="color:#F7F3E8;font-size: 1.2vw;" (click)="abreMenu($event, vecino, true, this.data.indexOf(vecino))">
               {{vecino.amistad}}
             </button>
           </div>
@@ -82,7 +82,7 @@
     <ng-template #vacio>
       <div>
         <div class="contenedor-vecino">
-          <button class="b-bold boton-circular b-amarillo" id="añadir" (click)="abreMenu($event, null, false, null)">+</button>
+          <button class="b-bold boton-circular b-amarillo b-scale" id="añadir" (click)="abreMenu($event, null, false, null)">+</button>
         </div>
         <p [hidden]="!porcentajeMode" style="visibility: hidden;">%</p>
       </div>

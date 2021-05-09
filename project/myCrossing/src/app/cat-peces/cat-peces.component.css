@@ -2,16 +2,22 @@ span{
     font-size: 1.4vw;
   }
 
+:host{
+  background-color: #5197ca;
+}
+
+.burbuja-title{
+  background-image: url("../../assets/images/bubble-pez.png");
+}
+
   h2, span{
     text-align: center;
   }
 
-  .content-wrapper-bot{
-    background-color: #93c8ff;
-  }
-
   .pag-menu{
     width: 100%;
+    position: relative;
+    margin-top: 1vw;
   }
 
   .grid-w-gap{
@@ -21,6 +27,8 @@ span{
   .grid-item-wrap{
     background-color: #b5d6ff;
     position: relative;
+    box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
+    transition: 0.3s;
   }
 
   .editar{
@@ -43,12 +51,17 @@ span{
 
   .b-darkGreen{
     background-color: rgb(157 228 163);
+    transform: scale(1.1);
+    font-weight: bold;
   }
 
   #wrap-filtros{
     padding-bottom: 1vw;
     display:flex;
     margin: auto;
+    background-color: #b5d6ff;
+    border-radius: 50px;
+    box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
   }
 
   #filtro-sombra > button, #filtro-lugar > button, #filtro-usuario > button{
@@ -139,3 +152,23 @@ span{
     border-color: #a4a77b;
     background-color: #dbdb9e;
   }
+
+.bg-scroll-1{
+  background-image: url("../../assets/images/pez-bg-0.png");
+}
+
+.bg-scroll-2{
+  background-image: url("../../assets/images/pez-bg-1.png");
+}
+
+.no-result{
+  background-color: #b5d6ff;
+  border-radius: 50px;
+  position:relative;
+  margin: 3% 0;
+  box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
+}
+
+.wrap-scale:hover{
+  background-color: #b3c4da;
+}

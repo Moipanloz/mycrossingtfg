@@ -12,7 +12,7 @@
 .calendario-wrap{
   width: 80%;
   border-radius: 50px;
-  background-color: var(--verde);
+  background-color: #ea9a9a;
   margin-top: 1.5vw;
   box-shadow: 0px 0px 15px 4px rgb(23 23 23 / 55%);
 }
@@ -37,8 +37,12 @@
   display: none !important;
 }
 
-.cal-open{
-  background-color: unset !important;
+.cal-month-view .cal-cell.cal-has-events.cal-open{
+  background-color: white;
+}
+
+.cal-month-view .cal-cell-row .cal-cell:hover{
+  background-color: #ededed;
 }
 
 .menu-evento{
@@ -89,3 +93,8 @@
 .cal-today{
   background-color: #e0fdfd !important;
 }
+
+.burbuja-title{
+  background-image: url("../../assets/images/bubble-calendario.png");
+}
+

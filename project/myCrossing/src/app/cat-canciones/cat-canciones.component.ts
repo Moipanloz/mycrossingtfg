@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { IItem, items } from 'animal-crossing';
 import { ErrorService } from 'app/general/services/error.service';
@@ -30,7 +30,7 @@ export class CatCancionesComponent implements OnInit {
   playing: boolean = false;
   cancionActual: IItem = items.filter(i=>i.sourceSheet=="Music")[0];
 
-  constructor(verif : VerificationService, pag : PaginacionService, catCancion : CatCancionService, errorService : ErrorService) {
+  constructor(verif : VerificationService, pag : PaginacionService, catCancion : CatCancionService, errorService : ErrorService, private _ngZone : NgZone) {
     this._verif = verif;
     this._pag = pag;
     this._catCancion = catCancion;
@@ -65,6 +65,16 @@ export class CatCancionesComponent implements OnInit {
 
       this.busqueda.valueChanges.pipe(debounceTime(300)).subscribe(value => this.filtrar(value));
       this.num_paginas = this.getPaginas(this.listaItems);
+      document.getElementById("audio").addEventListener("play", () => {
+        this._ngZone.run(() => {
+          this.playing = true;
+        });
+      });
+      document.getElementById("audio").addEventListener("pause", () => {
+        this._ngZone.run(() => {
+          this.playing = false;
+        });
+      });
     }).catch(err => {
       this._error.setNewError(err.message);
       setTimeout(() => {this._error.cleanError()}, 3000)

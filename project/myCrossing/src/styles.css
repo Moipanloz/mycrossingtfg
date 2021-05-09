@@ -27,6 +27,25 @@ label{
   color: #2c271b;
 }
 
+::-webkit-scrollbar {
+  width: 12px;
+  transition: 0.3s;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #69c0c0;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #3fa1a1;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
 .boton-circular{
   border-radius: 100%;
   width: 4vw;
@@ -67,6 +86,7 @@ label{
   background-color: transparent;
   cursor: pointer;
   background-repeat: no-repeat;
+  transition: 0.3s;
 }
 
 .bckg-img-boton{
@@ -82,14 +102,15 @@ label{
   border-radius: 50%;
   margin: 0 0.4vw;
   padding: 0.4vw;
+  transition: 0.3s;
 }
 
 .img-radio:hover{
-  background-color: #CBF4C4;
+  background-color: #c9f3f3;
 }
 
 .img-radio-checked{
-  background-color:#c9f3f3;
+  background-color:#CBF4C4;
 }
 
 .b-bold{
@@ -100,22 +121,38 @@ label{
 .radio-hidden{
   position: absolute;
   opacity: 0;
+  bottom:0;
+  left:0;
 }
 
 .editar-blanco{
   background-image: url("./assets/images/editar-blanco.png");
 }
 
+.check-verde{
+  background-image: url("./assets/images/check-verde.png");
+  transform: scale(1.5);
+  transition: 0.3s;
+}
+
+.check-verde:hover{
+  transform: scale(1.1);
+}
+
 .editar-verde{
-  background-image: url("./assets/images/editar-verde.png");
+  background-image: url("./assets/images/check-verde.png");
 }
 
 .editar-azul{
   background-image: url("./assets/images/editar-azul.png");
 }
 
+.editar-azul:hover{
+  background-image: url("./assets/images/editar-verde.png");
+}
+
 .save{
-  background-image: url("./assets/images/save-verde.png");
+  background-image: url("./assets/images/check-verde.png");
 }
 
 .delete-rojo{
@@ -124,6 +161,7 @@ label{
 
 .delete{
   background-image: url("./assets/images/basura-gris.png");
+  transition: 0.3s;
 }
 
 .delete:hover{
@@ -203,6 +241,13 @@ label{
 .b-verde{
   background-color: rgb(203, 244, 196);
   border-color: rgb(149, 229, 155);
+  transform: scale(1.1);
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.b-verde:active{
+  transform: scale(1);
 }
 
 .b-azul-hover{
@@ -274,7 +319,7 @@ label{
   border-radius: 20px;
   border-style: none;
   padding: 0.5vw 1vw;
-  box-shadow: 0px 0px 10px 1px rgb(23 23 23 / 20%);
+  box-shadow: inset 0 0 8px rgb(0 0 0 / 42%);
   width: 100%;
 }
 
@@ -299,4 +344,112 @@ label{
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #c9f3f3;
+}
+
+.b-scale{
+  transition: 0.3s;
+}
+
+.b-scale:hover{
+  transform: scale(1.1);
+}
+
+.b-shadow{
+  transition: 0.3s;
+}
+
+.b-shadow:hover{
+  box-shadow: 0 1px 6px var(--shadow-5), 0 3px 6px var(--shadow-9);
+}
+
+.b-scale:active{
+  transform: scale(1);
+}
+
+.b-scale-xl{
+  transition: 0.3s;
+}
+
+.b-scale-xl:hover{
+  transform: scale(1.5);
+}
+
+.bg-scroll-1{
+  background-size: 200px;
+  height: 200%;
+  width: 200%;
+  position: fixed;
+  top: -200px;
+  left: -300px;
+  animation: scroll1 20s linear infinite;
+}
+
+.bg-scroll-2{
+  background-size: 200px;
+  height: 200%;
+  width: 200%;
+  position: fixed;
+  top: -200px;
+  left: -500px;
+  animation: scroll2 20s linear infinite;
+}
+
+@keyframes scroll1 {
+  0% {
+      transform: rotate(15deg) translate(0, 0);
+  }
+  100% {
+      transform: rotate(15deg) translate(-200px, -200px);
+  }
+}
+
+@keyframes scroll2 {
+  0% {
+      transform: rotate(15deg) translate(0, 0);
+  }
+  100% {
+      transform: rotate(15deg) translate(200px, 200px);
+  }
+}
+
+.burbuja-title{
+  display: flex;
+  justify-content: center;
+  width: 40rem;
+  height: 12.5rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: auto;
+  margin-bottom: 1vw;
+  align-items: center;
+}
+
+.wrap-scale img{
+  transition: 0.3s;
+}
+
+.wrap-scale:hover img{
+  transform: scale(1.1);
+}
+
+.wrap-scale{
+  transition: 0.3s;
+  border-radius: 100%;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.b-crear{
+  width: 2.5vw;
+  height: 2.5vw;
 }

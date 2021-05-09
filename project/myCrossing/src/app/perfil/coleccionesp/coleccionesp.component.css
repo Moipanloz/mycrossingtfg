@@ -6,8 +6,8 @@
 }
 
 .boton-pag{
-  width: 3vw;
-  height: 3vw;
+  width: 2.5vw;
+  height: 2.5vw;
 }
 
 .paginacion-content{
@@ -36,9 +36,14 @@
   flex-basis: 8%;
 }
 
-.boton-circular:hover{
-  border-width: 0.4vw;
+.menu-botones button{
+  transition: 0.3s;
 }
+
+.menu-botones button:hover{
+  transform: translateY(-10px);
+}
+
 
 .boton-circular{
   padding: 0;
@@ -60,6 +65,16 @@ span{
   flex-direction: column;
   padding: 1.5vw;
   border-radius: 20px;
+}
+
+.selected{
+  background-color: #a3d5d6;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.selected span{
+  color:white;
 }
 
 .en-lista{

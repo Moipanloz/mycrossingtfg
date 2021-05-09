@@ -12,6 +12,8 @@ h2, span{
 
 .pag-menu{
   width: 100%;
+  position: relative;
+  margin-top: 1vw;
 }
 
 .grid-w-gap{
@@ -19,8 +21,10 @@ h2, span{
 }
 
 .grid-item-wrap{
-  background-color: #b1ebb1;
+  background-color: #c3f3c3;
   position: relative;
+  box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
+  transition: 0.3s;
 }
 
 .editar{
@@ -34,10 +38,13 @@ h2, span{
   padding: 0;
   border: none;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .b-darkGreen{
   background-color: rgb(157 228 163);
+  transform: scale(1.1);
+  font-weight: bold;
 }
 
 .b-darkBlue{
@@ -45,11 +52,54 @@ h2, span{
 }
 
 .b-lightGreen{
-  background-color: #85c583;
+  background-color: #96d4aa;
 }
 
 .b-darkGreener{
-  background-color: #41b054;
+  background-color: #7cc096;
+}
+
+.b-variacion:hover img{
+  transform: scale(1.1);
+}
+
+.b-variacion img{
+  transition: 0.3s;
+}
+
+.b-variacion:hover{
+  background-color: #7cc096;
+}
+
+.grid-item-wrap ::-webkit-scrollbar {
+  height: 12px;
+  transition: 0.3s;
+  padding: 3px 0;
+  background-color: #629472;
+  border-radius: 20px;
+}
+
+.grid-item-wrap ::-webkit-scrollbar-thumb {
+  background: #96d4aa;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.grid-item-wrap ::-webkit-scrollbar-thumb:hover {
+  background-color: #7cc096;
+}
+
+.variMenu > button{
+  margin-bottom: 0.3rem;
+}
+
+#wrap-filtros{
+  padding-bottom: 1vw;
+  display:flex;
+  margin: auto;
+  background-color: #c3f3c3;
+  border-radius: 50px;
+  box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
 }
 
 .boton-circular{
@@ -67,4 +117,28 @@ h2, span{
 
 .b-pag:hover{
   background-color: rgb(157 228 163);
+}
+
+.bg-scroll-1{
+  background-image: url("../../assets/images/mueble-bg-0.png");
+}
+
+.bg-scroll-2{
+  background-image: url("../../assets/images/mueble-bg-1.png");
+}
+
+.no-result{
+  background-color: #c3f3c3;
+  border-radius: 50px;
+  position:relative;
+  margin: 3% 0;
+  box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
+}
+
+.burbuja-title{
+  background-image: url("../../assets/images/bubble-mueble.png");
+}
+
+:host{
+  background-color: #5fb87d;
 }

@@ -17,6 +17,7 @@ export class AlbumComponent implements OnInit {
   }
   imagenes = [];
   mostrado="";
+  preview="";
   borradoImagen=false;
   agregaImagen=false;
   errorImageForm="";
@@ -53,6 +54,11 @@ export class AlbumComponent implements OnInit {
       this.mostrado = item;
     }
   }
+
+  previewItem(item: string){
+    this.preview = item;
+  }
+
   abreModalImagen(){
     this.agregaImagen=true;
   }

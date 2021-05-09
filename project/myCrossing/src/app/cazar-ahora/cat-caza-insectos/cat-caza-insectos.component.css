@@ -12,6 +12,8 @@ span{
 
   .pag-menu{
     width: 100%;
+    position: relative;
+    margin-top: 1vw;
   }
 
   h4{
@@ -23,9 +25,12 @@ span{
   }
 
   #wrap-filtros{
-    padding-bottom: 1vw;
+    padding: 1vw 0;
     display:flex;
     margin: auto;
+    background-color: #beffbb;
+    border-radius: 50px;
+    box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
   }
 
   #filtro-clima > button, #filtro-lugar > button, #filtro-usuario > button{
@@ -56,6 +61,8 @@ span{
 
   .b-darkGreen{
     background-color: rgb(157 228 163);
+    transform: scale(1.1);
+    font-weight: bold;
   }
 
   .b-darkBlue{
@@ -192,8 +199,9 @@ span{
   }
 
   .editar-top-left{
-    top: 9vw;
+    top: 15vw;
     right: unset;
+    left: 1vw;
   }
 
   #ser-wrap > button {
@@ -207,10 +215,35 @@ span{
   }
 
   #volver{
-    background-image: url("../../../assets/images/volver-azul.png");
+    background-image: url("../../../assets/images/volver-rojo.png");
   }
 
-  #volver:hover{
-    background-image: url("../../../assets/images/volver-verde.png");
+  .bg-scroll-1{
+    background-image: url("../../../assets/images/insecto-bg-0.png");
+  }
+
+
+  .bg-scroll-2{
+    background-image: url("../../../assets/images/insecto-bg-1.png");
+  }
+
+  .no-result{
+    background-color: #beffbb;
+    border-radius: 50px;
+    position:relative;
+    margin: 3% 0;
+    box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
+  }
+
+  :host{
+    background-color: #62b179;
+  }
+
+  .burbuja-title{
+    background-image: url("../../../assets/images/bubble-cazar-ahora.png");
+  }
+
+  .wrap-scale:hover{
+    background-color: #bfdab3;
   }
 

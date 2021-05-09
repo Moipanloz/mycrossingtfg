@@ -73,23 +73,23 @@
               <div class="flex-centered">
                 <div class="radioinputs flex-centered">
                     <input type="radio" class="radio-hidden" id="pera" formControlName='fruta' value="PERA">
-                    <img alt="Pera" [class]="registerForm.value['fruta'] == 'PERA' ? 'img-radio img-radio-checked' : 'img-radio'" width="8%" height="8%" src="../../../assets/images/pera.png">
+                    <img alt="Pera" (click)="registerForm.value['fruta'] = 'PERA'" [class]="registerForm.value['fruta'] == 'PERA' ? 'img-radio img-radio-checked' : 'img-radio'" width="8%" height="8%" src="../../../assets/images/pera.png">
                 </div>
                 <div class="radioinputs flex-centered">
                     <input type="radio" class="radio-hidden" id="manzana" formControlName='fruta' value="MANZANA">
-                    <img alt="Manzana" [class]="registerForm.value['fruta'] == 'MANZANA' ? 'img-radio img-radio-checked' : 'img-radio'" width="8%" height="8%" src="../../../assets/images/manzana.png">
+                    <img alt="Manzana" (click)="registerForm.value['fruta'] = 'MANZANA'" [class]="registerForm.value['fruta'] == 'MANZANA' ? 'img-radio img-radio-checked' : 'img-radio'" width="8%" height="8%" src="../../../assets/images/manzana.png">
                 </div>
                 <div class="radioinputs flex-centered">
                     <input type="radio" class="radio-hidden" id="naranja" formControlName='fruta' value="NARANJA">
-                    <img alt="Naranja" [class]="registerForm.value['fruta'] == 'NARANJA' ? 'img-radio img-radio-checked' : 'img-radio'" width="8%" height="8%" src="../../../assets/images/naranja.png">
+                    <img alt="Naranja" (click)="registerForm.value['fruta'] = 'NARANJA'" [class]="registerForm.value['fruta'] == 'NARANJA' ? 'img-radio img-radio-checked' : 'img-radio'" width="8%" height="8%" src="../../../assets/images/naranja.png">
                 </div>
                 <div class="radioinputs flex-centered">
                     <input type="radio" class="radio-hidden" id="cereza" formControlName='fruta' value="CEREZA">
-                    <img alt="Cereza" [class]="registerForm.value['fruta'] == 'CEREZA' ? 'img-radio img-radio-checked' : 'img-radio'" width="8%" height="8%" src="../../../assets/images/cereza.png">
+                    <img alt="Cereza" (click)="registerForm.value['fruta'] = 'CEREZA'" [class]="registerForm.value['fruta'] == 'CEREZA' ? 'img-radio img-radio-checked' : 'img-radio'" width="8%" height="8%" src="../../../assets/images/cereza.png">
                 </div>
                 <div class="radioinputs flex-centered">
                     <input type="radio" class="radio-hidden" id="melocoton" formControlName='fruta' value="MELOCOTON">
-                    <img alt="Melocoton" [class]="registerForm.value['fruta'] == 'MELOCOTON' ? 'img-radio img-radio-checked' : 'img-radio'" width="8%" height="8%" src="../../../assets/images/melocoton.png">
+                    <img alt="Melocoton" (click)="registerForm.value['fruta'] = 'MELOCOTON'" [class]="registerForm.value['fruta'] == 'MELOCOTON' ? 'img-radio img-radio-checked' : 'img-radio'" width="8%" height="8%" src="../../../assets/images/melocoton.png">
                 </div>
               </div>
             </div>
@@ -135,11 +135,11 @@
               <div class="flex-centered" style="width: 40%;">
                 <div class="radioinputs flex-centered">
                     <input type="radio" class="radio-hidden" id="norte" formControlName='hemisferio' value="NORTE">
-                    <img alt="Norte" [class]="registerForm.value['hemisferio'] == 'NORTE' ? 'img-radio img-radio-checked' : 'img-radio'" width="6%" height="6%" src="../../../assets/images/hemisferio-norte.png">
+                    <img alt="Norte" (click)="registerForm.value['hemisferio'] = 'NORTE'" [class]="registerForm.value['hemisferio'] == 'NORTE' ? 'img-radio img-radio-checked' : 'img-radio'" width="6%" height="6%" src="../../../assets/images/hemisferio-norte.png">
                 </div>
                 <div class="radioinputs flex-centered">
                     <input type="radio" class="radio-hidden" id="sur" formControlName='hemisferio' value="SUR">
-                    <img alt="Sur" [class]="registerForm.value['hemisferio'] == 'SUR' ? 'img-radio img-radio-checked' : 'img-radio'" width="6%" height="6%" src="../../../assets/images/hemisferio-sur.png">
+                    <img alt="Sur" (click)="registerForm.value['hemisferio'] = 'SUR'" [class]="registerForm.value['hemisferio'] == 'SUR' ? 'img-radio img-radio-checked' : 'img-radio'" width="6%" height="6%" src="../../../assets/images/hemisferio-sur.png">
                 </div>
               </div>
             </div>
@@ -165,6 +165,8 @@
                 </div>
               </ng-container >
             </div>
+
+            <!-- Borrar este campo -->
             <div class="field flex-between">
               <div>
                 <label for="id_suenyo">Id sueño: </label>
@@ -180,9 +182,11 @@
                 </div>
               </ng-container >
             </div>
+            <!-- --------- -->
+
           </div>
           <div class="registrar">
-            <button type="submit" class="boton-alargado b-azul" >Regístrate</button>
+            <button type="submit" class="boton-alargado b-azul b-azul-hover b-scale" >Regístrate</button>
           </div>
           <div class="aviso">{{aviso}}</div>
           <div class="flex-centered" style="width: 10%;margin:5% auto;justify-content: space-evenly;">
