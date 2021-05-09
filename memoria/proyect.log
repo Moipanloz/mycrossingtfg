@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.5.11)  30 MAR 2021 21:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.5.11)  9 MAY 2021 13:41
 entering extended mode
 **./proyect.tex
 (proyect.tex
@@ -605,7 +605,7 @@ LaTeX Info: Redefining \nameref on input line 13.
 \@outlinefile=\write3
 \openout3 = `proyect.out'.
 
-<img/us.jpg, id=195, 36.135pt x 36.135pt>
+<img/us.jpg, id=199, 36.135pt x 36.135pt>
 File: img/us.jpg Graphic file (type jpg)
 <use img/us.jpg>
 Package pdftex.def Info: img/us.jpg  used on input line 22.
@@ -749,7 +749,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--12
 
  []
 
-<img/cap3/nabos.jpg, id=344, 448.67625pt x 135.50626pt>
+<img/cap3/nabos.jpg, id=349, 448.67625pt x 135.50626pt>
 File: img/cap3/nabos.jpg Graphic file (type jpg)
 <use img/cap3/nabos.jpg>
 Package pdftex.def Info: img/cap3/nabos.jpg  used on input line 13.
@@ -766,7 +766,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
  []
 
-<img/cap3/mudanza.jpg, id=355, 450.483pt x 261.3765pt>
+<img/cap3/mudanza.jpg, id=360, 450.483pt x 261.3765pt>
 File: img/cap3/mudanza.jpg Graphic file (type jpg)
 <use img/cap3/mudanza.jpg>
 Package pdftex.def Info: img/cap3/mudanza.jpg  used on input line 23.
@@ -776,7 +776,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--26
 
  []
 
-<img/cap3/nookisland.jpg, id=359, 449.88075pt x 191.5155pt>
+<img/cap3/nookisland.jpg, id=364, 449.88075pt x 191.5155pt>
 File: img/cap3/nookisland.jpg Graphic file (type jpg)
 <use img/cap3/nookisland.jpg>
 Package pdftex.def Info: img/cap3/nookisland.jpg  used on input line 31.
@@ -880,7 +880,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 31--32
 
  []
 
-<img/cap4/analisistiempo.jpg, id=377, 457.71pt x 250.536pt>
+<img/cap4/analisistiempo.jpg, id=382, 457.71pt x 250.536pt>
 File: img/cap4/analisistiempo.jpg Graphic file (type jpg)
 <use img/cap4/analisistiempo.jpg>
 Package pdftex.def Info: img/cap4/analisistiempo.jpg  used on input line 36.
@@ -934,7 +934,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 70--71
 
  []
 
-<img/cap4/equipos.jpg, id=383, 455.90324pt x 152.36925pt>
+<img/cap4/equipos.jpg, id=388, 455.90324pt x 152.36925pt>
 File: img/cap4/equipos.jpg Graphic file (type jpg)
 <use img/cap4/equipos.jpg>
 Package pdftex.def Info: img/cap4/equipos.jpg  used on input line 72.
@@ -949,7 +949,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 76--77
 
  []
 
-<img/cap4/moviles.jpg, id=384, 455.301pt x 77.69025pt>
+<img/cap4/moviles.jpg, id=389, 455.301pt x 77.69025pt>
 File: img/cap4/moviles.jpg Graphic file (type jpg)
 <use img/cap4/moviles.jpg>
 Package pdftex.def Info: img/cap4/moviles.jpg  used on input line 78.
@@ -967,7 +967,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 83--84
 ) (Capitulos/requisitos.tex [10 <./img/cap4/equipos.jpg> <./img/cap4/moviles.jp
 g>]
 Cap\'{\i }tulo 5.
-<img/cap5/participantes/1.png, id=389, 907.89188pt x 227.34938pt>
+<img/cap5/participantes/1.png, id=394, 907.89188pt x 227.34938pt>
 File: img/cap5/participantes/1.png Graphic file (type png)
 <use img/cap5/participantes/1.png>
 Package pdftex.def Info: img/cap5/participantes/1.png  used on input line 7.
@@ -977,7 +977,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 7--8
 [][] 
  []
 
-<img/cap5/participantes/2.png, id=391, 907.13907pt x 153.57375pt>
+<img/cap5/participantes/2.png, id=396, 907.13907pt x 153.57375pt>
 File: img/cap5/participantes/2.png Graphic file (type png)
 <use img/cap5/participantes/2.png>
 Package pdftex.def Info: img/cap5/participantes/2.png  used on input line 11.
@@ -987,7 +987,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 11--12
 [][] 
  []
 
-<img/cap5/participantes/3.png, id=392, 908.64468pt x 152.06813pt>
+<img/cap5/participantes/3.png, id=397, 908.64468pt x 152.06813pt>
 File: img/cap5/participantes/3.png Graphic file (type png)
 <use img/cap5/participantes/3.png>
 Package pdftex.def Info: img/cap5/participantes/3.png  used on input line 15.
@@ -997,7 +997,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 15--16
 [][] 
  []
 
-<img/cap5/participantes/4.png, id=393, 906.38625pt x 151.3153pt>
+<img/cap5/participantes/4.png, id=398, 906.38625pt x 151.3153pt>
 File: img/cap5/participantes/4.png Graphic file (type png)
 <use img/cap5/participantes/4.png>
 Package pdftex.def Info: img/cap5/participantes/4.png  used on input line 19.
@@ -1007,7 +1007,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 19--20
 [][] 
  []
 
-<img/cap5/IR/1.png, id=394, 909.3975pt x 263.48438pt>
+<img/cap5/IR/1.png, id=399, 909.3975pt x 263.48438pt>
 File: img/cap5/IR/1.png Graphic file (type png)
 <use img/cap5/IR/1.png>
 Package pdftex.def Info: img/cap5/IR/1.png  used on input line 30.
@@ -1021,7 +1021,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 30--31
 
  <./img/cap5/participantes/1.png> <./img/cap5/participantes/2.png> <./img/cap5/
 participantes/3.png> <./img/cap5/participantes/4.png>]
-<img/cap5/IR/2.png, id=404, 909.3975pt x 292.09125pt>
+<img/cap5/IR/2.png, id=409, 909.3975pt x 292.09125pt>
 File: img/cap5/IR/2.png Graphic file (type png)
 <use img/cap5/IR/2.png>
 Package pdftex.def Info: img/cap5/IR/2.png  used on input line 34.
@@ -1031,7 +1031,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 34--35
 [][] 
  []
 
-<img/cap5/IR/3.png, id=405, 908.64468pt x 292.09125pt>
+<img/cap5/IR/3.png, id=410, 908.64468pt x 292.09125pt>
 File: img/cap5/IR/3.png Graphic file (type png)
 <use img/cap5/IR/3.png>
 Package pdftex.def Info: img/cap5/IR/3.png  used on input line 38.
@@ -1041,7 +1041,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 38--39
 [][] 
  []
 
-<img/cap5/IR/4.png, id=406, 909.3975pt x 207.02344pt>
+<img/cap5/IR/4.png, id=411, 909.3975pt x 207.02344pt>
 File: img/cap5/IR/4.png Graphic file (type png)
 <use img/cap5/IR/4.png>
 Package pdftex.def Info: img/cap5/IR/4.png  used on input line 42.
@@ -1051,7 +1051,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 42--43
 [][] 
  []
 
-<img/cap5/IR/5.png, id=407, 909.3975pt x 204.765pt>
+<img/cap5/IR/5.png, id=412, 909.3975pt x 204.765pt>
 File: img/cap5/IR/5.png Graphic file (type png)
 <use img/cap5/IR/5.png>
 Package pdftex.def Info: img/cap5/IR/5.png  used on input line 46.
@@ -1061,7 +1061,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 46--47
 [][] 
  []
 
-<img/cap5/IR/6.png, id=408, 910.15031pt x 322.20375pt>
+<img/cap5/IR/6.png, id=413, 910.15031pt x 322.20375pt>
 File: img/cap5/IR/6.png Graphic file (type png)
 <use img/cap5/IR/6.png>
 Package pdftex.def Info: img/cap5/IR/6.png  used on input line 50.
@@ -1073,7 +1073,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 50--51
 
 [12 <./img/cap5/IR/1.png> <./img/cap5/IR/2.png> <./img/cap5/IR/3.png> <./img/ca
 p5/IR/4.png> <./img/cap5/IR/5.png>]
-<img/cap5/IR/7.png, id=418, 910.15031pt x 204.01219pt>
+<img/cap5/IR/7.png, id=423, 910.15031pt x 204.01219pt>
 File: img/cap5/IR/7.png Graphic file (type png)
 <use img/cap5/IR/7.png>
 Package pdftex.def Info: img/cap5/IR/7.png  used on input line 54.
@@ -1083,7 +1083,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 54--55
 [][] 
  []
 
-<img/cap5/IR/8.png, id=419, 909.3975pt x 292.84406pt>
+<img/cap5/IR/8.png, id=424, 909.3975pt x 292.84406pt>
 File: img/cap5/IR/8.png Graphic file (type png)
 <use img/cap5/IR/8.png>
 Package pdftex.def Info: img/cap5/IR/8.png  used on input line 58.
@@ -1093,7 +1093,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 58--59
 [][] 
  []
 
-<img/cap5/IR/9.png, id=420, 910.90312pt x 380.92313pt>
+<img/cap5/IR/9.png, id=425, 910.90312pt x 380.92313pt>
 File: img/cap5/IR/9.png Graphic file (type png)
 <use img/cap5/IR/9.png>
 Package pdftex.def Info: img/cap5/IR/9.png  used on input line 62.
@@ -1103,7 +1103,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 62--63
 [][] 
  []
 
-<img/cap5/IR/10.png, id=421, 908.64468pt x 263.48438pt>
+<img/cap5/IR/10.png, id=426, 908.64468pt x 263.48438pt>
 File: img/cap5/IR/10.png Graphic file (type png)
 <use img/cap5/IR/10.png>
 Package pdftex.def Info: img/cap5/IR/10.png  used on input line 66.
@@ -1115,7 +1115,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 66--67
 
 [13 <./img/cap5/IR/6.png> <./img/cap5/IR/7.png> <./img/cap5/IR/8.png> <./img/ca
 p5/IR/9.png>]
-<img/cap5/FR/1.png, id=430, 910.15031pt x 118.19156pt>
+<img/cap5/FR/1.png, id=435, 910.15031pt x 118.19156pt>
 File: img/cap5/FR/1.png Graphic file (type png)
 <use img/cap5/FR/1.png>
 Package pdftex.def Info: img/cap5/FR/1.png  used on input line 72.
@@ -1125,7 +1125,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 72--73
 [][] 
  []
 
-<img/cap5/FR/2.png, id=431, 909.3975pt x 116.68594pt>
+<img/cap5/FR/2.png, id=436, 909.3975pt x 116.68594pt>
 File: img/cap5/FR/2.png Graphic file (type png)
 <use img/cap5/FR/2.png>
 Package pdftex.def Info: img/cap5/FR/2.png  used on input line 76.
@@ -1135,7 +1135,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 76--77
 [][] 
  []
 
-<img/cap5/FR/3.png, id=432, 909.3975pt x 116.68594pt>
+<img/cap5/FR/3.png, id=437, 909.3975pt x 116.68594pt>
 File: img/cap5/FR/3.png Graphic file (type png)
 <use img/cap5/FR/3.png>
 Package pdftex.def Info: img/cap5/FR/3.png  used on input line 80.
@@ -1145,7 +1145,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 80--81
 [][] 
  []
 
-<img/cap5/FR/4.png, id=433, 909.3975pt x 117.43875pt>
+<img/cap5/FR/4.png, id=438, 909.3975pt x 117.43875pt>
 File: img/cap5/FR/4.png Graphic file (type png)
 <use img/cap5/FR/4.png>
 Package pdftex.def Info: img/cap5/FR/4.png  used on input line 84.
@@ -1155,7 +1155,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 84--85
 [][] 
  []
 
-<img/cap5/FR/5.png, id=434, 909.3975pt x 117.43875pt>
+<img/cap5/FR/5.png, id=439, 909.3975pt x 117.43875pt>
 File: img/cap5/FR/5.png Graphic file (type png)
 <use img/cap5/FR/5.png>
 Package pdftex.def Info: img/cap5/FR/5.png  used on input line 88.
@@ -1165,7 +1165,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 88--89
 [][] 
  []
 
-<img/cap5/FR/6.png, id=435, 909.3975pt x 116.68594pt>
+<img/cap5/FR/6.png, id=440, 909.3975pt x 116.68594pt>
 File: img/cap5/FR/6.png Graphic file (type png)
 <use img/cap5/FR/6.png>
 Package pdftex.def Info: img/cap5/FR/6.png  used on input line 92.
@@ -1175,7 +1175,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 92--93
 [][] 
  []
 
-<img/cap5/FR/7.png, id=436, 909.3975pt x 116.68594pt>
+<img/cap5/FR/7.png, id=441, 909.3975pt x 116.68594pt>
 File: img/cap5/FR/7.png Graphic file (type png)
 <use img/cap5/FR/7.png>
 Package pdftex.def Info: img/cap5/FR/7.png  used on input line 96.
@@ -1185,7 +1185,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 96--97
 [][] 
  []
 
-<img/cap5/FR/8.png, id=437, 910.15031pt x 116.68594pt>
+<img/cap5/FR/8.png, id=442, 910.15031pt x 116.68594pt>
 File: img/cap5/FR/8.png Graphic file (type png)
 <use img/cap5/FR/8.png>
 Package pdftex.def Info: img/cap5/FR/8.png  used on input line 100.
@@ -1195,7 +1195,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 100--101
 [][] 
  []
 
-<img/cap5/FR/9.png, id=438, 907.13907pt x 116.68594pt>
+<img/cap5/FR/9.png, id=443, 907.13907pt x 116.68594pt>
 File: img/cap5/FR/9.png Graphic file (type png)
 <use img/cap5/FR/9.png>
 Package pdftex.def Info: img/cap5/FR/9.png  used on input line 104.
@@ -1208,7 +1208,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 104--105
 [14 <./img/cap5/IR/10.png> <./img/cap5/FR/1.png> <./img/cap5/FR/2.png> <./img/c
 ap5/FR/3.png> <./img/cap5/FR/4.png> <./img/cap5/FR/5.png> <./img/cap5/FR/6.png>
  <./img/cap5/FR/7.png> <./img/cap5/FR/8.png>]
-<img/cap5/FR/10.png, id=452, 909.3975pt x 118.19156pt>
+<img/cap5/FR/10.png, id=457, 909.3975pt x 118.19156pt>
 File: img/cap5/FR/10.png Graphic file (type png)
 <use img/cap5/FR/10.png>
 Package pdftex.def Info: img/cap5/FR/10.png  used on input line 108.
@@ -1218,7 +1218,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 108--109
 [][] 
  []
 
-<img/cap5/FR/11.png, id=453, 909.3975pt x 116.68594pt>
+<img/cap5/FR/11.png, id=458, 909.3975pt x 116.68594pt>
 File: img/cap5/FR/11.png Graphic file (type png)
 <use img/cap5/FR/11.png>
 Package pdftex.def Info: img/cap5/FR/11.png  used on input line 112.
@@ -1228,7 +1228,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 112--113
 [][] 
  []
 
-<img/cap5/FR/12.png, id=454, 908.64468pt x 117.43875pt>
+<img/cap5/FR/12.png, id=459, 908.64468pt x 117.43875pt>
 File: img/cap5/FR/12.png Graphic file (type png)
 <use img/cap5/FR/12.png>
 Package pdftex.def Info: img/cap5/FR/12.png  used on input line 116.
@@ -1238,7 +1238,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 116--117
 [][] 
  []
 
-<img/cap5/FR/13.png, id=455, 908.64468pt x 115.18031pt>
+<img/cap5/FR/13.png, id=460, 908.64468pt x 115.18031pt>
 File: img/cap5/FR/13.png Graphic file (type png)
 <use img/cap5/FR/13.png>
 Package pdftex.def Info: img/cap5/FR/13.png  used on input line 120.
@@ -1248,7 +1248,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 120--121
 [][] 
  []
 
-<img/cap5/FR/14.png, id=456, 909.3975pt x 118.94438pt>
+<img/cap5/FR/14.png, id=461, 909.3975pt x 118.94438pt>
 File: img/cap5/FR/14.png Graphic file (type png)
 <use img/cap5/FR/14.png>
 Package pdftex.def Info: img/cap5/FR/14.png  used on input line 124.
@@ -1258,7 +1258,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 124--125
 [][] 
  []
 
-<img/cap5/FR/15.png, id=457, 909.3975pt x 153.57375pt>
+<img/cap5/FR/15.png, id=462, 909.3975pt x 153.57375pt>
 File: img/cap5/FR/15.png Graphic file (type png)
 <use img/cap5/FR/15.png>
 Package pdftex.def Info: img/cap5/FR/15.png  used on input line 128.
@@ -1268,7 +1268,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 128--129
 [][] 
  []
 
-<img/cap5/FR/16.png, id=458, 909.3975pt x 116.68594pt>
+<img/cap5/FR/16.png, id=463, 909.3975pt x 116.68594pt>
 File: img/cap5/FR/16.png Graphic file (type png)
 <use img/cap5/FR/16.png>
 Package pdftex.def Info: img/cap5/FR/16.png  used on input line 132.
@@ -1278,7 +1278,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 132--133
 [][] 
  []
 
-<img/cap5/FR/17.png, id=459, 907.89188pt x 116.68594pt>
+<img/cap5/FR/17.png, id=464, 907.89188pt x 116.68594pt>
 File: img/cap5/FR/17.png Graphic file (type png)
 <use img/cap5/FR/17.png>
 Package pdftex.def Info: img/cap5/FR/17.png  used on input line 136.
@@ -1288,7 +1288,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 136--137
 [][] 
  []
 
-<img/cap5/FR/18.png, id=460, 909.3975pt x 116.68594pt>
+<img/cap5/FR/18.png, id=465, 909.3975pt x 116.68594pt>
 File: img/cap5/FR/18.png Graphic file (type png)
 <use img/cap5/FR/18.png>
 Package pdftex.def Info: img/cap5/FR/18.png  used on input line 140.
@@ -1298,7 +1298,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 140--141
 [][] 
  []
 
-<img/cap5/FR/19.png, id=461, 907.89188pt x 116.68594pt>
+<img/cap5/FR/19.png, id=466, 907.89188pt x 116.68594pt>
 File: img/cap5/FR/19.png Graphic file (type png)
 <use img/cap5/FR/19.png>
 Package pdftex.def Info: img/cap5/FR/19.png  used on input line 144.
@@ -1311,7 +1311,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 144--145
 [15 <./img/cap5/FR/9.png> <./img/cap5/FR/10.png> <./img/cap5/FR/11.png> <./img/
 cap5/FR/12.png> <./img/cap5/FR/13.png> <./img/cap5/FR/14.png> <./img/cap5/FR/15
 .png> <./img/cap5/FR/16.png> <./img/cap5/FR/17.png> <./img/cap5/FR/18.png>]
-<img/cap5/FR/20.png, id=476, 908.64468pt x 115.18031pt>
+<img/cap5/FR/20.png, id=481, 908.64468pt x 115.18031pt>
 File: img/cap5/FR/20.png Graphic file (type png)
 <use img/cap5/FR/20.png>
 Package pdftex.def Info: img/cap5/FR/20.png  used on input line 148.
@@ -1321,7 +1321,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 148--149
 [][] 
  []
 
-<img/cap5/FR/21.png, id=477, 907.89188pt x 153.57375pt>
+<img/cap5/FR/21.png, id=482, 907.89188pt x 153.57375pt>
 File: img/cap5/FR/21.png Graphic file (type png)
 <use img/cap5/FR/21.png>
 Package pdftex.def Info: img/cap5/FR/21.png  used on input line 152.
@@ -1331,7 +1331,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 152--153
 [][] 
  []
 
-<img/cap5/FR/22.png, id=478, 908.64468pt x 154.32657pt>
+<img/cap5/FR/22.png, id=483, 908.64468pt x 154.32657pt>
 File: img/cap5/FR/22.png Graphic file (type png)
 <use img/cap5/FR/22.png>
 Package pdftex.def Info: img/cap5/FR/22.png  used on input line 156.
@@ -1341,7 +1341,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 156--157
 [][] 
  []
 
-<img/cap5/FR/23.png, id=479, 908.64468pt x 155.07938pt>
+<img/cap5/FR/23.png, id=484, 908.64468pt x 155.07938pt>
 File: img/cap5/FR/23.png Graphic file (type png)
 <use img/cap5/FR/23.png>
 Package pdftex.def Info: img/cap5/FR/23.png  used on input line 160.
@@ -1351,7 +1351,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 160--161
 [][] 
  []
 
-<img/cap5/FR/24.png, id=480, 909.3975pt x 153.57375pt>
+<img/cap5/FR/24.png, id=485, 909.3975pt x 153.57375pt>
 File: img/cap5/FR/24.png Graphic file (type png)
 <use img/cap5/FR/24.png>
 Package pdftex.def Info: img/cap5/FR/24.png  used on input line 164.
@@ -1361,7 +1361,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 164--165
 [][] 
  []
 
-<img/cap5/FR/25.png, id=481, 907.89188pt x 152.82094pt>
+<img/cap5/FR/25.png, id=486, 907.89188pt x 152.82094pt>
 File: img/cap5/FR/25.png Graphic file (type png)
 <use img/cap5/FR/25.png>
 Package pdftex.def Info: img/cap5/FR/25.png  used on input line 168.
@@ -1371,7 +1371,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 168--169
 [][] 
  []
 
-<img/cap5/FR/26.png, id=482, 908.64468pt x 155.83218pt>
+<img/cap5/FR/26.png, id=487, 908.64468pt x 155.83218pt>
 File: img/cap5/FR/26.png Graphic file (type png)
 <use img/cap5/FR/26.png>
 Package pdftex.def Info: img/cap5/FR/26.png  used on input line 172.
@@ -1381,7 +1381,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 172--173
 [][] 
  []
 
-<img/cap5/FR/27.png, id=483, 909.3975pt x 115.93312pt>
+<img/cap5/FR/27.png, id=488, 909.3975pt x 115.93312pt>
 File: img/cap5/FR/27.png Graphic file (type png)
 <use img/cap5/FR/27.png>
 Package pdftex.def Info: img/cap5/FR/27.png  used on input line 176.
@@ -1391,7 +1391,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 176--177
 [][] 
  []
 
-<img/cap5/FR/28.png, id=484, 907.89188pt x 115.18031pt>
+<img/cap5/FR/28.png, id=489, 907.89188pt x 115.18031pt>
 File: img/cap5/FR/28.png Graphic file (type png)
 <use img/cap5/FR/28.png>
 Package pdftex.def Info: img/cap5/FR/28.png  used on input line 180.
@@ -1404,7 +1404,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 180--181
 [16 <./img/cap5/FR/19.png> <./img/cap5/FR/20.png> <./img/cap5/FR/21.png> <./img
 /cap5/FR/22.png> <./img/cap5/FR/23.png> <./img/cap5/FR/24.png> <./img/cap5/FR/2
 5.png> <./img/cap5/FR/26.png> <./img/cap5/FR/27.png>]
-<img/cap5/FR/29.png, id=498, 908.64468pt x 155.83218pt>
+<img/cap5/FR/29.png, id=503, 908.64468pt x 155.83218pt>
 File: img/cap5/FR/29.png Graphic file (type png)
 <use img/cap5/FR/29.png>
 Package pdftex.def Info: img/cap5/FR/29.png  used on input line 184.
@@ -1414,7 +1414,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 184--185
 [][] 
  []
 
-<img/cap5/FR/30.png, id=499, 909.3975pt x 115.93312pt>
+<img/cap5/FR/30.png, id=504, 909.3975pt x 115.93312pt>
 File: img/cap5/FR/30.png Graphic file (type png)
 <use img/cap5/FR/30.png>
 Package pdftex.def Info: img/cap5/FR/30.png  used on input line 188.
@@ -1424,7 +1424,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 188--189
 [][] 
  []
 
-<img/cap5/NFR/1.png, id=500, 908.64468pt x 115.18031pt>
+<img/cap5/NFR/1.png, id=505, 908.64468pt x 115.18031pt>
 File: img/cap5/NFR/1.png Graphic file (type png)
 <use img/cap5/NFR/1.png>
 Package pdftex.def Info: img/cap5/NFR/1.png  used on input line 194.
@@ -1434,7 +1434,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 194--195
 [][] 
  []
 
-<img/cap5/NFR/2.png, id=501, 908.64468pt x 115.93312pt>
+<img/cap5/NFR/2.png, id=506, 908.64468pt x 115.93312pt>
 File: img/cap5/NFR/2.png Graphic file (type png)
 <use img/cap5/NFR/2.png>
 Package pdftex.def Info: img/cap5/NFR/2.png  used on input line 198.
@@ -1444,7 +1444,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 198--199
 [][] 
  []
 
-<img/cap5/diagramaclases/enums.jpg, id=502, 389.65575pt x 531.78674pt>
+<img/cap5/diagramaclases/enums.jpg, id=507, 389.65575pt x 531.78674pt>
 File: img/cap5/diagramaclases/enums.jpg Graphic file (type jpg)
 <use img/cap5/diagramaclases/enums.jpg>
 Package pdftex.def Info: img/cap5/diagramaclases/enums.jpg  used on input line 
@@ -1457,7 +1457,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 208--209
 
 [17 <./img/cap5/FR/28.png> <./img/cap5/FR/29.png> <./img/cap5/FR/30.png> <./img
 /cap5/NFR/1.png> <./img/cap5/NFR/2.png>]
-<img/cap5/diagramaclases/museo.jpg, id=513, 651.03226pt x 525.162pt>
+<img/cap5/diagramaclases/museo.jpg, id=518, 651.03226pt x 525.162pt>
 File: img/cap5/diagramaclases/museo.jpg Graphic file (type jpg)
 <use img/cap5/diagramaclases/museo.jpg>
 Package pdftex.def Info: img/cap5/diagramaclases/museo.jpg  used on input line 
@@ -1469,7 +1469,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 220--221
  []
 
 [18 <./img/cap5/diagramaclases/enums.jpg>]
-<img/cap5/diagramaclases/catalogo.jpg, id=518, 426.99525pt x 430.60875pt>
+<img/cap5/diagramaclases/catalogo.jpg, id=523, 426.99525pt x 430.60875pt>
 File: img/cap5/diagramaclases/catalogo.jpg Graphic file (type jpg)
 <use img/cap5/diagramaclases/catalogo.jpg>
 Package pdftex.def Info: img/cap5/diagramaclases/catalogo.jpg  used on input li
@@ -1481,7 +1481,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 228--229
  []
 
 [19 <./img/cap5/diagramaclases/museo.jpg>]
-<img/cap5/diagramaclases/usuario.jpg, id=523, 737.75626pt x 372.79276pt>
+<img/cap5/diagramaclases/usuario.jpg, id=528, 737.75626pt x 372.79276pt>
 File: img/cap5/diagramaclases/usuario.jpg Graphic file (type jpg)
 <use img/cap5/diagramaclases/usuario.jpg>
 Package pdftex.def Info: img/cap5/diagramaclases/usuario.jpg  used on input lin
@@ -1494,7 +1494,7 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 236--237
 
 [20 <./img/cap5/diagramaclases/catalogo.jpg> <./img/cap5/diagramaclases/usuario
 .jpg>]
-<img/cap5/diagramaclases/evento.jpg, id=528, 128.8815pt x 146.949pt>
+<img/cap5/diagramaclases/evento.jpg, id=533, 128.8815pt x 146.949pt>
 File: img/cap5/diagramaclases/evento.jpg Graphic file (type jpg)
 <use img/cap5/diagramaclases/evento.jpg>
 Package pdftex.def Info: img/cap5/diagramaclases/evento.jpg  used on input line
@@ -1510,7 +1510,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 251--252
 
  []
 
-<img/mockups/Inicio - 1.png, id=530, 594.72188pt x 861.2175pt>
+<img/mockups/Inicio - 1.png, id=535, 594.72188pt x 861.2175pt>
 File: img/mockups/Inicio - 1.png Graphic file (type png)
 <use img/mockups/Inicio - 1.png>
 Package pdftex.def Info: img/mockups/Inicio - 1.png  used on input line 253.
@@ -1520,7 +1520,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 256--257
 
  []
 
-<img/mockups/Inicio - 2.png, id=533, 596.98032pt x 581.17125pt>
+<img/mockups/Inicio - 2.png, id=538, 596.98032pt x 581.17125pt>
 File: img/mockups/Inicio - 2.png Graphic file (type png)
 <use img/mockups/Inicio - 2.png>
 Package pdftex.def Info: img/mockups/Inicio - 2.png  used on input line 258.
@@ -1542,7 +1542,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 264--265
 
 [21 <./img/cap5/diagramaclases/evento.jpg>] [22 <./img/mockups/Inicio - 1.png>]
 [23 <./img/mockups/Inicio - 2.png>]
-<img/mockups/Listado.png, id=550, 694.09312pt x 678.28406pt>
+<img/mockups/Listado.png, id=555, 694.09312pt x 678.28406pt>
 File: img/mockups/Listado.png Graphic file (type png)
 <use img/mockups/Listado.png>
 Package pdftex.def Info: img/mockups/Listado.png  used on input line 266.
@@ -1552,7 +1552,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 268--269
 
  []
 
-<img/mockups/Eventos - 1.png, id=552, 904.1278pt x 628.59843pt>
+<img/mockups/Eventos - 1.png, id=557, 904.1278pt x 628.59843pt>
 File: img/mockups/Eventos - 1.png Graphic file (type png)
 <use img/mockups/Eventos - 1.png>
 Package pdftex.def Info: img/mockups/Eventos - 1.png  used on input line 270.
@@ -1562,7 +1562,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 272--273
 
  []
 
-<img/mockups/Eventos - 2.png, id=554, 780.66656pt x 536.75531pt>
+<img/mockups/Eventos - 2.png, id=559, 780.66656pt x 536.75531pt>
 File: img/mockups/Eventos - 2.png Graphic file (type png)
 <use img/mockups/Eventos - 2.png>
 Package pdftex.def Info: img/mockups/Eventos - 2.png  used on input line 274.
@@ -1574,7 +1574,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 276--277
 
 [24 <./img/mockups/Listado.png>] [25 <./img/mockups/Eventos - 1.png> <./img/moc
 kups/Eventos - 2.png>]
-<img/mockups/Registro.png, id=567, 926.71219pt x 526.96875pt>
+<img/mockups/Registro.png, id=572, 926.71219pt x 526.96875pt>
 File: img/mockups/Registro.png Graphic file (type png)
 <use img/mockups/Registro.png>
 Package pdftex.def Info: img/mockups/Registro.png  used on input line 278.
@@ -1584,7 +1584,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 280--281
 
  []
 
-<img/mockups/Perfil.png, id=569, 512.66531pt x 965.85844pt>
+<img/mockups/Perfil.png, id=574, 512.66531pt x 965.85844pt>
 File: img/mockups/Perfil.png Graphic file (type png)
 <use img/mockups/Perfil.png>
 Package pdftex.def Info: img/mockups/Perfil.png  used on input line 282.
@@ -1619,13 +1619,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 294--295
 
  []
 
-<img/mockups/Cazar Ahora - 1.png, id=581, 770.88pt x 677.53125pt>
+<img/mockups/Cazar Ahora - 1.png, id=586, 770.88pt x 677.53125pt>
 File: img/mockups/Cazar Ahora - 1.png Graphic file (type png)
 <use img/mockups/Cazar Ahora - 1.png>
 Package pdftex.def Info: img/mockups/Cazar Ahora - 1.png  used on input line 29
 6.
 (pdftex.def)             Requested size: 341.43437pt x 300.08928pt.
-<img/mockups/Cazar Ahora - 2.png, id=582, 777.65532pt x 670.75594pt>
+<img/mockups/Cazar Ahora - 2.png, id=587, 777.65532pt x 670.75594pt>
 File: img/mockups/Cazar Ahora - 2.png Graphic file (type png)
 <use img/mockups/Cazar Ahora - 2.png>
 Package pdftex.def Info: img/mockups/Cazar Ahora - 2.png  used on input line 29
@@ -1641,7 +1641,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 302--303
 
  []
 
-<img/mockups/Nabos.png, id=584, 1050.17343pt x 971.88094pt>
+<img/mockups/Nabos.png, id=589, 1050.17343pt x 971.88094pt>
 File: img/mockups/Nabos.png Graphic file (type png)
 <use img/mockups/Nabos.png>
 Package pdftex.def Info: img/mockups/Nabos.png  used on input line 304.
@@ -1658,14 +1658,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 308--309
 
 [28 <./img/mockups/Cazar Ahora - 1.png>] [29 <./img/mockups/Cazar Ahora - 2.png
 > <./img/mockups/Nabos.png>]
-<img/mockups/Probador.png, id=598, 606.01407pt x 692.5875pt>
+<img/mockups/Probador.png, id=603, 606.01407pt x 692.5875pt>
 File: img/mockups/Probador.png Graphic file (type png)
 <use img/mockups/Probador.png>
 Package pdftex.def Info: img/mockups/Probador.png  used on input line 310.
 (pdftex.def)             Requested size: 341.43437pt x 390.2136pt.
 ) (Capitulos/implementacion.tex [30 <./img/mockups/Probador.png>]
 Cap\'{\i }tulo 6.
-<img/cap6/vscode.png, id=604, 1027.84pt x 1027.84pt>
+<img/cap6/vscode.png, id=609, 1027.84pt x 1027.84pt>
 File: img/cap6/vscode.png Graphic file (type png)
 <use img/cap6/vscode.png>
 Package pdftex.def Info: img/cap6/vscode.png  used on input line 5.
@@ -1708,7 +1708,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--21
  []
 
 [32]
-<img/cap6/angular.png, id=614, 1204.5pt x 1204.5pt>
+<img/cap6/angular.png, id=619, 1204.5pt x 1204.5pt>
 File: img/cap6/angular.png Graphic file (type png)
 <use img/cap6/angular.png>
 Package pdftex.def Info: img/cap6/angular.png  used on input line 26.
@@ -1736,7 +1736,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--34
 [33
 
  <./img/cap6/angular.png>]
-<img/cap6/xampp.png, id=620, 1027.84pt x 268.00125pt>
+<img/cap6/xampp.png, id=625, 1027.84pt x 268.00125pt>
 File: img/cap6/xampp.png Graphic file (type png)
 <use img/cap6/xampp.png>
 Package pdftex.def Info: img/cap6/xampp.png  used on input line 39.
@@ -1751,7 +1751,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 42--43
 
  []
 
-<img/cap6/apache.png, id=621, 532.99126pt x 144.54pt>
+<img/cap6/apache.png, id=626, 532.99126pt x 144.54pt>
 File: img/cap6/apache.png Graphic file (type png)
 <use img/cap6/apache.png>
 Package pdftex.def Info: img/cap6/apache.png  used on input line 44.
@@ -1764,7 +1764,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 45--46
 [34
 
  <./img/cap6/xampp.png> <./img/cap6/apache.png>]
-<img/cap6/php.png, id=628, 642.4pt x 347.2975pt>
+<img/cap6/php.png, id=633, 642.4pt x 347.2975pt>
 File: img/cap6/php.png Graphic file (type png)
 <use img/cap6/php.png>
 Package pdftex.def Info: img/cap6/php.png  used on input line 50.
@@ -1787,7 +1787,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 56--57
 [35
 
  <./img/cap6/php.png>]
-<img/cap6/mariadb.png, id=635, 341.275pt x 175.65625pt>
+<img/cap6/mariadb.png, id=640, 341.275pt x 175.65625pt>
 File: img/cap6/mariadb.png Graphic file (type png)
 <use img/cap6/mariadb.png>
 Package pdftex.def Info: img/cap6/mariadb.png  used on input line 62.
@@ -1797,7 +1797,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 64--65
 
  []
 
-<img/cap6/mysql.png, id=636, 2287.54625pt x 1187.43625pt>
+<img/cap6/mysql.png, id=641, 2287.54625pt x 1187.43625pt>
 File: img/cap6/mysql.png Graphic file (type png)
 <use img/cap6/mysql.png>
 Package pdftex.def Info: img/cap6/mysql.png  used on input line 66.
@@ -1815,7 +1815,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 70--71
 [36
 
  <./img/cap6/mariadb.png> <./img/cap6/mysql.png>]
-<img/cap6/git.png, id=643, 1284.8pt x 537.00626pt>
+<img/cap6/git.png, id=648, 1284.8pt x 537.00626pt>
 File: img/cap6/git.png Graphic file (type png)
 <use img/cap6/git.png>
 Package pdftex.def Info: img/cap6/git.png  used on input line 76.
@@ -1899,27 +1899,77 @@ Underfull \hbox (badness 10000) in paragraph at lines 126--127
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 128--129
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
 
  []
 
-[39]) (Capitulos/pruebas.tex [40]
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--139
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 148--149
+
+ []
+
+[40]
+Underfull \hbox (badness 10000) in paragraph at lines 150--151
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 152--153
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 154--155
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 156--157
+
+ []
+
+) (Capitulos/pruebas.tex [41]
 Cap\'{\i }tulo 7.
-) (Capitulos/alternativas.tex [41
+) (Capitulos/alternativas.tex [42
 
 ]
 Cap\'{\i }tulo 8.
-) (Capitulos/manual.tex [42
+) (Capitulos/manual.tex [43
 
 ]
 Cap\'{\i }tulo 9.
-) [43
+) [44
 
-] (Capitulos/conclusiones.tex) (Capitulos/apendices.tex [44
+] (Capitulos/conclusiones.tex) (Capitulos/apendices.tex [45
 
 
-]) (proyect.bbl [45
+]) (proyect.bbl [46
 
 ]
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2
@@ -1933,26 +1983,32 @@ LaTeX Font Warning: Font shape `OT1/lmss/m/sc' in size <10.95> not available
 
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 59.
- [46
+ [47
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 59.
  (proyect.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 59.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 59.
-Package rerunfilecheck Info: File `proyect.out' has not changed.
-(rerunfilecheck)             Checksum: D73B91F9F3F489E5103EE81C507653A8;3249.
 
+
+Package rerunfilecheck Warning: File `proyect.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `proyect.out':
+(rerunfilecheck)             Before: 7A7EFF08D6B24B9785A3AD2B6F7D7A75;3330
+(rerunfilecheck)             After:  A6C0910220C62AD48D59AF3CE1ED2927;3418.
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 59.
  ) 
 Here is how much of TeX's memory you used:
- 11440 strings out of 480930
- 169503 string characters out of 2899761
+ 11447 strings out of 480930
+ 169605 string characters out of 2899761
  454197 words of memory out of 3000000
- 26831 multiletter control sequences out of 15000+200000
+ 26835 multiletter control sequences out of 15000+200000
  566833 words of font info for 64 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,12n,49p,1169b,605s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1971,9 +2027,9 @@ ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmssbo10.pfb><C:/Users/mretr
 /mretr/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsso10.pfb><C:/
 Users/mretr/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.p
 fb>
-Output written on proyect.pdf (54 pages, 2558952 bytes).
+Output written on proyect.pdf (55 pages, 2566955 bytes).
 PDF statistics:
- 759 PDF objects out of 1000 (max. 8388607)
- 133 named destinations out of 1000 (max. 500000)
- 770 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 770 PDF objects out of 1000 (max. 8388607)
+ 136 named destinations out of 1000 (max. 500000)
+ 778 words of extra memory for PDF output out of 10000 (max. 10000000)
 

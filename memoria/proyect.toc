@@ -41,10 +41,12 @@
 \contentsline {subsection}{\numberline {6.3.2}It. 3 - Mantener sesiones}{38}{subsection.6.3.2}%
 \contentsline {subsection}{\numberline {6.3.3}It. 3 - Features del perfil}{39}{subsection.6.3.3}%
 \contentsline {subsection}{\numberline {6.3.4}It. 4 - API incompleta}{39}{subsection.6.3.4}%
-\contentsline {chapter}{\numberline {7}Pruebas}{41}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Comparación con otras alternativas}{42}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Manual}{43}{chapter.9}%
-\contentsline {chapter}{Conclusiones y desarrollos futuros}{44}{chapter*.11}%
-\contentsline {chapter}{Apéndices}{45}{chapter*.12}%
-\contentsline {chapter}{Referencias}{46}{chapter*.13}%
+\contentsline {subsection}{\numberline {6.3.5}It. 5 - Código reciclado}{40}{subsection.6.3.5}%
+\contentsline {subsection}{\numberline {6.3.6}It. 5 - Feature demasiado compleja}{41}{subsection.6.3.6}%
+\contentsline {chapter}{\numberline {7}Pruebas}{42}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Comparación con otras alternativas}{43}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Manual}{44}{chapter.9}%
+\contentsline {chapter}{Conclusiones y desarrollos futuros}{45}{chapter*.11}%
+\contentsline {chapter}{Apéndices}{46}{chapter*.12}%
+\contentsline {chapter}{Referencias}{47}{chapter*.13}%
 \contentsfinish 
