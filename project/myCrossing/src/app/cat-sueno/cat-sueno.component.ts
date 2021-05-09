@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { IItem, items } from 'animal-crossing';
 import { CatSuenoService } from 'app/cat-sueno/cat-sueno.service';
@@ -38,12 +38,12 @@ export class CatSuenoComponent implements OnInit {
     this._verif.verify().then( async () => {
       this._catsueno.readSuenos().then(suenos=>{
         this.listaItems = suenos;
+        console.log(suenos);
         this.listaItems.map(sueno => {
           sueno.foto_seleccionada=0;
           sueno.likes=0;
         });
         this.num_paginas = this.getPaginas(this.listaItems);
-        console.log(this.listaItems);
       });
       if(this._verif.user != null){
         this._catsueno.readMiSueno().then(async suenoUsuario => {
@@ -58,6 +58,30 @@ export class CatSuenoComponent implements OnInit {
       setTimeout(() => {this._error.cleanError()}, 3000)
     });
     this.busqueda.valueChanges.pipe(debounceTime(300)).subscribe(value => this.filtrar(value));
+  }
+  
+  @HostListener("window:scroll")
+  onScroll(){
+    this.cierraModales();
+  }
+  
+  paraPropagacion(e:MouseEvent){
+    e.stopPropagation();
+  }
+
+  cierraModales(){
+    $("#modalCreacionSueno").hide();
+    $("#modalMiSueno").hide();
+    $("#modalFondo").hide();
+  }
+
+  levantaPerfil(){
+    if(this.suenoUsuario==null){
+      document.getElementById("modalCreacionSueno").style.display = "block";
+    }else{
+      document.getElementById("modalMiSueno").style.display = "block";
+    }
+    document.getElementById("modalFondo").style.display = "block";
   }
   
   eligeFoto(item: Sueno): string{
@@ -85,6 +109,17 @@ export class CatSuenoComponent implements OnInit {
           sueno.foto_seleccionada=0;
         }else{
           sueno.foto_seleccionada+=1;
+          switch(sueno.foto_seleccionada){
+            case 0:
+              document.getElementById(sueno.nombre.replace(" ", "")).setAttribute("src",sueno.foto1);
+              break;
+            case 1:
+              document.getElementById(sueno.nombre.replace(" ", "")).setAttribute("src",sueno.foto2);
+              break;
+            case 2:
+              document.getElementById(sueno.nombre.replace(" ", "")).setAttribute("src",sueno.foto3);
+              break;
+          }
         }
       }else{
         if(sueno.foto_seleccionada==0){

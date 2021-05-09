@@ -37,6 +37,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CatCancionesComponent } from './cat-canciones/cat-canciones.component';
 import { FiltroSrcPipe } from './cat-canciones/filtro-src.pipe';
 import { CatSuenoComponent } from './cat-sueno/cat-sueno.component';
+import { FiltroSuenosPipe } from './cat-sueno/filtro-suenos.pipe';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { CatSuenoComponent } from './cat-sueno/cat-sueno.component';
     CalEventosComponent,
     CatCancionesComponent,
     FiltroSrcPipe,
-    CatSuenoComponent
+    CatSuenoComponent,
+    FiltroSuenosPipe
   ],
   imports: [
     BrowserModule,
