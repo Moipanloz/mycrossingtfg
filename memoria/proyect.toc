@@ -45,8 +45,8 @@
 \contentsline {subsection}{\numberline {6.3.6}It. 5 - Feature demasiado compleja}{41}{subsection.6.3.6}%
 \contentsline {chapter}{\numberline {7}Pruebas}{42}{chapter.7}%
 \contentsline {chapter}{\numberline {8}Comparación con otras alternativas}{43}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Manual}{44}{chapter.9}%
-\contentsline {chapter}{Conclusiones y desarrollos futuros}{45}{chapter*.11}%
-\contentsline {chapter}{Apéndices}{46}{chapter*.12}%
-\contentsline {chapter}{Referencias}{47}{chapter*.13}%
+\contentsline {chapter}{\numberline {9}Manual}{45}{chapter.9}%
+\contentsline {chapter}{Conclusiones y desarrollos futuros}{46}{chapter*.11}%
+\contentsline {chapter}{Apéndices}{47}{chapter*.12}%
+\contentsline {chapter}{Referencias}{48}{chapter*.13}%
 \contentsfinish 
