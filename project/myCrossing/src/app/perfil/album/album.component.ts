@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { CatSuenoService } from 'app/cat-sueno/cat-sueno.service';
 import { Sueno } from 'app/general/interfaces';
+import { ErrorService } from 'app/general/services/error.service';
 import { VerificationService } from 'app/general/services/verification.service';
 import * as $ from 'jquery';
 import { AlbumService } from './album.service';
@@ -14,10 +15,12 @@ export class AlbumComponent implements OnInit {
   albumService: AlbumService;
   verification: VerificationService;
   _catSueno: CatSuenoService;
-  constructor(catSueno: CatSuenoService, _albumService: AlbumService, _verification: VerificationService) {
+  _error: ErrorService;
+  constructor(errorService: ErrorService, catSueno: CatSuenoService, _albumService: AlbumService, _verification: VerificationService) {
     this.albumService = _albumService;
     this.verification = _verification;
     this._catSueno = catSueno;
+    this._error = errorService;
   }
   imagenes = [];
   mostrado="";
@@ -47,17 +50,60 @@ export class AlbumComponent implements OnInit {
   activaBorradoImagen(){
     this.borradoImagen=!this.borradoImagen;
   }
-  muestra(item: string){
+  ultimaFoto(foto: string): boolean{
     console.log(this.miSueno);
-    if(this.borradoImagen){
-      this.albumService.eliminaFoto(item);
-      let i = this.imagenes.indexOf(item);
-      this.imagenes.splice(i,1);
-      if(this.imagenes.length==0){
-        this.borradoImagen=false;
-        this.mostrado = "";
+    console.log(foto);
+    if(this.miSueno.foto1==foto && (this.miSueno.foto2==null || this.miSueno.foto2=="") && (this.miSueno.foto3==null || this.miSueno.foto3==""))
+      return true;
+    if(this.miSueno.foto2==foto && (this.miSueno.foto1==null || this.miSueno.foto1=="") && (this.miSueno.foto3==null || this.miSueno.foto3==""))
+      return true;
+    if(this.miSueno.foto3==foto && (this.miSueno.foto2==null || this.miSueno.foto2=="") && (this.miSueno.foto1==null || this.miSueno.foto1==""))
+      return true;
+    return false;
+  }
+  perteneceFotoSueno(foto: string): boolean{
+    if(this.miSueno.foto1 == foto || this.miSueno.foto2 == foto || this.miSueno.foto3 == foto)
+      return true;
+    return false;
+  }
+  eliminaFotoSueno(sueno: Sueno, foto: string): Sueno{
+    if(sueno.foto1==foto){
+      if(sueno.foto3==null || sueno.foto3==""){
+        sueno.foto1=sueno.foto2;
+        sueno.foto2=null;
       }else{
-        this.mostrado = this.imagenes[0];
+        sueno.foto1=sueno.foto3;
+        sueno.foto3=null;
+      }
+    }else if(sueno.foto2==foto){
+      if(sueno.foto3==null || sueno.foto3==""){
+        sueno.foto2=null;
+      }else{
+        sueno.foto2 = sueno.foto3;
+        sueno.foto3 = null;
+      }
+    }else{
+      sueno.foto3 = null;
+    }
+    this.miSueno = sueno;
+    return sueno;
+  }
+  muestra(item: string){
+    if(this.borradoImagen){
+      if(this.ultimaFoto(item)){
+        this._error.setNewError("Esta es la última imagen de tu sueño, para eliminarla añade otra a tu sueño o borralo");
+        setTimeout(() => {this._error.cleanError()}, 5000);
+      }else if(!this.perteneceFotoSueno(item) || confirm("¿Esta foto pertenece a su sueño, si la elimina aqui también se eliminará de su sueño, desea continuar?")){
+        this._catSueno.guardaSuenoEntidad(this.eliminaFotoSueno(this.miSueno, item), false);
+        this.albumService.eliminaFoto(item);
+        let i = this.imagenes.indexOf(item);
+        this.imagenes.splice(i,1);
+        if(this.imagenes.length==0){
+          this.borradoImagen=false;
+          this.mostrado = "";
+        }else{
+          this.mostrado = this.imagenes[0];
+        }
       }
     }else{
       this.mostrado = item;

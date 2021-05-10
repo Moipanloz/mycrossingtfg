@@ -54,7 +54,7 @@ export class CatSuenoComponent implements OnInit {
           this.suenoUsuario = suenoUsuario[0];
         }).catch(err => {
           this._error.setNewError(err.message);
-          setTimeout(() => {this._error.cleanError()}, 3000)
+          setTimeout(() => {this._error.cleanError()}, 3000);
         });
         this._album.leeFotos().then(async fotos => {
           let aux: String[] = [];

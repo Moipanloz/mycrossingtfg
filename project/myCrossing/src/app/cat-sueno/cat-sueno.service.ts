@@ -62,4 +62,12 @@ export class CatSuenoService {
     }
     return this.http.post(this.url, sueno, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
+
+  guardaSuenoEntidad(sueno: Sueno, nuevo: boolean){
+    let parametros = new HttpParams()
+    .set("command", nuevo?"create":"update")
+    .set("verif", this.verification.verifCode)
+    .set("userId", JSON.stringify(this.verification.user));
+    return this.http.post(this.url, sueno, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
+  }
 }
