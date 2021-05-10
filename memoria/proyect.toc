@@ -46,7 +46,7 @@
 \contentsline {chapter}{\numberline {7}Pruebas}{42}{chapter.7}%
 \contentsline {chapter}{\numberline {8}Comparación con otras alternativas}{43}{chapter.8}%
 \contentsline {chapter}{\numberline {9}Manual}{45}{chapter.9}%
-\contentsline {chapter}{Conclusiones y desarrollos futuros}{46}{chapter*.11}%
+\contentsline {chapter}{Conclusiones y desarrollo futuro}{46}{chapter*.11}%
 \contentsline {chapter}{Apéndices}{47}{chapter*.12}%
 \contentsline {chapter}{Bibliografía}{48}{chapter*.13}%
 \contentsfinish 
