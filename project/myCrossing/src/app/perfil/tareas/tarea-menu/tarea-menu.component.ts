@@ -15,7 +15,7 @@ export class TareaMenuComponent {
 
   @HostBinding("style.top") y = "0px";
   @HostBinding("style.left") x = "0px";
-  @HostBinding("style.visibility") visibility = "hidden";
+  @HostBinding("style.display") display = "none";
 
   @ViewChild("menuDiv") div : ElementRef;
 
@@ -32,7 +32,7 @@ export class TareaMenuComponent {
 
   borrarTarea(tarea : Tarea){
     this.borrar.emit(tarea);
-    this.visibility = "hidden";
+    this.display = "none";
   }
 
   abreMenu(e : MouseEvent, coord : Array<number>){
@@ -50,12 +50,12 @@ export class TareaMenuComponent {
     this.x = x +"%";
     // Se le suma 1% de margen
     this.y = coord[1] + 1 +"%";
-    this.visibility = "visible";
+    this.display = "block";
     e.stopPropagation();
   }
 
   cierraMenu(){
-    this.visibility = "hidden";
+    this.display = "none";
   }
 
   enviar(value){

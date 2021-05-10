@@ -27,7 +27,11 @@ img {
   width: 3vw;
   height: auto;
   cursor: pointer;
-  border-radius: 50%;
+  padding: 0.2rem;
+}
+
+#img-perfil:hover{
+  background-color: var(--verde);
 }
 
 #menu{
@@ -60,7 +64,32 @@ img {
   transition-duration: 0.2s;
   padding: 0.5vw 1vw;
   font-size: 1vw;
-  display: block;
+  opacity: 0;
+}
+
+@keyframes rotateX {
+  0% {
+    opacity: 0;
+    transform: rotateX(-90deg);
+  }
+  50% {
+    transform: rotateX(-20deg);
+  }
+  100% {
+    opacity: 1;
+    display: block;
+    transform: rotateX(0deg);
+  }
+}
+
+#bm-1{
+  animation: rotateX 120ms 60ms ease-in-out forwards;
+  transform-origin: top center;
+}
+
+#bm-2{
+  animation: rotateX 120ms 120ms ease-in-out forwards;
+  transform-origin: top center;
 }
 
 .activo{
@@ -79,10 +108,10 @@ img {
   width: 10vw;
   border-radius: 0 0 10px 10px;
   position: absolute;
-  top: 4vw;
+  top: 4.4vw;
   overflow: hidden;
-  background-color: rgb(247, 243, 232);
 }
+
 
 .dropdown-menu > button {
   margin: auto;

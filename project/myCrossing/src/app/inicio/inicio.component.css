@@ -16,7 +16,7 @@
 #portada-wrap{
   display: grid;
   grid-template-columns: auto auto auto;
-  margin: 3vw 0 0 5vw;
+  margin: 6vw 0 0 5vw;
 }
 
 #portada-wrap > div{
@@ -25,8 +25,8 @@
 }
 
 #portada-wrap > div > img{
-  width: 20vw;
-  height: 20vw;
+  width: 15vw;
+  height: 15vw;
 }
 
 #portada-item2{
@@ -42,18 +42,29 @@
 #portada-item3{
   grid-column-start: 1;
   grid-column-end: 3;
-  margin: 5vw 0 0 15vw;
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+  margin: 2vw 0;
+  height: 5vw !important;
+  align-items: center;
 }
 
 #portada-item3 > button{
   color: white;
-  background-color: rgb(50, 50, 50);
+  background-color: rgb(0 220 197);
   border: none;
-  padding: 1vw 2vw;
+  padding: 0.8vw 1.5vw;
   text-align: center;
   cursor: pointer;
   font-size: 1.5vw;
   border-radius: 50px;
+}
+
+#portada-item3 > button:hover{
+  background-color: #f7f3e8;
+  color: rgb(0 220 197);
+  border: 5px solid rgb(0 220 197);
 }
 
 #dv-0{
@@ -114,6 +125,12 @@
   border-width: 10px;
   cursor: pointer;
   border-style: solid;
+  transition: 0.3s;
+}
+
+.dv-inicio > * > button:hover{
+  transform: scale(1.1);
+  border-width: 5px;
 }
 
 h2{
@@ -168,5 +185,4 @@ h2{
   border-color: rgb(98 183 180);
   background-image: url("../../assets/images/fondo-musica.png");
 }
-
 

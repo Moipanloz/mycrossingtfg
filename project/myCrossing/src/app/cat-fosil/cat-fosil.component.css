@@ -7,11 +7,13 @@ span{
   }
 
   .content-wrapper-bot{
-    background-color: #e2d4b9;
+    background-color: #b39d74;
   }
 
   .pag-menu{
     width: 100%;
+    position: relative;
+    margin-top: 1vw;
   }
 
   .grid-w-gap{
@@ -21,6 +23,8 @@ span{
   .grid-item-wrap{
     background-color: #fff8c4;
     position: relative;
+    box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
+    transition: 0.3s;
   }
 
   .editar{
@@ -36,8 +40,19 @@ span{
     cursor: pointer;
   }
 
+  #wrap-filtros{
+    padding-bottom: 1vw;
+    display:flex;
+    margin: auto;
+    background-color: #fff8c4;
+    border-radius: 50px;
+    box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
+  }
+
   .b-darkGreen{
     background-color: rgb(157 228 163);
+    transform: scale(1.1);
+    font-weight: bold;
   }
 
   .b-darkBlue{
@@ -68,3 +83,27 @@ span{
   .b-pag:hover{
     background-color: rgb(157 228 163);
   }
+
+.bg-scroll-1{
+  background-image: url("../../assets/images/fosil-bg-0.png");
+}
+
+.bg-scroll-2{
+  background-image: url("../../assets/images/fosil-bg-1.png");
+}
+
+.no-result{
+  background-color: #fff8c4;
+  border-radius: 50px;
+  position:relative;
+  margin: 3% 0;
+  box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
+}
+
+.burbuja-title{
+  background-image: url("../../assets/images/bubble-fosil.png");
+}
+
+:host{
+  background-color: #b39d74;
+}

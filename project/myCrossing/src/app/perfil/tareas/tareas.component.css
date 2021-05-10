@@ -1,6 +1,7 @@
 div{
   justify-content: center;
   display: flex;
+  align-items: center;
 }
 
 .todo{
@@ -22,3 +23,4 @@ div{
   right: 3.5vw;
   top: 11.5vw;
 }
+

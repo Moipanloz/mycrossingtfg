@@ -176,7 +176,7 @@ export class CalEventosComponent implements OnInit {
         primary: '#d41c1c',
         secondary: '#ffcef5'
       },
-      descripcion: "Algo se cuece en la Fotopía, y es que ¡Al y Paca están de boda!"
+      descripcion: "Algo se cuece en la Fotopía, ¡y es que Al y Paca están de boda!"
       +" Da rienda a tu lado más creativo y decora el set con unos muebles de ensueño"
       +" siguiendo las indicaciones de los dos tortolitos. Si haces un buen trabajo, obtendrás"
       +" unas joyas amorosas que podrás intercambiar con Al a cambio de los muebles y vestidos"

@@ -149,6 +149,21 @@
   display: flex;
   width: 60%;
   align-items: center;
-  /* justify-content: space-around; */
   margin-bottom: 1vw;
+}
+
+.b-verde{
+  transform: scale(1);
+}
+
+.b-verde:active{
+  transform: scale(0.9);
+}
+
+.save:hover{
+  background-color: #2fc171;
+}
+
+.save:active{
+  transform: scale(0.9);
 }

@@ -23,10 +23,10 @@ export class ColeccionespComponent implements OnInit {
   _error : ErrorService;
   listaObjetos : Array<any> = new Array<any>();
   selected = {
-    'border-width': '0.4vw'
+    'transform': 'translateY(-10px)'
   };
   base = {
-    'border-width': ''
+    'transform': ''
   }
 
   @ViewChild("atras") atras : ElementRef;

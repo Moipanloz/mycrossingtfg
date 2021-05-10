@@ -1,11 +1,15 @@
+<div class="bg-scroll-1"></div>
+<div class="bg-scroll-2"></div>
 <!-- Filtros búsqueda -->
-<div class="content-wrapper-top" style="background-color: #e2d4b9;">
-    <div style="margin-top: 4vw;">
-      <h2>Catálogo de fósiles</h2>
-      <div class="flex-centered" style="padding-bottom: 1vw;">
+<div class="content-wrapper-top">
+    <div style="margin-top: 4vw;position:relative">
+      <div class="burbuja-title">
+        <h1>Catálogo de fósiles</h1>
+      </div>
+      <div id="wrap-filtros" class="flex-centered" style="padding: 1vw 0;">
         <div class="flex-centered" style="flex-wrap: wrap;margin-right: 1.5vw;" [style.display]="this._verif.user == null ? 'none' : 'block'">
-          <button (click)="activaFiltro('obtenido')" [class]="this.botonFiltrar == 'obtenido' ? 'boton-alargado b-verde' : 'boton-alargado b-azul b-azul-hover'" style="margin:0.5vw">Obtenidos</button>
-          <button (click)="activaFiltro('falta')" [class]="this.botonFiltrar == 'falta' ? 'boton-alargado b-verde' : 'boton-alargado b-azul b-azul-hover'" style="margin:0.5vw">Me faltan</button>
+          <button (click)="activaFiltro('obtenido')" [class]="this.botonFiltrar == 'obtenido' ? 'boton-alargado b-scale b-verde' : 'boton-alargado b-scale b-azul b-azul-hover'" style="margin:0.5vw">Obtenidos</button>
+          <button (click)="activaFiltro('falta')" [class]="this.botonFiltrar == 'falta' ? 'boton-alargado b-scale b-verde' : 'boton-alargado b-scale b-azul b-azul-hover'" style="margin:0.5vw">Me faltan</button>
         </div>
         <input [formControl]="busqueda" class="text-input" type="text" placeholder="Buscar" [style.width]="this._verif.user == null ? '50%' : '30%'">
       </div>
@@ -17,11 +21,11 @@
 
     <!-- Paginacion arriba -->
     <div class="pag-menu flex-centered">
-      <button [style.visibility]="page_number != 1 ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAtras(page_number)"> < </button>
+      <button [style.visibility]="page_number != 1 ? 'visible' : 'hidden'" class="boton-circular b-azul-hover b-scale" (click)="page_number = this._pag.pagAtras(page_number)"> < </button>
 
       <ng-container *ngIf="this.getPaginas(listaItems | filtroAc:nameFilter).length < 25; else paginacionComprimida">
         <ng-container *ngFor="let pag of this.getPaginas(listaItems | filtroAc:nameFilter)">
-          <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+          <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-scale b-pag'" (click)="page_number = pag">{{pag}}</button>
         </ng-container>
       </ng-container>
 
@@ -29,7 +33,7 @@
         <!-- Paginacion start -->
         <ng-container *ngIf="page_number < 11">
           <ng-container *ngFor="let pag of this.getPaginas(listaItems | filtroAc:nameFilter).slice(0, 11)">
-            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-scale b-pag'" (click)="page_number = pag">{{pag}}</button>
           </ng-container>
           <button class="b-darkBlue b-pag">·</button>
           <button class="b-darkBlue b-pag">·</button>
@@ -41,12 +45,12 @@
         <!-- Paginacion mid -->
         <ng-container #mid *ngIf="10 < page_number && page_number < this.getPaginas(listaItems | filtroAc:nameFilter).length - 10">
           <ng-container *ngFor="let pag of this.getPaginas(listaItems | filtroAc:nameFilter).slice(0, 2)">
-            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-scale b-pag'" (click)="page_number = pag">{{pag}}</button>
           </ng-container>
           <button class="b-darkBlue b-pag">·</button>
           <button class="b-darkBlue b-pag">·</button>
           <ng-container *ngFor="let pag of this.getPaginas(listaItems | filtroAc:nameFilter).slice(page_number-4, page_number+3)">
-            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-scale b-pag'" (click)="page_number = pag">{{pag}}</button>
           </ng-container>
           <button class="b-darkBlue b-pag">·</button>
           <button class="b-darkBlue b-pag">·</button>
@@ -58,18 +62,18 @@
         <!-- Paginacion end -->
         <ng-container #midOfin *ngIf="this.getPaginas(listaItems | filtroAc:nameFilter).length - 11 < page_number">
           <ng-container *ngFor="let pag of this.getPaginas(listaItems | filtroAc:nameFilter).slice(0, 2)">
-            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-scale b-pag'" (click)="page_number = pag">{{pag}}</button>
           </ng-container>
           <button class="b-darkBlue b-pag">·</button>
           <button class="b-darkBlue b-pag">·</button>
           <ng-container *ngFor="let pag of this.getPaginas(listaItems | filtroAc:nameFilter).slice(this.getPaginas(listaItems | filtroAc:nameFilter).length - 12, this.getPaginas(listaItems | filtroAc:nameFilter).length)">
-            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-scale b-pag'" (click)="page_number = pag">{{pag}}</button>
           </ng-container>
         </ng-container>
 
       </ng-template>
 
-      <button [style.visibility]="max_items < listaItems.length && page_number * max_items < (listaItems | filtroAc:nameFilter).length ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAlante(page_number, max_items, listaItems)"> > </button>
+      <button [style.visibility]="max_items < listaItems.length && page_number * max_items < (listaItems | filtroAc:nameFilter).length ? 'visible' : 'hidden'" class="boton-circular b-azul-hover b-scale" (click)="page_number = this._pag.pagAlante(page_number, max_items, listaItems)"> > </button>
     </div>
 
     <!-- Grid -->
@@ -77,7 +81,7 @@
         <ng-container *ngFor="let item of listaItems | filtroAc:nameFilter | paginacion:page_number:max_items">
           <div class="grid-item-wrap flex-column-centered" style="justify-content: space-evenly;">
             <div class="check-container" *ngIf="this._verif.user != null">
-              <button [style.background-image]="this.listaUsuario.includes(item.name.replace(' ','')) ? 'url(../../assets/images/check-rojo.png)' : 'url(../../assets/images/check-gris.png)'" class="boton-imagen editar" (click)="toggleCheck(item)"></button>
+              <button [style.background-image]="this.listaUsuario.includes(item.name.replace(' ','')) ? 'url(../../assets/images/check-rojo.png)' : 'url(../../assets/images/check-gris.png)'" class=" b-scale-xl boton-imagen editar" (click)="toggleCheck(item)"></button>
             </div>
             <img [src]="getImage(item, 0)" style="width: 7vw; height: 7vw;" [id]='item.name.replace(" ", "")'>
             <span>{{item.translations.spanish | capitalize}}</span>
@@ -86,7 +90,7 @@
     </div>
 
     <ng-container *ngIf="(listaItems | filtroAc:nameFilter | paginacion:page_number:max_items).length == 0" >
-      <div class="flex-column-centered" style="margin: 3% 0">
+      <div class="flex-column-centered no-result" style="margin: 3% 0">
         <img src="../../assets/images/error.png" style="width: 10vw;">
         <p><strong>No hubo resultados</strong></p>
       </div>
@@ -94,11 +98,11 @@
 
     <!-- Paginacion abajo -->
     <div class="pag-menu flex-centered" [style.padding-top]="(listaItems | filtroAc:nameFilter | paginacion:page_number:max_items).length < 6 ? '18vw' : '0' ">
-      <button [style.visibility]="page_number != 1 ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAtras(page_number)"> < </button>
+      <button [style.visibility]="page_number != 1 ? 'visible' : 'hidden'" class="boton-circular b-azul-hover b-scale" (click)="page_number = this._pag.pagAtras(page_number)"> < </button>
 
       <ng-container *ngIf="this.getPaginas(listaItems | filtroAc:nameFilter).length < 25; else paginacionComprimida">
         <ng-container *ngFor="let pag of this.getPaginas(listaItems | filtroAc:nameFilter)">
-          <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+          <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-scale b-pag'" (click)="page_number = pag">{{pag}}</button>
         </ng-container>
       </ng-container>
 
@@ -106,7 +110,7 @@
         <!-- Paginacion start -->
         <ng-container *ngIf="page_number < 11">
           <ng-container *ngFor="let pag of this.getPaginas(listaItems | filtroAc:nameFilter).slice(0, 11)">
-            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-scale b-pag'" (click)="page_number = pag">{{pag}}</button>
           </ng-container>
           <button class="b-darkBlue b-pag">·</button>
           <button class="b-darkBlue b-pag">·</button>
@@ -118,12 +122,12 @@
         <!-- Paginacion mid -->
         <ng-container #mid *ngIf="10 < page_number && page_number < this.getPaginas(listaItems | filtroAc:nameFilter).length - 10">
           <ng-container *ngFor="let pag of this.getPaginas(listaItems | filtroAc:nameFilter).slice(0, 2)">
-            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-scale b-pag'" (click)="page_number = pag">{{pag}}</button>
           </ng-container>
           <button class="b-darkBlue b-pag">·</button>
           <button class="b-darkBlue b-pag">·</button>
           <ng-container *ngFor="let pag of this.getPaginas(listaItems | filtroAc:nameFilter).slice(page_number-4, page_number+3)">
-            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-scale b-pag'" (click)="page_number = pag">{{pag}}</button>
           </ng-container>
           <button class="b-darkBlue b-pag">·</button>
           <button class="b-darkBlue b-pag">·</button>
@@ -135,18 +139,18 @@
         <!-- Paginacion end -->
         <ng-container #midOfin *ngIf="this.getPaginas(listaItems | filtroAc:nameFilter).length - 11 < page_number">
           <ng-container *ngFor="let pag of this.getPaginas(listaItems | filtroAc:nameFilter).slice(0, 2)">
-            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-scale b-pag'" (click)="page_number = pag">{{pag}}</button>
           </ng-container>
           <button class="b-darkBlue b-pag">·</button>
           <button class="b-darkBlue b-pag">·</button>
           <ng-container *ngFor="let pag of this.getPaginas(listaItems | filtroAc:nameFilter).slice(this.getPaginas(listaItems | filtroAc:nameFilter).length - 12, this.getPaginas(listaItems | filtroAc:nameFilter).length)">
-            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-pag'" (click)="page_number = pag">{{pag}}</button>
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-scale b-pag'" (click)="page_number = pag">{{pag}}</button>
           </ng-container>
         </ng-container>
 
       </ng-template>
 
-      <button [style.visibility]="max_items < listaItems.length && page_number * max_items < (listaItems | filtroAc:nameFilter).length ? 'visible' : 'hidden'" class="boton-circular b-verde" (click)="page_number = this._pag.pagAlante(page_number, max_items, listaItems)"> > </button>
+      <button [style.visibility]="max_items < listaItems.length && page_number * max_items < (listaItems | filtroAc:nameFilter).length ? 'visible' : 'hidden'" class="boton-circular b-azul-hover b-scale" (click)="page_number = this._pag.pagAlante(page_number, max_items, listaItems)"> > </button>
     </div>
 
   </div>

@@ -120,10 +120,19 @@ export class VisitasemanalComponent implements OnInit {
     }
 
   }
-  vacio(event: any, datos:string){
+
+  cierraMenu(){
+    if(!this.hide){
+      this.hide = true;
+    }
+  }
+
+
+  vacio(event: MouseEvent, datos:string){
     if(this.hide==false){
       this.hide=true;
       this.modificando=null;
+      event.stopPropagation();
     }else{
       this.hide=false;
       this.modificando=datos;
@@ -172,6 +181,7 @@ export class VisitasemanalComponent implements OnInit {
       if(!this.isEmpty(aux)){
         this.aceptar(aux);
       }
+      event.stopPropagation();
     }
   }
   getValor(value: string):string{
@@ -394,7 +404,10 @@ export class VisitasemanalComponent implements OnInit {
       return;
     }
     let result=await this.visitas.updateVisitas(this.lpa,this.mpa,this.xpa,this.jpa,this.vpa,
-      this.lpr,this.mpr,this.xpr,this.jpr,this.vpr, this.estela);
+      this.lpr,this.mpr,this.xpr,this.jpr,this.vpr, this.estela).catch(err => {
+        this._error.setNewError(err.message);
+        setTimeout(() => {this._error.cleanError()}, 3000)
+      });
     if(result="Exito"){
       this.avisar("Guardado con éxito", 3);
       this.modificado=false;
