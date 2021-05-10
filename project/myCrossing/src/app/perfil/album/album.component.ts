@@ -1,4 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { CatSuenoService } from 'app/cat-sueno/cat-sueno.service';
+import { Sueno } from 'app/general/interfaces';
 import { VerificationService } from 'app/general/services/verification.service';
 import * as $ from 'jquery';
 import { AlbumService } from './album.service';
@@ -11,15 +13,18 @@ import { AlbumService } from './album.service';
 export class AlbumComponent implements OnInit {
   albumService: AlbumService;
   verification: VerificationService;
-  constructor(_albumService: AlbumService, _verification: VerificationService) {
+  _catSueno: CatSuenoService;
+  constructor(catSueno: CatSuenoService, _albumService: AlbumService, _verification: VerificationService) {
     this.albumService = _albumService;
     this.verification = _verification;
+    this._catSueno = catSueno;
   }
   imagenes = [];
   mostrado="";
   borradoImagen=false;
   agregaImagen=false;
   errorImageForm="";
+  miSueno: Sueno;
   async ngOnInit(): Promise<void> {
     await this.verification.verify().then(async() => {
       this.albumService.leeFotos().then(async(data)=>{
@@ -29,6 +34,9 @@ export class AlbumComponent implements OnInit {
         }
         this.mostrado = this.imagenes[0];
       });
+      this._catSueno.readMiSueno().then(async suenoUsuario => {
+        this.miSueno = suenoUsuario[0];
+      })
     });
   }
   @HostListener("window:scroll")
@@ -39,6 +47,7 @@ export class AlbumComponent implements OnInit {
     this.borradoImagen=!this.borradoImagen;
   }
   muestra(item: string){
+    console.log(this.miSueno);
     if(this.borradoImagen){
       this.albumService.eliminaFoto(item);
       let i = this.imagenes.indexOf(item);

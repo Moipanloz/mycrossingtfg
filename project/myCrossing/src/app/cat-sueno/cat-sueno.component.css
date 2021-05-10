@@ -131,3 +131,16 @@ span{
     width: 40vw;
     font-size: 1.5vw;
 }
+.lista{
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  height: 100%;
+  margin: 1vw 0;
+}
+.elementList{
+  display: grid;
+  width: 8vw;
+  text-align: center;
+  height: fit-content;
+}

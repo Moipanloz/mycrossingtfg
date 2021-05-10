@@ -161,20 +161,50 @@
   
 <div id="modalFondo" class="fondo" style="display: none;" (click)="cierraModales()"></div>
 <div id="modalCreacionSueno" class="container-panel" (click)="cierraModales()" style="display: none;">
-    <div class="panel" (click)="paraPropagacion($event)">
-        <h2>Crear sueño</h2>
-        <label for="inputUrlImagen" style="padding-right: 1.5vw;">Url imagen</label>
-        <input id="inputUrlImagen" style="font-size: 1.5vw;" type="text">
-        <button style="margin-top: 1vw;">Guardar</button>
-    </div>
+  <div class="panel" (click)="paraPropagacion($event)">
+    <h2>Crear sueño</h2>
+      <label for="inputCodigoSuenoCrear" style="padding-right: 1.5vw;">Codigo de sueño</label>
+      <input id="inputCodigoSuenoCrear" placeholder="DA-1234-1234-1234" style="font-size: 1.5vw;" type="text">
+      <br>
+      <p style="margin-top: 3vw;">
+        Selecciona entre una y tres fotos
+      </p>
+      <div class="lista">
+        <ng-container *ngFor="let foto of fotos">
+          <div style="margin-right: 2vw;" class="elementList">
+            <div style="padding: 1vw;" [style.background-color]="fotosSeleccionadas.includes(foto)?'#f28bb3':'#f28bb300'">
+              <button class="boton-imagen" style="height: 4vw; width: 6vw;" name="seleccionaFoto" (click)="agregaFoto(foto)" [style.background-image]="'url('+foto+')'"></button>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <div class="flex-centered" id="botones">
+        <button class="boton-imagen delete" (click)="borrarSueno()"></button>
+        <button class="boton-imagen save" (click)="crearSueno()"></button>
+      </div>
+  </div>
 </div>
 <div id="modalMiSueno" class="container-panel" (click)="cierraModales()" style="display: none;">
     <div class="panel" (click)="paraPropagacion($event)">
-        <h2>Mi sueño</h2>
-        <label for="inputCodigoSueno" style="padding-right: 1.5vw;">Codigo de sueño</label>
-        <input id="inputCodigoSueno" style="font-size: 1.5vw;" type="text">
-        <span id="errorCodigoSueno"></span>
+      <h2>Mi sueño</h2>
+        <label for="inputCodigoSuenoEdit" style="padding-right: 1.5vw;">Codigo de sueño</label>
+        <input id="inputCodigoSuenoEdit" style="font-size: 1.5vw;" type="text">
         <br>
-        <button style="margin-top: 1vw;">Guardar</button>
+        <p style="margin-top: 3vw;">
+          Selecciona entre una y tres fotos
+        </p>
+        <div class="lista">
+          <ng-container *ngFor="let foto of fotos">
+            <div style="margin-right: 2vw;" class="elementList">
+              <div style="padding: 1vw;" [style.background-color]="fotosSeleccionadas.includes(foto)?'#f28bb3':'#f28bb300'">
+                <button class="boton-imagen" style="height: 4vw; width: 6vw;" name="seleccionaFoto" (click)="agregaFoto(foto)" [style.background-image]="'url('+foto+')'"></button>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+        <div class="flex-centered" id="botones">
+          <button class="boton-imagen delete" (click)="borrarSueno()"></button>
+          <button class="boton-imagen save" (click)="guardarSueno()"></button>
+        </div>
     </div>
 </div>

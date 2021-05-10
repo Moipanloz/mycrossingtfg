@@ -60,15 +60,48 @@ if(isset($_GET["command"])){
         if(isset($postdata) && !empty($postdata)){
 
           $request = json_decode($postdata);
-          $nombreFosil = $request->nombre_sueno;
-
+          $codigoSueno = $request->codigo_sueno;
+          $foto1 = $request->foto1;
+          $foto2 = $request->foto2;
+          $foto3 = $request->foto3;
           $validation = checkExisteUser($conn, $userId) &&
                   checkVerification($conn, $userId, $verifCode) &&
-                  checkNoTieneFosil($conn, $userId, $nombreFosil);
+                  checkNoTieneSueno($conn, $userId, $codigoSueno);
 
           if($validation){
-            $result = $conn->prepare('INSERT INTO catsuenos(usuario_id, nombre_sueno) VALUES (?, ?)');
-            $result->bind_param('is',$userId, $nombreFosil);
+            $result = $conn->prepare('INSERT INTO catsuenos(usuario_id, foto1, foto2, foto3, codigo_sueno) VALUES (?, ?, ?, ?, ?)');
+            $result->bind_param('issss',$userId, $foto1, $foto2, $foto3, $codigoSueno);
+            $result->execute();
+          }
+        }else{
+          die("No hay datos");
+        }
+      } else {
+        die("Faltan parametros");
+      }
+      break;
+
+    case "update"://---------------------------------------------------------------------------------------------------CREATE
+      if(isset($_GET["userId"]) && isset($_GET["verif"])){
+        $userId = $_GET["userId"];
+        $verifCode = $_GET["verif"];
+
+        $postdata = file_get_contents("php://input");
+
+        if(isset($postdata) && !empty($postdata)){
+
+          $request = json_decode($postdata);
+          $codigoSueno = $request->codigo_sueno;
+          $foto1 = $request->foto1;
+          $foto2 = $request->foto2;
+          $foto3 = $request->foto3;
+          $validation = checkExisteUser($conn, $userId) &&
+                  checkVerification($conn, $userId, $verifCode) &&
+                  checkTieneSueno($conn, $userId, $codigoSueno);
+
+          if($validation){
+            $result = $conn->prepare('UPDATE catsuenos SET foto1 = ?, foto2 = ?, foto3 = ?, codigo_sueno = ? WHERE usuario_id = ?');
+            $result->bind_param('ssssi', $foto1, $foto2, $foto3, $codigoSueno, $userId);
             $result->execute();
           }
         }else{
@@ -80,18 +113,17 @@ if(isset($_GET["command"])){
       break;
 
     case "delete"://---------------------------------------------------------------------------------------------------DELETE
-      if(isset($_GET["userId"]) && isset($_GET["verif"]) && isset($_GET["nombreFosil"])){
+      if(isset($_GET["userId"]) && isset($_GET["verif"]) && isset($_GET["codigoSueno"])){
         $verifCode = $_GET["verif"];
         $userId = $_GET["userId"];
-        $nombreFosil = $_GET["nombreFosil"];
+        $codigoSueno = $_GET["codigoSueno"];
 
         $validation = checkExisteUser($conn, $userId) &&
-                  checkVerification($conn, $userId, $verifCode) &&
-                  checkTieneFosil($conn, $userId, $nombreFosil);
+                  checkTieneSueno($conn, $userId, $codigoSueno);
 
         if($validation){
-          $result = $conn->prepare('DELETE FROM catsuenos WHERE usuario_id = ? AND nombre_sueno = ?');
-          $result->bind_param('is',$userId, $nombreFosil);
+          $result = $conn->prepare('DELETE FROM catsuenos WHERE usuario_id = ? AND codigo_sueno = ?');
+          $result->bind_param('is',$userId, $codigoSueno);
           $result->execute();
         }
       }else{

@@ -31,24 +31,35 @@ export class CatSuenoService {
   borrarSueno(sueno : string){
     let parametros = new HttpParams()
     .set("command", "delete")
-    .set("nombreSueno", sueno)
+    .set("codigoSueno", sueno)
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
     return this.http.get(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
-/*
-  addSueno(sueno : string){
+
+  guardaSueno(codigoSueno: string, fotosSeleccionadas: string[], nuevo: boolean){
     let parametros = new HttpParams()
-    .set("command", "create")
+    .set("command", nuevo?"create":"update")
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
-
-    let x : Sueno = {
-      nombre_sueno: sueno,
-      usuario_id: this.verification.user
+    let sueno : Sueno = {
+      codigo_sueno: codigoSueno,
+      usuario_id: this.verification.user,
+      foto1: fotosSeleccionadas[0],
+      foto2: null,
+      foto3: null,
+      foto_seleccionada: null,
+      likes: null,
+      nombre: null,
+      nombre_isla: null
     }
-
-    return this.http.post(this.url, x, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
-  }*/
+    if(fotosSeleccionadas.length==3){
+      sueno.foto2 = fotosSeleccionadas[1];
+      sueno.foto3 = fotosSeleccionadas[2];
+    }else if(fotosSeleccionadas.length==2){
+      sueno.foto2 = fotosSeleccionadas[1];
+    }
+    return this.http.post(this.url, sueno, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
+  }
 }

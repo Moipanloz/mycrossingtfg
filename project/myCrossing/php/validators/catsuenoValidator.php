@@ -2,11 +2,11 @@
 
 header('Access-Control-Allow-Headers: content-type');
 
-function checkTieneFosil($conn, $userId, $nombreFosil){
+function checkTieneSueno($conn, $userId, $codSueno){
   $validation = TRUE;
 
-  $result = $conn->prepare('SELECT * FROM catsuenos WHERE nombre_sueno = ? AND usuario_id = ?');
-  $result->bind_param('si', $nombreFosil, $userId);
+  $result = $conn->prepare('SELECT * FROM catsuenos WHERE codigo_sueno = ? AND usuario_id = ?');
+  $result->bind_param('si', $codSueno, $userId);
   $result->execute();
   $result->store_result();
 
@@ -17,17 +17,17 @@ function checkTieneFosil($conn, $userId, $nombreFosil){
   return $validation;
 }
 
-function checkNoTieneFosil($conn, $userId, $nombreFosil){
+function checkNoTieneSueno($conn, $userId, $codigoSueno){
   $validation = TRUE;
 
-  $result = $conn->prepare('SELECT * FROM catsuenos WHERE nombre_sueno = ? AND usuario_id = ?');
-  $result->bind_param('si', $nombreFosil, $userId);
+  $result = $conn->prepare('SELECT * FROM catsuenos WHERE codigo_sueno = ?');
+  $result->bind_param('s', $codigoSueno);
   $result->execute();
   $result->store_result();
 
   if ($result->num_rows != 0) {
     $validation = FALSE;
-    die("Ya tienes el sueno");
+    die("Ya existe este codigo");
   }
   return $validation;
 }
