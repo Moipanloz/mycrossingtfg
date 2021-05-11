@@ -8,8 +8,10 @@
       </div>
       <div id="wrap-filtros" class="flex-centered" style="padding: 1vw 0;">
         <input [formControl]="busqueda" class="text-input" type="text" placeholder="Buscar" [style.width]="this._verif.user == null ? '50%' : '30%'">
+        <ng-container *ngIf="suenoUsuario!=null">
         <button><img style="width: 2vw;" src="../../assets/images/corazon.png"></button>
-        <button (click)="levantaPerfil()" style="margin-left: 4vw" class="boton-alargado b-azul">Mi sueño</button>
+          <button (click)="levantaPerfil()" style="margin-left: 4vw" class="boton-alargado b-azul">Mi sueño</button>
+        </ng-container>
       </div>
     </div>
   </div>
