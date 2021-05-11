@@ -70,4 +70,12 @@ export class CatSuenoService {
     .set("userId", JSON.stringify(this.verification.user));
     return this.http.post(this.url, sueno, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
+  existeCodigo(codigo: string): Promise<boolean> {
+    let parametros = new HttpParams()
+    .set("command", "existe")
+    .set("verif", this.verification.verifCode)
+    .set("codigo", codigo)
+    .set("userId", JSON.stringify(this.verification.user));
+    return this.http.get<boolean>(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
+  }
 }

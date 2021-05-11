@@ -43,3 +43,15 @@
         <button (click)="enviarDatos()" class="check-verde boton-imagen"></button>
     </div>
 </div>
+<div id="modalConfirmaBorradoImagen" class="container-panel" (click)="cierraModales()" style="display: none; text-align: -webkit-center;">
+    <div class="panel" (click)="paraPropagacion($event)">
+      <h2>Mi sueño</h2>
+      <div>
+        <p>
+            ¿Esta foto pertenece a su sueño, si la elimina aqui también se eliminará de su sueño, desea continuar?
+        </p>
+        <button class="boton-imagen delete" style="background-image: url('../../assets/images/excluido-rojo.png')" (click)="cancelarBorrar()"></button>
+        <button class="boton-imagen save" (click)="borrarImagen()"></button>
+      </div>
+    </div>
+  </div>

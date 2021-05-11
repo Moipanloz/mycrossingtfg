@@ -75,23 +75,30 @@ export class CatSuenoComponent implements OnInit {
   }
 
   borrarSueno(){
-    if(confirm("¿Seguro que quieres borrar tu sueño del catálogo?")){
-      this._catsueno.borrarSueno(this.suenoUsuario.codigo_sueno);
-      this.ngOnInit();
-      this.cierraModales();
-    }
+    this._catsueno.borrarSueno(this.suenoUsuario.codigo_sueno);
+    this.ngOnInit();
+    this.cierraModales();
   }
 
-  guardarSueno(){
-    if(!$("#inputCodigoSuenoEdit").val().toString().match(/^DA-[0-9]{4}-[0-9]{4}-[0-9]{4}$/)){
-      this._error.setNewError("El código debe tener el siguiente formato: DA-1234-1234-1234");
-      setTimeout(() => {this._error.cleanError()}, 5000);
+  pedirBorrar(){
+    $("#suenoEditDelete").hide();
+    $("#suenoDelete").show();
+  }
+
+  cancelarBorrar(){
+    $("#suenoEditDelete").show();
+    $("#suenoDelete").hide();
+  }
+
+  async guardarSueno(){
+    if(await this._catsueno.existeCodigo($("#inputCodigoSuenoEdit").val().toString())){
+      $("#erroresSuenoEdit").text("Este código de sueño ya está siendo usado por otro usuario");
+    }else if(!$("#inputCodigoSuenoEdit").val().toString().match(/^DA-[0-9]{4}-[0-9]{4}-[0-9]{4}$/)){
+      $("#erroresSuenoEdit").text("El código debe tener el siguiente formato: DA-1234-1234-1234");
     }else if(this.fotos.length==0){
-      this._error.setNewError("Debe poseer alguna foto en el álbum, puedes añadirla desde tu perfil");
-      setTimeout(() => {this._error.cleanError()}, 5000);
+      $("#erroresSuenoEdit").text("Debe poseer alguna foto en el álbum, puedes añadirla desde tu perfil");
     }else if(this.fotosSeleccionadas.length<1 || this.fotosSeleccionadas.length>3){
-      this._error.setNewError("Debes seleccionar entre 1 y 3 imágenes");
-      setTimeout(() => {this._error.cleanError()}, 3000);
+      $("#erroresSuenoEdit").text("Debes seleccionar entre 1 y 3 imágenes");
     }else{
       this._catsueno.guardaSueno($("#inputCodigoSuenoEdit").val().toString(), this.fotosSeleccionadas, false);
       this.ngOnInit();
@@ -99,16 +106,15 @@ export class CatSuenoComponent implements OnInit {
     }
   }
 
-  crearSueno(){
-    if(!$("#inputCodigoSuenoCrear").val().toString().match(/^DA-[0-9]{4}-[0-9]{4}-[0-9]{4}$/)){
-      this._error.setNewError("El código debe tener el siguiente formato: DA-1234-1234-1234");
-      setTimeout(() => {this._error.cleanError()}, 5000);
+  async crearSueno(){
+    if(await this._catsueno.existeCodigo($("#inputCodigoSuenoCrear").val().toString())){
+      $("#erroresSuenoCrear").text("Este código de sueño ya está siendo usado por otro usuario");
+    }else if(!$("#inputCodigoSuenoCrear").val().toString().match(/^DA-[0-9]{4}-[0-9]{4}-[0-9]{4}$/)){
+      $("#erroresSuenoCrear").text("El código debe tener el siguiente formato: DA-1234-1234-1234");
     }else if(this.fotos.length==0){
-      this._error.setNewError("Debe poseer alguna foto en el álbum, puedes añadirla desde tu perfil");
-      setTimeout(() => {this._error.cleanError()}, 5000);
+      $("#erroresSuenoCrear").text("Debe poseer alguna foto en el álbum, puedes añadirla desde tu perfil");
     }else if(this.fotosSeleccionadas.length<1 || this.fotosSeleccionadas.length>3){
-      this._error.setNewError("Debes seleccionar entre 1 y 3 imágenes");
-      setTimeout(() => {this._error.cleanError()}, 3000);
+      $("#erroresSuenoCrear").text("Debes seleccionar entre 1 y 3 imágenes");
     }else{
       this._catsueno.guardaSueno($("#inputCodigoSuenoCrear").val().toString(), this.fotosSeleccionadas, true);
       this.ngOnInit();
@@ -141,9 +147,12 @@ export class CatSuenoComponent implements OnInit {
 
   levantaPerfil(){
     if(this.suenoUsuario==null){
+      $("#erroresSuenoCrear").text("");
       this.fotosSeleccionadas = [];
       document.getElementById("modalCreacionSueno").style.display = "block";
     }else{
+      this.cancelarBorrar();
+      $("#erroresSuenoEdit").text("");
       $("#inputCodigoSuenoEdit").val(this.suenoUsuario.codigo_sueno);
       this.fotosSeleccionadas = [];
       this.fotosSeleccionadas.push(this.suenoUsuario.foto1);

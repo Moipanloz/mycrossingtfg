@@ -80,8 +80,10 @@
           <div class="grid-item-wrap flex-column-centered" style="justify-content: space-evenly;">
             <img [id]='item.nombre.replace(" ", "")' [src]="eligeFoto(item)" style="width: 7vw; height: 7vw;">
             <div style="display: flex; position: absolute">
-            <div (click)="getImage(item,false)" style="position: relative; bottom: 4vw;right: 4vw;" class="boton-alargado b-azul"><</div>
-            <div (click)="getImage(item,true)" style="position: relative; bottom: 4vw;left: 4vw" class="boton-alargado b-azul">></div>
+              <ng-container *ngIf="item.foto2!=null && item.foto2!=''">
+                <div (click)="getImage(item,false)" style="position: relative; bottom: 4vw;right: 4vw;" class="boton-alargado b-azul"><</div>
+                <div (click)="getImage(item,true)" style="position: relative; bottom: 4vw;left: 4vw" class="boton-alargado b-azul">></div>
+              </ng-container>
             </div>
             <span style="margin-top: 1vw; font-size: 2vw;">{{item.isla}}</span>
             <span style="font-size: 1vw;">{{item.codigo_sueno}}</span>
@@ -178,33 +180,43 @@
           </div>
         </ng-container>
       </div>
+      <span id="erroresSuenoCrear" style="color: rgb(153, 60, 60); font-size: 1.4vw;"></span>
       <div class="flex-centered" id="botones">
-        <button class="boton-imagen delete" (click)="borrarSueno()"></button>
         <button class="boton-imagen save" (click)="crearSueno()"></button>
       </div>
   </div>
 </div>
 <div id="modalMiSueno" class="container-panel" (click)="cierraModales()" style="display: none;">
-    <div class="panel" (click)="paraPropagacion($event)">
-      <h2>Mi sueño</h2>
-        <label for="inputCodigoSuenoEdit" style="padding-right: 1.5vw;">Codigo de sueño</label>
-        <input id="inputCodigoSuenoEdit" style="font-size: 1.5vw;" type="text">
-        <br>
-        <p style="margin-top: 3vw;">
-          Selecciona entre una y tres fotos
-        </p>
-        <div class="lista">
-          <ng-container *ngFor="let foto of fotos">
-            <div style="margin-right: 2vw;" class="elementList">
-              <div style="padding: 1vw;" [style.background-color]="fotosSeleccionadas.includes(foto)?'#f28bb3':'#f28bb300'">
-                <button class="boton-imagen" style="height: 4vw; width: 6vw;" name="seleccionaFoto" (click)="agregaFoto(foto)" [style.background-image]="'url('+foto+')'"></button>
-              </div>
+  <div class="panel" (click)="paraPropagacion($event)">
+    <h2>Mi sueño</h2>
+    <div id="suenoEditDelete">
+      <label for="inputCodigoSuenoEdit" style="padding-right: 1.5vw;">Codigo de sueño</label>
+      <input id="inputCodigoSuenoEdit" style="font-size: 1.5vw;" type="text">
+      <br>
+      <p style="margin-top: 3vw;">
+        Selecciona entre una y tres fotos
+      </p>
+      <div class="lista">
+        <ng-container *ngFor="let foto of fotos">
+          <div style="margin-right: 2vw;" class="elementList">
+            <div style="padding: 1vw;" [style.background-color]="fotosSeleccionadas.includes(foto)?'#f28bb3':'#f28bb300'">
+              <button class="boton-imagen" style="height: 4vw; width: 6vw;" name="seleccionaFoto" (click)="agregaFoto(foto)" [style.background-image]="'url('+foto+')'"></button>
             </div>
-          </ng-container>
-        </div>
-        <div class="flex-centered" id="botones">
-          <button class="boton-imagen delete" (click)="borrarSueno()"></button>
-          <button class="boton-imagen save" (click)="guardarSueno()"></button>
-        </div>
+          </div>
+        </ng-container>
+      </div>
+      <span id="erroresSuenoEdit" style="color: rgb(153, 60, 60); font-size: 1.4vw;"></span>
+      <div class="flex-centered" id="botones">
+        <button class="boton-imagen delete" (click)="pedirBorrar()"></button>
+        <button class="boton-imagen save" (click)="guardarSueno()"></button>
+      </div>
     </div>
+    <div id="suenoDelete">
+      <p>
+        ¿Seguro que desea eliminar su sueño?
+      </p>
+      <button class="boton-imagen delete" style="background-image: url('../../assets/images/excluido-rojo.png')" (click)="cancelarBorrar()"></button>
+      <button class="boton-imagen save" (click)="borrarSueno()"></button>
+    </div>
+  </div>
 </div>

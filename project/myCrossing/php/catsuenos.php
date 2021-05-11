@@ -49,6 +49,41 @@ if(isset($_GET["command"])){
       }
       print json_encode($myArray, JSON_NUMERIC_CHECK);
       break;
+    case "existe"://---------------------------------------------------------------------------------------------------READMINE
+      if(isset($_GET["userId"]) && isset($_GET["verif"])){
+        $userId = $_GET["userId"];
+        $verifCode = $_GET["verif"];
+        $codigoUsuario = $_GET["codigo"];
+
+        $validation = checkExisteUser($conn, $userId) &&
+                checkVerification($conn, $userId, $verifCode);
+
+        if($validation){
+          $result = $conn->prepare('SELECT codigo_sueno FROM catsuenos WHERE codigo_sueno = ?');
+          $result->bind_param('s',$codigoUsuario);
+          $result->execute();
+          $res = $result->get_result();
+          $myArray = array();
+
+          print json_encode($res->num_rows!=0);
+        }
+      }else{
+        die("Faltan parametros");
+      }
+      break;
+    case "read"://---------------------------------------------------------------------------------------------------READ
+      $result = $conn->prepare('SELECT usuarios.id,catsuenos.codigo_sueno,catsuenos.foto1,catsuenos.foto2,catsuenos.foto3,usuarios.nombre,usuarios.isla FROM catsuenos INNER JOIN usuarios ON usuarios.id=catsuenos.usuario_id');
+      $result->execute();
+      $res = $result->get_result();
+      $myArray = array();
+
+      if ($res->num_rows > 0) {
+        while($row = $res->fetch_assoc()) {
+          $myArray[] = $row;
+        }
+      }
+      print json_encode($myArray, JSON_NUMERIC_CHECK);
+      break;
 
     case "create"://---------------------------------------------------------------------------------------------------CREATE
       if(isset($_GET["userId"]) && isset($_GET["verif"])){
@@ -96,8 +131,7 @@ if(isset($_GET["command"])){
           $foto2 = $request->foto2;
           $foto3 = $request->foto3;
           $validation = checkExisteUser($conn, $userId) &&
-                  checkVerification($conn, $userId, $verifCode) &&
-                  checkTieneSueno($conn, $userId, $codigoSueno);
+                  checkVerification($conn, $userId, $verifCode);
 
           if($validation){
             $result = $conn->prepare('UPDATE catsuenos SET foto1 = ?, foto2 = ?, foto3 = ?, codigo_sueno = ? WHERE usuario_id = ?');

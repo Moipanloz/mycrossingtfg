@@ -29,6 +29,7 @@ export class AlbumComponent implements OnInit {
   agregaImagen=false;
   errorImageForm="";
   miSueno: Sueno;
+  itemPorBorrar: string = "";
   async ngOnInit(): Promise<void> {
     await this.verification.verify().then(async() => {
       this.albumService.leeFotos().then(async(data)=>{
@@ -51,8 +52,6 @@ export class AlbumComponent implements OnInit {
     this.borradoImagen=!this.borradoImagen;
   }
   ultimaFoto(foto: string): boolean{
-    console.log(this.miSueno);
-    console.log(foto);
     if(this.miSueno.foto1==foto && (this.miSueno.foto2==null || this.miSueno.foto2=="") && (this.miSueno.foto3==null || this.miSueno.foto3==""))
       return true;
     if(this.miSueno.foto2==foto && (this.miSueno.foto1==null || this.miSueno.foto1=="") && (this.miSueno.foto3==null || this.miSueno.foto3==""))
@@ -88,13 +87,42 @@ export class AlbumComponent implements OnInit {
     this.miSueno = sueno;
     return sueno;
   }
+
+  pedirBorrar(){
+    $("#fondo").show();
+    $("#modalConfirmaBorradoImagen").show();
+  }
+
+  borrarImagen(){
+    this.cierraModales();
+    this._catSueno.guardaSuenoEntidad(this.eliminaFotoSueno(this.miSueno, this.itemPorBorrar), false);
+    this.albumService.eliminaFoto(this.itemPorBorrar);
+    let i = this.imagenes.indexOf(this.itemPorBorrar);
+    this.imagenes.splice(i,1);
+    if(this.imagenes.length==0){
+      this.borradoImagen=false;
+      this.mostrado = "";
+    }else{
+      this.mostrado = this.imagenes[0];
+    }
+  }
+
+  cancelarBorrar(){
+    $("#fondo").hide();
+    $("#modalConfirmaBorradoImagen").hide();
+  }
+
+  cierraModales(){
+    $("#fondo").hide();
+    $("#modalConfirmaBorradoImagen").hide();
+  }
+
   muestra(item: string){
     if(this.borradoImagen){
       if(this.ultimaFoto(item)){
         this._error.setNewError("Esta es la última imagen de tu sueño, para eliminarla añade otra a tu sueño o borralo");
         setTimeout(() => {this._error.cleanError()}, 5000);
-      }else if(!this.perteneceFotoSueno(item) || confirm("¿Esta foto pertenece a su sueño, si la elimina aqui también se eliminará de su sueño, desea continuar?")){
-        this._catSueno.guardaSuenoEntidad(this.eliminaFotoSueno(this.miSueno, item), false);
+      }else if(!this.perteneceFotoSueno(item)){
         this.albumService.eliminaFoto(item);
         let i = this.imagenes.indexOf(item);
         this.imagenes.splice(i,1);
@@ -104,6 +132,9 @@ export class AlbumComponent implements OnInit {
         }else{
           this.mostrado = this.imagenes[0];
         }
+      }else{
+        this.itemPorBorrar = item;
+        this.pedirBorrar();
       }
     }else{
       this.mostrado = item;
