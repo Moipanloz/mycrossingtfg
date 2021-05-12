@@ -21,16 +21,44 @@ export class CatSuenoService {
     return this.http.get<Sueno>(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
-  readSuenos() : Promise<Sueno[]>{
+  readMisLikes() : Promise<string[]>{
     let parametros = new HttpParams()
-    .set("command", "read")
+    .set("command", "readMisLikes")
+    .set("verif", this.verification.verifCode)
+    .set("userId", JSON.stringify(this.verification.user));
 
+    return this.http.get<string[]>(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
+  }
+
+  async readSuenos() : Promise<Sueno[]>{
+    let parametros = new HttpParams()
+    .set("command", "read");
     return this.http.get<Sueno[]>(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   borrarSueno(sueno : string){
     let parametros = new HttpParams()
     .set("command", "delete")
+    .set("codigoSueno", sueno)
+    .set("verif", this.verification.verifCode)
+    .set("userId", JSON.stringify(this.verification.user));
+
+    return this.http.get(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
+  }
+
+  deleteLike(sueno : string){
+    let parametros = new HttpParams()
+    .set("command", "deleteLike")
+    .set("codigoSueno", sueno)
+    .set("verif", this.verification.verifCode)
+    .set("userId", JSON.stringify(this.verification.user));
+
+    return this.http.get(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
+  }
+
+  creaLike(sueno : string){
+    let parametros = new HttpParams()
+    .set("command", "creaLike")
     .set("codigoSueno", sueno)
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));

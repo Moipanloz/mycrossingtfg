@@ -36,19 +36,6 @@ if(isset($_GET["command"])){
         die("Faltan parametros");
       }
       break;
-    case "read"://---------------------------------------------------------------------------------------------------READ
-      $result = $conn->prepare('SELECT usuarios.id,catsuenos.codigo_sueno,catsuenos.foto1,catsuenos.foto2,catsuenos.foto3,usuarios.nombre,usuarios.isla FROM catsuenos INNER JOIN usuarios ON usuarios.id=catsuenos.usuario_id');
-      $result->execute();
-      $res = $result->get_result();
-      $myArray = array();
-
-      if ($res->num_rows > 0) {
-        while($row = $res->fetch_assoc()) {
-          $myArray[] = $row;
-        }
-      }
-      print json_encode($myArray, JSON_NUMERIC_CHECK);
-      break;
     case "existe"://---------------------------------------------------------------------------------------------------READMINE
       if(isset($_GET["userId"]) && isset($_GET["verif"])){
         $userId = $_GET["userId"];
@@ -72,11 +59,10 @@ if(isset($_GET["command"])){
       }
       break;
     case "read"://---------------------------------------------------------------------------------------------------READ
-      $result = $conn->prepare('SELECT usuarios.id,catsuenos.codigo_sueno,catsuenos.foto1,catsuenos.foto2,catsuenos.foto3,usuarios.nombre,usuarios.isla FROM catsuenos INNER JOIN usuarios ON usuarios.id=catsuenos.usuario_id');
+      $result = $conn->prepare('SELECT usuarios.id,catsuenos.codigo_sueno,catsuenos.foto1,catsuenos.foto2,catsuenos.foto3,usuarios.nombre,usuarios.isla,COALESCE(CONSULTA1.cantidad,CONSULTA1.cantidad,0) AS likes FROM catsuenos INNER JOIN usuarios ON usuarios.id=catsuenos.usuario_id LEFT JOIN (SELECT codigo_sueno, COUNT(usuario_id) AS cantidad FROM likes_suenos GROUP BY codigo_sueno) AS CONSULTA1 ON catsuenos.codigo_sueno = CONSULTA1.codigo_sueno');
       $result->execute();
       $res = $result->get_result();
       $myArray = array();
-
       if ($res->num_rows > 0) {
         while($row = $res->fetch_assoc()) {
           $myArray[] = $row;
@@ -157,6 +143,68 @@ if(isset($_GET["command"])){
 
         if($validation){
           $result = $conn->prepare('DELETE FROM catsuenos WHERE usuario_id = ? AND codigo_sueno = ?');
+          $result->bind_param('is',$userId, $codigoSueno);
+          $result->execute();
+        }
+      }else{
+        die("Faltan parametros");
+      }
+      break;
+
+    case "readMisLikes"://---------------------------------------------------------------------------------------------------DELETE
+      if(isset($_GET["userId"]) && isset($_GET["verif"])){
+        $verifCode = $_GET["verif"];
+        $userId = $_GET["userId"];
+
+        $validation = checkExisteUser($conn, $userId);
+
+        if($validation){
+          $result = $conn->prepare('SELECT codigo_sueno FROM likes_suenos WHERE usuario_id = ?');
+          $result->bind_param('i',$userId);
+          $result->execute();
+          $res = $result->get_result();
+          if ($res->num_rows > 0) {
+            while($row = $res->fetch_assoc()) {
+              $myArray[] = $row;
+            }
+          }else if($res->num_rows == 0){
+            $myArray[] = [];
+          }
+          print json_encode($myArray, JSON_NUMERIC_CHECK);
+        }
+      }else{
+        die("Faltan parametros");
+      }
+      break;
+
+    case "creaLike"://---------------------------------------------------------------------------------------------------DELETE
+      if(isset($_GET["userId"]) && isset($_GET["verif"]) && isset($_GET["codigoSueno"])){
+        $verifCode = $_GET["verif"];
+        $userId = $_GET["userId"];
+        $codigoSueno = $_GET["codigoSueno"];
+
+        $validation = checkExisteUser($conn, $userId);
+
+        if($validation){
+          $result = $conn->prepare('INSERT INTO likes_suenos (usuario_id, codigo_sueno) VALUES (?,?)');
+          $result->bind_param('is',$userId, $codigoSueno);
+          $result->execute();
+        }
+      }else{
+        die("Faltan parametros");
+      }
+      break;
+
+    case "deleteLike"://---------------------------------------------------------------------------------------------------DELETE
+      if(isset($_GET["userId"]) && isset($_GET["verif"]) && isset($_GET["codigoSueno"])){
+        $verifCode = $_GET["verif"];
+        $userId = $_GET["userId"];
+        $codigoSueno = $_GET["codigoSueno"];
+
+        $validation = checkExisteUser($conn, $userId);
+
+        if($validation){
+          $result = $conn->prepare('DELETE FROM likes_suenos WHERE usuario_id = ? AND codigo_sueno = ?');
           $result->bind_param('is',$userId, $codigoSueno);
           $result->execute();
         }

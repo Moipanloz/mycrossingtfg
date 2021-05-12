@@ -30,6 +30,9 @@ export class CatSuenoComponent implements OnInit {
   fotosSeleccionadas: string[] = [];
   fotos: String[] = [];
   _album: AlbumService;
+  misLikes: String[] = [];
+  espera: boolean = false;
+  filtroLikes: boolean = false;
 
   constructor(albumService: AlbumService, verif : VerificationService, pag : PaginacionService, catsueno : CatSuenoService, errorService : ErrorService) {
     this._verif = verif;
@@ -45,7 +48,6 @@ export class CatSuenoComponent implements OnInit {
         this.listaItems = suenos;
         this.listaItems.map(sueno => {
           sueno.foto_seleccionada=0;
-          sueno.likes=0;
         });
         this.num_paginas = this.getPaginas(this.listaItems);
       });
@@ -60,7 +62,12 @@ export class CatSuenoComponent implements OnInit {
           let aux: String[] = [];
           fotos.forEach(f=>aux.push(f["url_img"]));
           this.fotos=aux;
-        })
+        });
+        this._catsueno.readMisLikes().then(async codigos => {
+          let aux: string[] = [];
+          codigos.map(c=> aux.push(c["codigo_sueno"]));
+          this.misLikes = aux;
+        });
       }
     }).catch(err => {
       this._error.setNewError(err.message);
@@ -72,6 +79,23 @@ export class CatSuenoComponent implements OnInit {
   @HostListener("window:scroll")
   onScroll(){
     this.cierraModales();
+  }
+
+  darLike(codigo: string){
+    if(this._verif.user!=null && !this.espera){
+      this.espera=true;
+      if(this.misLikes.includes(codigo)){
+        this._catsueno.deleteLike(codigo);
+        this.misLikes.splice(this.misLikes.indexOf(codigo),1);
+        this.ngOnInit();
+        this.espera=false;
+      }else{
+        this._catsueno.creaLike(codigo);
+        this.misLikes.push(codigo);
+        this.ngOnInit();
+        this.espera=false;
+      }
+    }
   }
 
   borrarSueno(){

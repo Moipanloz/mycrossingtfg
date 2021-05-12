@@ -38,6 +38,7 @@ import { CatCancionesComponent } from './cat-canciones/cat-canciones.component';
 import { FiltroSrcPipe } from './cat-canciones/filtro-src.pipe';
 import { CatSuenoComponent } from './cat-sueno/cat-sueno.component';
 import { FiltroSuenosPipe } from './cat-sueno/filtro-suenos.pipe';
+import { FiltroLikesPipe } from './cat-sueno/filtro-likes.pipe';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { FiltroSuenosPipe } from './cat-sueno/filtro-suenos.pipe';
     CatCancionesComponent,
     FiltroSrcPipe,
     CatSuenoComponent,
-    FiltroSuenosPipe
+    FiltroSuenosPipe,
+    FiltroLikesPipe
   ],
   imports: [
     BrowserModule,

@@ -14,6 +14,9 @@ $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 $sql = "DROP TABLE IF EXISTS catfosiles";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
+$sql = "DROP TABLE IF EXISTS likes_suenos";
+$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
 $sql = "DROP TABLE IF EXISTS catsuenos";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
@@ -175,6 +178,14 @@ $sql = "CREATE TABLE album (
   FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
+$sql = "CREATE TABLE likes_suenos (
+  usuario_id int(5) NOT NULL,
+  codigo_sueno varchar(17) NOT NULL,
+  PRIMARY KEY (usuario_id, codigo_sueno),
+  FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1";
+$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 // ---------------------------------------------------------------------------------------------Alter
 
 $sql = "ALTER TABLE usuarios AUTO_INCREMENT = 2";
@@ -228,6 +239,14 @@ $sql = "INSERT INTO catsuenos (usuario_id, foto1, foto2, foto3, codigo_sueno) VA
 (1, 'https://urbansevilla.es/wp-content/uploads/2019/06/la-giralda-sevilla-airpano.jpg', 'https://www.quedadasmalaga.es/wp-content/uploads/2020/09/alquiler-coches-sevilla-1024x580-1.jpg', null, 'DA-1234-1234-1234'),
 (2, 'https://bit.ly/3uCtYx3', 'https://www.quedadasmalaga.es/wp-content/uploads/2020/09/alquiler-coches-sevilla-1024x580-1.jpg', null, 'DA-1234-1234-1235'),
 (3, 'https://urbansevilla.es/wp-content/uploads/2019/06/la-giralda-sevilla-airpano.jpg', 'https://www.quedadasmalaga.es/wp-content/uploads/2020/09/alquiler-coches-sevilla-1024x580-1.jpg', null, 'DA-1234-1234-1236')";
+$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
+$sql = "INSERT INTO likes_suenos (usuario_id, codigo_sueno) VALUES
+(1, 'DA-1234-1234-1234'),
+(2, 'DA-1234-1234-1234'),
+(3, 'DA-1234-1234-1234'),
+(1, 'DA-1234-1234-1235'),
+(2, 'DA-1234-1234-1235')";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 // ===================================================================================================== Events
 // ---------------------------------------------------------------------------------------------Drop
