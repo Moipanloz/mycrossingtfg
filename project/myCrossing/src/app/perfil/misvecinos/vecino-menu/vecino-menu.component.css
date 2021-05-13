@@ -26,6 +26,17 @@
   padding:40%
 }
 
+.amistad-popup button{
+  position: relative;
+}
+
+.amistad-popup button span{
+  position: absolute;
+  top: 7%;
+  left: 32%;
+  color: white;
+}
+
 #botones{
   justify-content: space-around;
 }

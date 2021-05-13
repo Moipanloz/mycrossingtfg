@@ -120,7 +120,7 @@ export class AlbumComponent implements OnInit {
   muestra(item: string){
     if(this.borradoImagen){
       if(this.ultimaFoto(item)){
-        this._error.setNewError("Esta es la última imagen de tu sueño, para eliminarla añade otra a tu sueño o borralo");
+        this._error.setNewError("Esta es la última imagen de tu sueño. Para eliminarla, añade otra imágen a tu sueño o bórralo primero.");
         setTimeout(() => {this._error.cleanError()}, 5000);
       }else if(!this.perteneceFotoSueno(item)){
         this.albumService.eliminaFoto(item);

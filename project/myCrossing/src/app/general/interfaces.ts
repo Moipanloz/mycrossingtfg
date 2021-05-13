@@ -67,7 +67,7 @@ export interface Sueno{
   foto2: string;
   foto3: string;
   nombre: string;
-  nombre_isla: string;
+  isla: string;
   likes: number;
   foto_seleccionada: number;
 }

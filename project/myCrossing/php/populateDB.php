@@ -231,14 +231,14 @@ $sql = "INSERT INTO catarte (usuario_id, nombre_arte) VALUES
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "INSERT INTO album (usuario_id, url_img) VALUES
-(2, 'https://bit.ly/3uCtYx3'),
-(2, 'https://urbansevilla.es/wp-content/uploads/2019/06/la-giralda-sevilla-airpano.jpg')";
+(2, 'https://animalcrossingworld.com/wp-content/uploads/2020/02/animal-crossing-new-horizons-screenshot-na-website-explore-decorating-1-790x444.jpg'),
+(2, 'https://animalcrossingworld.com/wp-content/uploads/2020/02/animal-crossing-new-horizons-screenshot-na-website-explore-decorating-2.jpg')";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "INSERT INTO catsuenos (usuario_id, foto1, foto2, foto3, codigo_sueno) VALUES
-(1, 'https://urbansevilla.es/wp-content/uploads/2019/06/la-giralda-sevilla-airpano.jpg', 'https://www.quedadasmalaga.es/wp-content/uploads/2020/09/alquiler-coches-sevilla-1024x580-1.jpg', null, 'DA-1234-1234-1234'),
-(2, 'https://bit.ly/3uCtYx3', 'https://www.quedadasmalaga.es/wp-content/uploads/2020/09/alquiler-coches-sevilla-1024x580-1.jpg', null, 'DA-1234-1234-1235'),
-(3, 'https://urbansevilla.es/wp-content/uploads/2019/06/la-giralda-sevilla-airpano.jpg', 'https://www.quedadasmalaga.es/wp-content/uploads/2020/09/alquiler-coches-sevilla-1024x580-1.jpg', null, 'DA-1234-1234-1236')";
+(1, 'https://animalcrossingworld.com/wp-content/uploads/2020/02/animal-crossing-new-horizons-screenshot-na-website-explore-decorating-3-790x444.jpg', null, null, 'DA-1234-1234-1234'),
+(2, 'https://animalcrossingworld.com/wp-content/uploads/2020/02/animal-crossing-new-horizons-screenshot-na-website-explore-decorating-1-790x444.jpg', 'https://animalcrossingworld.com/wp-content/uploads/2020/02/animal-crossing-new-horizons-screenshot-na-website-explore-decorating-2.jpg', null, 'DA-1234-1234-1235'),
+(3, 'https://animalcrossingworld.com/wp-content/uploads/2020/02/animal-crossing-new-horizons-screenshot-na-website-explore-decorating-4-790x444.jpg', null, null, 'DA-1234-1234-1236')";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "INSERT INTO likes_suenos (usuario_id, codigo_sueno) VALUES

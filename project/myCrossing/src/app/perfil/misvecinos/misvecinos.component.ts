@@ -158,8 +158,12 @@ export class MisvecinosComponent implements OnInit {
     }
   }
 
-  abreMenu(event, vecino : Vecino, amistad : boolean, position : number){
-    let coord = this.obtenPosicion(event);
+  abreMenu(event, vecino : Vecino, amistad : boolean, position : number, clickEnChild: boolean){
+    if(clickEnChild){
+      event.stopPropagation();
+    }
+
+    let coord = this.obtenPosicion(event, clickEnChild);
     if(amistad){
       this.position = false;
       // Se ha hecho click en el boton de amistad
@@ -218,9 +222,16 @@ export class MisvecinosComponent implements OnInit {
     }
   }
 
-  obtenPosicion(event): any[]{
-    let x = (event.target.offsetLeft / window.innerWidth) * 100;
-    let y = ((event.target.offsetTop + event.target.offsetHeight) / window.innerHeight ) * 100;
+  obtenPosicion(event, clickEnChild:boolean): any[]{
+    let x:number, y : number;
+
+    if(clickEnChild){
+      x = (event.target.parentElement.offsetLeft / window.innerWidth) * 100;
+      y = ((event.target.parentElement.offsetTop + event.target.parentElement.offsetHeight) / window.innerHeight ) * 100;
+    }else{
+      x = (event.target.offsetLeft / window.innerWidth) * 100;
+      y = ((event.target.offsetTop + event.target.offsetHeight) / window.innerHeight ) * 100;
+    }
     return [x, y];
   }
 

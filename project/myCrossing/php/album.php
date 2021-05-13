@@ -42,7 +42,7 @@ if(isset($_GET["command"])){
         $request = json_decode($postdata);
         $userId = $request->usuario_id;
         $url_image = $request->url_image;
-        
+
         $validation =  checkExisteUser($conn, $userId) &&
                   checkVerification($conn, $userId, $verifCode);
 
@@ -51,7 +51,6 @@ if(isset($_GET["command"])){
           $result = $conn->prepare('INSERT INTO album(usuario_id, url_img) VALUES (?, ?)');
           $result->bind_param('is', $userId, $url_image);
           $result->execute();
-          print(json_encode("Exito"));
         }
       }else{
         die("Faltan parametros");
@@ -64,7 +63,7 @@ if(isset($_GET["command"])){
         $request = json_decode($postdata);
         $userId = $request->usuario_id;
         $url_image = $request->url_image;
-        
+
         $validation =  checkExisteUser($conn, $userId) &&
                   checkVerification($conn, $userId, $verifCode);
 
@@ -73,7 +72,6 @@ if(isset($_GET["command"])){
           $result = $conn->prepare('DELETE FROM album WHERE usuario_id = ? AND url_img = ?');
           $result->bind_param('is', $userId, $url_image);
           $result->execute();
-          print(json_encode("Exito"));
         }
       }else{
         die("Faltan parametros");

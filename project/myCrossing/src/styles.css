@@ -309,8 +309,8 @@ label{
   background-color: rgb(252, 137, 137);
   width: 30%;
   align-self: center;
-  top: 7%;
-  z-index: 10;
+  top: 8%;
+  z-index: 99;
   padding: 1vw 2.5vw;
   border-radius: 20px;
 }

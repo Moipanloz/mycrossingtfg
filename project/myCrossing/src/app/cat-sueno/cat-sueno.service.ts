@@ -80,7 +80,7 @@ export class CatSuenoService {
       foto_seleccionada: null,
       likes: null,
       nombre: null,
-      nombre_isla: null
+      isla: null
     }
     if(fotosSeleccionadas.length==3){
       sueno.foto2 = fotosSeleccionadas[1];

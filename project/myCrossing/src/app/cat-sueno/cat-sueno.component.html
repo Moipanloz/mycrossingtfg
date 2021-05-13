@@ -7,14 +7,13 @@
         <h1>Catálogo de sueños</h1>
       </div>
       <div id="wrap-filtros" class="flex-centered" style="padding: 1vw 0;">
-        Usuario:
         <input style="margin-left: 3vw;" [formControl]="busqueda" class="text-input" type="text" placeholder="Buscar" [style.width]="this._verif.user == null ? '50%' : '30%'">
         <ng-container *ngIf="suenoUsuario!=null">
           <div (click)="filtroLikes=!filtroLikes" style="cursor: pointer; margin-left: 2vw; padding-left: 2vw; padding-right: 2vw; border-radius: 1vw;" [style.background-color]="filtroLikes?'#69ab69':'#df5959'">
             <button class="boton-imagen" style="background-image: url(../../assets/images/corazon.png);"></button>
           </div>
-          <button (click)="levantaPerfil()" style="margin-left: 4vw" class="boton-alargado b-azul">Mi sueño</button>
         </ng-container>
+        <button (click)="levantaPerfil()" style="margin-left: 4vw" class="boton-alargado b-azul">Mi sueño</button>
       </div>
     </div>
   </div>
@@ -83,19 +82,32 @@
     <div class="grid-w-gap" style="margin: 1vw 0">
         <ng-container *ngFor="let item of listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes | paginacion:page_number:max_items">
           <div class="grid-item-wrap flex-column-centered" style="justify-content: space-evenly;">
-            <div (click)="darLike(item.codigo_sueno)" [style.background-color]="(_verif.user==null || !misLikes.includes(item.codigo_sueno))?'#df5959':'#69ab69'" [style.cursor]="_verif.user!=null?'pointer':'default'" style="padding-right: 1vw; padding-left: 1vw;border-radius: 1vw; border-style: solid; border-color: blanchedalmond;">{{item.likes}}<img src="../../assets/images/corazon.png" style="width: 1.5vw;"></div>
-            <img [id]='item.nombre.replace(" ", "")' [src]="eligeFoto(item)" style="width: 7vw; height: 7vw;">
-            <div style="display: flex; position: absolute">
+
+            <div (click)="darLike(item.codigo_sueno)" class="likeWrap" [style.cursor]="_verif.user!=null?'pointer':'default'">
+              <span>{{item.likes}}</span>
+              <img [src]="(_verif.user==null || !misLikes.includes(item.codigo_sueno)) ? '../../assets/images/corazon-vacio.png' : '../../assets/images/corazon.png'" style="width: 1.5vw;">
+            </div>
+
+            <div class="flex-centered w100" style="margin: 1vw 0; justify-content: space-evenly;">
               <ng-container *ngIf="item.foto2!=null && item.foto2!=''">
-                <div (click)="getImage(item,false)" style="position: relative; bottom: 3vw;right: 4vw;" class="boton-alargado b-azul"><</div>
-                <div (click)="getImage(item,true)" style="position: relative; bottom: 3vw;left: 4vw" class="boton-alargado b-azul">></div>
+                <button (click)="getImage(item,false)" class="boton-alargado b-azul-hover b-scale"> < </button>
+              </ng-container>
+
+              <img [id]='item.nombre.replace(" ", "")' [src]="eligeFoto(item)" class="fotoSueno">
+
+              <ng-container *ngIf="item.foto2!=null && item.foto2!=''">
+                <button (click)="getImage(item,true)" class="boton-alargado b-azul-hover b-scale"> > </button>
               </ng-container>
             </div>
-            <span style="margin-top: 1vw; font-size: 2vw;">{{item.isla}}</span>
-            <span style="font-size: 1vw;">{{item.codigo_sueno}}</span>
-            <div style="display: flex; margin-top: 1vw; align-self: start;">
+
+            <div>
+              <h2 style="margin: 0">{{item.isla}}</h2>
+              <span style="font-size: unset;">{{item.codigo_sueno}}</span>
+            </div>
+
+            <div class="flex-centered user">
               <img style="width: 2vw;" src="../../assets/images/imagen-perfil.png">
-              <span style="font-size: 1.3vw;">{{item.nombre}}</span>
+              <span>{{item.nombre}}</span>
             </div>
           </div>
         </ng-container>
@@ -166,13 +178,13 @@
     </div>
 
   </div>
-  
+
 <div id="modalFondo" class="fondo" style="display: none;" (click)="cierraModales()"></div>
 <div id="modalCreacionSueno" class="container-panel" (click)="cierraModales()" style="display: none;">
   <div class="panel" (click)="paraPropagacion($event)">
-    <h2>Crear sueño</h2>
+    <h2 style="margin-top:0">Crear sueño</h2>
       <label for="inputCodigoSuenoCrear" style="padding-right: 1.5vw;">Codigo de sueño</label>
-      <input id="inputCodigoSuenoCrear" placeholder="DA-1234-1234-1234" style="font-size: 1.5vw;" type="text">
+      <input id="inputCodigoSuenoCrear" class="text-input" placeholder="DA-1234-1234-1234" style="font-size: 1.2vw;width:35%" type="text">
       <br>
       <p style="margin-top: 3vw;">
         Selecciona entre una y tres fotos
@@ -180,24 +192,25 @@
       <div class="lista">
         <ng-container *ngFor="let foto of fotos">
           <div style="margin-right: 2vw;" class="elementList">
-            <div style="padding: 1vw;" [style.background-color]="fotosSeleccionadas.includes(foto)?'#f28bb3':'#f28bb300'">
-              <button class="boton-imagen" style="height: 4vw; width: 6vw;" name="seleccionaFoto" (click)="agregaFoto(foto)" [style.background-image]="'url('+foto+')'"></button>
+            <div class="imagenWrap" [style.background-color]="fotosSeleccionadas.includes(foto)? 'rgb(174, 253, 180)':''">
+              <button class="boton-imagen b-scale" style="height: 4vw; width: 6vw;" name="seleccionaFoto" (click)="agregaFoto(foto)" [style.background-image]="'url('+foto+')'"></button>
             </div>
           </div>
         </ng-container>
       </div>
-      <span id="erroresSuenoCrear" style="color: rgb(153, 60, 60); font-size: 1.4vw;"></span>
+      <span id="erroresSuenoCrear" style="color: #ff7673; font-size: 1.4vw;"></span>
       <div class="flex-centered" id="botones">
-        <button class="boton-imagen save" (click)="crearSueno()"></button>
+        <button class="boton-imagen save b-scale-xl" (click)="crearSueno()"></button>
       </div>
   </div>
 </div>
+
 <div id="modalMiSueno" class="container-panel" (click)="cierraModales()" style="display: none;">
   <div class="panel" (click)="paraPropagacion($event)">
-    <h2>Mi sueño</h2>
+    <h3>Mi sueño</h3>
     <div id="suenoEditDelete">
       <label for="inputCodigoSuenoEdit" style="padding-right: 1.5vw;">Codigo de sueño</label>
-      <input id="inputCodigoSuenoEdit" style="font-size: 1.5vw;" type="text">
+      <input id="inputCodigoSuenoEdit" class="text-input" style="font-size: 1.2vw;width:35%" type="text">
       <br>
       <p style="margin-top: 3vw;">
         Selecciona entre una y tres fotos
@@ -205,24 +218,24 @@
       <div class="lista">
         <ng-container *ngFor="let foto of fotos">
           <div style="margin-right: 2vw;" class="elementList">
-            <div style="padding: 1vw;" [style.background-color]="fotosSeleccionadas.includes(foto)?'#f28bb3':'#f28bb300'">
-              <button class="boton-imagen" style="height: 4vw; width: 6vw;" name="seleccionaFoto" (click)="agregaFoto(foto)" [style.background-image]="'url('+foto+')'"></button>
+            <div class="imagenWrap" [style.background-color]="fotosSeleccionadas.includes(foto)?'rgb(174, 253, 180)':''">
+              <button class="boton-imagen b-scale" style="height: 4vw; width: 6vw;" name="seleccionaFoto" (click)="agregaFoto(foto)" [style.background-image]="'url('+foto+')'"></button>
             </div>
           </div>
         </ng-container>
       </div>
-      <span id="erroresSuenoEdit" style="color: rgb(153, 60, 60); font-size: 1.4vw;"></span>
+      <span id="erroresSuenoEdit" style="color: #ff7673; font-size: 1.4vw;"></span>
       <div class="flex-centered" id="botones">
-        <button class="boton-imagen delete" (click)="pedirBorrar()"></button>
-        <button class="boton-imagen save" (click)="guardarSueno()"></button>
+        <button class="boton-imagen delete b-scale-xl" (click)="pedirBorrar()"></button>
+        <button class="boton-imagen save b-scale-xl" (click)="guardarSueno()"></button>
       </div>
     </div>
     <div id="suenoDelete">
       <p>
         ¿Seguro que desea eliminar su sueño?
       </p>
-      <button class="boton-imagen delete" style="background-image: url('../../assets/images/excluido-rojo.png')" (click)="cancelarBorrar()"></button>
-      <button class="boton-imagen save" (click)="borrarSueno()"></button>
+      <button class="boton-imagen delete b-scale-xl" style="background-image: url('../../assets/images/excluido-rojo.png')" (click)="cancelarBorrar()"></button>
+      <button class="boton-imagen save b-scale-xl" (click)="borrarSueno()"></button>
     </div>
   </div>
 </div>

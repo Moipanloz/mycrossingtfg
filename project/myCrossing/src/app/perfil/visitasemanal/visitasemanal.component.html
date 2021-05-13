@@ -216,6 +216,6 @@
           {{estela ? "Estela ya te ha visitado esta semana" : "Estela aún no te ha visitado"}}
         </button>
       </div>
-      <button class="boton-imagen save" style="margin-bottom: 1vw;width: 3vw;height: 3vw;border-radius: 100%;" (click)="guardar()"></button>
+      <button class="boton-imagen save b-scale" [class]="modificado ? 'alertaSave' : ''" style="margin-bottom: 1vw;width: 3vw;height: 3vw;border-radius: 100%;" (click)="guardar()"></button>
     </div>
 </div>

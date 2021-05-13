@@ -121,7 +121,7 @@ span{
     width: 100%;
 }
 .panel{
-    padding: 1%;
+    padding: 2vw;
     border-style: none;
     border-radius: 2vw;
     background-color: #F7F3E8;
@@ -143,4 +143,62 @@ span{
   width: 8vw;
   text-align: center;
   height: fit-content;
+}
+
+.likeWrap{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.likeWrap span{
+  font-size: unset;
+  margin-right: 0.5rem;
+}
+
+.grid-w-gap button{
+  width: 2vw;
+  height: 2vw;
+  font-weight: bold;
+}
+
+.user{
+  margin-top: 0.5rem;
+  align-self: start;
+}
+
+.user span{
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+
+.fotoSueno{
+  width: 10vw;
+  height: 7vw;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+#modalMiSueno .boton-imagen, #modalCreacionSueno .boton-imagen{
+  background-size: cover;
+  background-position: center;
+}
+
+#botones{
+  width: 20%;
+  margin-top: 1vw;
+}
+
+.imagenWrap{
+  padding: 1vw;
+  border-radius: 10px;
+  display:flex;
+  transition: 0.3s;
+}
+
+.imagenWrap:hover{
+  background-color: var(--l-azul);
 }

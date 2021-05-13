@@ -98,7 +98,6 @@ if(isset($_GET["command"])){
             $result->bind_param('si', $last_update, $userId);
             $result->execute();
             $result->store_result();
-            print("Exito");
           }
         }else{
           die("No hay datos");

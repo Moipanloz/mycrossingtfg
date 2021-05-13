@@ -61,8 +61,8 @@
           <div class="wrap-vecino">
             <button [hidden]="!porcentajeMode" (click)="toggleExclude(data.indexOf(vecino))" class="b-scale exclude-button" [style]="{'background-image': checkExclude(data.indexOf(vecino))}"></button>
             <span>{{vecino.nombre}}</span>
-            <button class="boton-imagen amistad b-scale" style="color:#F7F3E8;font-size: 1.2vw;" (click)="abreMenu($event, vecino, true, this.data.indexOf(vecino))">
-              {{vecino.amistad}}
+            <button class="boton-imagen amistad b-scale" style="color:#F7F3E8;font-size: 1.2vw;" (click)="abreMenu($event, vecino, true, this.data.indexOf(vecino),false)">
+              <span (click)="abreMenu($event, vecino, true, this.data.indexOf(vecino), true)">{{vecino.amistad}}</span>
             </button>
           </div>
         </div>

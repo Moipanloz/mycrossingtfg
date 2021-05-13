@@ -160,10 +160,24 @@
   transform: scale(0.9);
 }
 
-.save:hover{
-  background-color: #2fc171;
-}
-
 .save:active{
   transform: scale(0.9);
+}
+
+.alertaSave{
+  animation: alerta 2s linear infinite;
+}
+
+@keyframes alerta {
+  0% {
+   background-color: transparent;
+  }
+
+  50% {
+    background-color: #e88d6e;
+  }
+
+  100% {
+    background-color: transparent;
+  }
 }
