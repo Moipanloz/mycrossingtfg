@@ -52,6 +52,9 @@ export class AlbumComponent implements OnInit {
     this.borradoImagen=!this.borradoImagen;
   }
   ultimaFoto(foto: string): boolean{
+    if(this.miSueno==null){
+      return false;
+    }
     if(this.miSueno.foto1==foto && (this.miSueno.foto2==null || this.miSueno.foto2=="") && (this.miSueno.foto3==null || this.miSueno.foto3==""))
       return true;
     if(this.miSueno.foto2==foto && (this.miSueno.foto1==null || this.miSueno.foto1=="") && (this.miSueno.foto3==null || this.miSueno.foto3==""))
@@ -61,6 +64,9 @@ export class AlbumComponent implements OnInit {
     return false;
   }
   perteneceFotoSueno(foto: string): boolean{
+    if(this.miSueno==null){
+      return false;
+    }
     if(this.miSueno.foto1 == foto || this.miSueno.foto2 == foto || this.miSueno.foto3 == foto)
       return true;
     return false;

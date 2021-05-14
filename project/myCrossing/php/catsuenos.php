@@ -46,8 +46,8 @@ if(isset($_GET["command"])){
                 checkVerification($conn, $userId, $verifCode);
 
         if($validation){
-          $result = $conn->prepare('SELECT codigo_sueno FROM catsuenos WHERE codigo_sueno = ?');
-          $result->bind_param('s',$codigoUsuario);
+          $result = $conn->prepare('SELECT codigo_sueno FROM catsuenos WHERE codigo_sueno = ? AND usuario_id != ?');
+          $result->bind_param('si',$codigoUsuario, $userId);
           $result->execute();
           $res = $result->get_result();
           $myArray = array();
@@ -151,7 +151,7 @@ if(isset($_GET["command"])){
       }
       break;
 
-    case "readMisLikes"://---------------------------------------------------------------------------------------------------DELETE
+    case "readMisLikes"://---------------------------------------------------------------------------------------------------READ USER LIKES
       if(isset($_GET["userId"]) && isset($_GET["verif"])){
         $verifCode = $_GET["verif"];
         $userId = $_GET["userId"];
@@ -177,7 +177,7 @@ if(isset($_GET["command"])){
       }
       break;
 
-    case "creaLike"://---------------------------------------------------------------------------------------------------DELETE
+    case "creaLike"://---------------------------------------------------------------------------------------------------CREATE LIKE
       if(isset($_GET["userId"]) && isset($_GET["verif"]) && isset($_GET["codigoSueno"])){
         $verifCode = $_GET["verif"];
         $userId = $_GET["userId"];
@@ -195,7 +195,7 @@ if(isset($_GET["command"])){
       }
       break;
 
-    case "deleteLike"://---------------------------------------------------------------------------------------------------DELETE
+    case "deleteLike"://---------------------------------------------------------------------------------------------------DELETE LIKE
       if(isset($_GET["userId"]) && isset($_GET["verif"]) && isset($_GET["codigoSueno"])){
         $verifCode = $_GET["verif"];
         $userId = $_GET["userId"];

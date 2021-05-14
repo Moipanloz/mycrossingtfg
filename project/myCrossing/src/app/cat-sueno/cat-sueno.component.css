@@ -6,10 +6,6 @@ span{
     text-align: center;
   }
 
-  .content-wrapper-bot{
-    background-color: #b39d74;
-  }
-
   .pag-menu{
     width: 100%;
     position: relative;
@@ -21,7 +17,7 @@ span{
   }
 
   .grid-item-wrap{
-    background-color: #fff8c4;
+    background-color: #f5c4ff;
     position: relative;
     box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
     transition: 0.3s;
@@ -44,9 +40,10 @@ span{
     padding-bottom: 1vw;
     display:flex;
     margin: auto;
-    background-color: #fff8c4;
+    background-color: #f5c4ff;
     border-radius: 50px;
     box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
+    position: relative;
   }
 
   .b-darkGreen{
@@ -85,15 +82,15 @@ span{
   }
 
 .bg-scroll-1{
-  background-image: url("../../assets/images/fosil-bg-0.png");
+  background-image: url("../../assets/images/sueno-bg-0.png");
 }
 
 .bg-scroll-2{
-  background-image: url("../../assets/images/fosil-bg-1.png");
+  background-image: url("../../assets/images/sueno-bg-1.png");
 }
 
 .no-result{
-  background-color: #fff8c4;
+  background-color: #f5c4ff;
   border-radius: 50px;
   position:relative;
   margin: 3% 0;
@@ -101,12 +98,9 @@ span{
 }
 
 .burbuja-title{
-  background-image: url("../../assets/images/bubble-fosil.png");
+  background-image: url("../../assets/images/bubble-sueno.png");
 }
 
-:host{
-  background-color: #b39d74;
-}
 .fondo{
     width: 100%;
     height: 100%;
@@ -132,14 +126,15 @@ span{
     font-size: 1.5vw;
 }
 .lista{
-  display: flex;
-  flex-wrap: wrap;
   overflow-y: scroll;
-  height: 100%;
+  height: 15vw;
   margin: 1vw 0;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, 8vw);
+  width: fit-content;
 }
 .elementList{
-  display: grid;
   width: 8vw;
   text-align: center;
   height: fit-content;
@@ -190,6 +185,8 @@ span{
 #botones{
   width: 20%;
   margin-top: 1vw;
+  display:flex;
+  justify-content: space-between;
 }
 
 .imagenWrap{
@@ -201,4 +198,26 @@ span{
 
 .imagenWrap:hover{
   background-color: var(--l-azul);
+}
+
+.imagenWrap button{
+  transition: 0.3s;
+}
+
+.botonCorazon{
+  padding: 0.5vw 1vw;
+  background-position: center;
+  background-size: 60%;
+  margin-left: 2vw;
+  border-style: solid !important;
+  border-width: 0.3vw !important;
+  border-radius: 1vw !important;
+}
+
+:host{
+  background-color: #853696;
+}
+
+.content-wrapper-bot{
+  background-color: #853696;
 }

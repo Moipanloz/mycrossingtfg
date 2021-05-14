@@ -75,7 +75,7 @@ export class CatSuenoComponent implements OnInit {
     });
     this.busqueda.valueChanges.pipe(debounceTime(300)).subscribe(value => this.filtrar(value));
   }
-  
+
   @HostListener("window:scroll")
   onScroll(){
     this.cierraModales();
@@ -96,6 +96,7 @@ export class CatSuenoComponent implements OnInit {
         this.espera=false;
       }
     }
+
   }
 
   borrarSueno(){
@@ -158,7 +159,7 @@ export class CatSuenoComponent implements OnInit {
       }
     }
   }
-  
+
   paraPropagacion(e:MouseEvent){
     e.stopPropagation();
   }
@@ -188,7 +189,7 @@ export class CatSuenoComponent implements OnInit {
     }
     document.getElementById("modalFondo").style.display = "block";
   }
-  
+
   eligeFoto(item: Sueno): string{
     switch(item.foto_seleccionada){
       case 0:
