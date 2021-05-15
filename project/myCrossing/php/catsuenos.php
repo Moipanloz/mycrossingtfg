@@ -82,6 +82,10 @@ if(isset($_GET["command"])){
 
           $request = json_decode($postdata);
           $codigoSueno = $request->codigo_sueno;
+          preg_match('/^DA-[0-9]{4}-[0-9]{4}-[0-9]{4}$/', $codigoSueno, $matches);
+          if(count($matches)==0){
+            die("El codigo de sueño no cumple el patrón");
+          }
           $foto1 = $request->foto1;
           $foto2 = $request->foto2;
           $foto3 = $request->foto3;
@@ -113,11 +117,16 @@ if(isset($_GET["command"])){
 
           $request = json_decode($postdata);
           $codigoSueno = $request->codigo_sueno;
+          preg_match('/^DA-[0-9]{4}-[0-9]{4}-[0-9]{4}$/', $codigoSueno, $matches);
+          if(count($matches)==0){
+            die("El codigo de sueño no cumple el patrón");
+          }
           $foto1 = $request->foto1;
           $foto2 = $request->foto2;
           $foto3 = $request->foto3;
           $validation = checkExisteUser($conn, $userId) &&
-                  checkVerification($conn, $userId, $verifCode);
+                  checkVerification($conn, $userId, $verifCode) && 
+                  checkOtroNoTieneSueno($conn, $userId, $codigoSueno);
 
           if($validation){
             $result = $conn->prepare('UPDATE catsuenos SET foto1 = ?, foto2 = ?, foto3 = ?, codigo_sueno = ? WHERE usuario_id = ?');
@@ -206,6 +215,43 @@ if(isset($_GET["command"])){
         if($validation){
           $result = $conn->prepare('DELETE FROM likes_suenos WHERE usuario_id = ? AND codigo_sueno = ?');
           $result->bind_param('is',$userId, $codigoSueno);
+          $result->execute();
+        }
+      }else{
+        die("Faltan parametros");
+      }
+      break;
+
+    case "deleteAllLikes"://---------------------------------------------------------------------------------------------------DELETE ALL LIKES
+      if(isset($_GET["userId"]) && isset($_GET["verif"]) && isset($_GET["codigoSueno"])){
+        $verifCode = $_GET["verif"];
+        $userId = $_GET["userId"];
+        $codigoSueno = $_GET["codigoSueno"];
+
+        $validation = checkExisteUser($conn, $userId);
+
+        if($validation){
+          $result = $conn->prepare('DELETE FROM likes_suenos WHERE codigo_sueno = ?');
+          $result->bind_param('s',$codigoSueno);
+          $result->execute();
+        }
+      }else{
+        die("Faltan parametros");
+      }
+      break;
+
+    case "mueveLikes"://---------------------------------------------------------------------------------------------------MUEVE LIKES
+      if(isset($_GET["userId"]) && isset($_GET["verif"]) && isset($_GET["codigoSueno"])){
+        $verifCode = $_GET["verif"];
+        $userId = $_GET["userId"];
+        $codigoSueno = $_GET["codigoSueno"];
+        $codigoSuenoOriginal = $_GET["codigoSuenoOriginal"];
+
+        $validation = checkExisteUser($conn, $userId);
+
+        if($validation){
+          $result = $conn->prepare('INSERT INTO likes_suenos SELECT usuario_id, ? FROM likes_suenos WHERE codigo_sueno = ?');
+          $result->bind_param('ss',$codigoSueno, $codigoSuenoOriginal);
           $result->execute();
         }
       }else{

@@ -1,9 +1,9 @@
 <div class="container-album">
     <div class="container-main-photo" [style]="mostrado==null ? 'background-color: #bfdefb' : ''">
-        <ng-container *ngIf="mostrado!=null || mostrado != ''">
+        <ng-container *ngIf="mostrado != ''">
             <img [src]="preview == '' ? mostrado : preview" class="full-image">
         </ng-container>
-        <ng-container *ngIf="mostrado==null || mostrado==''">
+        <ng-container *ngIf="mostrado==''">
             <p>Guarda tus fotos para poder acceder a ellas en cualquier momento</p>
         </ng-container>
     </div>

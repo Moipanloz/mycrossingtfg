@@ -31,7 +31,8 @@ export class CatSuenoComponent implements OnInit {
   fotos: String[] = [];
   _album: AlbumService;
   misLikes: String[] = [];
-  espera: boolean = false;
+  espera: boolean = true;
+  espera2: boolean = true;
   filtroLikes: boolean = false;
 
   constructor(albumService: AlbumService, verif : VerificationService, pag : PaginacionService, catsueno : CatSuenoService, errorService : ErrorService) {
@@ -50,6 +51,11 @@ export class CatSuenoComponent implements OnInit {
           sueno.foto_seleccionada=0;
         });
         this.num_paginas = this.getPaginas(this.listaItems);
+        if(this.espera2){
+          this.espera2 = false;
+        }else{
+          this.espera = false;
+        }
       });
       if(this._verif.user != null){
         this._catsueno.readMiSueno().then(async suenoUsuario => {
@@ -67,6 +73,11 @@ export class CatSuenoComponent implements OnInit {
           let aux: string[] = [];
           codigos.map(c=> aux.push(c["codigo_sueno"]));
           this.misLikes = aux;
+          if(this.espera2){
+            this.espera2 = false;
+          }else{
+            this.espera = false;
+          }
         });
       }
     }).catch(err => {
@@ -84,16 +95,13 @@ export class CatSuenoComponent implements OnInit {
   darLike(codigo: string){
     if(this._verif.user!=null && !this.espera){
       this.espera=true;
+      this.espera2=true;
       if(this.misLikes.includes(codigo)){
         this._catsueno.deleteLike(codigo);
-        this.misLikes.splice(this.misLikes.indexOf(codigo),1);
         this.ngOnInit();
-        this.espera=false;
       }else{
         this._catsueno.creaLike(codigo);
-        this.misLikes.push(codigo);
         this.ngOnInit();
-        this.espera=false;
       }
     }
 
@@ -116,6 +124,8 @@ export class CatSuenoComponent implements OnInit {
   }
 
   async guardarSueno(){
+    this.espera=true;
+    this.espera2=true;
     if(await this._catsueno.existeCodigo($("#inputCodigoSuenoEdit").val().toString())){
       $("#erroresSuenoEdit").text("Este código de sueño ya está siendo usado por otro usuario");
     }else if(!$("#inputCodigoSuenoEdit").val().toString().match(/^DA-[0-9]{4}-[0-9]{4}-[0-9]{4}$/)){
@@ -125,6 +135,11 @@ export class CatSuenoComponent implements OnInit {
     }else if(this.fotosSeleccionadas.length<1 || this.fotosSeleccionadas.length>3){
       $("#erroresSuenoEdit").text("Debes seleccionar entre 1 y 3 imágenes");
     }else{
+      console.log(this.suenoUsuario.codigo_sueno + $("#inputCodigoSuenoEdit").val().toString());
+      if(this.suenoUsuario.codigo_sueno != $("#inputCodigoSuenoEdit").val().toString()){
+        this._catsueno.mueveLikes(this.suenoUsuario.codigo_sueno, $("#inputCodigoSuenoEdit").val().toString());
+        this._catsueno.borrarLikes(this.suenoUsuario.codigo_sueno);
+      }
       this._catsueno.guardaSueno($("#inputCodigoSuenoEdit").val().toString(), this.fotosSeleccionadas, false);
       this.ngOnInit();
       this.cierraModales();
