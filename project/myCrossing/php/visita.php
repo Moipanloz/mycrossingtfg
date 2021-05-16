@@ -113,7 +113,8 @@ if(isset($_GET["command"])){
 
         $validation=TRUE;
         $validation =  checkExisteUser($conn, $userId) &&
-                  checkVerification($conn, $userId, $verifCode);
+                  checkVerification($conn, $userId, $verifCode) &&
+                  checkNoExisteVisita($conn, $userId);
 
         if($validation){
           $result = $conn->prepare('INSERT INTO visitas(usuario_id) VALUES (?)');

@@ -16,17 +16,7 @@ describe('Visitas', () => {
   let verificationService : VerificationService;
   let http : HttpClient;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      providers: [ { provide: VerificationService, useClass: MockVerificationService}, VisitasService],
-      imports: [ HttpClientModule ]
-    })
-    .compileComponents();
-    service = TestBed.inject(VisitasService);
-    verificationService = TestBed.inject(VerificationService);
-    http = TestBed.inject(HttpClient);
-  });
-  beforeAll( async () => {
+  beforeAll(async () => {
     await TestBed.configureTestingModule({
       providers: [ { provide: VerificationService, useClass: MockVerificationService}, VisitasService],
       imports: [ HttpClientModule ]
@@ -39,8 +29,8 @@ describe('Visitas', () => {
     let parametrosCreate = new HttpParams()
       .set("testing", 'true');
     await http.get("http://localhost/php/populateDB.php", { params: parametrosCreate, responseType: 'blob' } ).toPromise();
-  });
-  it('should read', async () =>{
+  },8000);
+  it('should create', async () =>{
     let parametrosCreate = new HttpParams()
       .set("command", "create")
       .set("testing", 'true')
@@ -51,7 +41,41 @@ describe('Visitas', () => {
         .set("testing", 'true')
         .set("verif", verificationService.verifCode)
         .set("userId", JSON.stringify(verificationService.user));
+      let res1 = JSON.parse(await (await http.get("http://localhost/php/visita.php", { params: parametrosRead, responseType: 'blob' } ).toPromise()).text());
+      expect(res1[0]).toBeFalsy();
       await http.get("http://localhost/php/visita.php", { params: parametrosCreate, responseType: 'blob' } ).toPromise();
+      let res2: Visita[];
+      res2 = JSON.parse(await (await http.get("http://localhost/php/visita.php", { params: parametrosRead, responseType: 'blob' } ).toPromise()).text());
+      expect(res2).toBeTruthy();
+      expect(res2[0].usuario_id.toString()).toEqual('2');
+      expect(res2[0].estela.toString()).toEqual('0');
+  });
+  it('should create again', async () =>{
+    let parametrosCreate = new HttpParams()
+      .set("command", "create")
+      .set("testing", 'true')
+      .set("verif", verificationService.verifCode)
+      .set("userId", JSON.stringify(verificationService.user));
+      let parametrosRead = new HttpParams()
+        .set("command", "read")
+        .set("testing", 'true')
+        .set("verif", verificationService.verifCode)
+        .set("userId", JSON.stringify(verificationService.user));
+      let res1 = JSON.parse(await (await http.get("http://localhost/php/visita.php", { params: parametrosRead, responseType: 'blob' } ).toPromise()).text());
+      expect(res1[0]).toBeTruthy();
+      await http.get("http://localhost/php/visita.php", { params: parametrosCreate, responseType: 'blob' } ).toPromise();
+      let res2: Visita[];
+      res2 = JSON.parse(await (await http.get("http://localhost/php/visita.php", { params: parametrosRead, responseType: 'blob' } ).toPromise()).text());
+      expect(res2).toBeTruthy();
+      expect(res2[0].usuario_id.toString()).toEqual('2');
+      expect(res2[0].estela.toString()).toEqual('0');
+  });
+  it('should read', async () =>{
+      let parametrosRead = new HttpParams()
+        .set("command", "read")
+        .set("testing", 'true')
+        .set("verif", verificationService.verifCode)
+        .set("userId", JSON.stringify(verificationService.user));
       let res: Visita[];
       res = JSON.parse(await (await http.get("http://localhost/php/visita.php", { params: parametrosRead, responseType: 'blob' } ).toPromise()).text());
       expect(res).toBeTruthy();
@@ -74,6 +98,7 @@ describe('Visitas', () => {
       let res: Visita[];
       res = await http.get<Visita[]>("http://localhost/php/visita.php", { params: parametrosRead } ).toPromise();
       expect(res).toBeTruthy();
+      expect(res[0]).toBeTruthy();
       expect(res[0].lpa.toString()).toEqual('lpa');
       expect(res[0].lpr.toString()).toEqual('lpr');
       expect(res[0].estela.toString()).toEqual('1');
@@ -94,6 +119,7 @@ describe('Visitas', () => {
       let res: Visita[];
       res = await http.get<Visita[]>("http://localhost/php/visita.php", { params: parametrosRead } ).toPromise();
       expect(res).toBeTruthy();
+      expect(res[0]).toBeTruthy();
       expect(res[0].lpa.toString()).toEqual('lpa');
       expect(res[0].lpr.toString()).toEqual('lpr');
       expect(res[0].last_update.toString()).toEqual('9999');
