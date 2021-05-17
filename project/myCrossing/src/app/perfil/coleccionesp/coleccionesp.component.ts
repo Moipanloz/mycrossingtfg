@@ -207,6 +207,9 @@ export class ColeccionespComponent implements OnInit {
         img = itemVar.image; //Es mueble
       }
     }
+    if(!img.includes("latest")){
+      img = img.substr(0, 20) + 'latest' + img.substr(25, img.length);
+    }
     return img;
   }
 }

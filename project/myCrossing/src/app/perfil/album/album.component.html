@@ -1,5 +1,5 @@
 <div class="container-album">
-    <div class="container-main-photo" [style]="mostrado==null ? 'background-color: #bfdefb' : ''">
+    <div class="container-main-photo" [style]="mostrado=='' ? 'background-color: #bfdefb' : ''">
         <ng-container *ngIf="mostrado != ''">
             <img [src]="preview == '' ? mostrado : preview" class="full-image">
         </ng-container>
@@ -34,8 +34,8 @@
     <div class="panel" (click)="paraPropagacion($event)">
         <h3>Agregar imagen</h3>
         <div style="margin-bottom: 1rem;">
-          <label for="inputUrlImagen" style="padding-right: 1.5vw;">Url imagen</label>
-          <input id="inputUrlImagen" class="text-input" style="font-size: 1.5vw;" type="text">
+          <label for="inputUrlImagen" style="padding-right: 1.5vw;font-size:1.2vw">Url imagen</label>
+          <input id="inputUrlImagen" class="text-input" type="text">
         </div>
         <ng-container *ngIf="errorImageForm!=''">
             <p style="color:var(--rojo)">{{errorImageForm}}</p>

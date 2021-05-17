@@ -30,6 +30,7 @@ export class AlbumComponent implements OnInit {
   errorImageForm="";
   miSueno: Sueno;
   itemPorBorrar: string = "";
+
   async ngOnInit(): Promise<void> {
     await this.verification.verify().then(async() => {
       this.albumService.leeFotos().then(async(data)=>{
@@ -37,7 +38,12 @@ export class AlbumComponent implements OnInit {
         for(let i =0; i<j; i++){
           this.imagenes.push(data.pop()['url_img']);
         }
-        this.mostrado = this.imagenes[0];
+        if(this.imagenes.length == 0){
+          this.mostrado = "";
+        }else{
+          this.mostrado = this.imagenes[0];
+        }
+
       });
       this._catSueno.readMiSueno().then(async suenoUsuario => {
         this.miSueno = suenoUsuario[0];
