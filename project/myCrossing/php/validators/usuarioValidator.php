@@ -5,7 +5,7 @@ header('Access-Control-Allow-Methods: PUT, DELETE, POST, GET');
 
 header("Access-Control-Allow-Credentials: true");
 
-function checkDatos($nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_switch){
+function checkDatos($nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_switch, $apodo_aldeano){
   //Comorueba que los datos son correctos
   $devolver = TRUE;
 
@@ -29,7 +29,7 @@ function checkDatos($nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $
 
   if(strlen($isla) > 20){
     $devolver = FALSE;
-    die("El nombre de la isla no puede ocupar más de 20 carácteres");
+    die("El nombre de la isla no puede ocupar más de 20 caracteres");
     return $devolver;
   }
 
@@ -65,6 +65,14 @@ function checkDatos($nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $
     if(!preg_match("/^SW-[0-9]{4}-[0-9]{4}-[0-9]{4}$/", $id_switch)){
       $devolver = FALSE;
       die("Código de switch no válido");
+      return $devolver;
+    }
+  }
+
+  if(!empty($apodo_aldeano)){
+    if(strlen($apodo_aldeano) > 30){
+      $devolver = FALSE;
+      die("El apodo no puede tener más de 30 caracteres");
       return $devolver;
     }
   }
