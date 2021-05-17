@@ -31,3 +31,17 @@ function checkNoExisteVisita($conn, $userId){
   }
   return $validation;
 }
+
+function checkSameUserId($userId, $objectUserId){
+  if($userId != $objectUserId){
+    die("Esta visita no le pertenece");
+  }
+  return true;
+}
+
+function checkEstela($estela){
+  if($estela == null || !is_bool($estela)){
+    die("Debe especificar correctamente si estela ha ido de visita");
+  }
+  return true;
+}
