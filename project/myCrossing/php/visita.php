@@ -125,7 +125,6 @@ if(isset($_GET["command"])){
           $result = $conn->prepare('INSERT INTO visitas(usuario_id) VALUES (?)');
           $result->bind_param('i', $userId);
           $result->execute();
-          print("Exito");
         }
       }else{
         die("Faltan parametros");

@@ -132,8 +132,9 @@ if(isset($_GET['command'])){
         $hemisferio = $request->hemisferio;
         $id_switch = $request->id_switch;
         $verif = $request->verif;
+        $apodo_aldeano = $request->apodo_aldeano;
 
-        $validation = checkDatos($nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_switch) &&
+        $validation = checkDatos($nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_switch, $apodo_aldeano) &&
                 checkDatosCreate($conn, $email, $id_switch);
 
         if($validation){
@@ -195,7 +196,7 @@ if(isset($_GET['command'])){
           $email = $res->fetch_assoc()["email"];
 
           $validation =  checkExisteUser($conn, $userId) &&
-                    checkDatos($nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_switch) &&
+                    checkDatos($nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_switch, $apodo_aldeano) &&
                     checkDatosUpdate($conn, $userId, $email, $id_switch) &&
                     checkVerification($conn, $userId, $verifCode);
 

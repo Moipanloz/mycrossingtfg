@@ -165,25 +165,6 @@
                 </div>
               </ng-container >
             </div>
-
-            <!-- Borrar este campo -->
-            <div class="field flex-between">
-              <div>
-                <label for="id_suenyo">Id sueño: </label>
-              </div>
-              <div>
-                <input type="text" class="text-input" placeholder="DA-1234-1234-1234" maxlength="17" minlength="17"  id="id_suenyo" formControlName='id_suenyo'>
-              </div>
-            </div>
-            <div>
-              <ng-container  *ngIf="registerForm.controls.id_suenyo.errors && submitted">
-                <div class="error">
-                    El id de sueño debe ser un número de 12 cifras con la siguiente estructura: DA-1234-1234-1234
-                </div>
-              </ng-container >
-            </div>
-            <!-- --------- -->
-
           </div>
           <div class="registrar">
             <button type="submit" class="boton-alargado b-azul b-azul-hover b-scale" >Regístrate</button>
