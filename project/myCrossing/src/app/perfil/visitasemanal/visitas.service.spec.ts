@@ -25,7 +25,6 @@ describe('Visitas', () => {
     service = TestBed.inject(VisitasService);
     verificationService = TestBed.inject(VerificationService);
     http = TestBed.inject(HttpClient);
-
     let parametrosCreate = new HttpParams()
       .set("testing", 'true');
     await http.get("http://localhost/php/populateDB.php", { params: parametrosCreate, responseType: 'blob' } ).toPromise();

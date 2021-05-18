@@ -52,11 +52,9 @@ if(isset($_GET["command"])){
           $request = json_decode($postdata);
           $nombreCriatura = $request->nombre_criatura;
 
-          $noTieneCriatura = checkTieneCriatura($conn, $userId, $nombreCriatura);
-
           $validation = checkExisteUser($conn, $userId) &&
                   checkVerification($conn, $userId, $verifCode) &&
-                  !$noTieneCriatura;
+                  !checkTieneCriatura($conn, $userId, $nombreCriatura);
 
           if($validation){
             $result = $conn->prepare('INSERT INTO catbichos(usuario_id, nombre_criatura) VALUES (?, ?)');

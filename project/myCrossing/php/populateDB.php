@@ -225,6 +225,11 @@ $sql = "INSERT INTO catfosiles (usuario_id, nombre_fosil) VALUES
 (2, 'amber')";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
+$sql = "INSERT INTO catbichos (usuario_id, nombre_arte) VALUES
+(2, 'polillaatlas'),
+(2, 'polillacrepuscular')";
+$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
 $sql = "INSERT INTO catarte (usuario_id, nombre_arte) VALUES
 (2, 'academicpainting'),
 (2, 'amazingpainting')";
