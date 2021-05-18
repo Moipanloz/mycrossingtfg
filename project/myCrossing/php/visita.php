@@ -47,6 +47,7 @@ if(isset($_GET["command"])){
         if(isset($putdata) && !empty($putdata)){
 
           $request = json_decode($putdata);
+          $objectUserId = $request->usuario_id;
           $lpa = $request->lpa;
           $mpa = $request->mpa;
           $xpa = $request->xpa;
@@ -61,8 +62,10 @@ if(isset($_GET["command"])){
 
           $validation=TRUE;
           $validation =  checkExisteUser($conn, $userId) &&
-                    checkExisteVisita($userId, $conn) &&
-                    checkVerification($conn, $userId, $verifCode);
+                    checkExisteVisita($conn, $userId) &&
+                    checkVerification($conn, $userId, $verifCode) &&
+                    checkSameUserId($userId, $objectUserId) &&
+                    checkEstela($estela);
 
           if($validation){
             $result = $conn->prepare('UPDATE visitas SET lpa = ?, mpa = ?, xpa = ?, jpa = ?, vpa = ?, lpr = ?, mpr = ?, xpr = ?, jpr = ?, vpr = ?, estela = ? WHERE usuario_id = ?');
@@ -86,12 +89,14 @@ if(isset($_GET["command"])){
         if(isset($putdata) && !empty($putdata)){
 
           $request = json_decode($putdata);
+          $objectUserId = $request->usuario_id;
           $last_update = $request->last_update;
 
           $validation=TRUE;
           $validation =  checkExisteUser($conn, $userId) &&
-                    checkExisteVisita($userId, $conn) &&
-                    checkVerification($conn, $userId, $verifCode);
+                    checkExisteVisita($conn, $userId) &&
+                    checkVerification($conn, $userId, $verifCode) &&
+                    checkSameUserId($userId, $objectUserId);
 
           if($validation){
             $result = $conn->prepare('UPDATE visitas SET last_update = ? WHERE usuario_id = ?');
@@ -113,7 +118,8 @@ if(isset($_GET["command"])){
 
         $validation=TRUE;
         $validation =  checkExisteUser($conn, $userId) &&
-                  checkVerification($conn, $userId, $verifCode);
+                  checkVerification($conn, $userId, $verifCode) &&
+                  checkNoExisteVisita($conn, $userId);
 
         if($validation){
           $result = $conn->prepare('INSERT INTO visitas(usuario_id) VALUES (?)');
