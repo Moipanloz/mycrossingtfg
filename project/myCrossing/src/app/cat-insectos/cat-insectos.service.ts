@@ -9,8 +9,10 @@ import { Bicho } from 'app/general/interfaces';
 export class CatInsectosService {
 
   url : string = "http://localhost/php/catbichos.php";
-
-  constructor(public verification : VerificationService, public http : HttpClient) { }
+  verification: VerificationService;
+  constructor(private http : HttpClient, _verification : VerificationService) {
+    this.verification = _verification;
+  }
 
   readBicho(){
     let parametros = new HttpParams()

@@ -16,7 +16,7 @@ describe('Visitas', () => {
   let verificationService : VerificationService;
   let http : HttpClient;
 
-  beforeAll(async () => {
+  beforeEach(async () => {
     await TestBed.configureTestingModule({
       providers: [ { provide: VerificationService, useClass: MockVerificationService}, VisitasService],
       imports: [ HttpClientModule ]
@@ -25,11 +25,12 @@ describe('Visitas', () => {
     service = TestBed.inject(VisitasService);
     verificationService = TestBed.inject(VerificationService);
     http = TestBed.inject(HttpClient);
-
+  });
+  it('should populate', async ()=>{
     let parametrosCreate = new HttpParams()
       .set("testing", 'true');
-    await http.get("http://localhost/php/populateDB.php", { params: parametrosCreate, responseType: 'blob' } ).toPromise();
-  },8000);
+      expect(await (await http.get("http://localhost/php/populateDB.php", { params: parametrosCreate, responseType: 'blob' } ).toPromise()).text()).toEqual("Population done");
+  }, 8000);
   it('should create', async () =>{
     let parametrosCreate = new HttpParams()
       .set("command", "create")

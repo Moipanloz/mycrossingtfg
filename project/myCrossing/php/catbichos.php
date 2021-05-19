@@ -51,12 +51,13 @@ if(isset($_GET["command"])){
 
           $request = json_decode($postdata);
           $nombreCriatura = $request->nombre_criatura;
-
-          $noTieneCriatura = checkTieneCriatura($conn, $userId, $nombreCriatura);
+          $objectUserId = $request->usuario_id;
 
           $validation = checkExisteUser($conn, $userId) &&
                   checkVerification($conn, $userId, $verifCode) &&
-                  !$noTieneCriatura;
+                  checkNotEmptyCreature($nombreCriatura) &&
+                  checkNoTieneCriatura($conn, $userId, $nombreCriatura) &&
+                  checkSameUser($userId, $objectUserId);
 
           if($validation){
             $result = $conn->prepare('INSERT INTO catbichos(usuario_id, nombre_criatura) VALUES (?, ?)');
@@ -81,6 +82,7 @@ if(isset($_GET["command"])){
 
         $validation = checkExisteUser($conn, $userId) &&
                   checkVerification($conn, $userId, $verifCode) &&
+                  checkNotEmptyCreature($nombreCriatura) &&
                   checkTieneCriatura($conn, $userId, $nombreCriatura);
 
         if($validation){
