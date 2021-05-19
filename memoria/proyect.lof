@@ -8,42 +8,86 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Inicio 1}}{22}{figure.5.1}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Inicio 2}}{23}{figure.5.2}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Listado genérico}}{24}{figure.5.3}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Eventos}}{25}{figure.5.4}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Eventos - Detallado}}{25}{figure.5.5}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Registro}}{26}{figure.5.6}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Perfil}}{27}{figure.5.7}%
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Cazar ahora 1}}{28}{figure.5.8}%
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Cazar ahora 2}}{29}{figure.5.9}%
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Calculadora de Nabos}}{29}{figure.5.10}%
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Probador}}{30}{figure.5.11}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Inicio 2}}{22}{figure.5.2}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Listado genérico}}{23}{figure.5.3}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Eventos}}{24}{figure.5.4}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Eventos - Detallado}}{24}{figure.5.5}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Registro}}{25}{figure.5.6}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Perfil}}{26}{figure.5.7}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Cazar ahora 1}}{27}{figure.5.8}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Cazar ahora 2}}{27}{figure.5.9}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Calculadora de Nabos}}{28}{figure.5.10}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Probador}}{29}{figure.5.11}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Logotipo Visual Studio Code}}{31}{figure.6.1}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Logotipo Angular}}{33}{figure.6.2}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Logotipo XAMPP}}{34}{figure.6.3}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Logotipo Servidor Web Apache}}{34}{figure.6.4}%
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Logotipo PHP}}{35}{figure.6.5}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Logotipo MariaDatabase}}{36}{figure.6.6}%
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Logotipo MySQL}}{36}{figure.6.7}%
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Logotipo Git}}{37}{figure.6.8}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Logotipo Visual Studio Code}}{30}{figure.6.1}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Logotipo Angular}}{32}{figure.6.2}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Logotipo XAMPP}}{33}{figure.6.3}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Logotipo Servidor Web Apache}}{33}{figure.6.4}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Logotipo PHP}}{34}{figure.6.5}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Logotipo MariaDatabase}}{35}{figure.6.6}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Logotipo MySQL}}{35}{figure.6.7}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Logotipo Git}}{36}{figure.6.8}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces Comparación alternativas}}{44}{figure.8.1}%
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Comparación alternativas}}{42}{figure.8.1}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {9.1}{\ignorespaces Inicio}}{45}{figure.9.1}%
-\contentsline {figure}{\numberline {9.2}{\ignorespaces Registro}}{46}{figure.9.2}%
-\contentsline {figure}{\numberline {9.3}{\ignorespaces Inicio con sesión iniciada}}{46}{figure.9.3}%
-\contentsline {figure}{\numberline {9.4}{\ignorespaces Catálogo peces}}{47}{figure.9.4}%
-\contentsline {figure}{\numberline {9.5}{\ignorespaces Peces obtenidos}}{47}{figure.9.5}%
-\contentsline {figure}{\numberline {9.6}{\ignorespaces Info hemisferio norte}}{48}{figure.9.6}%
-\contentsline {figure}{\numberline {9.7}{\ignorespaces Info hemisferio sur}}{48}{figure.9.7}%
-\contentsline {figure}{\numberline {9.8}{\ignorespaces Paginación}}{49}{figure.9.8}%
-\contentsline {figure}{\numberline {9.9}{\ignorespaces Catálogo obras de arte}}{49}{figure.9.9}%
-\contentsline {figure}{\numberline {9.10}{\ignorespaces Falsificación}}{50}{figure.9.10}%
-\contentsline {figure}{\numberline {9.11}{\ignorespaces Variaciones}}{50}{figure.9.11}%
-\contentsline {figure}{\numberline {9.12}{\ignorespaces Variación}}{51}{figure.9.12}%
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Inicio}}{44}{figure.9.1}%
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Registro}}{45}{figure.9.2}%
+\contentsline {figure}{\numberline {9.3}{\ignorespaces Inicio con sesión iniciada}}{45}{figure.9.3}%
+\contentsline {figure}{\numberline {9.4}{\ignorespaces Catálogo peces}}{46}{figure.9.4}%
+\contentsline {figure}{\numberline {9.5}{\ignorespaces Peces obtenidos}}{46}{figure.9.5}%
+\contentsline {figure}{\numberline {9.6}{\ignorespaces Info hemisferio norte}}{47}{figure.9.6}%
+\contentsline {figure}{\numberline {9.7}{\ignorespaces Info hemisferio sur}}{47}{figure.9.7}%
+\contentsline {figure}{\numberline {9.8}{\ignorespaces Paginación}}{47}{figure.9.8}%
+\contentsline {figure}{\numberline {9.9}{\ignorespaces Catálogo obras de arte}}{48}{figure.9.9}%
+\contentsline {figure}{\numberline {9.10}{\ignorespaces Falsificación}}{48}{figure.9.10}%
+\contentsline {figure}{\numberline {9.11}{\ignorespaces Variaciones}}{49}{figure.9.11}%
+\contentsline {figure}{\numberline {9.12}{\ignorespaces Variación}}{49}{figure.9.12}%
+\contentsline {figure}{\numberline {9.13}{\ignorespaces Catálogo canciones}}{49}{figure.9.13}%
+\contentsline {figure}{\numberline {9.14}{\ignorespaces Barra de navegación}}{50}{figure.9.14}%
+\contentsline {figure}{\numberline {9.15}{\ignorespaces Cazar ahora}}{50}{figure.9.15}%
+\contentsline {figure}{\numberline {9.16}{\ignorespaces Filtros}}{50}{figure.9.16}%
+\contentsline {figure}{\numberline {9.17}{\ignorespaces Mercado nabos}}{51}{figure.9.17}%
+\contentsline {figure}{\numberline {9.18}{\ignorespaces Datos}}{51}{figure.9.18}%
+\contentsline {figure}{\numberline {9.19}{\ignorespaces Tabla predicción}}{52}{figure.9.19}%
+\contentsline {figure}{\numberline {9.20}{\ignorespaces Predicción precisa}}{52}{figure.9.20}%
+\contentsline {figure}{\numberline {9.21}{\ignorespaces Información mercado}}{53}{figure.9.21}%
+\contentsline {figure}{\numberline {9.22}{\ignorespaces Información patrones}}{53}{figure.9.22}%
+\contentsline {figure}{\numberline {9.23}{\ignorespaces Calendario}}{54}{figure.9.23}%
+\contentsline {figure}{\numberline {9.24}{\ignorespaces Cumpleaños}}{54}{figure.9.24}%
+\contentsline {figure}{\numberline {9.25}{\ignorespaces Evento}}{55}{figure.9.25}%
+\contentsline {figure}{\numberline {9.26}{\ignorespaces Halloween}}{55}{figure.9.26}%
+\contentsline {figure}{\numberline {9.27}{\ignorespaces Desplegable perfil}}{56}{figure.9.27}%
+\contentsline {figure}{\numberline {9.28}{\ignorespaces Perfil}}{56}{figure.9.28}%
+\contentsline {figure}{\numberline {9.29}{\ignorespaces Editar perfil}}{56}{figure.9.29}%
+\contentsline {figure}{\numberline {9.30}{\ignorespaces Perfil actualizado}}{57}{figure.9.30}%
+\contentsline {figure}{\numberline {9.31}{\ignorespaces Modo edición}}{57}{figure.9.31}%
+\contentsline {figure}{\numberline {9.32}{\ignorespaces Nuevas tareas}}{58}{figure.9.32}%
+\contentsline {figure}{\numberline {9.33}{\ignorespaces Menú tareas}}{58}{figure.9.33}%
+\contentsline {figure}{\numberline {9.34}{\ignorespaces Tareas editadas}}{58}{figure.9.34}%
+\contentsline {figure}{\numberline {9.35}{\ignorespaces Tareas realizada}}{58}{figure.9.35}%
+\contentsline {figure}{\numberline {9.36}{\ignorespaces Visitantes semanales}}{59}{figure.9.36}%
+\contentsline {figure}{\numberline {9.37}{\ignorespaces Semana rellanda}}{59}{figure.9.37}%
+\contentsline {figure}{\numberline {9.38}{\ignorespaces Menú visitantes}}{60}{figure.9.38}%
+\contentsline {figure}{\numberline {9.39}{\ignorespaces Confirmación guardado}}{60}{figure.9.39}%
+\contentsline {figure}{\numberline {9.40}{\ignorespaces Mis vecinos}}{61}{figure.9.40}%
+\contentsline {figure}{\numberline {9.41}{\ignorespaces Información vecino}}{61}{figure.9.41}%
+\contentsline {figure}{\numberline {9.42}{\ignorespaces Menú vecinos}}{62}{figure.9.42}%
+\contentsline {figure}{\numberline {9.43}{\ignorespaces Menú amistad}}{62}{figure.9.43}%
+\contentsline {figure}{\numberline {9.44}{\ignorespaces Información amistad}}{62}{figure.9.44}%
+\contentsline {figure}{\numberline {9.45}{\ignorespaces Mudanza}}{63}{figure.9.45}%
+\contentsline {figure}{\numberline {9.46}{\ignorespaces Cálculo porcentaje}}{63}{figure.9.46}%
+\contentsline {figure}{\numberline {9.47}{\ignorespaces Colecciones especiales}}{64}{figure.9.47}%
+\contentsline {figure}{\numberline {9.48}{\ignorespaces Check obtenido}}{64}{figure.9.48}%
+\contentsline {figure}{\numberline {9.49}{\ignorespaces Álbum fotos}}{65}{figure.9.49}%
+\contentsline {figure}{\numberline {9.50}{\ignorespaces Añadir imagen}}{65}{figure.9.50}%
+\contentsline {figure}{\numberline {9.51}{\ignorespaces Álbum con fotos}}{65}{figure.9.51}%
+\contentsline {figure}{\numberline {9.52}{\ignorespaces Borrar imagen}}{65}{figure.9.52}%
+\contentsline {figure}{\numberline {9.53}{\ignorespaces Catálogo sueños}}{66}{figure.9.53}%
+\contentsline {figure}{\numberline {9.54}{\ignorespaces Sueño}}{66}{figure.9.54}%
+\contentsline {figure}{\numberline {9.55}{\ignorespaces Catálogo filtrado}}{66}{figure.9.55}%
+\contentsline {figure}{\numberline {9.56}{\ignorespaces Crear sueño}}{67}{figure.9.56}%
+\contentsline {figure}{\numberline {9.57}{\ignorespaces Confirmación borrado}}{67}{figure.9.57}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsfinish 
