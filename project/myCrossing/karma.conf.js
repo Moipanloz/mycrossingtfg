@@ -30,8 +30,17 @@ module.exports = function (config) {
         flags: ['--no-sandbox']
       }
     },
-    browsers: ['Chrome'],
+    browsers: ['ChromeHeadless', 'Chrome'],
     customLaunchers: {
+      ChromeHeadless: {
+             base: 'Chrome',
+             flags: [
+               '--headless',
+               '--disable-gpu',
+               '--no-sandbox',
+               '--remote-debugging-port=9222'
+             ]
+           },
       ChromeHeadlessNoSandbox: {
         base: 'ChromeHeadless',
         flags: ['--no-sandbox']
