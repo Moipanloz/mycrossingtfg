@@ -11,8 +11,9 @@ addons:
 cache:
   directories:
     - ./node_modules
-    
+
 script:
+  - cd project/myCrossing
   - npm install
   - npm update
   - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
