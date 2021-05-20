@@ -11,11 +11,8 @@ addons:
 cache:
   directories:
     - ./node_modules
-
-install:
-  - npm init
+    
+script:
   - npm install
   - npm update
-
-script:
   - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
