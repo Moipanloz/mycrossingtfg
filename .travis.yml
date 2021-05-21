@@ -5,6 +5,9 @@ language: node_js
 node_js:
   - '12'
 
+services:
+  - mysql
+  
 addons:
   chrome: stable
   mariadb: '10.0'
