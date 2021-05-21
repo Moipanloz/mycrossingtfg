@@ -30,6 +30,7 @@ describe('Insectos', () => {
   it('should populate', async ()=>{
     let parametrosCreate = new HttpParams()
       .set("testing", 'true');
+    console.log("================================================================================");
     console.log(await (await http.get("http://localhost/php/populateDB.php", { params: parametrosCreate, responseType: 'blob' } ).toPromise()).text());//.toEqual("Population done");
   }, 8000);
   it('should read', async () =>{
