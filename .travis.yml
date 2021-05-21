@@ -13,7 +13,6 @@ cache:
     - ./node_modules
 
 before_script:
-  - sudo apt-get update
   - sudo apt-get install apache2 libapache2-mod-fastcgi
   # enable php-fpm
   - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
@@ -30,5 +29,4 @@ before_script:
 script:
   - cd project/myCrossing
   - npm install
-  - npm update
   - npm test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
