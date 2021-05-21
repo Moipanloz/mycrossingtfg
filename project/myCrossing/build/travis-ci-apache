@@ -25,20 +25,6 @@
 # an explicit drive letter in absolute paths to avoid confusion.
 
 #
-# ServerRoot: The top of the directory tree under which the server's
-# configuration, error, and log files are kept.
-#
-# Do not add a slash at the end of the directory path.  If you point
-# ServerRoot at a non-local disk, be sure to specify a local disk on the
-# Mutex directive, if file-based mutexes are used.  If you wish to share the
-# same ServerRoot for multiple httpd daemons, you will need to change at
-# least PidFile.
-#
-Define SRVROOT "D:/Aplicaciones/XAMPP/apache"
-
-ServerRoot "D:/Aplicaciones/XAMPP/apache"
-
-#
 # Mutex: Allows you to set the mutex mechanism and mutex file directory
 # for individual mutexes, or change the global defaults
 #
