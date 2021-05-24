@@ -196,7 +196,9 @@ $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 $sql = 'INSERT INTO usuarios (nombre, id, isla, fruta, cumpleanyos, hemisferio, contrasenya, email, verification) VALUES
 ("usuario1", 1, "isla1", "PERA", "2011-10-01", "NORTE", "$2y$10$JWDNNyA/07FYk8oiDvckQ.yurypHiJf1Ljby4gsAD4Xdprm5UAfS6", "usuario1@gmail.com", "verifuser1"),
 ("usuario2", NULL, "isla2", "PERA", "2012-11-02", "NORTE", "$2y$10$iZ5WsHshaQdziXgTQgF3MualwK2TgWvMQfxKYh8qqK2/mO4NXiqEG", "usuario2@gmail.com", "verifuser2"),
-("usuario3", NULL, "isla3", "MANZANA", "2013-12-03", "SUR", "$2y$10$RdmmT/4ODxwnmyqM6Mt0tuGtr3QvvX1Wx.QepqR7cTR9nvePSoQZm", "usuario3@gmail.com", "verifuser3")';
+("usuario3", NULL, "isla3", "MANZANA", "2013-12-03", "SUR", "$2y$10$RdmmT/4ODxwnmyqM6Mt0tuGtr3QvvX1Wx.QepqR7cTR9nvePSoQZm", "usuario3@gmail.com", "verifuser3"),
+("usuario4", NULL, "isla4", "MANZANA", "2014-12-03", "SUR", "$2y$10$pSLHS5E32zRTQavv0djT1.AE29SSnQH8AFx2cvO3GK0acjockKiAW", "usuario4@gmail.com", "verifuser4"),
+("usuario5", NULL, "isla5", "MANZANA", "2015-12-03", "SUR", "$2y$10$uKtkcAJLf1aLxCqJfos.u.T8ffcHfmzYgj/.L5/sNDW0O0RIC8HyO", "usuario5@gmail.com", "verifuser5")';
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "INSERT INTO tareas (id, usuario_id, hecha, imagen_url) VALUES
@@ -236,8 +238,12 @@ $sql = "INSERT INTO catarte (usuario_id, nombre_arte) VALUES
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "INSERT INTO album (usuario_id, url_img) VALUES
+(4, 'https://animalcrossingworld.com/wp-content/uploads/2020/02/animal-crossing-new-horizons-screenshot-na-website-explore-decorating-1-790x444.jpg'),
+(5, 'https://animalcrossingworld.com/wp-content/uploads/2020/02/animal-crossing-new-horizons-screenshot-na-website-explore-decorating-2-790x444.jpg'),
+(1, 'https://animalcrossingworld.com/wp-content/uploads/2020/02/animal-crossing-new-horizons-screenshot-na-website-explore-decorating-3-790x444.jpg'),
 (2, 'https://animalcrossingworld.com/wp-content/uploads/2020/02/animal-crossing-new-horizons-screenshot-na-website-explore-decorating-1-790x444.jpg'),
-(2, 'https://animalcrossingworld.com/wp-content/uploads/2020/02/animal-crossing-new-horizons-screenshot-na-website-explore-decorating-2.jpg')";
+(2, 'https://animalcrossingworld.com/wp-content/uploads/2020/02/animal-crossing-new-horizons-screenshot-na-website-explore-decorating-2.jpg'),
+(3, 'https://animalcrossingworld.com/wp-content/uploads/2020/02/animal-crossing-new-horizons-screenshot-na-website-explore-decorating-4-790x444.jpg')";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 $sql = "INSERT INTO catsuenos (usuario_id, foto1, foto2, foto3, codigo_sueno) VALUES
