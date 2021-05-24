@@ -30,7 +30,7 @@ describe('Visitas', () => {
     let parametrosCreate = new HttpParams()
       .set("testing", 'true');
       expect(await (await http.get("http://localhost/php/populateDB.php", { params: parametrosCreate, responseType: 'blob' } ).toPromise()).text()).toEqual("Population done");
-  }, 8000);
+  }, 9000);
   it('should create', async () =>{
     let parametrosCreate = new HttpParams()
       .set("command", "create")

@@ -37,17 +37,17 @@ if(isset($_GET["command"])){
       }
       break;
     case "existe"://---------------------------------------------------------------------------------------------------READMINE
-      if(isset($_GET["userId"]) && isset($_GET["verif"])){
+      if(isset($_GET["userId"]) && isset($_GET["verif"]) && isset($_GET["codigo"])){
         $userId = $_GET["userId"];
         $verifCode = $_GET["verif"];
-        $codigoUsuario = $_GET["codigo"];
+        $codigoSueno = $_GET["codigo"];
 
         $validation = checkExisteUser($conn, $userId) &&
                 checkVerification($conn, $userId, $verifCode);
 
         if($validation){
           $result = $conn->prepare('SELECT codigo_sueno FROM catsuenos WHERE codigo_sueno = ? AND usuario_id != ?');
-          $result->bind_param('si',$codigoUsuario, $userId);
+          $result->bind_param('si',$codigoSueno, $userId);
           $result->execute();
           $res = $result->get_result();
           $myArray = array();
@@ -82,6 +82,7 @@ if(isset($_GET["command"])){
 
           $request = json_decode($postdata);
           $codigoSueno = $request->codigo_sueno;
+          $objectUserId = $request->usuario_id;
           preg_match('/^DA-[0-9]{4}-[0-9]{4}-[0-9]{4}$/', $codigoSueno, $matches);
           if(count($matches)==0){
             die("El codigo de sueño no cumple el patrón");
@@ -91,7 +92,9 @@ if(isset($_GET["command"])){
           $foto3 = $request->foto3;
           $validation = checkExisteUser($conn, $userId) &&
                   checkVerification($conn, $userId, $verifCode) &&
-                  checkNoTieneSueno($conn, $userId, $codigoSueno);
+                  checkNoTieneSueno($conn, $userId, $codigoSueno) &&
+                  checkSameUser($userId, $objectUserId) &&
+                  checkHasPhoto($foto1);
 
           if($validation){
             $result = $conn->prepare('INSERT INTO catsuenos(usuario_id, foto1, foto2, foto3, codigo_sueno) VALUES (?, ?, ?, ?, ?)');
@@ -124,9 +127,13 @@ if(isset($_GET["command"])){
           $foto1 = $request->foto1;
           $foto2 = $request->foto2;
           $foto3 = $request->foto3;
+          $objectUserId = $request->usuario_id;
           $validation = checkExisteUser($conn, $userId) &&
+                  checkPoseeAlgunSueno($conn, $userId) &&
                   checkVerification($conn, $userId, $verifCode) && 
-                  checkOtroNoTieneSueno($conn, $userId, $codigoSueno);
+                  checkOtroNoTieneSueno($conn, $userId, $codigoSueno) &&
+                  checkHasPhoto($foto1) &&
+                  checkSameUser($userId, $objectUserId);
 
           if($validation){
             $result = $conn->prepare('UPDATE catsuenos SET foto1 = ?, foto2 = ?, foto3 = ?, codigo_sueno = ? WHERE usuario_id = ?');
@@ -148,6 +155,7 @@ if(isset($_GET["command"])){
         $codigoSueno = $_GET["codigoSueno"];
 
         $validation = checkExisteUser($conn, $userId) &&
+                  checkVerification($conn, $userId, $verifCode) &&
                   checkTieneSueno($conn, $userId, $codigoSueno);
 
         if($validation){
@@ -165,7 +173,8 @@ if(isset($_GET["command"])){
         $verifCode = $_GET["verif"];
         $userId = $_GET["userId"];
 
-        $validation = checkExisteUser($conn, $userId);
+        $validation = checkExisteUser($conn, $userId) &&
+                  checkVerification($conn, $userId, $verifCode);
 
         if($validation){
           $result = $conn->prepare('SELECT codigo_sueno FROM likes_suenos WHERE usuario_id = ?');
@@ -192,8 +201,14 @@ if(isset($_GET["command"])){
         $userId = $_GET["userId"];
         $codigoSueno = $_GET["codigoSueno"];
 
-        $validation = checkExisteUser($conn, $userId);
+        $validation = checkExisteUser($conn, $userId) &&
+                  checkVerification($conn, $userId, $verifCode) &&
+                  checkExisteSueno($conn, $codigoSueno);
 
+        preg_match('/^DA-[0-9]{4}-[0-9]{4}-[0-9]{4}$/', $codigoSueno, $matches);
+        if(count($matches)==0){
+          die("El codigo de sueño no cumple el patrón");
+        }
         if($validation){
           $result = $conn->prepare('INSERT INTO likes_suenos (usuario_id, codigo_sueno) VALUES (?,?)');
           $result->bind_param('is',$userId, $codigoSueno);
@@ -210,7 +225,9 @@ if(isset($_GET["command"])){
         $userId = $_GET["userId"];
         $codigoSueno = $_GET["codigoSueno"];
 
-        $validation = checkExisteUser($conn, $userId);
+        $validation = checkExisteUser($conn, $userId) &&
+                checkVerification($conn, $userId, $verifCode) &&
+                checkExisteLike($conn, $userId, $codigoSueno);
 
         if($validation){
           $result = $conn->prepare('DELETE FROM likes_suenos WHERE usuario_id = ? AND codigo_sueno = ?');
