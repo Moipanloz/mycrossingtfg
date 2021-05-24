@@ -3,18 +3,47 @@
   <div id="grid">
     <img src="../../assets/images/logo-transparente.png"/>
     <div>
-      <p class="bold">AYUDA</p>
-      <a>Manual de usuario</a>
-    </div>
-    <div>
-      <p class="bold">ACERCA DE</p>
-      <a>Fuente de Datos</a>
-    </div>
-    <div>
       <p class="bold">LEGAL</p>
-      <br>
-      <p>My Crossing es un sitio creado por fans y no está afiliado de ninguna forma a Nintendo.</p>
+      <button class="boton-alargado b-scale" (click)="toggle($event)">Mas información</button>
+    </div>
+    <div>
+      <p class="bold">CONTACTO</p>
+      <p>Para cualquier duda o problema, no dude en ponerse en contacto a través de las
+        siguientes direcciones de correo electrónico:</p>
+      <p>pantion.loza.moises@gmail.com</p>
+      <p>adriaingra@gmail.com</p>
     </div>
   </div>
 </div>
+<div class="footerInfo" [hidden]="!showInfo" (clickOutside)="cierra()">
+  <div>
+    <h2>My Crossing</h2>
+    <p>My Crossing es un sitio creado por fans y no está afiliado de ninguna forma a Nintendo.</p>
+    <p>De la misma forma, se trata de un proyecto para la Universidad de Sevilla realizado estrictamente
+      con fines académicos, por lo que no buscamos lucrarnos con el proyecto ni publicarlo con otro
+      fin distinto a la entrega de cara a la evaluación.</p>
+    <p>Los datos de los usuarios no se usarán, y se borrarán eventualmente una vez se haya terminado
+      por completo con el proyecto.</p>
+    <p>Si se fuera a publicar este proyecto una vez acabada la evaluación con el fin de su uso público,
+      así como con o sin motivo de lucrarnos, se harán los cambios pertinentes legales para cumplir con
+      todos los requisitos necesarios y se informará debidamente en este apartado.</p>
+    <h3>Agredecimientos - Créditos</h3>
+    <p>Gran parte de este proyecto no hubiese sido posible sin herramientas y artefactos generados
+      por otras personas que, como nosotros, también comparten la afición por este juego. A continuación
+      se cita a aquellos usuarios que nos han proporcionado dichos artefactos.
+    </p>
+    <ul>
+      <li>Purplepixel: Iconos de Kamilo y Gullivarrr - (<a href="https://www.redbubble.com/es/people/purplepixel/shop">Enlace a su perfil de Redbubble</a>)</li>
+      <li>Mattlewis92: Angular Calendar - (<a href="https://github.com/mattlewis92/angular-calendar#license">Enlace al repositorio del calendario en GitHub</a>)</li>
+      <li>Norviah: Animal Crossing NPM Database (<a href="https://github.com/Norviah/animal-crossing">Enlace al repositorio de la base de datos en GitHub</a>)</li>
+      <li>Hoja de cálculo de Animal Crossing: New Horizons | Copia del editor - (<a href="https://docs.google.com/spreadsheets/d/1mo7myqHry5r_TKvakvIhHbcEAEQpSiNoNQoIS8sMpvM/edit#gid=1397507627">Enlace al documento en Google Drive</a>)</li>
+      <li>Hoja de cálculo de traducciones - (<a href="https://docs.google.com/spreadsheets/d/1mo7myqHry5r_TKvakvIhHbcEAEQpSiNoNQoIS8sMpvM/edit#gid=1397507627">Enlace al documento en Google Drive</a>)</li>
+      <li>MarkNickerson: Iconos para el logo de la aplicación - (<a href="https://github.com/MarkNickerson/NookPhoneIcons">Enlace al repositorio de los iconos en GitHub</a>)</li>
+      <li>Turnip Prophet - (<a href="https://turnipprophet.io/index.html?first-time=false&pattern=-1&action=">Enlace a la aplicación web</a>)</li>
+      <li>Ninji: Información sobre el funcionamiento del mercado de nabos, así como de la mudanza de los vecinos (<a href="https://gist.github.com/Treeki/85be14d297c80c8b3c0a76375743325b">Enlace al repositorio del código del mercado de nabos en GitHub </a>)</li>
+    </ul>
+    <p>¡Muchas gracias a todos y a todas!</p>
+  </div>
+</div>
+
 

@@ -11,7 +11,7 @@
 
 #grid{
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: repeat(3, 33%);
   justify-content: center;
   margin: auto;
   width: 50vw;
@@ -68,4 +68,67 @@ img{
   background-size: 40px 40px;
   background-image:
     radial-gradient(circle at 10px 26px, #69c0c0 20px, transparent 21px);
+}
+
+.footerInfo{
+  position: absolute;
+  width: 40vw;
+  height: 60vh;
+  border-radius: 20px;
+  background-color: var(--blanco);
+  text-align: center;
+  top: -65vh;
+  left: 30%;
+  box-shadow: 0px 0px 10px 1px rgb(23 23 23 / 55%);
+  overflow-y: hidden;
+}
+
+.footerInfo p, .footerInfo h2, .footerInfo li, .footerInfo h3{
+  color: #2c271b;
+}
+
+.footerInfo p {
+  font-size: 1vw;
+}
+
+.footerInfo h2{
+  font-size: 1.7vw;
+}
+
+.footerInfo h3{
+  font-size: 1.2vw;
+}
+
+button{
+  padding: 0.5vw;
+  background-color: #69c0c0;
+  border-color: var(--blanco);
+  border-radius: 50px;
+}
+
+button:hover{
+  background-color: var(--blanco) !important;
+  border-color: #69c0c0 !important;
+  color: #69c0c0 !important;
+}
+
+.footerInfo div{
+  overflow-y: scroll;
+  margin: 4vh;
+  height: 52vh;
+  margin-right: 1vw;
+  padding-right: 3vw;
+}
+
+li{
+  text-align: left;
+  font-size: 1.2vw;
+}
+
+a{
+  color: #69c0c0;
+}
+
+a:visited{
+  color: #177474;
 }
