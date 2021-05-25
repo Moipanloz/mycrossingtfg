@@ -26,11 +26,11 @@ describe('Insectos', () => {
     verificationService = TestBed.inject(VerificationService);
     http = TestBed.inject(HttpClient);
   });
-  let urlTested = "http://localhost/php/catbichos.php";
+  let urlTested = "http://localhost/catbichos.php";
   it('should populate', async ()=>{
     let parametrosCreate = new HttpParams()
       .set("testing", 'true');
-    expect(await (await http.get("http://localhost/php/populateDB.php", { params: parametrosCreate, responseType: 'blob' } ).toPromise()).text()).toEqual("Population done");
+    expect(await (await http.get("http://localhost/populateDB.php", { params: parametrosCreate, responseType: 'blob' } ).toPromise()).text()).toEqual("Population done");
   }, 9000);
   it('should read', async () =>{
       let parametrosRead = new HttpParams()

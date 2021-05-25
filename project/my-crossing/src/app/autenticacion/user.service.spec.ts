@@ -29,11 +29,11 @@ describe('Authentication', () => {
     verificationService = TestBed.inject(VerificationService);
     http = TestBed.inject(HttpClient);
   });
-  let urlTested = "http://localhost/php/authentication.php";
+  let urlTested = "http://localhost/authentication.php";
   it('should populate', async ()=>{
     let parametrosCreate = new HttpParams()
       .set("testing", 'true');
-    expect(await (await http.get("http://localhost/php/populateDB.php", { params: parametrosCreate, responseType: 'blob' } ).toPromise()).text()).toEqual("Population done");
+    expect(await (await http.get("http://localhost/populateDB.php", { params: parametrosCreate, responseType: 'blob' } ).toPromise()).text()).toEqual("Population done");
   }, 9000);
   it('should logout', async () =>{
     let parametrosAction = new HttpParams()
