@@ -26,11 +26,11 @@ describe('Sueños', () => {
     verificationService = TestBed.inject(VerificationService);
     http = TestBed.inject(HttpClient);
   });
-  let urlTested = "http://localhost/php/catsuenos.php";
+  let urlTested = "http://localhost/catsuenos.php";
   it('should populate', async ()=>{
     let parametrosCreate = new HttpParams()
       .set("testing", 'true');
-    expect(await (await http.get("http://localhost/php/populateDB.php", { params: parametrosCreate, responseType: 'blob' } ).toPromise()).text()).toEqual("Population done");
+    expect(await (await http.get("http://localhost/populateDB.php", { params: parametrosCreate, responseType: 'blob' } ).toPromise()).text()).toEqual("Population done");
   }, 9000);
   it('should read', async () =>{
       let parametrosRead = new HttpParams()
@@ -112,7 +112,7 @@ describe('Sueños', () => {
       .set("testing", 'true')
       .set("verif", verificationService.verifCode)
       .set("userId", JSON.stringify(verificationService.user));
-    console.log(await (await http.post(urlTested, objectToCreate, { params: parametrosCreate, responseType: 'blob' } ).toPromise()).text());
+    await (await http.post(urlTested, objectToCreate, { params: parametrosCreate, responseType: 'blob' } ).toPromise()).text();
     let res: Sueno[];
     res = JSON.parse(await (await http.get(urlTested, { params: parametrosRead, responseType: 'blob' } ).toPromise()).text());
     expect(res).toBeTruthy();
@@ -185,7 +185,7 @@ describe('Sueños', () => {
     let parametrosRead = new HttpParams()
       .set("command", "read")
       .set("testing", 'true');
-    console.log(await (await http.post(urlTested, objectToCreate, { params: parametrosCreate, responseType: 'blob' } ).toPromise()).text());
+    await (await http.post(urlTested, objectToCreate, { params: parametrosCreate, responseType: 'blob' } ).toPromise()).text();
     let res: Sueno[];
     res = JSON.parse(await (await http.get(urlTested, { params: parametrosRead, responseType: 'blob' } ).toPromise()).text());
     expect(res).toBeTruthy();
@@ -270,7 +270,7 @@ describe('Sueños', () => {
       .set("testing", 'true')
       .set("verif", "verifuser4")
       .set("userId", JSON.stringify(4));
-    console.log(await (await http.get(urlTested, { params: parametrosDelete, responseType: 'blob' } ).toPromise()).text());
+    await (await http.get(urlTested, { params: parametrosDelete, responseType: 'blob' } ).toPromise()).text();
     let res: Sueno[];
     res = JSON.parse(await (await http.get(urlTested, { params: parametrosRead, responseType: 'blob' } ).toPromise()).text());
     expect(res[3]).toBeFalsy();
@@ -343,10 +343,9 @@ describe('Sueños', () => {
       .set("testing", 'true')
       .set("verif", verificationService.verifCode)
       .set("userId", JSON.stringify(verificationService.user));
-    console.log(await (await http.get(urlTested, { params: parametrosLikes, responseType: 'blob' } ).toPromise()).text());
+    await (await http.get(urlTested, { params: parametrosLikes, responseType: 'blob' } ).toPromise()).text();
     let res: String[];
     res = JSON.parse(await (await http.get(urlTested, { params: parametrosRead, responseType: 'blob' } ).toPromise()).text());
-    console.log(res);
     expect(res[2]).toBeTruthy();
   });
   it('should not createLike wrong user', async () =>{
@@ -389,7 +388,7 @@ describe('Sueños', () => {
       .set("testing", 'true')
       .set("verif", verificationService.verifCode)
       .set("userId", JSON.stringify(verificationService.user));
-    console.log(await (await http.get(urlTested, { params: parametrosLikes, responseType: 'blob' } ).toPromise()).text());
+    await (await http.get(urlTested, { params: parametrosLikes, responseType: 'blob' } ).toPromise()).text();
     let res: Sueno[];
     res = JSON.parse(await (await http.get(urlTested, { params: parametrosRead, responseType: 'blob' } ).toPromise()).text());
     expect(res[2]).toBeFalsy();

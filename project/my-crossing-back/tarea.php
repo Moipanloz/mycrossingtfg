@@ -91,11 +91,13 @@ if(isset($_GET["command"])){
           $request = json_decode($postdata);
           $hecha = $request->hecha;
           $imagenUrl = $request->imagen_url;
+          $objectUserId = $request->usuario_id;
 
           $validation = checkExisteUser($conn, $userId) &&
                     checkVerification($conn, $userId, $verifCode) &&
                     checkDatosTareaCorrectos($imagenUrl, $hecha) &&
-                    checkNumeroTareas($userId, $conn);
+                    checkNumeroTareas($userId, $conn) &&
+                    checkSameUser($userId, $objectUserId);
 
           if($validation){
             $result = $conn->prepare('INSERT INTO tareas(id, usuario_id, hecha, imagen_url) VALUES("",?,?,?)');

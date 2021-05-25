@@ -61,9 +61,9 @@ describe('CatFosilService', () => {
     catFosilService.readFosil().then(fos => {
       expect(fos).toEqual(FOSIL);
     });
-    const req = httpMock.expectOne("http://localhost/php/catfosiles.php?command=read&verif="+VERIF_CODE+"&userId="+USER_ID);
+    const req = httpMock.expectOne("http://localhost/catfosiles.php?command=read&verif="+VERIF_CODE+"&userId="+USER_ID);
     expect(req.request.method).toEqual("GET");
-    expect(req.request.url).toBe("http://localhost/php/catfosiles.php");
+    expect(req.request.url).toBe("http://localhost/catfosiles.php");
     expect(req.request.params.get("command")).toEqual(READ_PARAMS.get("command"));
     expect(req.request.params.get("verif")).toEqual(READ_PARAMS.get("verif"));
     expect(req.request.params.get("userId")).toEqual(READ_PARAMS.get("userId"));
@@ -73,9 +73,9 @@ describe('CatFosilService', () => {
 
   it('Deberia borrar un fosil', () => {
     catFosilService.borrarFosil(FOSIL[0].nombre_fosil);
-    const req = httpMock.expectOne("http://localhost/php/catfosiles.php?command=delete&nombreFosil=nombre&verif="+VERIF_CODE+"&userId="+USER_ID);
+    const req = httpMock.expectOne("http://localhost/catfosiles.php?command=delete&nombreFosil=nombre&verif="+VERIF_CODE+"&userId="+USER_ID);
     expect(req.request.method).toEqual("GET");
-    expect(req.request.url).toBe("http://localhost/php/catfosiles.php");
+    expect(req.request.url).toBe("http://localhost/catfosiles.php");
     expect(req.request.params.get("command")).toEqual(DELETE_PARAMS.get("command"));
     expect(req.request.params.get("nombreFosil")).toEqual(DELETE_PARAMS.get("nombreFosil"));
     expect(req.request.params.get("verif")).toEqual(DELETE_PARAMS.get("verif"));
@@ -86,9 +86,9 @@ describe('CatFosilService', () => {
 
   it('Deberia añadir un fosil', () => {
     catFosilService.addFosil(FOSIL[0].nombre_fosil);
-    const req = httpMock.expectOne("http://localhost/php/catfosiles.php?command=create&verif="+VERIF_CODE+"&userId="+USER_ID);
+    const req = httpMock.expectOne("http://localhost/catfosiles.php?command=create&verif="+VERIF_CODE+"&userId="+USER_ID);
     expect(req.request.method).toEqual("POST");
-    expect(req.request.url).toBe("http://localhost/php/catfosiles.php");
+    expect(req.request.url).toBe("http://localhost/catfosiles.php");
     expect(req.request.params.get("command")).toEqual(CREATE_PARAMS.get("command"));
     expect(req.request.params.get("verif")).toEqual(CREATE_PARAMS.get("verif"));
     expect(req.request.params.get("userId")).toEqual(CREATE_PARAMS.get("userId"));
@@ -102,9 +102,9 @@ describe('CatFosilService', () => {
   //   catFosilService.addFosil(FOSIL[0].nombre_fosil).then().catch(err => {
   //     expect(err.message).toBe("Faltan parametros");
   //   });
-  //   const req = httpMock.expectOne("http://localhost/php/catfosiles.php?command=create&verif="+VERIF_CODE+"&userId="+USER_ID);
+  //   const req = httpMock.expectOne("http://localhost/catfosiles.php?command=create&verif="+VERIF_CODE+"&userId="+USER_ID);
   //   expect(req.request.method).toEqual("POST");
-  //   expect(req.request.url).toBe("http://localhost/php/catfosiles.php");
+  //   expect(req.request.url).toBe("http://localhost/catfosiles.php");
   //   expect(req.request.params.get("command")).toEqual(CREATE_PARAMS.get("command"));
   //   expect(req.request.params.get("verif")).toEqual(CREATE_PARAMS.get("verif"));
   //   expect(req.request.params.get("userId")).toEqual(CREATE_PARAMS.get("userId"));

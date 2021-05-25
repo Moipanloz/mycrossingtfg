@@ -130,23 +130,25 @@ if(isset($_GET['command'])){
         $cumpleanyos = $request->cumpleanyos;
         $email = $request->email;
         $hemisferio = $request->hemisferio;
-        $id_switch = $request->id_switch;
         $verif = $request->verif;
-        $apodo_aldeano = $request->apodo_aldeano;
+
+        if(isset($request->id_switch)){
+          $id_switch = $request->id_switch;
+        }else{
+          $id_switch = null;
+        }
+
+        if(isset($request->apodo_aldeano)){
+          $apodo_aldeano = $request->apodo_aldeano;
+        }else{
+          $apodo_aldeano = null;
+        }
 
         $validation = checkDatos($nombre, $isla, $fruta, $cumpleanyos, $email, $hemisferio, $id_switch, $apodo_aldeano) &&
                 checkDatosCreate($conn, $email, $id_switch);
 
         if($validation){
           $contrasenya = password_hash($userPass, PASSWORD_BCRYPT);
-
-          if(empty($id_switch)){
-            $id_switch = null;
-          }
-
-          if(empty($apodo_aldeano)){
-            $apodo_aldeano = null;
-          }
 
           //Registro
           $result = $conn->prepare('INSERT INTO usuarios (nombre, contrasenya, isla, fruta, cumpleanyos, verification, email, hemisferio, id_switch, apodo_aldeano) VALUES (?,?,?,?,?,?,?,?,?,?)');

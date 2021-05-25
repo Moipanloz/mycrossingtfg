@@ -196,8 +196,10 @@ function checkVerification($conn, $userId, $verifCode){
 function checkVerificationJson($conn, $userId, $verifCode){
   //Comprueba que el codigo  de verificacion pertenece al usuario
   $devolver = TRUE;
-  $sql = "SELECT * FROM usuarios WHERE id = $userId AND verification = '$verifCode'";
-  $result = mysqli_query($conn,$sql);
+  $result = $conn->prepare('SELECT * FROM usuarios WHERE id = ? AND verification = ?');
+  $result->bind_param('is', $userId, $verifCode);
+  $result->execute();
+  $result->store_result();
   if ($result->num_rows != 1) {
     $devolver= FALSE;
     print(json_encode("Codigo de verificacion incorrecto, Error"));

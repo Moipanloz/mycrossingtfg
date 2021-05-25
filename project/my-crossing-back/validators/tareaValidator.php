@@ -76,3 +76,9 @@ function checkNumeroTareas($userId, $conn){
 
   return $validation;
 }
+function checkSameUser($userId, $objectUserId){
+  if($userId != $objectUserId){
+    die("No puedes crear tareas para otro usuario");
+  }
+  return true;
+}

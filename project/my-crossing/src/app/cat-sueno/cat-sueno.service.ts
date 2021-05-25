@@ -78,7 +78,6 @@ export class CatSuenoService {
   }
 
   mueveLikes(suenoOriginal: string, sueno : string){
-    console.log(suenoOriginal, sueno);
     let parametros = new HttpParams()
     .set("command", "mueveLikes")
     .set("codigoSuenoOriginal", suenoOriginal)
