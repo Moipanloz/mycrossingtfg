@@ -7,7 +7,7 @@ import { VerificationService } from 'app/general/services/verification.service';
   providedIn: 'root'
 })
 export class CatArteService {
-  url : string = "http://localhost/php/catarte.php";
+  url : string = "http://localhost/catarte.php";
 
   constructor(public verification : VerificationService, public http : HttpClient) { }
 

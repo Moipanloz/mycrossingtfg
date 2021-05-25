@@ -12,7 +12,7 @@ export class UserService {
   data = [];
   verification : VerificationService;
   cookieService : CookieService;
-  url : string = "http://localhost/php/authentication.php";
+  url : string = "http://localhost/authentication.php";
   constructor(verification: VerificationService, private http: HttpClient, cookieService : CookieService) {
       this.verification = verification;
       this.cookieService = cookieService;

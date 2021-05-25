@@ -10,7 +10,7 @@ export class ColeccionespService {
 
   constructor(private http : HttpClient, private verification : VerificationService) { }
 
-  url : string = "http://localhost/php/coleccionesespeciales.php"
+  url : string = "http://localhost/coleccionesespeciales.php"
 
   colecciones : Map<string, string[]> = new Map([
     ["DIY",new Array<any>()],

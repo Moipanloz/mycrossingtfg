@@ -8,7 +8,7 @@ import { Pez } from 'app/general/interfaces';
 })
 export class CatPecesService {
 
-  url : string = "http://localhost/php/catpeces.php";
+  url : string = "http://localhost/catpeces.php";
 
   constructor(public verification : VerificationService, public http : HttpClient) { }
 

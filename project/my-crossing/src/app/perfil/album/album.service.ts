@@ -8,7 +8,7 @@ import { VerificationService } from 'app/general/services/verification.service';
 })
 export class AlbumService {
   verification:VerificationService;
-  url : string = "http://localhost/php/album.php";
+  url : string = "http://localhost/album.php";
   constructor(private http : HttpClient, verification : VerificationService) {
     this.verification = verification;
   }

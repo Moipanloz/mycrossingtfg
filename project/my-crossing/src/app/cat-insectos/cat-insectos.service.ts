@@ -8,7 +8,7 @@ import { Bicho } from 'app/general/interfaces';
 })
 export class CatInsectosService {
 
-  url : string = "http://localhost/php/catbichos.php";
+  url : string = "http://localhost/catbichos.php";
   verification: VerificationService;
   constructor(private http : HttpClient, _verification : VerificationService) {
     this.verification = _verification;

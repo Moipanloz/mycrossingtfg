@@ -8,7 +8,7 @@ import { VerificationService } from 'app/general/services/verification.service';
   providedIn: 'root'
 })
 export class CatCancionService {
-  url : string = "http://localhost/php/catcanciones.php";
+  url : string = "http://localhost/catcanciones.php";
   totalCanciones: IItem[] = items.filter(i=>i.sourceSheet=="Music");
 
   constructor(public verification : VerificationService, public http : HttpClient) { }

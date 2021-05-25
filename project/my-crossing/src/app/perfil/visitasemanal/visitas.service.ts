@@ -8,7 +8,7 @@ import { VerificationService } from 'app/general/services/verification.service';
 })
 export class VisitasService {
   verification:VerificationService;
-  url : string = "http://localhost/php/visita.php";
+  url : string = "http://localhost/visita.php";
   constructor(private http : HttpClient, verification : VerificationService) {
     this.verification = verification;
   }

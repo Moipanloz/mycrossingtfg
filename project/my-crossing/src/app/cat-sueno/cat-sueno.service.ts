@@ -8,7 +8,7 @@ import { VerificationService } from 'app/general/services/verification.service';
 })
 export class CatSuenoService {
 
-  url : string = "http://localhost/php/catsuenos.php";
+  url : string = "http://localhost/catsuenos.php";
 
   constructor(public verification : VerificationService, public http : HttpClient) { }
 

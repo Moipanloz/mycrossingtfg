@@ -11,7 +11,7 @@ import { VerificationService } from 'app/general/services/verification.service';
 export class TareasService {
 
   verification : VerificationService;
-  url : string = "http://localhost/php/tarea.php";
+  url : string = "http://localhost/tarea.php";
 
   constructor(private http : HttpClient, verification : VerificationService) {
     this.verification = verification;
