@@ -135,7 +135,6 @@ export class CatSuenoComponent implements OnInit {
     }else if(this.fotosSeleccionadas.length<1 || this.fotosSeleccionadas.length>3){
       $("#erroresSuenoEdit").text("Debes seleccionar entre 1 y 3 imágenes");
     }else{
-      console.log(this.suenoUsuario.codigo_sueno + $("#inputCodigoSuenoEdit").val().toString());
       if(this.suenoUsuario.codigo_sueno != $("#inputCodigoSuenoEdit").val().toString()){
         this._catsueno.mueveLikes(this.suenoUsuario.codigo_sueno, $("#inputCodigoSuenoEdit").val().toString());
         this._catsueno.borrarLikes(this.suenoUsuario.codigo_sueno);
