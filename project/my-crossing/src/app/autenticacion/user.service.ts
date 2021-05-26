@@ -13,10 +13,7 @@ export class UserService {
   verification : VerificationService;
   cookieService : CookieService;
   url : string = "https://mycrossing-back.herokuapp.com/authentication.php";
-  HEADERS = new HttpHeaders()
-    .set('Access-Control-Allow-Origin', '*')
-    .set('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token')
-    .set('Access-Control-Allow-Methods', 'OPTIONS, PUT, DELETE, POST, GET');
+
 
   constructor(verification: VerificationService, private http: HttpClient, cookieService : CookieService) {
       this.verification = verification;
@@ -29,7 +26,7 @@ export class UserService {
     .set("verif", this.verification.verifCode)
     .set("command", "read");
 
-    return this.http.get<User>(this.url, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get<User>(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   login(user : any, key : string) : Promise<User>{
@@ -38,7 +35,7 @@ export class UserService {
 
     user.key = key;
 
-    return this.http.post<User>(this.url, user, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.post<User>(this.url, user, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   register(user : any, key : string) : Promise<any>{
@@ -46,7 +43,7 @@ export class UserService {
 
     user.verif = key;
 
-    return this.http.post(this.url, user, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.post(this.url, user, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   logOut(){
@@ -56,7 +53,7 @@ export class UserService {
     .set("userId", JSON.stringify(userId))
     .set("verif", this.verification.verifCode)
     .set("command", "logout");
-    return this.http.get(this.url, {params: parametros, responseType: "text", headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get(this.url, {params: parametros, responseType: "text"}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   updateUser(usuario : User){
@@ -64,7 +61,7 @@ export class UserService {
     .set("userId", JSON.stringify(this.verification.user))
     .set("verif", this.verification.verifCode)
     .set("command", "update");
-    return this.http.post(this.url, usuario, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.post(this.url, usuario, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
 }

@@ -28,12 +28,7 @@ export class VerificationService {
       .set("verif", this.cookieService.get("verif"))
       .set("command", "getKey");
 
-      let headers = new HttpHeaders()
-      .set('Access-Control-Allow-Origin', '*')
-      .set('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token')
-      .set('Access-Control-Allow-Methods', 'OPTIONS, PUT, DELETE, POST, GET');
-
-      let datos = await this.http.get("https://mycrossing-back.herokuapp.com/authentication.php", {params: parametros, headers: headers}).toPromise().catch(err => {throw new Error(err.error.text)});
+      let datos = await this.http.get("https://mycrossing-back.herokuapp.com/authentication.php", {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
       let verif = datos[0]['verification'];
       if(JSON.stringify(datos).includes("Error")){
         this.logged = false;

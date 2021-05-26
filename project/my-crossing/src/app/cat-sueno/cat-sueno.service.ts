@@ -9,10 +9,7 @@ import { VerificationService } from 'app/general/services/verification.service';
 export class CatSuenoService {
 
   url : string = "https://mycrossing-back.herokuapp.com/catsuenos.php";
-  HEADERS = new HttpHeaders()
-    .set('Access-Control-Allow-Origin', '*')
-    .set('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token')
-    .set('Access-Control-Allow-Methods', 'OPTIONS, PUT, DELETE, POST, GET');
+
 
   constructor(public verification : VerificationService, public http : HttpClient) { }
 
@@ -22,7 +19,7 @@ export class CatSuenoService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get<Sueno>(this.url, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get<Sueno>(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   readMisLikes() : Promise<string[]>{
@@ -31,13 +28,13 @@ export class CatSuenoService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get<string[]>(this.url, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get<string[]>(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   async readSuenos() : Promise<Sueno[]>{
     let parametros = new HttpParams()
     .set("command", "read");
-    return this.http.get<Sueno[]>(this.url, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get<Sueno[]>(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   borrarLikes(sueno : string){
@@ -47,7 +44,7 @@ export class CatSuenoService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get(this.url, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   borrarSueno(sueno : string){
@@ -58,7 +55,7 @@ export class CatSuenoService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get(this.url, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   deleteLike(sueno : string){
@@ -68,7 +65,7 @@ export class CatSuenoService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get(this.url, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   creaLike(sueno : string){
@@ -78,7 +75,7 @@ export class CatSuenoService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get(this.url, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   mueveLikes(suenoOriginal: string, sueno : string){
@@ -89,7 +86,7 @@ export class CatSuenoService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get(this.url, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   guardaSueno(codigoSueno: string, fotosSeleccionadas: string[], nuevo: boolean){
@@ -114,7 +111,7 @@ export class CatSuenoService {
     }else if(fotosSeleccionadas.length==2){
       sueno.foto2 = fotosSeleccionadas[1];
     }
-    return this.http.post(this.url, sueno, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.post(this.url, sueno, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   guardaSuenoEntidad(sueno: Sueno, nuevo: boolean){
@@ -122,7 +119,7 @@ export class CatSuenoService {
     .set("command", nuevo?"create":"update")
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
-    return this.http.post(this.url, sueno, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.post(this.url, sueno, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
   existeCodigo(codigo: string): Promise<boolean> {
     let parametros = new HttpParams()
@@ -130,6 +127,6 @@ export class CatSuenoService {
     .set("verif", this.verification.verifCode)
     .set("codigo", codigo)
     .set("userId", JSON.stringify(this.verification.user));
-    return this.http.get<boolean>(this.url, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get<boolean>(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 }

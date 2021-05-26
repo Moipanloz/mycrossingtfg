@@ -11,10 +11,7 @@ export class ColeccionespService {
   constructor(private http : HttpClient, private verification : VerificationService) { }
 
   url : string = "https://mycrossing-back.herokuapp.com/coleccionesespeciales.php";
-  HEADERS = new HttpHeaders()
-    .set('Access-Control-Allow-Origin', '*')
-    .set('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token')
-    .set('Access-Control-Allow-Methods', 'OPTIONS, PUT, DELETE, POST, GET');
+
 
   colecciones : Map<string, string[]> = new Map([
     ["DIY",new Array<any>()],
@@ -44,7 +41,7 @@ export class ColeccionespService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get<any[]>(this.url, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get<any[]>(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   borrarItemCE(item : string){
@@ -54,7 +51,7 @@ export class ColeccionespService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get(this.url, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   addItemCE(item : any,source : string){
@@ -69,6 +66,6 @@ export class ColeccionespService {
       usuario_id: this.verification.user
     }
 
-    return this.http.post(this.url, x, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.post(this.url, x, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 }

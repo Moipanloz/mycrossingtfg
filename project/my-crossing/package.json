@@ -24,6 +24,7 @@
     "ac-stalk-market-analyzer": "^1.0.1",
     "angular-calendar": "^0.28.22",
     "animal-crossing": "^7.3.0",
+    "cors": "^2.8.5",
     "date-fns": "^2.16.1",
     "express": "^4.17.1",
     "jquery": "^3.6.0",

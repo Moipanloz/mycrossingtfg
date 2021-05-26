@@ -9,10 +9,7 @@ import { Fosil } from 'app/general/interfaces';
 export class CatFosilService {
 
   url : string = "https://mycrossing-back.herokuapp.com/catfosiles.php";
-  HEADERS = new HttpHeaders()
-    .set('Access-Control-Allow-Origin', '*')
-    .set('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token')
-    .set('Access-Control-Allow-Methods', 'OPTIONS, PUT, DELETE, POST, GET');
+
 
   constructor(public verification : VerificationService, public http : HttpClient) { }
 
@@ -22,7 +19,7 @@ export class CatFosilService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get<Fosil[]>(this.url, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get<Fosil[]>(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   borrarFosil(fosil : string){
@@ -32,7 +29,7 @@ export class CatFosilService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get(this.url, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   addFosil(fosil : string){
@@ -46,6 +43,6 @@ export class CatFosilService {
       usuario_id: this.verification.user
     }
 
-    return this.http.post(this.url, x, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.post(this.url, x, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 }

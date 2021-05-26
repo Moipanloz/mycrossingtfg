@@ -12,10 +12,7 @@ export class TareasService {
 
   verification : VerificationService;
   url : string = "https://mycrossing-back.herokuapp.com/tarea.php";
-  HEADERS = new HttpHeaders()
-    .set('Access-Control-Allow-Origin', '*')
-    .set('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token')
-    .set('Access-Control-Allow-Methods', 'OPTIONS, PUT, DELETE, POST, GET');
+
 
   constructor(private http : HttpClient, verification : VerificationService) {
     this.verification = verification;
@@ -27,7 +24,7 @@ export class TareasService {
       .set("verif", this.verification.verifCode)
       .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get<Tarea[]>(this.url, {params: parametros, headers: this.HEADERS, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get<Tarea[]>(this.url, {params: parametros, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   crearTarea(){
@@ -43,7 +40,7 @@ export class TareasService {
         imagen_url: "hoja"
       };
 
-    return this.http.post(this.url, tarea, {params: parametros, headers: this.HEADERS, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.post(this.url, tarea, {params: parametros, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   async actualizaTarea(tarea : Tarea){
@@ -57,7 +54,7 @@ export class TareasService {
       .set("verif", this.verification.verifCode)
       .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.put(this.url, tarea, {params: parametros, headers: this.HEADERS, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.put(this.url, tarea, {params: parametros, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   borrarTarea(tarea){
@@ -67,7 +64,7 @@ export class TareasService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get(this.url, {params: parametros, headers: this.HEADERS, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get(this.url, {params: parametros, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
 

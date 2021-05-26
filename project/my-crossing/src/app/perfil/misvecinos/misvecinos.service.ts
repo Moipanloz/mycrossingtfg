@@ -14,10 +14,7 @@ export class MisvecinosService {
   verification : VerificationService;
   cookieService : CookieService;
   url : string = "https://mycrossing-back.herokuapp.com/misvecinos.php";
-  HEADERS = new HttpHeaders()
-    .set('Access-Control-Allow-Origin', '*')
-    .set('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token')
-    .set('Access-Control-Allow-Methods', 'OPTIONS, PUT, DELETE, POST, GET');
+
 
   constructor(verification : VerificationService, private http : HttpClient) {
     this.verification = verification;
@@ -29,7 +26,7 @@ export class MisvecinosService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get<Vecino[]>(this.url, {params : parametros, headers: this.HEADERS, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get<Vecino[]>(this.url, {params : parametros, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   crearVecino(vecino : Vecino): Promise<any>{
@@ -38,7 +35,7 @@ export class MisvecinosService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.post(this.url, vecino, {params : parametros, headers: this.HEADERS, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.post(this.url, vecino, {params : parametros, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   actualizarVecino(oldVecino : Vecino, newVecino : Vecino){
@@ -48,7 +45,7 @@ export class MisvecinosService {
     .set("oldVecinoId", oldVecino.vecino_id)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.put(this.url, newVecino, {params : parametros, headers: this.HEADERS, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.put(this.url, newVecino, {params : parametros, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   actualizarAmistadVecino(vecino : Vecino){
@@ -57,7 +54,7 @@ export class MisvecinosService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.put(this.url, vecino, {params : parametros, headers: this.HEADERS, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.put(this.url, vecino, {params : parametros, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   borrarVecino(vecino : Vecino){
@@ -67,7 +64,7 @@ export class MisvecinosService {
     .set("vecinoId", JSON.stringify(vecino.vecino_id))
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get(this.url, {params : parametros, headers: this.HEADERS, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get(this.url, {params : parametros, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
 }
