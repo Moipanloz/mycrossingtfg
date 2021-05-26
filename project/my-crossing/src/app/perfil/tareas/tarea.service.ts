@@ -24,7 +24,7 @@ export class TareasService {
       .set("verif", this.verification.verifCode)
       .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get<Tarea[]>(this.url, {params: parametros, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get<Tarea[]>(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   crearTarea(){
@@ -40,7 +40,7 @@ export class TareasService {
         imagen_url: "hoja"
       };
 
-    return this.http.post(this.url, tarea, {params: parametros, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.post(this.url, tarea, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   async actualizaTarea(tarea : Tarea){
@@ -54,7 +54,7 @@ export class TareasService {
       .set("verif", this.verification.verifCode)
       .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.put(this.url, tarea, {params: parametros, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.put(this.url, tarea, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   borrarTarea(tarea){
@@ -64,7 +64,7 @@ export class TareasService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get(this.url, {params: parametros, withCredentials : true}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
 
