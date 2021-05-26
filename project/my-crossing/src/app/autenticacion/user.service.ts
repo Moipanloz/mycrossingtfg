@@ -12,7 +12,7 @@ export class UserService {
   data = [];
   verification : VerificationService;
   cookieService : CookieService;
-  url : string = "http://localhost/authentication.php";
+  url : string = "https://mycrossing-back.herokuapp.com/authentication.php";
   constructor(verification: VerificationService, private http: HttpClient, cookieService : CookieService) {
       this.verification = verification;
       this.cookieService = cookieService;
