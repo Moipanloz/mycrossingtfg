@@ -8,7 +8,7 @@ import { VerificationService } from 'app/general/services/verification.service';
   providedIn: 'root'
 })
 export class CatCancionService {
-  url : string = "http://localhost/catcanciones.php";
+  url : string = "https://mycrossing-back.herokuapp.com/catcanciones.php";
   totalCanciones: IItem[] = items.filter(i=>i.sourceSheet=="Music");
 
   constructor(public verification : VerificationService, public http : HttpClient) { }

@@ -8,7 +8,7 @@ import { Fosil } from 'app/general/interfaces';
 })
 export class CatFosilService {
 
-  url : string = "http://localhost/catfosiles.php";
+  url : string = "https://mycrossing-back.herokuapp.com/catfosiles.php";
 
   constructor(public verification : VerificationService, public http : HttpClient) { }
 

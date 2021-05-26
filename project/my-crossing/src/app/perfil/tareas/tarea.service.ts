@@ -11,7 +11,7 @@ import { VerificationService } from 'app/general/services/verification.service';
 export class TareasService {
 
   verification : VerificationService;
-  url : string = "http://localhost/tarea.php";
+  url : string = "https://mycrossing-back.herokuapp.com/tarea.php";
 
   constructor(private http : HttpClient, verification : VerificationService) {
     this.verification = verification;

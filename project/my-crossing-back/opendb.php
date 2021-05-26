@@ -4,7 +4,6 @@ if(isset($_GET["testing"]) && $_GET["testing"] == 'true'){
   header('Access-Control-Allow-Origin: http://localhost:9876');
 }else{
   header('Access-Control-Allow-Origin: https://mycrossing.herokuapp.com');
-  //header('Access-Control-Allow-Origin: *');
 }
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 header('Access-Control-Allow-Methods: OPTIONS, PUT, DELETE, POST, GET');
@@ -17,21 +16,13 @@ if(isset($_GET["testing"]) && $_GET["testing"] == 'true'){
   define("DB_HOST", "localhost");
 }else{
   //Si no, se usan los de heroku
-
   define("DB_USERNAME", getenv('DB_USERNAME'));
   define("DB_PASSWORD", getenv('DB_PASSWORD'));
   define("DB_DATABASE", getenv('DB_DATABASE'));
   define("DB_HOST", getenv('DB_HOST'));
-
-  //Datos para local
-  // define("DB_DATABASE", "mycrossingdb");
-  // define("DB_USERNAME", 'mcadmin');
-  // define("DB_PASSWORD", 'thisismypass');
-  // define("DB_HOST", "localhost");
 }
 
 function connect(){
-
   // Create connection
   $conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
   // Check connection
@@ -40,7 +31,6 @@ function connect(){
   }
     //echo "Connected successfully";
   return $conn;
-
 }
 
 $conn = connect();

@@ -1,9 +1,9 @@
 <?php
 
-require "openDB.php";
+require dirname(__FILE__) . "/openDB.php";
 
-include "validators/usuarioValidator.php";
-include "validators/catsuenoValidator.php";
+include dirname(__FILE__) . "/validators/usuarioValidator.php";
+include dirname(__FILE__) . "/validators/catsuenoValidator.php";
 
 
 if(isset($_GET["command"])){

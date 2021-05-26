@@ -13,7 +13,7 @@ export class MisvecinosService {
 
   verification : VerificationService;
   cookieService : CookieService;
-  url : string = "http://localhost/misvecinos.php";
+  url : string = "https://mycrossing-back.herokuapp.com/misvecinos.php";
 
   constructor(verification : VerificationService, private http : HttpClient) {
     this.verification = verification;

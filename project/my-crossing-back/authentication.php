@@ -5,7 +5,7 @@ header('Access-Control-Allow-Methods: OPTIONS, PUT, DELETE, POST, GET');
 
 require(dirname(__FILE__) . '/opendb.php');
 
-include "validators/usuarioValidator.php";
+include dirname(__FILE__) . "/validators/usuarioValidator.php";
 
 if(isset($_GET['command'])){
   switch($_GET['command']){

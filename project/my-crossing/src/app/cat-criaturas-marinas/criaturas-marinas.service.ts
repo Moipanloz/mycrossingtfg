@@ -8,7 +8,7 @@ import { VerificationService } from 'app/general/services/verification.service';
 })
 export class CriaturasMarinasService {
 
-  url : string = "http://localhost/catcriaturasmarinas.php";
+  url : string = "https://mycrossing-back.herokuapp.com/catcriaturasmarinas.php";
 
   constructor(public verification : VerificationService, public http : HttpClient) { }
 

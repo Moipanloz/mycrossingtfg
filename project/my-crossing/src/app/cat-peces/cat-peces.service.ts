@@ -8,7 +8,7 @@ import { Pez } from 'app/general/interfaces';
 })
 export class CatPecesService {
 
-  url : string = "http://localhost/catpeces.php";
+  url : string = "https://mycrossing-back.herokuapp.com/catpeces.php";
 
   constructor(public verification : VerificationService, public http : HttpClient) { }
 
