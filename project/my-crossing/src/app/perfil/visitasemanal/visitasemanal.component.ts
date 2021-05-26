@@ -61,31 +61,27 @@ export class VisitasemanalComponent implements OnInit {
   ngOnInit(): void {
     this.verification.verify().then(() => {
       this.visitas.readVisitas().then(data => {
-        if(data.length == 0){
-          this.visitas.createVisita();
+        this.lpa=data[0]['lpa'];
+        this.mpa=data[0]['mpa'];
+        this.xpa=data[0]['xpa'];
+        this.jpa=data[0]['jpa'];
+        this.vpa=data[0]['vpa'];
+        this.lpr=data[0]['lpr'];
+        this.mpr=data[0]['mpr'];
+        this.xpr=data[0]['xpr'];
+        this.jpr=data[0]['jpr'];
+        this.vpr=data[0]['vpr'];
+        this.estela=data[0]['estela'];
+        if(this.isEmpty(data[0]['last_update'])){
+          let hoy = new Date();
+          this.visitas.setFecha(hoy.getTime().toString());
         }else{
-          this.lpa=data[0]['lpa'];
-          this.mpa=data[0]['mpa'];
-          this.xpa=data[0]['xpa'];
-          this.jpa=data[0]['jpa'];
-          this.vpa=data[0]['vpa'];
-          this.lpr=data[0]['lpr'];
-          this.mpr=data[0]['mpr'];
-          this.xpr=data[0]['xpr'];
-          this.jpr=data[0]['jpr'];
-          this.vpr=data[0]['vpr'];
-          this.estela=data[0]['estela'];
-          if(this.isEmpty(data[0]['last_update'])){
-            let hoy = new Date();
-            this.visitas.setFecha(hoy.getTime().toString());
-          }else{
-            let lastUpdate=new Date(Number(data[0]['last_update']));
-            let hoy = new Date();
-            if(this.dayOfWeek(hoy)<this.dayOfWeek(lastUpdate) || (hoy.getTime()-lastUpdate.getTime()) / (1000 * 3600 * 24)>7){
-              this.visitas.updateVisitas(this.lpr,this.mpr,this.xpr,this.jpr,this.vpr,
-                null,null,null,null,null, false);
-                this.visitas.setFecha(hoy.getTime().toString());
-            }
+          let lastUpdate=new Date(Number(data[0]['last_update']));
+          let hoy = new Date();
+          if(this.dayOfWeek(hoy)<this.dayOfWeek(lastUpdate) || (hoy.getTime()-lastUpdate.getTime()) / (1000 * 3600 * 24)>7){
+            this.visitas.updateVisitas(this.lpr,this.mpr,this.xpr,this.jpr,this.vpr,
+              null,null,null,null,null, false);
+              this.visitas.setFecha(hoy.getTime().toString());
           }
         }
       }).catch(err => {
