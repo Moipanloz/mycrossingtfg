@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IItem, items } from 'animal-crossing';
 import { Cancion } from 'app/general/interfaces';
@@ -10,6 +10,10 @@ import { VerificationService } from 'app/general/services/verification.service';
 export class CatCancionService {
   url : string = "https://mycrossing-back.herokuapp.com/catcanciones.php";
   totalCanciones: IItem[] = items.filter(i=>i.sourceSheet=="Music");
+  HEADERS = new HttpHeaders()
+    .set('Access-Control-Allow-Origin', '*')
+    .set('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token')
+    .set('Access-Control-Allow-Methods', 'OPTIONS, PUT, DELETE, POST, GET');
 
   constructor(public verification : VerificationService, public http : HttpClient) { }
 
@@ -19,7 +23,7 @@ export class CatCancionService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get<Cancion[]>(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get<Cancion[]>(this.url, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   findAudio(cancion: string): String {
@@ -55,7 +59,7 @@ export class CatCancionService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get(this.url, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   addCancion(cancion : string){
@@ -69,6 +73,6 @@ export class CatCancionService {
       usuario_id: this.verification.user
     }
 
-    return this.http.post(this.url, x, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.post(this.url, x, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 }

@@ -1,5 +1,5 @@
 import { VerificationService } from 'app/general/services/verification.service';
-import { HttpParams, HttpClient } from '@angular/common/http';
+import { HttpParams, HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Bicho } from 'app/general/interfaces';
 
@@ -9,6 +9,10 @@ import { Bicho } from 'app/general/interfaces';
 export class CatInsectosService {
 
   url : string = "https://mycrossing-back.herokuapp.com/catbichos.php";
+  HEADERS = new HttpHeaders()
+    .set('Access-Control-Allow-Origin', '*')
+    .set('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token')
+    .set('Access-Control-Allow-Methods', 'OPTIONS, PUT, DELETE, POST, GET');
   verification: VerificationService;
   constructor(private http : HttpClient, _verification : VerificationService) {
     this.verification = _verification;
@@ -20,7 +24,7 @@ export class CatInsectosService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get<any[]>(this.url, {params: parametros}).toPromise();
+    return this.http.get<any[]>(this.url, {params: parametros, headers: this.HEADERS}).toPromise();
   }
 
   borrarBicho(criatura : string){
@@ -30,7 +34,7 @@ export class CatInsectosService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get(this.url, {params: parametros, responseType: "blob"}).toPromise();
+    return this.http.get(this.url, {params: parametros, responseType: "blob", headers: this.HEADERS}).toPromise();
   }
 
   addBicho(criatura : string){
@@ -44,6 +48,6 @@ export class CatInsectosService {
       usuario_id: this.verification.user
     }
 
-    return this.http.post(this.url, x, {params: parametros, responseType: "blob"}).toPromise();
+    return this.http.post(this.url, x, {params: parametros, responseType: "blob", headers: this.HEADERS}).toPromise();
   }
 }

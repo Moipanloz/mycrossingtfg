@@ -1,6 +1,6 @@
 <?php
 
-require dirname(__FILE__) . "/openDB.php";
+require dirname(__FILE__) . "/opendb.php";
 
 include dirname(__FILE__) . "/validators/usuarioValidator.php";
 

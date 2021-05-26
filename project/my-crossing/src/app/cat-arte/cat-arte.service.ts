@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Arte } from 'app/general/interfaces';
 import { VerificationService } from 'app/general/services/verification.service';
@@ -8,6 +8,10 @@ import { VerificationService } from 'app/general/services/verification.service';
 })
 export class CatArteService {
   url : string = "https://mycrossing-back.herokuapp.com/catarte.php";
+  HEADERS = new HttpHeaders()
+    .set('Access-Control-Allow-Origin', '*')
+    .set('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token')
+    .set('Access-Control-Allow-Methods', 'OPTIONS, PUT, DELETE, POST, GET');
 
   constructor(public verification : VerificationService, public http : HttpClient) { }
 
@@ -17,7 +21,7 @@ export class CatArteService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get<any[]>(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get<any[]>(this.url, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   borrarArte(arte : string){
@@ -27,7 +31,7 @@ export class CatArteService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get(this.url, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   addArte(arte : string){
@@ -41,6 +45,6 @@ export class CatArteService {
       usuario_id: this.verification.user
     }
 
-    return this.http.post(this.url, x, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.post(this.url, x, {params: parametros, headers: this.HEADERS}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 }

@@ -1,5 +1,5 @@
 import { VerificationService } from 'app/general/services/verification.service';
-import { HttpParams, HttpClient } from '@angular/common/http';
+import { HttpParams, HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Pez } from 'app/general/interfaces';
 
@@ -9,6 +9,10 @@ import { Pez } from 'app/general/interfaces';
 export class CatPecesService {
 
   url : string = "https://mycrossing-back.herokuapp.com/catpeces.php";
+  HEADERS = new HttpHeaders()
+    .set('Access-Control-Allow-Origin', '*')
+    .set('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token')
+    .set('Access-Control-Allow-Methods', 'OPTIONS, PUT, DELETE, POST, GET');
 
   constructor(public verification : VerificationService, public http : HttpClient) { }
 
@@ -18,7 +22,7 @@ export class CatPecesService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get<any[]>(this.url, {params: parametros}).toPromise();
+    return this.http.get<any[]>(this.url, {params: parametros, headers: this.HEADERS}).toPromise();
   }
 
   borrarPez(criatura : string){
@@ -28,7 +32,7 @@ export class CatPecesService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.get(this.url, {params: parametros, responseType: "blob"}).toPromise();
+    return this.http.get(this.url, {params: parametros, responseType: "blob", headers: this.HEADERS}).toPromise();
   }
 
   addPez(criatura : string){
@@ -42,6 +46,6 @@ export class CatPecesService {
       usuario_id: this.verification.user
     }
 
-    return this.http.post(this.url, x, {params: parametros, responseType: "blob"}).toPromise();
+    return this.http.post(this.url, x, {params: parametros, responseType: "blob", headers: this.HEADERS}).toPromise();
   }
 }
