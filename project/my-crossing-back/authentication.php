@@ -3,7 +3,7 @@
 header('Access-Control-Allow-Headers: *');
 header('Access-Control-Allow-Methods: OPTIONS, PUT, DELETE, POST, GET');
 
-require $_SERVER['DOCUMENT_ROOT']."/openDB.php";
+require(dirname(__FILE__) . '/opendb.php');
 
 include "validators/usuarioValidator.php";
 
