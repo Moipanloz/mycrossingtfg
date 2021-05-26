@@ -3,9 +3,9 @@
 if(isset($_GET["testing"]) && $_GET["testing"] == 'true'){
   header('Access-Control-Allow-Origin: http://localhost:9876');
 }else{
-  header('Access-Control-Allow-Origin: https://mycrossing.herokuapp.com');
+  header('Access-Control-Allow-Origin: *');
 }
-header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
+header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token, Accept, Authorization');
 header('Access-Control-Allow-Methods: OPTIONS, PUT, DELETE, POST, GET');
 
 //Si es para testing, se usan los datos en local
