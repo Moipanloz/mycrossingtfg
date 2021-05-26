@@ -11,8 +11,5 @@
             "name": "Adrian Gracia Barroso",
             "email": "adriaingra@gmail.com"
         }
-    ],
-    "require":{
-        "php": ">=8.0.0"
-    }
+    ]
 }
