@@ -195,54 +195,39 @@
 	
 	\includegraphics[width=\textwidth]{img/cap5/NFR/2.png}
 	
+	\clearpage
+	
 \section{Diagrama de Clases}
 
-	\bigskip
-
-	Dado que tratamos con grandes cantidades de información, gran parte de ella la tenemos que obtener a través de APIs. Así mismo, como sed trata de información de un videojuego, muchos datos han de aparecer en forma de enumeraciones.
+	A continuación podemos ver un esquema a de alto nivel de las relaciones de las entidades de la aplicación, así como la información que contiene cada objeto. Dado que tratamos con grandes cantidades de información, gran parte de ella la tenemos que obtener a través de APIs.\\
 	
-	\bigskip
+	Debido al gran tamaño del diagrama de clases, vamos a verla dividida en partes más pequeñas de forma que muestren distintas relaciones y se pueda ver de forma más clara.\\
+	
 	
 	\includegraphics[width=\textwidth]{img/cap5/diagramaclases/enums.jpg}
 	
-	\bigskip
+	Primero podemos ver tanto los enumerados, como algunas clases que se encuentran más aisladas, ya que no forman parte del gran conjunto que rodea al usuario y por lo tanto, son datos puramente informativos y no se almacenará en base de datos. En este caso se trata de los muebles y las prendas de ropa (que como vemos, son idénticos), así como los eventos, que están relacionados con la clase Color, pero nada más lejos de dicha relación.\\ 
 	
-	Debido al gran tamaño del diagrama de clases, vamos a verla dividida en partes más pequeñas de forma que muestren distintas relaciones y se pueda ver de forma más clara.
+	\includegraphics[width=\textwidth]{img/cap5/diagramaclases/visitas-tareas.jpg}
 	
-	\bigskip
+	Pasando al conjunto principal, podemos empezar por la relación que comparte la clase Usuario con Visitas y Tareas. Un Usuario puede tener de 0 a 10 Tareas, al igual que pasa con Vistas Semanales, aunque esta tiene además una relación con usuario que indica si Estela (un personaje del juego) ha visitado ya la isla o no.\\
 	
-	A continuación se puede ver la clase Museo, la cual recoge la colección personal de Insectos, Peces, Criaturas Marinas, Fósiles y Obras de Arte.
+	\includegraphics[width=\textwidth]{img/cap5/diagramaclases/vecinos.jpg}
 	
-	\bigskip
+	Luego, podemos ver la relación de Vecinos que, al mostrarse tanto en un catálogo (en el cual no se registra la relación con el usuario), como en el perfil (donde sí se opera y registra con dicha relación), vemos que tiene una relación Mis Vecinos que relaciona aquellos Vecinos que estén habitando en la isla del Usuario, además con el atributo Amistad para indicar la amistad que tiene cada uno con el jugador.\\
 	
-	\includegraphics[width=\textwidth]{img/cap5/diagramaclases/museo.jpg}
+	\includegraphics[width=\textwidth]{img/cap5/diagramaclases/suenios.jpg}
 	
-	\bigskip
+	Seguimos con la relación de Usuario con Sueños. Esta entidad esta relacionada a su vez con Álbum, que también está relacionada con Usuario. Un Usuario dispone de un Álbum de fotos, las cuales se pueden utilizar para añadir imágenes al sueño de dicho Usuario. Además, un Usuario puede tener un listado de Sueños a los que le haya dado "Me Gusta".\\ 
 	
-	Luego tenemos la clase Catálogo que de manera análoga hace lo mismo con la Ropa, los Muebles y las Canciones.
+	\includegraphics[width=\textwidth]{img/cap5/diagramaclases/catalogos.jpg}
 	
-	\bigskip
+	Por último, tenemos una serie de listados que se relacionan todos de la misma manera con Usuario (la punta de la flecha superior). Cada entidad tiene su propia página de listado, y cada Usuario dispone de un catálogo personal de cada entidad en el cual se añaden aquellas entidades que ya haya obtenido.\\
 	
-	\includegraphics[width=\textwidth]{img/cap5/diagramaclases/catalogo.jpg}
+	Para terminar, se incluye una imagen completa del diagrama de clases para tener una vista global del mismo.\\
 	
-	\bigskip
+	\includegraphics[width=\textwidth]{img/cap5/diagramaclases/diagrama-completo.jpg}
 	
-	Tanto Museo como Catálogo van asociados a Usuario, así como Vecinos y Diseños.
-	
-	\bigskip
-	
-	\includegraphics[width=\textwidth]{img/cap5/diagramaclases/usuario.jpg}
-	
-	\bigskip
-
-	Por último está la clase Evento que no está relacionada con ninguna otra, ya que solo se usarán los datos para el Calendario de Eventos el cual es meramente informativo.
-	
-	\bigskip
-	
-	\begin{center}
-		\includegraphics[width=6cm]{img/cap5/diagramaclases/evento.jpg}
-	\end{center}
-
 \clearpage
 
 \section{Dise\~no}
