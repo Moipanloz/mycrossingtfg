@@ -1,0 +1,65 @@
+<!-- Menu vecino-->
+<div style="width: 42vw; height: 25vw; display: none;" class="popup-menu flex-column" (busquedaEmitter)="filtrar($event)" #menuVecino>
+  <div class="flex-centered">
+    <input [formControl]="busqueda" type="text" placeholder="Buscar" style="width: 70%;" class="text-input">
+  </div>
+  <form [formGroup]="vecinoForm" (ngSubmit)="enviar(vecinoForm.value, false)" style="height: 75%;">
+    <div class="lista">
+      <ng-container *ngFor="let vecino of vecinosArray | filtroVecino:valorFiltrar">
+        <div class="elementList">
+          <label class="flex-column-centered" style="margin: 0.5vw 0">
+            <input formControlName="id" type="radio" value="{{vecino.uniqueEntryId}}" class="radio-hidden">
+            <img [src]="vecino.iconImage" [class]="vecinoForm.value['id'] == vecino.uniqueEntryId ? 'img-radio img-radio-checked' : 'img-radio'">
+            <span>{{vecino.translations.spanish}}</span>
+          </label>
+        </div>
+      </ng-container>
+    </div>
+    <div class="flex-centered" id="botones">
+      <button (click)="borrarVecino()" class="b-scale boton-imagen delete"></button>
+      <button [disabled]="vecinoForm.invalid" type="submit" class="b-scale boton-imagen save"></button>
+    </div>
+  </form>
+</div>
+
+<!-- Menu amistad-->
+<div class="popup-menu amistad-popup" style="display:none" #menuAmistad>
+  <form [formGroup]="amistadForm" class="flex-column-centered" style="justify-content: space-around;height: 100%;" (ngSubmit)="enviar(amistadForm.value, true)">
+    <label>
+      <input #am6 formControlName="amistad" class="radio-hidden" id="rad6" type="radio" value="6">
+      <button (click)="am6.click()" class="b-scale boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">
+        <span>6</span>
+      </button>
+    </label>
+    <label>
+      <input #am5 formControlName="amistad" class="radio-hidden" id="rad5" type="radio" value="5">
+      <button (click)="am5.click()" class="b-scale boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">
+        <span>5</span>
+      </button>
+    </label>
+    <label>
+      <input #am4 formControlName="amistad" class="radio-hidden" id="rad4" type="radio" value="4">
+      <button (click)="am4.click()" class="b-scale boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">
+        <span>4</span>
+      </button>
+    </label>
+    <label>
+      <input #am3 formControlName="amistad" class="radio-hidden" id="rad3" type="radio" value="3">
+      <button (click)="am3.click()" class="b-scale boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">
+        <span>3</span>
+      </button>
+    </label>
+    <label>
+      <input #am2 formControlName="amistad" class="radio-hidden" id="rad2" type="radio" value="2">
+      <button (click)="am2.click()" class="b-scale boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">
+        <span>2</span>
+      </button>
+    </label>
+    <label>
+      <input #am1 formControlName="amistad" class="radio-hidden" id="rad1" type="radio" value="1">
+      <button (click)="am1.click()" class="b-scale boton-imagen amistad" style="color:#F7F3E8;font-size: 1.2vw;">
+        <span>1</span>
+      </button>
+    </label>
+  </form>
+</div>

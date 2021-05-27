@@ -1,0 +1,192 @@
+:host{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.boton-pag{
+  width: 2.5vw;
+  height: 2.5vw;
+}
+
+.paginacion-content{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-gap: 1vw;
+}
+
+.item-list-wrap{
+  width: 100%;
+  margin: 1vw 0;
+}
+
+.item-list-wrap > * {
+  margin: 0;
+}
+
+.menu-botones{
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.menu-botones > div {
+  margin: 1vw 1vw;
+  flex-basis: 8%;
+}
+
+.menu-botones button{
+  transition: 0.3s;
+}
+
+.menu-botones button:hover{
+  transform: translateY(-10px);
+}
+
+
+.boton-circular{
+  padding: 0;
+  overflow: hidden;
+}
+
+.boton-circular > img{
+  width: 80%;
+  height: 80%;
+}
+
+span{
+  font-size: 1.2vw;
+}
+
+.item-container {
+  background-color:#ffefc4;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5vw;
+  border-radius: 20px;
+}
+
+.selected{
+  background-color: #a3d5d6;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.selected span{
+  color:white;
+}
+
+.en-lista{
+  background-color: darkcyan;
+}
+
+.item{
+  text-align: center;
+}
+
+.item > img {
+  width: 100%;
+}
+
+.check-container{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.boton-imagen{
+  width: 1.5vw;
+  height: 1.5vw;
+}
+
+#DIY{
+  background-color: #ffba6b;
+  border-color: #c95c0c;
+}
+
+#Estacional{
+  background-color: #ffd8ff;
+  border-color: #e68cf5;
+}
+
+#Estela{
+  background-color: #5f1e1e;
+  border-color: #eb6363;
+}
+
+#Kamilo{
+  background-color: #463b3d;
+  border-color: #9b1f1f;
+}
+
+#CJ{
+  background-color: #d1d065;
+  border-color: #8f921c;
+}
+
+#Gulliver{
+  background-color: #607ce7;
+  border-color: #0352a6;
+}
+
+#Boda{
+  background-color: #fbffd1;
+  border-color: #79ccff;
+}
+
+#Pascal{
+  background-color: #e6e3a5;
+  border-color: #eb5a5a;
+}
+
+#Gullivarrr{
+  background-color: #770b1d;
+  border-color: #d2c402;
+}
+
+#Coti{
+  background-color: #54add3;
+  border-color: #ffe413;
+}
+
+#Soponcio{
+  background-color: #481c87;
+  border-color: #ff8503;
+}
+
+#Guindo{
+  background-color: #59417b;
+  border-color: #e541d7;
+}
+
+#Copito{
+  background-color: #f6873d;
+  border-color: #e1e1e1;
+}
+
+#Renato{
+  background-color: #b50202;
+  border-color: #a36d08;
+}
+
+#Conga{
+  background-color: #a4dc9f;
+  border-color: #0c8c8d;
+}
+
+#Dodo{
+  background-color: #0490ff;
+  border-color: #d4d4d4;
+}
+
+#Mama{
+  background-color: #a1c0ff;
+  border-color: #d41a1a;
+}
+
+#Cumple{
+  background-color: #f2f264;
+  border-color: #01a2d4;
+}

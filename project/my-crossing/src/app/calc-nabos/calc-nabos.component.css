@@ -1,0 +1,351 @@
+:root {
+  --color-blue: #0AB5CD;
+  --color-light-blue: #5ECEDB;
+
+  --bg-color: #DEF2D9;
+  --bg-dot-color: #FFF;
+
+  --shadow-3: rgba(0, 0, 0, 0.03);
+  --shadow-5: rgba(0, 0, 0, 0.05);
+  --shadow-6: rgba(0, 0, 0, 0.06);
+  --shadow-8: rgba(0, 0, 0, 0.08);
+  --shadow-9: rgba(0, 0, 0, 0.09);
+  --shadow-10: rgba(0, 0, 0, 0.10);
+  --shadow-15: rgba(0, 0, 0, 0.16);
+  --shadow-16: rgba(0, 0, 0, 0.16);
+  --shadow-20: rgba(0, 0, 0, 0.20);
+
+  --center-bg-color: #FFF;
+
+  --wave-1: rgba(255, 255, 255, 0);
+  --wave-2: rgba(255, 255, 255, 0.2);
+  --wave-3: rgba(255, 255, 255, 0.4);
+  --wave-4: rgba(255, 255, 255, 0.6);
+
+  --nook-phone-bg-color: #F5F8FF;
+  --nook-phone-text-color: #686868;
+
+  --dialog-bg-color: #FFFAE5;
+  --dialog-text-color: #837865;
+
+  --dialog-name-bg-color: #FF9A40;
+  --dialog-name-text-color: #BA3B1F;
+
+  --chart-fill-color: var(--bg-color);
+  --chart-line-color: rgba(0, 0, 0, 0.1);
+  --chart-point-color: rgba(0, 0, 0, 0.1);
+
+  --select-text-color: var(--dialog-text-color);
+  --select-border-color: var(--bg-color);
+  --select-bg-color-hover: #EBFEFD;
+
+  --italic-color: #AAA;
+
+  --form-h6-text-color: #845E44;
+
+  --radio-hover-bg-color: var(--nook-phone-bg-color);
+  --radio-checked-text-color: #FFF;
+
+  --input-bg-color: #F3F3F3;
+  --input-focus-bg-color: white;
+  --input-focus-text-color: var(--color-blue);
+
+  --input-now-bg-color: var(--dialog-name-bg-color);
+  --input-now-text-color: var(--dialog-name-text-color);
+
+  --button-text-color: var(--nook-phone-text-color);
+  --button-reset-text-color: #E45B5B;
+
+  --table-range0: hsl(140, 80%, 85%);
+  --table-range1: hsl(90, 80%, 85%);
+  --table-range2: hsl(60, 80%, 85%);
+  --table-range3: hsl(30, 80%, 85%);
+  --table-range4: hsl(0, 80%, 85%);
+}
+
+.input__radio-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.input__radio-buttons input[type=radio] {
+  display: none;
+}
+
+.input__radio-buttons input[type="radio"]+label {
+  background-color: #d9f6f6;
+  border-color: #ade6e7;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 0.3vw;
+  border-radius: 50px;
+  padding: 2px 10px;
+  margin: 1%;
+  transition: 0.3s;
+}
+
+.input__radio-buttons label{
+  font-weight: unset;
+}
+
+.input__radio-buttons input[type="radio"]:not(:checked)+label:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  box-shadow: 0 1px 6px var(--shadow-5), 0 3px 6px var(--shadow-9);
+}
+
+.input__radio-buttons input[type="radio"]:checked+label {
+  background-color: rgb(203, 244, 196);
+  border-color: rgb(149, 229, 155);
+  transform: scale(1.1);
+  font-weight: bold !important;
+}
+
+.form__row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__flex-wrap {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1080px;
+  justify-content: center;
+  width: 70%;
+  margin: auto;
+}
+
+.form__row h3 {
+  width: 100%;
+  display: block;
+  font-weight: 800;
+  font-size: 1.25rem;
+  margin: 8px auto;
+  text-align: center;
+}
+
+.form__flex-wrap > div{
+  width: 33%;
+}
+
+.input__group {
+  display: flex;
+  flex-direction: column;
+  margin: 8px;
+  align-items: center;
+}
+
+.input__group > label {
+  opacity: 0.7;
+}
+
+input[type=number] {
+  width: 60px;
+  text-align: center;
+}
+
+.form__flex-wrap .input__group label {
+  margin-left: 0px;
+  margin-bottom: 8px;
+}
+
+.table-wrapper {
+  display: inline-block;
+  max-width: 98%;
+  padding: 16px;
+  margin: 0px auto;
+  box-sizing: border-box;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table-wrapper {
+  max-height: calc(75vh - 40px);
+}
+
+.table-wrapper::-webkit-scrollbar {
+  height: 8px;
+  width: 5px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  height: 8px;
+  width: 5px;
+  box-shadow: inset 0 0 6px var(--shadow-20);
+  -webkit-box-shadow: inset 0 0 6px var(--shadow-20);
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  height: 8px;
+  width: 5px;
+  background: var(--shadow-20);
+  box-shadow: inset 0 0 6px var(--shadow-20);
+  -webkit-box-shadow: inset 0 0 6px var(--shadow-10);
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:window-inactive {
+  height: 8px;
+  width: 5px;
+  background: var(--shadow-20);
+}
+
+#turnipTable {
+  border-collapse: collapse;
+}
+
+#turnipTable th div:nth-of-type(1) {
+  margin-bottom: 2px;
+}
+
+#turnipTable th div:nth-of-type(2) {
+  display: flex;
+  justify-content: space-around;
+  opacity: 0.4;
+}
+
+#turnipTable tr td {
+  white-space: nowrap;
+  max-width: 150px;
+  padding: 6px 4px;
+  text-align: center;
+  border-right: 1px solid var(--shadow-3);
+  border-bottom: 1px solid var(--shadow-15);
+}
+
+#turnipTable tbody tr {
+  opacity: 0.8;
+}
+
+#turnipTable tbody tr:hover {
+  cursor: default;
+  opacity: 1;
+}
+
+#turnipTable .table-pattern {
+  white-space: nowrap;
+}
+
+#turnipTable td.range4 {
+  background-color: var(--table-range4);
+}
+
+#turnipTable td.range3{
+  background-color: var(--table-range3);
+}
+
+#turnipTable td.range2 {
+  background-color: var(--table-range2);
+}
+
+#turnipTable td.range1 {
+  background-color: var(--table-range1);
+}
+
+#turnipTable td.range0 {
+  background-color: var(--table-range0);
+}
+
+#reset {
+  position: absolute;
+  top: 250px;
+  left:90px;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 0.3vw;
+  border-radius: 50px;
+  padding: 2px 10px;
+  font-size: 1.2rem;
+  transition: 0.3s;
+}
+
+h1 {
+  text-align: center;
+}
+
+.text-input{
+  width: unset;
+}
+
+.patron-tag > img{
+  width: 25vw;
+}
+
+.patron-tag:hover h2{
+  padding-bottom: 7rem;
+}
+
+.patron-tag:hover p{
+  padding-top: 1rem;
+}
+
+.patron-tag{
+  margin: 1vw 0;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: 0.3s;
+  box-shadow: 0 0 20px;
+}
+
+.patron-tag p {
+  opacity: 0;
+  position: relative;
+  margin-top: 4rem;
+}
+
+.patron-tag h2{
+  position: absolute;
+  transition: 0.3s;
+}
+
+.pShow{
+  transition: 0.3s;
+  opacity: 1 !important;
+}
+
+.pHide{
+  transition: 0.3s;
+  opacity: 0 !important;
+}
+
+.patron-tag > div{
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  padding: 1vw;
+}
+
+.info-general{
+  justify-content: unset;
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  padding-top: 4vw;
+  margin-right:4vw;
+  height:fit-content;
+  width: 90%;
+  background-color: var(--blanco);
+  border-radius: 50px;
+  padding: 3%;
+  box-shadow: 0 0 20px;
+}
+
+.info-wrap{
+  position: relative;
+  padding: 1vw 2vw;
+  align-items:unset;
+}
+
+label{
+  font-size: unset;
+}
+
+.burbuja-title{
+  background-image: url("../../assets/images/bubble-nabo.png");
+}

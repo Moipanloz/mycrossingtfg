@@ -1,0 +1,150 @@
+span{
+  font-size: 1.4vw;
+}
+
+h2, span{
+  text-align: center;
+}
+
+.content-wrapper-bot{
+  background-color: pink;
+}
+
+.content-wrapper-top{
+  position: relative;
+}
+
+.pag-menu{
+  width: 100%;
+  position: relative;
+  margin-top: 1vw;
+}
+
+.grid-w-gap{
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid-item-wrap{
+  background-color: #fdd2f4;
+  position: relative;
+  box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
+  transition: 0.3s;
+}
+
+.editar{
+  right: 1vw;
+  top: 1vw;
+}
+
+.b-variacion{
+  border-radius: 50%;
+  margin: 0 0.5vw;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.b-darkGreen{
+  background-color: rgb(157 228 163);
+  transform: scale(1.1);
+  font-weight: bold;
+}
+
+.b-darkBlue{
+  background-color: #ade6e7;
+}
+
+.b-darkPink{
+  background-color: #f59dc6;
+}
+
+.b-darkPurple{
+  background-color: #ec819a;
+}
+
+.b-variacion:hover img{
+  transform: scale(1.1);
+}
+
+.b-variacion img{
+  transition: 0.3s;
+}
+
+.b-variacion:hover{
+  background-color: #ec819a;
+}
+
+.grid-item-wrap ::-webkit-scrollbar {
+  height: 12px;
+  transition: 0.3s;
+  padding: 3px 0;
+  background-color: #c37c99;
+  border-radius: 20px;
+}
+
+.grid-item-wrap ::-webkit-scrollbar-thumb {
+  background: #f59dc6;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.grid-item-wrap ::-webkit-scrollbar-thumb:hover {
+  background-color: #ec819a;
+}
+
+.variMenu > button{
+  margin-bottom: 0.3rem;
+}
+
+#wrap-filtros{
+  padding-bottom: 1vw;
+  display:flex;
+  margin: auto;
+  background-color: #fdd2f4;
+  border-radius: 50px;
+  box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
+}
+
+.boton-circular{
+  width: 2vw;
+  height: 2vw;
+  padding: 0;
+}
+
+.b-pag{
+  border-radius: 5px;
+  border-style: none;
+  margin: 0 0.1vw;
+  cursor: pointer;
+}
+
+.b-pag:hover{
+  background-color: rgb(157 228 163);
+}
+
+.bg-scroll-1{
+  background-image: url("../../assets/images/ropa-bg-0.svg");
+}
+
+
+.bg-scroll-2{
+  background-image: url("../../assets/images/ropa-bg-1.svg");
+}
+
+.no-result{
+  background-color: #fdd2f4;
+  border-radius: 50px;
+  position:relative;
+  margin: 3% 0;
+  box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
+}
+
+.burbuja-title{
+  background-image: url("../../assets/images/bubble-ropa.png");
+}
+
+:host{
+  background-color: #d892c9;
+}
+

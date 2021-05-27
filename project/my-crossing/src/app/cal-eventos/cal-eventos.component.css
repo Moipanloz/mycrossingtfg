@@ -1,0 +1,100 @@
+.padding-footer{
+  padding-top: 6vw;
+}
+
+.b-small{
+  width: 1.5vw;
+  height: 1.5vw;
+  text-align: center;
+  font-weight: bold;
+}
+
+.calendario-wrap{
+  width: 80%;
+  border-radius: 50px;
+  background-color: #ea9a9a;
+  margin-top: 1.5vw;
+  box-shadow: 0px 0px 15px 4px rgb(23 23 23 / 55%);
+}
+
+.cal-open-day-events{
+  display: none;
+}
+
+.mes{
+  text-align: center;
+  width: 20%;
+}
+
+.cal-event{
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  background-color: unset !important;
+  background-size: cover;
+}
+
+.cal-day-badge{
+  display: none !important;
+}
+
+.cal-month-view .cal-cell.cal-has-events.cal-open{
+  background-color: white;
+}
+
+.cal-month-view .cal-cell-row .cal-cell:hover{
+  background-color: #ededed;
+}
+
+.menu-evento{
+  top:25%;
+  left:17%;
+  width: 60%;
+  font-size: 1.5vw;
+  position: fixed;
+  border-style: none;
+  padding: 3%;
+  border-radius: 15px;
+  background-color: var(--blanco);
+  box-shadow: 0px 0px 10px 1px rgb(23 23 23 / 55%);
+  z-index: 5;
+}
+
+.menu-evento h3{
+  margin-top: 1%;
+  margin-bottom: 7%;
+  text-align: center;
+}
+
+.info-images{
+  width: 4em;
+  height: 4em;
+}
+
+.info-wrap{
+  display: flex;
+  justify-content: center;
+}
+
+.info-wrap p{
+  margin: 0;
+}
+
+.info-wrap > img{
+  width: 7em;
+  height: 7em;
+  margin-right: 5%;
+}
+
+.info-wrap > div > div{
+  margin-top:5%;
+  width: 100%;
+}
+
+.cal-today{
+  background-color: #e0fdfd !important;
+}
+
+.burbuja-title{
+  background-image: url("../../assets/images/bubble-calendario.png");
+}
+

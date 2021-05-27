@@ -1,0 +1,220 @@
+span{
+    font-size: 1.4vw;
+  }
+
+  h2, span{
+    text-align: center;
+  }
+
+  .content-wrapper-bot{
+    background-color: #5197ca;
+  }
+
+  .pag-menu{
+    width: 100%;
+    position: relative;
+    margin-top: 1vw;
+  }
+
+  .grid-w-gap{
+    grid-template-columns: repeat(5, 1fr);
+    position: relative;
+    transition: 0.3s;
+  }
+
+  .grid-item-wrap{
+    background-color: #b5d6ff;
+    position: relative;
+  }
+
+  .editar{
+    right: 1vw;
+    top: 1vw;
+  }
+
+  .b-variacion{
+    border-radius: 50%;
+    margin: 0 0.5vw;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+  }
+
+  .b-darkGreen{
+    background-color: rgb(157 228 163);
+    transform: scale(1.1);
+    font-weight: bold;
+  }
+
+  .b-darkBlue{
+    background-color: #ade6e7;
+  }
+
+  .b-lightGreen{
+    background-color: #85c583;
+  }
+
+  .b-darkGreener{
+    background-color: #41b054;
+  }
+
+  .boton-circular{
+    width: 2vw;
+    height: 2vw;
+    padding: 0;
+  }
+
+  .b-pag{
+    border-radius: 5px;
+    border-style: none;
+    margin: 0 0.1vw;
+    cursor: pointer;
+  }
+
+  .b-pag:hover{
+    background-color: rgb(157 228 163);
+  }
+  .oscuro{
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      background-color: rgba(0, 0, 0, 0.644);
+  }
+  .panel{
+    top:15%;
+    left:30%;
+    width: 35vw;
+    font-size: 1.5vw;
+    position: fixed;
+    border-style: none;
+    padding: 3%;
+    border-radius: 15px;
+    background-color: #F7F3E8;
+    box-shadow: 0px 0px 10px 1px rgb(23 23 23 / 55%);
+    z-index: 5;
+}
+  .datos{
+    margin-top: 1vw;
+  }
+
+  .editar-left{
+    left: 1vw;
+    top: 1vw;
+
+  }
+  .imagenHemisferio{
+    width: 5vw;
+    height: 5vw;
+    padding: 1vw;
+  }
+  .spanImg{
+    width: fit-content;
+    height: fit-content;
+    border-radius: 4vw;
+  }
+  .spanImg:hover{
+    background-color: #85c583 !important;
+  }
+
+  h4{
+    margin-left: 0.5vw;
+  }
+
+  h4{
+    margin:0;
+  }
+
+  #wrap-filtros{
+    padding: 1vw 0;
+    display:flex;
+    margin: auto;
+    background-color: #b5d6ff;
+    border-radius: 50px;
+    box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
+  }
+
+  #filtro-sombra > button, #filtro-lugar > button, #filtro-usuario > button{
+    margin: 0.2vw;
+  }
+
+  .tiempo{
+    font-size: 1.5vw;
+    width: 3vw;
+    height: 1vw;
+    margin-left: 0.5vw;
+  }
+  .selectMonth{
+    width: 9vw;
+    height: 2vw;
+  }
+
+  .input-hora, .input-mes {
+    text-align: center;
+    margin-left: 0.5vw;
+  }
+
+  .input-hora{
+    width: 2.5vw;
+    height: 1vw;
+  }
+
+  .input-mes{
+    height: 2vw;
+  }
+
+  #time-wrap > div{
+    margin: 0.5vw;
+    width: 100%;
+    justify-content: unset;
+  }
+
+  .editar-top-left{
+    top: 15vw;
+    right: unset;
+    left:1vw;
+  }
+
+  :host{
+    background-color: #5197ca;
+  }
+
+  .burbuja-title{
+    background-image: url("../../../assets/images/bubble-cazar-ahora.png");
+  }
+
+  #ser-wrap > button {
+    background-size: 60%;
+    margin: 0.5vw 0;
+    background-position: center;
+    border-radius: 50px;
+    width: 3vw;
+    height: 3vw;
+    border-style: solid;
+  }
+
+  #volver{
+    background-image: url("../../../assets/images/volver-rojo.png");
+  }
+
+  .bg-scroll-1{
+    background-image: url("../../../assets/images/pez-bg-0.png");
+  }
+
+
+  .bg-scroll-2{
+    background-image: url("../../../assets/images/pez-bg-1.png");
+  }
+
+  .no-result{
+    background-color: #b5d6ff;
+    border-radius: 50px;
+    position:relative;
+    margin: 3% 0;
+    box-shadow: 0px 0px 15px -5px rgb(23 23 23 / 55%);
+  }
+
+  .wrap-scale:hover{
+    background-color: #b3c4da;
+  }

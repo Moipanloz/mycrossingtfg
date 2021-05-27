@@ -1,0 +1,53 @@
+:host{
+  position: fixed;
+  z-index: 5;
+}
+.lista{
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  height: 100%;
+  margin: 1vw 0;
+}
+.elementList{
+  display: grid;
+  width: 8vw;
+  text-align: center;
+  height: fit-content;
+}
+
+.popup-menu{
+  padding: 4%;
+}
+
+.amistad-popup{
+  width: fit-content;
+  height: 17vw;
+  padding:40%
+}
+
+.amistad-popup button{
+  position: relative;
+}
+
+.amistad-popup button span{
+  position: absolute;
+  top: 7%;
+  left: 32%;
+  color: white;
+}
+
+#botones{
+  justify-content: space-around;
+}
+
+.amistad{
+  background-image: url("../../../../assets/images/corazon.png");
+  filter: drop-shadow(2px -1px 0 #F7F3E8) drop-shadow(-2px 0px 0 #F7F3E8) drop-shadow(1px 2px 0 #F7F3E8);
+}
+
+
+.popup-menu ::-webkit-scrollbar {
+  background-color: #d4d4d4;
+  border-radius: 20px;
+}

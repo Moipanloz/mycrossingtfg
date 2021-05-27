@@ -1,0 +1,30 @@
+
+<div>
+  <ng-container *ngFor="let tarea of data[0]">
+
+    <!-- Tarea done -->
+    <ng-container *ngIf="tarea.hecha == true; else todo">
+      <button (click)="!modoEdicion ? checkTarea(tarea) : abreMenu($event, tarea)" class="boton-circular b-verde bckg-img-boton" [style.background-image]="'url(../../../assets/images/'+ tarea.imagen_url + '.png)'"></button>
+    </ng-container>
+
+    <!-- Tarea todo -->
+    <ng-template #todo>
+      <button (click)="!modoEdicion ? checkTarea(tarea) : abreMenu($event, tarea)" class="b-scale boton-circular b-azul-hover bckg-img-boton" [style.background-image]="'url(../../../assets/images/'+ tarea.imagen_url + '.png)'"></button>
+    </ng-template>
+
+  </ng-container>
+
+  <!-- Menu tarea-->
+  <app-tarea-menu [menu]="this.tareaMenu" (actualizar)="actualizaTarea($event)" (borrar)="borrarTarea($event)" (clickOutside)="cierraMenu()"></app-tarea-menu>
+
+  <!-- Boton crear -->
+  <ng-container *ngIf="modoEdicion && data[0].length < 10">
+    <button (click)="crearTarea()" class="b-scale b-crear b-bold boton-circular b-amarillo">+</button>
+  </ng-container>
+
+  <!-- Boton modo edicion -->
+  <button class="b-scale-xl editar boton-imagen editar-azul" #botonEdit (click)="activaEdicion()"></button>
+
+</div>
+
+

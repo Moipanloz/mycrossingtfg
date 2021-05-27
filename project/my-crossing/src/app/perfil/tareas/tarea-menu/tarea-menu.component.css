@@ -1,0 +1,38 @@
+:host{
+  position: absolute;
+}
+
+.popup-menu > form{
+  margin: 0 0 5% 0;
+}
+
+.popup-menu > div{
+  justify-content: left;
+  margin: 5% 0 0 0;
+
+}
+
+.popup-menu > * > span{
+  margin: 0 0 0 2%;
+}
+
+.btn-borrar{
+  height: max-content;
+}
+
+.delete{
+  transition: 0.3s;
+}
+
+.icon-wrap-menu{
+  margin-top: 1vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.popup-menu{
+  position: relative;
+}
+
+

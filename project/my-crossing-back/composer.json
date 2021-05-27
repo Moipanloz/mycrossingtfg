@@ -1,0 +1,15 @@
+{
+    "name": "mplagb/mycrossing",
+    "description": "Proyecto Fin de Grado",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Moises Pantion Loza",
+            "email": "pantion.loza.moises@gmail.com"
+        },{
+            "name": "Adrian Gracia Barroso",
+            "email": "adriaingra@gmail.com"
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+Los cambios mas distintivos respecto a la aplicación original han sido:
+
+-Estilos CSS para que concuerde con la temática de MyCrossing
+
+-De toda la aplicación, se han usado solamente los inputs así como
+la tabla que se genera con los distintos porcentajes y precios.
+
+-No se ha modificado la funcionalidad de los archivos .js más allá
+del estilo visual

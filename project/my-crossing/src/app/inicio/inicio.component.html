@@ -1,0 +1,61 @@
+
+  <div class="dv-inicio" id="dv-header">
+    <div id="portada-wrap">
+      <div>
+        <img src="../../assets/images/logo-fondo.png"/>
+      </div>
+      <div id="portada-item2">
+        <h1 style="font-size: 3vw;">My Crossing</h1>
+        <h3 style="font-size: 1.5vw;">¡Lleva al día el progreso de tu isla!</h3>
+      </div>
+      <div id="portada-item3">
+        <ng-container *ngIf="!verification.logged">
+          <button routerLink="/registro" class="b-scale">Empieza ya</button>
+        </ng-container>
+      </div>
+      <br>
+    </div>
+  </div>
+
+  <div class="dv-inicio" id="dv-0">
+    <p id="titulo">¡A cazar se ha dicho!</p>
+    <div class="grid-inicio grid-1" id="less-margin">
+      <img src="../../assets/images/caza-pesca-big.png">
+      <button id="peces" class="bckg-img-boton" routerLink="/catalogo-peces"><h2>Peces</h2></button>
+      <button id="bichos" class="bckg-img-boton" routerLink="/catalogo-insectos" ><h2>Insectos</h2></button>
+      <button id="criaturas-marinas" class="bckg-img-boton" routerLink="/catalogo-criaturas-marinas"><h2>Criaturas marinas</h2></button>
+    </div>
+  </div>
+  <hr id="hr-azul">
+  <div class="dv-inicio">
+    <p id="titulo">¡Completa el Museo!</p>
+    <div class="grid-inicio grid-2">
+      <button id="fosiles" class="bckg-img-boton" routerLink="/catalogo-fosiles"><h2>Fósiles</h2></button>
+      <img src="../../assets/images/socrates-big.png">
+      <button id="arte" class="bckg-img-boton" routerLink="/catalogo-arte"><h2>Arte</h2></button>
+    </div>
+  </div>
+  <hr id="hr-azul">
+  <div class="dv-inicio">
+    <p id="titulo">¡Ve de compras!</p>
+    <div class="grid-inicio grid-3">
+      <img src="../../assets/images/tendo-big.png">
+      <button id="muebles" class="bckg-img-boton" routerLink="/catalogo-muebles"><h2>Muebles</h2></button>
+      <button id="ropa" class="bckg-img-boton" routerLink="/catalogo-ropa"><h2>Ropa</h2></button>
+      <img src="../../assets/images/pili-big.png">
+    </div>
+  </div>
+  <hr id="hr-azul">
+  <div class="dv-inicio">
+    <p id="titulo">¡Una isla llena de vida!</p>
+    <div class="grid-inicio grid-4">
+      <img src="../../assets/images/regando-big.png">
+      <button id="vecinos" routerLink="/catalogo-vecinos" class="bckg-img-boton"><h2>Vecinos</h2></button>
+      <button id="musica" routerLink="/catalogo-canciones" class="bckg-img-boton"><h2>Canciones</h2></button>
+    </div>
+  </div>
+
+
+
+
+

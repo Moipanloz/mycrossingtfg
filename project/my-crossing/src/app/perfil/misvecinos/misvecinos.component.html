@@ -1,0 +1,93 @@
+<div style="display: flex; justify-content: flex-end;">
+  <button [hidden]="porcentajeMode" (click)="toggleMoveout()" class="boton-alargado b-azul-hover b-scale" style="margin-bottom: 1.5vw; font-size: 1.2vw;">¿Quién será el próximo en irse?</button>
+</div>
+
+<div [hidden]="!porcentajeMode" id="moveout-info" >
+  <div>
+    <button class="editar boton-circular b-azul-hover b-scale" id="close-menu" (click)="toggleMoveout()">▲</button>
+
+    <h3 class="centrado">¿Qué vecino será el próximo en mudarse?</h3>
+    <h4>Aquí puedes calcular la probabilidad que tiene cada vecino de irse de tu isla</h4>
+    <p>
+      La probabilidad de que un vecino se mude se rige por la amistad que tengas con el mismo,
+      cuanto más amigos seais, menos probabilidad hay de que se vaya.
+    </p>
+    <h4>¿Cómo sé cuanta amistad tengo con un vecino?</h4>
+    <p>Los niveles de amistad son los siguientes:</p>
+    <ul>
+      <li><b>Nivel 1:</b> Nivel base con el que llega el vecino</li>
+      <li><b>Nivel 2:</b> Le puedes hacer regalos</li>
+      <li><b>Nivel 3:</b> Te pueden poner un apodo y venderte objetos</li>
+      <li><b>Nivel 4:</b> Les puedes poner una muletilla</li>
+      <li><b>Nivel 5:</b> Les puedes dar un saludo y te pueden dar su foto</li>
+      <li><b>Nivel 6:</b> Te pueden comprar o intercambiar objetos de tuy inventario</li>
+    </ul>
+    <p>Además, hay ciertos criterios que hacen que un vecino no pueda mudarse:</p>
+    <ul>
+      <li>Si fue el último en mudarse a tu isla</li>
+      <li>Si fue el último en querer mudarse y le dijiste que se quedase</li>
+      <li>Si su casa está siendo trasladada o tienes su "parcela" en el inventario</li>
+      <li>Si su cumpleaños tuvo lugar en los últimos 7 días</li>
+    </ul>
+    <p>
+      A la hora de hacer que un vecino en particular se vaya se puede maximizar la
+      probabilidad usando estos criterios a tu favor para descartar otros vecinos.
+    </p>
+  </div>
+  <div id="button-wrap">
+    <button class="centrado boton-alargado b-verde" style="font-size: 1.2vw;font-weight: unset;" (click)="calculaPorcentaje()">Calcular porcentaje</button>
+  </div>
+</div>
+
+<div id="vecino-grid">
+  <!-- Informacion vecino -->
+  <div id="vecino-show" #show>
+    <img [src]="this.vecinoShow.imgPhoto" id="vecino-img" style="border-radius: 20px;">
+    <h2>{{this.vecinoShow.nombre}}</h2>
+    <div>
+      <p style="font-size: 1vw;"><strong>Cumple:</strong> {{mesToString(this.vecinoShow.cumple)}}</p>
+      <p style="font-size: 1vw;"><strong>Tipo:</strong> {{this.vecinoShow.personalidad | vecinos:'personality'}}</p>
+      <p style="font-size: 1vw;"><strong>Especie:</strong> {{this.vecinoShow.especie | vecinos:'specie'}}</p>
+      <p style="font-size: 1vw;"><strong>Género:</strong> {{this.vecinoShow.genero | vecinos:'gender'}}</p>
+    </div>
+  </div>
+  <!-- Listado vecinos -->
+  <ng-container *ngFor="let vecino of data">
+    <ng-container *ngIf="vecino != null; else vacio">
+      <div>
+
+        <div class="contenedor-vecino" (mouseenter)="toggleVecino(vecino)">
+          <img [src]="vecino.imgIcon" class="icono b-scale" (click)="abreMenu($event, vecino, false, null)">
+          <div class="wrap-vecino">
+            <button [hidden]="!porcentajeMode" (click)="toggleExclude(data.indexOf(vecino))" class="b-scale exclude-button" [style]="{'background-image': checkExclude(data.indexOf(vecino))}"></button>
+            <span>{{vecino.nombre}}</span>
+            <button class="boton-imagen amistad b-scale" style="color:#F7F3E8;font-size: 1.2vw;" (click)="abreMenu($event, vecino, true, this.data.indexOf(vecino),false)">
+              <span (click)="abreMenu($event, vecino, true, this.data.indexOf(vecino), true)">{{vecino.amistad}}</span>
+            </button>
+          </div>
+        </div>
+
+        <div [hidden]="!porcentajeMode" class="porcentaje b-azul">
+          <ng-container *ngIf="this.porcentajes[this.data.indexOf(vecino)] != null; else excluido">
+            <span>{{this.porcentajes[this.data.indexOf(vecino)] | number : '1.2-2'}}%</span>
+          </ng-container>
+          <ng-template #excluido>
+            <span>-</span>
+          </ng-template>
+        </div>
+
+      </div>
+    </ng-container>
+
+    <ng-template #vacio>
+      <div>
+        <div class="contenedor-vecino">
+          <button class="b-bold boton-circular b-amarillo b-scale" id="añadir" (click)="abreMenu($event, null, false, null)">+</button>
+        </div>
+        <p [hidden]="!porcentajeMode" style="visibility: hidden;">%</p>
+      </div>
+    </ng-template>
+  </ng-container>
+</div>
+
+<app-vecino-menu [vecinoMenu]="this.vecinoMenu" [style.position]="position ? 'fixed' : 'absolute'" (crear)="crearVecino($event)" (actualizarVecino)="actualizaVecino($event)" (actualizarAmistad)="actualizaAmistadVecino($event)" (borrar)="borraVecino($event)" (clickOutside)="cierraMenu(null)"></app-vecino-menu>

@@ -1,0 +1,27 @@
+<div id="nav">
+  <img (click)="irInicio()" src="../../assets/images/logo-transparente.png" class="b-scale"/>
+
+  <div id="menu">
+    <button [class]="_comunicacion.activar ? 'activado':''" class="button-nav" routerLink="/cat-caza-insectos" routerLinkActive="activo">Cazar ahora</button>
+    <button class="button-nav" routerLink="/cat-sueno" routerLinkActive="activo">Sueños</button>
+    <button class="button-nav" id="irMercadoNabos" routerLink="/mercado-nabos" routerLinkActive="activo">Mercado Nabos</button>
+    <button class="button-nav" routerLink="/calendario" routerLinkActive="activo">Calendario</button>
+  </div>
+
+  <div class="boton-usuario">
+    <ng-container *ngIf="!verification.logged; else logueado">
+      <button class="login" class="button-nav" style="margin: 0 0 0 1vw;" routerLink="/inicia-sesion" routerLinkActive="activo">Inicia sesión</button>
+    </ng-container>
+    <ng-template #logueado>
+      <div (clickOutside)="cierraMenu()" class="cierra-wrap">
+        <span style="font-size: 1.3vw;"><b>{{this.verification.nombre | capitalize}}</b></span>
+        <img src="../../assets/images/imagen-perfil.png" (click)="toggleMenu()" class="b-scale" id="img-perfil" style="border-radius: 100%; margin-left: 5%"/>
+        <div class="dropdown-menu" [hidden]="!menu" >
+          <button class="button-menu" id="bm-1" routerLink="/perfil" routerLinkActive="activo" (click)="menu = false">Perfil</button>
+          <button class="button-menu" id="bm-2" (click)="logOut()">Cierra sesión</button>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+
+</div>

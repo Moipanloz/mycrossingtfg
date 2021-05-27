@@ -1,0 +1,18 @@
+  <div style="width: 20vw" class="popup-menu" #menuDiv>
+    <form [formGroup]="iconoForm" (ngSubmit)="enviar(iconoForm.value)">
+      <label>Icono</label>
+      <div class="icon-wrap-menu">
+        <ng-container *ngFor="let icono of iconos">
+          <label>
+            <input formControlName="icono" type="radio" value="{{icono}}" class="radio-hidden">
+            <img src="../../../../assets/images/{{icono | lowercase}}.png" [class]="iconoForm.value['icono'] == icono ? 'img-radio img-radio-checked' : 'img-radio'">
+          </label>
+        </ng-container>
+      </div>
+      <br />
+      <div style="display: flex; justify-content: space-between;">
+        <button [disabled]="iconoForm.invalid" type="submit" class="boton-alargado b-azul-hover b-scale">Actualizar</button>
+        <button (click)="borrarTarea(tarea)" class="boton-imagen delete b-scale"></button>
+      </div>
+    </form>
+  </div>

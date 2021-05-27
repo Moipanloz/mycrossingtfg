@@ -1,0 +1,61 @@
+<div class="container-album">
+    <div class="container-main-photo" [style]="mostrado=='' ? 'background-color: #bfdefb' : ''">
+        <ng-container *ngIf="mostrado != ''">
+            <img [src]="preview == '' ? mostrado : preview" class="full-image">
+        </ng-container>
+        <ng-container *ngIf="mostrado==''">
+            <p>Guarda tus fotos para poder acceder a ellas en cualquier momento</p>
+        </ng-container>
+    </div>
+    <div class="grid-wrap" [style.background-color]="borradoImagen ? '#ffb0ae' : ''">
+      <div class="container-photos" [style]="imagenes.length!=0 ? '' : 'padding: 0 1vw'">
+        <ng-container *ngFor="let item of imagenes">
+          <div class="partial-image-container" [class]="borradoImagen ? 'shaky' : ''" (mouseenter)="previewItem(item)" (mouseleave)="preview=''">
+            <img src="{{item}}" style="cursor: pointer;" (click)="muestra(item)" class="mini-full-image" [class]="mostrado == item ? 'mostrado' : ''">
+          </div>
+        </ng-container>
+      </div>
+
+      <div [class]="imagenes.length!=0 ? 'flex-between' : 'flex-centered'" [style]="imagenes.length!=0 ? 'margin-top: 1vw;' : ''">
+          <div>
+              <button (click)="abreModalImagen()" class="b-bold boton-circular b-amarillo b-shadow b-scale" style="width: 3vw; height: 3vw;">+</button>
+          </div>
+          <ng-container *ngIf="imagenes.length!=0">
+              <div>
+                  <button (click)="activaBorradoImagen()" [class]="borradoImagen ? 'delete-rojo' : 'delete'" class="boton-imagen b-scale b-borrado-imagen"></button>
+              </div>
+          </ng-container>
+      </div>
+    </div>
+
+</div>
+<div class="fondo" [style.display]="agregaImagen?'block':'none'" (click)="cierraModalImagen()"></div>
+<div class="container-panel" id="imageModal" (click)="cierraModalImagen()" [style.display]="agregaImagen?'flex':'none'" style="text-align: center;">
+    <div class="panel" (click)="paraPropagacion($event)">
+        <h3>Agregar imagen</h3>
+        <div style="margin-bottom: 1rem;">
+          <label for="inputUrlImagen" style="padding-right: 1.5vw;font-size:1.2vw">Url imagen</label>
+          <input id="inputUrlImagen" class="text-input" type="text">
+        </div>
+        <ng-container *ngIf="errorImageForm!=''">
+            <p style="color:var(--rojo)">{{errorImageForm}}</p>
+        </ng-container>
+        <button (click)="enviarDatos()" class="check-verde boton-imagen"></button>
+    </div>
+</div>
+<div id="modalConfirmaBorradoImagen" class="container-panel" (click)="cierraModales()" style="display: none; text-align: -webkit-center;">
+    <div class="panel" (click)="paraPropagacion($event)">
+      <h3>Mi sueño</h3>
+      <div>
+        <p>
+          La foto que vas a eliminar está siendo usada actualmente en tu sueño. Si la eliminas, también se eliminará del sueño.
+          <br><br>
+          ¿Deseas continuar?
+        </p>
+        <div style="width: 20%" class="flex-between">
+          <button class="boton-imagen delete b-scale-xl" style="width:1.5vw; height: 1.5vw;background-image: url('../../assets/images/cerrar.png')" (click)="cancelarBorrar()"></button>
+          <button class="boton-imagen save b-scale-xl" (click)="borrarImagen()"></button>
+        </div>
+      </div>
+    </div>
+  </div>

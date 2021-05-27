@@ -1,0 +1,188 @@
+.dv-inicio{
+  min-height: fit-content;
+  padding: 2vw 0;
+  background-color: #f7f3e8;
+}
+
+#dv-header{
+  min-height: 38vw;
+  background-image: url("../../assets/images/bckg-inicio.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+#portada-wrap{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin: 6vw 0 0 5vw;
+}
+
+#portada-wrap > div{
+  height: fit-content;
+  width: fit-content;
+}
+
+#portada-wrap > div > img{
+  width: 15vw;
+  height: 15vw;
+}
+
+#portada-item2{
+  margin: 0 0 0 2vw;
+  color: white;
+  text-shadow: 0px 1px 6px black;
+}
+
+#portada-item2 > h1, h3{
+  color: rgba(247, 243, 232);
+}
+
+#portada-item3{
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+  margin: 2vw 0;
+  height: 5vw !important;
+  align-items: center;
+}
+
+#portada-item3 > button{
+  color: white;
+  background-color: rgb(0 220 197);
+  border: none;
+  padding: 0.8vw 1.5vw;
+  text-align: center;
+  cursor: pointer;
+  font-size: 1.5vw;
+  border-radius: 50px;
+}
+
+#portada-item3 > button:hover{
+  background-color: #f7f3e8;
+  color: rgb(0 220 197);
+  border: 5px solid rgb(0 220 197);
+}
+
+#dv-0{
+  box-shadow: 0px -10px 20px 0px rgb(23 23 23 / 55%);
+}
+
+#less-margin{
+  margin: 1vw auto;
+}
+
+.dv-inicio > #titulo{
+  text-align: center;
+  font-size: 2.5vw;
+  margin: 1vw 1vw;
+}
+
+.dv-inicio > div{
+  width: fit-content;
+  height: fit-content;
+  margin: 3vw auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagen-inicio{
+  height: 20vw;
+  width: 20vw;
+}
+
+.grid-1 > img{
+  width: 23vw;
+}
+
+.grid-2 > img{
+  width: 16vw;
+}
+
+.grid-3 > img{
+  width: 10vw;
+}
+
+.grid-4 > img{
+  width: 14vw;
+}
+
+.grid-inicio{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-column-gap: 5vw;
+}
+
+.dv-inicio > * > button{
+  width: 15vw;
+  height: 15vw;
+  padding: 1vw;
+  border-radius: 30px;
+  border-width: 10px;
+  cursor: pointer;
+  border-style: solid;
+  transition: 0.3s;
+}
+
+.dv-inicio > * > button:hover{
+  transform: scale(1.1);
+  border-width: 5px;
+}
+
+h2{
+  margin: 0 0 8vw 0;
+}
+
+.bckg-img-boton{
+  background-size: contain;
+}
+
+#peces{
+  border-color: rgb(73 73 193);
+  background-image: url("../../assets/images/fondo-pesca.png");
+}
+
+#bichos{
+  border-color: rgb(12, 124, 12);
+  background-image: url("../../assets/images/fondo-caza.png");
+}
+
+#criaturas-marinas{
+  border-color: rgb(44, 44, 121);
+  background-image: url("../../assets/images/fondo-criaturas-marinas.png");
+}
+
+#fosiles{
+  border-color: rgb(111 95 51);
+  background-image: url("../../assets/images/fondo-fosiles.png");
+}
+
+#arte{
+  border-color: rgb(173 85 70);
+  background-image: url("../../assets/images/fondo-arte.png");
+}
+
+#muebles{
+  border-color: rgb(56 148 56);
+  background-image: url("../../assets/images/fondo-muebles.png");
+}
+
+#ropa{
+  border-color: rgb(222 89 186);
+  background-image: url("../../assets/images/fondo-ropa.png");
+}
+
+#vecinos{
+  border-color: rgb(199 119 47);
+  background-image: url("../../assets/images/fondo-vecinos.png");
+}
+
+#musica{
+  border-color: rgb(98 183 180);
+  background-image: url("../../assets/images/fondo-musica.png");
+}
+

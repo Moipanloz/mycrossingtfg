@@ -1,0 +1,241 @@
+<div class="bg-scroll-1"></div>
+<div class="bg-scroll-2"></div>
+<!-- Filtros búsqueda -->
+<div class="content-wrapper-top">
+    <div style="margin-top: 4vw;position:relative">
+      <div class="burbuja-title">
+        <h1>Catálogo de sueños</h1>
+      </div>
+      <div id="wrap-filtros" class="flex-centered" style="padding: 1vw 0;">
+        <input style="margin-left: 3vw;" [formControl]="busqueda" class="text-input" type="text" placeholder="Buscar" [style.width]="this._verif.user == null ? '50%' : '30%'">
+        <ng-container *ngIf="this._verif.user!=null">
+          <button (click)="filtroLikes=!filtroLikes" class="boton-alargado b-scale boton-imagen botonCorazon" [class]="filtroLikes ? 'b-verde' : 'b-azul-hover'" style="background-image: url(../../assets/images/corazon.png);"></button>
+          <button (click)="levantaPerfil()" style="position: absolute;right: 2vw;" class="boton-alargado b-azul-hover b-scale">Mi sueño</button>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <!-- Items -->
+  <div class="content-wrapper-bot">
+
+    <!-- Paginacion arriba -->
+    <div class="pag-menu flex-centered">
+      <button [style.visibility]="page_number != 1 ? 'visible' : 'hidden'" class="boton-circular b-azul-hover b-scale" (click)="page_number = this._pag.pagAtras(page_number)"> < </button>
+
+      <ng-container *ngIf="this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).length < 25; else paginacionComprimida">
+        <ng-container *ngFor="let pag of this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes)">
+          <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-scale b-pag'" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+      </ng-container>
+
+      <ng-template #paginacionComprimida>
+        <!-- Paginacion start -->
+        <ng-container *ngIf="page_number < 11">
+          <ng-container *ngFor="let pag of this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).slice(0, 11)">
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-scale b-pag'" (click)="page_number = pag">{{pag}}</button>
+          </ng-container>
+          <button class="b-darkBlue b-pag">·</button>
+          <button class="b-darkBlue b-pag">·</button>
+          <ng-container *ngFor="let pag of this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).slice(this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).length - 2, this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).length)">
+            <button class="b-darkBlue b-pag" (click)="page_number = pag">{{pag}}</button>
+          </ng-container>
+        </ng-container>
+
+        <!-- Paginacion mid -->
+        <ng-container #mid *ngIf="10 < page_number && page_number < this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).length - 10">
+          <ng-container *ngFor="let pag of this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).slice(0, 2)">
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-scale b-pag'" (click)="page_number = pag">{{pag}}</button>
+          </ng-container>
+          <button class="b-darkBlue b-pag">·</button>
+          <button class="b-darkBlue b-pag">·</button>
+          <ng-container *ngFor="let pag of this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).slice(page_number-4, page_number+3)">
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-scale b-pag'" (click)="page_number = pag">{{pag}}</button>
+          </ng-container>
+          <button class="b-darkBlue b-pag">·</button>
+          <button class="b-darkBlue b-pag">·</button>
+          <ng-container *ngFor="let pag of this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).slice(this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).length - 2, this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).length)">
+            <button class="b-darkBlue b-pag" (click)="page_number = pag">{{pag}}</button>
+          </ng-container>
+        </ng-container>
+
+        <!-- Paginacion end -->
+        <ng-container #midOfin *ngIf="this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).length - 11 < page_number">
+          <ng-container *ngFor="let pag of this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).slice(0, 2)">
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-scale b-pag'" (click)="page_number = pag">{{pag}}</button>
+          </ng-container>
+          <button class="b-darkBlue b-pag">·</button>
+          <button class="b-darkBlue b-pag">·</button>
+          <ng-container *ngFor="let pag of this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).slice(this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).length - 12, this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).length)">
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-scale b-pag'" (click)="page_number = pag">{{pag}}</button>
+          </ng-container>
+        </ng-container>
+
+      </ng-template>
+
+      <button [style.visibility]="max_items < listaItems.length && page_number * max_items < (listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).length ? 'visible' : 'hidden'" class="boton-circular b-azul-hover b-scale" (click)="page_number = this._pag.pagAlante(page_number, max_items, listaItems)"> > </button>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid-w-gap" style="margin: 1vw 0">
+        <ng-container *ngFor="let item of listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes | paginacion:page_number:max_items">
+          <div class="grid-item-wrap flex-column-centered" style="justify-content: space-evenly;">
+
+            <div class="likeWrap" [style.cursor]="_verif.user!=null ? 'pointer' : 'default'">
+              <span>{{item.likes}}</span>
+              <img (click)="darLike(item.codigo_sueno)" [src]="(_verif.user==null || !misLikes.includes(item.codigo_sueno)) ? '../../assets/images/corazon-vacio.png' : '../../assets/images/corazon.png'" class="b-scale" style="width: 1.5vw;">
+            </div>
+
+            <div class="flex-centered w100" style="margin: 1vw 0; justify-content: space-evenly;">
+              <ng-container *ngIf="item.foto2!=null && item.foto2!=''">
+                <button (click)="getImage(item,false)" class="boton-alargado b-azul-hover b-scale"> < </button>
+              </ng-container>
+
+              <img [id]='item.nombre.replace(" ", "")' [src]="eligeFoto(item)" class="fotoSueno">
+
+              <ng-container *ngIf="item.foto2!=null && item.foto2!=''">
+                <button (click)="getImage(item,true)" class="boton-alargado b-azul-hover b-scale"> > </button>
+              </ng-container>
+            </div>
+
+            <div style="text-align: center;">
+              <h2 style="margin: 0">{{item.isla}}</h2>
+              <span style="font-size: unset;">{{item.codigo_sueno}}</span>
+            </div>
+
+            <div class="flex-centered user">
+              <img style="width: 2vw;" src="../../assets/images/imagen-perfil.png">
+              <span>{{item.nombre}}</span>
+            </div>
+          </div>
+        </ng-container>
+    </div>
+
+    <ng-container *ngIf="(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes | paginacion:page_number:max_items).length == 0" >
+      <div class="flex-column-centered no-result" style="margin: 3% 0">
+        <img src="../../assets/images/error.png" style="width: 10vw;">
+        <p><strong>No hubo resultados</strong></p>
+      </div>
+    </ng-container>
+
+    <!-- Paginacion abajo -->
+    <div class="pag-menu flex-centered" [style.padding-top]="(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes | paginacion:page_number:max_items).length < 6 ? '18vw' : '0' ">
+      <button [style.visibility]="page_number != 1 ? 'visible' : 'hidden'" class="boton-circular b-azul-hover b-scale" (click)="page_number = this._pag.pagAtras(page_number)"> < </button>
+
+      <ng-container *ngIf="this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).length < 25; else paginacionComprimida">
+        <ng-container *ngFor="let pag of this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes)">
+          <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-scale b-pag'" (click)="page_number = pag">{{pag}}</button>
+        </ng-container>
+      </ng-container>
+
+      <ng-template #paginacionComprimida>
+        <!-- Paginacion start -->
+        <ng-container *ngIf="page_number < 11">
+          <ng-container *ngFor="let pag of this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).slice(0, 11)">
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-scale b-pag'" (click)="page_number = pag">{{pag}}</button>
+          </ng-container>
+          <button class="b-darkBlue b-pag">·</button>
+          <button class="b-darkBlue b-pag">·</button>
+          <ng-container *ngFor="let pag of this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).slice(this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).length - 2, this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).length)">
+            <button class="b-darkBlue b-pag" (click)="page_number = pag">{{pag}}</button>
+          </ng-container>
+        </ng-container>
+
+        <!-- Paginacion mid -->
+        <ng-container #mid *ngIf="10 < page_number && page_number < this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).length - 10">
+          <ng-container *ngFor="let pag of this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).slice(0, 2)">
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-scale b-pag'" (click)="page_number = pag">{{pag}}</button>
+          </ng-container>
+          <button class="b-darkBlue b-pag">·</button>
+          <button class="b-darkBlue b-pag">·</button>
+          <ng-container *ngFor="let pag of this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).slice(page_number-4, page_number+3)">
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-scale b-pag'" (click)="page_number = pag">{{pag}}</button>
+          </ng-container>
+          <button class="b-darkBlue b-pag">·</button>
+          <button class="b-darkBlue b-pag">·</button>
+          <ng-container *ngFor="let pag of this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).slice(this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).length - 2, this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).length)">
+            <button class="b-darkBlue b-pag" (click)="page_number = pag">{{pag}}</button>
+          </ng-container>
+        </ng-container>
+
+        <!-- Paginacion end -->
+        <ng-container #midOfin *ngIf="this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).length - 11 < page_number">
+          <ng-container *ngFor="let pag of this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).slice(0, 2)">
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-scale b-pag'" (click)="page_number = pag">{{pag}}</button>
+          </ng-container>
+          <button class="b-darkBlue b-pag">·</button>
+          <button class="b-darkBlue b-pag">·</button>
+          <ng-container *ngFor="let pag of this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).slice(this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).length - 12, this.getPaginas(listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).length)">
+            <button [class]="pag == page_number ? 'b-darkGreen b-pag' : 'b-darkBlue b-scale b-pag'" (click)="page_number = pag">{{pag}}</button>
+          </ng-container>
+        </ng-container>
+
+      </ng-template>
+
+      <button [style.visibility]="max_items < listaItems.length && page_number * max_items < (listaItems| filtroSuenos:nameFilter | filtroLikes:filtroLikes:misLikes).length ? 'visible' : 'hidden'" class="boton-circular b-azul-hover b-scale" (click)="page_number = this._pag.pagAlante(page_number, max_items, listaItems)"> > </button>
+    </div>
+
+  </div>
+
+<div id="modalFondo" class="fondo" style="display: none;" (click)="cierraModales()"></div>
+<div id="modalCreacionSueno" class="container-panel" (click)="cierraModales()" style="display: none;">
+  <div class="panel" (click)="paraPropagacion($event)">
+    <h2 style="margin-top:0">Crear sueño</h2>
+      <label for="inputCodigoSuenoCrear" style="padding-right: 1.5vw;">Codigo de sueño</label>
+      <input id="inputCodigoSuenoCrear" class="text-input" placeholder="DA-1234-1234-1234" style="font-size: 1.2vw;width:35%" type="text">
+      <br>
+      <p style="font-size: 1.2rem;">
+        Selecciona entre una y tres fotos
+      </p>
+      <div class="lista">
+        <ng-container *ngFor="let foto of fotos">
+          <div style="margin-right: 2vw;" class="elementList">
+            <div class="imagenWrap" [style.background-color]="fotosSeleccionadas.includes(foto)? 'rgb(174, 253, 180)':''">
+              <button class="boton-imagen b-scale" style="height: 4vw; width: 6vw;" name="seleccionaFoto" (click)="agregaFoto(foto)" [style.transform]="fotosSeleccionadas.includes(foto) ? 'scale(1.1)' : ''" [style.background-image]="'url('+foto+')'"></button>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <span id="erroresSuenoCrear" style="color: #ff7673; font-size: 1.2rem;"></span>
+      <div class="flex-centered" id="botones" style="justify-content: center;">
+        <button class="boton-imagen save b-scale-xl" (click)="crearSueno()"></button>
+      </div>
+  </div>
+</div>
+
+<div id="modalMiSueno" class="container-panel" (click)="cierraModales()" style="display: none;">
+  <div class="panel" (click)="paraPropagacion($event)">
+    <h2 style="margin-top:0">Mi sueño</h2>
+    <div id="suenoEditDelete">
+      <label for="inputCodigoSuenoEdit" style="padding-right: 1.5vw;">Codigo de sueño</label>
+      <input id="inputCodigoSuenoEdit" class="text-input" style="font-size: 1.2vw;width:35%" type="text">
+      <br>
+      <p style="font-size: 1.2rem">
+        Selecciona entre una y tres fotos
+      </p>
+      <div class="lista">
+        <ng-container *ngFor="let foto of fotos">
+          <div style="margin-right: 2vw;" class="elementList">
+            <div class="imagenWrap" [style.background-color]="fotosSeleccionadas.includes(foto)?'rgb(174, 253, 180)':''">
+              <button class="boton-imagen b-scale" style="height: 4vw; width: 6vw;" name="seleccionaFoto" (click)="agregaFoto(foto)" [style.transform]="fotosSeleccionadas.includes(foto) ? 'scale(1.1)' : ''" [style.background-image]="'url('+foto+')'"></button>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <span id="erroresSuenoEdit" style="color: #ff7673; font-size: 1.2rem;"></span>
+      <div class="flex-centered" id="botones">
+        <button class="boton-imagen delete b-scale" (click)="pedirBorrar()"></button>
+        <button class="boton-imagen save b-scale-xl" (click)="guardarSueno()"></button>
+      </div>
+    </div>
+    <div id="suenoDelete">
+      <p>
+        ¿Seguro que desea eliminar su sueño?
+      </p>
+      <div id="botones">
+        <button class="boton-imagen delete b-scale-xl" style="width:1.5vw; height: 1.5vw;background-image: url('../../assets/images/cerrar.png')" (click)="cancelarBorrar()"></button>
+        <button class="boton-imagen save b-scale-xl" (click)="borrarSueno()"></button>
+      </div>
+    </div>
+  </div>
+</div>
