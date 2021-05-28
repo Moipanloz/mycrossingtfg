@@ -203,30 +203,53 @@
 	
 	Debido al gran tamaño del diagrama de clases, vamos a verla dividida en partes más pequeñas de forma que muestren distintas relaciones y se pueda ver de forma más clara.\\
 	
+		\bigskip
 	
-	\includegraphics[width=\textwidth]{img/cap5/diagramaclases/enums.jpg}
+	\includegraphics[width=\textwidth]{img/cap5/diagramaclases/enum-y-no-relacionados.png}
+	
+		\bigskip
 	
 	Primero podemos ver tanto los enumerados, como algunas clases que se encuentran más aisladas, ya que no forman parte del gran conjunto que rodea al usuario y por lo tanto, son datos puramente informativos y no se almacenará en base de datos. En este caso se trata de los muebles y las prendas de ropa (que como vemos, son idénticos), así como los eventos, que están relacionados con la clase Color, pero nada más lejos de dicha relación.\\ 
 	
-	\includegraphics[width=\textwidth]{img/cap5/diagramaclases/visitas-tareas.jpg}
+	\clearpage
+	
+	\includegraphics[width=\textwidth]{img/cap5/diagramaclases/tareas-visitas.png}
+	
+		\bigskip
 	
 	Pasando al conjunto principal, podemos empezar por la relación que comparte la clase Usuario con Visitas y Tareas. Un Usuario puede tener de 0 a 10 Tareas, al igual que pasa con Vistas Semanales, aunque esta tiene además una relación con usuario que indica si Estela (un personaje del juego) ha visitado ya la isla o no.\\
 	
-	\includegraphics[width=\textwidth]{img/cap5/diagramaclases/vecinos.jpg}
+		\bigskip
+	
+	\includegraphics[width=\textwidth]{img/cap5/diagramaclases/vecinos.png}
+	
+		\bigskip
 	
 	Luego, podemos ver la relación de Vecinos que, al mostrarse tanto en un catálogo (en el cual no se registra la relación con el usuario), como en el perfil (donde sí se opera y registra con dicha relación), vemos que tiene una relación Mis Vecinos que relaciona aquellos Vecinos que estén habitando en la isla del Usuario, además con el atributo Amistad para indicar la amistad que tiene cada uno con el jugador.\\
 	
-	\includegraphics[width=\textwidth]{img/cap5/diagramaclases/suenios.jpg}
+	\clearpage
+	
+	\includegraphics[width=\textwidth]{img/cap5/diagramaclases/suenios.png}
+	
+		\bigskip
 	
 	Seguimos con la relación de Usuario con Sueños. Esta entidad esta relacionada a su vez con Álbum, que también está relacionada con Usuario. Un Usuario dispone de un Álbum de fotos, las cuales se pueden utilizar para añadir imágenes al sueño de dicho Usuario. Además, un Usuario puede tener un listado de Sueños a los que le haya dado "Me Gusta".\\ 
 	
-	\includegraphics[width=\textwidth]{img/cap5/diagramaclases/catalogos.jpg}
+		\bigskip
+	
+	\includegraphics[width=\textwidth]{img/cap5/diagramaclases/catalogos.png}
+	
+		\bigskip
 	
 	Por último, tenemos una serie de listados que se relacionan todos de la misma manera con Usuario (la punta de la flecha superior). Cada entidad tiene su propia página de listado, y cada Usuario dispone de un catálogo personal de cada entidad en el cual se añaden aquellas entidades que ya haya obtenido.\\
 	
+	\clearpage
+	
 	Para terminar, se incluye una imagen completa del diagrama de clases para tener una vista global del mismo.\\
 	
-	\includegraphics[width=\textwidth]{img/cap5/diagramaclases/diagrama-completo.jpg}
+		\bigskip
+	
+	\includegraphics[width=\textwidth]{img/cap5/diagramaclases/diagrama-completo.png}
 	
 \clearpage
 

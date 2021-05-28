@@ -24,7 +24,7 @@
 \contentsline {subsection}{\numberline {5.2.1}Requisitos de Informaci\'on}{12}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.2.2}Requisitos Funcionales}{14}{subsection.5.2.2}%
 \contentsline {subsection}{\numberline {5.2.3}Requisitos no Funcionales}{17}{subsection.5.2.3}%
-\contentsline {section}{\numberline {5.3}Diagrama de Clases}{17}{section.5.3}%
+\contentsline {section}{\numberline {5.3}Diagrama de Clases}{18}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Dise\~no}{22}{section.5.4}%
 \contentsline {chapter}{\numberline {6}Implementaci\'on}{30}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Entorno de desarrollo}{30}{section.6.1}%
@@ -45,6 +45,5 @@
 \contentsline {chapter}{\numberline {8}Comparación con otras alternativas}{42}{chapter.8}%
 \contentsline {chapter}{\numberline {9}Manual de Usuario}{44}{chapter.9}%
 \contentsline {chapter}{Conclusiones y desarrollo futuro}{68}{chapter*.7}%
-\contentsline {chapter}{Bibliografía}{69}{chapter*.8}%
-\contentsline {chapter}{Referencias}{71}{chapter*.9}%
+\contentsline {chapter}{Referencias}{69}{chapter*.8}%
 \contentsfinish 

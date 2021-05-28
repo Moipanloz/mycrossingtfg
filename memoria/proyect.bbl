@@ -1,31 +1,107 @@
 \begin{thebibliography}{}
 
 \bibitem [\protect \citeauthoryear {%
-Autores%
+Alexis8717%
 }{%
-Autores%
+Alexis8717%
 }{%
-{\protect \APACyear {2014}}%
+{\protect \APACyear {2020}}%
 }]{%
-informatica}
+acnhapi}
 \APACinsertmetastar {%
-informatica}%
+acnhapi}%
+\begin{APACrefauthors}%
+Alexis8717, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{}{}.
+\newblock
+\APACrefbtitle {ACNH API.} {Acnh api.}
+\newblock
+\APACaddressPublisher{}{Alexis8717}.
+\newblock
+\begin{APACrefURL} \url{https://acnhapi.com} \end{APACrefURL}
+\newblock
+\APACrefnote{fecha de consulta: Febrero de 2021}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Autores%
+}{%
+Autores%
+}{%
+{\protect \APACyear {2020}}%
+}]{%
+turnipprophet}
+\APACinsertmetastar {%
+turnipprophet}%
 \begin{APACrefauthors}%
 Autores, V.%
 \end{APACrefauthors}%
 \unskip\
 \newblock
-\APACrefYearMonthDay{2014}{}{}.
+\APACrefYearMonthDay{2020}{}{}.
 \newblock
-\APACrefbtitle {Escuela {T}\'ecnica {S}uperior de {I}ngenier{\'\i}a
-  {I}nform\'atica.} {Escuela {T}\'ecnica {S}uperior de {I}ngenier{\'\i}a
-  {I}nform\'atica.}
+\APACrefbtitle {Turnip Prophet.} {Turnip prophet.}
 \newblock
-\APACaddressPublisher{}{ETSII}.
+\begin{APACrefURL} \url{https://turnipprophet.io/} \end{APACrefURL}
 \newblock
-\begin{APACrefURL} \url{http://www.informatica.us.es} \end{APACrefURL}
+\APACrefnote{fecha de consulta: Abril de 2021}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ninji%
+}{%
+Ninji%
+}{%
+{\protect \APACyear {2020}}%
+}]{%
+nabosninji}
+\APACinsertmetastar {%
+nabosninji}%
+\begin{APACrefauthors}%
+Ninji.%
+\end{APACrefauthors}%
+\unskip\
 \newblock
-\APACrefnote{fecha de consulta: 24 de Noviembre de 2014}
+\APACrefYearMonthDay{2020}{}{}.
+\newblock
+\APACrefbtitle {Turnip Prices.} {Turnip prices.}
+\newblock
+\APACaddressPublisherEqAuth{}{Ninji}.
+\newblock
+\begin{APACrefURL} \url{https://turnipprophet.io/} \end{APACrefURL}
+\newblock
+\APACrefnote{fecha de consulta: Abril de 2021}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Norviah%
+}{%
+Norviah%
+}{%
+{\protect \APACyear {2020}}%
+}]{%
+acnhnpm}
+\APACinsertmetastar {%
+acnhnpm}%
+\begin{APACrefauthors}%
+Norviah.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{}{}.
+\newblock
+\APACrefbtitle {Animal Crossing: New Horizons database for npm.} {Animal
+  crossing: New horizons database for npm.}
+\newblock
+\APACaddressPublisherEqAuth{}{Norviah}.
+\newblock
+\begin{APACrefURL} \url{https://github.com/Norviah/animal-crossing}
+  \end{APACrefURL}
+\newblock
+\APACrefnote{fecha de consulta: Febrero de 2021}
 \PrintBackRefs{\CurrentBib}
 
 \end{thebibliography}
