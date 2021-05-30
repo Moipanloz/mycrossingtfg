@@ -133,13 +133,13 @@ if(isset($_GET['command'])){
         $hemisferio = $request->hemisferio;
         $verif = $request->verif;
 
-        if(isset($request->id_switch)){
+        if(isset($request->id_switch) && $request->id_switch!=""){
           $id_switch = $request->id_switch;
         }else{
           $id_switch = null;
         }
 
-        if(isset($request->apodo_aldeano)){
+        if(isset($request->apodo_aldeano) && $request->apodo_aldeano!=""){
           $apodo_aldeano = $request->apodo_aldeano;
         }else{
           $apodo_aldeano = null;

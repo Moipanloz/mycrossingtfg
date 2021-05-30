@@ -63,7 +63,6 @@ if(isset($_GET["command"])){
           $jpr = $request->jpr;
           $vpr = $request->vpr;
           $estela = $request->estela;
-
           $validation=TRUE;
           $validation =  checkExisteUser($conn, $userId) &&
                     checkExisteVisita($conn, $userId) &&

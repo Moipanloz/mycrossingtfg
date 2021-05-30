@@ -1,5 +1,5 @@
 <?php
-
+$localhost = str_contains($_SERVER["SERVER_NAME"], "localhost");
 if(isset($_GET["testing"]) && $_GET["testing"] == 'true'){
   header('Access-Control-Allow-Origin: http://localhost:9876');
 }else{
@@ -16,10 +16,17 @@ if(isset($_GET["testing"]) && $_GET["testing"] == 'true'){
   define("DB_HOST", "localhost");
 }else{
   //Si no, se usan los de heroku
-  define("DB_USERNAME", getenv('DB_USERNAME'));
-  define("DB_PASSWORD", getenv('DB_PASSWORD'));
-  define("DB_DATABASE", getenv('DB_DATABASE'));
-  define("DB_HOST", getenv('DB_HOST'));
+  if(!$localhost){
+    define("DB_USERNAME", getenv('DB_USERNAME'));
+    define("DB_PASSWORD", getenv('DB_PASSWORD'));
+    define("DB_DATABASE", getenv('DB_DATABASE'));
+    define("DB_HOST", getenv('DB_HOST'));
+  }else{
+    define("DB_DATABASE", "mycrossingdb");
+    define("DB_USERNAME", 'mcadmin');
+    define("DB_PASSWORD", 'thisismypass');
+    define("DB_HOST", "localhost");
+  }
 }
 
 function connect(){

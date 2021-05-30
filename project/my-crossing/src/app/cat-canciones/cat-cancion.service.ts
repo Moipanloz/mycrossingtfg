@@ -1,3 +1,4 @@
+import { PlatformLocation } from '@angular/common';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IItem, items } from 'animal-crossing';
@@ -8,11 +9,14 @@ import { VerificationService } from 'app/general/services/verification.service';
   providedIn: 'root'
 })
 export class CatCancionService {
-  url : string = "https://mycrossing-back.herokuapp.com/catcanciones.php";
+  url : string;
   totalCanciones: IItem[] = items.filter(i=>i.sourceSheet=="Music");
 
 
-  constructor(public verification : VerificationService, public http : HttpClient) { }
+  constructor(platformLocation: PlatformLocation, public verification : VerificationService, public http : HttpClient) {
+    this.url = platformLocation.hostname.includes("localhost")?"http://localhost/":"https://mycrossing-back.herokuapp.com/";
+    this.url = this.url + "catcanciones.php";
+  }
 
   readCancion() : Promise<Cancion[]>{
     let parametros = new HttpParams()

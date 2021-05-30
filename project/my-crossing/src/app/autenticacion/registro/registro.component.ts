@@ -1,4 +1,3 @@
-import { VisitasService } from './../../perfil/visitasemanal/visitas.service';
 import { ErrorService } from './../../general/services/error.service';
 import { ColeccionespService } from './../../perfil/coleccionesp/coleccionesp.service';
 import { UserService } from 'app/autenticacion/user.service';
@@ -30,7 +29,6 @@ export class RegistroComponent {
     cookieService: CookieService,
     verification: VerificationService,
     private _builder: FormBuilder,
-    private _visitas: VisitasService,
     _user: UserService,
     _ce :  ColeccionespService,
     errorService : ErrorService) {
@@ -60,8 +58,8 @@ export class RegistroComponent {
     }
     let user = this.registerForm.value;
     let key = this.verification.makeRandomKey();
-
     this._user.register(user, key).then(data => {
+      console.log(data);
       this.cookieService.set( 'verif', key );
       this.cookieService.set( 'userId', data[0]['id'] );
       this.verification.verified = true;
@@ -69,10 +67,6 @@ export class RegistroComponent {
       this.verification.user = data[0]['id'];
       this.verification.nombre = data[0]["nombre"];
       this.verification.verifCode = key;
-      this._visitas.createVisita().catch(err => {
-        this._error.setNewError(err.message);
-        setTimeout(() => {this._error.cleanError()}, 3000)
-      });
       this.router.navigate(['']);
     }).catch(err => {
       this._error.setNewError(err.message);
@@ -83,6 +77,7 @@ export class RegistroComponent {
 
 export class CustomValidator{
   static switch(control: AbstractControl) {
+    console.log("Aun va");
     let val = control.value;
 
     if (val === null || val === '') return null;

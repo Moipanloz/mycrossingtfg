@@ -42,7 +42,7 @@ function checkSameUserId($userId, $objectUserId){
 }
 
 function checkEstela($estela){
-  if($estela == null || !is_bool($estela)){
+  if($estela == null || ($estela != false && $estela != true)){
     die("Debe especificar correctamente si estela ha ido de visita");
   }
   return true;

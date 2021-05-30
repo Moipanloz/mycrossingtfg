@@ -1,3 +1,4 @@
+import { PlatformLocation } from '@angular/common';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
@@ -13,10 +14,13 @@ export class VerificationService {
   hemisferio : string = "";
   verifCode : string = "";
   _comunication : ComunicacionService;
+  url;
 
-  constructor(cookieService: CookieService, private http: HttpClient, comunication : ComunicacionService){
+  constructor(platformLocation: PlatformLocation, cookieService: CookieService, private http: HttpClient, comunication : ComunicacionService){
     this.cookieService = cookieService;
     this._comunication=comunication;
+    this.url = platformLocation.hostname.includes("localhost")?"http://localhost/":"https://mycrossing-back.herokuapp.com/";
+    this.url = this.url + "authentication.php";
   }
 
   async verify() {
@@ -24,11 +28,11 @@ export class VerificationService {
     if(this.cookieService.check("verif") && this.cookieService.check("userId")){
       let userId:number = +this.cookieService.get("userId");
       let parametros = new HttpParams()
-      .set("userId", JSON.stringify(userId))
-      .set("verif", this.cookieService.get("verif"))
-      .set("command", "getKey");
+        .set("userId", JSON.stringify(userId))
+        .set("verif", this.cookieService.get("verif"))
+        .set("command", "getKey");
 
-      let datos = await this.http.get("https://mycrossing-back.herokuapp.com/authentication.php", {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
+      let datos = await this.http.get(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
       let verif = datos[0]['verification'];
       if(JSON.stringify(datos).includes("Error")){
         this.logged = false;
