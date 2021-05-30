@@ -157,6 +157,20 @@ Finalmente intentamos buscar otra feature para reemplazar a ésta, pero ya no qu
 
 Cabe decir que la implementación del probador de ropa es posible realizarla, solo que para obtener un buen resultado habría que dedicarle horas y horas de recolección de imágenes del juego, así como de edición manual de las mismas mediante un programa de edición fotográfica para que se adapten al resultado que buscamos. Sin embargo, no solo es un trabajo manual (y por lo tanto, va en contra de lo que queremos ya que buscamos hacerlo todo de la forma más programática posible) sino que además sería demasiado extenso y en cuestión de trabajo/tiempo no podíamos dedicárselo.
 
+\subsection{It. 6 - Despliegue}
+
+Uno de los últimos problemas que hemos tenido ha sido el despliegue online de la aplicación. Dada la combinación que hemos usado de Angular + PHP + MariaDB, necesitábamos desplegar la aplicación en dos servidores distintos: uno para el front (Angular) y otro para el back (PHP). Además, también necesitábamos una base de datos desplegada para realizar las consultas, que fue lo que provocó el principal problema.\\
+
+Vimos que habían varios servicios online de alojamiento de bases de datos (en particular, de MariaDB con PhpMyAdmin, que era lo que necesitábamos), y además eran gratuitos, por lo que decidimos optar por uno de estos. Sin embargo, al ser gratuito tenía que tener algunos límites, siendo uno de estos la imposibilidad de crear eventos SQL.\\
+
+Esto nos suponía un leve problema ya que las tareas del perfil se desactivan diariamente mediante un evento SQL, por lo que si usábamos esta opción, no dispondríamos de dicha función en la aplicación. Al ver esto, buscamos otros servicios de alojamiento gratuito de bases de datos, pero no solo seguían teniendo el mismo límite, sino que además eran mas restrictivos en comparación con la que pensábamos usar.\\
+
+Sin embargo, este problema puede ser solucionado de varias formas: o bien alojando nuestra BBDD en un servicio que permita la creación de eventos (aunque sería un servicio de pago); o bien optando por reiniciar las tareas de otra forma distinta en el código (aunque no lo consideramos óptimo ya que los eventos SQL están precisamente diseñados para realizar este tipo de tareas).\\
+
+Es por eso que, siendo lo ideal resolverlo mediante la primera opción (ya que en un despliegue real de la aplicación necesitaríamos un servicio con mayor número de consultas y otras características, entre las cuales vendría el servicio de creación de eventos), hemos decidido usar esta opción gratuita de alojamiento y prescindir de dicho evento (especialmente, tratándose solo de un evento cuya función equivale a hacer click en el botón de la tarea y apenas va a ser notable).\\
+
+
+
 
 
 	
