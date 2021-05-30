@@ -42,8 +42,8 @@
 \contentsline {subsection}{\numberline {6.3.5}It. 5 - Código reciclado}{39}{subsection.6.3.5}%
 \contentsline {subsection}{\numberline {6.3.6}It. 5 - Feature demasiado compleja}{40}{subsection.6.3.6}%
 \contentsline {chapter}{\numberline {7}Pruebas}{41}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Comparación con otras alternativas}{42}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Manual de Usuario}{44}{chapter.9}%
-\contentsline {chapter}{Conclusiones y desarrollo futuro}{68}{chapter*.7}%
-\contentsline {chapter}{Referencias}{69}{chapter*.8}%
+\contentsline {chapter}{\numberline {8}Comparación con otras alternativas}{64}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Manual de Usuario}{66}{chapter.9}%
+\contentsline {chapter}{Conclusiones y desarrollo futuro}{90}{chapter*.7}%
+\contentsline {chapter}{Referencias}{91}{chapter*.8}%
 \contentsfinish 
