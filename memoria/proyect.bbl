@@ -11,7 +11,7 @@ acnhapi}
 \APACinsertmetastar {%
 acnhapi}%
 \begin{APACrefauthors}%
-Alexis8717, M.%
+Alexis8717.%
 \end{APACrefauthors}%
 \unskip\
 \newblock
@@ -19,7 +19,7 @@ Alexis8717, M.%
 \newblock
 \APACrefbtitle {ACNH API.} {Acnh api.}
 \newblock
-\APACaddressPublisher{}{Alexis8717}.
+\APACaddressPublisherEqAuth{}{Alexis8717}.
 \newblock
 \begin{APACrefURL} \url{https://acnhapi.com} \end{APACrefURL}
 \newblock
@@ -51,6 +51,87 @@ Autores, V.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+KevinPayravi%
+}{%
+KevinPayravi%
+}{%
+{\protect \APACyear {2020}}%
+{\protect \APACexlab {{\protect \BCnt {1}}}}}]{%
+acnhdirectory}
+\APACinsertmetastar {%
+acnhdirectory}%
+\begin{APACrefauthors}%
+KevinPayravi.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020{\protect \BCnt {1}}}{}{}.
+\newblock
+\APACrefbtitle {ACNH.Directory.} {Acnh.directory.}
+\newblock
+\APACaddressPublisherEqAuth{}{KevinPayravi}.
+\newblock
+\begin{APACrefURL} \url{https://nookipedia.com/wiki/Main_Page} \end{APACrefURL}
+\newblock
+\APACrefnote{fecha de consulta: Octubre de 2020}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+KevinPayravi%
+}{%
+KevinPayravi%
+}{%
+{\protect \APACyear {2020}}%
+{\protect \APACexlab {{\protect \BCnt {2}}}}}]{%
+nookipediaapi}
+\APACinsertmetastar {%
+nookipediaapi}%
+\begin{APACrefauthors}%
+KevinPayravi.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020{\protect \BCnt {2}}}{}{}.
+\newblock
+\APACrefbtitle {Nookiepdia API.} {Nookiepdia api.}
+\newblock
+\APACaddressPublisherEqAuth{}{KevinPayravi}.
+\newblock
+\begin{APACrefURL} \url{https://api.nookipedia.com} \end{APACrefURL}
+\newblock
+\APACrefnote{fecha de consulta: Febrero de 2021}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+LeParadoxHD%
+}{%
+LeParadoxHD%
+}{%
+{\protect \APACyear {2019}}%
+}]{%
+cursoangular}
+\APACinsertmetastar {%
+cursoangular}%
+\begin{APACrefauthors}%
+LeParadoxHD.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{}{}.
+\newblock
+\APACrefbtitle {Angular 10 - Curso completo - Tutorial.} {Angular 10 - curso
+  completo - tutorial.}
+\newblock
+\APACaddressPublisherEqAuth{}{LeParadoxHD}.
+\newblock
+\begin{APACrefURL}
+  \url{https://www.youtube.com/watch?v=SZtxwDAqEok&list=PLezsbUDiwcpmhNiMzVPYJXV0Rqn71G4PU}
+  \end{APACrefURL}
+\newblock
+\APACrefnote{fecha de consulta: Octubre de 2020}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Ninji%
 }{%
 Ninji%
@@ -71,7 +152,9 @@ Ninji.%
 \newblock
 \APACaddressPublisherEqAuth{}{Ninji}.
 \newblock
-\begin{APACrefURL} \url{https://turnipprophet.io/} \end{APACrefURL}
+\begin{APACrefURL}
+  \url{https://gist.github.com/Treeki/85be14d297c80c8b3c0a76375743325b}
+  \end{APACrefURL}
 \newblock
 \APACrefnote{fecha de consulta: Abril de 2021}
 \PrintBackRefs{\CurrentBib}
