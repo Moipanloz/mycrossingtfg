@@ -17,3 +17,5 @@ por completo con el proyecto.
 Si se fuera a publicar este proyecto una vez acabada la evaluación con el fin de su uso público, 
 así como con o sin motivo de lucrarnos, se harán los cambios pertinentes legales para cumplir con 
 todos los requisitos necesarios y se informará debidamente en este apartado.
+
+Enlace a la aplicación: https://mycrossing.herokuapp.com
