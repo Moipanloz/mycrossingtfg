@@ -1,56 +1,46 @@
 This is BibTeX, Version 0.99d (MiKTeX 2.9.7400 64-bit)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: proyect.aux
-The style file: apacite.bst
-Reallocating 'glb_str_end' (item size: 4) to 20 items.
-Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
-Reallocating 'global_strs' (item size: 1) to 4000000 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'wiz_functions' (item size: 4) to 6000 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'wiz_functions' (item size: 4) to 9000 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
+The style file: apalike.bst
 Database file #1: pfcbib.bib
-apacite.bst [2013/07/21 v6.03 APA bibliography style]
-You've used 7 entries,
-            6951 wiz_defined-function locations,
-            1300 strings with 11330 characters,
-and the built_in function-call counts, 9022 in all, are:
-= -- 1128
-> -- 71
-< -- 274
-+ -- 199
-- -- 27
-* -- 469
-:= -- 1358
-add.period$ -- 34
-call.type$ -- 7
-change.case$ -- 135
-chr.to.int$ -- 0
-cite$ -- 14
-duplicate$ -- 242
-empty$ -- 537
-format.name$ -- 98
-if$ -- 1969
-int.to.chr$ -- 0
-int.to.str$ -- 25
+You've used 8 entries,
+            1935 wiz_defined-function locations,
+            500 strings with 4106 characters,
+and the built_in function-call counts, 1977 in all, are:
+= -- 208
+> -- 56
+< -- 8
++ -- 17
+- -- 16
+* -- 120
+:= -- 399
+add.period$ -- 24
+call.type$ -- 8
+change.case$ -- 48
+chr.to.int$ -- 7
+cite$ -- 8
+duplicate$ -- 80
+empty$ -- 121
+format.name$ -- 24
+if$ -- 361
+int.to.chr$ -- 2
+int.to.str$ -- 0
 missing$ -- 0
-newline$ -- 183
-num.names$ -- 56
-pop$ -- 500
+newline$ -- 43
+num.names$ -- 24
+pop$ -- 24
 preamble$ -- 1
-purify$ -- 28
+purify$ -- 48
 quote$ -- 0
-skip$ -- 501
+skip$ -- 72
 stack$ -- 0
-substring$ -- 228
-swap$ -- 126
-text.length$ -- 20
+substring$ -- 96
+swap$ -- 0
+text.length$ -- 0
 text.prefix$ -- 0
-top$ -- 1
-type$ -- 560
+top$ -- 0
+type$ -- 48
 warning$ -- 0
-while$ -- 35
+while$ -- 16
 width$ -- 0
-write$ -- 196
+write$ -- 98

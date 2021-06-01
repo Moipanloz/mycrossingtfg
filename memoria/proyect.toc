@@ -46,5 +46,4 @@
 \contentsline {chapter}{\numberline {8}Comparación con otras alternativas}{65}{chapter.8}%
 \contentsline {chapter}{\numberline {9}Manual de Usuario}{67}{chapter.9}%
 \contentsline {chapter}{Conclusiones y desarrollo futuro}{91}{chapter*.7}%
-\contentsline {chapter}{Referencias}{92}{chapter*.8}%
 \contentsfinish 

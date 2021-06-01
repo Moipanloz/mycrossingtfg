@@ -1,190 +1,43 @@
 \begin{thebibliography}{}
 
-\bibitem [\protect \citeauthoryear {%
-Alexis8717%
-}{%
-Alexis8717%
-}{%
-{\protect \APACyear {2020}}%
-}]{%
-acnhapi}
-\APACinsertmetastar {%
-acnhapi}%
-\begin{APACrefauthors}%
-Alexis8717.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2020}{}{}.
-\newblock
-\APACrefbtitle {ACNH API.} {Acnh api.}
-\newblock
-\APACaddressPublisherEqAuth{}{Alexis8717}.
-\newblock
-\begin{APACrefURL} \url{https://acnhapi.com} \end{APACrefURL}
-\newblock
-\APACrefnote{fecha de consulta: Febrero de 2021}
-\PrintBackRefs{\CurrentBib}
+\bibitem[Alexis8717, 2020]{acnhapi}
+Alexis8717 (2020).
+\newblock Acnh api.
+\newblock fecha de consulta: Febrero de 2021.
 
-\bibitem [\protect \citeauthoryear {%
-Autores%
-}{%
-Autores%
-}{%
-{\protect \APACyear {2020}}%
-}]{%
-turnipprophet}
-\APACinsertmetastar {%
-turnipprophet}%
-\begin{APACrefauthors}%
-Autores, V.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2020}{}{}.
-\newblock
-\APACrefbtitle {Turnip Prophet.} {Turnip prophet.}
-\newblock
-\begin{APACrefURL} \url{https://turnipprophet.io/} \end{APACrefURL}
-\newblock
-\APACrefnote{fecha de consulta: Abril de 2021}
-\PrintBackRefs{\CurrentBib}
+\bibitem[Autores, 2020]{turnipprophet}
+Autores, V. (2020).
+\newblock Turnip prophet.
+\newblock fecha de consulta: Abril de 2021.
 
-\bibitem [\protect \citeauthoryear {%
-KevinPayravi%
-}{%
-KevinPayravi%
-}{%
-{\protect \APACyear {2020}}%
-{\protect \APACexlab {{\protect \BCnt {1}}}}}]{%
-acnhdirectory}
-\APACinsertmetastar {%
-acnhdirectory}%
-\begin{APACrefauthors}%
-KevinPayravi.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2020{\protect \BCnt {1}}}{}{}.
-\newblock
-\APACrefbtitle {ACNH.Directory.} {Acnh.directory.}
-\newblock
-\APACaddressPublisherEqAuth{}{KevinPayravi}.
-\newblock
-\begin{APACrefURL} \url{https://nookipedia.com/wiki/Main_Page} \end{APACrefURL}
-\newblock
-\APACrefnote{fecha de consulta: Octubre de 2020}
-\PrintBackRefs{\CurrentBib}
+\bibitem[KevinPayravi, 2020a]{acnhdirectory}
+KevinPayravi (2020a).
+\newblock Acnh.directory.
+\newblock fecha de consulta: Octubre de 2020.
 
-\bibitem [\protect \citeauthoryear {%
-KevinPayravi%
-}{%
-KevinPayravi%
-}{%
-{\protect \APACyear {2020}}%
-{\protect \APACexlab {{\protect \BCnt {2}}}}}]{%
-nookipediaapi}
-\APACinsertmetastar {%
-nookipediaapi}%
-\begin{APACrefauthors}%
-KevinPayravi.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2020{\protect \BCnt {2}}}{}{}.
-\newblock
-\APACrefbtitle {Nookiepdia API.} {Nookiepdia api.}
-\newblock
-\APACaddressPublisherEqAuth{}{KevinPayravi}.
-\newblock
-\begin{APACrefURL} \url{https://api.nookipedia.com} \end{APACrefURL}
-\newblock
-\APACrefnote{fecha de consulta: Febrero de 2021}
-\PrintBackRefs{\CurrentBib}
+\bibitem[KevinPayravi, 2020b]{nookipediaapi}
+KevinPayravi (2020b).
+\newblock Nookiepdia api.
+\newblock fecha de consulta: Febrero de 2021.
 
-\bibitem [\protect \citeauthoryear {%
-LeParadoxHD%
-}{%
-LeParadoxHD%
-}{%
-{\protect \APACyear {2019}}%
-}]{%
-cursoangular}
-\APACinsertmetastar {%
-cursoangular}%
-\begin{APACrefauthors}%
-LeParadoxHD.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2019}{}{}.
-\newblock
-\APACrefbtitle {Angular 10 - Curso completo - Tutorial.} {Angular 10 - curso
-  completo - tutorial.}
-\newblock
-\APACaddressPublisherEqAuth{}{LeParadoxHD}.
-\newblock
-\begin{APACrefURL}
-  \url{https://www.youtube.com/watch?v=SZtxwDAqEok&list=PLezsbUDiwcpmhNiMzVPYJXV0Rqn71G4PU}
-  \end{APACrefURL}
-\newblock
-\APACrefnote{fecha de consulta: Octubre de 2020}
-\PrintBackRefs{\CurrentBib}
+\bibitem[LeParadoxHD, 2019]{cursoangular}
+LeParadoxHD (2019).
+\newblock Angular 10 - curso completo - tutorial.
+\newblock fecha de consulta: Octubre de 2020.
 
-\bibitem [\protect \citeauthoryear {%
-Ninji%
-}{%
-Ninji%
-}{%
-{\protect \APACyear {2020}}%
-}]{%
-nabosninji}
-\APACinsertmetastar {%
-nabosninji}%
-\begin{APACrefauthors}%
-Ninji.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2020}{}{}.
-\newblock
-\APACrefbtitle {Turnip Prices.} {Turnip prices.}
-\newblock
-\APACaddressPublisherEqAuth{}{Ninji}.
-\newblock
-\begin{APACrefURL}
-  \url{https://gist.github.com/Treeki/85be14d297c80c8b3c0a76375743325b}
-  \end{APACrefURL}
-\newblock
-\APACrefnote{fecha de consulta: Abril de 2021}
-\PrintBackRefs{\CurrentBib}
+\bibitem[Lewis, 2018]{angularcalendar}
+Lewis, M. (2018).
+\newblock Angular calendar.
+\newblock fecha de consulta: Abril de 2021.
 
-\bibitem [\protect \citeauthoryear {%
-Norviah%
-}{%
-Norviah%
-}{%
-{\protect \APACyear {2020}}%
-}]{%
-acnhnpm}
-\APACinsertmetastar {%
-acnhnpm}%
-\begin{APACrefauthors}%
-Norviah.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2020}{}{}.
-\newblock
-\APACrefbtitle {Animal Crossing: New Horizons database for npm.} {Animal
-  crossing: New horizons database for npm.}
-\newblock
-\APACaddressPublisherEqAuth{}{Norviah}.
-\newblock
-\begin{APACrefURL} \url{https://github.com/Norviah/animal-crossing}
-  \end{APACrefURL}
-\newblock
-\APACrefnote{fecha de consulta: Febrero de 2021}
-\PrintBackRefs{\CurrentBib}
+\bibitem[Ninji, 2020]{nabosninji}
+Ninji (2020).
+\newblock Turnip prices.
+\newblock fecha de consulta: Abril de 2021.
+
+\bibitem[Norviah, 2020]{acnhnpm}
+Norviah (2020).
+\newblock Animal crossing: New horizons database for npm.
+\newblock fecha de consulta: Febrero de 2021.
 
 \end{thebibliography}
