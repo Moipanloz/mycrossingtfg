@@ -67,8 +67,7 @@ if(isset($_GET["command"])){
           $validation =  checkExisteUser($conn, $userId) &&
                     checkExisteVisita($conn, $userId) &&
                     checkVerification($conn, $userId, $verifCode) &&
-                    checkSameUserId($userId, $objectUserId) &&
-                    checkEstela($estela);
+                    checkSameUserId($userId, $objectUserId);
 
           if($validation){
             $result = $conn->prepare('UPDATE visitas SET lpa = ?, mpa = ?, xpa = ?, jpa = ?, vpa = ?, lpr = ?, mpr = ?, xpr = ?, jpr = ?, vpr = ?, estela = ? WHERE usuario_id = ?');
@@ -121,8 +120,7 @@ if(isset($_GET["command"])){
 
         $validation=TRUE;
         $validation =  checkExisteUser($conn, $userId) &&
-                  checkVerification($conn, $userId, $verifCode) &&
-                  checkNoExisteVisita($conn, $userId);
+                  checkVerification($conn, $userId, $verifCode);
 
         if($validation){
           $result = $conn->prepare('INSERT INTO visitas(usuario_id) VALUES (?)');

@@ -37,7 +37,7 @@ export class VisitasService {
       }else{
         estela=false;
       }
-    let visita = {usuario_id:JSON.stringify(this.verification.user),estela:estela?"true":"false",lpa:lpa,mpa:mpa,xpa:xpa,jpa:jpa,vpa:vpa,lpr:lpr,mpr:mpr,xpr:xpr,jpr:jpr,vpr:vpr,last_update:null};
+    let visita = {usuario_id:JSON.stringify(this.verification.user),estela:estela,lpa:lpa,mpa:mpa,xpa:xpa,jpa:jpa,vpa:vpa,lpr:lpr,mpr:mpr,xpr:xpr,jpr:jpr,vpr:vpr,last_update:null};
     return this.http.put<string>(this.url, visita, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
   async createVisita() : Promise<void>{

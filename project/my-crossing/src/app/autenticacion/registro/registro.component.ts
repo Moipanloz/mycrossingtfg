@@ -59,7 +59,6 @@ export class RegistroComponent {
     let user = this.registerForm.value;
     let key = this.verification.makeRandomKey();
     this._user.register(user, key).then(data => {
-      console.log(data);
       this.cookieService.set( 'verif', key );
       this.cookieService.set( 'userId', data[0]['id'] );
       this.verification.verified = true;
@@ -77,7 +76,6 @@ export class RegistroComponent {
 
 export class CustomValidator{
   static switch(control: AbstractControl) {
-    console.log("Aun va");
     let val = control.value;
 
     if (val === null || val === '') return null;

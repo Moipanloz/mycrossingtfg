@@ -40,10 +40,3 @@ function checkSameUserId($userId, $objectUserId){
   }
   return true;
 }
-
-function checkEstela($estela){
-  if($estela == null || ($estela != false && $estela != true)){
-    die("Debe especificar correctamente si estela ha ido de visita");
-  }
-  return true;
-}

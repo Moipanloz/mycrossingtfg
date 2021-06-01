@@ -45,7 +45,6 @@ export class UserService {
     let parametros = new HttpParams().set("command", "register");
 
     user.verif = key;
-    console.log(user);
 
     return this.http.post(this.url, user, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }

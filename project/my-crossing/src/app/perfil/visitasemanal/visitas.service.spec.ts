@@ -51,26 +51,6 @@ describe('Visitas', () => {
       expect(res2[0].usuario_id.toString()).toEqual('2');
       expect(res2[0].estela.toString()).toEqual('0');
   });
-  it('should not create again', async () =>{
-    let parametrosCreate = new HttpParams()
-      .set("command", "create")
-      .set("testing", 'true')
-      .set("verif", verificationService.verifCode)
-      .set("userId", JSON.stringify(verificationService.user));
-      let parametrosRead = new HttpParams()
-        .set("command", "read")
-        .set("testing", 'true')
-        .set("verif", verificationService.verifCode)
-        .set("userId", JSON.stringify(verificationService.user));
-      let res1 = JSON.parse(await (await http.get("http://localhost/visita.php", { params: parametrosRead, responseType: 'blob' } ).toPromise()).text());
-      expect(res1[0]).toBeTruthy();
-      expect(await (await http.get("http://localhost/visita.php", { params: parametrosCreate, responseType: 'blob' } ).toPromise()).text()).toEqual("La visita ya existe");
-      let res2: Visita[];
-      res2 = JSON.parse(await (await http.get("http://localhost/visita.php", { params: parametrosRead, responseType: 'blob' } ).toPromise()).text());
-      expect(res2).toBeTruthy();
-      expect(res2[0].usuario_id.toString()).toEqual('2');
-      expect(res2[0].estela.toString()).toEqual('0');
-  });
   it('should not create wrong user', async () =>{
     let parametrosCreate = new HttpParams()
       .set("command", "create")
@@ -144,24 +124,6 @@ describe('Visitas', () => {
         .set("verif", verificationService.verifCode)
         .set("userId", JSON.stringify(verificationService.user));
       expect(await (await http.put("http://localhost/visita.php", visita, { params: parametrosUpdate, responseType: "blob"} ).toPromise()).text()).toEqual("Esta visita no le pertenece");
-  });
-  it('should not update estela null', async () =>{
-    let visita:Visita = {usuario_id:'2',estela:null,lpa:'lpa',mpa:'mpa',xpa:'xpa',jpa:'jpa',vpa:'vpa',lpr:'lpr',mpr:'mpr',xpr:'xpr',jpr:'jpr',vpr:'vpr',last_update:null};
-      let parametrosUpdate = new HttpParams()
-        .set("command", "update")
-        .set("testing", 'true')
-        .set("verif", verificationService.verifCode)
-        .set("userId", JSON.stringify(verificationService.user));
-      expect(await (await http.put("http://localhost/visita.php", visita, { params: parametrosUpdate, responseType: "blob"} ).toPromise()).text()).toEqual("Debe especificar correctamente si estela ha ido de visita");
-  });
-  it('should not update estela wrong', async () =>{
-    let visita = {usuario_id:'2',estela:"buenosDias",lpa:'lpa',mpa:'mpa',xpa:'xpa',jpa:'jpa',vpa:'vpa',lpr:'lpr',mpr:'mpr',xpr:'xpr',jpr:'jpr',vpr:'vpr',last_update:null};
-      let parametrosUpdate = new HttpParams()
-        .set("command", "update")
-        .set("testing", 'true')
-        .set("verif", verificationService.verifCode)
-        .set("userId", JSON.stringify(verificationService.user));
-      expect(await (await http.put("http://localhost/visita.php", visita, { params: parametrosUpdate, responseType: "blob"} ).toPromise()).text()).toEqual("Debe especificar correctamente si estela ha ido de visita");
   });
   it('should not update wrong user', async () =>{
     let visita:Visita = {usuario_id:'9999',estela:true,lpa:'lpa',mpa:'mpa',xpa:'xpa',jpa:'jpa',vpa:'vpa',lpr:'lpr',mpr:'mpr',xpr:'xpr',jpr:'jpr',vpr:'vpr',last_update:null};
