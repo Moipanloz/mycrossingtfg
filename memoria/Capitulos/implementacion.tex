@@ -91,7 +91,7 @@ Como es común en todos los proyectos, a medida que se ha ido avanzando en el de
 
 \subsection{It. 3 - Perfil}
 
-Esta ha sido la primera iteración en la que hemos empezado a programar y hemos desarrollado features. Al principio, dado que íbamos a trabajar con una API de la que sacaríamos todos los datos, pensamos que el perfil del usuario, así como las distintas funciones que habían dentro de este, no resultarían un gran trabajo ya que trataría más de consumir información y que, por lo tanto, sería un buen comienzo para empezar a iniciarnos en Angular.\\
+Esta ha sido la primera iteración en la que hemos empezado a programar y hemos desarrollado features. Al principio, dado que íbamos a trabajar con una API \citep{acnhapi} de la que sacaríamos todos los datos, pensamos que el perfil del usuario, así como las distintas funciones que habían dentro de este, no resultarían un gran trabajo ya que trataría más de consumir información y que, por lo tanto, sería un buen comienzo para empezar a iniciarnos en Angular.\\
 
 Sin embargo, cuando nos pusimos a desarrollar código, vimos que no era tan simple y que todo lo que pensábamos que sería consumir información, eran en realidad features que había que realizar, con sus respectivos servicios, clases y lógica, ya que necesitábamos almacenar dicha información relacionándola con el usuario. Esto hizo que se aumentara bastante la carga de trabajo, así que para no cargarnos mucho en esta primera iteración de desarrollo, decidimos dejar la implementación de la API para el siguiente sprint (asi como la realización de los tests, ya que no tiene sentido desarrollar unos tests para features que no estan completas).\\
 
@@ -119,17 +119,17 @@ De esta forma, aunque guardamos algunos datos en la base de datos, nos ahorramos
 
 \subsection{It. 4 - API incompleta}
 
-En la iteración 4 debíamos hacer un repaso por las features realizadas en la iteración anterior de forma que añadiésemos todo lo necesario relacionado con la API que íbamos a utilizar para acceder tanto a imágenes como a datos del juego.\\
+En la iteración 4 debíamos hacer un repaso por las features realizadas en la iteración anterior de forma que añadiésemos todo lo necesario relacionado con la API \citep{acnhapi} que íbamos a utilizar para acceder tanto a imágenes como a datos del juego.\\
 
-Sin embargo, una vez nos pusimos a implementar la API \citep{acnhapi}, nos dimos cuenta de que, aunque bastante completa para algunos aspectos del juego, para otros no estaba tan completa y carecía de muchos datos que necesitábamos. Además solo implementaba métodos para obtener o todo el listado de datos, o uno solo (mediante su ID), pero en ningún momento nos dejaba filtrar, por lo que iba a ser un trabajo que íbamos a tener que realizar a mano y que además sería bastante costoso computacionalmente hablando.\\
+Sin embargo, una vez nos pusimos a implementar la API, nos dimos cuenta de que, aunque bastante completa para algunos aspectos del juego, para otros no estaba tan completa y carecía de muchos datos que necesitábamos. Además solo implementaba métodos para obtener o todo el listado de datos, o uno solo (mediante su ID), pero en ningún momento nos dejaba filtrar, por lo que iba a ser un trabajo que íbamos a tener que realizar a mano y que además sería bastante costoso computacionalmente hablando.\\
 
-Es por eso que realizamos otra búsqueda en la web para encontrar una solución distinta que nos proporcionase todo lo que necesitábamos. Primero encontramos otra API \citep{nookipediaapi} que, aunque disponía de más métodos y alguna información que nos podía resultar útil, estaba aun a mitad de desarrollo, por lo que también estaba algo incompleta. Se pensó en implementar ambas API, pero el resultado no era lo que buscábamos, era una solución algo compleja y no nos convencía del todo, pero parecía ser la única opción.\\
+Es por eso que realizamos otra búsqueda en la web para encontrar una solución distinta que nos proporcionase todo lo que necesitábamos. Primero encontramos otra API \citep{nookipediaapi} que, aunque disponía de más métodos y alguna información que nos podía resultar útil, estaba aun a mitad de desarrollo, por lo que también estaba algo incompleta. Se pensó en implementar ambas APIs, pero el resultado no era lo que buscábamos, era una solución algo compleja y no nos convencía del todo, pero parecía ser la única opción.\\
 
 Sin embargo, tras seguir buscando encontramos una librería \citep{acnhnpm} que se podía instalar directamente en Angular que disponía de toda la información que necesitábamos, así como ciertas traducciones e imágenes, por lo que decidimos usar esta librería ya que, no solo nos daba todo lo que necesitábamos sino que ademas su uso era extremadamente sencillo. 
 
 \subsection{It. 5 - Código reciclado}
 
-En la iteración 5 introdujimos la calculadora de nabos y el calendario de eventos entre otras features. Para la calculadora necesitábamos el algoritmo que calculaba los precios establecidos en el juego. Dicho algoritmo había sido datamineado por un usuario ya mencionado anteriormente en esta memoria, Ninji \citep{nabosninji}.\\
+En la iteración 5 introdujimos la calculadora de nabos y el calendario de eventos entre otras features. Para la calculadora necesitábamos el algoritmo que calculaba los precios establecidos en el juego. Dicho algoritmo había sido datamineado por un usuario ya mencionado anteriormente en esta memoria \citep{nabosninji}.\\
 
 El problema surge a raíz de que dicho algoritmo, que se encuentra subido en la plataforma GitHub, estaba para otro lenguaje distinto al de nuestro proyecto, por lo que no pudimos usarlo directamente. Al principio consideramos intentar adaptarlo, pero era tan extenso y complejo que no merecía la pena dedicarle tantas horas a esa tarea, por lo que optamos por otra solución.\\
 
@@ -168,6 +168,22 @@ Esto nos suponía un leve problema ya que las tareas del perfil se desactivan di
 Sin embargo, este problema puede ser solucionado de varias formas: o bien alojando nuestra BBDD en un servicio que permita la creación de eventos (aunque sería un servicio de pago); o bien optando por reiniciar las tareas de otra forma distinta en el código (aunque no lo consideramos óptimo ya que los eventos SQL están precisamente diseñados para realizar este tipo de tareas).\\
 
 Es por eso que, siendo lo ideal resolverlo mediante la primera opción (ya que en un despliegue real de la aplicación necesitaríamos un servicio con mayor número de consultas y otras características, entre las cuales vendría el servicio de creación de eventos), hemos decidido usar esta opción gratuita de alojamiento y prescindir de dicho evento (especialmente, tratándose solo de un evento cuya función equivale a hacer click en el botón de la tarea y apenas va a ser notable).\\
+
+\subsection{It. 6 - CORS Policy}
+
+La política de CORS ha ocasinado problemas durante gran parte del desarrollo de la aplicación. Sin embargo, haciendo algunos ajustes en las cabeceras HTTP conseguimos evitar la aparición de más errores mientras que seguíamos desarrollando.\\
+
+El problema vino una vez acabado el desarrollo, cuando nos pusimos a desplegar la aplicación, ya que como necesitamos desplegar en dos aplicaciones diferentes el backend y el frontend, al realizar peticiones entre sí otra vez ocurrían los errores. Esto se debe a que CORS, cuando está en producción, antes de cualquier petición HTTP manda una petición con el método OPTION, para comprobar que es correcta, y una ves recibe una respuesta satisfactoria, manda la petición original.\\
+
+En principio pensábamos que con las cabeceras ya valdría, pero estábamos equivocados ya que, al enviar la primera petición, necesita un parámetro en una de las cabeceras, y dicho parámetro no puede encontrarse en la cabecera de la segunda petición (la original), por lo que no podíamos asignar la misma cabecera a todas las peticiones\\
+
+Sin embargo, tras una intensiva búsqueda en la web, dimos con una librería para Angular que con un par de líneas de código, configuraba automáticamente todo lo respectivo a CORS, y una vez instalado y configurado conseguimos que funcionase sin ningún problema.\\
+
+\subsection{It. 6 - AdBlock}
+
+Aunque no es un problema grave per se, si que es un apunte a tener en cuenta y es que, si el usuario tiene instalado en su navegar algún addon para evitar publicidad, por cómo funcionan estos addons, hay algunas imágenes que no serán visibles, o que se mostrarán con un placeholder, ya que la misma url de la que se obtiene la imagen puede tener unos caracteres determinados que estén en la lista negra del addon y éste proceda a bloquearlo, pensando que se trata de publicidad.\\
+
+Aun así, este problema (que parece afectar exclusivamente a la carga de algunas imágenes) se puede solucionar desactivando dicho addon en la página.\\
 
 
 
