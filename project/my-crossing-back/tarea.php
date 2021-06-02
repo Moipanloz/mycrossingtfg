@@ -104,7 +104,7 @@ if(isset($_GET["command"])){
                     checkSameUser($userId, $objectUserId);
 
           if($validation){
-            $result = $conn->prepare('INSERT INTO tareas(id, usuario_id, hecha, imagen_url) VALUES("",?,?,?)');
+            $result = $conn->prepare('INSERT INTO tareas(usuario_id, hecha, imagen_url) VALUES(?,?,?)');
             $result->bind_param('iis',$userId, $hecha, $imagenUrl);
             $result->execute();
           }
