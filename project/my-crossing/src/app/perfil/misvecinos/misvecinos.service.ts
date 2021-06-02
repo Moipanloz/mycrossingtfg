@@ -19,8 +19,10 @@ export class MisvecinosService {
 
   constructor(pl: PlatformLocation, verification : VerificationService, private http : HttpClient) {
     this.verification = verification;
-    this.url = pl.hostname.includes("localhost")?"http://localhost/":"https://mycrossing-back.herokuapp.com/";
-    this.url = this.url + "misvecinos.php";
+    // this.url = pl.hostname.includes("localhost")?"http://localhost/":"https://mycrossing-back.herokuapp.com/";
+    // this.url = this.url + "misvecinos.php";
+    this.url = pl.getBaseHrefFromDOM() + "/misvecinos.php";
+
   }
 
   readMisVecinos() : Promise<Vecino[]>{

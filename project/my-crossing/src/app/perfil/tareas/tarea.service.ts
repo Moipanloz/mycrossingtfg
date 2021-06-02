@@ -17,8 +17,7 @@ export class TareasService {
 
   constructor(pl: PlatformLocation, private http : HttpClient, verification : VerificationService) {
     this.verification = verification;
-    this.url = pl.hostname.includes("localhost")?"http://localhost/":"https://mycrossing-back.herokuapp.com/";
-    this.url = this.url + "tarea.php";
+    this.url = pl.getBaseHrefFromDOM() + "/tarea.php";
   }
 
   readTareas() : Promise<Tarea[]>{
