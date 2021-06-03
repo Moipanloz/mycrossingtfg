@@ -95,6 +95,6 @@
 }
 
 .burbuja-title{
-  background-image: url("../../assets/images/bubble-calendario.png");
+  background-image: url("../../assets/images/bubble-calendario.png") !important;
 }
 
