@@ -43,7 +43,7 @@ img {
   margin: 0 1vw;
   height: fit-content;
   border: none;
-  border-radius: 20px;
+  border-radius: 50px;
   background-color: #f7f3e8;
   cursor: pointer;
   transition-duration: 0.2s;
