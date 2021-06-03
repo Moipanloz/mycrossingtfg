@@ -4,7 +4,7 @@
   <div id="menu">
     <button [class]="_comunicacion.activar ? 'activado':''" class="button-nav" routerLink="/cat-caza-insectos" routerLinkActive="activo">Cazar ahora</button>
     <button class="button-nav" routerLink="/cat-sueno" routerLinkActive="activo">Sueños</button>
-    <button class="button-nav" id="irMercadoNabos" routerLink="/mercado-nabos" routerLinkActive="activo">Mercado Nabos</button>
+    <button class="button-nav" [class]="_comunicacion.activarNabos ? 'activado':''" (click)="redirectTo('/mercado-nabos')" id="irMercadoNabos" >Mercado Nabos</button>
     <button class="button-nav" routerLink="/calendario" routerLinkActive="activo">Calendario</button>
   </div>
 

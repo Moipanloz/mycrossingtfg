@@ -25,6 +25,7 @@ export class VerificationService {
 
   async verify() {
     this._comunication.activar=false;
+    this._comunication.activarNabos=false;
     if(this.cookieService.check("verif") && this.cookieService.check("userId")){
       let userId:number = +this.cookieService.get("userId");
       let parametros = new HttpParams()

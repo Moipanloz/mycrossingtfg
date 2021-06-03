@@ -38,8 +38,12 @@ export class NavbarComponent {
 
   irInicio(){
     this._comunicacion.activar=false;
+    this._comunicacion.activarNabos=false;
     this.router.navigate(['']);
   }
+  redirectTo(uri:string){
+    window.location.assign(uri);
+ }
 
   logOut(){
     this._user.logOut().then(() => {
@@ -50,6 +54,7 @@ export class NavbarComponent {
       this.verification.nombre = "";
       this.menu = false;
       this._comunicacion.activar = false;
+      this._comunicacion.activarNabos=false;
       this.router.navigate([""]);
     }).catch(err => {
       this._error.setNewError(err.message);

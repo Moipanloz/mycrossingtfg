@@ -18,6 +18,7 @@ export class CalcNabosComponent implements OnInit {
 
   ngOnInit(): void {
     this.comunication.activar=false;
+    this.comunication.activarNabos=true;
     //Esto no parece servir
     this.loadExternalScript('https://code.jquery.com/jquery-3.4.1.min.js', "sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh");
     this.loadExternalScript('https://cdnjs.cloudflare.com/ajax/libs/i18next/19.4.2/i18next.min.js', "sha384-heKFZqp863HDEF6obW4Nvk9hF5pRjZThVwrDiV+tSCKPBTnu6vf5lu8QJGDwGv0X");

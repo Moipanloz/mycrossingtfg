@@ -7,6 +7,7 @@ export class ComunicacionService {
 
   datos : string[];
   activar : boolean = false;
+  activarNabos : boolean = false;
   constructor() {
     if(this.datos==null) this.datos=[];
   }

@@ -201,6 +201,7 @@ export class CalEventosComponent implements OnInit {
 
   ngOnInit() : void{
     this.comunication.activar=false;
+    this.comunication.activarNabos=false;
     registerLocaleData(localeEs);
     this.getEvents().then(()=>{
       // El primer onInit funciona bien, pero los siguientes
