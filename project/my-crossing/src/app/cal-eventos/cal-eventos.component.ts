@@ -182,11 +182,11 @@ export class CalEventosComponent implements OnInit {
       +" unas joyas amorosas que podrás intercambiar con Al a cambio de los muebles y vestidos"
       +" más elegantes.",
       imagenes:[
-        "https://acnhcdn.com/1.2.0/FtrIcon/FtrWeddingArch_Remake_0_0.png",
-        "https://acnhcdn.com/1.2.0/FtrIcon/TopsTexOnepieceDressNWedding.png",
-        "https://acnhcdn.com/1.2.0/FtrIcon/FtrWeddingCake_Remake_0_0.png",
+        "https://acnhcdn.com/latest/FtrIcon/FtrWeddingArch_Remake_0_0.png",
+        "https://acnhcdn.com/latest/FtrIcon/TopsTexOnepieceDressNWedding.png",
+        "https://acnhcdn.com/latest/FtrIcon/FtrWeddingCake_Remake_0_0.png",
         "https://acnhcdn.com/latest/DIYRecipeIcon/ToolStickJune.png",
-        "https://acnhcdn.com/1.2.0/FtrIcon/FtrWeddingOrgan_Remake_0_0.png"
+        "https://acnhcdn.com/latest/FtrIcon/FtrWeddingOrgan_Remake_0_0.png"
       ],
       icono: "https://acnhcdn.com/latest/NpcIcon/alw.png"
     }
