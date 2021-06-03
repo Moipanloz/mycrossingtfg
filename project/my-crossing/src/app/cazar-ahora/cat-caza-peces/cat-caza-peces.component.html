@@ -6,9 +6,8 @@
         <div class="burbuja-title">
           <h1>¿Qué puedo cazar ahora?</h1>
         </div>
-        <img (click)="cambiaHemisferio()" [src]="isNorth ? '../../../assets/images/hemisferio-norte.png': '../../../assets/images/hemisferio-sur.png'" class="editar editar-top-left img-radio" style="width: unset;height: unset;">
-
         <div id="wrap-filtros" class="flex-centered" style="align-items: unset;">
+          <img (click)="cambiaHemisferio()" [src]="isNorth ? '../../../assets/images/hemisferio-norte.png': '../../../assets/images/hemisferio-sur.png'" class="editar editar-top-left img-radio" style="width: unset;height: unset;">
           <div style="width: 35%;justify-content:unset" class="flex-column-centered">
             <h3>Sombra</h3>
             <div class="flex-centered" style="flex-wrap: wrap;" id="filtro-sombra">
