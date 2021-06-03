@@ -6,6 +6,8 @@ import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
 import { npcs, villagers } from 'animal-crossing';
 import { HostListener } from '@angular/core';
+import { VerificationService } from 'app/general/services/verification.service';
+import { ComunicacionService } from 'app/general/services/comunicacion.service';
 
 @Component({
   selector: 'app-cal-eventos',
@@ -192,9 +194,13 @@ export class CalEventosComponent implements OnInit {
     }
   ]
 
-  constructor(private modal: NgbModal, private elementRef : ElementRef) {}
+  comunication: ComunicacionService;
+  constructor(private modal: NgbModal, private elementRef : ElementRef, _comunication: ComunicacionService) {
+    this.comunication = _comunication;
+  }
 
   ngOnInit() : void{
+    this.comunication.activar=false;
     registerLocaleData(localeEs);
     this.getEvents().then(()=>{
       // El primer onInit funciona bien, pero los siguientes
