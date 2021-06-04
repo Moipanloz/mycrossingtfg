@@ -157,6 +157,15 @@ Finalmente intentamos buscar otra feature para reemplazar a ésta, pero ya no qu
 
 Cabe decir que la implementación del probador de ropa es posible realizarla, solo que para obtener un buen resultado habría que dedicarle horas y horas de recolección de imágenes del juego, así como de edición manual de las mismas mediante un programa de edición fotográfica para que se adapten al resultado que buscamos. Sin embargo, no solo es un trabajo manual (y por lo tanto, va en contra de lo que queremos ya que buscamos hacerlo todo de la forma más programática posible) sino que además sería demasiado extenso y en cuestión de trabajo/tiempo no podíamos dedicárselo.
 
+\subsection{It. 6 - Integración continua}
+
+Cuando por fin pudimos empezar a realizar las pruebas, lo primero que pensamos fue en utilizar un sistema de integración continua (como puede ser TravisCI), de forma que se ejecutasen los tests con cada subida al repositorio, obteniendo de esta forma un reporte de posibles errores periódicamente con el que poder asegurarnos de que la aplicación funciona correctamente en cada subida.\\
+
+Sin embargo, la estructura que hemos establecido no era la más conveniente para TravisCI (o cualquier otro servicio de integración continua), ya que los tests combinaban tanto frontend (Angular) como backend (PHP), y como veríamos más adelante (y como se indica en el siguiente punto), dado que disponemos de un sistema dividido en dos servidores separados (PHP y Angular) que se comunican mediante peticiones HTTP, descubrimos que la integración continua no sería posible implementarla en nuestro proyecto.\\
+
+Tras una exhaustiva investigación sobre el tema, buscando posibles soluciones o alternativas, se ha llegó a la conclusión de que la implementación daría más problemas que beneficios, por lo que decidimos prescindir de dicha herramienta y ejecutar los tests manualmente cuando fuera necesario.\\
+
+
 \subsection{It. 6 - Despliegue}
 
 Uno de los últimos problemas que hemos tenido ha sido el despliegue online de la aplicación. Dada la combinación que hemos usado de Angular + PHP + MariaDB, necesitábamos desplegar la aplicación en dos servidores distintos: uno para el front (Angular) y otro para el back (PHP). Además, también necesitábamos una base de datos desplegada para realizar las consultas, que fue lo que provocó el principal problema.\\

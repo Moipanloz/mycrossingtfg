@@ -41,9 +41,10 @@
 \contentsline {subsection}{\numberline {6.3.4}It. 4 - API incompleta}{39}{subsection.6.3.4}%
 \contentsline {subsection}{\numberline {6.3.5}It. 5 - Código reciclado}{40}{subsection.6.3.5}%
 \contentsline {subsection}{\numberline {6.3.6}It. 5 - Feature demasiado compleja}{41}{subsection.6.3.6}%
-\contentsline {subsection}{\numberline {6.3.7}It. 6 - Despliegue}{41}{subsection.6.3.7}%
-\contentsline {subsection}{\numberline {6.3.8}It. 6 - CORS Policy}{42}{subsection.6.3.8}%
-\contentsline {subsection}{\numberline {6.3.9}It. 6 - AdBlock}{42}{subsection.6.3.9}%
+\contentsline {subsection}{\numberline {6.3.7}It. 6 - Integración continua}{41}{subsection.6.3.7}%
+\contentsline {subsection}{\numberline {6.3.8}It. 6 - Despliegue}{42}{subsection.6.3.8}%
+\contentsline {subsection}{\numberline {6.3.9}It. 6 - CORS Policy}{42}{subsection.6.3.9}%
+\contentsline {subsection}{\numberline {6.3.10}It. 6 - AdBlock}{43}{subsection.6.3.10}%
 \contentsline {chapter}{\numberline {7}Pruebas}{44}{chapter.7}%
 \contentsline {chapter}{\numberline {8}Comparación con otras alternativas}{67}{chapter.8}%
 \contentsline {chapter}{\numberline {9}Manual de Usuario}{69}{chapter.9}%
