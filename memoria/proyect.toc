@@ -1,6 +1,6 @@
 \babel@toc {spanish}{}
 \contentsline {chapter}{\'Indice general}{III}{section*.4}%
-\contentsline {chapter}{\'{I}ndice de figuras}{V}{section*.6}%
+\contentsline {chapter}{\'{I}ndice de figuras}{IV}{section*.6}%
 \contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.1}%
 \contentsline {chapter}{\numberline {2}Definici\'on de objetivos}{2}{chapter.2}%
 \contentsline {chapter}{\numberline {3}An\'alisis de antecedentes y aportaci\'on realizada}{4}{chapter.3}%
@@ -43,7 +43,7 @@
 \contentsline {subsection}{\numberline {6.3.6}It. 5 - Feature demasiado compleja}{41}{subsection.6.3.6}%
 \contentsline {subsection}{\numberline {6.3.7}It. 6 - Integración continua}{41}{subsection.6.3.7}%
 \contentsline {subsection}{\numberline {6.3.8}It. 6 - Despliegue}{42}{subsection.6.3.8}%
-\contentsline {subsection}{\numberline {6.3.9}It. 6 - CORS Policy}{42}{subsection.6.3.9}%
+\contentsline {subsection}{\numberline {6.3.9}It. 6 - CORS Policy}{43}{subsection.6.3.9}%
 \contentsline {subsection}{\numberline {6.3.10}It. 6 - AdBlock}{43}{subsection.6.3.10}%
 \contentsline {chapter}{\numberline {7}Pruebas}{44}{chapter.7}%
 \contentsline {chapter}{\numberline {8}Comparación con otras alternativas}{67}{chapter.8}%
