@@ -1,6 +1,6 @@
 \babel@toc {spanish}{}
 \contentsline {chapter}{\'Indice general}{III}{section*.4}%
-\contentsline {chapter}{\'{I}ndice de figuras}{IV}{section*.6}%
+\contentsline {chapter}{\'{I}ndice de figuras}{V}{section*.6}%
 \contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.1}%
 \contentsline {chapter}{\numberline {2}Definici\'on de objetivos}{2}{chapter.2}%
 \contentsline {chapter}{\numberline {3}An\'alisis de antecedentes y aportaci\'on realizada}{4}{chapter.3}%
