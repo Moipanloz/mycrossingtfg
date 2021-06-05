@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.5.11)  5 JUN 2021 13:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.5.11)  5 JUN 2021 16:03
 entering extended mode
 **./proyect.tex
 (proyect.tex
@@ -1964,7 +1964,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 110--111
 [38
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 112--113
+Underfull \hbox (badness 10000) in paragraph at lines 114--115
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--117
 
  []
 
@@ -1979,16 +1984,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 120--121
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 122--123
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 128--129
+Underfull \hbox (badness 10000) in paragraph at lines 126--127
 
  []
 
 [39]
+Underfull \hbox (badness 10000) in paragraph at lines 128--129
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 130--131
 
  []
@@ -2009,16 +2014,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 136--137
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 138--139
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 144--145
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
 
  []
 
 [40]
+Underfull \hbox (badness 10000) in paragraph at lines 144--145
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 146--147
 
  []
@@ -2034,7 +2039,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 150--151
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--153
+Underfull \hbox (badness 10000) in paragraph at lines 156--157
 
  []
 
@@ -2043,18 +2048,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 158--159
 
  []
 
-
+[41]
 Underfull \hbox (badness 10000) in paragraph at lines 160--161
 
  []
 
-[41]
+
 Underfull \hbox (badness 10000) in paragraph at lines 162--163
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 164--165
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
 
  []
 
@@ -2079,16 +2084,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 175--176
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 177--178
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 181--182
+Underfull \hbox (badness 10000) in paragraph at lines 179--180
 
  []
 
 [42]
+Underfull \hbox (badness 10000) in paragraph at lines 181--182
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 183--184
 
  []
@@ -2099,17 +2104,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 185--186
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 187--188
+Underfull \hbox (badness 10000) in paragraph at lines 189--190
 
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 191--192
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 193--194
 
  []
 
@@ -4089,7 +4089,7 @@ blic/lm/lmss10.pfb><C:/Users/mretr/AppData/Local/Programs/MiKTeX 2.9/fonts/type
 s/type1/public/lm/lmssbx10.pfb><C:/Users/mretr/AppData/Local/Programs/MiKTeX 2.
 9/fonts/type1/public/lm/lmsso10.pfb><C:/Users/mretr/AppData/Local/Programs/MiKT
 eX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb>
-Output written on proyect.pdf (102 pages, 45854797 bytes).
+Output written on proyect.pdf (102 pages, 45854813 bytes).
 PDF statistics:
  1522 PDF objects out of 1728 (max. 8388607)
  245 named destinations out of 1000 (max. 500000)
