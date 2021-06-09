@@ -2,7 +2,9 @@
 
 \section{Análisis de antecedentes}
 
-A continuación se mostrarán algunas de las herramientas a las que uno debería de acceder para obtener gran parte de la información que pudiera necesitar sobre el juego:
+Como ya se ha comentado, el juego dispone de varios aspectos que le dan vida: caza de criaturas como peces e insectos, jardinería, paleontología, un museo con colecciones, mercado de objetos, etc. Al haber tantos aspectos, es normal que hayan surgido varias herramientas para intentar hacer más llevadero ciertas tareas que pueden ser algo más arduas debido a la gran información de la que hay que disponer para poder realizarlas de manera óptima.\\
+
+A continuación se mostrarán algunas de las herramientas a las que uno debería de tener acceso para obtener gran parte de la información que pudiera necesitar sobre el juego:
 
 \subsection{Servicios de cálculo de nabos}
 
@@ -11,6 +13,8 @@ En el videojuego \textit{Animal Crossing: New Horizons} hay implementado un merc
 Muchos servicios se centran exclusivamente en esta función del cálculo de futuros patrones de venta, y además precisan de bastante información, al igual que en nuestro servicio, para poder realizar los cálculos necesarios para dar una aproximación cercana a la realidad.\\
 
 \figura{0.8}{img/cap3/nabos.jpg}{Turnip Prophet}{fig:turnipprophet}{}
+
+\clearpage
 
 Este tipo de servicio lo proveen varias páginas web, como \href{https://turnipprophet.io/}{Turnip Prophet} {(v\'ease la figura~\ref{fig:turnipprophet})}, siendo esta la página mas conocida y con una interfaz más cercana al usuario, siguiendo un diseño similar a la estética de \textit{Animal Crossing: New Horizons}; o \href{https://artem6.github.io/acnh_turnips/}{Turnip Price Calculator}, la cual es una web un poco más técnica que ofrece varias gráficas en la que obtener información adicional sobre las probabilidades de los patrones de venta.\\
 
@@ -26,6 +30,8 @@ Para realizar esos cálculos existen varias páginas web {(v\'ease la figura~\re
 
 Al igual que con el algoritmo de los nabos, este servicio también ha sido desarrollado por el usuario \textit{Ninji}.
 
+\clearpage
+
 \subsection{Nook’s Island}
 
 \figura{0.8}{img/cap3/nookisland.jpg}{Nook's Island}{fig:nookisland}{}
@@ -35,6 +41,8 @@ En esta página podemos encontrar varios servicios a destacar. Para empezar, dis
 Esta es una funcionalidad que hemos decidido no añadir ya que hemos considerado que con el conjunto de herramientas que vamos a centralizar, estábamos realizando bastante trabajo y añadir una funcionalidad tan extensa como esta puede resultar demasiado ambicioso, ya que aunque siendo meramente informativo, habría que realizar algún tipo de conexión entre usuarios de forma que se pudiesen comunicar. Además, el objetivo de nuestro sistema era centralizar gran parte de las herramientas que un usuario pueda necesitar a la hora de jugar de forma individual, como si de una enciclopedia con funcionalidades extra se tratase, por lo que no se busca la interacción entre usuarios. Sin embargo, no se descarta completamente en caso de que haya que aumentar el alcance del proyecto.\\
 
 Entre otras funcionalidades, Nook's Island cuenta también con un sistema para compartir Códigos de Sueño y Diseños personalizados, así como una enciclopedia de criaturas. Sin embargo, creemos que tanto el apartado visual como la accesibilidad de la web es bastante mejorable. Estas funciones estarán en nuestro sistema de una forma algo distinta, cambiando la información que se muestra de forma que lo más importante se encuentre a primera vista y los detalles menos importantes se queden en segundo plano. De esta forma se espera que el usuario pueda hacer uso de ellas de una forma más fácil e intuitiva.
+
+\clearpage
 
 \section{Aportación realizada}
 
@@ -54,6 +62,8 @@ Pero no solo nos hemos limitado a eso, sino que además ofrece una serie de herr
 	\item Tareas diarias y visitantes semanales: estas dos herramientas, aun siendo de las más útiles ya que permiten llevar un seguimiento diario y semanal (por lo que se les da mucho uso), suelen aparecer casi de manera exclusiva en aplicaciones móvil, por lo que la implementación en una aplicación web disponible en ordenadores es una novedad que permite que los usuarios no tengan que limitarse al uso de una aplicación en el móvil, y además puedan acceder de manera rápida y sencilla desde cualquier lugar siempre que dispongan de un dispositivo inteligente y conexión a Internet.
 	
 	\item Listado de criaturas en función de la fecha y hora: otra de las herramientas más útiles y que suele aparecer mas frecuentemente en aplicaciones móviles. Esta herramienta es un listado de los tres tipos de criaturas que se pueden capturar en el juego, pero lo realmente importante es que, dado que en el juego las criaturas aparecen dependiendo del mes o la hora del día, el listado muestra al igual que en el juego aquellas criaturas que se pueden capturar en tiempo real, y además permite cambiar la fecha para que el usuario pueda planear con antelación la llegada de un nuevo mes (y por tanto, nuevas criaturas), siendo esto una fuente de información realmente útil para el jugador.
+	
+	\clearpage
 	
 	\item Calcular la probabilidad de mudanza: uno de los aspectos más importantes del juego son los vecinos con los que te puedes relacionar, y periódicamente estos vecinos irán pensando en mudarse de la isla del jugador, lo que puede ser una oportunidad para buscar nuevos vecinos. Este proceso es bastante tedioso para un jugador que no conozca mucha información al respecto, ya que conlleva esperar varios días (incluso semanas) si no se conocen todos los aspectos a tener en cuenta. Esta herramienta permite calcular la probabilidad de mudanza de cada vecino, de forma que el jugador pueda conocer con la mayor precisión posible cuál será el siguiente vecino en mudarse y actuar en consecuencia. Es una herramienta sumamente importante y de la que muy pocas aplicaciones disponen, por lo que es un punto bastante importante en nuestra aplicación.
 	

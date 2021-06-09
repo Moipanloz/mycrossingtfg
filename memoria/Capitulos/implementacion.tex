@@ -91,11 +91,11 @@ Como es común en todos los proyectos, a medida que se ha ido avanzando en el de
 
 \subsection{It. 3 - Perfil}
 
-Esta ha sido la primera iteración en la que hemos empezado a programar y hemos desarrollado features. Al principio, dado que íbamos a trabajar con una API \citep{acnhapi} de la que sacaríamos todos los datos, pensamos que el perfil del usuario, así como las distintas funciones que habían dentro de este, no resultarían un gran trabajo ya que trataría más de consumir información y que, por lo tanto, sería un buen comienzo para empezar a iniciarnos en Angular.\\
+Esta ha sido la primera iteración en la que hemos empezado a programar y hemos desarrollado funcionalidades. Al principio, dado que íbamos a trabajar con una API \citep{acnhapi} de la que sacaríamos todos los datos, pensamos que el perfil del usuario, así como las distintas funciones que habían dentro de este, no resultarían un gran trabajo ya que trataría más de consumir información y que, por lo tanto, sería un buen comienzo para empezar a iniciarnos en Angular.\\
 
-Sin embargo, cuando nos pusimos a desarrollar código, vimos que no era tan simple y que todo lo que pensábamos que sería consumir información, eran en realidad features que había que realizar, con sus respectivos servicios, clases y lógica, ya que necesitábamos almacenar dicha información relacionándola con el usuario. Esto hizo que se aumentara bastante la carga de trabajo, así que para no cargarnos mucho en esta primera iteración de desarrollo, decidimos dejar la implementación de la API para el siguiente sprint (asi como la realización de los tests, ya que no tiene sentido desarrollar unos tests para features que no están completas).\\
+Sin embargo, cuando nos pusimos a desarrollar código, vimos que no era tan simple y que todo lo que pensábamos que sería consumir información, eran en realidad funcionalidades que había que realizar, con sus respectivos servicios, clases y lógica, ya que necesitábamos almacenar dicha información relacionándola con el usuario. Esto hizo que se aumentara bastante la carga de trabajo, así que para no cargarnos mucho en esta primera iteración de desarrollo, decidimos dejar la implementación de la API para el siguiente sprint (asi como la realización de los tests, ya que no tiene sentido desarrollar unos tests para funcionalidades que no están completas).\\
 
-De este modo, aunque algo más laborioso de lo que se pensó en un principio, pudimos realizar un sprint de introducción al lenguaje (del que hemos aprendido bastante) que nos sirve como base para los siguientes sprints, ya que con cada feature que hemos ido desarrollando, hemos descubierto más y más sobre el framework, adquiriendo así las nociones necesarias para avanzar de forma eficiente.
+De este modo, aunque algo más laborioso de lo que se pensó en un principio, pudimos realizar un sprint de introducción al lenguaje (del que hemos aprendido bastante) que nos sirve como base para los siguientes sprints, ya que con cada funcionalidades que hemos ido desarrollando, hemos descubierto más y más sobre el framework, adquiriendo así las nociones necesarias para avanzar de forma eficiente.
 
 \subsection{It. 3 - Mantener sesiones}
 
@@ -105,13 +105,13 @@ El problema comenzó con lo mencionado en el punto anterior: se combinó el aume
 
 Esto ocasionó que tuviéramos que dar un rodeo buscando posibles soluciones hasta dar con la actual, que se basa en almacenar un código de verificación que se borre exclusivamente al cerrar sesión, de forma que se mantiene la sesión mientras el usuario tenga asignado un código de verificación que no sea nulo. Debido a este rodeo y al tiempo que llevó tanto encontrar la solución como su implementación, hubo cierta dependencia entre tareas, lo que ocasionó un ligero aumento del tiempo inicial pensado para dichas tareas.
 
-\subsection{It. 3 - Features del perfil}
+\subsection{It. 3 - Funcionalidades del perfil}
 
-En la feature de ``Mis vecinos``, teníamos que calcular el porcentaje que tiene cada vecino de mudarse de isla, dependiendo de la amistad que tenga con el jugador y de ciertos parámetros que hayan podido ocurrir. Este algoritmo pensábamos que ya lo habrían sacado del juego y podríamos acceder a él, sin embargo no fue así, por lo que tuvimos que realizar cierta investigación para dar con la fórmula que calcula dicha probabilidad y acto seguido, implementar nosotros el algoritmo (Agradecimientos al usuario de Twitter \textit{Ninji} que publicó la lógica y las matemáticas que sigue el juego para calcular la probabilidad de mudanza, información a partir de la cual pudimos implementar el algoritmo).\\
+En la funcionalidad de ``Mis vecinos``, teníamos que calcular el porcentaje que tiene cada vecino de mudarse de isla, dependiendo de la amistad que tenga con el jugador y de ciertos parámetros que hayan podido ocurrir. Este algoritmo pensábamos que ya lo habrían sacado del juego y podríamos acceder a él, sin embargo no fue así, por lo que tuvimos que realizar cierta investigación para dar con la fórmula que calcula dicha probabilidad y acto seguido, implementar nosotros el algoritmo (Agradecimientos al usuario de Twitter \textit{Ninji} que publicó la lógica y las matemáticas que sigue el juego para calcular la probabilidad de mudanza, información a partir de la cual pudimos implementar el algoritmo).\\
 
 \subsection{It. 4 - API incompleta}
 
-En la iteración 4 debíamos hacer un repaso por las features realizadas en la iteración anterior de forma que añadiésemos todo lo necesario relacionado con la API que íbamos a utilizar \citep{acnhapi} para acceder tanto a imágenes como a datos del juego, pero debido a que no nos habíamos informado tanto como debíamos sobre la API, descubrimos que no tiene ningún método de filtro mas que obtener objetos por su id, por lo que nos obligaba a hacer una petición con todos los objetos e ir filtrando por ``fuente`` (colección) para seleccionar los que nos interesaban. Esto era posible pero suponía un gran coste computacional, especialmente si lo implementamos de forma que cualquier usuario pueda hacer dicha petición.\\
+En la iteración 4 debíamos hacer un repaso por las funcionalidades realizadas en la iteración anterior de forma que añadiésemos todo lo necesario relacionado con la API que íbamos a utilizar \citep{acnhapi} para acceder tanto a imágenes como a datos del juego, pero debido a que no nos habíamos informado tanto como debíamos sobre la API, descubrimos que no tiene ningún método de filtro mas que obtener objetos por su id, por lo que nos obligaba a hacer una petición con todos los objetos e ir filtrando por ``fuente`` (colección) para seleccionar los que nos interesaban. Esto era posible pero suponía un gran coste computacional, especialmente si lo implementamos de forma que cualquier usuario pueda hacer dicha petición.\\
 
 Ante este problema, dimos con la idea de crear un usuario administrador (el cual no había hecho falta hasta ahora) que pudiera ejecutar dicha petición para actualizar el catalogo de colecciones, de forma que con una sola petición por parte del administrador, se actualizan los ítems disponibles para los usuarios, de forma que estos acceden a una tabla de la base de datos con datos mínimos (fuente e id). De esta forma, aunque guardamos algunos datos en la base de datos, nos ahorramos tanto el realizar peticiones de forma constante en la que recibimos cientos de objetos, como el filtrarlos para poder obtener los deseados, aumentando así la velocidad de respuesta.\\
 
@@ -123,7 +123,7 @@ Sin embargo, tras seguir buscando encontramos una librería \citep{acnhnpm} que 
 
 \subsection{It. 5 - Código reciclado}
 
-En la iteración 5 introdujimos la calculadora de nabos y el calendario de eventos entre otras features. Para la calculadora necesitábamos el algoritmo que calculaba los precios establecidos en el juego. Dicho algoritmo había sido datamineado por un usuario ya mencionado anteriormente en esta memoria \citep{nabosninji}.\\
+En la iteración 5 introdujimos la calculadora de nabos y el calendario de eventos entre otras funcionalidades. Para la calculadora necesitábamos el algoritmo que calculaba los precios establecidos en el juego. Dicho algoritmo había sido datamineado por un usuario ya mencionado anteriormente en esta memoria \citep{nabosninji}.\\
 
 El problema surge a raíz de que dicho algoritmo, que se encuentra subido en la plataforma GitHub, estaba para otro lenguaje distinto al de nuestro proyecto, por lo que no pudimos usarlo directamente. Al principio consideramos intentar adaptarlo, pero era tan extenso y complejo que no merecía la pena dedicarle tantas horas a esa tarea, por lo que optamos por otra solución.\\
 
@@ -137,9 +137,9 @@ Pero claro, aunque estaba preparado para poder personalizarlo bastante, había q
 
 Dicho esto, pudimos modificarlo de forma satisfactoria tras dedicarle algo de tiempo. Aunque no obtuvimos el resultado que queríamos al 100\%, si que nos acercamos bastante a lo que buscábamos, por lo que nos ahorró bastante más tiempo que si lo hubiéramos implementado desde cero.
 
-\subsection{It. 5 - Feature demasiado compleja}
+\subsection{It. 5 - Funcionalidad demasiado compleja}
 
-Una de las features que queríamos añadir en este sprint era el "Probador de ropa", que consistía que una página donde el usuario pudiera crear un personaje del juego a su gusto, así como vestirlo con las distintas prendas del juego para, de esta forma, poder probarse distintos conjuntos sin tener que esperar a que apareciesen en la tienda del juego o sin tener que gastarse mucho dinero en varias prendas de ropa.\\
+Una de las funcionalidades que queríamos añadir en este sprint era el "Probador de ropa", que consistía que una página donde el usuario pudiera crear un personaje del juego a su gusto, así como vestirlo con las distintas prendas del juego para, de esta forma, poder probarse distintos conjuntos sin tener que esperar a que apareciesen en la tienda del juego o sin tener que gastarse mucho dinero en varias prendas de ropa.\\
 
 En un principio esta herramienta se planteó de forma que la prenda que eligiese el usuario iría superpuesta a la imagen del personaje en la zona correspondiente (por ejemplo si es una camiseta, iría en el torso). Esta idea no estaba exenta de fallos ya que dependíamos de la postura de las prendas de ropa (la gran mayoría vienen en "T-pose") y había varias, especialmente aquellas de manga larga, que por ejemplo tenían una manga doblada, lo que nos impedía representar por completo la ilusión de que el personaje llevaba la prenda.\\
 
@@ -147,13 +147,13 @@ Aun así, no eran muchas prendas, por lo que al ser una herramienta tan interesa
 
 Tras investigar todo lo posible, vimos que eran tantos los fallos visuales que se cometerían que no rentaba realizar una herramienta tan completa para obtener un funcionamiento tan mediocre. Intentamos optar por buscar alguna herramienta del estilo ya realizada o algo que pudiésemos utilizar para intentar salvar la herramienta, pero por desgracia no dimos con nada por lo que optamos por desechar la funcionalidad.\\
 
-Finalmente intentamos buscar otra feature para reemplazar a ésta, pero ya no quedaba demasiado por añadirle a la página que le resultara útil al usuario más que párrafos y párrafos de información, que aunque útiles, no es lo que busca nuestra página, por lo que optamos por no realizar ninguna y dedicar el tiempo de implementación de dicha herramienta tanto al apartado visual de la página como a pulirla todo lo posible.\\
+Finalmente intentamos buscar otra funcionalidad para reemplazar a ésta, pero ya no quedaba demasiado por añadirle a la página que le resultara útil al usuario más que párrafos y párrafos de información, que aunque útiles, no es lo que busca nuestra página, por lo que optamos por no realizar ninguna y dedicar el tiempo de implementación de dicha herramienta tanto al apartado visual de la página como a pulirla todo lo posible.\\
 
 Cabe decir que la implementación del probador de ropa es posible realizarla, solo que para obtener un buen resultado habría que dedicarle horas y horas de recolección de imágenes del juego, así como de edición manual de las mismas mediante un programa de edición fotográfico para que se adapten al resultado que buscamos. Sin embargo, no solo es un trabajo manual (y por lo tanto, va en contra de lo que queremos ya que buscamos hacerlo todo de la forma más programática posible) sino que además sería demasiado extenso y en cuestión de trabajo/tiempo no podíamos dedicárselo.
 
 \subsection{It. 6 - Integración continua}
 
-Aunque la idea principal consistía en realizar las features así como sus respectivos tests en el mismo sprint en el que se desarrollaban, por cuestiones de tiempo y otras razones que variaban a medida que avanzábamos en el proyecto, nos vimos en la necesidad de ir aplazando el desarrollo de tests, hasta que finalmente decidimos dejarlos para el último sprint.\\
+Aunque la idea principal consistía en realizar las funcionalidades así como sus respectivos tests en el mismo sprint en el que se desarrollaban, por cuestiones de tiempo y otras razones que variaban a medida que avanzábamos en el proyecto, nos vimos en la necesidad de ir aplazando el desarrollo de tests, hasta que finalmente decidimos dejarlos para el último sprint.\\
 
 Cuando por fin pudimos empezar a realizar las pruebas, lo primero que pensamos fue en utilizar un sistema de integración continua (como puede ser TravisCI), de forma que se ejecutasen los tests con cada subida al repositorio, obteniendo de esta forma un reporte de posibles errores periódicamente con el que poder asegurarnos de que la aplicación funciona correctamente en cada subida.\\
 
