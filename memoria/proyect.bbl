@@ -1,40 +1,43 @@
-\begin{thebibliography}{informatica}
-\ProvideTextCommand{\guillemotleft}{OT1}{%
-  \leavevmode\raise .27ex\hbox{$\scriptscriptstyle\ll$}}
-\ProvideTextCommand{\guillemotright}{OT1}{%
-  \leavevmode\raise .27ex\hbox{$\scriptscriptstyle\gg$}}
-\newcommand{\enquote}[1]{\guillemotleft#1\guillemotright}
-\expandafter\ifx\csname url\endcsname\relax
-  \def\url#1{\texttt{#1}}\fi
-\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
-\providecommand{\selectlanguage}[1]{\relax}
-\providecommand{\bibAnnoteFile}[1]{%
-  \IfFileExists{#1}{\begin{quotation}\noindent\textsc{Key:} #1\\
-  \textsc{Annotation:}\ \input{#1}\end{quotation}}{}}
-\providecommand{\bibAnnote}[2]{%
-  \begin{quotation}\noindent\textsc{Key:} #1\\
-  \textsc{Annotation:}\ #2\end{quotation}}
-\providecommand{\eprint}[2][]{\url{#2}}
+\begin{thebibliography}{}
 
-\bibitem[informatica]{informatica}
-\textsc{Autores}, Varios.
-\newblock \enquote{Escuela {T}\'ecnica {S}uperior de {I}ngenier{\'\i}a
-  {I}nform\'atica.}, 2014.
-\newblock Fecha de consulta: 24 de Noviembre de 2014,
-  \urlprefix\url{http://www.informatica.us.es}.
-\bibAnnoteFile{informatica}
+\bibitem[Alexis8717, 2020]{acnhapi}
+Alexis8717 (2020).
+\newblock {ACNH} {API}.
+\newblock Fecha de consulta: Febrero de 2021.
 
-\bibitem[guiatitlesec]{guiatitlesec}
-\textsc{Bezos}, Javier.
-\newblock \enquote{The titlesec and titletoc Packages.}
-\newblock \textit{TexEmplares}, 8, (2007), 283--298.
-\newblock Cervan{\TeX}, 2007.
-\bibAnnoteFile{guiatitlesec}
+\bibitem[Autores, 2020]{turnipprophet}
+Autores, V. (2020).
+\newblock Turnip {P}rophet.
+\newblock Fecha de consulta: Abril de 2021.
 
-\bibitem[desousa]{desousa}
-\textsc{de~Sousa}, José~Martínez.
-\newblock \textit{Ortografía y ortotipografía del español actual}.
-\newblock Trea, 2004.
-\bibAnnoteFile{desousa}
+\bibitem[KevinPayravi, 2020a]{acnhdirectory}
+KevinPayravi (2020a).
+\newblock {ACNH.D}irectory.
+\newblock Fecha de consulta: Octubre de 2020.
+
+\bibitem[KevinPayravi, 2020b]{nookipediaapi}
+KevinPayravi (2020b).
+\newblock Nookiepdia {API}.
+\newblock Fecha de consulta: Febrero de 2021.
+
+\bibitem[LeParadoxHD, 2019]{cursoangular}
+LeParadoxHD (2019).
+\newblock Angular 10 - curso completo - tutorial.
+\newblock Fecha de consulta: Octubre de 2020.
+
+\bibitem[Lewis, 2018]{angularcalendar}
+Lewis, M. (2018).
+\newblock Angular {C}alendar.
+\newblock Fecha de consulta: Abril de 2021.
+
+\bibitem[Ninji, 2020]{nabosninji}
+Ninji (2020).
+\newblock Turnip {P}rices.
+\newblock Fecha de consulta: Abril de 2021.
+
+\bibitem[Norviah, 2020]{acnhnpm}
+Norviah (2020).
+\newblock Animal {C}rossing: New {H}orizons database for npm.
+\newblock Fecha de consulta: Febrero de 2021.
 
 \end{thebibliography}

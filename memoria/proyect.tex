@@ -1,8 +1,13 @@
 % !TEX encoding = UTF-8 Unicode
-\documentclass{pclass}
+\documentclass{tfgclass}
 \usepackage[utf8]{inputenc} % para linux y mac 
 %\usepackage[latin1]{inputenc} % para windows
-\usepackage{hyperref}
+
+\usepackage{natbib}
+%\let\bibhang\relax
+\usepackage{apalike}
+\usepackage[colorlinks=true]{hyperref}
+
   
 
 %DIFERENTES TIPOS DE LETRA
@@ -10,12 +15,13 @@
 %\usepackage{times} 
 \renewcommand{\rmdefault}{lmss}
 
+
 \begin{document}
 \tipo{Grado} 
 \titulopro{My Crossing}
 \tutor{José Ramón Portillo Fernández}
 \departamento{Matemática Aplicada I}
-\autores{Moisés Pantión Loza}{{Adrián Gracia Barroso}}   
+\autores{Moisés Pantión Loza y Adrián Gracia Barroso}{} 
 \dia{Junio de 2021}
 \titulacion{Ingeniería Informática - Ingeniería del Software}
 
@@ -28,9 +34,9 @@
     \input{agradecimientos}	
 
 	\tableofcontents % Índice de contenidos
- 	\listoftables % Índice de cuadros
+ 	%\listoftables % Índice de cuadros
  	\listoffigures % Índice de figuras
- 	\lstlistoflistings %Índice de códigos
+ 	%\lstlistoflistings %Índice de códigos
 
  \mainmatter  
     
@@ -43,16 +49,15 @@
      \input{Capitulos/pruebas}
      \input{Capitulos/alternativas}
      \input{Capitulos/manual}
-     
-    %\input{Capitulos/capitulo2}  %Para referencia, borrar
 
 \backmatter
 
 \input{Capitulos/conclusiones}
-\input{Capitulos/apendices}
-\bibliographystyle{sousa5}
+%\input{Capitulos/apendices}
 
-\bibliographystyle{apacite}
+%\bibliographystyle{sousa5}
+
+\bibliographystyle{apalike}
 
 \bibliography{pfcbib}
 

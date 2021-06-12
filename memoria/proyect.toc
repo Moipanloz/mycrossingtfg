@@ -1,50 +1,52 @@
 \babel@toc {spanish}{}
 \contentsline {chapter}{\'Indice general}{III}{section*.4}%
-\contentsline {chapter}{{\'I}ndice de cuadros}{V}{section*.6}%
-\contentsline {chapter}{\'{I}ndice de figuras}{VI}{section*.8}%
-\contentsline {chapter}{{\'I}ndice de c{\'o}digo}{VII}{section*.10}%
+\contentsline {chapter}{\'{I}ndice de figuras}{V}{section*.6}%
 \contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.1}%
-\contentsline {chapter}{\numberline {2}Definici\'on de objetivos}{2}{chapter.2}%
-\contentsline {chapter}{\numberline {3}An\'alisis de antecedentes y aportaci\'on realizada}{4}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Análisis de antecedentes}{4}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Servicios de cálculo de nabos}{4}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Servicios de cálculo de probabilidades sobre mudanzas}{5}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Nook’s Island}{5}{subsection.3.1.3}%
-\contentsline {section}{\numberline {3.2}Aportación realizada}{6}{section.3.2}%
-\contentsline {chapter}{\numberline {4}An\'alisis temporal y costes de desarrollo}{8}{chapter.4}%
-\contentsline {section}{\numberline {4.1}An\'alisis temporal}{8}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Iteraciones}{8}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Estimación vs Realidad}{9}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Costes de desarrollo}{9}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Costes Directos}{9}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Costes Indirectos}{10}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Amortizaciones}{10}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}Total}{10}{subsection.4.2.4}%
-\contentsline {chapter}{\numberline {5}An\'alisis de requisitos y dise\~no}{11}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Participantes del proyecto}{11}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Requisitos}{11}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Requisitos de Informaci\'on}{11}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Requisitos Funcionales}{14}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Requisitos no Funcionales}{17}{subsection.5.2.3}%
-\contentsline {section}{\numberline {5.3}Diagrama de Clases}{17}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Dise\~no}{21}{section.5.4}%
-\contentsline {chapter}{\numberline {6}Implementaci\'on}{31}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Entorno de desarrollo}{31}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Tecnolog\'ias utilizadas}{32}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Angular}{33}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}XAMPP y Apache}{34}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}PHP}{35}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.2.4}MariaDB y MySQL}{36}{subsection.6.2.4}%
-\contentsline {subsection}{\numberline {6.2.5}Git}{37}{subsection.6.2.5}%
-\contentsline {section}{\numberline {6.3}Dificultades encontradas y soluciones propuestas}{38}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}It. 3 - Perfil}{38}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}It. 3 - Mantener sesiones}{38}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}It. 3 - Features del perfil}{39}{subsection.6.3.3}%
-\contentsline {subsection}{\numberline {6.3.4}It. 4 - API incompleta}{39}{subsection.6.3.4}%
-\contentsline {chapter}{\numberline {7}Pruebas}{41}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Comparación con otras alternativas}{42}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Manual}{43}{chapter.9}%
-\contentsline {chapter}{Conclusiones y desarrollos futuros}{44}{chapter*.11}%
-\contentsline {chapter}{Apéndices}{45}{chapter*.12}%
-\contentsline {chapter}{Referencias}{46}{chapter*.13}%
+\contentsline {chapter}{\numberline {2}Definici\'on de objetivos}{3}{chapter.2}%
+\contentsline {chapter}{\numberline {3}An\'alisis de antecedentes y aportaci\'on realizada}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Análisis de antecedentes}{5}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Servicios de cálculo de nabos}{5}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Servicios de cálculo de probabilidades sobre mudanzas}{6}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Nook’s Island}{7}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}Aportación realizada}{8}{section.3.2}%
+\contentsline {chapter}{\numberline {4}An\'alisis temporal y costes de desarrollo}{10}{chapter.4}%
+\contentsline {section}{\numberline {4.1}An\'alisis temporal}{10}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Iteraciones}{10}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Estimación vs Realidad}{12}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Costes de desarrollo}{12}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Costes Directos}{12}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Costes Indirectos}{12}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Amortizaciones}{13}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Total}{13}{subsection.4.2.4}%
+\contentsline {chapter}{\numberline {5}An\'alisis de requisitos y dise\~no}{14}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Participantes del proyecto}{14}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Requisitos}{15}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Requisitos de Informaci\'on}{15}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Requisitos Funcionales}{17}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Requisitos no Funcionales}{20}{subsection.5.2.3}%
+\contentsline {section}{\numberline {5.3}Diagrama de Clases}{21}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Dise\~no}{25}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Implementaci\'on}{33}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Entorno de desarrollo}{33}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Tecnolog\'ias utilizadas}{34}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Angular}{35}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}XAMPP y Apache}{36}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}PHP}{37}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}MariaDB y MySQL}{38}{subsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.2.5}Git}{39}{subsection.6.2.5}%
+\contentsline {section}{\numberline {6.3}Dificultades encontradas y soluciones propuestas}{40}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}It. 3 - Perfil}{40}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}It. 3 - Mantener sesiones}{40}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}It. 3 - Funcionalidades del perfil}{41}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}It. 4 - API incompleta}{41}{subsection.6.3.4}%
+\contentsline {subsection}{\numberline {6.3.5}It. 5 - Código reciclado}{42}{subsection.6.3.5}%
+\contentsline {subsection}{\numberline {6.3.6}It. 5 - Funcionalidad demasiado compleja}{43}{subsection.6.3.6}%
+\contentsline {subsection}{\numberline {6.3.7}It. 6 - Integración continua}{43}{subsection.6.3.7}%
+\contentsline {subsection}{\numberline {6.3.8}It. 6 - Despliegue}{44}{subsection.6.3.8}%
+\contentsline {subsection}{\numberline {6.3.9}It. 6 - CORS Policy}{45}{subsection.6.3.9}%
+\contentsline {subsection}{\numberline {6.3.10}It. 6 - AdBlock}{45}{subsection.6.3.10}%
+\contentsline {chapter}{\numberline {7}Pruebas}{46}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Comparación con otras alternativas}{70}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Manual de Usuario}{72}{chapter.9}%
+\contentsline {chapter}{Conclusiones y desarrollo futuro}{96}{chapter*.7}%
 \contentsfinish 
