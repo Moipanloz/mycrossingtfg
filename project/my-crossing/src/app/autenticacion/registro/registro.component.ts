@@ -50,7 +50,12 @@ export class RegistroComponent {
       apodo_aldeano: ['', ]
     })
   }
-
+  cambiaFruta(frutaa: string){
+    this.registerForm.patchValue({fruta: frutaa});
+  }
+  cambiaHemisferio(hemisferioo: string){
+    this.registerForm.patchValue({hemisferio: hemisferioo});
+  }
   async register(form){
     this.submitted = true;
     if(this.registerForm.invalid){

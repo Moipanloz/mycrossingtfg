@@ -159,6 +159,12 @@ export class PerfilComponent implements OnInit {
       setTimeout(() => {this._error.cleanError()}, 3000)
     });
   }
+  cambiaFruta(frutaa: string){
+    this.userForm.patchValue({fruta: frutaa});
+  }
+  cambiaHemisferio(hemisferioo: string){
+    this.userForm.patchValue({hemisferio: hemisferioo});
+  }
 
   fondoRandom(){
     let fondos : string[] = ["bckg-img-cyan", "bckg-img-basico", "bckg-img-coral", "bckg-img-marron", "bckg-img-naranja"];

@@ -48,24 +48,24 @@
 
                 <div style="width: fit-content">
                   <input formControlName="hemisferio" class="radio-hidden" type="radio" value="NORTE">
-                  <img src="../../assets/images/hemisferio-norte.png" (click)="userForm.value['hemisferio'] = 'NORTE'" [class]="userForm.value['hemisferio'] == 'NORTE' ? 'img-radio img-radio-checked' : 'img-radio'" #hemisferio>
+                  <img src="../../assets/images/hemisferio-norte.png" (click)="cambiaHemisferio('NORTE')" [class]="userForm.value['hemisferio'] == 'NORTE' ? 'img-radio img-radio-checked' : 'img-radio'" #hemisferio>
                   <input formControlName="hemisferio" class="radio-hidden" type="radio" value="SUR">
-                  <img src="../../assets/images/hemisferio-sur.png" (click)="userForm.value['hemisferio'] = 'SUR'" [class]="userForm.value['hemisferio'] == 'SUR' ? 'img-radio img-radio-checked' : 'img-radio'" #hemisferio>
+                  <img src="../../assets/images/hemisferio-sur.png" (click)="cambiaHemisferio('SUR')" [class]="userForm.value['hemisferio'] == 'SUR' ? 'img-radio img-radio-checked' : 'img-radio'" #hemisferio>
                 </div>
 
               </div>
               <br>
               <div class="v-center" style="justify-content: space-between;">
                 <input formControlName="fruta" class="radio-hidden" type="radio" value="NARANJA">
-                <img src="../../assets/images/naranja.png" (click)="userForm.value['fruta'] = 'NARANJA'" [class]="userForm.value['fruta'] == 'NARANJA' ? 'img-radio img-radio-checked' : 'img-radio'">
+                <img src="../../assets/images/naranja.png" (click)="cambiaFruta('NARANJA')" [class]="userForm.value['fruta'] == 'NARANJA' ? 'img-radio img-radio-checked' : 'img-radio'">
                 <input formControlName="fruta" class="radio-hidden" type="radio" value="MANZANA">
-                <img src="../../assets/images/manzana.png" (click)="userForm.value['fruta'] = 'MANZANA'" [class]="userForm.value['fruta'] == 'MANZANA' ? 'img-radio img-radio-checked' : 'img-radio'">
+                <img src="../../assets/images/manzana.png" (click)="cambiaFruta('MANZANA')" [class]="userForm.value['fruta'] == 'MANZANA' ? 'img-radio img-radio-checked' : 'img-radio'">
                 <input formControlName="fruta" class="radio-hidden" type="radio" value="PERA">
-                <img src="../../assets/images/pera.png" (click)="userForm.value['fruta'] = 'PERA'" [class]="userForm.value['fruta'] == 'PERA' ? 'img-radio img-radio-checked' : 'img-radio'">
+                <img src="../../assets/images/pera.png" (click)="cambiaFruta('PERA')" [class]="userForm.value['fruta'] == 'PERA' ? 'img-radio img-radio-checked' : 'img-radio'">
                 <input formControlName="fruta" class="radio-hidden" type="radio" value="MELOCOTON">
-                <img src="../../assets/images/melocoton.png" (click)="userForm.value['fruta'] = 'MELOCOTON'" [class]="userForm.value['fruta'] == 'MELOCOTON' ? 'img-radio img-radio-checked' : 'img-radio'">
+                <img src="../../assets/images/melocoton.png" (click)="cambiaFruta('MELOCOTON')" [class]="userForm.value['fruta'] == 'MELOCOTON' ? 'img-radio img-radio-checked' : 'img-radio'">
                 <input formControlName="fruta" class="radio-hidden" type="radio" value="CEREZA">
-                <img src="../../assets/images/cereza.png" (click)="userForm.value['fruta'] = 'CEREZA'" [class]="userForm.value['fruta'] == 'CEREZA' ? 'img-radio img-radio-checked' : 'img-radio'">
+                <img src="../../assets/images/cereza.png" (click)="cambiaFruta('CEREZA')" [class]="userForm.value['fruta'] == 'CEREZA' ? 'img-radio img-radio-checked' : 'img-radio'">
               </div>
             </div>
             <hr>
