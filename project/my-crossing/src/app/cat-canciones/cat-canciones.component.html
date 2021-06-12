@@ -16,7 +16,7 @@
       <div id="wrap-filtros" class="flex-centered" style="padding: 1vw 0;">
         <div style="width: 35%;" class="flex-column-centered">
           <h3>Estados de ánimo</h3>
-          <div class="flex-centered" style="flex-wrap: wrap;margin-right: 1.5vw;" [style.display]="this._verif.user == null ? 'none' : 'flex'">
+          <div class="flex-centered" style="flex-wrap: wrap;margin-right: 1.5vw;">
             <button class="boton-alargado b-scale" (click)="activaFiltroSrc('blue')" [class]="this.filtroSrc == 'blue' ? 'b-verde' : 'b-azul b-azul-hover'">Algo tristón...</button>
             <button class="boton-alargado b-scale" (click)="activaFiltroSrc('grumpy')" [class]="this.filtroSrc == 'grumpy' ? 'b-verde' : 'b-azul b-azul-hover'">Pues algo enfadado</button>
             <button class="boton-alargado b-scale" (click)="activaFiltroSrc('good')" [class]="this.filtroSrc == 'good' ? 'b-verde' : 'b-azul b-azul-hover'">¡Muy feliz!</button>

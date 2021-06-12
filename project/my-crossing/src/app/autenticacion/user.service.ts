@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { User } from '../general/interfaces';
 import { VerificationService } from 'app/general/services/verification.service';
+import { PlatformLocation } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +13,14 @@ export class UserService {
   data = [];
   verification : VerificationService;
   cookieService : CookieService;
-  url : string = "https://mycrossing-back.herokuapp.com/authentication.php";
+  url : string;
 
 
-  constructor(verification: VerificationService, private http: HttpClient, cookieService : CookieService) {
+  constructor(platformLocation: PlatformLocation, verification: VerificationService, private http: HttpClient, cookieService : CookieService) {
       this.verification = verification;
       this.cookieService = cookieService;
+      this.url = platformLocation.hostname.includes("localhost")?"http://localhost/":"https://mycrossing-back.herokuapp.com/";
+      this.url = this.url + "authentication.php";
     }
 
   readUser() : Promise<User> {

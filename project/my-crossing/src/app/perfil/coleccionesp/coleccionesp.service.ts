@@ -2,15 +2,19 @@ import { VerificationService } from 'app/general/services/verification.service';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ColeccionEspecial } from 'app/general/interfaces';
+import { PlatformLocation } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ColeccionespService {
 
-  constructor(private http : HttpClient, private verification : VerificationService) { }
+  constructor(pl: PlatformLocation, private http : HttpClient, private verification : VerificationService) {
+    this.url = pl.hostname.includes("localhost")?"http://localhost/":"https://mycrossing-back.herokuapp.com/";
+    this.url = this.url + "coleccionesespeciales.php";
+  }
 
-  url : string = "https://mycrossing-back.herokuapp.com/coleccionesespeciales.php";
+  url : string;
 
 
   colecciones : Map<string, string[]> = new Map([

@@ -2,16 +2,20 @@ import { VerificationService } from 'app/general/services/verification.service';
 import { HttpParams, HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Fosil } from 'app/general/interfaces';
+import { PlatformLocation } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CatFosilService {
 
-  url : string = "https://mycrossing-back.herokuapp.com/catfosiles.php";
+  url : string;
 
 
-  constructor(public verification : VerificationService, public http : HttpClient) { }
+  constructor(pl: PlatformLocation, public verification : VerificationService, public http : HttpClient) {
+    this.url = pl.hostname.includes("localhost")?"http://localhost/":"https://mycrossing-back.herokuapp.com/";
+    this.url = this.url + "catfosiles.php";
+  }
 
   readFosil() : Promise<Fosil[]>{
     let parametros = new HttpParams()

@@ -110,7 +110,7 @@ describe('Authentication', () => {
     expect(res).toBeTruthy();
     expect(res).toEqual("No existe el usuario");
   });
-  it('should not read wrong user', async () =>{
+  it('should not read wrong verif', async () =>{
     let parametrosAction = new HttpParams()
       .set("userId", JSON.stringify(verificationService.user))
       .set("verif", "fgakfghkjhafjk")
@@ -140,7 +140,7 @@ describe('Authentication', () => {
     expect(res).toBeTruthy();
     expect(res).toEqual("No existe el usuario");
   });
-  it('should not getKey wrong user', async () =>{
+  it('should not getKey wrong verif', async () =>{
     let parametrosAction = new HttpParams()
       .set("userId", JSON.stringify(verificationService.user))
       .set("verif", "fgakfghkjhafjk")

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Vecino } from 'app/general/interfaces';
 import { VerificationService } from 'app/general/services/verification.service';
+import { PlatformLocation } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +14,13 @@ export class MisvecinosService {
 
   verification : VerificationService;
   cookieService : CookieService;
-  url : string = "https://mycrossing-back.herokuapp.com/misvecinos.php";
+  url : string;
 
 
-  constructor(verification : VerificationService, private http : HttpClient) {
+  constructor(pl: PlatformLocation, verification : VerificationService, private http : HttpClient) {
     this.verification = verification;
+    this.url = pl.hostname.includes("localhost")?"http://localhost/":"https://mycrossing-back.herokuapp.com/";
+    this.url = this.url + "misvecinos.php";
   }
 
   readMisVecinos() : Promise<Vecino[]>{

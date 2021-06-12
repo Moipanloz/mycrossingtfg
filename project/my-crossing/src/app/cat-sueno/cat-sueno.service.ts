@@ -1,3 +1,4 @@
+import { PlatformLocation } from '@angular/common';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Sueno } from 'app/general/interfaces';
@@ -8,10 +9,13 @@ import { VerificationService } from 'app/general/services/verification.service';
 })
 export class CatSuenoService {
 
-  url : string = "https://mycrossing-back.herokuapp.com/catsuenos.php";
+  url : string;
 
 
-  constructor(public verification : VerificationService, public http : HttpClient) { }
+  constructor(pl: PlatformLocation, public verification : VerificationService, public http : HttpClient) {
+    this.url = pl.hostname.includes("localhost")?"http://localhost/":"https://mycrossing-back.herokuapp.com/";
+    this.url = this.url + "catsuenos.php";
+  }
 
   readMiSueno() : Promise<Sueno>{
     let parametros = new HttpParams()

@@ -1,3 +1,4 @@
+import { PlatformLocation } from '@angular/common';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Arte } from 'app/general/interfaces';
@@ -7,10 +8,13 @@ import { VerificationService } from 'app/general/services/verification.service';
   providedIn: 'root'
 })
 export class CatArteService {
-  url : string = "https://mycrossing-back.herokuapp.com/catarte.php";
+  url : string;
 
 
-  constructor(public verification : VerificationService, public http : HttpClient) { }
+  constructor(platformLocation: PlatformLocation, public verification : VerificationService, public http : HttpClient) {
+    this.url = platformLocation.hostname.includes("localhost")?"http://localhost/":"https://mycrossing-back.herokuapp.com/";
+    this.url = this.url + "catarte.php";
+  }
 
   readArte(){
     let parametros = new HttpParams()

@@ -1,3 +1,4 @@
+import { PlatformLocation } from '@angular/common';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Foto } from 'app/general/interfaces';
@@ -8,10 +9,12 @@ import { VerificationService } from 'app/general/services/verification.service';
 })
 export class AlbumService {
   verification:VerificationService;
-  url : string = "https://mycrossing-back.herokuapp.com/album.php";
+  url : string;
 
-  constructor(private http : HttpClient, verification : VerificationService) {
+  constructor(pl: PlatformLocation, private http : HttpClient, verification : VerificationService) {
     this.verification = verification;
+    this.url = pl.hostname.includes("localhost")?"http://localhost/":"https://mycrossing-back.herokuapp.com/";
+    this.url = this.url + "album.php";
   }
   async  agregaFoto(url: String) : Promise<string>{
     let foto: Foto = {usuario_id: this.verification.user, url_image: url}

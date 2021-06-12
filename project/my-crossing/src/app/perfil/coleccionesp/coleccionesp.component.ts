@@ -166,6 +166,7 @@ export class ColeccionespComponent implements OnInit {
 
   toggleCheck(item : any){
     if(this.listaUsuario.includes(item.name)){
+      this.listaUsuario=[];
       this._ce.borrarItemCE(item.name).then(() => {
         this.ngOnInit();
       }).catch(err => {
@@ -173,6 +174,7 @@ export class ColeccionespComponent implements OnInit {
         setTimeout(() => {this._error.cleanError()}, 3000)
       });
     }else{
+      this.listaUsuario=[];
       this._ce.addItemCE(item, this.activeCollection).then(() => {
         this.ngOnInit();
       }).catch(err => {

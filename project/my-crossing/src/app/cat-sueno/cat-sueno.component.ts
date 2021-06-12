@@ -108,8 +108,10 @@ export class CatSuenoComponent implements OnInit {
   }
 
   borrarSueno(){
-    this._catsueno.borrarSueno(this.suenoUsuario.codigo_sueno);
-    this.ngOnInit();
+    this._catsueno.borrarSueno(this.suenoUsuario.codigo_sueno).then(async ()=>{
+      await setTimeout("",500);
+      this.ngOnInit();
+    });
     this.cierraModales();
   }
 
@@ -139,8 +141,10 @@ export class CatSuenoComponent implements OnInit {
         this._catsueno.mueveLikes(this.suenoUsuario.codigo_sueno, $("#inputCodigoSuenoEdit").val().toString());
         this._catsueno.borrarLikes(this.suenoUsuario.codigo_sueno);
       }
-      this._catsueno.guardaSueno($("#inputCodigoSuenoEdit").val().toString(), this.fotosSeleccionadas, false);
-      this.ngOnInit();
+      this._catsueno.guardaSueno($("#inputCodigoSuenoEdit").val().toString(), this.fotosSeleccionadas, false).then(async ()=>{
+        await setTimeout("",500);
+        this.ngOnInit();
+      });
       this.cierraModales();
     }
   }
@@ -155,8 +159,10 @@ export class CatSuenoComponent implements OnInit {
     }else if(this.fotosSeleccionadas.length<1 || this.fotosSeleccionadas.length>3){
       $("#erroresSuenoCrear").text("Debes seleccionar entre 1 y 3 imágenes");
     }else{
-      this._catsueno.guardaSueno($("#inputCodigoSuenoCrear").val().toString(), this.fotosSeleccionadas, true);
-      this.ngOnInit();
+      this._catsueno.guardaSueno($("#inputCodigoSuenoCrear").val().toString(), this.fotosSeleccionadas, true).then(async ()=>{
+        await setTimeout("",500);
+        this.ngOnInit();
+      });
       this.cierraModales();
     }
   }

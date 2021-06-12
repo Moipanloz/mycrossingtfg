@@ -2,17 +2,20 @@ import { VerificationService } from 'app/general/services/verification.service';
 import { HttpParams, HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Bicho } from 'app/general/interfaces';
+import { PlatformLocation } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CatInsectosService {
 
-  url : string = "https://mycrossing-back.herokuapp.com/catbichos.php";
+  url : string;
 
   verification: VerificationService;
-  constructor(private http : HttpClient, _verification : VerificationService) {
+  constructor(pl: PlatformLocation, private http : HttpClient, _verification : VerificationService) {
     this.verification = _verification;
+    this.url = pl.hostname.includes("localhost")?"http://localhost/":"https://mycrossing-back.herokuapp.com/";
+    this.url = this.url + "catbichos.php";
   }
 
   readBicho(){

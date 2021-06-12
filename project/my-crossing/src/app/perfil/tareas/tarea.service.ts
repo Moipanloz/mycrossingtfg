@@ -3,6 +3,7 @@ import { Tarea } from '../../general/interfaces';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { VerificationService } from 'app/general/services/verification.service';
+import { PlatformLocation } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,13 @@ import { VerificationService } from 'app/general/services/verification.service';
 export class TareasService {
 
   verification : VerificationService;
-  url : string = "https://mycrossing-back.herokuapp.com/tarea.php";
+  url : string;
 
 
-  constructor(private http : HttpClient, verification : VerificationService) {
+  constructor(pl: PlatformLocation, private http : HttpClient, verification : VerificationService) {
     this.verification = verification;
+    this.url = pl.hostname.includes("localhost")?"http://localhost/":"https://mycrossing-back.herokuapp.com/";
+    this.url = this.url + "tarea.php";
   }
 
   readTareas() : Promise<Tarea[]>{

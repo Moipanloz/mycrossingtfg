@@ -6,6 +6,8 @@ import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
 import { npcs, villagers } from 'animal-crossing';
 import { HostListener } from '@angular/core';
+import { VerificationService } from 'app/general/services/verification.service';
+import { ComunicacionService } from 'app/general/services/comunicacion.service';
 
 @Component({
   selector: 'app-cal-eventos',
@@ -182,19 +184,24 @@ export class CalEventosComponent implements OnInit {
       +" unas joyas amorosas que podrás intercambiar con Al a cambio de los muebles y vestidos"
       +" más elegantes.",
       imagenes:[
-        "https://acnhcdn.com/1.2.0/FtrIcon/FtrWeddingArch_Remake_0_0.png",
-        "https://acnhcdn.com/1.2.0/FtrIcon/TopsTexOnepieceDressNWedding.png",
-        "https://acnhcdn.com/1.2.0/FtrIcon/FtrWeddingCake_Remake_0_0.png",
+        "https://acnhcdn.com/latest/FtrIcon/FtrWeddingArch_Remake_0_0.png",
+        "https://acnhcdn.com/latest/FtrIcon/TopsTexOnepieceDressNWedding.png",
+        "https://acnhcdn.com/latest/FtrIcon/FtrWeddingCake_Remake_0_0.png",
         "https://acnhcdn.com/latest/DIYRecipeIcon/ToolStickJune.png",
-        "https://acnhcdn.com/1.2.0/FtrIcon/FtrWeddingOrgan_Remake_0_0.png"
+        "https://acnhcdn.com/latest/FtrIcon/FtrWeddingOrgan_Remake_0_0.png"
       ],
       icono: "https://acnhcdn.com/latest/NpcIcon/alw.png"
     }
   ]
 
-  constructor(private modal: NgbModal, private elementRef : ElementRef) {}
+  comunication: ComunicacionService;
+  constructor(private modal: NgbModal, private elementRef : ElementRef, _comunication: ComunicacionService) {
+    this.comunication = _comunication;
+  }
 
   ngOnInit() : void{
+    this.comunication.activar=false;
+    this.comunication.activarNabos=false;
     registerLocaleData(localeEs);
     this.getEvents().then(()=>{
       // El primer onInit funciona bien, pero los siguientes
@@ -290,8 +297,8 @@ export class CalEventosComponent implements OnInit {
   }
 
   handleEvent(action: string, event: CalendarEvent): void {
-    this.modalData = { event, action };
-    this.modal.open(this.modalContent, { size: 'lg' });
+    //this.modalData = { event, action };
+    //this.modal.open(this.modalContent, { size: 'lg' });
 
     if(event.color != this.colors.cumple){
       for(let ev of this.eventosJuego){

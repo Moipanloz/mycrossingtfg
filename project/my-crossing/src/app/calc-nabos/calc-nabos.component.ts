@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
+import { ComunicacionService } from 'app/general/services/comunicacion.service';
 
 @Component({
   selector: 'app-calc-nabos',
@@ -10,10 +11,14 @@ import { ViewEncapsulation } from '@angular/core';
 export class CalcNabosComponent implements OnInit {
 
   filtrosView : boolean[] = [false, false, false, false];
-
-  constructor() { }
+  comunication: ComunicacionService;
+  constructor(_comunication: ComunicacionService) {
+    this.comunication = _comunication;
+  }
 
   ngOnInit(): void {
+    this.comunication.activar=false;
+    this.comunication.activarNabos=true;
     //Esto no parece servir
     this.loadExternalScript('https://code.jquery.com/jquery-3.4.1.min.js', "sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh");
     this.loadExternalScript('https://cdnjs.cloudflare.com/ajax/libs/i18next/19.4.2/i18next.min.js', "sha384-heKFZqp863HDEF6obW4Nvk9hF5pRjZThVwrDiV+tSCKPBTnu6vf5lu8QJGDwGv0X");
