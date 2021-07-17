@@ -67,6 +67,11 @@ export class CatRopaComponent implements OnInit {
     }else{
       res = item.variations[varNum].storageImage;
     }
+
+    if(!res.includes("latest")){
+      res = res.substr(0, 20) + 'latest' + res.substr(25, res.length);
+    }
+
     return res;
   }
 

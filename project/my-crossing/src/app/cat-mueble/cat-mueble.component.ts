@@ -67,6 +67,9 @@ export class CatMuebleComponent implements OnInit {
     }else{
       res = item.image;
     }
+    if(!res.includes("latest")){
+      res = res.substr(0, 20) + 'latest' + res.substr(25, res.length);
+    }
     return res;
   }
 
