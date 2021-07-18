@@ -1,10 +1,10 @@
 const express = require('express');
-//var cors = require('cors');
+var cors = require('cors');
 const app = express();
 const path = require('path');
 
-// app.use(cors());
-// app.options('*', cors());
+app.use(cors());
+app.options('*', cors());
 
 app.use(express.static(__dirname + '/dist/my-crossing'));
 
