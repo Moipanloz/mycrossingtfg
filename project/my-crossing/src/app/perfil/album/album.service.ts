@@ -13,7 +13,7 @@ export class AlbumService {
 
   constructor(pl: PlatformLocation, private http : HttpClient, verification : VerificationService) {
     this.verification = verification;
-    this.url = pl.hostname.includes("localhost")?"http://localhost/":"http://mycrossing.epizy.com/";
+    this.url = pl.hostname.includes("localhost")?"http://localhost/":"https://mycrossing.epizy.com/";
     this.url = this.url + "album.php";
   }
   async  agregaFoto(url: String) : Promise<string>{

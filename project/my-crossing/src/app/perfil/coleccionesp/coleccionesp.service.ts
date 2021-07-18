@@ -10,7 +10,7 @@ import { PlatformLocation } from '@angular/common';
 export class ColeccionespService {
 
   constructor(pl: PlatformLocation, private http : HttpClient, private verification : VerificationService) {
-    this.url = pl.hostname.includes("localhost")?"http://localhost/":"http://mycrossing.epizy.com/";
+    this.url = pl.hostname.includes("localhost")?"http://localhost/":"https://mycrossing.epizy.com/";
     this.url = this.url + "coleccionesespeciales.php";
   }
 

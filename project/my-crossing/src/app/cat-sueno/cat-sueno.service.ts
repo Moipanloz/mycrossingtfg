@@ -13,7 +13,7 @@ export class CatSuenoService {
 
 
   constructor(pl: PlatformLocation, public verification : VerificationService, public http : HttpClient) {
-    this.url = pl.hostname.includes("localhost")?"http://localhost/":"http://mycrossing.epizy.com/";
+    this.url = pl.hostname.includes("localhost")?"http://localhost/":"https://mycrossing.epizy.com/";
     this.url = this.url + "catsuenos.php";
   }
 
