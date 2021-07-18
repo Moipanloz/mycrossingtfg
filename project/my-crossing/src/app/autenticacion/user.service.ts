@@ -19,7 +19,7 @@ export class UserService {
   constructor(platformLocation: PlatformLocation, verification: VerificationService, private http: HttpClient, cookieService : CookieService) {
       this.verification = verification;
       this.cookieService = cookieService;
-      this.url = platformLocation.hostname.includes("localhost")?"http://localhost/":"https://mycrossing-back.herokuapp.com/";
+      this.url = platformLocation.hostname.includes("localhost")?"http://localhost/":"http://mycrossing.epizy.com/";
       this.url = this.url + "authentication.php";
     }
 

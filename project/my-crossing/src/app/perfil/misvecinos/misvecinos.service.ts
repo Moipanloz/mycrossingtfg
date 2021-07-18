@@ -19,7 +19,7 @@ export class MisvecinosService {
 
   constructor(pl: PlatformLocation, verification : VerificationService, private http : HttpClient) {
     this.verification = verification;
-    this.url = pl.hostname.includes("localhost")?"http://localhost/":"https://mycrossing-back.herokuapp.com/";
+    this.url = pl.hostname.includes("localhost")?"http://localhost/":"http://mycrossing.epizy.com/";
     this.url = this.url + "misvecinos.php";
   }
 
