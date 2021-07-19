@@ -22,6 +22,7 @@ app.use(express.static(__dirname + '/dist/my-crossing'));
 app.use('/api', createProxyMiddleware({
   target: process.env.SERVER_BACK,
   changeOrigin: true,
+  secure: false,
   pathRewrite: {
     ['^/api']: '',
   },
