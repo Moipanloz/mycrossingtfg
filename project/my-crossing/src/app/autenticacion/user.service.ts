@@ -14,14 +14,13 @@ export class UserService {
   verification : VerificationService;
   cookieService : CookieService;
   url : string;
-  headers : HttpHeaders = new HttpHeaders();
+
 
   constructor(platformLocation: PlatformLocation, verification: VerificationService, private http: HttpClient, cookieService : CookieService) {
       this.verification = verification;
       this.cookieService = cookieService;
       this.url = platformLocation.hostname.includes("localhost")?"http://localhost/":"https://mycrossing.epizy.com/";
       this.url = this.url + "authentication.php";
-      this.headers.append('Access-Control-Allow-Origin', '*');
     }
 
   readUser() : Promise<User> {
@@ -30,7 +29,7 @@ export class UserService {
     .set("verif", this.verification.verifCode)
     .set("command", "read");
 
-    return this.http.get<User>(this.url, {headers: this.headers, params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.get<User>(this.url, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   login(user : any, key : string) : Promise<User>{
@@ -44,7 +43,9 @@ export class UserService {
 
   register(user : any, key : string) : Promise<any>{
     let parametros = new HttpParams().set("command", "register");
+
     user.verif = key;
+
     return this.http.post(this.url, user, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
