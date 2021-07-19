@@ -14,7 +14,7 @@ export class VisitasService {
 
   constructor(pl: PlatformLocation, private http : HttpClient, verification : VerificationService) {
     this.verification = verification;
-    this.url = pl.hostname.includes("localhost")?"http://localhost/":"https://mycrossing-back.herokuapp.com/";
+    this.url = pl.hostname.includes("localhost")?"http://localhost/":"https://mycrossing.herokuapp.com/api/";
     this.url = this.url + "visita.php";
   }
 

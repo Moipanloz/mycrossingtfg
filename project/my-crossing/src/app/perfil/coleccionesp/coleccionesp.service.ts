@@ -10,7 +10,7 @@ import { PlatformLocation } from '@angular/common';
 export class ColeccionespService {
 
   constructor(pl: PlatformLocation, private http : HttpClient, private verification : VerificationService) {
-    this.url = pl.hostname.includes("localhost")?"http://localhost/":"https://mycrossing-back.herokuapp.com/";
+    this.url = pl.hostname.includes("localhost")?"http://localhost/":"https://mycrossing.herokuapp.com/api/";
     this.url = this.url + "coleccionesespeciales.php";
   }
 

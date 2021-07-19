@@ -13,7 +13,7 @@ export class CatFosilService {
 
 
   constructor(pl: PlatformLocation, public verification : VerificationService, public http : HttpClient) {
-    this.url = pl.hostname.includes("localhost")?"http://localhost/":"https://mycrossing-back.herokuapp.com/";
+    this.url = pl.hostname.includes("localhost")?"http://localhost/":"https://mycrossing.herokuapp.com/api/";
     this.url = this.url + "catfosiles.php";
   }
 
