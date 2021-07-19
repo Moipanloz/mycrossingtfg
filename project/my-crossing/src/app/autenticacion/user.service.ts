@@ -36,14 +36,16 @@ export class UserService {
   login(user : any, key : string) : Promise<User>{
     let parametros = new HttpParams()
     .set("command", "login");
+
     user.key = key;
-    return this.http.post<User>(this.url, user, {headers: this.headers, params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
+
+    return this.http.post<User>(this.url, user, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   register(user : any, key : string) : Promise<any>{
     let parametros = new HttpParams().set("command", "register");
     user.verif = key;
-    return this.http.post(this.url, user, {headers: this.headers, params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.post(this.url, user, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   logOut(){
