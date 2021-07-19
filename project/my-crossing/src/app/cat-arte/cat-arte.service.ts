@@ -12,7 +12,7 @@ export class CatArteService {
 
 
   constructor(platformLocation: PlatformLocation, public verification : VerificationService, public http : HttpClient) {
-    this.url = platformLocation.hostname.includes("localhost")?"http://localhost/":"http://mycrossing.epizy.com/";
+    this.url = platformLocation.hostname.includes("localhost")?"http://localhost/":"https://mycrossing-back.herokuapp.com/";
     this.url = this.url + "catarte.php";
   }
 
