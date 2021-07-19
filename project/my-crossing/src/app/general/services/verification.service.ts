@@ -19,7 +19,7 @@ export class VerificationService {
   constructor(platformLocation: PlatformLocation, cookieService: CookieService, private http: HttpClient, comunication : ComunicacionService){
     this.cookieService = cookieService;
     this._comunication=comunication;
-    this.url = platformLocation.hostname.includes("localhost")?"http://localhost/":"https://mycrossing.epizy.com/";
+    this.url = platformLocation.hostname.includes("localhost")?"http://localhost/":"http://mycrossing.epizy.com/";
     this.url = this.url + "authentication.php";
   }
 

@@ -14,7 +14,7 @@ export class CatInsectosService {
   verification: VerificationService;
   constructor(pl: PlatformLocation, private http : HttpClient, _verification : VerificationService) {
     this.verification = _verification;
-    this.url = pl.hostname.includes("localhost")?"http://localhost/":"https://mycrossing.epizy.com/";
+    this.url = pl.hostname.includes("localhost")?"http://localhost/":"http://mycrossing.epizy.com/";
     this.url = this.url + "catbichos.php";
   }
 
