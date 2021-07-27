@@ -107,7 +107,7 @@ describe('Visitas', () => {
         .set("testing", 'true')
         .set("verif", verificationService.verifCode)
         .set("userId", JSON.stringify(verificationService.user));
-      await (await http.put("http://localhost/visita.php", visita, { params: parametrosUpdate, responseType: "blob"} ).toPromise()).text();
+      await (await http.post("http://localhost/visita.php", visita, { params: parametrosUpdate, responseType: "blob"} ).toPromise()).text();
       let res: Visita[];
       res = await http.get<Visita[]>("http://localhost/visita.php", { params: parametrosRead } ).toPromise();
       expect(res).toBeTruthy();
@@ -123,7 +123,7 @@ describe('Visitas', () => {
         .set("testing", 'true')
         .set("verif", verificationService.verifCode)
         .set("userId", JSON.stringify(verificationService.user));
-      expect(await (await http.put("http://localhost/visita.php", visita, { params: parametrosUpdate, responseType: "blob"} ).toPromise()).text()).toEqual("Esta visita no le pertenece");
+      expect(await (await http.post("http://localhost/visita.php", visita, { params: parametrosUpdate, responseType: "blob"} ).toPromise()).text()).toEqual("Esta visita no le pertenece");
   });
   it('should not update wrong user', async () =>{
     let visita:Visita = {usuario_id:'9999',estela:true,lpa:'lpa',mpa:'mpa',xpa:'xpa',jpa:'jpa',vpa:'vpa',lpr:'lpr',mpr:'mpr',xpr:'xpr',jpr:'jpr',vpr:'vpr',last_update:null};
@@ -132,7 +132,7 @@ describe('Visitas', () => {
         .set("testing", 'true')
         .set("verif", verificationService.verifCode)
         .set("userId", JSON.stringify(9999));
-      expect(await (await http.put("http://localhost/visita.php", visita, { params: parametrosUpdate, responseType: "blob"} ).toPromise()).text()).toEqual("No existe el usuario");
+      expect(await (await http.post("http://localhost/visita.php", visita, { params: parametrosUpdate, responseType: "blob"} ).toPromise()).text()).toEqual("No existe el usuario");
   });
   it('should not update wrong verif', async () =>{
     let visita:Visita = {usuario_id:'2',estela:true,lpa:'lpa',mpa:'mpa',xpa:'xpa',jpa:'jpa',vpa:'vpa',lpr:'lpr',mpr:'mpr',xpr:'xpr',jpr:'jpr',vpr:'vpr',last_update:null};
@@ -141,7 +141,7 @@ describe('Visitas', () => {
         .set("testing", 'true')
         .set("verif", "fgeuaihfaiohfi23")
         .set("userId", JSON.stringify(verificationService.user));
-      expect(await (await http.put("http://localhost/visita.php", visita, { params: parametrosUpdate, responseType: "blob"} ).toPromise()).text()).toEqual("Código de verificacion incorrecto");
+      expect(await (await http.post("http://localhost/visita.php", visita, { params: parametrosUpdate, responseType: "blob"} ).toPromise()).text()).toEqual("Código de verificacion incorrecto");
   });
   it('should update date', async () =>{
     let visita:Visita = {usuario_id:'2',estela:true,lpa:null,mpa:null,xpa:null,jpa:null,vpa:null,lpr:null,mpr:null,xpr:null,jpr:null,vpr:null,last_update:'9999'};
@@ -155,7 +155,7 @@ describe('Visitas', () => {
           .set("testing", 'true')
           .set("verif", verificationService.verifCode)
           .set("userId", JSON.stringify(verificationService.user));
-      await (await http.put("http://localhost/visita.php", visita, { params: parametrosFecha, responseType: "blob"} ).toPromise()).text();
+      await (await http.post("http://localhost/visita.php", visita, { params: parametrosFecha, responseType: "blob"} ).toPromise()).text();
       let res: Visita[];
       res = await http.get<Visita[]>("http://localhost/visita.php", { params: parametrosRead } ).toPromise();
       expect(res).toBeTruthy();
@@ -177,7 +177,7 @@ describe('Visitas', () => {
           .set("testing", 'true')
           .set("verif", verificationService.verifCode)
           .set("userId", JSON.stringify(verificationService.user));
-      expect(await (await http.put("http://localhost/visita.php", visita, { params: parametrosFecha, responseType: "blob"} ).toPromise()).text()).toEqual("Esta visita no le pertenece");
+      expect(await (await http.post("http://localhost/visita.php", visita, { params: parametrosFecha, responseType: "blob"} ).toPromise()).text()).toEqual("Esta visita no le pertenece");
   });
   it('should not update date wrong user', async () =>{
     let visita:Visita = {usuario_id:'9999',estela:true,lpa:null,mpa:null,xpa:null,jpa:null,vpa:null,lpr:null,mpr:null,xpr:null,jpr:null,vpr:null,last_update:'9999'};
@@ -191,7 +191,7 @@ describe('Visitas', () => {
           .set("testing", 'true')
           .set("verif", verificationService.verifCode)
           .set("userId", JSON.stringify(verificationService.user));
-      expect(await (await http.put("http://localhost/visita.php", visita, { params: parametrosFecha, responseType: "blob"} ).toPromise()).text()).toEqual("No existe el usuario");
+      expect(await (await http.post("http://localhost/visita.php", visita, { params: parametrosFecha, responseType: "blob"} ).toPromise()).text()).toEqual("No existe el usuario");
   });
   it('should not update date wrong verif', async () =>{
     let visita:Visita = {usuario_id:'2',estela:true,lpa:null,mpa:null,xpa:null,jpa:null,vpa:null,lpr:null,mpr:null,xpr:null,jpr:null,vpr:null,last_update:'9999'};
@@ -205,6 +205,6 @@ describe('Visitas', () => {
           .set("testing", 'true')
           .set("verif", verificationService.verifCode)
           .set("userId", JSON.stringify(verificationService.user));
-      expect(await (await http.put("http://localhost/visita.php", visita, { params: parametrosFecha, responseType: "blob"} ).toPromise()).text()).toEqual("Código de verificacion incorrecto");
+      expect(await (await http.post("http://localhost/visita.php", visita, { params: parametrosFecha, responseType: "blob"} ).toPromise()).text()).toEqual("Código de verificacion incorrecto");
   });
 });

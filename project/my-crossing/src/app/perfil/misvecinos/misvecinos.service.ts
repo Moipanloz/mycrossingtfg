@@ -48,7 +48,7 @@ export class MisvecinosService {
     .set("oldVecinoId", oldVecino.vecino_id)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.put(this.url, newVecino, {params : parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.post(this.url, newVecino, {params : parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   actualizarAmistadVecino(vecino : Vecino){
@@ -57,7 +57,7 @@ export class MisvecinosService {
     .set("verif", this.verification.verifCode)
     .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.put(this.url, vecino, {params : parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.post(this.url, vecino, {params : parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   borrarVecino(vecino : Vecino){

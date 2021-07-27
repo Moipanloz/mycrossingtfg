@@ -57,7 +57,7 @@ export class TareasService {
       .set("verif", this.verification.verifCode)
       .set("userId", JSON.stringify(this.verification.user));
 
-    return this.http.put(this.url, tarea, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
+    return this.http.post(this.url, tarea, {params: parametros}).toPromise().catch(err => {throw new Error(err.error.text)});
   }
 
   borrarTarea(tarea){

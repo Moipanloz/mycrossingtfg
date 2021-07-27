@@ -21,14 +21,14 @@ export class AlbumService {
     let parametros = new HttpParams()
       .set("command", "create")
       .set("verif", this.verification.verifCode);
-    return this.http.put<string>(this.url, foto, {params: parametros}).toPromise();
+    return this.http.post<string>(this.url, foto, {params: parametros}).toPromise();
   }
   async  eliminaFoto(url: String) : Promise<string>{
     let foto: Foto = {usuario_id: this.verification.user, url_image: url}
     let parametros = new HttpParams()
       .set("command", "delete")
       .set("verif", this.verification.verifCode);
-    return this.http.put<string>(this.url, foto, {params: parametros}).toPromise();
+    return this.http.post<string>(this.url, foto, {params: parametros}).toPromise();
   }
   async  leeFotos() : Promise<string[]>{
     let parametros = new HttpParams()
