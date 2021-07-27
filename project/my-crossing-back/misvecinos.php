@@ -94,7 +94,7 @@ if(isset($_GET["command"])){
 
           if($validation){
             $result = $conn->prepare('UPDATE misvecinos SET vecino_id = ?, amistad = ? WHERE vecino_id = ? AND usuario_id = ?');
-            $result->bind_param('sssi', $vecinoId, $amistad, $oldVecinoId, $userId,);
+            $result->bind_param('sssi', $vecinoId, $amistad, $oldVecinoId, $userId);
             $result->execute();
           }
         }else{
@@ -125,7 +125,7 @@ if(isset($_GET["command"])){
 
           if($validation){
             $result = $conn->prepare('UPDATE misvecinos SET amistad = ? WHERE vecino_id = ? AND usuario_id = ?');
-            $result->bind_param('ssi', $amistad, $vecinoId, $userId,);
+            $result->bind_param('ssi', $amistad, $vecinoId, $userId);
             $result->execute();
           }
         }else{
